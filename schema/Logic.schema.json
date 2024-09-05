@@ -1,0 +1,1680 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$ref" : "#/definitions/LogicFile",
+  "definitions" : {
+    "AccessLevel" : {
+      "type" : "string",
+      "enum" : [ "NOBODY", "SAME_ACCOUNT", "SAME_ORG", "TRUSTED_PRINCIPAL", "AWS_SERVICE", "EXTERNAL_PRINCIPAL", "ANONYMOUS_PRINCIPAL" ]
+    },
+    "AttributeValue" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/OpAttributes"
+          }, {
+            "description" : "Attributes from where to retrieve an attribute with a name 'key'"
+          } ]
+        },
+        "key" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/OpText"
+          }, {
+            "description" : "The name of an attribute to get from 'arg'"
+          } ]
+        },
+        "undeterminedIf" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/AttributeValueUndeterminedIf"
+          }, {
+            "description" : "Checks that will return UNDETERMINED status if satisfied"
+          } ]
+        }
+      },
+      "required" : [ "arg", "key", "undeterminedIf" ],
+      "description" : "Operation that gets the value of an attribute with specified 'key' from attributes 'arg'",
+      "additionalProperties" : false
+    },
+    "AttributeValueWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "ATTRIBUTE_VALUE" : {
+          "$ref" : "#/definitions/AttributeValue"
+        }
+      },
+      "required" : [ "ATTRIBUTE_VALUE" ]
+    },
+    "AttributesFrom" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/OpText"
+          }, {
+            "description" : "The string that contains a serialized attributes"
+          } ]
+        },
+        "undeterminedIf" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/AttributesFromUndeterminedIf"
+          }, {
+            "description" : "Checks that will return UNDETERMINED status if satisfied"
+          } ]
+        }
+      },
+      "required" : [ "arg" ],
+      "description" : "Operation that returns an Attributes from a string 'arg'",
+      "additionalProperties" : false
+    },
+    "AttributesFromWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "ATTRIBUTES_FROM" : {
+          "$ref" : "#/definitions/AttributesFrom"
+        }
+      },
+      "required" : [ "ATTRIBUTES_FROM" ]
+    },
+    "AwsPolicyAllows" : {
+      "type" : "object",
+      "properties" : {
+        "policyExtField" : {
+          "type" : "string",
+          "description" : "The field where the policy is stored in which statements contain the result of access analysis"
+        },
+        "widestAcceptableAccessLevel" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/AccessLevel"
+          }, {
+            "description" : "The widest access level that must be granted to perform these actions"
+          } ]
+        },
+        "actions" : {
+          "description" : "List of actions that policy will check for access",
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "required" : [ "policyExtField", "widestAcceptableAccessLevel", "actions" ],
+      "description" : "An operation that check if a policy (policyExtField) allows certain actions (actions) and whether these actions correspond to the maximum allowed level (widestAcceptableAccessLevel)",
+      "additionalProperties" : false
+    },
+    "AwsPolicyAllowsWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "AWS_POLICY_ALLOWS" : {
+          "$ref" : "#/definitions/AwsPolicyAllows"
+        }
+      },
+      "required" : [ "AWS_POLICY_ALLOWS" ]
+    },
+    "Between" : {
+      "type" : "object",
+      "properties" : {
+        "exclusiveFrom" : {
+          "type" : "boolean",
+          "description" : "Whether the lower range boundary is exclusive. By default or if this property is absent - inclusive"
+        },
+        "exclusiveTo" : {
+          "type" : "boolean",
+          "description" : "Whether the higher range boundary is exclusive. By default or if this property is absent - inclusive"
+        },
+        "arg" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/OpNumber"
+          }, {
+            "description" : "Argument to be checked against the range"
+          } ]
+        },
+        "rangeFrom" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/OpNumber"
+          }, {
+            "description" : "Lower boundary of the range. Inclusive by default, can be switched to exclusive with 'exclusiveFrom'"
+          } ]
+        },
+        "rangeTo" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/OpNumber"
+          }, {
+            "description" : "Higher boundary of the range. Inclusive by default, can be switched to exclusive with 'exclusiveTo'"
+          } ]
+        }
+      },
+      "required" : [ "arg", "rangeFrom", "rangeTo" ],
+      "description" : "Operation that checks if argument 'arg' is inside the specified range (from 'rangeFrom' to 'rangeTo'). Support both boundaries to be either inclusive or exclusive (inclusive by default). Works with numbers only.",
+      "additionalProperties" : false
+    },
+    "BetweenWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "BETWEEN" : {
+          "$ref" : "#/definitions/Between"
+        }
+      },
+      "required" : [ "BETWEEN" ]
+    },
+    "BooleanFrom" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/OpText"
+          }, {
+            "description" : "The string that contains a boolean value as text"
+          } ]
+        },
+        "trueValue" : {
+          "type" : "string",
+          "description" : "Text representation of 'true' value. Default: 'true'"
+        },
+        "undeterminedIf" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/BooleanFromUndeterminedIf"
+          }, {
+            "description" : "Checks that will return UNDETERMINED status if satisfied"
+          } ]
+        }
+      },
+      "required" : [ "arg", "undeterminedIf" ],
+      "description" : "Operation that returns a Boolean from a string 'arg'",
+      "additionalProperties" : false
+    },
+    "BooleanFromWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "BOOLEAN_FROM" : {
+          "$ref" : "#/definitions/BooleanFrom"
+        }
+      },
+      "required" : [ "BOOLEAN_FROM" ]
+    },
+    "CollectionContains" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/OpCollection"
+          }, {
+            "description" : "Collection where to search for element 'search'"
+          } ]
+        },
+        "search" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/OpText"
+          }, {
+            "description" : "The element to search for in 'arg'"
+          } ]
+        }
+      },
+      "required" : [ "arg", "search" ],
+      "description" : "Operation that searches for a specific element 'search' in a collection 'arg'",
+      "additionalProperties" : false
+    },
+    "CollectionContainsWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "COLLECTION_CONTAINS" : {
+          "$ref" : "#/definitions/CollectionContains"
+        }
+      },
+      "required" : [ "COLLECTION_CONTAINS" ]
+    },
+    "CollectionFrom" : {
+      "type" : "object",
+      "properties" : {
+        "separator" : {
+          "type" : "string",
+          "description" : "The separator to use when splitting the string 'arg' to create a collection"
+        },
+        "arg" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/OpText"
+          }, {
+            "description" : "The string that contains a list of elements separated by 'separator'"
+          } ]
+        }
+      },
+      "required" : [ "separator", "arg" ],
+      "description" : "Operation that returns a collection from a string 'arg', splitting it by a 'separator' string",
+      "additionalProperties" : false
+    },
+    "CollectionFromWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "COLLECTION_FROM" : {
+          "$ref" : "#/definitions/CollectionFrom"
+        }
+      },
+      "required" : [ "COLLECTION_FROM" ]
+    },
+    "CollectionSize" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "$ref" : "#/definitions/OpCollection"
+        }
+      },
+      "required" : [ "arg" ],
+      "additionalProperties" : false
+    },
+    "CollectionSizeWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "COLLECTION_SIZE" : {
+          "$ref" : "#/definitions/CollectionSize"
+        }
+      },
+      "required" : [ "COLLECTION_SIZE" ]
+    },
+    "ComparisonGreaterThan" : {
+      "type" : "object",
+      "properties" : {
+        "left" : {
+          "$ref" : "#/definitions/OpNumber"
+        },
+        "right" : {
+          "$ref" : "#/definitions/OpNumber"
+        }
+      },
+      "required" : [ "left", "right" ],
+      "additionalProperties" : false
+    },
+    "ComparisonGreaterThanWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "GREATER_THAN" : {
+          "$ref" : "#/definitions/ComparisonGreaterThan"
+        }
+      },
+      "required" : [ "GREATER_THAN" ]
+    },
+    "ComparisonGreaterThanEqual" : {
+      "type" : "object",
+      "properties" : {
+        "left" : {
+          "$ref" : "#/definitions/OpNumber"
+        },
+        "right" : {
+          "$ref" : "#/definitions/OpNumber"
+        }
+      },
+      "required" : [ "left", "right" ],
+      "additionalProperties" : false
+    },
+    "ComparisonGreaterThanEqualWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "GREATER_THAN_EQUAL" : {
+          "$ref" : "#/definitions/ComparisonGreaterThanEqual"
+        }
+      },
+      "required" : [ "GREATER_THAN_EQUAL" ]
+    },
+    "ComparisonLessThan" : {
+      "type" : "object",
+      "properties" : {
+        "left" : {
+          "$ref" : "#/definitions/OpNumber"
+        },
+        "right" : {
+          "$ref" : "#/definitions/OpNumber"
+        }
+      },
+      "required" : [ "left", "right" ],
+      "additionalProperties" : false
+    },
+    "ComparisonLessThanWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "LESS_THAN" : {
+          "$ref" : "#/definitions/ComparisonLessThan"
+        }
+      },
+      "required" : [ "LESS_THAN" ]
+    },
+    "ComparisonLessThanEqual" : {
+      "type" : "object",
+      "properties" : {
+        "left" : {
+          "$ref" : "#/definitions/OpNumber"
+        },
+        "right" : {
+          "$ref" : "#/definitions/OpNumber"
+        }
+      },
+      "required" : [ "left", "right" ],
+      "additionalProperties" : false
+    },
+    "ComparisonLessThanEqualWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "LESS_THAN_EQUAL" : {
+          "$ref" : "#/definitions/ComparisonLessThanEqual"
+        }
+      },
+      "required" : [ "LESS_THAN_EQUAL" ]
+    },
+    "Condition" : {
+      "type" : "object",
+      "properties" : {
+        "status" : {
+          "$ref" : "#/definitions/Status"
+        },
+        "currentStateMessage" : {
+          "type" : "string"
+        },
+        "remediationMessage" : {
+          "type" : "string"
+        },
+        "condition" : {
+          "$ref" : "#/definitions/OpBoolean"
+        }
+      },
+      "required" : [ "status", "currentStateMessage", "condition" ],
+      "additionalProperties" : false
+    },
+    "ConstBoolean" : {
+      "type" : "object",
+      "properties" : {
+        "BOOLEAN" : {
+          "type" : "boolean",
+          "description" : "Operation that creates a boolean constant, can not be null, only valid values are 'true' and 'false'"
+        }
+      },
+      "required" : [ "BOOLEAN" ]
+    },
+    "ConstNumber" : {
+      "type" : "object",
+      "properties" : {
+        "NUMBER" : {
+          "type" : "number",
+          "description" : "Operation that creates a number constant, can not be null"
+        }
+      },
+      "required" : [ "NUMBER" ]
+    },
+    "ConstText" : {
+      "type" : "object",
+      "properties" : {
+        "TEXT" : {
+          "type" : "string",
+          "description" : "Operation that creates a text (string) constant, can not be null"
+        }
+      },
+      "required" : [ "TEXT" ]
+    },
+    "DateRelativeRangeAfterToday" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "$ref" : "#/definitions/OpDateTime"
+        }
+      },
+      "required" : [ "arg" ],
+      "additionalProperties" : false
+    },
+    "DateRelativeRangeAfterTodayWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "IS_AFTER_TODAY" : {
+          "$ref" : "#/definitions/DateRelativeRangeAfterToday"
+        }
+      },
+      "required" : [ "IS_AFTER_TODAY" ]
+    },
+    "DateRelativeRangeBeforeToday" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "$ref" : "#/definitions/OpDateTime"
+        }
+      },
+      "required" : [ "arg" ],
+      "additionalProperties" : false
+    },
+    "DateRelativeRangeBeforeTodayWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "IS_BEFORE_TODAY" : {
+          "$ref" : "#/definitions/DateRelativeRangeBeforeToday"
+        }
+      },
+      "required" : [ "IS_BEFORE_TODAY" ]
+    },
+    "DateRelativeRangeBeyondLastDays" : {
+      "type" : "object",
+      "properties" : {
+        "offsetDays" : {
+          "type" : "integer"
+        },
+        "arg" : {
+          "$ref" : "#/definitions/OpDateTime"
+        }
+      },
+      "required" : [ "arg" ],
+      "additionalProperties" : false
+    },
+    "DateRelativeRangeBeyondLastDaysWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "IS_BEYOND_LAST_DAYS" : {
+          "$ref" : "#/definitions/DateRelativeRangeBeyondLastDays"
+        }
+      },
+      "required" : [ "IS_BEYOND_LAST_DAYS" ]
+    },
+    "DateRelativeRangeBeyondNextDays" : {
+      "type" : "object",
+      "properties" : {
+        "offsetDays" : {
+          "type" : "integer"
+        },
+        "arg" : {
+          "$ref" : "#/definitions/OpDateTime"
+        }
+      },
+      "required" : [ "arg" ],
+      "additionalProperties" : false
+    },
+    "DateRelativeRangeBeyondNextDaysWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "IS_BEYOND_NEXT_DAYS" : {
+          "$ref" : "#/definitions/DateRelativeRangeBeyondNextDays"
+        }
+      },
+      "required" : [ "IS_BEYOND_NEXT_DAYS" ]
+    },
+    "DateRelativeRangeWithinLastDays" : {
+      "type" : "object",
+      "properties" : {
+        "offsetDays" : {
+          "type" : "integer"
+        },
+        "arg" : {
+          "$ref" : "#/definitions/OpDateTime"
+        }
+      },
+      "required" : [ "arg" ],
+      "additionalProperties" : false
+    },
+    "DateRelativeRangeWithinLastDaysWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "IS_WITHIN_LAST_DAYS" : {
+          "$ref" : "#/definitions/DateRelativeRangeWithinLastDays"
+        }
+      },
+      "required" : [ "IS_WITHIN_LAST_DAYS" ]
+    },
+    "DateRelativeRangeWithinNextDays" : {
+      "type" : "object",
+      "properties" : {
+        "offsetDays" : {
+          "type" : "integer"
+        },
+        "arg" : {
+          "$ref" : "#/definitions/OpDateTime"
+        }
+      },
+      "required" : [ "arg" ],
+      "additionalProperties" : false
+    },
+    "DateRelativeRangeWithinNextDaysWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "IS_WITHIN_NEXT_DAYS" : {
+          "$ref" : "#/definitions/DateRelativeRangeWithinNextDays"
+        }
+      },
+      "required" : [ "IS_WITHIN_NEXT_DAYS" ]
+    },
+    "DateTimeFrom" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/OpText"
+          }, {
+            "description" : "The string that contains a date time value as text in specified 'format'"
+          } ]
+        },
+        "format" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/Format"
+          }, {
+            "description" : "A format that must be use to decode the text into date time"
+          } ]
+        },
+        "nullValues" : {
+          "description" : "Values that are synonymous with 'null'/empty value. For example: 'N/A'",
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "undeterminedIf" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/DateTimeFromUndeterminedIf"
+          }, {
+            "description" : "Checks that will return UNDETERMINED status if satisfied"
+          } ]
+        }
+      },
+      "required" : [ "arg", "format", "undeterminedIf" ],
+      "description" : "Operation that returns a DateTime from a string 'arg'",
+      "additionalProperties" : false
+    },
+    "DateTimeFromWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "DATE_TIME_FROM" : {
+          "$ref" : "#/definitions/DateTimeFrom"
+        }
+      },
+      "required" : [ "DATE_TIME_FROM" ]
+    },
+    "Debug" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string",
+          "description" : "Name of the debug to be used for output"
+        },
+        "returnTrue" : {
+          "type" : "boolean",
+          "description" : "Force this operator to return 'true' and BooleanType"
+        },
+        "arg" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/Op"
+          }, {
+            "description" : "The operator whose value you want to debug"
+          } ]
+        }
+      },
+      "required" : [ "name", "arg" ],
+      "description" : "Operation that adds a debug for a value of an 'arg' operation",
+      "additionalProperties" : false
+    },
+    "DebugWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "DEBUG" : {
+          "$ref" : "#/definitions/Debug"
+        }
+      },
+      "required" : [ "DEBUG" ]
+    },
+    "ExtractReference" : {
+      "type" : "object",
+      "properties" : {
+        "EXTRACT" : {
+          "type" : "string",
+          "description" : "Extracts a safe-to-use value from an object via 'extracts' files"
+        }
+      },
+      "required" : [ "EXTRACT" ]
+    },
+    "ExtractsFileImport" : {
+      "type" : "object",
+      "properties" : {
+        "file" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "file" ],
+      "additionalProperties" : false
+    },
+    "FieldReference" : {
+      "type" : "object",
+      "properties" : {
+        "path" : {
+          "type" : "string",
+          "description" : "The string that contains a path to the field. For example: 'CA10_status__c' or 'CA10__account__r.CA10__accountId__c'"
+        },
+        "undeterminedIf" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/FieldReferenceUndeterminedIf"
+          }, {
+            "description" : "Checks that will return UNDETERMINED status if satisfied"
+          } ]
+        }
+      },
+      "required" : [ "path" ],
+      "additionalProperties" : false
+    },
+    "FieldReferenceWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "FIELD" : {
+          "$ref" : "#/definitions/FieldReference"
+        }
+      },
+      "required" : [ "FIELD" ]
+    },
+    "Format" : {
+      "type" : "string",
+      "const" : "ISO_8601"
+    },
+    "IsDisappeared" : {
+      "type" : "object",
+      "additionalProperties" : false
+    },
+    "IsDisappearedWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "IS_DISAPPEARED" : {
+          "$ref" : "#/definitions/IsDisappeared"
+        }
+      },
+      "required" : [ "IS_DISAPPEARED" ]
+    },
+    "IsEmpty" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "$ref" : "#/definitions/Op"
+        }
+      },
+      "required" : [ "arg" ],
+      "additionalProperties" : false
+    },
+    "IsEmptyWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "IS_EMPTY" : {
+          "$ref" : "#/definitions/IsEmpty"
+        }
+      },
+      "required" : [ "IS_EMPTY" ]
+    },
+    "IsEmptyLookup" : {
+      "type" : "object",
+      "properties" : {
+        "IS_EMPTY_LOOKUP" : {
+          "type" : "string",
+          "description" : "Checks whether the lookup or a lookup chain is empty"
+        }
+      },
+      "required" : [ "IS_EMPTY_LOOKUP" ]
+    },
+    "IsEqual" : {
+      "type" : "object",
+      "properties" : {
+        "left" : {
+          "$ref" : "#/definitions/Op"
+        },
+        "right" : {
+          "$ref" : "#/definitions/Op"
+        }
+      },
+      "required" : [ "left", "right" ],
+      "additionalProperties" : false
+    },
+    "IsEqualWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "IS_EQUAL" : {
+          "$ref" : "#/definitions/IsEqual"
+        }
+      },
+      "required" : [ "IS_EQUAL" ]
+    },
+    "JsonFrom" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/OpText"
+          }, {
+            "description" : "The string that contains a serialized JSON"
+          } ]
+        },
+        "undeterminedIf" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/JsonFromUndeterminedIf"
+          }, {
+            "description" : "Checks that will return UNDETERMINED status if satisfied"
+          } ]
+        }
+      },
+      "required" : [ "arg", "undeterminedIf" ],
+      "description" : "Operation that returns an Json from a string 'arg'",
+      "additionalProperties" : false
+    },
+    "JsonFromWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "JSON_FROM" : {
+          "$ref" : "#/definitions/JsonFrom"
+        }
+      },
+      "required" : [ "JSON_FROM" ]
+    },
+    "JsonQueryBoolean" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/OpJson"
+          }, {
+            "description" : "JSON against which to evaluate 'expression'"
+          } ]
+        },
+        "expression" : {
+          "type" : "string",
+          "description" : "Expression to evaluate against JSON document 'arg'"
+        },
+        "undeterminedIf" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/JsonQueryUndeterminedIf"
+          }, {
+            "description" : "Checks that will return UNDETERMINED status if satisfied"
+          } ]
+        }
+      },
+      "required" : [ "arg", "expression", "undeterminedIf" ],
+      "description" : "Operation that evaluates 'expression' against JSON document 'arg' and returns BooleanType",
+      "additionalProperties" : false
+    },
+    "JsonQueryBooleanWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "JSON_QUERY_BOOLEAN" : {
+          "$ref" : "#/definitions/JsonQueryBoolean"
+        }
+      },
+      "required" : [ "JSON_QUERY_BOOLEAN" ]
+    },
+    "JsonQueryNumber" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/OpJson"
+          }, {
+            "description" : "JSON against which to evaluate 'expression'"
+          } ]
+        },
+        "expression" : {
+          "type" : "string",
+          "description" : "Expression to evaluate against JSON document 'arg'"
+        },
+        "undeterminedIf" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/JsonQueryUndeterminedIf"
+          }, {
+            "description" : "Checks that will return UNDETERMINED status if satisfied"
+          } ]
+        }
+      },
+      "required" : [ "arg", "expression", "undeterminedIf" ],
+      "description" : "Operation that evaluates 'expression' against JSON document 'arg' and returns NumberType",
+      "additionalProperties" : false
+    },
+    "JsonQueryNumberWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "JSON_QUERY_NUMBER" : {
+          "$ref" : "#/definitions/JsonQueryNumber"
+        }
+      },
+      "required" : [ "JSON_QUERY_NUMBER" ]
+    },
+    "JsonQueryText" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/OpJson"
+          }, {
+            "description" : "JSON against which to evaluate 'expression'"
+          } ]
+        },
+        "expression" : {
+          "type" : "string",
+          "description" : "Expression to evaluate against JSON document 'arg'"
+        },
+        "undeterminedIf" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/JsonQueryUndeterminedIf"
+          }, {
+            "description" : "Checks that will return UNDETERMINED status if satisfied"
+          } ]
+        }
+      },
+      "required" : [ "arg", "expression", "undeterminedIf" ],
+      "description" : "Operation that evaluates 'expression' against JSON document 'arg' and returns TextType",
+      "additionalProperties" : false
+    },
+    "JsonQueryTextWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "JSON_QUERY_TEXT" : {
+          "$ref" : "#/definitions/JsonQueryText"
+        }
+      },
+      "required" : [ "JSON_QUERY_TEXT" ]
+    },
+    "JsonQueryUndeterminedIf" : {
+      "type" : "object",
+      "properties" : {
+        "evaluationError" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned in case the expression evaluation failed"
+        },
+        "resultTypeMismatch" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned in case the result of expression evaluation does not match the requested type"
+        },
+        "resultIsEmpty" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned in case the result of expression evaluation considered empty by IS_EMPTY operator"
+        }
+      },
+      "required" : [ "evaluationError", "resultTypeMismatch" ],
+      "additionalProperties" : false
+    },
+    "LogicFile" : {
+      "type" : "object",
+      "properties" : {
+        "inputObject" : {
+          "type" : "string"
+        },
+        "testData" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/TestDataFile"
+          }
+        },
+        "importExtracts" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ExtractsFileImport"
+          }
+        },
+        "conditions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Condition"
+          }
+        },
+        "otherwise" : {
+          "$ref" : "#/definitions/Otherwise"
+        },
+        "relatedLists" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/RelatedList"
+          }
+        },
+        "recordTypes" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "required" : [ "inputObject", "conditions", "otherwise" ],
+      "additionalProperties" : false
+    },
+    "LogicalAnd" : {
+      "type" : "object",
+      "properties" : {
+        "args" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/OpBoolean"
+          }
+        }
+      },
+      "required" : [ "args" ],
+      "additionalProperties" : false
+    },
+    "LogicalAndWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "AND" : {
+          "$ref" : "#/definitions/LogicalAnd"
+        }
+      },
+      "required" : [ "AND" ]
+    },
+    "LogicalOr" : {
+      "type" : "object",
+      "properties" : {
+        "args" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/OpBoolean"
+          }
+        }
+      },
+      "required" : [ "args" ],
+      "additionalProperties" : false
+    },
+    "LogicalOrWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "OR" : {
+          "$ref" : "#/definitions/LogicalOr"
+        }
+      },
+      "required" : [ "OR" ]
+    },
+    "NoAccessDelegateField" : {
+      "type" : "object",
+      "properties" : {
+        "path" : {
+          "type" : "string",
+          "description" : "The string that contains a path to the delegate field"
+        },
+        "currentStateMessage" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned if the value of a delegate field is empty, intended to be used until NO_ACCESS check becomes available"
+        }
+      },
+      "required" : [ "path", "currentStateMessage" ],
+      "additionalProperties" : false
+    },
+    "Not" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "$ref" : "#/definitions/OpBoolean"
+        }
+      },
+      "required" : [ "arg" ],
+      "additionalProperties" : false
+    },
+    "NotWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "NOT" : {
+          "$ref" : "#/definitions/Not"
+        }
+      },
+      "required" : [ "NOT" ]
+    },
+    "NotEmpty" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "$ref" : "#/definitions/Op"
+        }
+      },
+      "required" : [ "arg" ],
+      "additionalProperties" : false
+    },
+    "NotEmptyWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "NOT_EMPTY" : {
+          "$ref" : "#/definitions/NotEmpty"
+        }
+      },
+      "required" : [ "NOT_EMPTY" ]
+    },
+    "NotEmptyLookup" : {
+      "type" : "object",
+      "properties" : {
+        "NOT_EMPTY_LOOKUP" : {
+          "type" : "string",
+          "description" : "Checks whether the lookup or a lookup chain is fully populated with objects"
+        }
+      },
+      "required" : [ "NOT_EMPTY_LOOKUP" ]
+    },
+    "NotEqual" : {
+      "type" : "object",
+      "properties" : {
+        "left" : {
+          "$ref" : "#/definitions/Op"
+        },
+        "right" : {
+          "$ref" : "#/definitions/Op"
+        }
+      },
+      "required" : [ "left", "right" ],
+      "additionalProperties" : false
+    },
+    "NotEqualWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "NOT_EQUAL" : {
+          "$ref" : "#/definitions/NotEqual"
+        }
+      },
+      "required" : [ "NOT_EQUAL" ]
+    },
+    "Op" : {
+      "oneOf" : [ {
+        "$ref" : "#/definitions/AttributeValueWrapper"
+      }, {
+        "$ref" : "#/definitions/AttributesFromWrapper"
+      }, {
+        "$ref" : "#/definitions/AwsPolicyAllowsWrapper"
+      }, {
+        "$ref" : "#/definitions/BetweenWrapper"
+      }, {
+        "$ref" : "#/definitions/BooleanFromWrapper"
+      }, {
+        "$ref" : "#/definitions/CollectionContainsWrapper"
+      }, {
+        "$ref" : "#/definitions/CollectionFromWrapper"
+      }, {
+        "$ref" : "#/definitions/CollectionSizeWrapper"
+      }, {
+        "$ref" : "#/definitions/ComparisonGreaterThanWrapper"
+      }, {
+        "$ref" : "#/definitions/ComparisonGreaterThanEqualWrapper"
+      }, {
+        "$ref" : "#/definitions/ComparisonLessThanWrapper"
+      }, {
+        "$ref" : "#/definitions/ComparisonLessThanEqualWrapper"
+      }, {
+        "$ref" : "#/definitions/ConstBoolean"
+      }, {
+        "$ref" : "#/definitions/ConstNumber"
+      }, {
+        "$ref" : "#/definitions/ConstText"
+      }, {
+        "$ref" : "#/definitions/DateRelativeRangeAfterTodayWrapper"
+      }, {
+        "$ref" : "#/definitions/DateRelativeRangeBeforeTodayWrapper"
+      }, {
+        "$ref" : "#/definitions/DateRelativeRangeBeyondLastDaysWrapper"
+      }, {
+        "$ref" : "#/definitions/DateRelativeRangeBeyondNextDaysWrapper"
+      }, {
+        "$ref" : "#/definitions/DateRelativeRangeWithinLastDaysWrapper"
+      }, {
+        "$ref" : "#/definitions/DateRelativeRangeWithinNextDaysWrapper"
+      }, {
+        "$ref" : "#/definitions/DateTimeFromWrapper"
+      }, {
+        "$ref" : "#/definitions/DebugWrapper"
+      }, {
+        "$ref" : "#/definitions/ExtractReference"
+      }, {
+        "$ref" : "#/definitions/FieldReferenceWrapper"
+      }, {
+        "$ref" : "#/definitions/IsDisappearedWrapper"
+      }, {
+        "$ref" : "#/definitions/IsEmptyWrapper"
+      }, {
+        "$ref" : "#/definitions/IsEmptyLookup"
+      }, {
+        "$ref" : "#/definitions/IsEqualWrapper"
+      }, {
+        "$ref" : "#/definitions/JsonFromWrapper"
+      }, {
+        "$ref" : "#/definitions/JsonQueryBooleanWrapper"
+      }, {
+        "$ref" : "#/definitions/JsonQueryNumberWrapper"
+      }, {
+        "$ref" : "#/definitions/JsonQueryTextWrapper"
+      }, {
+        "$ref" : "#/definitions/LogicalAndWrapper"
+      }, {
+        "$ref" : "#/definitions/LogicalOrWrapper"
+      }, {
+        "$ref" : "#/definitions/NotWrapper"
+      }, {
+        "$ref" : "#/definitions/NotEmptyWrapper"
+      }, {
+        "$ref" : "#/definitions/NotEmptyLookup"
+      }, {
+        "$ref" : "#/definitions/NotEqualWrapper"
+      }, {
+        "$ref" : "#/definitions/RelatedListAggregateCountWrapper"
+      }, {
+        "$ref" : "#/definitions/RelatedListAggregateHasWrapper"
+      }, {
+        "$ref" : "#/definitions/RelatedListAggregateHasNoWrapper"
+      }, {
+        "$ref" : "#/definitions/TextPatternContainsWrapper"
+      }, {
+        "$ref" : "#/definitions/TextPatternContainsIgnoreCaseWrapper"
+      }, {
+        "$ref" : "#/definitions/TextPatternEndsWithWrapper"
+      }, {
+        "$ref" : "#/definitions/TextPatternEndsWithIgnoreCaseWrapper"
+      }, {
+        "$ref" : "#/definitions/TextPatternRegexMatchesWrapper"
+      }, {
+        "$ref" : "#/definitions/TextPatternStartsWithWrapper"
+      }, {
+        "$ref" : "#/definitions/TextPatternStartsWithIgnoreCaseWrapper"
+      } ]
+    },
+    "OpAttributes" : {
+      "oneOf" : [ {
+        "$ref" : "#/definitions/AttributesFromWrapper"
+      }, {
+        "$ref" : "#/definitions/DebugWrapper"
+      }, {
+        "$ref" : "#/definitions/ExtractReference"
+      } ]
+    },
+    "OpBoolean" : {
+      "oneOf" : [ {
+        "$ref" : "#/definitions/AwsPolicyAllowsWrapper"
+      }, {
+        "$ref" : "#/definitions/BetweenWrapper"
+      }, {
+        "$ref" : "#/definitions/BooleanFromWrapper"
+      }, {
+        "$ref" : "#/definitions/CollectionContainsWrapper"
+      }, {
+        "$ref" : "#/definitions/ComparisonGreaterThanWrapper"
+      }, {
+        "$ref" : "#/definitions/ComparisonGreaterThanEqualWrapper"
+      }, {
+        "$ref" : "#/definitions/ComparisonLessThanWrapper"
+      }, {
+        "$ref" : "#/definitions/ComparisonLessThanEqualWrapper"
+      }, {
+        "$ref" : "#/definitions/ConstBoolean"
+      }, {
+        "$ref" : "#/definitions/DateRelativeRangeAfterTodayWrapper"
+      }, {
+        "$ref" : "#/definitions/DateRelativeRangeBeforeTodayWrapper"
+      }, {
+        "$ref" : "#/definitions/DateRelativeRangeBeyondLastDaysWrapper"
+      }, {
+        "$ref" : "#/definitions/DateRelativeRangeBeyondNextDaysWrapper"
+      }, {
+        "$ref" : "#/definitions/DateRelativeRangeWithinLastDaysWrapper"
+      }, {
+        "$ref" : "#/definitions/DateRelativeRangeWithinNextDaysWrapper"
+      }, {
+        "$ref" : "#/definitions/DebugWrapper"
+      }, {
+        "$ref" : "#/definitions/ExtractReference"
+      }, {
+        "$ref" : "#/definitions/FieldReferenceWrapper"
+      }, {
+        "$ref" : "#/definitions/IsDisappearedWrapper"
+      }, {
+        "$ref" : "#/definitions/IsEmptyWrapper"
+      }, {
+        "$ref" : "#/definitions/IsEmptyLookup"
+      }, {
+        "$ref" : "#/definitions/IsEqualWrapper"
+      }, {
+        "$ref" : "#/definitions/JsonQueryBooleanWrapper"
+      }, {
+        "$ref" : "#/definitions/LogicalAndWrapper"
+      }, {
+        "$ref" : "#/definitions/LogicalOrWrapper"
+      }, {
+        "$ref" : "#/definitions/NotWrapper"
+      }, {
+        "$ref" : "#/definitions/NotEmptyWrapper"
+      }, {
+        "$ref" : "#/definitions/NotEmptyLookup"
+      }, {
+        "$ref" : "#/definitions/NotEqualWrapper"
+      }, {
+        "$ref" : "#/definitions/RelatedListAggregateHasWrapper"
+      }, {
+        "$ref" : "#/definitions/RelatedListAggregateHasNoWrapper"
+      }, {
+        "$ref" : "#/definitions/TextPatternContainsWrapper"
+      }, {
+        "$ref" : "#/definitions/TextPatternContainsIgnoreCaseWrapper"
+      }, {
+        "$ref" : "#/definitions/TextPatternEndsWithWrapper"
+      }, {
+        "$ref" : "#/definitions/TextPatternEndsWithIgnoreCaseWrapper"
+      }, {
+        "$ref" : "#/definitions/TextPatternRegexMatchesWrapper"
+      }, {
+        "$ref" : "#/definitions/TextPatternStartsWithWrapper"
+      }, {
+        "$ref" : "#/definitions/TextPatternStartsWithIgnoreCaseWrapper"
+      } ]
+    },
+    "OpCollection" : {
+      "oneOf" : [ {
+        "$ref" : "#/definitions/CollectionFromWrapper"
+      }, {
+        "$ref" : "#/definitions/DebugWrapper"
+      }, {
+        "$ref" : "#/definitions/ExtractReference"
+      } ]
+    },
+    "OpDateTime" : {
+      "oneOf" : [ {
+        "$ref" : "#/definitions/DateTimeFromWrapper"
+      }, {
+        "$ref" : "#/definitions/DebugWrapper"
+      }, {
+        "$ref" : "#/definitions/ExtractReference"
+      }, {
+        "$ref" : "#/definitions/FieldReferenceWrapper"
+      } ]
+    },
+    "OpJson" : {
+      "oneOf" : [ {
+        "$ref" : "#/definitions/DebugWrapper"
+      }, {
+        "$ref" : "#/definitions/ExtractReference"
+      }, {
+        "$ref" : "#/definitions/JsonFromWrapper"
+      } ]
+    },
+    "OpNumber" : {
+      "oneOf" : [ {
+        "$ref" : "#/definitions/CollectionSizeWrapper"
+      }, {
+        "$ref" : "#/definitions/ConstNumber"
+      }, {
+        "$ref" : "#/definitions/DebugWrapper"
+      }, {
+        "$ref" : "#/definitions/ExtractReference"
+      }, {
+        "$ref" : "#/definitions/FieldReferenceWrapper"
+      }, {
+        "$ref" : "#/definitions/JsonQueryNumberWrapper"
+      }, {
+        "$ref" : "#/definitions/RelatedListAggregateCountWrapper"
+      } ]
+    },
+    "OpText" : {
+      "oneOf" : [ {
+        "$ref" : "#/definitions/AttributeValueWrapper"
+      }, {
+        "$ref" : "#/definitions/ConstText"
+      }, {
+        "$ref" : "#/definitions/DebugWrapper"
+      }, {
+        "$ref" : "#/definitions/ExtractReference"
+      }, {
+        "$ref" : "#/definitions/FieldReferenceWrapper"
+      }, {
+        "$ref" : "#/definitions/JsonQueryTextWrapper"
+      } ]
+    },
+    "Otherwise" : {
+      "type" : "object",
+      "properties" : {
+        "status" : {
+          "$ref" : "#/definitions/Status"
+        },
+        "currentStateMessage" : {
+          "type" : "string"
+        },
+        "remediationMessage" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "status", "currentStateMessage" ],
+      "additionalProperties" : false
+    },
+    "RelatedList" : {
+      "type" : "object",
+      "properties" : {
+        "relationshipName" : {
+          "type" : "string"
+        },
+        "conditions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Condition"
+          }
+        },
+        "otherwise" : {
+          "$ref" : "#/definitions/Otherwise"
+        },
+        "recordTypes" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "importExtracts" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ExtractsFileImport"
+          }
+        },
+        "relatedLists" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/RelatedList"
+          }
+        }
+      },
+      "required" : [ "relationshipName", "conditions", "otherwise" ],
+      "additionalProperties" : false
+    },
+    "RelatedListAggregateCount" : {
+      "type" : "object",
+      "properties" : {
+        "status" : {
+          "$ref" : "#/definitions/Status"
+        },
+        "relationshipName" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "status", "relationshipName" ],
+      "additionalProperties" : false
+    },
+    "RelatedListAggregateCountWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "RELATED_LIST_COUNT" : {
+          "$ref" : "#/definitions/RelatedListAggregateCount"
+        }
+      },
+      "required" : [ "RELATED_LIST_COUNT" ]
+    },
+    "RelatedListAggregateHas" : {
+      "type" : "object",
+      "properties" : {
+        "status" : {
+          "$ref" : "#/definitions/Status"
+        },
+        "relationshipName" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "status", "relationshipName" ],
+      "additionalProperties" : false
+    },
+    "RelatedListAggregateHasWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "RELATED_LIST_HAS" : {
+          "$ref" : "#/definitions/RelatedListAggregateHas"
+        }
+      },
+      "required" : [ "RELATED_LIST_HAS" ]
+    },
+    "RelatedListAggregateHasNo" : {
+      "type" : "object",
+      "properties" : {
+        "status" : {
+          "$ref" : "#/definitions/Status"
+        },
+        "relationshipName" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "status", "relationshipName" ],
+      "additionalProperties" : false
+    },
+    "RelatedListAggregateHasNoWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "RELATED_LIST_HAS_NO" : {
+          "$ref" : "#/definitions/RelatedListAggregateHasNo"
+        }
+      },
+      "required" : [ "RELATED_LIST_HAS_NO" ]
+    },
+    "Status" : {
+      "type" : "string",
+      "enum" : [ "DISAPPEARED", "INAPPLICABLE", "COMPLIANT", "INCOMPLIANT", "UNDETERMINED" ]
+    },
+    "TestDataFile" : {
+      "type" : "object",
+      "properties" : {
+        "file" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "file" ],
+      "additionalProperties" : false
+    },
+    "TextPatternContains" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "$ref" : "#/definitions/OpText"
+        },
+        "substring" : {
+          "$ref" : "#/definitions/OpText"
+        }
+      },
+      "required" : [ "arg", "substring" ],
+      "additionalProperties" : false
+    },
+    "TextPatternContainsWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "CONTAINS" : {
+          "$ref" : "#/definitions/TextPatternContains"
+        }
+      },
+      "required" : [ "CONTAINS" ]
+    },
+    "TextPatternContainsIgnoreCase" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "$ref" : "#/definitions/OpText"
+        },
+        "substring" : {
+          "$ref" : "#/definitions/OpText"
+        }
+      },
+      "required" : [ "arg", "substring" ],
+      "additionalProperties" : false
+    },
+    "TextPatternContainsIgnoreCaseWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "CONTAINS_IGNORE_CASE" : {
+          "$ref" : "#/definitions/TextPatternContainsIgnoreCase"
+        }
+      },
+      "required" : [ "CONTAINS_IGNORE_CASE" ]
+    },
+    "TextPatternEndsWith" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "$ref" : "#/definitions/OpText"
+        },
+        "suffix" : {
+          "$ref" : "#/definitions/OpText"
+        }
+      },
+      "required" : [ "arg", "suffix" ],
+      "additionalProperties" : false
+    },
+    "TextPatternEndsWithWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "ENDS_WITH" : {
+          "$ref" : "#/definitions/TextPatternEndsWith"
+        }
+      },
+      "required" : [ "ENDS_WITH" ]
+    },
+    "TextPatternEndsWithIgnoreCase" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "$ref" : "#/definitions/OpText"
+        },
+        "suffix" : {
+          "$ref" : "#/definitions/OpText"
+        }
+      },
+      "required" : [ "arg", "suffix" ],
+      "additionalProperties" : false
+    },
+    "TextPatternEndsWithIgnoreCaseWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "ENDS_WITH_IGNORE_CASE" : {
+          "$ref" : "#/definitions/TextPatternEndsWithIgnoreCase"
+        }
+      },
+      "required" : [ "ENDS_WITH_IGNORE_CASE" ]
+    },
+    "TextPatternRegexMatches" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "$ref" : "#/definitions/OpText"
+        },
+        "regex" : {
+          "$ref" : "#/definitions/OpText"
+        }
+      },
+      "required" : [ "arg", "regex" ],
+      "additionalProperties" : false
+    },
+    "TextPatternRegexMatchesWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "REGEX_MATCHES" : {
+          "$ref" : "#/definitions/TextPatternRegexMatches"
+        }
+      },
+      "required" : [ "REGEX_MATCHES" ]
+    },
+    "TextPatternStartsWith" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "$ref" : "#/definitions/OpText"
+        },
+        "prefix" : {
+          "$ref" : "#/definitions/OpText"
+        }
+      },
+      "required" : [ "arg", "prefix" ],
+      "additionalProperties" : false
+    },
+    "TextPatternStartsWithWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "STARTS_WITH" : {
+          "$ref" : "#/definitions/TextPatternStartsWith"
+        }
+      },
+      "required" : [ "STARTS_WITH" ]
+    },
+    "TextPatternStartsWithIgnoreCase" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "$ref" : "#/definitions/OpText"
+        },
+        "prefix" : {
+          "$ref" : "#/definitions/OpText"
+        }
+      },
+      "required" : [ "arg", "prefix" ],
+      "additionalProperties" : false
+    },
+    "TextPatternStartsWithIgnoreCaseWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "STARTS_WITH_IGNORE_CASE" : {
+          "$ref" : "#/definitions/TextPatternStartsWithIgnoreCase"
+        }
+      },
+      "required" : [ "STARTS_WITH_IGNORE_CASE" ]
+    },
+    "AttributesFromUndeterminedIf" : {
+      "type" : "object",
+      "properties" : {
+        "isEmpty" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned in the supplied value is empty"
+        }
+      },
+      "required" : [ "isEmpty" ],
+      "additionalProperties" : false
+    },
+    "BooleanFromUndeterminedIf" : {
+      "type" : "object",
+      "properties" : {
+        "isEmpty" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned in the supplied value is empty"
+        }
+      },
+      "required" : [ "isEmpty" ],
+      "additionalProperties" : false
+    },
+    "DateTimeFromUndeterminedIf" : {
+      "type" : "object",
+      "properties" : {
+        "isEmpty" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned if the supplied value is empty"
+        },
+        "invalidFormat" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned if supplied value can not be parsed into the requested format"
+        }
+      },
+      "required" : [ "invalidFormat" ],
+      "additionalProperties" : false
+    },
+    "FieldReferenceUndeterminedIf" : {
+      "type" : "object",
+      "properties" : {
+        "noAccessDelegate" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/NoAccessDelegateField"
+          }, {
+            "description" : "Checks for a delegate field being empty, intended to be used until NO_ACCESS check becomes available"
+          } ]
+        },
+        "isEmpty" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned if the supplied value is empty"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "JsonFromUndeterminedIf" : {
+      "type" : "object",
+      "properties" : {
+        "isEmpty" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned in the supplied value is empty"
+        },
+        "isInvalid" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned in the supplied value is not a valid JSON"
+        }
+      },
+      "required" : [ "isInvalid" ],
+      "additionalProperties" : false
+    },
+    "AttributeValueUndeterminedIf" : {
+      "type" : "object",
+      "properties" : {
+        "duplicateKey" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned in case the requested key has multiple values"
+        },
+        "keyNotFound" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned in case the requested key is not present in Attributes"
+        },
+        "valueIsEmpty" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned in case the value of requested key satisfies IS_EMPTY operation"
+        }
+      },
+      "required" : [ "duplicateKey" ],
+      "additionalProperties" : false
+    }
+  }
+}

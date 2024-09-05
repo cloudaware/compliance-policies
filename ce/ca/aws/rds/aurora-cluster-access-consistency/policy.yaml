@@ -1,0 +1,22 @@
+---
+names:
+  contextual: "Aurora Cluster access is not consistent"
+  full: "AWS RDS Aurora Cluster access is not consistent"
+description: "Ensure that all the database instances within your Amazon Aurora clusters\
+  \ have the same accessibility (either public or private) in order to follow AWS best practices."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/cloudaware/resource-security/secure-access-controls"
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/RDS/aurora-instance-accessibility.html
+      name: Aurora Database Instance Accessibility
+  awsTrustedAdvisor:
+    - checkId: xuy7H1avtl
+      name: Amazon Aurora DB Instance Accessibility
+      url: https://docs.aws.amazon.com/awssupport/latest/user/fault-tolerance-checks.html#amazon-aurora-db-instance-accessibility
+

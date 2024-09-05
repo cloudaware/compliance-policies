@@ -1,0 +1,22 @@
+---
+names:
+  full: AWS Account Multi-Region CloudTrail is not enabled
+  contextual: Multi-Region CloudTrail is not enabled
+description: "AWS CloudTrail is a web service that records AWS API calls for your\
+  \ account and delivers log files to you. The recorded information includes the identity\
+  \ of the API caller, the time of the API call, the source IP address of the API\
+  \ caller, the request parameters, and the response elements returned by the AWS\
+  \ service."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/03/01
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration
+similarPolicies:
+  internal:
+    - dec-z-3f480eb5
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/CloudTrail/cloudtrail-enabled.html
+      name: CloudTrail Enabled

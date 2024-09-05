@@ -1,0 +1,11 @@
+---
+name: "1.6 Ensure that 'Number of days before users are asked to re-confirm their\
+  \ authentication information' is not set to \"0\" - Level 1 (Manual | Not supported,\
+  \ no API/CLI available by Azure)"
+description: "Ensure that the number of days before users are asked to re-confirm\
+  \ their authentication information is not set to 0. Please note that according to\
+  \ the CIS Benchmark audit steps, at this point in time, there is no API/CLI mechanism\
+  \ available to programmatically conduct a security assessment for this recommendation."
+similar:
+  internal:
+    - dec-c-fdf07bb4

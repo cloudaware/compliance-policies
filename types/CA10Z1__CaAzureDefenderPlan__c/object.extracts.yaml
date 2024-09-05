@@ -1,0 +1,16 @@
+---
+# Not Nullable. Can't have no access, retrieved via Microsoft.Security/pricings
+extracts:
+  - name: "CA10Z1__name__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__name__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Name cannot be empty."
+# Values: Free, Standard. Not Nullable. Can't have no access, retrieved via Microsoft.Security/pricings
+  - name: "CA10Z1__pricingTier__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__pricingTier__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Pricing Tier cannot be empty."

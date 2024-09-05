@@ -1,0 +1,16 @@
+---
+names:
+  full: Microsoft Entra ID Named Locations are not defined
+  contextual: Named Locations are not defined
+description: "Microsoft Entra ID Conditional Access allows an organization to configure\
+  \ Named locations and configure whether those locations are trusted or untrusted.\
+  \ These settings provide organizations the means to specify Geographical locations\
+  \ for use in conditional access policies, or define actual IP addresses and IP ranges\
+  \ and whether or not those IP addresses and/or ranges are trusted by the organization."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/02/01
+  - /frameworks/cloudaware/identity-and-access-management/general-access-controls

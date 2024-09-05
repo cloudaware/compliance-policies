@@ -1,0 +1,66 @@
+---
+inputObject: "CA10__CaAzureKeyVault__c"
+importExtracts:
+  - file: "/types/CA10__CaAzureKeyVault__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is a Non-RBAC Key Vault."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__rbacAuthorization__c"
+        right:
+          TEXT: "Disabled"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Key Vault has Secrets without expiration date."
+    remediationMessage: "Consider setting the Secrets' expiration date."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: CA10__Azure_Key_Vault_Secrets__r
+        status: "INCOMPLIANT"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Key Vault Secrets' expiration date is set for all enabled Secrets."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: CA10__Azure_Key_Vault_Secrets__r
+        status: "COMPLIANT"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Key Vault only has disabled Secrets."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: CA10__Azure_Key_Vault_Secrets__r
+        status: "INAPPLICABLE"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "The Key Vault doesn't have Secrets or Cloudaware doesn't have access to view Secrets."
+relatedLists:
+  - relationshipName: CA10__Azure_Key_Vault_Secrets__r
+    importExtracts:
+    - file: "/types/CA10__CaAzureKeyVaultSecret__c/object.extracts.yaml"
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "The Secret is disabled."
+        condition:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__enabledStatus__c"
+            right:
+              TEXT: "Enabled"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The Secret expiration date is not set."
+        remediationMessage: "Consider setting the Secret expiration date."
+        condition:
+          IS_EMPTY:
+            arg:
+              EXTRACT: "CA10__expirationDate__c"
+      - status: "COMPLIANT"
+        currentStateMessage: "The Secret expiration date is set."
+        condition:
+          NOT_EMPTY:
+            arg:
+              EXTRACT: "CA10__expirationDate__c"
+    otherwise:
+      status: "UNDETERMINED"
+      currentStateMessage: "Unexpected values in the fields."

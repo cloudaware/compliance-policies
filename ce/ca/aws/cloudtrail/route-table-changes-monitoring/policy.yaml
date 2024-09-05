@@ -1,0 +1,23 @@
+---
+names:
+  full: AWS CloudTrail Route Table Changes Monitoring is not enabled
+  contextual: Route Table Changes Monitoring is not enabled
+description: "Real-time monitoring of API calls can be achieved by directing CloudTrail\
+  \ Logs to CloudWatch Logs, or an external Security information and event management\
+  \ (SIEM) environment, and establishing corresponding metric filters and alarms.\
+  \ Routing tables are used to route network traffic between subnets and to network\
+  \ gateways. It is recommended that a metric filter and alarm be established for\
+  \ changes to route tables."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/04/13
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management
+similarPolicies:
+  internal:
+    - dec-x-0ef94ece
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/CloudWatchLogs/route-table-changes-alarm.html
+      name: Route Table Changes Alarm

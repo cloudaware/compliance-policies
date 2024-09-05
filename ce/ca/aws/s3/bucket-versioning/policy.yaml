@@ -1,0 +1,25 @@
+---
+names:
+  contextual: "Bucket Versioning is not enabled"
+  full: "AWS S3 Bucket Versioning is not enabled"
+description: "Ensure that AWS S3 Bucket Versioning feature is enabled.\
+  \ Versioning allows users to keep multiple versions of an object in the same S3 bucket\
+  \ and provides a reliable and scalable solution for data protection, recovery,\
+  \ and version control within S3 buckets."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-protection-and-recovery"
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+similarPolicies:
+  internal:
+    - dec-x-2a9e5255
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/S3/s3-bucket-versioning-enabled.html"
+      name: "S3 Bucket Versioning Enabled"
+  awsTrustedAdvisor:
+    - checkId: "R365s2Qddf"
+      name: "Amazon S3 Bucket Versioning"
+      url: "https://docs.aws.amazon.com/awssupport/latest/user/fault-tolerance-checks.html#amazon-s3-bucket-versioning"

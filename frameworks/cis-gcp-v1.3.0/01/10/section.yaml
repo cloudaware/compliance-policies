@@ -1,0 +1,12 @@
+---
+name: 1.10 Ensure KMS Encryption Keys Are Rotated Within a Period of 90 Days - Level
+  1 (Automated)
+description: "Google Cloud Key Management Service stores cryptographic keys in a hierarchical\
+  \ structure designed for useful and elegant access control management. \n\nThe format\
+  \ for the rotation schedule depends on the client library that is used. For the\
+  \ gcloud command-line tool, the next rotation time must be in `ISO` or `RFC3339`\
+  \ format, and the rotation period must be in the form `INTEGER[UNIT]`, where units\
+  \ can be one of seconds (s), minutes (m), hours (h) or days (d)."
+similar:
+  internal:
+    - dec-c-c88dfb44

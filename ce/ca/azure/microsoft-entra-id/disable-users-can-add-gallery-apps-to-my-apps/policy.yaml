@@ -1,0 +1,16 @@
+---
+names:
+  full: Microsoft Entra ID Users Can Add Gallery Apps To My Apps is set to Yes
+  contextual: Users Can Add Gallery Apps To My Apps is set to Yes
+description: Require administrators to provide consent for the apps before use.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/12
+  - /frameworks/cloudaware/identity-and-access-management/user-management
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/users-can-add-gallery-apps-to-their-access-panel.html
+      name: Users Can Add Gallery Apps To Their Access Panel

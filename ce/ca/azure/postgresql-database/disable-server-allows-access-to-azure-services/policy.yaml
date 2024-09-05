@@ -1,0 +1,17 @@
+---
+names:
+  full: Azure PostgreSQL Server Firewall Rules allow access to Azure services
+  contextual: Server Firewall Rules allow access to Azure services
+description: Disable access from Azure services to PostgreSQL Database Server.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/04/03/07
+  - /frameworks/cloudaware/resource-security/secure-access-controls
+similarPolicies:
+  internal:
+    - dec-x-bf1f13f6
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/PostgreSQL/disable-all-services-access.html
+      name: Disable 'Allow access to Azure services' for PostgreSQL database servers

@@ -1,0 +1,150 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-29T17:32:24Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2024-05-22T14:54:33Z",
+        "Name": "default",
+        "CA10__AWS_EC2_Security_Group_Rules__r": [],
+        "CA10__AWS_EC2_Instance_FWs__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('Name') != 'default'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-29T17:32:24Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "Name": "security-group-1",
+        "CA10__AWS_EC2_Security_Group_Rules__r": [
+            {
+                "Id": "test2_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__securityGroup__c": "test2"
+            }
+        ],
+        "CA10__AWS_EC2_Instance_FWs__r": [
+            {
+                "Id": "test2_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__securityGroup__c": "test2"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10__AWS_EC2_Security_Group_Rules__r.has(INCOMPLIANT) && CA10__AWS_EC2_Instance_FWs__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-29T17:32:24Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "Name": "default",
+        "CA10__AWS_EC2_Security_Group_Rules__r": [
+            {
+                "Id": "test3_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__securityGroup__c": "test3"
+            }
+        ],
+        "CA10__AWS_EC2_Instance_FWs__r": [
+            {
+                "Id": "test3_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__securityGroup__c": "test3"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "CA10__AWS_EC2_Security_Group_Rules__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-29T17:32:24Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "Name": "default",
+        "CA10__AWS_EC2_Security_Group_Rules__r": [
+            {
+                "Id": "test4_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__securityGroup__c": "test4"
+            }
+        ],
+        "CA10__AWS_EC2_Instance_FWs__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "CA10__AWS_EC2_Instance_FWs__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-29T17:32:24Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "Name": "default",
+        "CA10__AWS_EC2_Security_Group_Rules__r": [],
+        "CA10__AWS_EC2_Instance_FWs__r": [
+            {
+                "Id": "test5_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__securityGroup__c": "test5"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "500",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-29T17:32:24Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "Name": "default",
+        "CA10__AWS_EC2_Security_Group_Rules__r": [],
+        "CA10__AWS_EC2_Instance_FWs__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('Name') != 'default'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-29T17:32:24Z"
+        },
+        "Id": "test7",
+        "CA10__disappearanceTime__c": null,
+        "Name": "security-group-1",
+        "CA10__AWS_EC2_Security_Group_Rules__r": [],
+        "CA10__AWS_EC2_Instance_FWs__r": []
+    }
+]

@@ -1,0 +1,10 @@
+---
+name: "1.20 Ensure that 'Require Multi-Factor Auth to join devices' is set to 'Yes'\
+  \ - Level 1 (Manual | Not supported, no API/CLI available by Azure)"
+description: "Joining devices to the active directory should require Multi-factor\
+  \ authentication. Please note that according to the CIS Benchmark audit steps, at\
+  \ this point in time, there is no API/CLI mechanism available to programmatically\
+  \ conduct a security assessment for this recommendation."
+similar:
+  internal:
+    - dec-c-1d8af2bd

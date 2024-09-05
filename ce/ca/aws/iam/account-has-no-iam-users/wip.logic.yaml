@@ -1,0 +1,57 @@
+---
+# based on CA ce:ca:aws:iam:account-has-no-users
+# and Cloud Conformity's https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/IAM/iam-user-present.html
+inputObject: CA10__CaAwsAccount__c
+# but what if account does not have IAM Users, but have IAM Roles. Can account be used normally
+# only with IAM Roles, but no IAM Users?
+# On one customer:
+# CA10__users__r.has(COMPLIANT) 218 hits
+# CA10__roles__r.has(COMPLIANT) 90 hits
+# otherwise 1 hit (this is definitely a permission issue)
+# Is it safe to assume that account CAN be used without IAM Users and only with Roles?
+# All in all it seems like the policy does not make a lot of sense:
+# 1. If you're trying to prevent users from using root users, why not write a policy that checks that directly?
+# 2. Creating IAM User for Human operators seems to be outdated concept
+#    https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-users-federation-idp
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: There is at least one IAM user present
+    condition:
+      # this condition might return false if there is not permissions to iam:ListUsers
+      # TODO: add permission check if it becomes possible
+      RELATED_LIST_HAS:
+        relationshipName: CA10__users__r
+        status: COMPLIANT
+  - status: COMPLIANT
+    currentStateMessage: There is at least one IAM role present
+    condition:
+      # this condition might return false if there is not permissions to iam:ListRoles
+      # TODO: add permission check if it becomes possible
+      RELATED_LIST_HAS:
+        relationshipName: CA10__roles__r
+        status: COMPLIANT
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: There are no IAM users in this account
+  remediationMessage: Create individual IAM users
+relatedLists:
+  - relationshipName: CA10__users__r
+    conditions:
+      - status: INCOMPLIANT
+        currentStateMessage: "This is a 'root' user"
+        remediationMessage: "No remediation required"
+        condition:
+          IS_EQUAL:
+            left:
+              FIELD: 
+                path: CA10__userName__c
+            right:
+              TEXT: root
+    otherwise:
+      status: COMPLIANT
+      currentStateMessage: "This is an IAM user"
+  - relationshipName: CA10__roles__r
+    conditions: []
+    otherwise:
+      status: COMPLIANT
+      currentStateMessage: "This is an IAM role"      

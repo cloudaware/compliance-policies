@@ -1,0 +1,9 @@
+---
+names:
+  full: AWS EC2 Security Group Rule Count
+  contextual: Security Group Rule Count
+description: "Determine if there is a large number of inbound and outbound rules defined\
+  \ within your AWS EC2 security groups and reduce their number by removing any unnecessary\
+  \ or overlapping rules. To improve performance and efficiency CloudAware recommends\
+  \ a default value of 50 for the maximum number of rules assigned to a security group,\
+  \ however, this value is configurable so you can adjust it based on your requirements."

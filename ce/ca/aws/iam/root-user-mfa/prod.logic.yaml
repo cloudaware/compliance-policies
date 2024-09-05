@@ -1,0 +1,27 @@
+---
+inputObject: "CA10__CaAwsUser__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsUser__c/credReport.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Requirements of this policy are applicable only to root users."
+    condition:
+      NOT_EQUAL:
+        left:
+          EXTRACT: caExtract_credReport_user__c
+        right:
+          TEXT: "<root_account>"
+  - status: "COMPLIANT"
+    currentStateMessage: "The root user has MFA enabled."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: caExtract_credReport_mfa_active__c
+        right:
+          BOOLEAN: true
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The root user does not have MFA enabled."
+  remediationMessage: "Consider enabling MFA for the root user."

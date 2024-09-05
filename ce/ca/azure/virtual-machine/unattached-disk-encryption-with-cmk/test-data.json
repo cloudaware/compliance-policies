@@ -1,0 +1,77 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-27T20:33:04Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2024-06-27T20:33:04Z",
+        "CA10__diskState__c": "Unattached",
+        "CA10__encryptionType__c": "ENCRYPTIONATRESTWITHCUSTOMERKEY"
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__diskState__c') != 'Unattached'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-27T20:33:04Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__diskState__c": "Reserved",
+        "CA10__encryptionType__c": "ENCRYPTIONATRESTWITHPLATFORMKEY"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__encryptionType__c') == 'ENCRYPTIONATRESTWITHPLATFORMKEY'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-27T20:33:04Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__diskState__c": "Unattached",
+        "CA10__encryptionType__c": "ENCRYPTIONATRESTWITHPLATFORMKEY"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__encryptionType__c') == 'ENCRYPTIONATRESTWITHPLATFORMANDCUSTOMERKEYS' || extract('CA10__encryptionType__c') == 'ENCRYPTIONATRESTWITHCUSTOMERKEY'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-27T20:33:04Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__diskState__c": "Unattached",
+        "CA10__encryptionType__c": "ENCRYPTIONATRESTWITHPLATFORMANDCUSTOMERKEYS"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__encryptionType__c') == 'ENCRYPTIONATRESTWITHPLATFORMANDCUSTOMERKEYS' || extract('CA10__encryptionType__c') == 'ENCRYPTIONATRESTWITHCUSTOMERKEY'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-27T20:33:04Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__diskState__c": "Unattached",
+        "CA10__encryptionType__c": "ENCRYPTIONATRESTWITHCUSTOMERKEY"
+    }
+]

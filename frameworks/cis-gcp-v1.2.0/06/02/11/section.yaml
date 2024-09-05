@@ -1,0 +1,11 @@
+---
+name: 6.2.11 Ensure 'log_executor_stats' database flag for Cloud SQL PostgreSQL instance
+  is set to 'off' - Level 2 (Automated)
+description: The PostgreSQL executor is responsible to execute the plan handed over
+  by the PostgreSQL planner. The executor processes the plan recursively to extract
+  the required set of rows. The `log_executor_stats` flag controls the inclusion of
+  PostgreSQL executor performance statistics in the PostgreSQL logs for each query.
+  Will be supported in the near future.
+similar:
+  internal:
+    - dec-c-a0cf0b89

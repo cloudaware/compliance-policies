@@ -1,0 +1,43 @@
+---
+inputObject: "CA10__CaAwsInstance__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsInstance__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "EC2 Instance IMDSv2 is not enabled."
+    remediationMessage: "Consider enabling EC2 Instance IMDSv2."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__metadataState__c"
+        right:
+          TEXT: "pending"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "EC2 Instance IMDSv2 is not required."
+    remediationMessage: "Ensure that EC2 Instance IMDSv2 is required."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__metadataHttpTokens__c"
+        right:
+          TEXT: "optional"
+  - status: "COMPLIANT"
+    currentStateMessage: "EC2 Metadata Service only allows IMDSv2."
+    condition:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__metadataState__c"
+              right:
+                TEXT: "applied"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__metadataHttpTokens__c"
+              right:
+                TEXT: "required"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

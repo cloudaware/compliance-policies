@@ -1,0 +1,107 @@
+---
+inputObject: "CA10__CaAwsNetworkAcl__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This Network ACL allows ingress from 0.0.0.0/0 to remote server administration ports."
+    remediationMessage: "Consider changing the Network ACL source field to a range other than 0.0.0.0/0 or delete the offending inbound rule."
+    condition:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__networkAclEntities__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "This Network ACL doesn't allow ingress from 0.0.0.0/0."
+relatedLists: 
+  - relationshipName: "CA10__networkAclEntities__r"
+    importExtracts:
+    - file: "/types/CA10__CaAwsNetworkAclEntry__c/object.extracts.yaml"
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This is an egress NACL rule."
+        condition:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__egress__c"
+            right:
+              BOOLEAN: true
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This is not an allow NACL rule."
+        condition:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__ruleAction__c"
+            right:
+              TEXT: "allow"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This NACL rule does not allow unrestricted access."
+        condition:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__cidrBlock__c"
+            right:
+              TEXT: "0.0.0.0/0"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This NACL rule does not All, TCP, or UDP ports."
+        condition:
+# check that protocol is neither all, tcp, or udp
+          NOT:
+            arg:
+              OR:
+                args:
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__protocol__c"
+                      right:
+                        TEXT: "All"
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__protocol__c"
+                      right:
+                        TEXT: "tcp"
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__protocol__c"
+                      right:
+                        TEXT: "udp"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "This Network ACL allows ingress from 0.0.0.0/0."
+        remediationMessage: "Consider changing the source field to a range other than 0.0.0.0/0 or delete the offending inbound rule."
+        condition:
+# check that port range either includes port 22 or port 3389, or the range is empty (all ports)
+          OR:
+            args:
+              - AND:
+                  args:
+                    - LESS_THAN_EQUAL:
+                        left:
+                          EXTRACT: "CA10__portRangeFrom__c"
+                        right:
+                          NUMBER: 22.0
+                    - GREATER_THAN_EQUAL:
+                        left:
+                          EXTRACT: "CA10__portRangeTo__c"
+                        right:
+                          NUMBER: 22.0
+              - AND:
+                  args:
+                    - LESS_THAN_EQUAL:
+                        left:
+                          EXTRACT: "CA10__portRangeFrom__c"
+                        right:
+                          NUMBER: 3389.0
+                    - GREATER_THAN_EQUAL:
+                        left:
+                          EXTRACT: "CA10__portRangeTo__c"
+                        right:
+                          NUMBER: 3389.0
+              - IS_EMPTY:
+                  arg:
+                    EXTRACT: "CA10__portRangeFrom__c"
+              - IS_EMPTY:
+                  arg:
+                    EXTRACT: "CA10__portRangeTo__c"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This Network ACL doesn't allow ingress from 0.0.0.0/0."

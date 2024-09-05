@@ -1,0 +1,62 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-29T03:06:28Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2024-05-22T19:05:46Z",
+        "CA10__status__c": "ISSUED",
+        "CA10__domainName__c": "*.abc.example.com"
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "101",
+            "conditionText": "CA10__status__c.delegatedTo(CA10__status__c).isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-29T03:06:28Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "",
+        "CA10__domainName__c": "*.opd.example.com"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__status__c') != 'ISSUED' && extract('CA10__domainName__c').startsWithCaseSensitive('*')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-29T03:06:28Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "EXPIRED",
+        "CA10__domainName__c": "*.def.example.com"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-29T03:06:28Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ISSUED",
+        "CA10__domainName__c": "*.ghi.example.com"
+    }
+]

@@ -1,0 +1,39 @@
+# Description
+
+Public IP Addresses provide tenant accounts with Internet connectivity for resources contained within the tenant. During the creation of certain resources in Azure, a Public IP Address may be created. All Public IP Addresses within the tenant should be periodically reviewed for accuracy and necessity.
+
+## Rationale
+
+Public IP Addresses allocated to the tenant should be periodically reviewed for necessity. Public IP Addresses that are not intentionally assigned and controlled present a publicly facing vector for threat actors and significant risk to the tenant.
+
+## Audit
+
+### From Azure Portal
+
+1. Open the `All Resources` blade.
+2. Click on `Add Filter`.
+3. In the Add Filter window, select the following:
+    - Filter: `Type`.
+    - Operator: `Equals`.
+    - Value: `Public IP address`.
+4. Click the `Apply` button.
+5. For each Public IP address in the list, use Overview (or Properties) to review the `Associated to:` field and determine if the associated resource is still relevant to your tenant environment. If the associated resource is relevant, ensure that additional controls exist to mitigate risk (e.g. Firewalls, VPNs, Traffic Filtering, Virtual Gateway Appliances, Web Application Firewalls, etc.) on all subsequently attached resources.
+
+### From Azure CLI
+
+List all Public IP addresses
+
+```sh
+az network public-ip list
+```
+
+For each Public IP address in the output, review the `name` property and determine if the associated resource is still relevant to your tenant environment. If the associated resource is relevant, ensure that additional controls exist to mitigate risk (e.g. Firewalls, VPNs, Traffic Filtering, Virtual Gateway Appliances, Web Application Firewalls, etc.) on all subsequently attached resources.
+
+## Default Value
+
+During Virtual Machine and Application creation, a setting may create and attach a public IP.
+
+## References
+
+1. <https://docs.microsoft.com/en-us/cli/azure/network/public-ip?view=azure-cli-latest>
+2. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-network-security>

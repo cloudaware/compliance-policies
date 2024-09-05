@@ -1,0 +1,31 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$ref" : "#/definitions/Folder",
+  "definitions" : {
+    "Folder" : {
+      "type" : "object",
+      "properties" : {
+        "names" : {
+          "$ref" : "#/definitions/Names"
+        }
+      },
+      "required" : [ "names" ],
+      "additionalProperties" : false
+    },
+    "Names" : {
+      "type" : "object",
+      "properties" : {
+        "full" : {
+          "type" : "string",
+          "description" : "Name to be used when there is not context (path) available"
+        },
+        "contextual" : {
+          "type" : "string",
+          "description" : "Name to be used when there is a context (path) available. Should be short and take into account the folders higher in the hierarchy"
+        }
+      },
+      "required" : [ "full", "contextual" ],
+      "additionalProperties" : false
+    }
+  }
+}

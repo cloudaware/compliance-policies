@@ -1,0 +1,47 @@
+---
+extracts:
+# Values: Enabled, Disabled. Not Nullable. Can't have no access, retrieved via Microsoft.DBforPostgreSQL/servers/read
+  - name: "CA10Z1__sslEnforcement__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__sslEnforcement__c"
+        undeterminedIf:
+          isEmpty: "Corrupted Data. PostgreSQL Server SSL Enforcement cannot be empty."
+# Values: Enabled, Disabled. Not Nullable. Can't have no access, retrieved via Microsoft.DBforPostgreSQL/servers/read
+  - name: "CA10Z1__infrastructureEncryption__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__infrastructureEncryption__c"
+        undeterminedIf:
+          isEmpty: "Corrupted Data. PostgreSQL Server Infrastructure Encryption cannot be empty."
+# Not nullable
+  - name: "CA10Z1__configurations__c"
+    value:
+      FIELD:
+        path: "CA10Z1__configurations__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10Z1__configurations__c"
+            currentStateMessage: "Unable to determine Server Configurations. Possible permission issue with Microsoft.DBforPostgreSQL/servers/configurations/read"
+  - name: "caJsonFrom__configurations__c"
+    value: 
+      JSON_FROM:
+        arg: 
+          EXTRACT: "CA10Z1__configurations__c"
+        undeterminedIf:
+          isInvalid: "Configurations JSON is invalid."
+  - name: "CA10Z1__firewallRules__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__firewallRules__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10Z1__firewallRules__c"
+            currentStateMessage: "Unable to determine Firewall Rules. Possible permission issue with Microsoft.Sql/servers/firewallRules/read"
+  - name: "caJsonFrom__firewallRules__c"
+    value: 
+      JSON_FROM:
+        arg: 
+          EXTRACT: "CA10Z1__firewallRules__c"
+        undeterminedIf:
+          isInvalid: "Firewall Rules JSON is invalid."

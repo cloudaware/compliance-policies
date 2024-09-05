@@ -1,0 +1,17 @@
+---
+names:
+  full: Microsoft Entra ID User Consent For Applications is not set to Do Not Allow
+    User Consent
+  contextual: User Consent For Applications is not set to Do Not Allow User Consent
+description: Require administrators to provide consent for applications before use.
+impossible: true
+type: BEST_PRACTICE
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/10
+  - /frameworks/cloudaware/identity-and-access-management/user-management
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/users-can-consent-to-apps-accessing-company-data-on-their-behalf.html
+      name: Users Can Consent To Apps Accessing Company Data On Their Behalf

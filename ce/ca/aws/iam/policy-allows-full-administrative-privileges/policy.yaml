@@ -1,0 +1,22 @@
+---
+names:
+  full: AWS IAM Policy allows full administrative privileges
+  contextual: Policy allows full administrative privileges
+description: "IAM policies are the means by which privileges are granted to users,\
+  \ groups, or roles. It is recommended and considered a standard security advice\
+  \ to grant least privilege -that is, granting only the permissions required to perform\
+  \ a task. Determine what users need to do and then craft policies for them that\
+  \ let the users perform only those tasks, instead of allowing full administrative\
+  \ privileges."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/01/16
+  - /frameworks/cloudaware/identity-and-access-management/general-access-controls
+similarPolicies:
+  internal:
+    - dec-x-157aa4b9
+  cloudConformity:
+    - url: https://trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/IAM/policies-with-full-administrative-privileges.html
+      name: IAM Policies With Full Administrative Privileges

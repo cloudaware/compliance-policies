@@ -1,0 +1,19 @@
+---
+tags: 
+  - operation-returns-any
+  - operation-returns-text
+  - operation-returns-number
+  - operation-returns-boolean
+  - operation-returns-datetime
+  - operation-returns-collection
+  - operation-returns-json
+  - operation-returns-attributes
+  - operation-consumes-any
+  - operation-consumes-text
+  - operation-consumes-number
+  - operation-consumes-boolean
+  - operation-consumes-datetime
+  - operation-consumes-collection
+  - operation-consumes-json
+  - operation-consumes-attributes
+---

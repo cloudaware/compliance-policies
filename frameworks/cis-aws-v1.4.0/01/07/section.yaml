@@ -1,0 +1,9 @@
+---
+name: 1.7 Eliminate use of the 'root' user for administrative and daily tasks
+description: "With the creation of an AWS account, a 'root user' is created that cannot\
+  \ be disabled or deleted. That user has unrestricted access to and control over\
+  \ all resources in the AWS account. It is highly recommended that the use of this\
+  \ account be avoided for everyday tasks."
+similar:
+  internal:
+    - dec-c-ad513407

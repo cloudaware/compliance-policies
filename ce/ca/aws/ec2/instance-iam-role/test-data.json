@@ -1,0 +1,44 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-06-19T07:55:48Z"
+    },
+    "Id": "a01",
+    "CA10__disappearanceTime__c": "2024-06-18T13:02:29Z",
+    "CA10__iamInstanceProfileArn__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__iamInstanceProfileArn__c').isNotEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-06-19T07:55:48Z"
+    },
+    "Id": "a02",
+    "CA10__disappearanceTime__c": null,
+    "CA10__iamInstanceProfileArn__c": "arn:aws:iam::1234567890:instance-profile/ProfileArn"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-06-19T07:55:48Z"
+    },
+    "Id": "a03",
+    "CA10__disappearanceTime__c": null,
+    "CA10__iamInstanceProfileArn__c": ""
+  }
+]

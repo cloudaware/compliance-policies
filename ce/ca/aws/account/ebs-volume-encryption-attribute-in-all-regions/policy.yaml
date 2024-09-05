@@ -1,0 +1,19 @@
+---
+names:
+  full: AWS Account EBS Volume Encryption Attribute is not enabled in all regions
+  contextual: EBS Volume Encryption Attribute is not enabled in all regions
+description: "Elastic Compute Cloud (EC2) supports encryption at rest when using the\
+  \ Elastic Block Store (EBS) service. While disabled by default, forcing encryption\
+  \ at EBS volume creation is supported."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/02/02/01
+  - /frameworks/cloudaware/resource-security/data-encryption
+similarPolicies:
+  internal:
+    - dec-x-0bdcd276
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/EBS/configure-default-encryption.html
+      name: Enable Encryption by Default for EBS Volumes

@@ -1,0 +1,38 @@
+---
+inputObject: "CA10__CaAwsAccount__c"
+testData:
+  - file: test-data.json
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Account does not have a password policy that requires passwords\
+      \ of 14 characters long or longer."
+    remediationMessage: "Create or update password policy to require password of 14\
+      \ characters or longer."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__AWS_IAM_Password_Policies__r"
+        status: "INCOMPLIANT"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Account has password policy that requires passwords of 14\
+    \ characters or longer."
+relatedLists:
+  - relationshipName: "CA10__AWS_IAM_Password_Policies__r"
+    importExtracts:
+      - file: /types/CA10__CaAwsPasswordPolicy__c/object.extracts.yaml
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Password policy requires less than 14 characters long\
+          \ password."
+        remediationMessage: "Increase password length requirement to 14 characters\
+          \ or longer."
+        condition:
+          LESS_THAN:
+            left:
+              EXTRACT: "CA10__minimumPasswordLength__c"
+            right:
+              NUMBER: 14.0
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Password policy requires passwords 14 characters long\
+        \ or longer."

@@ -1,0 +1,8 @@
+---
+name: 6.1.2 Ensure that the 'local_infile' database flag for a Cloud SQL Mysql instance
+  is set to 'off'
+description: It is recommended to set the 'local_infile' database flag for a Cloud
+  SQL MySQL instance to 'off'.
+similar:
+  internal:
+    - dec-c-8038eb74

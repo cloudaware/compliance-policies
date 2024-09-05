@@ -1,0 +1,16 @@
+---
+names:
+  full: Azure Subscription Activity Log Alert for Delete Public IP Address Rule does
+    not exist
+  contextual: Activity Log Alert for Delete Public IP Address Rule does not exist
+description: Create an activity log alert for the Delete Public IP Address rule.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/05/02/10
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActivityLog/delete-public-ip-alert.html
+      name: Create Alert for 'Delete Public IP Address' Events

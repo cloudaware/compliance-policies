@@ -1,0 +1,16 @@
+---
+names:
+  full: Microsoft Entra ID Non-Privileged User Multi-Factor Auth Status is not enabled
+  contextual: Non-Privileged Users Multi-Factor Auth Status is not enabled
+description: Enable multi-factor authentication for all non-privileged users.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/01/03
+  - /frameworks/cloudaware/identity-and-access-management/mfa-implementation
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/multi-factor-authentication-for-all-non-privileged-users.html
+      name: Multi-factor Authentication For All Non-privileged Users

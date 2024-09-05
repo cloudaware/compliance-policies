@@ -1,0 +1,18 @@
+---
+names:
+  full: AWS RDS Snapshot is publicly accessible
+  contextual: Snapshot is publicly accessible
+description: Ensure that your AWS Relational Database Service (RDS) database snapshots
+  are not publicly accessible (i.e. shared with all AWS accounts and users) in order
+  to avoid exposing your private data.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-security/public-and-anonymous-access
+similarPolicies:
+  internal:
+    - dec-x-b3342905
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/RDS/public-snapshots.html
+      name: Amazon RDS Public Snapshots

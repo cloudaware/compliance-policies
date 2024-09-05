@@ -1,0 +1,52 @@
+---
+# This policy is based on ce:ca:aws:s3:bucket-access-logging
+# We're checking CA10__loggingDestinationBucketName__c field to ensure
+# that server access logging is enabled.
+# Also verifying that the destination bucket is not deleted or missing
+inputObject: "CA10__CaAwsBucket__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsBucket__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is a destination bucket."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__loggingBucket__r"
+        status: "COMPLIANT"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Server access logging is not enabled."
+    remediationMessage: "Consider enabling server access logging."
+    condition:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__loggingDestinationBucketName__c"
+# When source bucket is its own destination bucket,
+# then ARNs will be the same but CA10__loggingDestinationBucket__c will be empty
+  - status: "COMPLIANT"
+    currentStateMessage: "Server access logging is enabled. The bucket uses itself as the logging destination."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__arn__c"
+        right:
+          EXTRACT: "CA10__loggingDestinationBucketArn__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The destination bucket is missing."
+    remediationMessage: "Ensure that bucket access logging is referencing an active S3 bucket."
+    condition:
+      IS_EMPTY_LOOKUP: "CA10__loggingDestinationBucket__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "Server access logging is enabled."
+    condition:
+      NOT_EMPTY_LOOKUP: "CA10__loggingDestinationBucket__r"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."
+relatedLists:
+  - relationshipName: "CA10__loggingBucket__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "The is a source bucket."

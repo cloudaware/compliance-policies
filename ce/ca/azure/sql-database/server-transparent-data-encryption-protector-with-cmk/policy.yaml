@@ -1,0 +1,21 @@
+---
+names:
+  full: Azure SQL Server Transparent Data Encryption Protector is not encrypted with
+    Customer-managed key
+  contextual: Server Transparent Data Encryption Protector is not encrypted with Customer-managed
+    key
+description: "Transparent Data Encryption (TDE) with Customer-managed key support\
+  \ provides increased transparency and control over the TDE Protector, increased\
+  \ security with an HSM-backed external service, and promotion of separation of duties."
+type: BEST_PRACTICE
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/04/01/03
+  - /frameworks/cloudaware/resource-security/data-encryption
+similarPolicies:
+  internal:
+    - dec-x-230b5e35
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/Sql/use-byok-for-transparent-data-encryption.html
+      name: Use BYOK for Transparent Data Encryption

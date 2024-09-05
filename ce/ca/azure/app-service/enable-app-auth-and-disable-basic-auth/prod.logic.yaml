@@ -1,0 +1,80 @@
+---
+inputObject: "CA10__CaAzureAppService__c"
+importExtracts:
+  - file: "/types/CA10__CaAzureAppService__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "App Service Authentication is disabled and Basic Auth Publishing Credentials are enabled."
+    remediationMessage: "Consider enabling App Service Authentication and disabling Basic Auth Publishing Credentials."
+    condition:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__authStatus__c"
+              right:
+                TEXT: "Disabled"
+          - OR:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: "CA10__basicPublishingCredentialsFtpState__c"
+                    right:
+                      TEXT: "Enabled"
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: "CA10__basicPublishingCredentialsScmState__c"
+                    right:
+                      TEXT: "Enabled"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "App Service Authentication is disabled."
+    remediationMessage: "Consider enabling App Service Authentication."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__authStatus__c"
+        right:
+          TEXT: "Disabled"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Basic Auth Publishing Credentials are enabled."
+    remediationMessage: "Consider disabling Basic Auth Publishing Credentials."
+    condition:
+      OR:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__basicPublishingCredentialsFtpState__c"
+              right:
+                TEXT: "Enabled"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__basicPublishingCredentialsScmState__c"
+              right:
+                TEXT: "Enabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "App Service Authentication is enabled and Basic Auth Publishing Credentials are disabled."
+    condition:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__authStatus__c"
+              right:
+                TEXT: "Enabled"
+          - OR:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: "CA10__basicPublishingCredentialsFtpState__c"
+                    right:
+                      TEXT: "Disabled"
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: "CA10__basicPublishingCredentialsScmState__c"
+                    right:
+                      TEXT: "Disabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

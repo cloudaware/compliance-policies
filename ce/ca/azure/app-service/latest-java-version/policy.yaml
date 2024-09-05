@@ -1,0 +1,23 @@
+---
+names:
+  full: Azure App Service does not run the latest Java version
+  contextual: App Service does not run the latest Java version
+description: "Periodically, newer versions are released for Java software either due\
+  \ to security flaws or to include additional functionality. Using the latest Java\
+  \ version for web apps is recommended in order to take advantage of security fixes,\
+  \ if any, and/or new functionalities of the newer version."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+  - RELIABILITY
+  - PERFORMANCE
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/09/07
+  - /frameworks/cloudaware/resource-reliability/up-to-date-infrastructure
+similarPolicies:
+  internal:
+    - dec-x-879aa996
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/AppService/latest-version-of-java.html
+      name: Check for Latest Version of Java

@@ -1,0 +1,11 @@
+---
+name: 3.16 Ensure 'Cross Tenant Replication' is not enabled - Level 1 (Automated)
+description: "Cross Tenant Replication in Azure allows data to be replicated across\
+  \ multiple Azure tenants. While this feature can be beneficial for data sharing\
+  \ and availability, it also poses a significant security risk if not properly managed.\
+  \ Unauthorized data access, data leakage, and compliance violations are potential\
+  \ risks. Disabling Cross Tenant Replication ensures that data is not inadvertently\
+  \ replicated across different tenant boundaries without explicit authorization."
+similar:
+  internal:
+    - dec-c-38dc98ef

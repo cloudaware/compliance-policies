@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=../../schema/Extracts.schema.json
+---
+extracts:
+# Not Nullable. Can't have no Access, retrieved via iam:ListServerCertificates
+  - name: CA10__certificateName__c
+    value:
+      FIELD: 
+        path: CA10__certificateName__c
+        undeterminedIf: 
+          isEmpty: "Corrupted data. Certificate Name cannot be empty."
+# Not Nullable. Can't have no Access, retrieved via iam:ListServerCertificates
+  - name: CA10__expiration__c
+    value:
+      FIELD: 
+        path: CA10__expiration__c
+        undeterminedIf: 
+          isEmpty: "Corrupted data. Certificate Expiration Data cannot be empty."

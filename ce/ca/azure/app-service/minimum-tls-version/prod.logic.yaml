@@ -1,0 +1,36 @@
+---
+inputObject: "CA10__CaAzureAppService__c"
+importExtracts:
+  - file: "/types/CA10__CaAzureAppService__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "App Service Minimum TLS Version is 1.0."
+    remediationMessage: "Consider setting Minimum TLS Version to 1.2."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__configMinTlsVersion__c"
+        right:
+          TEXT: "1.0"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "App Service Minimum TLS Version is 1.1."
+    remediationMessage: "Consider setting Minimum TLS Version to 1.2."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__configMinTlsVersion__c"
+        right:
+          TEXT: "1.1"
+  - status: "COMPLIANT"
+    currentStateMessage: "App Service Minimum TLS Version is 1.2."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__configMinTlsVersion__c"
+        right:
+          TEXT: "1.2"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

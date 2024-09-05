@@ -1,0 +1,27 @@
+---
+inputObject: "CA10__CaAzureSqlServer__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureSqlServer__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "SQL Server auditing is disabled."
+    remediationMessage: "Consider enabling SQL Server auditing."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__auditing__c"
+        right:
+          TEXT: "Disabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "SQL Server auditing is enabled."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__auditing__c"
+        right:
+          TEXT: "Enabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

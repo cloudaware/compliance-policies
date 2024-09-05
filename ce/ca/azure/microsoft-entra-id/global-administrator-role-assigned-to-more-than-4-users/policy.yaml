@@ -1,0 +1,16 @@
+---
+names:
+  full: Microsoft Entra ID Global Administrator Role assigned to more than 4 users
+  contextual: Global Administrator Role assigned to more than 4 users
+description: "This recommendation aims to maintain a balance between security and\
+  \ operational efficiency by ensuring that a minimum of 2 and a maximum of 4 users\
+  \ are assigned the Global Administrator role in Microsoft Entra ID. Having at least\
+  \ two Global Administrators ensures redundancy, while limiting the number to four\
+  \ reduces the risk of excessive privileged access."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/25
+  - /frameworks/cloudaware/identity-and-access-management/role-management

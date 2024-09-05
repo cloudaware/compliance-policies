@@ -1,0 +1,19 @@
+---
+names:
+  full: Azure Storage Account Default Network Access Rule is not set to Deny
+  contextual: Default Network Access Rule is not set to Deny
+description: "Restricting default network access helps to provide a new layer of security,\
+  \ since storage accounts accept connections from clients on any network. To limit\
+  \ access to selected networks, the default action must be changed."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/03/08
+  - /frameworks/cloudaware/resource-security/public-and-anonymous-access
+similarPolicies:
+  internal:
+    - dec-x-d127f407
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/StorageAccounts/restrict-default-network-access.html
+      name: Restrict Default Network Access for Storage Accounts

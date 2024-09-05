@@ -1,0 +1,16 @@
+---
+extracts:
+  - name: CA10__minimumPasswordLength__c
+    # Should not be null if the policy itself exists? Needs additional research
+    #TODO: research if CA10__minimumPasswordLength__c can be null
+    value:
+      FIELD: 
+        path: CA10__minimumPasswordLength__c
+        undeterminedIf:
+          isEmpty: Possibly corrupted data. Minimum password length should not be empty
+  - name: CA10__passwordReusePrevention__c
+    value: 
+      FIELD:
+        path: CA10__passwordReusePrevention__c
+        undeterminedIf:
+          isEmpty:  Possibly corrupted data. Number of passwords to remember should not be empty

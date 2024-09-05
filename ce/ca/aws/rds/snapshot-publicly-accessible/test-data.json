@@ -1,0 +1,130 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-31T10:27:44Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2024-07-01T22:14:15Z",
+        "CA10__encrypted__c": false,
+        "CA10__snapshotType__c": "manual",
+        "CA10__attributes__c": ""
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__encrypted__c') == true",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-31T10:27:44Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__encrypted__c": true,
+        "CA10__snapshotType__c": "manual",
+        "CA10__attributes__c": "restore:"
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__snapshotType__c') == 'automated' || extract('CA10__snapshotType__c') == 'awsbackup'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-31T10:27:44Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__encrypted__c": false,
+        "CA10__snapshotType__c": "automated",
+        "CA10__attributes__c": "restore:"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__snapshotType__c') == 'public'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-31T10:27:44Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__encrypted__c": false,
+        "CA10__snapshotType__c": "public",
+        "CA10__attributes__c": "restore:"
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "401",
+            "conditionText": "CA10__attributes__c.delegatedTo(CA10__attributes__c).isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-31T10:27:44Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__encrypted__c": false,
+        "CA10__snapshotType__c": "manual",
+        "CA10__attributes__c": ""
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "extract('caExtract_attributes_restore_asAttribute__c') == 'all'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-31T10:27:44Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__encrypted__c": false,
+        "CA10__snapshotType__c": "manual",
+        "CA10__attributes__c": "restore: all"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "500",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-31T10:27:44Z"
+        },
+        "Id": "test7",
+        "CA10__disappearanceTime__c": null,
+        "CA10__encrypted__c": false,
+        "CA10__snapshotType__c": "manual",
+        "CA10__attributes__c": "restore:"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "500",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-31T10:27:44Z"
+        },
+        "Id": "test8",
+        "CA10__disappearanceTime__c": null,
+        "CA10__encrypted__c": false,
+        "CA10__snapshotType__c": "manual",
+        "CA10__attributes__c": "restore: 012345678910"
+    }
+]

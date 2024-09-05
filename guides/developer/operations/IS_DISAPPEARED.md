@@ -1,0 +1,4 @@
+---
+tags: 
+  - operation-returns-boolean
+---

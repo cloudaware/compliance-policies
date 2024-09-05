@@ -1,0 +1,26 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-06-04T19:44:50Z" },
+    "Id": "a61",
+    "CA10__disappearanceTime__c": null,
+    "CA10__encrypted__c": false
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__encrypted__c') == true",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-06-04T19:44:50Z" },
+    "Id": "a62",
+    "CA10__disappearanceTime__c": null,
+    "CA10__encrypted__c": true
+  }
+]

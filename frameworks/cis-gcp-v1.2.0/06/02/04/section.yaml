@@ -1,0 +1,8 @@
+---
+name: 6.2.4 Ensure that the 'log_disconnections' database flag for Cloud SQL PostgreSQL
+  instance is set to 'on' - Level 1 (Automated)
+description: "Enabling the `log_disconnections` setting logs the end of each session,\
+  \ including the session duration."
+similar:
+  internal:
+    - dec-c-c90a8993

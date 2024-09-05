@@ -1,0 +1,9 @@
+---
+name: 1.21 Ensure that IAM Access analyzer is enabled
+description: |-
+  Enable IAM Access analyzer for IAM policies about all resources.
+
+  IAM Access Analyzer is a technology introduced at AWS reinvent 2019. After the Analyzer is enabled in IAM, scan results are displayed on the console showing the accessible resources. Scans show resources that other accounts and federated users can access, such as KMS keys and IAM roles. So the results allow you to determine if an unintended user is allowed, making it easier for administrators to monitor least privileges access.
+similar:
+  internal:
+    - dec-c-37077d81

@@ -1,0 +1,21 @@
+---
+names:
+  full: Azure Storage Account Trusted Azure Services are not enabled as networking
+    exceptions
+  contextual: Trusted Azure Services are not enabled as networking exceptions
+description: "Some Azure services that interact with storage accounts operate from\
+  \ networks that can't be granted access through network rules. To help this type\
+  \ of service work as intended, allow the set of trusted Azure services to bypass\
+  \ the network rules."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/03/09
+  - /frameworks/cloudaware/resource-security/secure-access-controls
+similarPolicies:
+  internal:
+    - dec-x-3179d53c
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/StorageAccounts/enable-trusted-microsoft-services.html
+      name: Enable Trusted Microsoft Services for Storage Account Access

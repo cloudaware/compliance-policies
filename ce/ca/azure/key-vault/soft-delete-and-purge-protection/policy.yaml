@@ -1,0 +1,20 @@
+---
+names:
+  full: Azure Key Vault Soft Delete and Purge Protection functions are not enabled
+  contextual: Soft Delete and Purge Protection functions are not enabled
+description: "It is recommended the Key Vault be made recoverable by enabling the\
+  \ 'Do Not Purge' and 'Soft Delete' functions. This is in order to prevent loss of\
+  \ encrypted data,   including storage accounts, SQL databases, and/or dependent\
+  \ services provided by Key Vault objects (Keys, Secrets, Certificates) etc."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/08/05
+  - /frameworks/cloudaware/resource-security/data-protection-and-recovery
+similarPolicies:
+  internal:
+    - dec-x-0be4dfe5
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/KeyVault/enable-key-vault-recoverability.html
+      name: Enable Key Vault Recoverability

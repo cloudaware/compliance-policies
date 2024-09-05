@@ -1,0 +1,20 @@
+---
+names:
+  full: AWS RDS Instance Encryption is not enabled
+  contextual: Instance Encryption is not enabled
+description: "Amazon RDS encrypted DB instances use the industry standard AES-256\
+  \ encryption algorithm to encrypt your data on the server that hosts your Amazon\
+  \ RDS DB instances. After your data is encrypted, Amazon RDS handles authentication\
+  \ of access and decryption of your data transparently with a minimal impact on performance."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/02/03/01
+  - /frameworks/cloudaware/resource-security/data-encryption
+similarPolicies:
+  internal:
+    - dec-x-6ba5ecd2
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/RDS/rds-encryption-enabled.html
+      name: RDS Encryption Enabled

@@ -1,0 +1,9 @@
+---
+extracts:
+  - name: CA10__accountId__c
+    value: 
+      FIELD:
+        path: CA10__accountId__c
+        undeterminedIf:
+          isEmpty: "Account ID can not be empty. Possibly corrupted data."
+  

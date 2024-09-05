@@ -1,0 +1,22 @@
+---
+names:
+  full: AWS Account Root User is used for administrative and daily tasks
+  contextual: Account Root User is used for administrative and daily tasks
+description: "With the creation of an AWS account, a root user is created that cannot\
+  \ be disabled or deleted. That user has unrestricted access to and control over\
+  \ all resources in the AWS account. It is highly recommended that the use of this\
+  \ account be avoided for everyday tasks."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/01/07
+  - /frameworks/cis-aws-v1.5.0/01/07
+  - /frameworks/cloudaware/identity-and-access-management/user-management
+similarPolicies:
+  internal:
+    - dec-x-e58fd8e0
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/IAM/root-account-used-recently.html
+      name: Root Account Credentials Usage

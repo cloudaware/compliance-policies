@@ -1,0 +1,22 @@
+---
+names:
+  full: Azure SQL Database Transparent Data Encryption is not enabled
+  contextual: Database Transparent Data Encryption is not enabled
+description: "Azure SQL Database transparent data encryption helps protect against\
+  \ the threat of malicious activity by performing real-time encryption and decryption\
+  \ of the database, associated backups, and transaction log files at rest without\
+  \ requiring changes to the application."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/04/01/05
+  - /frameworks/cloudaware/resource-security/data-encryption
+frameworkIgnoreMappings:
+  - /frameworks/cis-azure-v2.1.0/04/01/04
+similarPolicies:
+  internal:
+    - dec-x-2fcb6d85
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/Sql/microsoft-entra-admin.html
+      name: Use Microsoft Entra Admin for SQL Authentication

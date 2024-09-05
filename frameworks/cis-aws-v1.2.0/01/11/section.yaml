@@ -1,0 +1,8 @@
+---
+name: 1.11 Ensure IAM password policy expires passwords within 90 days or less
+description: IAM password policies can require passwords to be rotated or expired
+  after a given number of days. It is recommended that the password policy expire
+  passwords after 90 days or less.
+similar:
+  internal:
+    - dec-c-67eb57b6

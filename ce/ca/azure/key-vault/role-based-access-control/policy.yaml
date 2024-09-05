@@ -1,0 +1,17 @@
+---
+names:
+  full: Azure Key Vault Role Based Access Control is not enabled
+  contextual: Role Based Access Control is not enabled
+description: "The new RBAC permissions model for Key Vaults enables a much finer grained\
+  \ access control for key vault secrets, keys, certificates, etc., than the   vault\
+  \ access policy. This in turn will permit the use of privileged identity management\
+  \ over these roles, thus securing the key vaults with JIT Access management."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/08/06
+  - /frameworks/cloudaware/resource-security/secure-access-controls
+similarPolicies:
+  internal:
+    - dec-x-c8041456

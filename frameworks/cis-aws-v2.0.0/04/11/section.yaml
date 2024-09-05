@@ -1,0 +1,12 @@
+---
+name: 4.11 Ensure Network Access Control Lists (NACL) changes are monitored - Level
+  2 (Manual)
+description: "Real-time monitoring of API calls can be achieved by directing CloudTrail\
+  \ Logs to CloudWatch Logs, or an external Security information and event management\
+  \ (SIEM) environment, and establishing corresponding metric filters and alarms.\
+  \ NACLs are used as a stateless packet filter to control ingress and egress traffic\
+  \ for subnets within a VPC. It is recommended that a metric filter and alarm be\
+  \ established for changes made to NACLs."
+similar:
+  internal:
+    - dec-c-8d77eaf1

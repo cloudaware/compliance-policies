@@ -1,0 +1,12 @@
+---
+tags: 
+  - operation-returns-any
+  - operation-returns-text
+  - operation-returns-number
+  - operation-returns-boolean
+  - operation-returns-datetime
+  - operation-returns-collection
+  - operation-returns-json
+  - operation-returns-attributes
+  - operation-consumes-extract
+---

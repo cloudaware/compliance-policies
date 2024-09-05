@@ -1,0 +1,10 @@
+---
+name: "9.11 Ensure Azure Keyvaults are used to store secrets - Level 2 (Manual | Not\
+  \ supported, requires a manual assessment)"
+description: "Encryption keys ,Certificate thumbprints and Managed Identity Credentials\
+  \ can be coded into the APP service, this renders them visible as part of the configuration,\
+  \ to maintain security of these keys it is better to store in an Azure Keyvault\
+  \ and reference them from the Keyvault."
+similar:
+  internal:
+    - dec-c-b6928f8d

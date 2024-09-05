@@ -1,0 +1,10 @@
+---
+name: 9.2 Ensure web app redirects all HTTP traffic to HTTPS in Azure App Service
+  - Level 1 (Automated)
+description: "Azure Web Apps allows sites to run under both HTTP and HTTPS by default.\
+  \ Web apps can be accessed by anyone using non-secure HTTP links by default. \n\
+  Non-secure HTTP requests can be restricted and all HTTP requests redirected to the\
+  \ secure HTTPS port. It is recommended to enforce HTTPS-only traffic."
+similar:
+  internal:
+    - dec-c-ce4b2319

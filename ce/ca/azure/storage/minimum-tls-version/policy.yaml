@@ -1,0 +1,19 @@
+---
+names:
+  full: Azure Storage Account Minimum TLS Version is not set to TLS 1.2 or higher
+  contextual: Minimum TLS Version is not set to TLS 1.2 or higher
+description: "In some cases, Azure Storage sets the minimum TLS version to be version\
+  \ 1.0 by default. TLS 1.0 is a legacy version and has known vulnerabilities. This\
+  \ minimum TLS version can be configured to be later protocols such as TLS 1.2."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/03/15
+  - /frameworks/cloudaware/resource-security/data-encryption
+similarPolicies:
+  internal:
+    - dec-x-b94bd368
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/StorageAccounts/minimum-tls-version.html
+      name: Configure Minimum TLS Version

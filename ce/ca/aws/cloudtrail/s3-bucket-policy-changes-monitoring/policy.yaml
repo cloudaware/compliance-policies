@@ -1,0 +1,22 @@
+---
+names:
+  full: AWS CloudTrail S3 Bucket Policy Changes Monitoring is not enabled
+  contextual: S3 Bucket Policy Changes Monitoring is not enabled
+description: "Real-time monitoring of API calls can be achieved by directing CloudTrail\
+  \ Logs   to CloudWatch Logs, or an external Security information and event management\
+  \ (SIEM) environment, and establishing corresponding metric filters and alarms.\
+  \ It is recommended that a metric filter and alarm be established for changes to\
+  \ S3 bucket policies."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/04/08
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management
+similarPolicies:
+  internal:
+    - dec-x-c4cc9ff5
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/CloudWatchLogs/s3-bucket-changes-alarm.html
+      name: S3 Bucket Changes Alarm

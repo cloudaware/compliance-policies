@@ -1,0 +1,11 @@
+---
+name: "1.16 Ensure that 'Users can create security groups in Azure portals, API or\
+  \ PowerShell' is set to 'No' - Level 2 (Manual | Not supported, no API/CLI available\
+  \ by Azure)"
+description: "Restrict security group creation to administrators only. Please note\
+  \ that according to the CIS Benchmark audit steps, at this point in time, there\
+  \ is no API/CLI mechanism available to programmatically conduct a security assessment\
+  \ for this recommendation."
+similar:
+  internal:
+    - dec-c-cdac2aed

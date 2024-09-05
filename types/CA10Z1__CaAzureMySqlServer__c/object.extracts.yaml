@@ -1,0 +1,16 @@
+---
+extracts:
+# Values: Enabled, Disabled. Not Nullable. Can't have no access, retrieved via Microsoft.DBforMySQL/servers/read
+  - name: "CA10Z1__sslEnforcement__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__sslEnforcement__c"
+        undeterminedIf:
+          isEmpty: "Corrupted Data. MySQL Server SSL Enforcement cannot be empty."
+# Values: TLS1_0, TLS1_1, TLS1_2, TLSEnforcementDisabled. Not Nullable. Can't have no access, retrieved via Microsoft.DBforMySQL/servers/read
+  - name: "CA10Z1__minimalTlsVersion__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__minimalTlsVersion__c"
+        undeterminedIf:
+          isEmpty: "Corrupted Data. MySQL Server Minimal TLS Version cannot be empty."

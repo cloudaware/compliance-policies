@@ -1,0 +1,51 @@
+---
+inputObject: "CA10__CaAzureStorageAccount__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Storage Logging for Queue Service is enabled."
+    condition:
+      AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10__queueLoggingReadState__c"
+                  right: 
+                    TEXT: "Enabled"
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10__queueLoggingWriteState__c"
+                  right: 
+                    TEXT: "Enabled"
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10__queueLoggingDeleteState__c"
+                  right: 
+                    TEXT: "Enabled"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Storage Logging for Queue Service is disabled."
+    remediationMessage: "Consider enabling Storage Logging for read, write, and delete requests."    
+    condition:
+      OR:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__queueLoggingReadState__c"
+              right: 
+                TEXT: "Disabled"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__queueLoggingWriteState__c"
+              right: 
+                TEXT: "Disabled"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__queueLoggingDeleteState__c"
+              right: 
+                TEXT: "Disabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

@@ -1,0 +1,14 @@
+---
+extracts:
+  - name: "InstanceName"
+    value: 
+      FIELD:
+        path: "Name"
+        undeterminedIf:
+          isEmpty:  "Name should not be empty"
+  - name: "CA10__labels__c"
+    value: 
+      FIELD:
+        path: "CA10__labels__c"
+        undeterminedIf:
+          isEmpty:  "Labels should not be empty"

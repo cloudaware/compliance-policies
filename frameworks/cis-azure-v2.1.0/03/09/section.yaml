@@ -1,0 +1,15 @@
+---
+name: 3.9 Ensure 'Allow Azure services on the trusted services list to access this
+  storage account' is Enabled for Storage Account Access - Level 2 (Automated)
+description: "Some Azure services that interact with storage accounts operate from\
+  \ networks that can't be granted access through network rules. To help this type\
+  \ of service work as intended, allow the set of trusted Azure services to bypass\
+  \ the network rules. These services will then use strong authentication to access\
+  \ the storage account. If the Allow trusted Azure services exception is enabled,\
+  \ the following services are granted access to the storage account: Azure Backup,\
+  \ Azure Site Recovery, Azure DevTest Labs, Azure Event Grid, Azure Event Hubs, Azure\
+  \ Networking, Azure Monitor, and Azure SQL Data Warehouse (when registered in the\
+  \ subscription)."
+similar:
+  internal:
+    - dec-c-acd21c17

@@ -1,0 +1,68 @@
+---
+inputObject: "CA10__CaAwsAccount__c"
+testData:
+ - file: test-data.json
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "The AWS Account has a Support role for managing incidents with AWS Support."
+    condition:
+      AND:
+        args:
+          - RELATED_LIST_HAS:
+              status: "COMPLIANT"
+              relationshipName: "CA10__AWS_IAM_Policies__r"
+          - RELATED_LIST_HAS:
+              status: "COMPLIANT"
+              relationshipName: "CA10__AWS_IAM_Role_Policy_Attachments__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "AWSSupportAccess IAM Policy for managing incidents with AWS Support does not exist."
+    remediationMessage: "Consider creating AWSSupportAccess IAM Policy."
+    condition:
+      RELATED_LIST_HAS:
+          status: "INCOMPLIANT"
+          relationshipName: "CA10__AWS_IAM_Policies__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "AWSSupportAccess IAM Policy is not attached to any IAM role."
+    remediationMessage: "Consider attaching AWSSupportAccess IAM Policy to an IAM Role dedicated to managing incidents with AWS Support."
+    condition:
+      RELATED_LIST_HAS:
+          status: "INCOMPLIANT"
+          relationshipName: "CA10__AWS_IAM_Role_Policy_Attachments__r"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "There are no active IAM Roles and IAM Policies."
+relatedLists:
+  - relationshipName: "CA10__AWS_IAM_Policies__r"
+    importExtracts:
+    - file: /types/CA10__CaAwsIamPolicy__c/object.extracts.yaml
+    conditions:
+    - status: "COMPLIANT"
+      currentStateMessage: "This is an AWSSupportAccess IAM Policy."
+      condition:
+        IS_EQUAL:
+          left: 
+            EXTRACT: "CA10__arn__c"
+          right: 
+            TEXT: arn:aws:iam::aws:policy/AWSSupportAccess
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "AWSSupportAccess IAM Policy is not found."
+  - relationshipName: "CA10__AWS_IAM_Role_Policy_Attachments__r"
+    importExtracts:
+      - file: /types/CA10__CaAwsIamRolePolicyAttachment__c/object.extracts.yaml
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "There is an AWS IAM Role attached to the AWSSupportAccess IAM Policy."
+        condition:
+         AND:
+           args:
+            - NOT_EMPTY_LOOKUP: "CA10__role__r"
+            - NOT_EMPTY_LOOKUP: "CA10__policy__r"
+            - IS_EQUAL:
+                left:
+                  EXTRACT: CA10__policyArn__c
+                right:
+                  TEXT: arn:aws:iam::aws:policy/AWSSupportAccess
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "There is no AWS IAM Role attached to AWSSupportAccess IAM Policy."

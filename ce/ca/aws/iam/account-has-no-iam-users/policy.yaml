@@ -1,0 +1,11 @@
+---
+#TODO: update description for IAM Roles
+names:
+  contextual: Account Has No IAM Users
+  full: AWS Account Has No IAM Users
+#TODO: update description for IAM Roles
+description: "Using individual IAM users (with specific set of permissions) to access \
+  your AWS cloud account eliminates the risk of compromising your root account credentials. \
+  To protect your AWS root account and follow IAM security best practices, it is recommended \
+  to create IAM users for everyday work with AWS services and resources in order to avoid \
+  using the root credentials."

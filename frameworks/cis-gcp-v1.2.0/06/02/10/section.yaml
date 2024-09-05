@@ -1,0 +1,11 @@
+---
+name: 6.2.10 Ensure 'log_planner_stats' database flag for Cloud SQL PostgreSQL instance
+  is set to 'off' - Level 2 (Automated)
+description: The same SQL query can be excuted in multiple ways and still produce
+  different results. The PostgreSQL planner/optimizer is responsible to create an
+  optimal execution plan for each query. The `log_planner_stats` flag controls the
+  inclusion of PostgreSQL planner performance statistics in the PostgreSQL logs for
+  each query. Will be supported in the near future.
+similar:
+  internal:
+    - dec-c-7fce66fc

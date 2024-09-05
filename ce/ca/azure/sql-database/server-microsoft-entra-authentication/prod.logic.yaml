@@ -1,0 +1,19 @@
+---
+inputObject: "CA10__CaAzureSqlServer__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureSqlServer__c/object.extracts.yaml"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Microsoft Entra administrator is configured for this SQL server."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__activeDirectoryAdminType__c"
+        right:
+          TEXT: "ActiveDirectory"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Microsoft Entra administrator is not configured for this SQL server."
+  remediationMessage: "Consider assigning an Administrator in Entra ID for authentication with SQL Server."

@@ -1,0 +1,18 @@
+---
+names:
+  full: Azure Subscription Security Alert Notifications to subscription owners are
+    not configured
+  contextual: Security Alert Notifications to subscription owners are not configured
+description: Enable security alert emails to subscription owners.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/02/01/17
+  - /frameworks/cloudaware/resource-security/microsoft-defender-configuration
+similarPolicies:
+  internal:
+    - dec-x-351e376f
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/SecurityCenter/email-to-subscription-owners.html
+      name: Email To Subscription Owners

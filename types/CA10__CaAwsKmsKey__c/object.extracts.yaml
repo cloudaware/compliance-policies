@@ -1,0 +1,32 @@
+---
+extracts:
+# Values: Creating, Enabled, Disabled, PendingDeletion, PendingImport, PendingReplicaDeletion, Unavailable, Updating. Not nullable.
+  - name: "CA10__state__c"
+    value: 
+      FIELD:
+        path: "CA10__state__c"
+        undeterminedIf:
+          noAccessDelegate: 
+            path: "CA10__state__c"
+            currentStateMessage: "Unable to determine Key state. Possible permission issue with kms:DescribeKey."
+          isEmpty: "KMS Key state is not populated yet."
+# Values: RSA_2048, RSA_3072, RSA_4096, ECC_NIST_P256, ECC_NIST_P384, ECC_NIST_P521, ECC_SECG_P256K1, SYMMETRIC_DEFAULT, HMAC_224, HMAC_256, HMAC_384, HMAC_512, SM2
+# Not nullable
+  - name: "CA10__keySpec__c"
+    value: 
+      FIELD:
+        path: "CA10__keySpec__c"
+        undeterminedIf:
+          noAccessDelegate: 
+            path: "CA10__keySpec__c"
+            currentStateMessage: "Unable to determine Key state. Possible permission issue with kms:DescribeKey."
+          isEmpty: "KMS Key state is not populated yet."
+# Checkbox.
+  - name: "CA10__rotationEnabled__c"
+    value: 
+      FIELD:
+        path: "CA10__rotationEnabled__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__rotationEnabled__c"
+            currentStateMessage: "Unable to determine Key Rotation status. Possible permission issue with kms:GetKeyRotationStatus."

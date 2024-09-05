@@ -1,0 +1,17 @@
+---
+names:
+  full: Azure Storage Account Public Network Access is not disabled
+  contextual: Public Network Access is not disabled
+description: Disallowing public network access for a storage account overrides the
+  public access settings for individual containers in that storage account for   Azure
+  Resource Manager Deployment Model storage accounts.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/03/07
+  - /frameworks/cloudaware/resource-security/public-and-anonymous-access
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/StorageAccounts/shared-access-signature-tokens-expire-within-an-hour.html
+      name: Expire Shared Access Signature Tokens

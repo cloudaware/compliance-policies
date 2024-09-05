@@ -1,0 +1,78 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test1",
+        "RecordTypeId": "recordType",
+        "CA10__disappearanceTime__c": "2024-06-07T14:13:24Z",
+        "CA10__publicNetworkAccessState__c": "",
+        "RecordType": {
+            "DeveloperName": "StorageAccount",
+            "Id": "test1_1"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "101",
+            "conditionText": "CA10__publicNetworkAccessState__c.isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test2",
+        "RecordTypeId": "recordType",
+        "CA10__disappearanceTime__c": null,
+        "CA10__publicNetworkAccessState__c": "",
+        "RecordType": {
+            "DeveloperName": "StorageAccount",
+            "Id": "test2_1"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__publicNetworkAccessState__c') == 'Enabled'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test3",
+        "RecordTypeId": "recordType",
+        "CA10__disappearanceTime__c": null,
+        "CA10__publicNetworkAccessState__c": "Enabled",
+        "RecordType": {
+            "DeveloperName": "StorageAccount",
+            "Id": "test3_1"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__publicNetworkAccessState__c') == 'Disabled'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test4",
+        "RecordTypeId": "recordType",
+        "CA10__disappearanceTime__c": null,
+        "CA10__publicNetworkAccessState__c": "Disabled",
+        "RecordType": {
+            "DeveloperName": "StorageAccount",
+            "Id": "test4_1"
+        }
+    }
+]

@@ -1,0 +1,19 @@
+---
+names:
+  full: Azure Subscription Log Analytics Agent is not auto provisioned
+  contextual: Log Analytics Agent is not auto provisioned
+description: Enable automatic provisioning of the monitoring agent to collect security
+  data.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/02/01/14
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration
+  - /frameworks/cloudaware/resource-security/microsoft-defender-configuration
+similarPolicies:
+  internal:
+    - dec-x-181422d8
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/SecurityCenter/automatic-provisioning-of-monitoring-agent.html
+      name: Enable Automatic Provisioning of the Monitoring Agent

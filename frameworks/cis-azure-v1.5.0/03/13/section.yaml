@@ -1,0 +1,14 @@
+---
+name: "3.13 Ensure Storage logging is Enabled for Blob Service for 'Read', 'Write',\
+  \ and 'Delete' requests - Level 2 (Automated)"
+description: "The Storage Blob service provides scalable, cost-efficient object storage\
+  \ in the cloud. Storage Logging happens server-side and allows details for both\
+  \ successful and failed requests to be recorded in the storage account. These logs\
+  \ allow users to see the details of read, write, and delete operations against the\
+  \ blobs. Storage Logging log entries contain the following information about individual\
+  \ requests: timing information such as start time, end-to-end latency, and server\
+  \ latency; authentication details; concurrency information; and the sizes of the\
+  \ request and response messages."
+similar:
+  internal:
+    - dec-c-aa60d23f

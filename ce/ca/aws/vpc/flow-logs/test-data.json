@@ -1,0 +1,50 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2024-05-22T17:29:41Z",
+        "CA10__AWS_VPC_Flow_Logs__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_VPC_Flow_Logs__r.hasNo(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_VPC_Flow_Logs__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10__AWS_VPC_Flow_Logs__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_VPC_Flow_Logs__r": [
+            {
+                "Id": "test3_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__vpc__c": "test3"
+            }
+        ]
+    }
+]

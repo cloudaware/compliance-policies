@@ -1,0 +1,19 @@
+---
+names:
+  full: Azure Subscription Microsoft Defender For IoT Hub is not set to On
+  contextual: Microsoft Defender For IoT Hub is not set to On
+description: Microsoft Defender for IoT acts as a central security hub for IoT devices
+  within your organization.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/02/02/01
+  - /frameworks/cloudaware/resource-security/microsoft-defender-configuration
+similarPolicies:
+  internal:
+    - dec-x-cff561fd
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/SecurityCenter/defender-endpoint-integration.html
+      name: Enable Defender for Endpoint Integration with Microsoft Defender for Cloud

@@ -1,0 +1,20 @@
+---
+extracts:
+  # AvailabilityZones.member.N
+  # One or more Availability Zones for the group.
+  # Type: Array of strings
+  # Length Constraints: Minimum length of 1. Maximum length of 255.
+  # Pattern: [\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*
+  # Required: Yes
+  - name: CA10__availabilityZones__c
+    value: 
+      FIELD:
+        path: CA10__availabilityZones__c
+        undeterminedIf:
+          isEmpty: Corrupted data. Availability zones should always present
+  - name: caExtract_availabilityZones_asCollection__c
+    value: 
+      COLLECTION_FROM:
+        separator: "\n"
+        arg:
+          EXTRACT: CA10__availabilityZones__c

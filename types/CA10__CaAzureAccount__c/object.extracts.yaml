@@ -1,0 +1,103 @@
+---
+extracts:
+# Not Nullable.
+  - name: "CA10__availableLocationNames__c"
+    value: 
+      FIELD:
+        path: "CA10__availableLocationNames__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__availableLocationNames__c"
+            currentStateMessage: "Unable to determine Subscription Available Locations. Possible permission issue withMicrosoft.Resources/subscriptions/locations/read"
+  - name: caExtract_availabilityZones_asCollection__c
+    value: 
+      COLLECTION_FROM:
+        separator: "\n"
+        arg:
+          EXTRACT: "CA10__availableLocationNames__c"
+  - name: "CA10__subscriptionId__c"
+    value: 
+      FIELD:
+        path: "CA10__subscriptionId__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Subscription ID cannot be empty."
+# Not Nullable
+  - name: "CA10__securityCenterAutoProvisioning__c"
+    value: 
+      FIELD:
+        path: "CA10__securityCenterAutoProvisioning__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__securityCenterAutoProvisioning__c"
+            currentStateMessage: "Unable to determine Auto Provisioning Settings. Possible permission issue with Microsoft.Security/autoProvisioningSettings" 
+# Not Nullable
+  - name: "CA10__securityCenterContacts__c"
+    value: 
+      FIELD:
+        path: "CA10__securityCenterContacts__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__securityCenterContacts__c"
+            currentStateMessage: "Unable to determine Security Contacts. Possible permission issue with Microsoft.Security/securityContacts" 
+  - name: "caJsonFrom__securityCenterContacts__c"
+    value: 
+      JSON_FROM:
+        arg: 
+          EXTRACT: "CA10__securityCenterContacts__c"
+        undeterminedIf:
+          isInvalid: "Security Center Contacts JSON is invalid."
+          isEmpty: "Unable to determine Security Contacts. Possible permission issue with Microsoft.Security/securityContacts"
+# Security Center: Contacts properties.notificationsByRole roles for the default contact
+# notificationsByRoleRoles is a string that contains roles separated by comma
+# Values: AccountAdmin, Contributor, Owner, ServiceAdmin.
+  - name: "caJsonQueryBoolean__securityCenterContacts_default_roles__c"
+    value: 
+      JSON_QUERY_TEXT:
+        arg: 
+          EXTRACT: "caJsonFrom__securityCenterContacts__c"
+        expression: "to_string([? name == 'default'].notificationsByRoleRoles | [0])"
+        undeterminedIf: 
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return text type."
+# Security Center: Contacts properties.notificationsByRole state for the default contact
+# Values: On, Off.
+  - name: "caJsonQueryText__securityCenterContacts_default_state__c"
+    value: 
+      JSON_QUERY_TEXT:
+        arg: 
+          EXTRACT: "caJsonFrom__securityCenterContacts__c"
+        expression: "[? name == 'default'].notificationsByRoleState | [0]"
+        undeterminedIf: 
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return text type."
+# Security Center: Contacts email for the default contact
+# email is a string that contains values separated by comma
+  - name: "caJsonQueryText__securityCenterContacts_default_email__c"
+    value: 
+      JSON_QUERY_TEXT:
+        arg: 
+          EXTRACT: "caJsonFrom__securityCenterContacts__c"
+        expression: "[? name == 'default' && email != ''].email | [0]"
+        undeterminedIf: 
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return text type."
+# Values: On, Off.
+  - name: "caJsonQueryText__securityCenterContacts_default_alert_notifications__c"
+    value: 
+      JSON_QUERY_TEXT:
+        arg: 
+          EXTRACT: "caJsonFrom__securityCenterContacts__c"
+        expression: "[? name == 'default'].alertNotifications | [0]"
+        undeterminedIf: 
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return text type."
+# Values: High, Medium, Low.
+  - name: "caJsonQueryText__securityCenterContacts_default_alert_notifications_severity__c"
+    value: 
+      JSON_QUERY_TEXT:
+        arg: 
+          EXTRACT: "caJsonFrom__securityCenterContacts__c"
+        expression: "[? name == 'default'].alertNotificationsMinimalSeverity | [0]"
+        undeterminedIf: 
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return text type."

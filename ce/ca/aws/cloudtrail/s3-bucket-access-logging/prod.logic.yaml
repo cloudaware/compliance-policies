@@ -1,0 +1,42 @@
+---
+inputObject: "CA10__CaAwsCloudTrailTrail__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsCloudTrailTrail__c/object.extracts.yaml"
+  - file: "/types/CA10__CaAwsBucket__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "AWS CloudTrail references a missing bucket."
+    remediationMessage: "Ensure that CloudTrail is referencing an active S3 bucket."
+    condition:
+      IS_EMPTY_LOOKUP: "CA10__bucket__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Server access logging is not enabled."
+    remediationMessage: "Consider enabling server access logging."
+    condition:
+        IS_EMPTY:
+          arg:
+            EXTRACT: "CA10__bucket__r.CA10__loggingDestinationBucketName__c"
+# When source bucket is its own destination bucket,
+# then ARNs will be the same but CA10__loggingDestinationBucket__c will be empty
+  - status: "COMPLIANT"
+    currentStateMessage: "Server access logging is enabled. The bucket uses itself as the logging destination."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__bucket__r.CA10__arn__c"
+        right:
+          EXTRACT: "CA10__bucket__r.CA10__loggingDestinationBucketArn__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The destination bucket is missing."
+    remediationMessage: "Ensure that bucket access logging is referencing an active S3 bucket."
+    condition:
+      IS_EMPTY_LOOKUP: "CA10__bucket__r.CA10__loggingDestinationBucket__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "Server access logging is enabled."
+    condition:
+      NOT_EMPTY_LOOKUP: "CA10__bucket__r.CA10__loggingDestinationBucket__r"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

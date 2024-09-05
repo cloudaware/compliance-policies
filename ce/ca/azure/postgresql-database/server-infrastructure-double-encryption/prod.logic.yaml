@@ -1,0 +1,27 @@
+---
+inputObject: "CA10Z1__CaAzurePostgreSqlServer__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10Z1__CaAzurePostgreSqlServer__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "PostgreSQL Server Infrastructure Encryption is disabled."
+    remediationMessage: "Consider enabling PostgreSQL Server Infrastructure Encryption."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__infrastructureEncryption__c"
+        right:
+          TEXT: "Disabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "PostgreSQL Server Infrastructure Encryption is enabled."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__infrastructureEncryption__c"
+        right:
+          TEXT: "Enabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

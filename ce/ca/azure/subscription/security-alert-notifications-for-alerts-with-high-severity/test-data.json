@@ -1,0 +1,106 @@
+[
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('caJsonQueryText__securityCenterContacts_default_alert_notifications__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-25T20:34:10Z"
+        },
+        "Id": "test1",
+        "CA10__securityCenterContacts__c": "[]"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('caJsonQueryText__securityCenterContacts_default_alert_notifications__c') != 'On'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-25T20:34:10Z"
+        },
+        "Id": "test2",
+        "CA10__securityCenterContacts__c": "[{\"name\":\"default\",\"email\":\"\",\"phone\":\"\",\"alertNotifications\":\"Off\",\"alertsToAdmins\":\"Off\",\"alertNotificationsMinimalSeverity\":\"High\",\"notificationsByRoleState\":\"Off\",\"notificationsByRoleRoles\":\"\"}]"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "extract('caJsonQueryText__securityCenterContacts_default_alert_notifications_severity__c') == 'High' && extract('caJsonQueryText__securityCenterContacts_default_alert_notifications__c') == 'On'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-25T20:34:10Z"
+        },
+        "Id": "test3",
+        "CA10__securityCenterContacts__c": "[{\"name\":\"default\",\"email\":\"\",\"phone\":\"\",\"alertNotifications\":\"On\",\"alertsToAdmins\":\"Off\",\"alertNotificationsMinimalSeverity\":\"High\",\"notificationsByRoleState\":\"On\",\"notificationsByRoleRoles\":\"Owner\"}]"
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "101",
+            "conditionText": "CA10__securityCenterContacts__c.delegatedTo(CA10__securityCenterContacts__c).isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test4",
+        "CA10__securityCenterContacts__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "103",
+            "conditionText": "extract('CA10__securityCenterContacts__c').asJson().isInvalid()",
+            "runtimeError": "Expected property name or '}' in JSON at position 1 (line 1 column 2)"
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test5",
+        "CA10__securityCenterContacts__c": "{"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('caJsonQueryText__securityCenterContacts_default_alert_notifications__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test6",
+        "CA10__securityCenterContacts__c": "[{\"name\":\"default\"}]"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('caJsonQueryText__securityCenterContacts_default_alert_notifications__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test7",
+        "CA10__securityCenterContacts__c": "[{\"name\":\"default\",\"alertNotifications\":\"\"}]"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('caJsonQueryText__securityCenterContacts_default_alert_notifications_severity__c') != 'High'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-25T20:34:10Z"
+        },
+        "Id": "test8",
+        "CA10__securityCenterContacts__c": "[{\"name\":\"default\",\"email\":\"\",\"phone\":\"\",\"alertNotifications\":\"On\",\"alertsToAdmins\":\"Off\",\"alertNotificationsMinimalSeverity\":\"Low\",\"notificationsByRoleState\":\"Off\",\"notificationsByRoleRoles\":\"\"}]"
+    }
+]

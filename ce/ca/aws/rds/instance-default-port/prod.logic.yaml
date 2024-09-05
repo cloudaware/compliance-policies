@@ -1,0 +1,168 @@
+---
+inputObject: "CA10__CaAwsDbInstance__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsDbInstance__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Default port 3306 used for MySQL-compatible database."
+    remediationMessage: "Change the port from 3306 to any other port number."
+    condition:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__endpointPort__c"
+              right: 
+                TEXT: "3306"
+          - OR:
+              args:
+                - IS_EQUAL:
+                    left: 
+                      EXTRACT: "CA10__engine__c"
+                    right:
+                      TEXT: "aurora"
+                - IS_EQUAL:
+                    left: 
+                      EXTRACT: "CA10__engine__c"
+                    right:
+                      TEXT: "aurora-mysql"
+                - IS_EQUAL:
+                    left: 
+                      EXTRACT: "CA10__engine__c"
+                    right:
+                      TEXT: "mariadb"
+                - IS_EQUAL:
+                    left: 
+                      EXTRACT: "CA10__engine__c"
+                    right:
+                      TEXT: "mysql"
+  - status: INCOMPLIANT
+    currentStateMessage: "Default port 1521 used for Oracle database."
+    remediationMessage: "Change the port from 1521 to any other port number."
+    condition:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__endpointPort__c"
+              right: 
+                TEXT: "1521"
+          - STARTS_WITH:
+              prefix: 
+                TEXT: "oracle-"
+              arg:
+                EXTRACT: "CA10__engine__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Default port 5432 used for PostgreSQL-compatible database."
+    remediationMessage: "Change the port from 5432 to any other port number."
+    condition:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__endpointPort__c"
+              right: 
+                TEXT: "5432"
+          - OR:
+              args:
+                - IS_EQUAL:
+                    left: 
+                      EXTRACT: "CA10__engine__c"
+                    right:
+                      TEXT: "aurora-postgresql"
+                - IS_EQUAL:
+                    left: 
+                      EXTRACT: "CA10__engine__c"
+                    right:
+                      TEXT: "postgres"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Default port 1433 used for MSSQL server."
+    remediationMessage: "Change the port from 1433 to any other port number."
+    condition:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__endpointPort__c"
+              right: 
+                TEXT: "1433"
+          - STARTS_WITH:
+              prefix: 
+                TEXT: "sqlserver-"
+              arg:
+                EXTRACT: "CA10__engine__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Default port 27017 used for DocumentDB."
+    remediationMessage: "Change the port from 27017 to any other port number."
+    condition:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__endpointPort__c"
+              right: 
+                TEXT: "27017"
+          - IS_EQUAL:
+              left: 
+                EXTRACT: "CA10__engine__c"
+              right:
+                TEXT: "docdb"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This Database Engine is not checked by the policy."
+    condition:
+      AND:
+        args:
+          - NOT_EQUAL:
+              left: 
+                EXTRACT: "CA10__engine__c"
+              right:
+                TEXT: "aurora"
+          - NOT_EQUAL:
+              left: 
+                EXTRACT: "CA10__engine__c"
+              right:
+                TEXT: "aurora-mysql"
+          - NOT_EQUAL:
+              left: 
+                EXTRACT: "CA10__engine__c"
+              right:
+                TEXT: "mariadb"
+          - NOT_EQUAL:
+              left: 
+                EXTRACT: "CA10__engine__c"
+              right:
+                TEXT: "mysql"
+          - NOT_EQUAL:
+              left: 
+                EXTRACT: "CA10__engine__c"
+              right:
+                TEXT: "docdb"
+          - NOT_EQUAL:
+              left: 
+                EXTRACT: "CA10__engine__c"
+              right:
+                TEXT: "aurora-postgresql"
+          - NOT_EQUAL:
+              left: 
+                EXTRACT: "CA10__engine__c"
+              right:
+                TEXT: "postgres"
+          - NOT:
+              arg:
+                STARTS_WITH:
+                  prefix: 
+                    TEXT: "oracle-"
+                  arg:
+                    EXTRACT: "CA10__engine__c"
+          - NOT:
+              arg:
+                STARTS_WITH:
+                  prefix: 
+                    TEXT: "sqlserver-"
+                  arg:
+                    EXTRACT: "CA10__engine__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Database uses non-default port for its engine."

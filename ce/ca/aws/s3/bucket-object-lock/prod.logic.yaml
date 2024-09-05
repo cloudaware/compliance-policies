@@ -1,0 +1,31 @@
+---
+# This policy is based on AWS Security Hub control [S3.15] S3 buckets should be configured to use Object Lock
+# https://docs.aws.amazon.com/securityhub/latest/userguide/s3-controls.html#s3-15
+# To determine if object lock is enabled we're checking CA10__objectLockEnabled__c field
+# Possible values: "yes", "no", empty which indicates permissions issue
+inputObject: "CA10__CaAwsBucket__c"
+importExtracts:
+  - file: /types/CA10__CaAwsBucket__c/object.extracts.yaml
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "S3 Object Lock is enabled"
+    remediationMessage: "Consider enabling Object Lock feature"
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__objectLockEnabled__c"
+        right:
+          TEXT: "no"
+  - status: "COMPLIANT"
+    currentStateMessage: "S3 Object Lock is enabled"
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__objectLockEnabled__c"
+        right:
+          TEXT: "yes"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field"

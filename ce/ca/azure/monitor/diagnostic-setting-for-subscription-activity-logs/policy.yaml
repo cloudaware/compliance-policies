@@ -1,0 +1,14 @@
+---
+names:
+  full: Azure Diagnostic Setting exists for Subscription Activity Logs
+  contextual: Diagnostic Setting exists for Subscription Activity Logs
+description: Enable Diagnostic settings for exporting activity logs. Diagnostic settings
+  are available for each individual resource within a subscription. Settings should
+  be configured for all appropriate resources for your environment.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/05/01/01
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration

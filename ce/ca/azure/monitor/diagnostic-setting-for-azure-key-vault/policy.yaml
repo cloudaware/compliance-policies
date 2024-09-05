@@ -1,0 +1,18 @@
+---
+names:
+  full: Azure Diagnostic Setting for Azure Key Vault is not enabled
+  contextual: Diagnostic Setting for Azure Key Vault is not enabled
+description: Enable AuditEvent logging for key vault instances to ensure interactions
+  with key vaults are logged and available.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/05/01/04
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration
+similarPolicies:
+  internal:
+    - dec-x-b2ce0ca1
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/KeyVault/enable-audit-event-logging-for-azure-key-vaults.html
+      name: Enable AuditEvent Logging for Azure Key Vaults

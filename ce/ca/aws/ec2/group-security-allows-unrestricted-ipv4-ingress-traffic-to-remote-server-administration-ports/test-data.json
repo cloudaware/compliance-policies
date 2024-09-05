@@ -1,0 +1,255 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2024-05-22T14:54:33Z",
+        "CA10__AWS_EC2_Security_Group_Rules__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_EC2_Security_Group_Rules__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_EC2_Security_Group_Rules__r": [
+            {
+                "Id": "test2_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__direction__c": "Inbound",
+                "CA10__sourceIpRange__c": "0.0.0.0/0",
+                "CA10__protocol__c": "All",
+                "CA10__fromPort__c": null,
+                "CA10__toPort__c": null,
+                "CA10__securityGroup__c": "test2"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_EC2_Security_Group_Rules__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_EC2_Security_Group_Rules__r": [
+            {
+                "Id": "test3_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__direction__c": "Inbound",
+                "CA10__sourceIpRange__c": "0.0.0.0/0",
+                "CA10__protocol__c": "tcp",
+                "CA10__fromPort__c": null,
+                "CA10__toPort__c": null,
+                "CA10__securityGroup__c": "test3"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_EC2_Security_Group_Rules__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_EC2_Security_Group_Rules__r": [
+            {
+                "Id": "test4_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__direction__c": "Inbound",
+                "CA10__sourceIpRange__c": "0.0.0.0/0",
+                "CA10__protocol__c": "udp",
+                "CA10__fromPort__c": null,
+                "CA10__toPort__c": null,
+                "CA10__securityGroup__c": "test4"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_EC2_Security_Group_Rules__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_EC2_Security_Group_Rules__r": [
+            {
+                "Id": "test5_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__direction__c": "Inbound",
+                "CA10__sourceIpRange__c": "0.0.0.0/0",
+                "CA10__protocol__c": "All",
+                "CA10__fromPort__c": 21.0,
+                "CA10__toPort__c": 23.0,
+                "CA10__securityGroup__c": "test5"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_EC2_Security_Group_Rules__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_EC2_Security_Group_Rules__r": [
+            {
+                "Id": "test6_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__direction__c": "Inbound",
+                "CA10__sourceIpRange__c": "0.0.0.0/0",
+                "CA10__protocol__c": "All",
+                "CA10__fromPort__c": 3388.0,
+                "CA10__toPort__c": 3390.0,
+                "CA10__securityGroup__c": "test6"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test7",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_EC2_Security_Group_Rules__r": [
+            {
+                "Id": "test7_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__direction__c": "Outbound",
+                "CA10__sourceIpRange__c": "0.0.0.0/0",
+                "CA10__protocol__c": "All",
+                "CA10__fromPort__c": null,
+                "CA10__toPort__c": null,
+                "CA10__securityGroup__c": "test7"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test8",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_EC2_Security_Group_Rules__r": [
+            {
+                "Id": "test8_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__direction__c": "Inbound",
+                "CA10__sourceIpRange__c": "1.1.1.1/32",
+                "CA10__protocol__c": "All",
+                "CA10__fromPort__c": null,
+                "CA10__toPort__c": null,
+                "CA10__securityGroup__c": "test8"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test9",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_EC2_Security_Group_Rules__r": [
+            {
+                "Id": "test9_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__direction__c": "Inbound",
+                "CA10__sourceIpRange__c": "0.0.0.0/0",
+                "CA10__protocol__c": "icmp",
+                "CA10__fromPort__c": null,
+                "CA10__toPort__c": null,
+                "CA10__securityGroup__c": "test9"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test10",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_EC2_Security_Group_Rules__r": [
+            {
+                "Id": "test10_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__direction__c": "Inbound",
+                "CA10__sourceIpRange__c": "0.0.0.0/0",
+                "CA10__protocol__c": "All",
+                "CA10__fromPort__c": 1110.0,
+                "CA10__toPort__c": 1112.0,
+                "CA10__securityGroup__c": "test10"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test11",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_EC2_Security_Group_Rules__r": []
+    }
+]

@@ -1,0 +1,122 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-31T10:27:44Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2024-07-08T03:28:06Z",
+        "CA10__endpointPort__c": "3306",
+        "CA10__engine__c": "mysql"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__endpointPort__c') == '3306' && (extract('CA10__engine__c') == 'aurora' || extract('CA10__engine__c') == 'aurora-mysql' || extract('CA10__engine__c') == 'mariadb' || extract('CA10__engine__c') == 'mysql')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-31T10:27:44Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__endpointPort__c": "3306",
+        "CA10__engine__c": "mysql"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__endpointPort__c') == '1521' && extract('CA10__engine__c').startsWithCaseSensitive('oracle-')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-31T10:27:44Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__endpointPort__c": "1521",
+        "CA10__engine__c": "oracle-se2"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__endpointPort__c') == '5432' && (extract('CA10__engine__c') == 'aurora-postgresql' || extract('CA10__engine__c') == 'postgres')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-31T10:27:44Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__endpointPort__c": "5432",
+        "CA10__engine__c": "postgres"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "extract('CA10__endpointPort__c') == '1433' && extract('CA10__engine__c').startsWithCaseSensitive('sqlserver-')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-31T10:27:44Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__endpointPort__c": "1433",
+        "CA10__engine__c": "sqlserver-se"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "599",
+            "conditionText": "extract('CA10__endpointPort__c') == '27017' && extract('CA10__engine__c') == 'docdb'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-31T10:27:44Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__endpointPort__c": "27017",
+        "CA10__engine__c": "docdb"
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "699",
+            "conditionText": "extract('CA10__engine__c') != 'aurora' && extract('CA10__engine__c') != 'aurora-mysql' && extract('CA10__engine__c') != 'mariadb' && extract('CA10__engine__c') != 'mysql' && extract('CA10__engine__c') != 'docdb' && extract('CA10__engine__c') != 'aurora-postgresql' && extract('CA10__engine__c') != 'postgres' && !extract('CA10__engine__c').startsWithCaseSensitive('oracle-') && !extract('CA10__engine__c').startsWithCaseSensitive('sqlserver-')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-31T10:27:44Z"
+        },
+        "Id": "test7",
+        "CA10__disappearanceTime__c": null,
+        "CA10__endpointPort__c": "27017",
+        "CA10__engine__c": "newEngine"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "700",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-31T10:27:44Z"
+        },
+        "Id": "test8",
+        "CA10__disappearanceTime__c": null,
+        "CA10__endpointPort__c": "1000",
+        "CA10__engine__c": "mysql"
+    }
+]

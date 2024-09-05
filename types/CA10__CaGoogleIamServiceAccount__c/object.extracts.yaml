@@ -1,0 +1,21 @@
+---
+extracts:
+  - name: "CA10__serviceAccountEmail__c"
+    value: 
+       FIELD:
+         path: "CA10__serviceAccountEmail__c"
+         undeterminedIf:
+          isEmpty: "Corrupted data. Service Account Email cannot be empty."
+  - name: "Name"
+    value: 
+      FIELD:
+        path: "Name"
+        undeterminedIf:
+         isEmpty: "Corrupted data. Service Account Name cannot be empty."
+  - name: "serviceAccountProjectId"
+    value: 
+      FIELD:
+        path: "CA10__googleProject__r.CA10__projectId__c"
+        undeterminedIf:
+          isEmpty: "Master detail Id cannot be empty."
+

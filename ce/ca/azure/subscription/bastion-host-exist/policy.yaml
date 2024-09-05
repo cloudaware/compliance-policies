@@ -1,0 +1,19 @@
+---
+names:
+  full: Azure Subscription Bastion Host does not exist
+  contextual: Bastion Host does not exist
+description: "The Azure Bastion service allows secure remote access to Azure Virtual\
+  \ Machines over the Internet without exposing remote access   protocol ports and\
+  \ services directly to the Internet. The Azure Bastion service provides this access\
+  \ using TLS over 443/TCP, and subscribes to hardened configurations within an organization's\
+  \ Azure Active Directory service."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/07/01
+  - /frameworks/cloudaware/resource-security/secure-access-controls
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/Network/bastion-host-exists.html
+      name: Bastion Host in Use

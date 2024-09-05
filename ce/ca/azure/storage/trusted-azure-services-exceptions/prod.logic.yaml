@@ -1,0 +1,21 @@
+---
+inputObject: "CA10__CaAzureStorageAccount__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Allow trusted Azure services exception is not enabled."
+    remediationMessage: "Consider enabling Trusted Azure Services."
+    condition:
+      NOT:
+        arg:
+          CONTAINS_IGNORE_CASE: 
+            arg:
+              EXTRACT: "CA10__networkAclsBypass__c"
+            substring:
+              TEXT: "azureservices"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Trusted Azure Services exception is enabled."

@@ -1,0 +1,16 @@
+---
+names:
+  full: Azure Subscription Custom Subscription Administrator Roles exist
+  contextual: Custom Subscription Administrator Roles exist
+description: The principle of least privilege should be followed and only necessary
+  privileges should be assigned instead of allowing full administrative access.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/22
+  - /frameworks/cloudaware/identity-and-access-management/role-management
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/AccessControl/no-custom-subscription-admin.html
+      name: Subscription Administrator Custom Role

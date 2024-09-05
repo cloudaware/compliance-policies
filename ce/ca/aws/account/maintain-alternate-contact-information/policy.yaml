@@ -1,0 +1,16 @@
+---
+names:
+  full: AWS Account Alternate Contact Information is not current
+  contextual: Alternate Contact Information is not current
+description: AWS provides customers with the option of specifying the contact information
+  for account's security team. It is recommended that this information be provided.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/01/02
+  - /frameworks/cloudaware/resource-reliability/up-to-date-infrastructure
+similarPolicies:
+  internal:
+    - dec-x-a7b7e35e

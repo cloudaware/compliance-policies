@@ -1,0 +1,17 @@
+---
+extracts:
+# Values: TrustedLaunch, ConfidentialVM. Nullable. Retrieved via Microsoft.Compute/virtualMachines
+  - name: "CA10__securityProfileSecurityType__c"
+    value: 
+      FIELD:
+        path: "CA10__securityProfileSecurityType__c"
+# Values: Enabled, Disabled. Nullable. Retrieved via Microsoft.Compute/virtualMachines
+  - name: "CA10__uefiSettingsVTpm__c"
+    value: 
+      FIELD:
+        path: "CA10__uefiSettingsVTpm__c"
+# Values: Enabled, Disabled. Nullable. Retrieved via Microsoft.Compute/virtualMachines
+  - name: "CA10__uefiSettingsSecureBoot__c"
+    value: 
+      FIELD:
+        path: "CA10__uefiSettingsSecureBoot__c"              

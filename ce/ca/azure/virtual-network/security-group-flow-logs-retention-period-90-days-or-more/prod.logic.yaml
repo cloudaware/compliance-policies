@@ -1,0 +1,37 @@
+---
+inputObject: "CA10__CaAzureNetworkSecurityGroup__c"
+importExtracts:
+  - file: /types/CA10__CaAzureNetworkSecurityGroup__c/object.extracts.yaml
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Network Security Group Flow Logs are disabled."
+    remediationMessage: "Consider enabling Network Security Group Flow Logs."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__flowLogsEnabled__c"
+        right:
+          BOOLEAN: false
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Network Security Group Flow Logs retention policy is disabled."
+    remediationMessage: "Consider enabling retention policy for Network Security Group Flow Logs."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__flowLogsRetentionPolicyEnabled__c"
+        right:
+          BOOLEAN: false
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Network Security Group Flow Logs retention period is less than 90 days."
+    remediationMessage: "Consider setting the retention period to 'greater then or equal to 90 days'."
+    condition:
+      LESS_THAN:
+        left:
+          EXTRACT: "CA10__flowLogsRetentionPolicyDays__c"
+        right:
+          NUMBER: 90.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Network Security Group Flow Logs are enabled and the retention period is set to 'greater than or equal to 90 days'."

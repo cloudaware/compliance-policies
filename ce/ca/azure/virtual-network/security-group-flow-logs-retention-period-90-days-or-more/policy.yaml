@@ -1,0 +1,19 @@
+---
+names:
+  full: Azure Network Security Group Flow Logs retention period is less than 90 days
+  contextual: Security Group Flow Logs retention period is less than 90 days
+description: Flow logs enable capturing information about IP traffic flowing in and
+  out of network security groups. Logs can be used to check for anomalies and give
+  insight into suspected breaches.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/06/05
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration
+similarPolicies:
+  internal:
+    - dec-x-e5c05d3e
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/Network/sufficient-nsg-flow-log-retention-period.html
+      name: Check for NSG Flow Log Retention Period

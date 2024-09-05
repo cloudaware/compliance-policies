@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS S3 Bucket sensitive data is not discovered, classified, and secured"
+  contextual: "Bucket sensitive data is not discovered, classified, and secured"
+description: "Amazon S3 buckets can contain sensitive data, that for security purposes\
+  \ should be discovered, monitored, classified and protected. Macie along with other\
+  \ 3rd party tools can automatically provide an inventory of Amazon S3 buckets."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/02/01/03
+  - /frameworks/cloudaware/resource-security/data-protection-and-recovery
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/Macie/macie-in-use.html
+      name: Amazon Macie In Use

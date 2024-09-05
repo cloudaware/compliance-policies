@@ -1,0 +1,58 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10Z1__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test1",
+        "CA10Z1__disappearanceTime__c": "2024-06-13T04:17:29Z",
+        "CA10Z1__sslEnforcement__c": "Enabled"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10Z1__sslEnforcement__c') == 'Disabled'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test2",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__sslEnforcement__c": "Disabled"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10Z1__sslEnforcement__c') == 'Enabled'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test3",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__sslEnforcement__c": "Enabled"
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "101",
+            "conditionText": "CA10Z1__sslEnforcement__c.isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test4",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__sslEnforcement__c": ""
+    }
+]

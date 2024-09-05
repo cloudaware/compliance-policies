@@ -1,0 +1,14 @@
+---
+names:
+  full: Azure Cosmos DB Account Private Endpoints are not used
+  contextual: Private Endpoints are not used
+description: Private endpoints limit network traffic to approved sources.
+type: BEST_PRACTICE
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/04/05/02
+  - /frameworks/cloudaware/resource-security/secure-access-controls
+similarPolicies:
+  internal:
+    - dec-x-b4d3d9dc

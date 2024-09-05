@@ -1,0 +1,12 @@
+---
+name: 1.13 Ensure API Keys Are Restricted To Use by Only Specified Hosts and Apps
+  - Level 2 (Manual)
+description: "API Keys should only be used for services in cases where other authentication\
+  \ methods are unavailable. In this case, unrestricted keys are insecure because\
+  \ they can be viewed publicly, such as from within a browser, or they can be accessed\
+  \ on a device where the key resides. It is recommended to restrict API key usage\
+  \ to trusted hosts, HTTP referrers and apps. It is recommended to use the more secure\
+  \ standard authentication flow instead."
+similar:
+  internal:
+    - dec-c-231f1cb0

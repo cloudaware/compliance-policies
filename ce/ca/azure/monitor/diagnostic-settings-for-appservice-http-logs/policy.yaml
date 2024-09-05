@@ -1,0 +1,14 @@
+---
+names:
+  full: Azure Diagnostic Setting for Azure AppService HTTP logs is not enabled
+  contextual: Diagnostic Setting for Azure AppService HTTP logs is not enabled
+description: Enable AppServiceHTTPLogs diagnostic log category for Azure App Service
+  instances to ensure all http requests are captured and centrally logged.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/05/01/06
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration

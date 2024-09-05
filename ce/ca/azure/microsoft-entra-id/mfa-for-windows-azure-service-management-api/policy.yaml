@@ -1,0 +1,15 @@
+---
+names:
+  full: Microsoft Entra ID MFA For Windows Azure Service Management API is not required
+  contextual: MFA For Windows Azure Service Management API is not required
+description: "This recommendation ensures that users accessing the Windows Azure Service\
+  \ Management API (i.e. Azure Powershell, Azure CLI, Azure Resource Manager API,\
+  \ etc.) are required to use multifactor authentication (MFA) credentials when accessing\
+  \ resources through the Windows Azure Service Management API."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/02/06
+  - /frameworks/cloudaware/identity-and-access-management/mfa-implementation

@@ -1,0 +1,12 @@
+---
+extracts:
+  - name: "CA10__projectId__c"
+    value: 
+       FIELD:
+         path: "CA10__projectId__c"
+         undeterminedIf:
+          isEmpty: "Corrupted data. Project ID cannot be empty."
+  - name: "CA10__enabledServices__c"
+    value: 
+      FIELD:
+        path: "CA10__enabledServices__c"

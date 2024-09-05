@@ -1,0 +1,80 @@
+[
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "101",
+            "conditionText": "CA10__securityCenterAutoProvisioning__c.delegatedTo(CA10__securityCenterAutoProvisioning__c).isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-10T11:18:59Z"
+        },
+        "Id": "test1",
+        "CA10__securityCenterAutoProvisioning__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "103",
+            "conditionText": "extract('CA10__securityCenterAutoProvisioning__c').asJson().isInvalid()",
+            "runtimeError": "Expected property name or '}' in JSON at position 1 (line 1 column 2)"
+        },
+        "context": {
+            "snapshotTime": "2024-06-10T11:18:59Z"
+        },
+        "Id": "test2",
+        "CA10__securityCenterAutoProvisioning__c": "{"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__securityCenterAutoProvisioning__c').asJson().jsonQueryText('length([? name == \\'default\\' && autoProvision == \\'Off\\'])') > 0.0",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-10T11:18:59Z"
+        },
+        "Id": "test3",
+        "CA10__securityCenterAutoProvisioning__c": "[{\"name\":\"default\",\"autoProvision\":\"Off\"}, {\"name\":\"notDefault\",\"autoProvision\":\"On\"}]"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__securityCenterAutoProvisioning__c').asJson().jsonQueryText('length([? name == \\'default\\' && autoProvision == \\'On\\'])') > 0.0",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-10T11:18:59Z"
+        },
+        "Id": "test4",
+        "CA10__securityCenterAutoProvisioning__c": "[{\"name\":\"default\",\"autoProvision\":\"On\"}]"
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "105",
+            "conditionText": "extract('CA10__securityCenterAutoProvisioning__c').asJson().jsonQueryText('length([? name == \\'default\\' && autoProvision == \\'Off\\'])').isEvaluationFailed()",
+            "runtimeError": "TypeError: length() expected argument 1 to be type 2,3,4 but received type 7 instead."
+        },
+        "context": {
+            "snapshotTime": "2024-06-10T11:18:59Z"
+        },
+        "Id": "test5",
+        "CA10__securityCenterAutoProvisioning__c": "{}"
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "300",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-10T11:18:59Z"
+        },
+        "Id": "test6",
+        "CA10__securityCenterAutoProvisioning__c": "[]"
+    }
+]

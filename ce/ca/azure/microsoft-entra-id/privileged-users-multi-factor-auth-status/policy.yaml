@@ -1,0 +1,19 @@
+---
+names:
+  full: Microsoft Entra ID Privileged User Multi-Factor Auth Status is not enabled
+  contextual: Privileged Users Multi-Factor Auth Status is not enabled
+description: "Enable multi-factor authentication for all roles, groups, and users\
+  \ that have write access or permissions to Azure resources. These include custom\
+  \ created objects or built-in roles such as: Service Co-Administrators, Subscription\
+  \ Owners Contributors"
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/01/02
+  - /frameworks/cloudaware/identity-and-access-management/mfa-implementation
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/multi-factor-authentication-for-all-privileged-users.html
+      name: Multi-factor Authentication For All Privileged Users

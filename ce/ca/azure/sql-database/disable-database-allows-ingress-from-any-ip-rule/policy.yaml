@@ -1,0 +1,17 @@
+---
+names:
+  full: Azure SQL Database allows ingress from 0.0.0.0/0 (ANY IP)
+  contextual: Database allows ingress from 0.0.0.0/0 (ANY IP)
+description: Ensure that no SQL Databases allow ingress from 0.0.0.0/0 (ANY IP).
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/04/01/02
+  - /frameworks/cloudaware/resource-security/public-and-anonymous-access
+similarPolicies:
+  internal:
+    - dec-x-0289e9c9
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/Sql/unrestricted-sql-database-access.html
+      name: Check for Unrestricted SQL Database Access

@@ -1,0 +1,25 @@
+---
+names:
+  full: Azure Subscription Activity Log Alert for Create or Update Security Solution
+    does not exist
+  contextual: Activity Log Alert for Create or Update Security Solution does not exist
+description: Create an activity log alert for the Create or Update Security Solution
+  event.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/05/02/05
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management
+frameworkIgnoreMappings:
+  - /frameworks/cis-azure-v1.3.0/05/02/04
+  - /frameworks/cis-azure-v1.4.0/05/02/04
+  - /frameworks/cis-azure-v1.5.0/05/02/04
+  - /frameworks/cis-azure-v2.0.0/05/02/04
+  - /frameworks/cis-azure-v2.1.0/05/02/04
+similarPolicies:
+  internal:
+    - dec-x-c397d3ca
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActivityLog/delete-network-security-group-alert-in-use.html
+      name: Create Alert for 'Delete Network Security Group' Events

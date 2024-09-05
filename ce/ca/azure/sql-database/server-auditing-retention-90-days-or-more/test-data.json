@@ -1,0 +1,92 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2024-06-07T13:58:24Z",
+        "CA10__auditing__c": "Enabled",
+        "CA10__auditingRetentionDays__c": 0
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__auditing__c') == 'Disabled'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__auditing__c": "Disabled",
+        "CA10__auditingRetentionDays__c": 0
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__auditingRetentionDays__c') < 90.0 && extract('CA10__auditingRetentionDays__c') > 0.0",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__auditing__c": "Enabled",
+        "CA10__auditingRetentionDays__c": 1
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__auditingRetentionDays__c') >= 90.0",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__auditing__c": "Enabled",
+        "CA10__auditingRetentionDays__c": 180
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "extract('CA10__auditingRetentionDays__c') == 0.0",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__auditing__c": "Enabled",
+        "CA10__auditingRetentionDays__c": 0
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "101",
+            "conditionText": "CA10__auditing__c.delegatedTo(CA10__auditing__c).isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__auditing__c": "",
+        "CA10__auditingRetentionDays__c": 0
+    }
+]

@@ -1,0 +1,9 @@
+---
+name: 5.2.5 Ensure that Activity Log Alert exists for Create or Update Network Security
+  Group (Network Security Group Rule) - Level 1 (Automated)
+description: |-
+  Create an activity log alert for the Create or Update Network Security Group Rule event.
+  Note: The recommendation name is reflected in the original name from the CIS Azure v1.4.0 official benchmark. The original name contains a mistake for not mentioning that this recommendation checks the "Security Group Rule event". We added the suffix "(Network Security Group Rule)" to emphasize the actual purpose of the test.
+similar:
+  internal:
+    - dec-c-f4156193

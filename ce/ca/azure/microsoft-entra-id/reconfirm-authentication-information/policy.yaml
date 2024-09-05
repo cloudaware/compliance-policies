@@ -1,0 +1,17 @@
+---
+names:
+  full: Microsoft Entra ID User Reconfirm Authentication Information is set to 0
+  contextual: Reconfirm Authentication Information is set to 0
+description: Ensure that the number of days before users are asked to re-confirm their
+  authentication information is not set to 0.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/07
+  - /frameworks/cloudaware/identity-and-access-management/credentials-controls
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/number-of-days-before-authentication-information-re-confirmation.html
+      name: Number Of Days Before Authentication Information Re-confirmation

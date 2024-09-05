@@ -1,0 +1,10 @@
+---
+name: 6.2.7 Ensure that the 'log_min_duration_statement' database flag for Cloud SQL
+  PostgreSQL instance is set to '-1' (disabled)
+description: "The 'log_min_duration_statement' flag defines the minimum amount of\
+  \ execution time of a statement in milliseconds where the total duration of the\
+  \ statement is logged. Ensure that 'log_min_duration_statement' is disabled, i.e.,\
+  \ a value of '-1' is set."
+similar:
+  internal:
+    - dec-c-aad1ca84

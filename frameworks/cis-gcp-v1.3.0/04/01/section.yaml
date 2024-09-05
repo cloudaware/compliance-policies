@@ -1,0 +1,8 @@
+---
+name: 4.1 Ensure That Instances Are Not Configured To Use the Default Service Account
+  - Level 1 (Automated)
+description: It is recommended to configure your instance to not use the default Compute
+  Engine service account because it has the Editor role on the project.
+similar:
+  internal:
+    - dec-c-d4e55866

@@ -1,0 +1,20 @@
+---
+names:
+  full: Azure Subscription Security Alert Notifications additional email address is
+    not configured
+  contextual: Security Alert Notifications additional email address is not configured
+description: Microsoft Defender for Cloud emails the subscription owners whenever
+  a high-severity alert is triggered for their subscription. You should provide a
+  security contact email address as an additional email address.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/02/01/18
+  - /frameworks/cloudaware/resource-security/microsoft-defender-configuration
+similarPolicies:
+  internal:
+    - dec-x-52ca1960
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/SecurityCenter/security-contact-email.html
+      name: Configure Additional Email Addresses for Azure Security Center Notifications

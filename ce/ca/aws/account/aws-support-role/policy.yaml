@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS Support Role is not created"
+  contextual: "AWS Support Role is not created"
+description: "AWS provides a support center that can be used for incident notification and response, as well as\
+  \ technical support and customer services. Create an IAM Role, with the appropriate policy assigned, to allow\
+  \ authorized users to manage incidents with AWS Support."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/01/17
+  - /frameworks/cloudaware/identity-and-access-management/role-management
+similarPolicies:
+  internal:
+    - dec-x-9146aafe
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/IAM/support-role.html"
+      name: "IAM Support Role"

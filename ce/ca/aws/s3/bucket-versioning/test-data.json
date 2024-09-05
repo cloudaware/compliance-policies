@@ -1,0 +1,58 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-29T06:25:44Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2024-07-24T14:37:26Z",
+        "CA10__versioningStatus__c": "Off"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__versioningStatus__c') == 'off'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-29T06:25:44Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__versioningStatus__c": "Off"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__versioningStatus__c') == 'suspended'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-29T06:25:44Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__versioningStatus__c": "Suspended"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__versioningStatus__c') == 'enabled'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-29T06:25:44Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__versioningStatus__c": "Enabled"
+    }
+]

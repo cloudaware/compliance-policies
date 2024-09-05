@@ -1,0 +1,10 @@
+---
+extracts:
+  - name: CA10__engine__c
+    value:
+      FIELD:
+        path: CA10__engine__c
+        undeterminedIf:
+          # https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-clusters.html
+          # "Engine" attribute represents a non-nullable string.
+          isEmpty: DB Engine value cannot be empty. Potential data corruption.

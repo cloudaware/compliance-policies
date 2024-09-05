@@ -1,0 +1,20 @@
+---
+names:
+  full: AWS S3 Bucket MFA Delete is not enabled
+  contextual: Bucket MFA Delete is not enabled
+description: "Amazon S3 provides an MFA Delete feature to add an optional extra layer\
+  \ of security when deleting objects from your S3 buckets. This feature requires\
+  \ additional authentication via MFA before allowing the deletion of objects, thereby\
+  \ reducing the risk of accidental or unauthorized deletions."
+type: BEST_PRACTICE
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/02/01/02
+  - /frameworks/cloudaware/resource-security/data-protection-and-recovery
+similarPolicies:
+  internal:
+    - dec-z-bb731292
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/S3/s3-bucket-mfa-delete-enabled.html
+      name: S3 Bucket MFA Delete Enabled

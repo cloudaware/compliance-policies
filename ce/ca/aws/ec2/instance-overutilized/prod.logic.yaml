@@ -1,0 +1,32 @@
+---
+inputObject: CA10__CaAwsInstance__c
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: "Instance is not running, therefore cannot be overutilized"
+    condition:
+      NOT_EQUAL:
+        left:
+          FIELD: 
+            path: CA10__stateName__c
+        right:
+          TEXT: running
+  - status: UNDETERMINED
+    currentStateMessage: CPU metrics are not available on the current instance
+    condition:
+      IS_EMPTY:
+        arg:
+          FIELD: 
+            path: CA10__averageCpuOneWeek__c
+  - status: INCOMPLIANT
+    currentStateMessage: CPU over 90%, instance is overutilized
+    remediationMessage: Consider resizing the instance to adjust capacity
+    condition:
+      GREATER_THAN:
+        left: 
+          FIELD: 
+            path: CA10__averageCpuOneWeek__c
+        right:
+          NUMBER: 90.0
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: Instance is not overutilized

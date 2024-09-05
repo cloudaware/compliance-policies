@@ -1,0 +1,19 @@
+---
+names:
+  full: Azure PostgreSQL Server log_connections Parameter is not set to ON
+  contextual: Server log_connections Parameter is not set to ON
+description: Enable log_connections on PostgreSQL Servers.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+  - RELIABILITY
+  - PERFORMANCE
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/04/03/03
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration
+similarPolicies:
+  internal:
+    - dec-x-1518c16e
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/PostgreSQL/log-connections.html
+      name: Enable 'LOG_CONNECTIONS' Parameter for PostgreSQL Servers

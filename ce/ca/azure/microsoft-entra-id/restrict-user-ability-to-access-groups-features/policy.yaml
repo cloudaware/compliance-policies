@@ -1,0 +1,19 @@
+---
+names:
+  full: Microsoft Entra ID Restrict User Ability To Access Groups Features In The
+    Access Pane is set to No
+  contextual: Restrict User Ability To Access Groups Features In The Access Pane is
+    set to No
+description: Restrict access to group web interface in the Access Panel portal.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/17
+  - /frameworks/cloudaware/identity-and-access-management/user-management
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/restrict-groups-access-panel.html
+      name: Restrict User Access to Microsoft Entra Group Features in Azure Access
+        Panel

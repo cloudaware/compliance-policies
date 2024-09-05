@@ -1,0 +1,9 @@
+---
+extracts:
+# Values: Integer between 0 and 365. Not Nullable. Can't have no access, retrieved via Microsoft.Storage/storageAccounts/blobServices/containers/read (ListContainerItem)
+  - name: "CA10__remainingRetentionDays__c"
+    value: 
+      FIELD:
+        path: "CA10__remainingRetentionDays__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Soft delete retention period cannot be empty."

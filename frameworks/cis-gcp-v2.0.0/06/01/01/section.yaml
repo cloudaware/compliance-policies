@@ -1,0 +1,10 @@
+---
+name: 6.1.1 Ensure That a MySQL Database Instance Does Not Allow Anyone To Connect
+  With Administrative Privileges - Level 1 (Manual)
+description: |-
+  It is recommended to set a password for the administrative user (root by default) to prevent unauthorized access to the SQL database instances.
+
+  This recommendation is applicable only for MySQL Instances. PostgreSQL does not offer any setting for No Password from the cloud console.
+similar:
+  internal:
+    - dec-c-9342647a

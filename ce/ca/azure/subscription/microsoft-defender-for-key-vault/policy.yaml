@@ -1,0 +1,21 @@
+---
+names:
+  full: Azure Subscription Microsoft Defender For Key Vault is not set to On
+  contextual: Microsoft Defender For Key Vault is not set to On
+description: "Turning on Microsoft Defender for Key Vault enables threat detection\
+  \ for Key Vault, providing threat intelligence, anomaly detection, and behavior\
+  \ analytics in the Microsoft Defender for Cloud."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/02/01/09
+  - /frameworks/cloudaware/resource-security/microsoft-defender-configuration
+frameworkIgnoreMappings:
+  - /frameworks/cis-azure-v2.1.0/02/01/10
+similarPolicies:
+  internal:
+    - dec-x-1a2f6279
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/SecurityCenter/defender-key-vault.html
+      name: Enable Microsoft Defender for Cloud for Key Vaults

@@ -1,0 +1,20 @@
+---
+names:
+  full: Azure PostgreSQL Server Infrastructure Double Encryption is not enabled
+  contextual: Server Infrastructure Double Encryption is not enabled
+description: "Azure Database for PostgreSQL servers should be created with 'infrastructure\
+  \ double encryption' enabled. If Double Encryption is enabled, another layer of\
+  \ encryption is implemented at the hardware level before the storage or network\
+  \ level."
+type: BEST_PRACTICE
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/04/03/08
+  - /frameworks/cloudaware/resource-security/data-encryption
+similarPolicies:
+  internal:
+    - dec-x-6ed26167
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/PostgreSQL/postgresql-double-encryption.html
+      name: Enable Infrastructure Double Encryption for Single Servers

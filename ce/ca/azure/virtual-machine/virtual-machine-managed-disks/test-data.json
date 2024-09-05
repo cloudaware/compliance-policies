@@ -1,0 +1,162 @@
+[
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10__Azure_Virtual_Machine_Disks__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-27T20:33:04Z"
+        },
+        "Id": "test1",
+        "RecordTypeId": "recordType1",
+        "CA10__disappearanceTime__c": null,
+        "RecordType": {
+            "DeveloperName": "recordType1",
+            "Id": "recordType1"
+        },
+        "CA10__Azure_Virtual_Machine_Disks__r": [
+            {
+                "Id": "test1_1",
+                "RecordTypeId": "recordType2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__managedDiskId__c": "managedDiskId",
+                "CA10__vhdUri__c": "",
+                "RecordType": {
+                    "DeveloperName": "recordType2",
+                    "Id": "recordType2"
+                },
+                "CA10__virtualMachine__c": "test1"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__Azure_Virtual_Machine_Disks__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-27T20:33:04Z"
+        },
+        "Id": "test2",
+        "RecordTypeId": "recordType1",
+        "CA10__disappearanceTime__c": null,
+        "RecordType": {
+            "DeveloperName": "recordType1",
+            "Id": "recordType1"
+        },
+        "CA10__Azure_Virtual_Machine_Disks__r": [
+            {
+                "Id": "test2_1",
+                "RecordTypeId": "recordType2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__managedDiskId__c": "",
+                "CA10__vhdUri__c": "vhdUri",
+                "RecordType": {
+                    "DeveloperName": "recordType2",
+                    "Id": "recordType2"
+                },
+                "CA10__virtualMachine__c": "test2"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "399",
+            "conditionText": "CA10__Azure_Virtual_Machine_Disks__r.has(UNDETERMINED)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-27T20:33:04Z"
+        },
+        "Id": "test3",
+        "RecordTypeId": "recordType1",
+        "CA10__disappearanceTime__c": null,
+        "RecordType": {
+            "DeveloperName": "recordType1",
+            "Id": "recordType1"
+        },
+        "CA10__Azure_Virtual_Machine_Disks__r": [
+            {
+                "Id": "test3_1",
+                "RecordTypeId": "recordType2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__managedDiskId__c": "",
+                "CA10__vhdUri__c": "",
+                "RecordType": {
+                    "DeveloperName": "recordType2",
+                    "Id": "recordType2"
+                },
+                "CA10__virtualMachine__c": "test3"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-27T20:33:04Z"
+        },
+        "Id": "test4",
+        "RecordTypeId": "recordType1",
+        "CA10__disappearanceTime__c": null,
+        "RecordType": {
+            "DeveloperName": "recordType1",
+            "Id": "recordType1"
+        },
+        "CA10__Azure_Virtual_Machine_Disks__r": [
+            {
+                "Id": "test4_1",
+                "RecordTypeId": "recordType2",
+                "CA10__disappearanceTime__c": "2024-06-27T20:33:04Z",
+                "CA10__managedDiskId__c": "managedDiskId",
+                "CA10__vhdUri__c": "",
+                "RecordType": {
+                    "DeveloperName": "recordType2",
+                    "Id": "recordType2"
+                },
+                "CA10__virtualMachine__c": "test4"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-27T20:33:04Z"
+        },
+        "Id": "test5",
+        "RecordTypeId": "recordType1",
+        "CA10__disappearanceTime__c": "2024-06-27T20:33:04Z",
+        "RecordType": {
+            "DeveloperName": "recordType1",
+            "Id": "recordType1"
+        },
+        "CA10__Azure_Virtual_Machine_Disks__r": [
+            {
+                "Id": "test5_1",
+                "RecordTypeId": "recordType2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__managedDiskId__c": "managedDiskId",
+                "CA10__vhdUri__c": "",
+                "RecordType": {
+                    "DeveloperName": "recordType2",
+                    "Id": "recordType2"
+                },
+                "CA10__virtualMachine__c": "test5"
+            }
+        ]
+    }
+]

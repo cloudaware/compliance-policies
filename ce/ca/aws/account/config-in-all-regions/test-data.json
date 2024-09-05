@@ -1,0 +1,130 @@
+[
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_Config_Settings__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test2",
+        "CA10__AWS_Config_Settings__r": [
+            {
+                "Id": "test2_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__allSupported__c": false,
+                "CA10__recording__c": true,
+                "CA10__lastStatus__c": "SUCCESS",
+                "CA10__includeGlobalResourceTypes__c": true,
+                "CA10__account__c": "test2"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_Config_Settings__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test3",
+        "CA10__AWS_Config_Settings__r": [
+            {
+                "Id": "test3_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__allSupported__c": true,
+                "CA10__recording__c": false,
+                "CA10__lastStatus__c": "SUCCESS",
+                "CA10__includeGlobalResourceTypes__c": true,
+                "CA10__account__c": "test3"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_Config_Settings__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test4",
+        "CA10__AWS_Config_Settings__r": [
+            {
+                "Id": "test4_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__allSupported__c": true,
+                "CA10__recording__c": true,
+                "CA10__lastStatus__c": "Pending",
+                "CA10__includeGlobalResourceTypes__c": true,
+                "CA10__account__c": "test4"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10__AWS_Config_Settings__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test5",
+        "CA10__AWS_Config_Settings__r": [
+            {
+                "Id": "test5_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__allSupported__c": true,
+                "CA10__recording__c": true,
+                "CA10__lastStatus__c": "SUCCESS",
+                "CA10__includeGlobalResourceTypes__c": true,
+                "CA10__account__c": "test5"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "CA10__AWS_Config_Settings__r.has(INAPPLICABLE)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test6",
+        "CA10__AWS_Config_Settings__r": [
+            {
+                "Id": "test6_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__allSupported__c": true,
+                "CA10__recording__c": true,
+                "CA10__lastStatus__c": "SUCCESS",
+                "CA10__includeGlobalResourceTypes__c": false,
+                "CA10__account__c": "test6"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test7",
+        "CA10__AWS_Config_Settings__r": []
+    }
+]

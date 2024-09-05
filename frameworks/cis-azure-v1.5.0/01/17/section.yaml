@@ -1,0 +1,10 @@
+---
+name: "1.17 Ensure That 'Restrict access to Azure AD administration portal' is Set\
+  \ to 'Yes' - Level 1 (Manual | Not supported, no API/CLI available by Azure)"
+description: |-
+  Restrict access to the Azure AD administration portal to administrators only.
+
+  **NOTE**: This only affects access to the Azure AD administrator's web portal. This setting does not prohibit privileged users from using other methods such as Rest API or Powershell to obtain sensitive information from Azure AD.
+similar:
+  internal:
+    - dec-c-e29dd1ef

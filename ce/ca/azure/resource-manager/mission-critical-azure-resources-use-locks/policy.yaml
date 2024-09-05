@@ -1,0 +1,20 @@
+---
+names:
+  full: Mission-Critical Azure Resources do not use Resource Locks
+  contextual: Mission-Critical Azure Resources do not use Locks
+description: "Resource Manager Locks provide a way for administrators to lock down\
+  \ Azure resources to prevent deletion of, or modifications to, a resource. These\
+  \ locks sit outside of the Role Based Access Controls (RBAC) hierarchy and, when\
+  \ applied, will place restrictions on the resource for all users."
+impossible: true
+type: BEST_PRACTICE
+categories:
+  - SECURITY
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/10/01
+  - /frameworks/cloudaware/resource-security/data-protection-and-recovery
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/Locks/enable-resource-locks.html
+      name: Enable Azure Resource Locks

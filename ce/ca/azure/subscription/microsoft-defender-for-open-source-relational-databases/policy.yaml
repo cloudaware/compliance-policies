@@ -1,0 +1,15 @@
+---
+names:
+  full: Azure Subscription Microsoft Defender For Open-Source Relational Databases
+    is not set to On
+  contextual: Microsoft Defender For Open-Source Relational Databases is not set to
+    On
+description: "Turning on Microsoft Defender for Open-source relational databases enables\
+  \ threat detection for Open-source relational databases, providing threat intelligence,\
+  \ anomaly detection, and behavior analytics in the Microsoft Defender for Cloud."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/02/01/05
+  - /frameworks/cloudaware/resource-security/microsoft-defender-configuration

@@ -1,0 +1,21 @@
+---
+names:
+  full: Azure Storage Blob Containers Soft Delete is not enabled
+  contextual: Blob Containers Soft Delete is not enabled
+description: It is recommended that both Azure Containers with attached Blob Storage
+  and standalone containers with Blob Storage be made recoverable by enabling the
+  soft delete configuration. This is to save and recover data when blobs or blob snapshots
+  are erroneously deleted.
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/03/11
+  - /frameworks/cloudaware/resource-security/data-protection-and-recovery
+similarPolicies:
+  internal:
+    - dec-x-a8281d05
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/StorageAccounts/enable-soft-delete.html
+      name: Enable Soft Delete for Azure Blob Storage

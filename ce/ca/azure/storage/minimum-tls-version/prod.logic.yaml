@@ -1,0 +1,36 @@
+---
+inputObject: "CA10__CaAzureStorageAccount__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This Storage Account uses legacy protocol TLS 1.0."
+    remediationMessage: "Consider setting 'Minimum TLS version' to TLS 1.2."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__minimumTlsVersion__c"
+        right:
+          TEXT: "TLS1_0"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This Storage Account uses legacy protocol TLS 1.1."
+    remediationMessage: "Consider setting 'Minimum TLS version' to TLS 1.2."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__minimumTlsVersion__c"
+        right:
+          TEXT: "TLS1_1"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Minimum TLS version is set to TLS 1.2."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__minimumTlsVersion__c"
+        right:
+          TEXT: "TLS1_2"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

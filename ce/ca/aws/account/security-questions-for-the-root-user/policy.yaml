@@ -1,0 +1,18 @@
+---
+names:
+  full: AWS Account Security Questions for the root user are not registered
+  contextual: Security Questions for the root user are not registered
+description: The AWS support portal allows account owners to establish security questions
+  that can be used to authenticate individuals calling AWS customer service for support.
+  It is recommended that security questions be established.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/01/03
+  - /frameworks/cloudaware/resource-reliability/system-configuration
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/IAM/security-challenge-questions.html
+      name: Account Security Challenge Questions

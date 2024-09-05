@@ -1,0 +1,78 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-24T00:11:51Z"
+        },
+        "Id": "test1",
+        "RecordTypeId": "rtId",
+        "CA10__disappearanceTime__c": "2024-06-14T21:33:57Z",
+        "CA10__breezeLastUpdate__c": null,
+        "RecordType": {
+            "DeveloperName": "RecordType1",
+            "Id": "rtId"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('breezeLastUpdate').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-24T00:11:51Z"
+        },
+        "Id": "test2",
+        "RecordTypeId": "rtId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__breezeLastUpdate__c": null,
+        "RecordType": {
+            "DeveloperName": "RecordType1",
+            "Id": "rtId"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('breezeLastUpdate').beyondLastDays(1)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-24T00:11:51Z"
+        },
+        "Id": "test3",
+        "RecordTypeId": "rtId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__breezeLastUpdate__c": "2023-03-20T03:06:08Z",
+        "RecordType": {
+            "DeveloperName": "RecordType1",
+            "Id": "rtId"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "300",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-24T00:11:51Z"
+        },
+        "Id": "test4",
+        "RecordTypeId": "rtId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__breezeLastUpdate__c": "2024-06-23T22:58:43Z",
+        "RecordType": {
+            "DeveloperName": "RecordType1",
+            "Id": "rtId"
+        }
+    }
+]

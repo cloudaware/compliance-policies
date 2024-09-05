@@ -1,0 +1,16 @@
+---
+names:
+  full: AWS IAM Policy (Customer Managed) Contains Potential Credentials Exposure
+  contextual: Policy (Customer Managed) Contains Potential Credentials Exposure
+description: "Policies with Credentials Exposure potential allow certain IAM actions\
+  \ without resource constraints. Policy will produce a violation if it detects a\
+  \ statement that contains any of the following action with Effect: Allow, Resource:\
+  \ *. Conditions are not being checked. Actions: chime:CreateApiKey, codepipeline:PollForJobs,\
+  \ cognito-identity:GetOpenIdToken, cognito-identity:GetOpenIdTokenForDeveloperIdentity,\
+  \ cognito-identity:GetCredentialsForIdentity, connect:GetFederationToken, ecr:GetAuthorizationToken,\
+  \ gamelift:RequestUploadCredentials, iam:CreateAccessKey, iam:CreateLoginProfile,\
+  \ iam:CreateServiceSpecificCredential, iam:ResetServiceSpecificCredential, iam:UpdateAccessKey,\
+  \ lightsail:GetInstanceAccessDetails, lightsail:GetRelationalDatabaseMasterUserPassword,\
+  \ rds-db:connect, redshift:GetClusterCredentials, sso:GetRoleCredentials, mediapackage:RotateChannelCredentials,\
+  \ mediapackage:RotateIngestEndpointCredentials, sts:AssumeRole, sts:AssumeRoleWithSAML,\
+  \ sts:AssumeRoleWithWebIdentity, sts:GetFederationToken, sts:GetSessionToken"

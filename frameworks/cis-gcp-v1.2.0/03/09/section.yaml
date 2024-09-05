@@ -1,0 +1,14 @@
+---
+name: 3.9 Ensure no HTTPS or SSL proxy load balancers permit SSL policies with weak
+  cipher suites - Level 1 (Manual)
+description: "Secure Sockets Layer (SSL) policies determine what port Transport Layer\
+  \ Security (TLS) features clients are permitted to use when connecting to load balancers.\
+  \ To prevent usage of insecure features, SSL policies should use (a) at least TLS\
+  \ 1.2 with the MODERN profile; or (b) the RESTRICTED profile, because it effectively\
+  \ requires clients to use TLS 1.2 regardless of the chosen minimum TLS version;\
+  \ or (3) a CUSTOM profile that does not support any of the following features: \n\
+  ```\nTLS_RSA_WITH_AES_128_GCM_SHA256\nTLS_RSA_WITH_AES_256_GCM_SHA384\nTLS_RSA_WITH_AES_128_CBC_SHA\n\
+  TLS_RSA_WITH_AES_256_CBC_SHA\nTLS_RSA_WITH_3DES_EDE_CBC_SHA\n```"
+similar:
+  internal:
+    - dec-c-fb46f986

@@ -1,0 +1,19 @@
+---
+inputObject: "CA10__CaAzureStorageAccount__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Secure transfer required configuration is disabled for the storage account."
+    remediationMessage: "Consider enabling Secure transfer required configuration."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__secureTransferRequired__c"
+        right:
+          BOOLEAN: false
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Secure transfer required configuration is enabled."

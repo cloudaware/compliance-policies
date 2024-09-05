@@ -1,0 +1,41 @@
+---
+inputObject: "CA10__CaAwsUser__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsUser__c/credReport.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The user doesn't have active access keys."
+    condition:
+      AND:
+        args:
+        - IS_EQUAL:
+            left:
+              EXTRACT: caExtract_credReport_access_key_1_active__c
+            right:
+              BOOLEAN: false
+        - IS_EQUAL:
+            left:
+              EXTRACT: caExtract_credReport_access_key_2_active__c
+            right:
+              BOOLEAN: false
+  - status: "INCOMPLIANT"
+    currentStateMessage: "More than one Active access key available for IAM user"
+    remediationMessage: "Consider removing one of th access keys."
+    condition:
+      AND:
+        args:
+        - IS_EQUAL:
+            left:
+              EXTRACT: caExtract_credReport_access_key_1_active__c
+            right:
+              BOOLEAN: true
+        - IS_EQUAL:
+            left:
+              EXTRACT: caExtract_credReport_access_key_2_active__c
+            right:
+              BOOLEAN: true
+otherwise:
+  status:  "COMPLIANT"
+  currentStateMessage: "This IAM user has only one active access key."

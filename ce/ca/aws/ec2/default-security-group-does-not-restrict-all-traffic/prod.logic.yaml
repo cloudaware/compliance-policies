@@ -1,0 +1,57 @@
+---
+inputObject: "CA10__CaAwsSecurityGroup__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsSecurityGroup__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is not a default Security Group."
+    condition:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "Name"
+        right:
+          TEXT: "default"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This default Security Group doesn't restrict all traffic and is attached to an EC2 Instance."
+    remediationMessage: "Consider removing all rules from this Security Group and detaching it from all EC2 Instances to restrict all traffic."
+    condition:
+      AND:
+        args:
+          - RELATED_LIST_HAS:
+              status: "INCOMPLIANT"
+              relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
+          - RELATED_LIST_HAS:
+              status: "INCOMPLIANT"
+              relationshipName: "CA10__AWS_EC2_Instance_FWs__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This default Security Group doesn't restrict all traffic."
+    remediationMessage: "Consider removing all rules from this Security Group to restrict all traffic."
+    condition:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This default Security Group is attached to an EC2 Instance."
+    remediationMessage: "Consider removing the default Security Group from all EC2 Instances."
+    condition:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__AWS_EC2_Instance_FWs__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The default security group restricts all traffic."
+relatedLists: 
+  - relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
+    conditions: []
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "This is a Security Group rule."
+      remediationMessage: "Consider removing this rule."
+  - relationshipName: "CA10__AWS_EC2_Instance_FWs__r"
+    conditions: []
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "This Security Group is attached to an EC2 Instance."
+      remediationMessage: "Consider removing the default Security Group from the EC2 Instance."

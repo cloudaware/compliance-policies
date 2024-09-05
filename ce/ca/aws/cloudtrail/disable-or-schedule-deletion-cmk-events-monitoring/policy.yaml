@@ -1,0 +1,24 @@
+---
+names:
+  full: AWS CloudTrail Disable CMK or Schedule CMK Deletion Events Monitoring is not
+    enabled
+  contextual: Disable or Schedule Deletion CMK Events Monitoring is not enabled
+description: "Real-time monitoring of API calls can be achieved by directing CloudTrail\
+  \ Logs to CloudWatch Logs, or an external Security information and event management\
+  \ (SIEM) environment, and establishing corresponding metric filters and alarms.\
+  \ It is recommended that a metric filter and alarm be established for customer created\
+  \ CMKs which have changed state to disabled or scheduled deletion."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/04/07
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management
+  - /frameworks/cloudaware/key-secret-certificate-management/key-secret-certificate-configuration
+similarPolicies:
+  internal:
+    - dec-x-f70dd11f
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/CloudWatchLogs/cmk-disabled-or-scheduled-for-deletion-alarm.html
+      name: CMK Disabled or Scheduled for Deletion Alarm

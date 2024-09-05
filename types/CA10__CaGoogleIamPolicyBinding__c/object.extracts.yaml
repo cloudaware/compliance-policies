@@ -1,0 +1,24 @@
+---
+extracts:
+  - name: "Name"
+    value: 
+      FIELD:
+        path: "Name"
+        undeterminedIf:
+          isEmpty:  "Name should not be empty"
+  - name: "CA10__membersAllUsers__c"
+    value: 
+      FIELD:
+        path: "CA10__membersAllUsers__c"
+        undeterminedIf:
+          isEmpty:  "Field should not be empty"
+  - name: "CA10__membersAllAuthenticatedUsers__c"
+    value: 
+      FIELD:
+        path: "CA10__membersAllAuthenticatedUsers__c"
+        undeterminedIf:
+          isEmpty:  "Field should not be empty"
+  - name: "CA10__iamRole__c"
+    value: 
+      FIELD:
+        path: "CA10__iamRole__c"

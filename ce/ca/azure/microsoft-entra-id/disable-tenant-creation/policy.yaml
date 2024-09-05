@@ -1,0 +1,14 @@
+---
+names:
+  full: Microsoft Entra ID Tenant Creation is set to Yes
+  contextual: Tenant Creation is set to Yes
+description: It is recommended to only allow an administrator to create new tenants.
+  This prevent users from creating new Microsoft Entra ID or Azure AD B2C tenants
+  and ensures that only authorized users are able to do so.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/03
+  - /frameworks/cloudaware/identity-and-access-management/general-access-controls

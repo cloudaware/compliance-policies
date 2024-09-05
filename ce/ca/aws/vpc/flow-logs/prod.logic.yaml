@@ -1,0 +1,27 @@
+---
+inputObject: "CA10__CaAwsVpc__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "VPC flow logging is disabled."
+    remediationMessage: "Consider enabling VPC flow logging."
+    condition:
+      RELATED_LIST_HAS_NO:
+        status: "COMPLIANT"
+        relationshipName: "CA10__AWS_VPC_Flow_Logs__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "VPC flow logging is enabled."
+    condition:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__AWS_VPC_Flow_Logs__r"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."
+relatedLists:
+  - relationshipName: "CA10__AWS_VPC_Flow_Logs__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "VPC flow logging is enabled."

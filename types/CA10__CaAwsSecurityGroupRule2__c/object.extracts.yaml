@@ -1,0 +1,41 @@
+---
+extracts:
+# Values: IP, Group, PrefixList. Nullable, it can be prefix list if empty. Can't have no access, retrieved via ec2:DescribeSecurityGroups
+  - name: "CA10__source__c"
+    value: 
+      FIELD:
+        path: "CA10__source__c"
+# Values: IPv4, IPv6. Nullable it is not the IP source if empty. Can't have no access, retrieved via ec2:DescribeSecurityGroups
+  - name: "CA10__sourceIpVersion__c"
+    value: 
+      FIELD:
+        path: "CA10__sourceIpVersion__c"
+# Nullable. Can't have no access, retrieved via ec2:DescribeSecurityGroups
+  - name: "CA10__sourceIpRange__c"
+    value: 
+      FIELD:
+        path: "CA10__sourceIpRange__c"
+# Values: Inbound, Outbound. Not nullable. Can't have no access, retrieved via ec2:DescribeSecurityGroups
+  - name: "CA10__direction__c"
+    value: 
+      FIELD:
+        path: "CA10__direction__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Rule Action cannot be empty."
+# Not nullable. Can't have no access, retrieved via ec2:DescribeSecurityGroups
+  - name: "CA10__protocol__c"
+    value: 
+      FIELD:
+        path: "CA10__protocol__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Protocol cannot be empty."
+# Nullable. Can't have no access, retrieved via ec2:DescribeSecurityGroups
+  - name: "CA10__fromPort__c"
+    value: 
+      FIELD:
+        path: "CA10__fromPort__c"
+# Nullable. Can't have no access, retrieved via ec2:DescribeSecurityGroups
+  - name: "CA10__toPort__c"
+    value: 
+      FIELD:
+        path: "CA10__toPort__c"

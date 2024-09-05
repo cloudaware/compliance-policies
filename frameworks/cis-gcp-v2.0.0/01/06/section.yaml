@@ -1,0 +1,10 @@
+---
+name: 1.6 Ensure That IAM Users Are Not Assigned the Service Account User or Service
+  Account Token Creator Roles at Project Level - Level 1 (Automated)
+description: It is recommended to assign the Service Account User (iam.serviceAccountUser)
+  and Service Account Token Creator (iam.serviceAccountTokenCreator) roles to a user
+  for a specific service account rather than assigning the role to a user at project
+  level.
+similar:
+  internal:
+    - dec-c-7f6f6a7c

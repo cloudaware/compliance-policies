@@ -1,0 +1,19 @@
+---
+names:
+  full: AWS EC2 Instance IMDSv2 is not enabled
+  contextual: Instance IMDSv2 is not enabled
+description: "When enabling the Metadata Service on AWS EC2 instances, users have\
+  \ the option of using either Instance Metadata Service Version 1 (IMDSv1; a request/response\
+  \ method) or Instance Metadata Service Version 2 (IMDSv2; a session-oriented method)."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/05/06
+  - /frameworks/cloudaware/resource-security/secure-access-controls
+similarPolicies:
+  internal:
+    - dec-x-b42fae78
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EC2/require-imds-v2.html
+      name: Require IMDSv2 for EC2 Instances

@@ -1,0 +1,10 @@
+---
+name: 1.13 Ensure API keys are restricted to use by only specified Hosts and Apps
+  - Level 1 (Manual)
+description: "Unrestricted keys are insecure because they can be viewed publicly,\
+  \ such as from within a browser, or they can be accessed on a device where the key\
+  \ resides. It is recommended to restrict API key usage to trusted hosts, HTTP referrers\
+  \ and apps."
+similar:
+  internal:
+    - dec-c-6d9d1fb6

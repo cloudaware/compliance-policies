@@ -1,0 +1,20 @@
+---
+names:
+  full: Azure SQL Server Auditing is not enabled
+  contextual: Server Auditing is not enabled
+description: Auditing tracks database events and writes them to an audit log in the
+  Azure storage account. Enabling auditing at the server level ensures that all existing
+  and newly created databases on the SQL server instance are audited.
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/04/01/01
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration
+similarPolicies:
+  internal:
+    - dec-x-36ced3d1
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/Sql/auditing.html
+      name: Enable Auditing for SQL Servers

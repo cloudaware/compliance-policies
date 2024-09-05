@@ -1,0 +1,25 @@
+---
+extracts:
+# Values pending, applied. Not nullable. Can't have no access, retrieved via ec2:DescribeInstances
+  - name: "CA10__metadataState__c"
+    value: 
+      FIELD:
+        path: "CA10__metadataState__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. EC2 Instances Metadata State cannot be empty."
+# Values: optional, required. Not nullable. Can't have no access, retrieved via ec2:DescribeInstances
+  - name: "CA10__metadataHttpTokens__c"
+    value: 
+      FIELD:
+        path: "CA10__metadataHttpTokens__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. EC2 Instances Metadata Http Token cannot be empty."
+  - name: CA10__iamInstanceProfileArn__c
+    value:
+      FIELD: 
+        path: CA10__iamInstanceProfileArn__c
+# Nullable. Can't have no access, retrieved via ec2:DescribeInstances
+  - name: "CA10__publicIpAddress__c"
+    value: 
+      FIELD:
+        path: "CA10__publicIpAddress__c"

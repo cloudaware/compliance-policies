@@ -1,0 +1,25 @@
+---
+inputObject: "CA10__CaAwsInstance__c"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Instance is running without detailed monitoring enabled"
+    remediationMessage: "Enable detailed monitoring for instance"
+    condition:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                FIELD: 
+                  path: "CA10__stateName__c"
+              right:
+                TEXT: "running"
+          - IS_EQUAL:
+              left:
+                FIELD: 
+                  path: "CA10__monitoringState__c"
+              right:
+                TEXT: "disabled"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Instance has detailed monitoring enabled or instance is not\
+    \ running"

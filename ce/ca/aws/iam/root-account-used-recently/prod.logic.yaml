@@ -1,0 +1,32 @@
+---
+inputObject: CA10__CaAwsUser__c
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: "This is not a 'root' user"
+    condition:
+      NOT_EQUAL:
+        left:
+          FIELD: 
+            path: CA10__userName__c
+        right:
+          TEXT: root
+  - status: "UNDETERMINED"
+    currentStateMessage: "Credential report attributes are empty, this is either permission\
+      \ issue or the data haven't been populated yet"
+    condition:
+      IS_EMPTY:
+        arg:
+          FIELD: 
+            path: "CA10__credReportAttributes__c"
+  - status: INCOMPLIANT
+    currentStateMessage: "Root user's password has been used during last 30 days"
+    remediationMessage: "Avoid logging in as 'root'"
+    condition:
+      IS_WITHIN_LAST_DAYS:
+        offsetDays: 30
+        arg:
+          FIELD: 
+            path: CA10__credReportPasswordLastUsed__c
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: "Password haven't been used during last 30 days"

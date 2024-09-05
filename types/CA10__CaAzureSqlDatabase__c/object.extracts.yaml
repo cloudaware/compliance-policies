@@ -1,0 +1,26 @@
+---
+extracts:
+# Not Nullable. Can't have no access, retrieved via Microsoft.Sql/servers/databases/read
+  - name: "CA10__name__c"
+    value: 
+      FIELD:
+        path: "CA10__name__c"
+        undeterminedIf:
+          isEmpty: "Corrupted Data. Database Name cannot be empty."
+# Not Nullable. Can't have no access, retrieved via Microsoft.Sql/servers/databases/read
+  - name: "CA10__kind__c"
+    value: 
+      FIELD:
+        path: "CA10__kind__c"
+        undeterminedIf:
+          isEmpty: "Corrupted Data. Database Kind cannot be empty."
+# Values: Enabled, Disabled. Not Nullable. 
+  - name: "CA10__dataEncryption__c"
+    value: 
+      FIELD:
+        path: "CA10__dataEncryption__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__dataEncryption__c"
+            currentStateMessage: "Unable to determine Transparent Data Encryption. Possible permission issue with Microsoft.Sql/servers/databases/transparentDataEncryption/read."
+          isEmpty: "SQL Database Transparent Data Encryption is not populated yet."

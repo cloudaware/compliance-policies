@@ -1,0 +1,19 @@
+---
+names:
+  full: AWS IAM User has more than one active access key
+  contextual: User has more than one active access key
+description: Access keys are long-term credentials for an IAM user or the AWS account
+  'root' user. You can use access keys to sign programmatic requests to the AWS CLI
+  or AWS API (directly or using the AWS SDK)
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/01/13
+  - /frameworks/cloudaware/identity-and-access-management/credentials-controls
+similarPolicies:
+  internal:
+    - dec-x-30795016
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/IAM/unnecessary-access-keys.html
+      name: Unnecessary Access Keys

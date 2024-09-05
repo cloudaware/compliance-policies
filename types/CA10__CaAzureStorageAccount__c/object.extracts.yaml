@@ -1,0 +1,158 @@
+---
+extracts:
+# This is a checkbox. Not nullable. Can't have no access, retrieved via Microsoft.Storage/storageAccounts
+  - name: "CA10__secureTransferRequired__c"
+    value: 
+      FIELD:
+        path: "CA10__secureTransferRequired__c"
+# Values: Enabled, Disabled. Not Nullable. Can't have no access, retrieved via Microsoft.Storage/storageAccounts
+  - name: "CA10__requireInfrastructureEncryptionState__c"
+    value: 
+      FIELD:
+        path: "CA10__requireInfrastructureEncryptionState__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Require Infrastructure Encryption setting cannot be empty."
+# Values: Enabled, Disabled. Not Nullable. Can't have no access, retrieved via Microsoft.Storage/storageAccounts
+  - name: "CA10__publicNetworkAccessState__c"
+    value: 
+      FIELD:
+        path: "CA10__publicNetworkAccessState__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Public Network Access cannot be empty."
+# Values: Allow, Deny. Not nullable. Can't have no access, retrieved via Microsoft.Storage/storageAccounts.
+  - name: "CA10__networkAclsDefaultAction__c"
+    value: 
+      FIELD:
+        path: "CA10__networkAclsDefaultAction__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Default Network Action cannot be empty."
+# Values: any combination of Logging|Metrics|AzureServices or None. Not nullable. 
+# Can't have no access, retrieved via Microsoft.Storage/storageAccounts.
+  - name: "CA10__networkAclsBypass__c"
+    value: 
+      FIELD:
+        path: "CA10__networkAclsBypass__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Network Bypass cannot be empty."
+# Values TLS1_0, TLS1_1, TLS1_2. Not nullable. Can't have no access, retrieved via Microsoft.Storage/storageAccounts.
+  - name: "CA10__minimumTlsVersion__c"
+    value: 
+      FIELD:
+        path: "CA10__minimumTlsVersion__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. TLS Version cannot be empty."
+# Values: Allow, Deny, null (Old storage accounts can have null, which means that the account can still have replication). 
+# Nullable. Can't have no access, retrieved via Microsoft.Storage/storageAccounts.
+  - name: "CA10__crossTenantReplication__c"
+    value: 
+      FIELD:
+        path: "CA10__crossTenantReplication__c"
+# Values: Allow, Deny. Not nullable. Can't have no access, retrieved via Microsoft.Storage/storageAccounts.
+  - name: "CA10__blobPublicAccess__c"
+    value: 
+      FIELD:
+        path: "CA10__blobPublicAccess__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Allow Blob Anonymous Access cannot be empty."
+# Values Enabled, Disabled. Not Nullable
+  - name: "CA10__blobLoggingReadState__c"
+    value: 
+      FIELD:
+        path: "CA10__blobLoggingReadState__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__blobLoggingReadState__c"
+            currentStateMessage: "Unable to determine Blob Container Logging Read property. Possible permission issue with Microsoft.Storage/storageAccounts/blobServices/containers/read"
+          isEmpty: "Storage Blob Logging is not populated yet."
+# Values Enabled, Disabled. Not Nullable
+  - name: "CA10__blobLoggingWriteState__c"
+    value: 
+      FIELD:
+        path: "CA10__blobLoggingWriteState__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__blobLoggingWriteState__c"
+            currentStateMessage: "Unable to determine Blob Container Logging Write property. Possible permission issue with Microsoft.Storage/storageAccounts/blobServices/containers/read"
+          isEmpty: "Storage Blob Logging is not populated yet."
+ # Values Enabled, Disabled. Not Nullable
+  - name: "CA10__blobLoggingDeleteState__c"
+    value: 
+      FIELD:
+        path: "CA10__blobLoggingDeleteState__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__blobLoggingDeleteState__c"
+            currentStateMessage: "Unable to determine Blob Container Logging Delete property. Possible permission issue with Microsoft.Storage/storageAccounts/blobServices/containers/read"
+          isEmpty: "Storage Blob Logging is not populated yet."
+# Values Enabled, Disabled. Not Nullable
+  - name: "CA10__queueLoggingReadState__c"
+    value: 
+      FIELD:
+        path: "CA10__queueLoggingReadState__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__queueLoggingReadState__c"
+            currentStateMessage: "Unable to determine Queue Logging Read property. Possible permission issue with Microsoft.Storage/storageAccounts/queueServices/queues/read"
+          isEmpty: "Storage Queue Logging is not populated yet."
+# Values Enabled, Disabled. Not Nullable
+  - name: "CA10__queueLoggingWriteState__c"
+    value: 
+      FIELD:
+        path: "CA10__queueLoggingWriteState__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__queueLoggingWriteState__c"
+            currentStateMessage: "Unable to determine Queue Logging Write property. Possible permission issue with Microsoft.Storage/storageAccounts/queueServices/queues/read"
+          isEmpty: "Storage Queue Logging is not populated yet."
+# Values Enabled, Disabled. Not Nullable
+  - name: "CA10__queueLoggingDeleteState__c"
+    value: 
+      FIELD:
+        path: "CA10__queueLoggingDeleteState__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__queueLoggingDeleteState__c"
+            currentStateMessage: "Unable to determine Queue Logging Delete property. Possible permission issue with Microsoft.Storage/storageAccounts/queueServices/queues/read"
+          isEmpty: "Storage Queue Logging is not populated yet."
+# Values Enabled, Disabled. Not Nullable
+  - name: "CA10__tableLoggingReadState__c"
+    value: 
+      FIELD:
+        path: "CA10__tableLoggingReadState__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__tableLoggingReadState__c"
+            currentStateMessage: "Unable to determine Table Logging Read property. Possible permission issue with Microsoft.Storage/storageAccounts/tableServices/tables/read"
+          isEmpty: "Storage Table Logging is not populated yet."
+# Values Enabled, Disabled. Not Nullable
+  - name: "CA10__tableLoggingWriteState__c"
+    value: 
+      FIELD:
+        path: "CA10__tableLoggingWriteState__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__tableLoggingWriteState__c"
+            currentStateMessage: "Unable to determine Table Logging Write property. Possible permission issue with Microsoft.Storage/storageAccounts/tableServices/tables/read"
+          isEmpty: "Storage Table Logging is not populated yet."
+# Values Enabled, Disabled. Not Nullable
+  - name: "CA10__tableLoggingDeleteState__c"
+    value: 
+      FIELD:
+        path: "CA10__tableLoggingDeleteState__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__tableLoggingDeleteState__c"
+            currentStateMessage: "Unable to determine Table Logging Delete property. Possible permission issue with Microsoft.Storage/storageAccounts/tableServices/tables/read"
+          isEmpty: "Storage Table Logging is not populated yet."
+# Values Microsoft.Storage, Microsoft.Keyvault. Not Nullable. Can't have no access, retrieved via Microsoft.Storage/storageAccounts
+  - name: "CA10__encryptionKeySource__c"
+    value: 
+      FIELD:
+        path: "CA10__encryptionKeySource__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Encryption Key Source cannot be empty."
+# Nullable. Can't have no access, retrieved via Microsoft.Storage/storageAccounts
+  - name: "CA10__encryptionKeyVaultUri__c"
+    value: 
+      FIELD:
+        path: "CA10__encryptionKeyVaultUri__c"

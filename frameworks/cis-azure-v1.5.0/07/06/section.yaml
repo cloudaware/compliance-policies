@@ -1,0 +1,9 @@
+---
+name: "7.6 [Legacy] Ensure that VHDs are Encrypted - Level 2 (Manual)"
+description: |-
+  **NOTE: This is a legacy recommendation. Managed Disks are encrypted by default and recommended for all new VM implementations.**
+
+  VHD (Virtual Hard Disks) are stored in blob storage and are the old-style disks that were attached to Virtual Machines. The blob VHD was then leased to the VM. By default, storage accounts are not encrypted, and Microsoft Defender will then recommend that the OS disks should be encrypted. Storage accounts can be encrypted as a whole using PMK or CMK. This should be turned on for storage accounts containing VHDs.
+similar:
+  internal:
+    - dec-c-302c5470

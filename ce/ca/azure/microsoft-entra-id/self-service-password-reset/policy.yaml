@@ -1,0 +1,18 @@
+---
+names:
+  full: Microsoft Entra ID User Self-Service Password Reset does not require 2 authentication
+    methods
+  contextual: Self-Service Password Reset does not require 2 authentication methods
+description: Ensures that two alternate forms of identification are provided before
+  allowing a password reset.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/05
+  - /frameworks/cloudaware/identity-and-access-management/credentials-controls
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/number-of-methods-required-to-reset-password.html
+      name: Number Of Methods Required To Reset Password

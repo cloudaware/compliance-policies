@@ -1,0 +1,18 @@
+---
+names:
+  full: "Microsoft Entra ID Users Can Create Microsoft 365 Groups In Azure Portals,\
+    \ API Or PowerShell is set to Yes"
+  contextual: "Users Can Create Microsoft 365 Groups In Azure Portals, API Or PowerShell\
+    \ is set to Yes"
+description: Restrict Microsoft 365 group creation to administrators only.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/20
+  - /frameworks/cloudaware/identity-and-access-management/user-management
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/users-can-create-office-365-groups.html
+      name: Users Can Create Office 365 Groups

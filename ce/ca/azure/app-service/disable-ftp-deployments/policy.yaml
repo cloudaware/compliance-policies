@@ -1,0 +1,19 @@
+---
+names:
+  full: Azure App Service FTP deployments are not disabled
+  contextual: FTP deployments are not disabled
+description: "By default, Azure Functions, Web, and API Services can be deployed over\
+  \ FTP. If FTP is required for an essential deployment workflow, FTPS should be required\
+  \ for FTP login for all App Service Apps and Functions."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/09/09
+  - /frameworks/cloudaware/resource-security/data-encryption
+similarPolicies:
+  internal:
+    - dec-x-c0a7793e
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/AppService/ftp-access-disabled.html
+      name: Disable Plain FTP Deployment

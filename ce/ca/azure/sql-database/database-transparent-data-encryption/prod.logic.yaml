@@ -1,0 +1,42 @@
+---
+inputObject: "CA10__CaAzureSqlDatabase__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureSqlDatabase__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is a Master Database. TDE cannot be used to encrypt the logical master database."
+    condition:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__name__c"
+              right:
+                TEXT: "master"
+          - CONTAINS:
+              arg:
+                EXTRACT: "CA10__kind__c"
+              substring:
+                TEXT: "system"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "SQL Database Transparent Data Encryption is disabled."
+    remediationMessage: "Consider enabling SQL Database Transparent Data Encryption."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__dataEncryption__c"
+        right:
+          TEXT: "Disabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "SQL Database Transparent Data Encryption is enabled."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__dataEncryption__c"
+        right:
+          TEXT: "Enabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

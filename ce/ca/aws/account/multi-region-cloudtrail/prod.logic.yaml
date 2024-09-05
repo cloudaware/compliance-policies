@@ -1,0 +1,48 @@
+---
+inputObject: "CA10__CaAwsAccount__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "This AWS Account has a CloudTrail enabled in all regions."
+    condition:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__AWS_CloudTrail_Trails__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "This Account doesn't have a CloudTrail enabled in all regions."
+relatedLists:
+  - relationshipName: "CA10__AWS_CloudTrail_Trails__r"
+    importExtracts:
+    - file: "/types/CA10__CaAwsCloudTrailTrail__c/object.extracts.yaml"
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "This CloudTrail is enabled in all regions."
+        condition:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10__multiRegionTrail__c"
+                  right:
+                    BOOLEAN: true
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10__isLogging__c"
+                  right:
+                    BOOLEAN: true
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "caJsonText__eventSelectorsJson_readWriteType__c"
+                  right:
+                    TEXT: "All"
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "caJsonBoolean__eventSelectorsJson_includeManagementEvents__c"
+                  right:
+                    BOOLEAN: true
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "This CloudTrail is not enabled in all regions."
+      remediationMessage: "Consider enabling this CloudTrail in all regions."

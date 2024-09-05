@@ -1,0 +1,165 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-29T00:23:39Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2023-10-02T10:49:08Z",
+        "CA10__bucket__c": "test1_1",
+        "CA10__bucketArn__c": "arn:aws:s3:::test-bucket-1",
+        "CA10__bucket__r": {
+            "Id": "test1_1",
+            "CA10__disappearanceTime__c": null,
+            "CA10__loggingDestinationBucketName__c": "",
+            "CA10__arn__c": "arn:aws:s3:::test-bucket-1",
+            "CA10__loggingDestinationBucketArn__c": "",
+            "CA10__loggingDestinationBucket__c": "",
+            "CA10__loggingDestinationBucket__r": {
+                "Id": null,
+                "CA10__disappearanceTime__c": null
+            }
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "isEmptyLookup('CA10__bucket__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-29T00:23:39Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__bucket__c": "",
+        "CA10__bucketArn__c": "arn:aws:s3:::test-bucket-2",
+        "CA10__bucket__r": {
+            "Id": null,
+            "CA10__disappearanceTime__c": null,
+            "CA10__loggingDestinationBucketName__c": null,
+            "CA10__arn__c": null,
+            "CA10__loggingDestinationBucketArn__c": null,
+            "CA10__loggingDestinationBucket__c": null,
+            "CA10__loggingDestinationBucket__r": {
+                "Id": null,
+                "CA10__disappearanceTime__c": null
+            }
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__bucket__r.CA10__loggingDestinationBucketName__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-29T00:23:39Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__bucket__c": "test3_1",
+        "CA10__bucketArn__c": "arn:aws:s3:::test-bucket-3",
+        "CA10__bucket__r": {
+            "Id": "test3_1",
+            "CA10__disappearanceTime__c": null,
+            "CA10__loggingDestinationBucketName__c": "",
+            "CA10__arn__c": "arn:aws:s3:::test-bucket-3",
+            "CA10__loggingDestinationBucketArn__c": "",
+            "CA10__loggingDestinationBucket__c": "",
+            "CA10__loggingDestinationBucket__r": {
+                "Id": null,
+                "CA10__disappearanceTime__c": null
+            }
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__bucket__r.CA10__arn__c') == extract('CA10__bucket__r.CA10__loggingDestinationBucketArn__c')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-29T00:23:39Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__bucket__c": "test4_1",
+        "CA10__bucketArn__c": "arn:aws:s3:::test-bucket-4",
+        "CA10__bucket__r": {
+            "Id": "test4_1",
+            "CA10__disappearanceTime__c": null,
+            "CA10__loggingDestinationBucketName__c": "test-bucket-4",
+            "CA10__arn__c": "arn:aws:s3:::test-bucket-4",
+            "CA10__loggingDestinationBucketArn__c": "arn:aws:s3:::test-bucket-4",
+            "CA10__loggingDestinationBucket__c": "",
+            "CA10__loggingDestinationBucket__r": {
+                "Id": null,
+                "CA10__disappearanceTime__c": null
+            }
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "isEmptyLookup('CA10__bucket__r.CA10__loggingDestinationBucket__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-29T00:23:39Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__bucket__c": "test5_1",
+        "CA10__bucketArn__c": "arn:aws:s3:::test-bucket-1",
+        "CA10__bucket__r": {
+            "Id": "test5_1",
+            "CA10__disappearanceTime__c": null,
+            "CA10__loggingDestinationBucketName__c": "test-bucket-2",
+            "CA10__arn__c": "arn:aws:s3:::test-bucket-5",
+            "CA10__loggingDestinationBucketArn__c": "arn:aws:s3:::test-bucket",
+            "CA10__loggingDestinationBucket__c": "",
+            "CA10__loggingDestinationBucket__r": {
+                "Id": null,
+                "CA10__disappearanceTime__c": null
+            }
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "599",
+            "conditionText": "notEmptyLookup('CA10__bucket__r.CA10__loggingDestinationBucket__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-29T00:23:39Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__bucket__c": "test6_1",
+        "CA10__bucketArn__c": "arn:aws:s3:::test-bucket-1",
+        "CA10__bucket__r": {
+            "Id": "test6_1",
+            "CA10__disappearanceTime__c": null,
+            "CA10__loggingDestinationBucketName__c": "test-bucket-2",
+            "CA10__arn__c": "arn:aws:s3:::test-bucket-6",
+            "CA10__loggingDestinationBucketArn__c": "arn:aws:s3:::test-bucket",
+            "CA10__loggingDestinationBucket__c": "test6_1_1",
+            "CA10__loggingDestinationBucket__r": {
+                "Id": "test6_1_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__bucket__c": "test6_1_1"
+            }
+        }
+    }
+]

@@ -1,0 +1,20 @@
+---
+names:
+  full: Azure Subscription Activity Log Alert for Create or Update Network Security
+    Group does not exist
+  contextual: Activity Log Alert for Create or Update Network Security Group does
+    not exist
+description: Create an Activity Log Alert for the Create or Update Network Security
+  Group event.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/05/02/03
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management
+similarPolicies:
+  internal:
+    - dec-x-79579ed7
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActivityLog/create-update-network-security-group-alert-in-use.html
+      name: Create Alert for 'Create/Update Network Security Group' Events

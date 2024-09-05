@@ -1,0 +1,19 @@
+---
+names:
+  full: Azure PostgreSQL Server log_retention_days Parameter is less than 4 days
+  contextual: Server log_retention_days Parameter is less than 4 days
+description: Ensure log_retention_days on PostgreSQL Servers is set to an appropriate
+  value.
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+  - PERFORMANCE
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/04/03/06
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration
+similarPolicies:
+  internal:
+    - dec-x-0c82d775
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/PostgreSQL/log-retention-days.html
+      name: Check for PostgreSQL Log Retention Period

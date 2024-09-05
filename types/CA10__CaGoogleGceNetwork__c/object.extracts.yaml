@@ -1,0 +1,8 @@
+---
+extracts:
+  - name: "networkName"
+    value: 
+      FIELD:
+        path: "Name"
+        undeterminedIf:
+          isEmpty:  "Name should not be empty"

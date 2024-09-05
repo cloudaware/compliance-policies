@@ -1,0 +1,11 @@
+---
+name: 1.18 Ensure Secrets are Not Stored in Cloud Functions Environment Variables
+  by Using Secret Manager - Level 1 (Manual)
+description: "Google Cloud Functions allow you to host serverless code that is executed\
+  \ when an event is triggered, without the requiring the management a host operating\
+  \ system. These functions can also store environment variables to be used by the\
+  \ code that may contain authentication or other information that needs to remain\
+  \ confidential."
+similar:
+  internal:
+    - dec-c-6e084d41

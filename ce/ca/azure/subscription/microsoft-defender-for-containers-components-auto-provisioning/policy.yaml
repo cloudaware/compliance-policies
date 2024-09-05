@@ -1,0 +1,18 @@
+---
+names:
+  full: Azure Subscription Microsoft Defender For Containers Components is not auto
+    provisioned
+  contextual: Microsoft Defender For Containers Components is not auto provisioned
+description: Enable automatic provisioning of the Microsoft Defender for Containers
+  components.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/02/01/16
+  - /frameworks/cloudaware/resource-security/microsoft-defender-configuration
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/SecurityCenter/automatic-provisioning-containers-components.html
+      name: Enable Automatic Provisioning of Microsoft Defender for Containers Components

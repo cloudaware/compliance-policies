@@ -1,0 +1,20 @@
+---
+names:
+  full: Azure SQL Server Auditing Retention is less than 90 days
+  contextual: Server Auditing Retention is less than 90 days
+description: SQL Server Audit Retention should be configured to be greater than 90
+  days. Audit Logs can be used to check for anomalies and give insight into suspected
+  breaches or misuse of information and access.
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/04/01/06
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration
+similarPolicies:
+  internal:
+    - dec-x-89d5ed7a
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/Sql/auditing-retention.html
+      name: SQL Auditing Retention

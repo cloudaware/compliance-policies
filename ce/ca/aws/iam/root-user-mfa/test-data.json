@@ -1,0 +1,58 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-06-18T05:52:54Z"
+    },
+    "Id": "a0",
+    "CA10__disappearanceTime__c": "2024-05-20T12:40:12Z",
+    "CA10__credReportAttributes__c": "password_last_used: 2024-05-18T19:32:44+00:00\naccess_key_1_last_used_region: N/A\npassword_enabled: true\naccess_key_1_last_used_date: N/A\naccess_key_1_last_used_service: N/A\nmfa_active: true\naccess_key_2_last_used_date: N/A\nuser_creation_time: 2015-02-17T21:59:26+00:00\ncert_2_active: false\ncert_1_active: false\ncert_1_last_rotated: N/A\naccess_key_2_last_used_service: N/A\naccess_key_2_active: false\naccess_key_1_active: false\npassword_next_rotation: 2024-06-01T19:46:35+00:00\naccess_key_2_last_rotated: N/A\naccess_key_1_last_rotated: N/A\naccess_key_2_last_used_region: N/A\npassword_last_changed: 2024-03-03T19:46:35+00:00\ncert_2_last_rotated: N/A"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('caExtract_credReport_user__c') != '<root_account>'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-06-18T05:52:54Z"
+    },
+    "Id": "a01",
+    "CA10__disappearanceTime__c": null,
+    "CA10__credReportAttributes__c": "password_last_used: no_information\naccess_key_1_last_used_region: N/A\npassword_enabled: true\naccess_key_1_last_used_date: N/A\naccess_key_1_last_used_service: N/A\nmfa_active: false\naccess_key_2_last_used_date: N/A\nuser_creation_time: 2023-12-20T07:00:34+00:00\ncert_2_active: false\ncert_1_active: false\ncert_1_last_rotated: N/A\naccess_key_2_last_used_service: N/A\naccess_key_2_active: false\naccess_key_1_active: true\npassword_next_rotation: 2023-12-21T07:00:34+00:00\naccess_key_2_last_rotated: N/A\naccess_key_1_last_rotated: 2023-12-20T07:04:50+00:00\naccess_key_2_last_used_region: N/A\nuser: non-root\npassword_last_changed: 2023-12-20T07:00:34+00:00\ncert_2_last_rotated: N/A"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('caExtract_credReport_mfa_active__c') == true",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-06-18T05:52:54Z"
+    },
+    "Id": "a02",
+    "CA10__disappearanceTime__c": null,
+    "CA10__credReportAttributes__c": "password_last_used: 2024-01-29T17:04:41+00:00\naccess_key_1_last_used_region: N/A\npassword_enabled: not_supported\naccess_key_1_last_used_date: N/A\naccess_key_1_last_used_service: N/A\nmfa_active: true\naccess_key_2_last_used_date: N/A\nuser_creation_time: 2019-06-06T20:54:20+00:00\ncert_2_active: false\ncert_1_active: false\ncert_1_last_rotated: N/A\naccess_key_2_last_used_service: N/A\naccess_key_2_active: false\naccess_key_1_active: false\npassword_next_rotation: not_supported\naccess_key_2_last_rotated: N/A\naccess_key_1_last_rotated: N/A\naccess_key_2_last_used_region: N/A\nuser: <root_account>\npassword_last_changed: not_supported\ncert_2_last_rotated: N/A"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-06-18T05:52:54Z"
+    },
+    "Id": "a03",
+    "CA10__disappearanceTime__c": null,
+    "CA10__credReportAttributes__c": "password_last_used: no_information\naccess_key_1_last_used_region: N/A\npassword_enabled: not_supported\naccess_key_1_last_used_date: N/A\naccess_key_1_last_used_service: N/A\nmfa_active: false\naccess_key_2_last_used_date: N/A\nuser_creation_time: 2023-02-17T18:38:53+00:00\ncert_2_active: false\ncert_1_active: false\ncert_1_last_rotated: N/A\naccess_key_2_last_used_service: N/A\naccess_key_2_active: false\naccess_key_1_active: false\npassword_next_rotation: not_supported\naccess_key_2_last_rotated: N/A\naccess_key_1_last_rotated: N/A\naccess_key_2_last_used_region: N/A\nuser: <root_account>\npassword_last_changed: not_supported\ncert_2_last_rotated: N/A"
+  }
+]

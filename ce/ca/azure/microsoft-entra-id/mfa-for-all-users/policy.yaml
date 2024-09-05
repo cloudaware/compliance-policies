@@ -1,0 +1,13 @@
+---
+names:
+  full: Microsoft Entra ID MFA For All Users is not required
+  contextual: MFA For All Users is not required
+description: "For designated users, they will be prompted to use their multi-factor\
+  \ authentication (MFA) process on logins."
+impossible: true
+type: BEST_PRACTICE
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/02/04
+  - /frameworks/cloudaware/identity-and-access-management/mfa-implementation

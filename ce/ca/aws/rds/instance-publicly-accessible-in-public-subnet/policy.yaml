@@ -1,0 +1,23 @@
+---
+names:
+  full: AWS RDS Instance is publicly accessible and in an unrestricted public subnet
+  contextual: Instance is publicly accessible and in an unrestricted public subnet
+description: "Ensure and verify that RDS database instances provisioned in your AWS\
+  \ account do restrict unauthorized access in order to minimize security risks. To\
+  \ restrict access to any publicly accessible RDS database instance, you must disable\
+  \ the database Publicly Accessible flag and update the VPC security group associated\
+  \ with the instance."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/02/03/03
+  - /frameworks/cloudaware/resource-security/public-and-anonymous-access
+similarPolicies:
+  internal:
+    - dec-x-f937c35f
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/RDS/rds-publicly-accessible.html
+      name: RDS Publicly Accessible
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/RDS/instance-not-in-public-subnet.html
+      name: RDS Instance Not In Public Subnet

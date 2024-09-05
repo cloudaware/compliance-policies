@@ -1,0 +1,27 @@
+---
+inputObject: "CA10__CaAzureKeyVault__c"
+importExtracts:
+  - file: "/types/CA10__CaAzureKeyVault__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Azure role-based access control is disabled."
+    remediationMessage: "Consider enabling role-based access control."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__rbacAuthorization__c"
+        right:
+          TEXT: "Disabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Azure role-based access control is enabled."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__rbacAuthorization__c"
+        right:
+          TEXT: "Enabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

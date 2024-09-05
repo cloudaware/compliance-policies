@@ -1,0 +1,39 @@
+---
+inputObject: "CA10Z1__CaAzurePostgreSqlServer__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10Z1__CaAzurePostgreSqlServer__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "PostgreSQL Server log_disconnections configuration is not enabled."
+    remediationMessage: "Consider enabling PostgreSQL Server log_disconnections."
+    condition:
+      IS_EQUAL:
+        left:
+          JSON_QUERY_TEXT:
+              arg: 
+                EXTRACT: "caJsonFrom__configurations__c"
+              expression: "[? name == 'log_disconnections'].value | [0]"
+              undeterminedIf: 
+                evaluationError: "The JSON query has failed."
+                resultTypeMismatch: "The JSON query did not return text type."
+        right:
+          TEXT: "off"
+  - status: "COMPLIANT"
+    currentStateMessage: "PostgreSQL Server log_disconnections configuration is enabled."
+    condition:
+      IS_EQUAL:
+        left:
+          JSON_QUERY_TEXT:
+              arg: 
+                EXTRACT: "caJsonFrom__configurations__c"
+              expression: "[? name == 'log_disconnections'].value | [0]"
+              undeterminedIf: 
+                evaluationError: "The JSON query has failed."
+                resultTypeMismatch: "The JSON query did not return text type."
+        right:
+          TEXT: "on"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

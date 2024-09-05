@@ -1,0 +1,19 @@
+---
+names:
+  full: Microsoft Entra ID Require MFA To Register Or Join Devices With Microsoft
+    Entra ID is set to No
+  contextual: Require MFA to register or join devices with Microsoft Entra ID is set
+    to No
+description: Joining or registering devices to Microsoft Entra ID should require Multi-factor
+  authentication.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/21
+  - /frameworks/cloudaware/identity-and-access-management/mfa-implementation
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/require-multi-factor-auth-to-join-devices.html
+      name: Require Multi-Factor Auth To Join Devices

@@ -1,0 +1,34 @@
+---
+inputObject: "CA10__CaAzureStorageAccount__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This Storage account allows Cross Tenant Replication."
+    remediationMessage: "Consider disabling Cross Tenant Replication if object replication policies will not involve storage accounts in different AAD tenants."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__crossTenantReplication__c"
+        right:
+          TEXT: "Allow"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Cross Tenant Replication is not explicitly denied."
+    remediationMessage: "Consider disabling Cross Tenant Replication since the storage account can still participate in object replication policies across tenants."
+    condition:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__crossTenantReplication__c"
+  - status: "COMPLIANT"
+    currentStateMessage: "Cross Tenant Replication is denied."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__crossTenantReplication__c"
+        right:
+          TEXT: "Deny"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

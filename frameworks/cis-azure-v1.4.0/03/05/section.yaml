@@ -1,0 +1,8 @@
+---
+name: 3.5 Ensure that 'Public access level' is set to Private for blob containers
+  - Level 1 (Automated)
+description: Disable anonymous access to blob containers and disallow blob public
+  access on storage account.
+similar:
+  internal:
+    - dec-c-410e54e3

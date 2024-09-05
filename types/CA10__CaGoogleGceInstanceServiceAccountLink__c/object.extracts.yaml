@@ -1,0 +1,14 @@
+---
+extracts:
+  - name: "CA10__iamServiceAccountEmail__c"
+    value: 
+      FIELD:
+        path: "CA10__iamServiceAccountEmail__c"
+        undeterminedIf:
+          isEmpty:  "Field should not be empty"
+  - name: "CA10__scopes__c"
+    value: 
+      FIELD:
+        path: "CA10__scopes__c"
+        undeterminedIf:
+          isEmpty:  "Field should not be empty"

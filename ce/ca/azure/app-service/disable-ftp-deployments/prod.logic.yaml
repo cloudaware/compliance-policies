@@ -1,0 +1,35 @@
+---
+inputObject: "CA10__CaAzureAppService__c"
+importExtracts:
+  - file: "/types/CA10__CaAzureAppService__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "App Service FTPS State is AllAllowed."
+    remediationMessage: "Consider setting FTPS State to disabled or FtpsOnly."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__configFtpsState__c"
+        right:
+          TEXT: "AllAllowed"
+  - status: "COMPLIANT"
+    currentStateMessage: "App Service FTPS State is disabled."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__configFtpsState__c"
+        right:
+          TEXT: "Disabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "App Service FTPS State is FtpsOnly."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__configFtpsState__c"
+        right:
+          TEXT: "FtpsOnly"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

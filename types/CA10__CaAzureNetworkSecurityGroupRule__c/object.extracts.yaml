@@ -1,0 +1,50 @@
+---
+extracts:
+# Values: Allow, Deny. Not Nullable. Can't have no access, retrieved via Microsoft.Network/networkSecurityGroups
+  - name: "CA10__access__c"
+    value: 
+      FIELD:
+        path: "CA10__access__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. NSG Rule Access cannot be empty."
+# Number. Can't have no access, retrieved via Microsoft.Network/networkSecurityGroups
+  - name: "CA10__destinationPortFrom__c"
+    value: 
+      FIELD:
+        path: "CA10__destinationPortFrom__c"
+# Number. Can't have no access, retrieved via Microsoft.Network/networkSecurityGroups
+  - name: "CA10__destinationPortTo__c"
+    value: 
+      FIELD:
+        path: "CA10__destinationPortTo__c"
+# Not Nullable. Can't have no access, retrieved via Microsoft.Network/networkSecurityGroups
+  - name: "CA10__destinationPortRange__c"
+    value: 
+      FIELD:
+        path: "CA10__destinationPortRange__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. NSG Rule Destination Port Range cannot be empty."
+# Values: Inbound, Outbound. Not Nullable. Can't have no access, retrieved via Microsoft.Network/networkSecurityGroups
+  - name: "CA10__direction__c"
+    value: 
+      FIELD:
+        path: "CA10__direction__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. NSG Rule Direction cannot be empty."
+# Not Nullable. Can't have no access, retrieved via Microsoft.Network/networkSecurityGroups
+  - name: "CA10__protocol__c"
+    value: 
+      FIELD:
+        path: "CA10__protocol__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. NSG Rule Protocol cannot be empty."
+# Nullable. Can't have no access, retrieved via Microsoft.Network/networkSecurityGroups
+  - name: "CA10__sourceAddressPrefix__c"
+    value: 
+      FIELD:
+        path: "CA10__sourceAddressPrefix__c"
+# Nullable. Can't have no access, retrieved via Microsoft.Network/networkSecurityGroups
+  - name: "CA10__sourceAddressPrefixes__c"
+    value: 
+      FIELD:
+        path: "CA10__sourceAddressPrefixes__c"

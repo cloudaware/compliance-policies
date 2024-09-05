@@ -1,0 +1,12 @@
+---
+names:
+  full: Microsoft Defender Recommendations for Apply System Updates are not completed
+  contextual: Recommendations for Apply System Updates are not completed
+description: Ensure that the latest OS patches for all virtual machines are applied.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/02/01/12
+  - /frameworks/cloudaware/resource-security/microsoft-defender-configuration

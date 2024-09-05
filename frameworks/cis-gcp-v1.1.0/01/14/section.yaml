@@ -1,0 +1,8 @@
+---
+name: 1.14 Ensure API keys are restricted to only APIs that application needs access
+description: "API keys are insecure because they can be viewed publicly, such as from\
+  \ within a browser, or they can be accessed on a device where the key resides. It\
+  \ is recommended to restrict API keys to use (call) only APIs required by an application."
+similar:
+  internal:
+    - dec-c-7b8d7363

@@ -1,0 +1,149 @@
+---
+# Policy identifies EC2 Instances in a public subnet without public IP address.
+# If an instance doesn't have a public IP, it can't connect to the internet and should be in a private subnet
+# Public subnet is a subnet that has a route to Internet Gateway
+
+# There are 2 cases when a subnet is public.
+
+# Case A - [EC2 Instance . VPC Subnet -> Route Table Association . Route Table -> Route]
+# instance subnet has a CUSTOM Route Table with a Route to Internet Gateway.
+# in this case the EC2 Instance VPC Subnet will have Route Table Association object that points to Route Table -> Route
+
+# Case B - [EC2 Instance . VPC -> Route Table (-> Route Table Association) -> Route]
+# instance subnet has a MAIN Route Table (which is denoted by Main field on Route Table Association object, and is created by default in VPCs) with a Route to Internet Gateway.
+# in this case the EC2 Instance VPC Subnet will NOT have Route Table Association object and we have to find the MAIN Route Table before we check the Route
+# after we get to VPC -> Route Table related list, we have to take 3 steps
+# 1st step: -> Route Table Association CA10__main__c == true to slice off only the main table in 3 step
+# 2nd step: -> Route CA10__gatewayId__c starts with "igw"
+# 3rd step: finally we mark as INCOMPLIANT a Route Table that HAS Route Table Association CA10__main__c == true AND Route CA10__gatewayId__c starts with "igw" 
+inputObject: CA10__CaAwsInstance__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: "/types/CA10__CaAwsInstance__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Instance does not belong to a subnet"
+    condition:
+      IS_EMPTY_LOOKUP: "CA10__vpcSubnet__r"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Instance has a public IP"
+    condition:
+      NOT_EMPTY:
+        arg:
+          EXTRACT: "CA10__publicIpAddress__c"
+# Case A: 1. INCOMPLIANT status if EC2 Instance . VPC Subnet -> Route Table Association has Route Table with a Route to Internet Gateway
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This EC2 Instance is in a public subnet."
+    remediationMessage: "Consider removing the public route or migrating the instance to a private subnet."
+    condition:
+    # Case A: 1.1.
+      RELATED_LIST_HAS: 
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__vpcSubnet__r.CA10__routeTableAssociations__r"
+# Case A: 1. COMPLIANT status if VPC Subnet -> Route Table Association DOESN'T have Route Table with a Route to Internet Gateway
+  - status: "COMPLIANT"
+    currentStateMessage: "This EC2 Instance is in a private subnet."
+    condition:
+    # Case A: 1.1.
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__vpcSubnet__r.CA10__routeTableAssociations__r"
+# Case B: 2. INCOMPLIANT status if EC2 Instance . VPC -> MAIN Route Table has a Route to Internet Gateway
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This EC2 Instance is in a public subnet."
+    remediationMessage: "Consider removing the public route or migrating the instance to a private subnet."
+    condition:
+    # Case B: 2.1.
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__vpc__r.CA10__routeTables__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "This EC2 Instance is not in a private subnet."
+relatedLists:
+  - relationshipName: "CA10__vpcSubnet__r.CA10__routeTableAssociations__r"
+    importExtracts:
+      - file: "/types/CA10__CaAwsRoute__c/object.extracts.yaml"
+    conditions:
+# Case A: 1.1. INCOMPLIANT status if Route Table -> Route has Internet Gateway
+      - status: "INCOMPLIANT"
+        currentStateMessage: "This subnet route table has an Internet Gateway route."
+        remediationMessage: "Consider removing Internet Gateway routes."
+        condition:
+        # Case A: 1.1.1.
+          RELATED_LIST_HAS:
+            status: "INCOMPLIANT"
+            relationshipName: "CA10__routeTable__r.CA10__routes__r"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This subnet is compliant"
+    relatedLists:
+      - relationshipName: "CA10__routeTable__r.CA10__routes__r"
+        conditions:
+# Case A: 1.1.1. INCOMPLIANT status if Route has Internet Gateway
+          - status: "INCOMPLIANT"
+            currentStateMessage: "This is an Internet Gateway route."
+            remediationMessage: "Consider removing this route."
+            condition:
+              STARTS_WITH:
+                arg:
+                  EXTRACT: "CA10__gatewayId__c"
+                prefix:
+                  TEXT: "igw"
+        otherwise:
+          status: "COMPLIANT"
+          currentStateMessage: "This is not an Internet Gateway Route."
+  - relationshipName: "CA10__vpc__r.CA10__routeTables__r"
+    importExtracts:
+      - file: "/types/CA10__CaAwsRoute__c/object.extracts.yaml"
+      - file: "/types/CA10__CaAwsRouteTableAssociation__c/object.extracts.yaml"
+    conditions:
+# Case B: 2.1. INCOMPLIANT status if VPC -> Route Table HAS Route Table Association CA10__main__c == true AND Route CA10__gatewayId__c starts with "igw" 
+      - status: "INCOMPLIANT"
+        currentStateMessage: "This is a Main Route Table with an Internet Gateway route."
+        remediationMessage: "Consider removing this route."
+        condition:
+          AND:
+            args:
+            # Case B: 2.1.1.
+              - RELATED_LIST_HAS:
+                  status: "COMPLIANT"
+                  relationshipName: "CA10__routeTableAssociations__r"
+            # Case B: 2.1.2.
+              - RELATED_LIST_HAS:
+                  status: "INCOMPLIANT"
+                  relationshipName: "CA10__routes__r"
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "Custom Route Tables or Main Route Table without Internet Gateway."
+    relatedLists:
+      - relationshipName: "CA10__routeTableAssociations__r"
+        conditions:
+# Case B: 2.1.1. COMPLAINT status if Route Table Association CA10__main__c == true
+          - status: "COMPLIANT"
+            currentStateMessage: "This is a Main Route Table."
+            condition:
+              IS_EQUAL:
+                left:
+                  EXTRACT: "CA10__main__c"
+                right:
+                  BOOLEAN: true
+        otherwise:
+          status: "INAPPLICABLE"
+          currentStateMessage: "This is not a Main Route Table."
+      - relationshipName: "CA10__routes__r"
+        conditions:
+# Case B: 2.1.2. INCOMPLIANT status if Route CA10__gatewayId__c starts with "igw" 
+          - status: "INCOMPLIANT"
+            currentStateMessage: "This is an Internet Gateway route."
+            remediationMessage: "Consider removing this route."
+            condition:
+              STARTS_WITH:
+                arg:
+                  EXTRACT: "CA10__gatewayId__c"
+                prefix:
+                  TEXT: "igw"
+        otherwise:
+          status: "COMPLIANT"
+          currentStateMessage: "This is not an Internet Gateway Route."

@@ -1,0 +1,23 @@
+---
+names:
+  full: Microsoft Defender External Attack Surface Monitoring (EASM) is not enabled
+  contextual: External Attack Surface Monitoring (EASM) is not enabled
+description: "An organization's attack surface is the collection of assets with a\
+  \ public network identifier or URI that an external threat actor can see or access\
+  \ from outside your cloud. It is the set of points on the boundary of a system,\
+  \ a system element, system component, or an environment where an attacker can try\
+  \ to enter, cause an effect on, or extract data from, that system, system element,\
+  \ system component, or environment."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/02/01/22
+  - /frameworks/cloudaware/resource-security/microsoft-defender-configuration
+similarPolicies:
+  internal:
+    - dec-x-cff561fd
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/SecurityCenter/defender-endpoint-integration.html
+      name: Enable Defender for Endpoint Integration with Microsoft Defender for Cloud

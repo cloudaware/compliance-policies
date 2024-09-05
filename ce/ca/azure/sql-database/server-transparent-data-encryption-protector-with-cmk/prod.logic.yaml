@@ -1,0 +1,29 @@
+---
+inputObject: "CA10__CaAzureSqlServer__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureSqlServer__c/object.extracts.yaml"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "SQL Server's Transparent Data Encryption (TDE) protector is encrypted with Customer-managed key."
+    condition:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__encryptionProtectorKind__c"
+              right:
+                TEXT: "azurekeyvault"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__encryptionProtectorServerKeyType__c"
+              right:
+                TEXT: "AzureKeyVault"
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10__encryptionProtectorUri__c"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "SQL Server's Transparent Data Encryption (TDE) protector is not encrypted with Customer-managed key."
+  remediationMessage: "Consider encrypting SQL Server's Transparent Data Encryption (TDE) protector with Customer-managed key."

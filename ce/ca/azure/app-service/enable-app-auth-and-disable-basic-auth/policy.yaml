@@ -1,0 +1,22 @@
+---
+names:
+  full: Azure App Service Authentication is disabled and Basic Authentication is enabled
+  contextual: App Service Authentication is disabled and Basic Authentication is enabled
+description: Azure App Service Authentication is a feature that can prevent anonymous
+  HTTP requests from reaching a Web Application or authenticate those with tokens
+  before they reach the app. Disabling HTTP Basic Authentication functionality further
+  ensures legacy authentication methods are disabled within the application.
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/09/01
+  - /frameworks/cloudaware/resource-reliability/system-configuration
+  - /frameworks/cloudaware/resource-security/secure-access-controls
+similarPolicies:
+  internal:
+    - dec-x-ca52f63a
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/AppService/enable-app-service-authentication.html
+      name: Enable App Service Authentication

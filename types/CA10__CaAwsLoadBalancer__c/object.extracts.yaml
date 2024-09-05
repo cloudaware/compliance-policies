@@ -1,0 +1,19 @@
+---
+extracts:
+  # The subnets for the load balancer.
+  # Type: Array of AvailabilityZone objects
+  # Required: No
+  # 
+  # apparently it could be empty according to documentation, but I don't believe so and can't find any LB without AZs
+  - name: CA10__availabilityZones__c
+    value: 
+      FIELD:
+        path: CA10__availabilityZones__c
+        undeterminedIf:
+          isEmpty: Corrupted data. Availability zones should always present
+  - name: caExtract_availabilityZones_asCollection__c
+    value: 
+      COLLECTION_FROM:
+        separator: "\n"
+        arg:
+          EXTRACT: CA10__availabilityZones__c

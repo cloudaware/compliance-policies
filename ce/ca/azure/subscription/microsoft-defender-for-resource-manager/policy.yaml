@@ -1,0 +1,12 @@
+---
+names:
+  full: Azure Subscription Microsoft Defender For Resource Manager is not set to On
+  contextual: Microsoft Defender For Resource Manager is not set to On
+description: Microsoft Defender for Resource Manager scans incoming administrative
+  requests to change your infrastructure from both CLI and the Azure portal.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/02/01/11
+  - /frameworks/cloudaware/resource-security/microsoft-defender-configuration

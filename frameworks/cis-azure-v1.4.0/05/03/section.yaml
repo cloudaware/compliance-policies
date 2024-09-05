@@ -1,0 +1,25 @@
+---
+name: "5.3 Ensure that Diagnostic Logs Are Enabled for All Services that Support it.\
+  \ - Level 1 (Manual | Not supported, requires a manual assessment)"
+description: "Diagnostic Logs capture activity to the data access plane while the\
+  \ Activity log is a subscription-level log for the control plane. Resource-level\
+  \ diagnostic logs provide insight into operations that were performed within that\
+  \ resource itself, for example, getting a secret from a Key Vault. Currently, 32\
+  \ Azure resources support Diagnostic Logging (See the references section for a complete\
+  \ list), including Network Security Groups, Load Balancers, Key Vault, AD, Logic\
+  \ Apps and CosmosDB. The content of these logs varies by resource type. For example,\
+  \ Windows event system logs are a category of diagnostics logs \nfor VMs, and blob,\
+  \ table, and queue logs are categories of diagnostics logs for storage accounts.\
+  \ \n\nA number of back-end services were not configured to log and store Diagnostic\
+  \ Logs for certain activities or for a sufficient length. It is crucial that logging\
+  \ systems are correctly configured to log all relevant activities and retain those\
+  \ logs for a sufficient length of time. By default, Diagnostic Logs are not enabled.\
+  \ Given that the mean time to detection in an enterprise is 240 days, a minimum\
+  \ retention period of two years is recommended. \n\nNote: The CIS Benchmark covers\
+  \ some specific Diagnostic Logs \nseparately.\n'''\n 3.3 - Ensure Storage logging\
+  \ is enabled for Queue service for read, write, and delete requests\n\n 6.4 Ensure\
+  \ that Network Security Group Flow Log retention period is 'greater than 90 days'\n\
+  '''"
+similar:
+  internal:
+    - dec-c-bcc9aded

@@ -1,0 +1,33 @@
+---
+inputObject: "CA10__CaAwsCloudTrailTrail__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsCloudTrailTrail__c/object.extracts.yaml"
+  - file: "/types/CA10__CaAwsKmsKey__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "AWS CloudTrail is not encrypted with KMS CMK."
+    remediationMessage: "Ensure that CloudTrail is referencing an active S3 bucket."
+    condition:
+      IS_EMPTY_LOOKUP: "CA10__kmsKey__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "AWS CloudTrail KMS CMK is not enabled."
+    remediationMessage: "Ensure that CloudTrail is referencing an enabled KMS CMK."
+    condition:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__kmsKey__r.CA10__state__c"
+        right:
+          TEXT: "Enabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "AWS CloudTrail is encrypted with KMS CMK."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__kmsKey__r.CA10__state__c"
+        right:
+          TEXT: "Enabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

@@ -1,0 +1,20 @@
+---
+names:
+  full: "Azure Storage Table Logging is not enabled for Read, Write, and Delete requests"
+  contextual: "Table Logging is not enabled for Read, Write, and Delete requests"
+description: "Azure Table storage is a service that stores structured NoSQL data in\
+  \ the cloud, providing a key/attribute store with a schema-less design. Storage\
+  \ Logging happens server-side and allows details for both successful and failed\
+  \ requests to be recorded in the storage account. These logs allow users to   see\
+  \ the details of read, write, and delete operations against the tables."
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/03/14
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/StorageAccounts/storage-table-service-logging.html
+      name: Enable Logging for Azure Storage Table Service

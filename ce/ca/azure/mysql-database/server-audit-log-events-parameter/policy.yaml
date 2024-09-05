@@ -1,0 +1,13 @@
+---
+names:
+  full: Azure MySQL Server audit_log_events Parameter has CONNECTION unchecked
+  contextual: Server audit_log_events Parameter has CONNECTION unchecked
+description: Set audit_log_enabled to include CONNECTION on MySQL Servers.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+  - PERFORMANCE
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/04/04/04
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration

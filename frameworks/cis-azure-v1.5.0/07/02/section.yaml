@@ -1,0 +1,9 @@
+---
+name: 7.2 Ensure that 'OS and Data' disks are encrypted with Customer Managed Key
+  (CMK) - Level 2 (Automated)
+description: |-
+  Ensure that OS disks (boot volumes) and data disks (non-boot volumes) are encrypted with CMK (Customer Managed Keys).
+  Customer Managed keys can be either ADE or Server Side Encryption (SSE).
+similar:
+  internal:
+    - dec-c-7e45dcf6

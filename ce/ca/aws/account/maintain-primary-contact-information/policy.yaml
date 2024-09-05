@@ -1,0 +1,26 @@
+---
+names:
+  full: AWS Account Primary Contact Information is not current
+  contextual: Primary Contact information is not current
+description: "Ensure contact email and telephone details for AWS accounts are current\
+  \ and map to more than one individual in your organization. An AWS account supports\
+  \ a number of contact details, and AWS will use these to contact the account owner\
+  \ if activity judged to be in breach of Acceptable Use Policy or indicative of likely\
+  \ security compromise is observed by the AWS Abuse team. Contact details should\
+  \ not be for a single individual, as circumstances may arise where that individual\
+  \ is unavailable. Email contact details should point to a mail alias which forwards\
+  \ email to multiple individuals within the organization; where feasible, phone contact\
+  \ details should point to a PABX hunt group or other call-forwarding system."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/01/01
+  - /frameworks/cloudaware/resource-reliability/up-to-date-infrastructure
+similarPolicies:
+  internal:
+    - dec-x-f4d9f9b8
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/Budgets/current-contact-details.html
+      name: Current Contact Details

@@ -1,0 +1,259 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-11T20:42:28Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2024-07-11T20:42:28Z",
+        "CA10__publiclyAccessible__c": false,
+        "CA10__subnetGroup__c": "subnetGroup1",
+        "CA10__vpc__c": "vpc1",
+        "CA10__subnetGroup__r": {
+            "Id": "subnetGroup1",
+            "CA10__AWS_RDS_Subnet_Group_Subnet_Links__r": []
+        },
+        "CA10__vpc__r": {
+            "Id": "vpc1",
+            "CA10__routeTables__r": []
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "!extract('CA10__publiclyAccessible__c')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-11T20:42:28Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__publiclyAccessible__c": false,
+        "CA10__subnetGroup__c": "subnetGroup2",
+        "CA10__vpc__c": "vpc2",
+        "CA10__subnetGroup__r": {
+            "Id": "subnetGroup2",
+            "CA10__AWS_RDS_Subnet_Group_Subnet_Links__r": []
+        },
+        "CA10__vpc__r": {
+            "Id": "vpc2",
+            "CA10__routeTables__r": []
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10__subnetGroup__r.CA10__AWS_RDS_Subnet_Group_Subnet_Links__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-11T20:42:28Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__publiclyAccessible__c": true,
+        "CA10__subnetGroup__c": "subnetGroup3",
+        "CA10__vpc__c": "vpc3",
+        "CA10__subnetGroup__r": {
+            "Id": "subnetGroup3",
+            "CA10__AWS_RDS_Subnet_Group_Subnet_Links__r": [
+                {
+                    "Id": "test3_1",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__subnetGroup__c": "subnetGroup3",
+                    "CA10__subnet__c": "subnet3",
+                    "CA10__subnet__r": {
+                        "Id": "subnet3",
+                        "CA10__routeTableAssociations__r": [
+                            {
+                                "Id": "test3_2",
+                                "CA10__disappearanceTime__c": null,
+                                "CA10__subnet__c": "subnet3",
+                                "CA10__routeTable__c": "routeTable3",
+                                "CA10__routeTable__r": {
+                                    "Id": "routeTable3",
+                                    "CA10__routes__r": [
+                                        {
+                                            "Id": "test3_3",
+                                            "CA10__disappearanceTime__c": null,
+                                            "CA10__gatewayId__c": "igw-123456789",
+                                            "CA10__routeTable__c": "routeTable3",
+                                            "CA10__destinationCidrBlock__c": "0.0.0.0/0",
+                                            "CA10__destinationIpv6CidrBlock__c": null
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "CA10__vpc__r": {
+            "Id": "vpc3",
+            "CA10__routeTables__r": []
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "CA10__subnetGroup__r.CA10__AWS_RDS_Subnet_Group_Subnet_Links__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-11T20:42:28Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__publiclyAccessible__c": true,
+        "CA10__subnetGroup__c": "subnetGroup4",
+        "CA10__vpc__c": "vpc4",
+        "CA10__subnetGroup__r": {
+            "Id": "subnetGroup4",
+            "CA10__AWS_RDS_Subnet_Group_Subnet_Links__r": [
+                {
+                    "Id": "test4_1",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__subnetGroup__c": "subnetGroup4",
+                    "CA10__subnet__c": "subnet4",
+                    "CA10__subnet__r": {
+                        "Id": "subnet4",
+                        "CA10__routeTableAssociations__r": [
+                            {
+                                "Id": "test4_2",
+                                "CA10__disappearanceTime__c": null,
+                                "CA10__main__c" : false,
+                                "CA10__subnet__c": "subnet4",
+                                "CA10__routeTable__c": "routeTable4",
+                                "CA10__routeTable__r": {
+                                    "Id": "routeTable4",
+                                    "CA10__routes__r": [
+                                        {
+                                            "Id": "test4_3",
+                                            "CA10__disappearanceTime__c": null,
+                                            "CA10__gatewayId__c": "local",
+                                            "CA10__routeTable__c": "routeTable4",
+                                            "CA10__destinationCidrBlock__c": "1.1.1.1/32",
+                                            "CA10__destinationIpv6CidrBlock__c": null
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "CA10__vpc__r": {
+            "Id": "vpc4",
+            "CA10__routeTables__r": []
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "CA10__vpc__r.CA10__routeTables__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-11T20:42:28Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__publiclyAccessible__c": true,
+        "CA10__subnetGroup__c": "subnetGroup5",
+        "CA10__vpc__c": "vpc5",
+        "CA10__subnetGroup__r": {
+            "Id": "subnetGroup5",
+            "CA10__AWS_RDS_Subnet_Group_Subnet_Links__r": []
+        },
+        "CA10__vpc__r": {
+            "Id": "vpc5",
+            "CA10__routeTables__r": [
+                {
+                    "Id": "routeTable5",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__vpc__c": "vpc5",
+                    "CA10__routeTableAssociations__r": [
+                        {
+                            "Id": "test5_1",
+                            "CA10__disappearanceTime__c": null,
+                            "CA10__main__c": true,
+                            "CA10__routeTable__c": "routeTable5"
+                        }
+                    ],
+                    "CA10__routes__r": [
+                        {
+                            "Id": "test5_2",
+                            "CA10__disappearanceTime__c": null,
+                            "CA10__gatewayId__c": "igw-5",
+                            "CA10__routeTable__c": "routeTable5",
+                            "CA10__destinationCidrBlock__c": "0.0.0.0/0",
+                            "CA10__destinationIpv6CidrBlock__c": null
+
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "500",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-11T20:42:28Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__publiclyAccessible__c": true,
+        "CA10__subnetGroup__c": "subnetGroup6",
+        "CA10__vpc__c": "vpc6",
+        "CA10__subnetGroup__r": {
+            "Id": "subnetGroup6",
+            "CA10__AWS_RDS_Subnet_Group_Subnet_Links__r": []
+        },
+        "CA10__vpc__r": {
+            "Id": "vpc6",
+            "CA10__routeTables__r": [
+                {
+                    "Id": "routeTable6",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__vpc__c": "vpc6",
+                    "CA10__routeTableAssociations__r": [
+                        {
+                            "Id": "test6_1",
+                            "CA10__disappearanceTime__c": null,
+                            "CA10__main__c": true,
+                            "CA10__routeTable__c": "routeTable6"
+                        }
+                    ],
+                    "CA10__routes__r": [
+                        {
+                            "Id": "test6_2",
+                            "CA10__disappearanceTime__c": null,
+                            "CA10__gatewayId__c": "igw-6",
+                            "CA10__routeTable__c": "routeTable6",
+                            "CA10__destinationCidrBlock__c": "1.1.1.1/32",
+                            "CA10__destinationIpv6CidrBlock__c": null
+
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]

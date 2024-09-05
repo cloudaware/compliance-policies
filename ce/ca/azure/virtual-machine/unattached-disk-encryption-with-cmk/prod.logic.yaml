@@ -1,0 +1,43 @@
+---
+inputObject: "CA10__CaAzureManagedDisk__c"
+importExtracts:
+  - file: "/types/CA10__CaAzureManagedDisk__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This isn't an Unattached Disk."
+    condition:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__diskState__c"
+        right:
+          TEXT: "Unattached"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The disk is encrypted at rest with the Platform Key."
+    remediationMessage: "Consider encrypting the disk with a Customer Managed Key, if data stored in the disk is important.
+     If data stored in the disk is no longer useful, consider deleting it."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__encryptionType__c"
+        right:
+          TEXT: "ENCRYPTIONATRESTWITHPLATFORMKEY"
+  - status: "COMPLIANT"
+    currentStateMessage: "The disk is encrypted with a Customer Managed Key."
+    condition:
+      OR:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__encryptionType__c"
+              right:
+                TEXT: "ENCRYPTIONATRESTWITHPLATFORMANDCUSTOMERKEYS"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__encryptionType__c"
+              right:
+                TEXT: "ENCRYPTIONATRESTWITHCUSTOMERKEY"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

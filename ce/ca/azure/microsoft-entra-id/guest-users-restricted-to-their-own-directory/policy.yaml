@@ -1,0 +1,16 @@
+---
+names:
+  full: Microsoft Entra ID Guest Users restricted to their own directory objects
+  contextual: Guest Users restricted to their own directory objects
+description: Limit guest user permissions.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/14
+  - /frameworks/cloudaware/identity-and-access-management/user-management
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/guest-user-permissions-are-limited.html
+      name: Guest User Permissions Are Limited

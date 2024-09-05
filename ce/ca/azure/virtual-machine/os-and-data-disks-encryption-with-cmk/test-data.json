@@ -1,0 +1,127 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-17T01:40:36Z"
+        },
+        "Id": "test1",
+        "RecordTypeId": "RecordTypeId1",
+        "CA10__disappearanceTime__c": "2024-07-17T01:40:36Z",
+        "CA10__managedDiskLookup__c": "managedDiskLookup1",
+        "CA10__managedDiskId__c": "managedDiskId1",
+        "RecordType": {
+            "DeveloperName": "caAzureRMVirtualMachineDisk1",
+            "Id": "RecordTypeId1"
+        },
+        "CA10__managedDiskLookup__r": {
+            "Id": "managedDiskLookup1",
+            "CA10__disappearanceTime__c": null,
+            "CA10__encryptionType__c": "ENCRYPTIONATRESTWITHPLATFORMKEY"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "isEmptyLookup('CA10__managedDiskLookup__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-17T01:40:36Z"
+        },
+        "Id": "test2",
+        "RecordTypeId": "RecordTypeId2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__managedDiskLookup__c": "managedDiskLookup2",
+        "CA10__managedDiskId__c": "managedDiskId2",
+        "RecordType": {
+            "DeveloperName": "caAzureRMVirtualMachineDisk2",
+            "Id": "RecordTypeId2"
+        },
+        "CA10__managedDiskLookup__r": {
+            "Id": "managedDiskLookup2",
+            "CA10__disappearanceTime__c": "2024-07-17T01:40:36Z",
+            "CA10__encryptionType__c": "ENCRYPTIONATRESTWITHPLATFORMKEY"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__managedDiskLookup__r.CA10__encryptionType__c') == 'ENCRYPTIONATRESTWITHPLATFORMKEY'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-17T01:40:36Z"
+        },
+        "Id": "test3",
+        "RecordTypeId": "RecordTypeId3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__managedDiskLookup__c": "managedDiskLookup3",
+        "CA10__managedDiskId__c": "managedDiskId3",
+        "RecordType": {
+            "DeveloperName": "caAzureRMVirtualMachineDisk3",
+            "Id": "RecordTypeId3"
+        },
+        "CA10__managedDiskLookup__r": {
+            "Id": "managedDiskLookup3",
+            "CA10__disappearanceTime__c": null,
+            "CA10__encryptionType__c": "ENCRYPTIONATRESTWITHPLATFORMKEY"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__managedDiskLookup__r.CA10__encryptionType__c') == 'ENCRYPTIONATRESTWITHPLATFORMANDCUSTOMERKEYS' || extract('CA10__managedDiskLookup__r.CA10__encryptionType__c') == 'ENCRYPTIONATRESTWITHCUSTOMERKEY'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-17T01:40:36Z"
+        },
+        "Id": "test4",
+        "RecordTypeId": "RecordTypeId4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__managedDiskLookup__c": "managedDiskLookup4",
+        "CA10__managedDiskId__c": "managedDiskId4",
+        "RecordType": {
+            "DeveloperName": "caAzureRMVirtualMachineDisk4",
+            "Id": "RecordTypeId4"
+        },
+        "CA10__managedDiskLookup__r": {
+            "Id": "managedDiskLookup4",
+            "CA10__disappearanceTime__c": null,
+            "CA10__encryptionType__c": "ENCRYPTIONATRESTWITHPLATFORMANDCUSTOMERKEYS"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__managedDiskLookup__r.CA10__encryptionType__c') == 'ENCRYPTIONATRESTWITHPLATFORMANDCUSTOMERKEYS' || extract('CA10__managedDiskLookup__r.CA10__encryptionType__c') == 'ENCRYPTIONATRESTWITHCUSTOMERKEY'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-17T01:40:36Z"
+        },
+        "Id": "test5",
+        "RecordTypeId": "RecordTypeId5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__managedDiskLookup__c": "managedDiskLookup5",
+        "CA10__managedDiskId__c": "managedDiskId5",
+        "RecordType": {
+            "DeveloperName": "caAzureRMVirtualMachineDisk5",
+            "Id": "RecordTypeId5"
+        },
+        "CA10__managedDiskLookup__r": {
+            "Id": "managedDiskLookup5",
+            "CA10__disappearanceTime__c": null,
+            "CA10__encryptionType__c": "ENCRYPTIONATRESTWITHCUSTOMERKEY"
+        }
+    }
+]

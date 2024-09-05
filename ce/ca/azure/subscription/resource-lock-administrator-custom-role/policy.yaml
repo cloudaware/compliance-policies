@@ -1,0 +1,18 @@
+---
+names:
+  full: Azure Subscription Resource Lock Administrator Custom Role does not exist
+  contextual: Resource Lock Administrator Custom Role does not exist
+description: Resource locking is a powerful protection mechanism that can prevent
+  inadvertent modification/deletion of resources within Azure subscriptions/Resource
+  Groups and is a recommended NIST configuration.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/23
+  - /frameworks/cloudaware/identity-and-access-management/role-management
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/AccessControl/resource-lock-custom-role.html
+      name: Resource Locking Administrator Role

@@ -1,0 +1,51 @@
+---
+inputObject: "CA10__CaAzureSqlServer__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureSqlServer__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "SQL Server auditing is disabled."
+    remediationMessage: "Consider enabling SQL Server auditing."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__auditing__c"
+        right:
+          TEXT: "Disabled"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "SQL Server auditing retention is less than 90 days."
+    remediationMessage: "Consider setting SQL Server auditing retention to be greater than 90 days or 0 for unlimited retention."
+    condition:
+      AND:
+        args:
+          - LESS_THAN:
+              left: 
+                EXTRACT: "CA10__auditingRetentionDays__c"
+              right:
+                NUMBER: 90.0
+          - GREATER_THAN:
+              left: 
+                EXTRACT: "CA10__auditingRetentionDays__c"
+              right:
+                NUMBER: 0.0
+  - status: "COMPLIANT"
+    currentStateMessage: "SQL Server auditing retention is 90 days or more."
+    condition:
+      GREATER_THAN_EQUAL:
+        left: 
+          EXTRACT: "CA10__auditingRetentionDays__c"
+        right:
+          NUMBER: 90.0
+  - status: "COMPLIANT"
+    currentStateMessage: "SQL Server auditing retention is unlimited."
+    condition:
+      IS_EQUAL:
+        left: 
+          EXTRACT: "CA10__auditingRetentionDays__c"
+        right:
+          NUMBER: 0.0
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

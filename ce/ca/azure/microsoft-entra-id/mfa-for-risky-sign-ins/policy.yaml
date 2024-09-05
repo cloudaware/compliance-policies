@@ -1,0 +1,13 @@
+---
+names:
+  full: Microsoft Entra ID MFA For Risky Sign-Ins is not required
+  contextual: MFA For Risky Sign-Ins is not required
+description: "For designated users, they will be prompted to use their multi-factor\
+  \ authentication (MFA) process on login."
+impossible: true
+type: BEST_PRACTICE
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/02/05
+  - /frameworks/cloudaware/identity-and-access-management/mfa-implementation

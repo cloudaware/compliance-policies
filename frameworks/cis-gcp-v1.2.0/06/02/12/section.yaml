@@ -1,0 +1,10 @@
+---
+name: 6.2.12 Ensure 'log_statement_stats' database flag for Cloud SQL PostgreSQL instance
+  is set to 'off' - Level 2 (Automated)
+description: "The `log_statement_stats` flag controls the inclusion of end to end\
+  \ performance statistics of a SQL query in the PostgreSQL logs for each query. This\
+  \ **cannot** be enabled with other module statistics (`log_parser_stats`, `log_planner_stats`,\
+  \ `log_executor_stats`). Will be supported in the near future."
+similar:
+  internal:
+    - dec-c-a01f34bf

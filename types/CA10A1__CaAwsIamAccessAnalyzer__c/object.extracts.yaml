@@ -1,0 +1,8 @@
+---
+extracts:
+  - name: CA10A1__status__c
+    value:
+      FIELD: 
+        path: CA10A1__status__c
+        undeterminedIf:
+          isEmpty: Possibly corrupted data. Status should not be empty

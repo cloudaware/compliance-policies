@@ -1,0 +1,31 @@
+---
+extracts:
+# Not Nullable. Can't have no access, retrieved via rds:DescribeDBInstances
+  - name: CA10__engine__c
+    value:
+      FIELD:
+        path: CA10__engine__c
+        undeterminedIf:
+          isEmpty: "Corrupted data. DB Instance Engine cannot be empty."
+# Not Nullable. Can't have no access, retrieved via rds:DescribeDBInstances
+  - name: CA10__endpointPort__c
+    value:
+      FIELD:
+        path: CA10__endpointPort__c
+        undeterminedIf:
+          isEmpty: "Corrupted data. DB Endpoint Port cannot be empty."
+# Checkbox. Can't have no access, retrieved via rds:DescribeDBInstances
+  - name: CA10__publiclyAccessible__c
+    value:
+      FIELD:
+        path: CA10__publiclyAccessible__c
+# Checkbox. Can't have no access, retrieved via rds:DescribeDBInstances
+  - name: CA10__storageEncrypted__c
+    value: 
+      FIELD:
+        path: CA10__storageEncrypted__c
+# Checkbox. Can't have no access, retrieved via rds:DescribeDBInstances
+  - name: CA10__autoMinorVersionUpgrade__c
+    value: 
+      FIELD:
+        path: CA10__autoMinorVersionUpgrade__c

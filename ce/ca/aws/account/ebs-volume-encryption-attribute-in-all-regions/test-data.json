@@ -1,0 +1,110 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__AWS_Account_Regions__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-06-04T19:44:50Z" },
+    "Id": "a01",
+    "CA10__AWS_Account_Regions__r": [
+      {
+        "Id": "aD1",
+        "CA10__status__c": "not-opted-in",
+        "CA10__ebsStorageEncryption__c": "",
+        "CA10__account__c": "a01"
+      },
+      {
+        "Id": "aD2",
+        "CA10__status__c": "opt-in-not-required",
+        "CA10__ebsStorageEncryption__c": "Enabled",
+        "CA10__account__c": "a01"
+      },
+      {
+        "Id": "aD3",
+        "CA10__status__c": "opt-in-not-required",
+        "CA10__ebsStorageEncryption__c": "Disabled",
+        "CA10__account__c": "a01"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "299",
+      "conditionText": "CA10__AWS_Account_Regions__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-06-04T19:44:50Z" },
+    "Id": "a02",
+    "CA10__AWS_Account_Regions__r": [
+      {
+        "Id": "aD12",
+        "CA10__status__c": "not-opted-in",
+        "CA10__ebsStorageEncryption__c": "",
+        "CA10__account__c": "a02"
+      },
+      {
+        "Id": "aD22",
+        "CA10__status__c": "opt-in-not-required",
+        "CA10__ebsStorageEncryption__c": "",
+        "CA10__account__c": "a02"
+      },
+      {
+        "Id": "aD32",
+        "CA10__status__c": "opt-in-not-required",
+        "CA10__ebsStorageEncryption__c": "Enabled",
+        "CA10__account__c": "a02"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "CA10__AWS_Account_Regions__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-06-04T19:44:50Z" },
+    "Id": "a03",
+    "CA10__AWS_Account_Regions__r": [
+      {
+        "Id": "aD13",
+        "CA10__status__c": "not-opted-in",
+        "CA10__ebsStorageEncryption__c": "",
+        "CA10__account__c": "a03"
+      },
+      {
+        "Id": "aD23",
+        "CA10__status__c": "opt-in-not-required",
+        "CA10__ebsStorageEncryption__c": "Enabled",
+        "CA10__account__c": "a03"
+      },
+      {
+        "Id": "aD33",
+        "CA10__status__c": "opt-in-not-required",
+        "CA10__ebsStorageEncryption__c": "Enabled",
+        "CA10__account__c": "a03"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-06-04T19:44:50Z" },
+    "Id": "a04",
+    "CA10__AWS_Account_Regions__r": [
+      {
+        "Id": "aD14",
+        "CA10__status__c": "not-opted-in",
+        "CA10__ebsStorageEncryption__c": "",
+        "CA10__account__c": "a04"
+      }
+    ]
+  }
+]

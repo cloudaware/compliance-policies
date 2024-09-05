@@ -1,0 +1,18 @@
+---
+inputObject: "CA10__CaAwsAcmCertificate__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsAcmCertificate__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Certificate will expire in 7 days or less"
+    remediationMessage: "Renew the certificate"
+    condition:
+      IS_WITHIN_NEXT_DAYS:
+        offsetDays: 7
+        arg:
+          EXTRACT: CA10__notAfter__c
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Certificate is compliant"

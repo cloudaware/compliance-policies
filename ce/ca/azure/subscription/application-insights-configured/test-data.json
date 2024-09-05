@@ -1,0 +1,53 @@
+[
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__Azure_Application_Insights_Components__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test1",
+        "CA10__Azure_Application_Insights_Components__r": [
+            {
+                "Id": "test1_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__subscription__c": "test1"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test2",
+        "CA10__Azure_Application_Insights_Components__r": [
+            {
+                "Id": "test2_1",
+                "CA10__disappearanceTime__c": "2024-06-13T04:17:29Z",
+                "CA10__subscription__c": "test2"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test3",
+        "CA10__Azure_Application_Insights_Components__r": []
+    }
+]

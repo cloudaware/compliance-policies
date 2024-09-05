@@ -1,0 +1,82 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-28T08:24:16Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2024-06-20T20:56:36Z",
+        "CA10__authStatus__c": "Disabled",
+        "CA10__basicPublishingCredentialsFtpState__c": "Enabled",
+        "CA10__basicPublishingCredentialsScmState__c": "Enabled"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__authStatus__c') == 'Disabled' && (extract('CA10__basicPublishingCredentialsFtpState__c') == 'Enabled' || extract('CA10__basicPublishingCredentialsScmState__c') == 'Enabled')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-28T08:24:16Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__authStatus__c": "Disabled",
+        "CA10__basicPublishingCredentialsFtpState__c": "Enabled",
+        "CA10__basicPublishingCredentialsScmState__c": "Enabled"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__authStatus__c') == 'Disabled'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-28T08:24:16Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__authStatus__c": "Disabled",
+        "CA10__basicPublishingCredentialsFtpState__c": "Disabled",
+        "CA10__basicPublishingCredentialsScmState__c": "Disabled"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__basicPublishingCredentialsFtpState__c') == 'Enabled' || extract('CA10__basicPublishingCredentialsScmState__c') == 'Enabled'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-28T08:24:16Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__authStatus__c": "Enabled",
+        "CA10__basicPublishingCredentialsFtpState__c": "Enabled",
+        "CA10__basicPublishingCredentialsScmState__c": "Enabled"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "extract('CA10__authStatus__c') == 'Enabled' && (extract('CA10__basicPublishingCredentialsFtpState__c') == 'Disabled' || extract('CA10__basicPublishingCredentialsScmState__c') == 'Disabled')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-28T08:24:16Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__authStatus__c": "Enabled",
+        "CA10__basicPublishingCredentialsFtpState__c": "Disabled",
+        "CA10__basicPublishingCredentialsScmState__c": "Disabled"
+    }
+]

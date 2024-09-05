@@ -1,0 +1,13 @@
+---
+name: 1.20 Ensure that IAM Access analyzer is enabled for all regions - Level 1 (Automated)
+description: "Enable IAM Access analyzer for IAM policies about all resources in each\
+  \ active AWS region. \n\nIAM Access Analyzer is a technology introduced at AWS reinvent\
+  \ 2019. After the Analyzer is enabled in IAM, scan results are displayed on the\
+  \ console showing the accessible resources. Scans show resources that other accounts\
+  \ and federated users can access, such as KMS keys and IAM roles. So the results\
+  \ allow you to determine if an unintended user is allowed, making it easier for\
+  \ administrators to monitor least privileges access.\nAccess Analyzer analyzes only\
+  \ policies that are applied to resources in the same AWS Region."
+similar:
+  internal:
+    - dec-c-fac78739

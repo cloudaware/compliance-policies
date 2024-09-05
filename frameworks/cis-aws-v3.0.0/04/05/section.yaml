@@ -1,0 +1,10 @@
+---
+name: 4.5 Ensure CloudTrail configuration changes are monitored - Level 1 (Manual)
+description: "Real-time monitoring of API calls can be achieved by directing CloudTrail\
+  \ Logs to CloudWatch Logs, or an external Security information and event management\
+  \ (SIEM) environment, where metric filters and alarms can be established. \n\nIt\
+  \ is recommended that a metric filter and alarm be utilized for detecting changes\
+  \ to CloudTrail's configurations."
+similar:
+  internal:
+    - dec-c-0ef5b17d

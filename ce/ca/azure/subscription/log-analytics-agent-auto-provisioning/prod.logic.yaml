@@ -1,0 +1,50 @@
+---
+inputObject: "CA10__CaAzureAccount__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureAccount__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Automatic provisioning of the monitoring agent is not enabled."
+    remediationMessage: "Consider enabling automatic provisioning of the monitoring agent."
+    condition:
+# returns the number of json objects that satisfy the criteria of name == 'default' && autoProvision == 'Off'
+      GREATER_THAN:
+        left:
+          JSON_QUERY_NUMBER:
+            arg:
+              JSON_FROM:
+                arg: 
+                  EXTRACT: "CA10__securityCenterAutoProvisioning__c"
+                undeterminedIf:
+                  isInvalid: "The provided Auto Provisioning Settings JSON is invalid."
+                  isEmpty: "Unable to determine Auto Provisioning Settings. Possible permission issue with Microsoft.Security/autoProvisioningSettings"
+            expression: "length([? name == 'default' && autoProvision == 'Off'])"
+            undeterminedIf:
+              evaluationError: "The JSON query number has failed."
+              resultTypeMismatch: "The JSON query did not return number type."
+        right:
+          NUMBER: 0.0
+  - status: "COMPLIANT"
+    currentStateMessage: "Automatic provisioning of the monitoring agent is enabled."
+    condition:
+# returns the number of json objects that satisfy the criteria of name == 'default' && autoProvision == 'On'
+      GREATER_THAN:
+        left:
+          JSON_QUERY_NUMBER:
+            arg:
+              JSON_FROM:
+                arg: 
+                  EXTRACT: "CA10__securityCenterAutoProvisioning__c"
+                undeterminedIf:
+                  isInvalid: "The provided Auto Provisioning Settings JSON is invalid."
+            expression: "length([? name == 'default' && autoProvision == 'On'])"
+            undeterminedIf:
+              evaluationError: "The JSON query number has failed."
+              resultTypeMismatch: "The JSON query did not return number type."
+        right:
+          NUMBER: 0.0
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unable to determine Auto Provisioning Settings."

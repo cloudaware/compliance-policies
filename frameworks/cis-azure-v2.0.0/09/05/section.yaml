@@ -1,0 +1,10 @@
+---
+name: 9.5 Ensure that Register with Azure Active Directory is enabled on App Service
+  - Level 1 (Automated)
+description: "Managed service identity in App Service provides more security by eliminating\
+  \ secrets from the app, such as credentials in the connection strings. When registering\
+  \ with Azure Active Directory in App Service, the app will connect to other Azure\
+  \ services securely without the need for usernames and passwords."
+similar:
+  internal:
+    - dec-c-bf298def

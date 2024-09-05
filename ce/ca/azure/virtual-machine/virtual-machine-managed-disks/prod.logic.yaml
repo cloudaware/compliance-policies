@@ -1,0 +1,47 @@
+---
+inputObject: "CA10__CaAzureVirtualMachine__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This Virtual Machine utilizes VHD Disks."
+    remediationMessage: "Consider migrating to Managed Disks."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__Azure_Virtual_Machine_Disks__r"
+        status: "INCOMPLIANT"
+  - status: "COMPLIANT"
+    currentStateMessage: "This Virtual Machine utilizes Managed Disks."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__Azure_Virtual_Machine_Disks__r"
+        status: "COMPLIANT"
+  - status: "UNDETERMINED"
+    currentStateMessage: "Unable to determine the disk type."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__Azure_Virtual_Machine_Disks__r"
+        status: "UNDETERMINED"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "This Virtual Machine doesn't have disks."
+relatedLists:
+  - relationshipName: "CA10__Azure_Virtual_Machine_Disks__r"
+    importExtracts:
+      - file: "/types/CA10__CaAzureVirtualMachineDisk__c/object.extracts.yaml"
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "This is a Managed Disk."
+        condition:
+          NOT_EMPTY:
+            arg:
+              EXTRACT: "CA10__managedDiskId__c"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "This is a VHD Disk."
+        condition:
+          NOT_EMPTY:
+            arg:
+              EXTRACT: "CA10__vhdUri__c"
+    otherwise:
+      status: "UNDETERMINED"
+      currentStateMessage: "Unable to determine the Disk."

@@ -1,0 +1,18 @@
+---
+names:
+  full: Microsoft Entra ID User Notify All Admins When Other Admins Reset Their Password
+    is set No
+  contextual: Notify All Admins When Other Admins Reset Their Password is set No
+description: Ensure that all Global Administrators are notified if any other administrator
+  resets their password.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/09
+  - /frameworks/cloudaware/identity-and-access-management/credentials-controls
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/notify-all-admins-when-other-admins-reset-their-password.html
+      name: Notify All Admins When Other Admins Reset Their Password

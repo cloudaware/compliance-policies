@@ -1,0 +1,54 @@
+---
+inputObject: "CA10__CaAwsAccount__c"
+testData:
+ - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsAccount__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "IAM Access analyzer is enabled for all regions."
+    condition:
+          IS_EQUAL:
+            left:
+              RELATED_LIST_COUNT:
+                status: "COMPLIANT"
+                relationshipName: "CA10A1__AWS_IAM_Access_Analyzers__r"
+            right:
+              RELATED_LIST_COUNT:
+                status: "COMPLIANT"
+                relationshipName: "CA10__AWS_Account_Regions__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "IAM Access analyzer is not enabled for all regions."
+  remediationMessage: "Configure the IAM Access analyzer in each active region."
+relatedLists:
+  - relationshipName: "CA10A1__AWS_IAM_Access_Analyzers__r"
+    importExtracts:
+      - file: /types/CA10A1__CaAwsIamAccessAnalyzer__c/object.extracts.yaml
+    conditions:      
+    - status: "COMPLIANT"
+      currentStateMessage: "Active AWS IAM Access Analyzer"
+      condition:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10A1__status__c"
+            right:
+              TEXT: "ACTIVE"
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: " There is no active AWS IAM Access Analyzer"
+  - relationshipName: "CA10__AWS_Account_Regions__r"
+    importExtracts:
+      - file: /types/CA10__CaAwsAccountRegion__c/object.extracts.yaml
+    conditions:      
+    - status: "COMPLIANT"
+      currentStateMessage: "Active AWS Account Region"
+      condition:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__status__c"
+            right:
+              TEXT: "not-opted-in"
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "This AWS Account Region not active"

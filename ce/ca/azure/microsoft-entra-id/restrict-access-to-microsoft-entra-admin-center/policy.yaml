@@ -1,0 +1,18 @@
+---
+names:
+  full: Microsoft Entra ID User Settings Restrict Access To Microsoft Entra Admin
+    Center is set to No
+  contextual: Restrict Access To Microsoft Entra Admin Center is set to No
+description: Restrict access to the Microsoft Entra ID administration center to administrators
+  only.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/16
+  - /frameworks/cloudaware/identity-and-access-management/user-management
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/restrict-access-to-administration-portal.html
+      name: Restrict Access To Microsoft Entra ID Administration Portal

@@ -1,0 +1,20 @@
+---
+names:
+  full: Azure Cosmos DB Entra ID Client Authentication is not used
+  contextual: Entra ID Client Authentication is not used
+description: "Cosmos DB can use tokens or Entra ID for client authentication which\
+  \ in turn will use Azure RBAC for authorization. Using Entra ID is significantly\
+  \ more secure because Entra ID handles the credentials and allows for MFA and centralized\
+  \ management, and the Azure RBAC better integrated with the rest of Azure."
+impossible: true
+type: BEST_PRACTICE
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/04/05/03
+  - /frameworks/cloudaware/resource-security/secure-access-controls
+frameworkIgnoreMappings:
+  - /frameworks/cis-azure-v2.1.0/04/05/02
+similarPolicies:
+  internal:
+    - dec-x-b4d3d9dc

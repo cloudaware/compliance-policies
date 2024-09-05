@@ -1,0 +1,18 @@
+---
+names:
+  full: "Microsoft Entra ID Users Can Create Security Groups In Azure Portals, API\
+    \ Or PowerShell is set to Yes"
+  contextual: "Users Can Create Security Groups In Azure Portals, API Or PowerShell\
+    \ is set to Yes"
+description: Restrict security group creation to administrators only.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/18
+  - /frameworks/cloudaware/identity-and-access-management/user-management
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/users-can-create-security-groups.html
+      name: Users Can Create Security Groups

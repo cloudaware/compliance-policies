@@ -1,0 +1,128 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-28T08:24:16Z"
+        },
+        "Id": "test1",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": "2024-06-19T23:28:45Z",
+        "CA10__securityProfileSecurityType__c": "TrustedLaunch",
+        "CA10__uefiSettingsVTpm__c": "Enabled",
+        "CA10__uefiSettingsSecureBoot__c": "Enabled",
+        "RecordType": {
+            "DeveloperName": "RecordTypeId",
+            "Id": "RecordTypeId"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__securityProfileSecurityType__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-28T08:24:16Z"
+        },
+        "Id": "test2",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__securityProfileSecurityType__c": "",
+        "CA10__uefiSettingsVTpm__c": "",
+        "CA10__uefiSettingsSecureBoot__c": "",
+        "RecordType": {
+            "DeveloperName": "RecordTypeId",
+            "Id": "RecordTypeId"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__uefiSettingsVTpm__c') == 'Disabled' && extract('CA10__uefiSettingsSecureBoot__c') == 'Disabled'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-28T08:24:16Z"
+        },
+        "Id": "test3",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__securityProfileSecurityType__c": "TrustedLaunch",
+        "CA10__uefiSettingsVTpm__c": "Disabled",
+        "CA10__uefiSettingsSecureBoot__c": "Disabled",
+        "RecordType": {
+            "DeveloperName": "RecordTypeId",
+            "Id": "RecordTypeId"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__uefiSettingsVTpm__c') == 'Enabled' && extract('CA10__uefiSettingsSecureBoot__c') == 'Disabled'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-28T08:24:16Z"
+        },
+        "Id": "test4",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__securityProfileSecurityType__c": "TrustedLaunch",
+        "CA10__uefiSettingsVTpm__c": "Enabled",
+        "CA10__uefiSettingsSecureBoot__c": "Disabled",
+        "RecordType": {
+            "DeveloperName": "RecordTypeId",
+            "Id": "RecordTypeId"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "extract('CA10__uefiSettingsVTpm__c') == 'Disabled' && extract('CA10__uefiSettingsSecureBoot__c') == 'Enabled'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-28T08:24:16Z"
+        },
+        "Id": "test5",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__securityProfileSecurityType__c": "TrustedLaunch",
+        "CA10__uefiSettingsVTpm__c": "Disabled",
+        "CA10__uefiSettingsSecureBoot__c": "Enabled",
+        "RecordType": {
+            "DeveloperName": "RecordTypeId",
+            "Id": "RecordTypeId"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "599",
+            "conditionText": "extract('CA10__uefiSettingsVTpm__c') == 'Enabled' && extract('CA10__uefiSettingsSecureBoot__c') == 'Enabled'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-28T08:24:16Z"
+        },
+        "Id": "test6",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__securityProfileSecurityType__c": "TrustedLaunch",
+        "CA10__uefiSettingsVTpm__c": "Enabled",
+        "CA10__uefiSettingsSecureBoot__c": "Enabled",
+        "RecordType": {
+            "DeveloperName": "RecordTypeId",
+            "Id": "RecordTypeId"
+        }
+    }
+]

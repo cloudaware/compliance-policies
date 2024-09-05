@@ -1,0 +1,80 @@
+[
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('caJsonQueryText__securityCenterContacts_default_email__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-11T13:19:33Z"
+        },
+        "Id": "test1",
+        "CA10__securityCenterContacts__c": "[{\"name\":\"default\",\"email\":\"\"}]"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('caJsonQueryText__securityCenterContacts_default_email__c').isNotEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-11T13:19:33Z"
+        },
+        "Id": "test2",
+        "CA10__securityCenterContacts__c": "[{\"name\":\"default\",\"email\":\"email@example.com\"}]"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('caJsonQueryText__securityCenterContacts_default_email__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-11T13:19:33Z"
+        },
+        "Id": "test3",
+        "CA10__securityCenterContacts__c": "[]"
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "101",
+            "conditionText": "CA10__securityCenterContacts__c.delegatedTo(CA10__securityCenterContacts__c).isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-11T13:19:33Z"
+        },
+        "Id": "test4",
+        "CA10__securityCenterContacts__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "103",
+            "conditionText": "extract('CA10__securityCenterContacts__c').asJson().isInvalid()",
+            "runtimeError": "Expected property name or '}' in JSON at position 1 (line 1 column 2)"
+        },
+        "context": {
+            "snapshotTime": "2024-06-11T13:19:33Z"
+        },
+        "Id": "test5",
+        "CA10__securityCenterContacts__c": "{"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('caJsonQueryText__securityCenterContacts_default_email__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-11T13:19:33Z"
+        },
+        "Id": "test6",
+        "CA10__securityCenterContacts__c": "[{\"name\":\"default\"}]"
+    }
+]

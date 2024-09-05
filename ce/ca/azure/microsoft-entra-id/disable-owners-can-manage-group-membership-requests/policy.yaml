@@ -1,0 +1,18 @@
+---
+names:
+  full: Microsoft Entra ID Owners Can Manage Group Membership Requests In The Access
+    Panel is set to Yes
+  contextual: Owners Can Manage Group Membership Requests In The Access Panel is set
+    to Yes
+description: Restrict security group management to administrators only.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/19
+  - /frameworks/cloudaware/identity-and-access-management/user-management
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/users-who-can-manage-security-groups.html
+      name: Users Who Can Manage Security Groups

@@ -1,0 +1,17 @@
+---
+names:
+  full: Azure Storage Account Shared Access Signature Tokens do not expire within
+    1 hour
+  contextual: Shared Access Signature Tokens do not expire within 1 hour
+description: Expire shared access signature tokens within an hour.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/03/06
+  - /frameworks/cloudaware/resource-security/secure-access-controls
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/StorageAccounts/shared-access-signature-tokens-expire-within-an-hour.html
+      name: Expire Shared Access Signature Tokens

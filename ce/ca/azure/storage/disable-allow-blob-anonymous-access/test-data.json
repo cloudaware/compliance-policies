@@ -1,0 +1,78 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-12T19:31:46Z"
+        },
+        "Id": "test1",
+        "RecordTypeId": "recordType",
+        "CA10__disappearanceTime__c": "2024-06-12T19:31:46Z",
+        "CA10__blobPublicAccess__c": "Deny",
+        "RecordType": {
+            "DeveloperName": "StorageAccount",
+            "Id": "test1_1"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "101",
+            "conditionText": "CA10__blobPublicAccess__c.isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-12T19:31:46Z"
+        },
+        "Id": "test2",
+        "RecordTypeId": "recordType",
+        "CA10__disappearanceTime__c": null,
+        "CA10__blobPublicAccess__c": "",
+        "RecordType": {
+            "DeveloperName": "StorageAccount",
+            "Id": "test2_1"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__blobPublicAccess__c') == 'Allow'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-12T19:31:46Z"
+        },
+        "Id": "test3",
+        "RecordTypeId": "recordType",
+        "CA10__disappearanceTime__c": null,
+        "CA10__blobPublicAccess__c": "Allow",
+        "RecordType": {
+            "DeveloperName": "StorageAccount",
+            "Id": "test3_1"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__blobPublicAccess__c') == 'Deny'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-12T19:31:46Z"
+        },
+        "Id": "test4",
+        "RecordTypeId": "recordType",
+        "CA10__disappearanceTime__c": null,
+        "CA10__blobPublicAccess__c": "Deny",
+        "RecordType": {
+            "DeveloperName": "StorageAccount",
+            "Id": "test4_1"
+        }
+    }
+]

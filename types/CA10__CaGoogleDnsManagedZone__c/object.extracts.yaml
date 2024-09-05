@@ -1,0 +1,19 @@
+---
+extracts:
+  - name: "CA10__visibility__c"
+    value: 
+      FIELD:
+        path: "CA10__visibility__c"
+        undeterminedIf:
+          isEmpty:  " "
+  - name: "CA10__dnssecConfigurationState__c"
+    value: 
+      FIELD:
+        path: "CA10__dnssecConfigurationState__c"
+        undeterminedIf:
+          isEmpty:  " "
+
+
+
+
+          

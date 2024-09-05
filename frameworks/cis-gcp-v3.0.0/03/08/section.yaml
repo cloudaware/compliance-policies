@@ -1,0 +1,11 @@
+---
+name: 3.8 Ensure that VPC Flow Logs is Enabled for Every Subnet in a VPC Network -
+  Level 2 (Automated)
+description: "Flow Logs is a feature that enables users to capture information about\
+  \ the IP traffic going to and from network interfaces in the organization's VPC\
+  \ Subnets. Once a flow log is created, the user can view and retrieve its data in\
+  \ Stackdriver Logging. It is recommended that Flow Logs be enabled for every business-critical\
+  \ VPC subnet."
+similar:
+  internal:
+    - dec-c-516f8aa0

@@ -1,0 +1,23 @@
+---
+extracts:
+# Values: BuiltInRole, CustomRole. Not Nullable. Can't have no access, retrieved via Microsoft.Authorization/roleDefinitions
+  - name: "CA10__roleType__c"
+    value: 
+      FIELD:
+        path: "CA10__roleType__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Role Type cannot be empty."
+# Not Nullable. Can't have no access, retrieved via Microsoft.Authorization/roleDefinitions
+  - name: "CA10__permissionsJson__c"
+    value: 
+      FIELD:
+        path: "CA10__permissionsJson__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Permissions JSON cannot be empty."
+# Not Nullable. Can't have no access, retrieved via Microsoft.Authorization/roleDefinitions
+  - name: "CA10__assignableScopesJson__c"
+    value: 
+      FIELD:
+        path: "CA10__assignableScopesJson__c"
+        undeterminedIf:
+            isEmpty: "Corrupted data. Assignable Scopes JSON cannot be empty."

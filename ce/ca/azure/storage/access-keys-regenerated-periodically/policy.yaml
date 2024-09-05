@@ -1,0 +1,16 @@
+---
+names:
+  full: Azure Storage Account Access Keys are not regenerated periodically
+  contextual: Access Keys are not regenerated periodically
+description: "For increased security, regenerate storage account access keys periodically."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/03/04
+  - /frameworks/cloudaware/resource-security/secure-access-controls
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/StorageAccounts/regenerate-storage-account-access-keys-periodically.html
+      name: Regenerate Storage Account Access Keys Periodically

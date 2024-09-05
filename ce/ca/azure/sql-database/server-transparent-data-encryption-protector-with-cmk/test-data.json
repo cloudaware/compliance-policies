@@ -1,0 +1,66 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2024-06-07T13:58:24Z",
+        "CA10__encryptionProtectorKind__c": "azurekeyvault",
+        "CA10__encryptionProtectorServerKeyType__c": "AzureKeyVault",
+        "CA10__encryptionProtectorUri__c": "serverKeyUri"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__encryptionProtectorKind__c": "servicemanaged",
+        "CA10__encryptionProtectorServerKeyType__c": "ServiceManaged",
+        "CA10__encryptionProtectorUri__c": ""
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__encryptionProtectorKind__c') == 'azurekeyvault' && extract('CA10__encryptionProtectorServerKeyType__c') == 'AzureKeyVault' && extract('CA10__encryptionProtectorUri__c').isNotEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__encryptionProtectorKind__c": "azurekeyvault",
+        "CA10__encryptionProtectorServerKeyType__c": "AzureKeyVault",
+        "CA10__encryptionProtectorUri__c": "serverKeyUri"
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "101",
+            "conditionText": "CA10__encryptionProtectorKind__c.delegatedTo(CA10__encryptionProtectorKind__c).isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__encryptionProtectorKind__c": "",
+        "CA10__encryptionProtectorServerKeyType__c": "",
+        "CA10__encryptionProtectorUri__c": ""
+    }
+]

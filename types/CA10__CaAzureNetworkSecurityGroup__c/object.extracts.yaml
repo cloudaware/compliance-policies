@@ -1,0 +1,29 @@
+---
+extracts:
+# Checkbox. 
+  - name: "CA10__flowLogsEnabled__c"
+    value: 
+      FIELD:
+        path: "CA10__flowLogsEnabled__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__flowLogsEnabled__c"
+            currentStateMessage: "Unable to determine if Flow Logs are enabled. Possible permission issue with Microsoft.Network/networkWatchers/queryFlowLogStatus/action"
+# Checkbox. 
+  - name: "CA10__flowLogsRetentionPolicyEnabled__c"
+    value: 
+      FIELD:
+        path: "CA10__flowLogsRetentionPolicyEnabled__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__flowLogsRetentionPolicyEnabled__c"
+            currentStateMessage: "Unable to determine Flow Logs Retention Policy. Possible permission issue with Microsoft.Network/networkWatchers/queryFlowLogStatus/action"
+# Number. 
+  - name: "CA10__flowLogsRetentionPolicyDays__c"
+    value: 
+      FIELD:
+        path: "CA10__flowLogsRetentionPolicyDays__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__flowLogsRetentionPolicyDays__c"
+            currentStateMessage: "Unable to determine Flow Logs Retention Policy. Possible permission issue with Microsoft.Network/networkWatchers/queryFlowLogStatus/action"

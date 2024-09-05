@@ -1,0 +1,27 @@
+---
+inputObject: "CA10__CaAzureStorageAccount__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Require Infrastructure Encryption setting is disabled."
+    remediationMessage: "Consider enabling Require Infrastructure Encryption setting."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__requireInfrastructureEncryptionState__c"
+        right:
+          TEXT: "Disabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "Require Infrastructure Encryption setting is enabled."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__requireInfrastructureEncryptionState__c"
+        right:
+          TEXT: "Enabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

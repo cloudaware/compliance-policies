@@ -1,0 +1,8 @@
+---
+name: 7.1 Ensure that BigQuery datasets are not anonymously or publicly accessible
+  - Level 1 (Automated)
+description: It is recommended that the IAM policy on BigQuery datasets does not allow
+  anonymous and/or public access.
+similar:
+  internal:
+    - dec-c-60023fd7

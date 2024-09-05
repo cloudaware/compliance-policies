@@ -1,0 +1,23 @@
+---
+names:
+  full: AWS CloudTrail Network Gateways Changes Monitoring is not enabled
+  contextual: Network Gateways Changes Monitoring is not enabled
+description: "Real-time monitoring of API calls can be achieved by directing CloudTrail\
+  \ Logs to CloudWatch Logs, or an external Security information and event management\
+  \ (SIEM) environment, and establishing corresponding metric filters and alarms.\
+  \ Network gateways are required to send/receive traffic to a destination outside\
+  \ of a VPC. It is recommended that a metric filter and alarm be established for\
+  \ changes to network gateways."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/04/12
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management
+similarPolicies:
+  internal:
+    - dec-x-e9ae2d3d
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/CloudWatchLogs/internet-gateway-changes-alarm.html
+      name: Internet Gateway Changes Alarm

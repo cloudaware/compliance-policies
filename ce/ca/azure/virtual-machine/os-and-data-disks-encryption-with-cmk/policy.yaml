@@ -1,0 +1,20 @@
+---
+names:
+  full: Azure Virtual Machine OS and Data disks are not encrypted with Customer-managed
+    key
+  contextual: OS and Data disks are not encrypted with Customer-managed key
+description: Ensure that OS disks (boot volumes) and data disks (non-boot volumes)
+  are encrypted with CMK (Customer Managed Keys). Customer Managed keys can be either
+  ADE or Server Side Encryption (SSE).
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/07/03
+  - /frameworks/cloudaware/resource-security/data-encryption
+similarPolicies:
+  internal:
+    - dec-x-9cdb7407
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/VirtualMachines/sse-boot-disk-cmk.html
+      name: Server Side Encryption for Boot Disk using CMK

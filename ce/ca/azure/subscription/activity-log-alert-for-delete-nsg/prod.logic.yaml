@@ -1,0 +1,45 @@
+---
+inputObject: "CA10__CaAzureAccount__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "This subscription has an Activity Log Alert for Delete Network Security Group."
+    condition:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__Azure_Activity_Log_Alerts__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "This subscription doesn't have an Activity Log Alert for Delete Network Security Group."
+  remediationMessage: "Consider creating an Activity Log Alert for Delete Network Security Group."
+relatedLists:
+  - relationshipName: "CA10__Azure_Activity_Log_Alerts__r"
+    importExtracts:
+      - file: "/types/CA10__CaAzureActivityLogAlert__c/object.extracts.yaml"
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This is a disabled Activity Log Alert."
+        condition:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__enabledStatus__c"
+            right:
+              TEXT: "Enabled"
+      - status: "COMPLIANT"
+        currentStateMessage: "This is an Activity Log Alert for Delete Network Security Group."
+        condition:
+          IS_EQUAL:
+            left:
+              JSON_QUERY_BOOLEAN:
+                  arg: 
+                    EXTRACT: "caJsonFrom__conditionJson__c"
+                  expression: "contains(allOf[*].equals, 'Microsoft.Network/networkSecurityGroups/delete')"
+                  undeterminedIf: 
+                    evaluationError: "The JSON query has failed."
+                    resultTypeMismatch: "The JSON query did not return boolean type."
+            right:
+              BOOLEAN: true
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "This is an unrelated Activity Log Alert."

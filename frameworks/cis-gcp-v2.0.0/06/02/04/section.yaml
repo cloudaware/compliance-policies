@@ -1,0 +1,19 @@
+---
+name: 6.2.4 Ensure 'Log_statement' Database Flag for Cloud SQL PostgreSQL Instance
+  Is Set Appropriately - Level 2 (Automated)
+description: |-
+  The value of log_statement flag determined the SQL statements that are logged. Valid values are:
+  - none
+  - ddl
+  - mod
+  - all
+
+  The value ddl logs all data definition statements.
+  The value mod logs all ddl statements, plus data-modifying statements.
+
+  The statements are logged after a basic parsing is done and statement type is determined, thus this does not logs statements with errors. When using extended query protocol, logging occurs after an Execute message is received and values of the Bind parameters are included.
+
+  A value of 'ddl' is recommended unless otherwise directed by your organization's logging policy.
+similar:
+  internal:
+    - dec-c-6db20484

@@ -1,0 +1,9 @@
+---
+name: 1.8 Ensure IAM password policy require at least one number
+description: "Password policies are, in part, used to enforce password complexity\
+  \ requirements. IAM password policies can be used to ensure password are comprised\
+  \ of different character sets. It is recommended that the password policy require\
+  \ at least one number."
+similar:
+  internal:
+    - dec-c-bd62f17d

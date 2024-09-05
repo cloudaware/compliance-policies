@@ -1,0 +1,18 @@
+---
+names:
+  full: Azure RBAC Key Vault stores Secrets without expiration date
+  contextual: RBAC Key Vault stores Secrets without expiration date
+description: Ensure that all Secrets in Role Based Access Control (RBAC) Azure Key
+  Vaults have an expiration date set.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/08/03
+  - /frameworks/cloudaware/key-secret-certificate-management/expiration-management
+similarPolicies:
+  internal:
+    - dec-x-82ca4127
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/KeyVault/secret-expiration-check.html
+      name: Check for Azure Key Vault Secrets Expiration Date

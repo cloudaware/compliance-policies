@@ -1,0 +1,246 @@
+[
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-14T06:19:32Z"
+        },
+        "Id": "test1",
+        "CA10__Azure_Activity_Log_Alerts__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-14T06:19:32Z"
+        },
+        "Id": "test2",
+        "CA10__Azure_Activity_Log_Alerts__r": [
+            {
+                "Id": "test2_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__enabledStatus__c": "Enabled",
+                "CA10__conditionJson__c": "{\"allOf\":[{\"field\":\"operationName\",\"equals\":\"Microsoft.Network/publicIPAddresses/write\"}]}",
+                "CA10__subscription__c": "test2"        
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-14T06:19:32Z"
+        },
+        "Id": "test3",
+        "CA10__Azure_Activity_Log_Alerts__r": [
+            {
+                "Id": "test3_1",
+                "CA10__disappearanceTime__c": "2024-06-14T06:19:32Z",
+                "CA10__enabledStatus__c": "Enabled",
+                "CA10__conditionJson__c": "{\"allOf\":[{\"field\":\"operationName\",\"equals\":\"Microsoft.Network/publicIPAddresses/write\"}]}",
+                "CA10__subscription__c": "test3"        
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-14T06:19:32Z"
+        },
+        "Id": "test4",
+        "CA10__Azure_Activity_Log_Alerts__r": [
+            {
+                "Id": "test4_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__enabledStatus__c": "Disabled",
+                "CA10__conditionJson__c": "{\"allOf\":[{\"field\":\"operationName\",\"equals\":\"Microsoft.Network/publicIPAddresses/write\"}]}",
+                "CA10__subscription__c": "test4"        
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-14T06:19:32Z"
+        },
+        "Id": "test5",
+        "CA10__Azure_Activity_Log_Alerts__r": [
+            {
+                "Id": "test5_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__enabledStatus__c": "Enabled",
+                "CA10__conditionJson__c": "{\"allOf\":[{\"field\":\"operationName\",\"equals\":\"Microsoft.Network/publicIPAddresses/read\"}]}",
+                "CA10__subscription__c": "test5"        
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-14T06:19:32Z"
+        },
+        "Id": "test6",
+        "CA10__Azure_Activity_Log_Alerts__r": [
+            {
+                "Id": "test6_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__enabledStatus__c": "Enabled",
+                "CA10__conditionJson__c": "{\"allOf\":[{\"field\":\"operationName\",\"equals\":\"\"}]}",
+                "CA10__subscription__c": "test6"        
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-14T06:19:32Z"
+        },
+        "Id": "test7",
+        "CA10__Azure_Activity_Log_Alerts__r": [
+            {
+                "Id": "test7_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__enabledStatus__c": "Enabled",
+                "CA10__conditionJson__c": "{\"allOf\":[{}]}",
+                "CA10__subscription__c": "test7"        
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-14T06:19:32Z"
+        },
+        "Id": "test8",
+        "CA10__Azure_Activity_Log_Alerts__r": [
+            {
+                "Id": "test8_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__enabledStatus__c": "Enabled",
+                "CA10__conditionJson__c": "{\"allOf\":[]}",
+                "CA10__subscription__c": "test8"        
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-14T06:19:32Z"
+        },
+        "Id": "test9",
+        "CA10__Azure_Activity_Log_Alerts__r": [
+            {
+                "Id": "test9_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__enabledStatus__c": "Enabled",
+                "CA10__conditionJson__c": "{}",
+                "CA10__subscription__c": "test9"        
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-14T06:19:32Z"
+        },
+        "Id": "test10",
+        "CA10__Azure_Activity_Log_Alerts__r": [
+            {
+                "Id": "test10_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__enabledStatus__c": "Enabled",
+                "CA10__conditionJson__c": "",
+                "CA10__subscription__c": "test10"        
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-14T06:19:32Z"
+        },
+        "Id": "test11",
+        "CA10__Azure_Activity_Log_Alerts__r": [
+            {
+                "Id": "test11_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__enabledStatus__c": "Enabled",
+                "CA10__conditionJson__c": null,
+                "CA10__subscription__c": "test11"       
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-14T06:19:32Z"
+        },
+        "Id": "test12",
+        "CA10__Azure_Activity_Log_Alerts__r": [
+            {
+                "Id": "test12_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__enabledStatus__c": "Enabled",
+                "CA10__conditionJson__c": "{\"anyOf\":[]}",
+                "CA10__subscription__c": "test12"        
+            }
+        ]
+    }
+]

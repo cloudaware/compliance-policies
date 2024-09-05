@@ -1,0 +1,9 @@
+---
+extracts:
+# Values: Enabled, Disabled. Not Nullable. Can't have no access, retrieved via Microsoft.DocumentDB/databaseAccounts
+  - name: "CA10__virtualNetworkFilterState__c"
+    value: 
+      FIELD:
+        path: "CA10__virtualNetworkFilterState__c"
+        undeterminedIf:
+          isEmpty: "Corrupted Data. Cosmos DB Account Virtual Network Filter cannot be empty."

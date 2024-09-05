@@ -1,0 +1,18 @@
+---
+names:
+  full: Azure Storage Account Access Key Rotation Reminders are not enabled
+  contextual: Access Key Rotation Reminders are not enabled
+description: Access Keys authenticate application access requests to data contained
+  in Storage Accounts. A periodic rotation of these keys is recommended to ensure
+  that potentially compromised keys cannot result in a long-term exploitable credential.
+  The 'Rotation Reminder' is an automatic reminder feature for a manual procedure.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/03/03
+  - /frameworks/cloudaware/resource-security/secure-access-controls
+similarPolicies:
+  internal:
+    - dec-x-b6d97943

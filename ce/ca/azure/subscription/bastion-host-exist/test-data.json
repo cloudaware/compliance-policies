@@ -1,0 +1,53 @@
+[
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10Z1__Azure_Virtual_Network_Bastion_Hosts__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test1",
+        "CA10Z1__Azure_Virtual_Network_Bastion_Hosts__r": [
+            {
+                "Id": "test1_1",
+                "CA10Z1__disappearanceTime__c": null,
+                "CA10Z1__subscription__c": "test1"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test2",
+        "CA10Z1__Azure_Virtual_Network_Bastion_Hosts__r": [
+            {
+                "Id": "test2_1",
+                "CA10Z1__disappearanceTime__c": "2024-06-13T04:17:29Z",
+                "CA10Z1__subscription__c": "test2"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test3",
+        "CA10Z1__Azure_Virtual_Network_Bastion_Hosts__r": []
+    }
+]

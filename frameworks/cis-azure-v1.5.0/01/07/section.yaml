@@ -1,0 +1,9 @@
+---
+name: "1.7 Ensure that a Custom Bad Password List is set to  'Enforce' for your Organization\
+  \ - Level 1 (Manual | Not supported, no API/CLI available by Azure)"
+description: |-
+  Microsoft Azure creates a default bad password policy that is already applied to Azure administrative and normal user accounts. This is not applied to user accounts that are synced from an on-premise Active Directory unless Azure AD Connect is used and you enable EnforceCloudPasswordPolicyForPasswordSyncedUsers.
+  Please see the list in default values on the specifics of this policy.
+similar:
+  internal:
+    - dec-c-65b1b12b

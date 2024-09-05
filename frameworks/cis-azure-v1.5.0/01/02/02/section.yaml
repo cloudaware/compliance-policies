@@ -1,0 +1,10 @@
+---
+name: 1.2.2 Ensure that an exclusionary Geographic Access Policy is considered - Level
+  1 (Manual)
+description: |-
+  **CAUTION**: If these policies are created without first auditing and testing the result, misconfiguration can potentially lock out administrators or create undesired access issues.
+
+  Conditional Access Policies can be used to block access from geographic locations that are deemed out-of-scope for your organization or application. The scope and variables for this policy should be carefully examined and defined.
+similar:
+  internal:
+    - dec-c-69f765d1

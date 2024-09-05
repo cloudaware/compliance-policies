@@ -1,0 +1,125 @@
+---
+inputObject: "CA10__CaAzureNetworkSecurityGroup__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Network Security Group has a rule that allows HTTP(S) access from the Internet."
+    remediationMessage: "Consider restricting internet-level access to your Azure resources."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__Azure_Network_Security_Group_Rules__r"
+        status: "INCOMPLIANT"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Network Security Group does not allow unrestricted HTTP(S) access from the internet."
+relatedLists:
+  - relationshipName: "CA10__Azure_Network_Security_Group_Rules__r"
+    importExtracts:
+      - file: "/types/CA10__CaAzureNetworkSecurityGroupRule__c/object.extracts.yaml"
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "NSG Deny Rule."
+        condition:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__access__c"
+            right:
+              TEXT: "Allow"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "NSG Outbound Rule."
+        condition:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__direction__c"
+            right:
+              TEXT: "Inbound"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "NSG Rule with the port other than UDP."
+        condition:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__protocol__c"
+            right:
+              TEXT: "TCP"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "NSG Rule source is not any address."
+        condition:
+        # returns true when source is neither Internet, *, 0.0.0.0, /0, or Any
+          NOT:
+            arg:
+              OR:
+                args:
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__sourceAddressPrefix__c"
+                      right:
+                        TEXT: "Internet"
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__sourceAddressPrefix__c"
+                      right:
+                        TEXT: "*"
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__sourceAddressPrefix__c"
+                      right:
+                        TEXT: "0.0.0.0"
+                  - CONTAINS:
+                      arg:
+                        EXTRACT: "CA10__sourceAddressPrefix__c"
+                      substring:
+                        TEXT: "/0"
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__sourceAddressPrefix__c"
+                      right:
+                        TEXT: "Any"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "NSG Rule with HTTP(S) access from the Internet."
+        remediationMessage: "Consider restricting internet-level access to your Azure resources."
+        condition:
+          OR:
+            args:
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10__destinationPortRange__c"
+                  right:
+                    TEXT: "80"
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10__destinationPortRange__c"
+                  right:
+                    TEXT: "443"
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10__destinationPortRange__c"
+                  right:
+                    TEXT: "*"
+              - AND:
+                  args:
+                    - LESS_THAN_EQUAL:
+                        left:
+                          EXTRACT: "CA10__destinationPortFrom__c"
+                        right:
+                          NUMBER: 80.0
+                    - GREATER_THAN_EQUAL:
+                        left:
+                          EXTRACT: "CA10__destinationPortTo__c"
+                        right:
+                          NUMBER: 80.0
+              - AND:
+                  args:
+                    - LESS_THAN_EQUAL:
+                        left:
+                          EXTRACT: "CA10__destinationPortFrom__c"
+                        right:
+                          NUMBER: 443.0
+                    - GREATER_THAN_EQUAL:
+                        left:
+                          EXTRACT: "CA10__destinationPortTo__c"
+                        right:
+                          NUMBER: 443.0
+    otherwise: 
+      status: "INAPPLICABLE"
+      currentStateMessage: "Unrelated rule."

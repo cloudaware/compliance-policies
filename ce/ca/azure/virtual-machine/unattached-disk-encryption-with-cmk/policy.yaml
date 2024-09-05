@@ -1,0 +1,18 @@
+---
+names:
+  full: Unattached Azure Managed Disk is not encrypted with Customer-managed key
+  contextual: Unattached Managed Disk is not encrypted with Customer-managed key
+description: Ensure that unattached disks in a subscription are encrypted with a Customer
+  Managed Key (CMK).
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/07/04
+  - /frameworks/cloudaware/resource-security/data-encryption
+similarPolicies:
+  internal:
+    - dec-x-f63fd4f0
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/VirtualMachines/sse-unattached-disk-cmk.html
+      name: Server Side Encryption for Unattached Disk using CMK

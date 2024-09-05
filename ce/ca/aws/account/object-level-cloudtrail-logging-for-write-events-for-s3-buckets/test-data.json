@@ -1,0 +1,65 @@
+[
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_CloudTrail_Trails__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test1",
+        "CA10__AWS_CloudTrail_Trails__r": [
+            {
+                "Id": "test1_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__multiRegionTrail__c": true,
+                "CA10__eventSelectorsJson__c": "[{\"readWriteType\":\"All\",\"includeManagementEvents\":true,\"dataResources\":[{\"type\":\"AWS::S3::Object\",\"values\":[\"arn:aws:s3\"]}],\"excludeManagementEventSources\":[]}]",
+                "CA10__account__c": "test1"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_CloudTrail_Trails__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test2",
+        "CA10__AWS_CloudTrail_Trails__r": [
+            {
+                "Id": "test2_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__multiRegionTrail__c": true,
+                "CA10__eventSelectorsJson__c": "[{\"readWriteType\":\"WriteOnly\",\"includeManagementEvents\":true,\"dataResources\":[{\"type\":\"AWS::S3::Object\",\"values\":[\"arn:aws:s3\"]}],\"excludeManagementEventSources\":[]}]",
+                "CA10__account__c": "test2"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test3",
+        "CA10__AWS_CloudTrail_Trails__r": [
+            {
+                "Id": "test3_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__multiRegionTrail__c": true,
+                "CA10__eventSelectorsJson__c": "[{\"readWriteType\":\"All\",\"includeManagementEvents\":true,\"dataResources\":[],\"excludeManagementEventSources\":[]}]",
+                "CA10__account__c": "test3"
+            }
+        ]
+    }
+]

@@ -1,0 +1,22 @@
+---
+names:
+  full: AWS Account Config is not enabled in all regions
+  contextual: Config is not enabled in all regions
+description: "AWS Config is a web service that performs configuration management of\
+  \ supported AWS resources within your account and delivers log files to you. The\
+  \ recorded information includes the configuration item (AWS resource), relationships\
+  \ between configuration items (AWS resources), any configuration changes between\
+  \ resources. It is recommended AWS Config be enabled in all regions."
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/03/03
+  - /frameworks/cloudaware/resource-reliability/system-configuration
+similarPolicies:
+  internal:
+    - dec-x-88fa51c8
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/Config/aws-config-enabled.html
+      name: AWS Config Enabled

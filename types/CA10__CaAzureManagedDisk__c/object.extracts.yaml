@@ -1,0 +1,23 @@
+---
+extracts:
+# Values: Succeeded, Deploying, Canceled, Failed. Not Nullable. Can't have no access, retrieved via Microsoft.Compute/disks
+  - name: "CA10__provisioningState__c"
+    value: 
+      FIELD:
+        path: "CA10__provisioningState__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Provisioning State cannot be empty."
+# Values: ActiveSAS, ActiveSASFrozen, ActiveUpload, Attached, Frozen, ReadyToUpload, Reserved, Unattached. Not Nullable. Can't have no access, retrieved via Microsoft.Compute/disks
+  - name: "CA10__diskState__c"
+    value: 
+      FIELD:
+        path: "CA10__diskState__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Disk State cannot be empty."
+# Values: ENCRYPTIONATRESTWITHPLATFORMKEY, ENCRYPTIONATRESTWITHCUSTOMERKEY, ENCRYPTIONATRESTWITHPLATFORMANDCUSTOMERKEYS.
+  - name: "CA10__encryptionType__c"
+    value: 
+      FIELD:
+        path: "CA10__encryptionType__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Encryption Type cannot be empty."

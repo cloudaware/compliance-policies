@@ -1,0 +1,20 @@
+---
+inputObject: "CA10__CaAzureAccount__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Bastion Host exists for this Subscription."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10Z1__Azure_Virtual_Network_Bastion_Hosts__r"
+        status: "COMPLIANT"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Bastion Host doesn't exist for this Subscription."
+relatedLists:
+  - relationshipName: "CA10Z1__Azure_Virtual_Network_Bastion_Hosts__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Bastion Host is configured."

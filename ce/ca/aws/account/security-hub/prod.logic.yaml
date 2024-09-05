@@ -1,0 +1,21 @@
+---
+inputObject: "CA10__CaAwsAccount__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Security Hub is enabled."
+    condition:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10A1__AWS_Security_Hubs__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Security Hub is disabled."
+  remediationMessage: "Consider enabling Security Hub in all regions."
+relatedLists:
+  - relationshipName: "CA10A1__AWS_Security_Hubs__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Security Hub is enabled."

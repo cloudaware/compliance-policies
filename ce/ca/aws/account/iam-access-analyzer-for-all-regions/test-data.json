@@ -1,0 +1,88 @@
+[
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-10T20:44:00Z"
+        },
+        "Id": "test1",
+        "CA10A1__AWS_IAM_Access_Analyzers__r": [
+            {
+                "Id": "test1_1",
+                "CA10A1__status__c": "ACTIVE",
+                "CA10A1__account__c": "test1",
+                "CA10A1__disappearanceTime__c": null
+            }
+        ],
+        "CA10__AWS_Account_Regions__r": [
+            {
+                "Id": "test1_2",
+                "CA10__status__c": "opt-in-not-required",
+                "CA10__account__c": "test1"
+            },
+            {
+                "Id": "test1_3",
+                "CA10__status__c": "opt-in-not-required",
+                "CA10__account__c": "test1"
+            },
+            {
+                "Id": "test1_4",
+                "CA10__status__c": "opt-in-not-required",
+                "CA10__account__c": "test1"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10A1__AWS_IAM_Access_Analyzers__r.count(COMPLIANT) == CA10__AWS_Account_Regions__r.count(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-10T20:44:00Z"
+        },
+        "Id": "test2",
+        "CA10A1__AWS_IAM_Access_Analyzers__r": [
+            {
+                "Id": "test2_1",
+                "CA10A1__status__c": "ACTIVE",
+                "CA10A1__account__c": "test2",
+                "CA10A1__disappearanceTime__c": null
+            },
+            {
+                "Id": "test2_2",
+                "CA10A1__status__c": "ACTIVE",
+                "CA10A1__account__c": "test2",
+                "CA10A1__disappearanceTime__c": null
+            },
+            {
+                "Id": "test2_3",
+                "CA10A1__status__c": "ACTIVE",
+                "CA10A1__account__c": "test2",
+                "CA10A1__disappearanceTime__c": null
+            }
+        ],
+        "CA10__AWS_Account_Regions__r": [
+            {
+                "Id": "test2_4",
+                "CA10__status__c": "opt-in-not-required",
+                "CA10__account__c": "test2"
+            },
+            {
+                "Id": "test2_5",
+                "CA10__status__c": "opt-in-not-required",
+                "CA10__account__c": "test2"
+            },
+            {
+                "Id": "test2_6",
+                "CA10__status__c": "opt-in-not-required",
+                "CA10__account__c": "test2"
+            }
+        ]
+    }
+]

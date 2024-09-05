@@ -1,0 +1,27 @@
+---
+inputObject: "CA10__CaAzureAppService__c"
+importExtracts:
+  - file: "/types/CA10__CaAzureAppService__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "App Service HTTP 2.0 version is not enabled."
+    remediationMessage: "Consider enabling HTTP 2.0 version."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__configHttp20__c"
+        right:
+          TEXT: "Disabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "App Service HTTP 2.0 version is enabled."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__configHttp20__c"
+        right:
+          TEXT: "Enabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

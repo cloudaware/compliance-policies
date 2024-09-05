@@ -1,0 +1,10 @@
+---
+name: 4.2 Ensure That Instances Are Not Configured To Use the Default Service Account
+  With Full Access to All Cloud APIs - Level 1 (Automated)
+description: To support principle of least privileges and prevent potential privilege
+  escalation it is recommended that instances are not assigned to default service
+  account Compute Engine default service account with Scope Allow full access to all
+  Cloud APIs.
+similar:
+  internal:
+    - dec-c-7bf20624

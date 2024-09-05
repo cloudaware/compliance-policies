@@ -1,0 +1,10 @@
+---
+name: 4.5.3 Use Entra ID Client Authentication and Azure RBAC where possible. - Level
+  1 (Manual)
+description: "Cosmos DB can use tokens or Entra ID for client authentication which\
+  \ in turn will use Azure RBAC for authorization. Using Entra ID is significantly\
+  \ more secure because Entra ID handles the credentials and allows for MFA and centralized\
+  \ management, and the Azure RBAC better integrated with the rest of Azure."
+similar:
+  internal:
+    - dec-c-c7d9dcba

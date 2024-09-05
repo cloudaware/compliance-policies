@@ -1,0 +1,25 @@
+---
+inputObject: CA10Z1__CaAzureActiveDirectoryDevice__c
+importExtracts:
+  - file: /types/CA10Z1__CaAzureActiveDirectoryDevice__c/breeze.extracts.yaml
+testData:
+  - file: ../test-data-ca10z1.json
+conditions:
+  - status: INCOMPLIANT
+    currentStateMessage: Device never had breeze agent installed
+    remediationMessage: Install breeze agent on the device
+    condition:
+      IS_EMPTY:
+        arg:
+          EXTRACT: breezeLastUpdate
+  - status: INCOMPLIANT
+    currentStateMessage: Device latest breeze report was more than a day ago
+    remediationMessage: Re-install breeze agent on the device and make sure it is reporting
+    condition:
+      IS_BEYOND_LAST_DAYS:
+        offsetDays: 1
+        arg:
+          EXTRACT: breezeLastUpdate
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: Device has breeze agent installed and has a recent report

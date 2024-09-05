@@ -1,0 +1,52 @@
+---
+inputObject: CA10__CaAwsDbSnapshot__c
+importExtracts:
+  - file: "/types/CA10__CaAwsDbSnapshot__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: Encrypted RDS Snapshots cannot be public # cannot be set to restore:all
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__encrypted__c
+        right:
+          BOOLEAN: true
+  - status: INAPPLICABLE
+    currentStateMessage: RDS Snapshots created automatically or via AWS Backup Service cannot be public
+    condition:
+      OR:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10__snapshotType__c
+              right:
+                TEXT: automated
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10__snapshotType__c
+              right:
+                TEXT: awsbackup
+  - status: INCOMPLIANT
+    currentStateMessage: RDS Snapshot is publicly accessible
+    remediationMessage: Consider making the snapshot completely private or scoping the access to a subset of AWS Accounts.
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__snapshotType__c
+        right:
+          TEXT: public
+  # TODO: modify the INCOMPLIANT status logic to use map ops when released.
+  - status: INCOMPLIANT
+    currentStateMessage: RDS snapshot is publicly accessible
+    remediationMessage: Consider making the snapshot completely private or scoping the access to a subset of AWS Accounts.
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "caExtract_attributes_restore_asAttribute__c"
+        right:
+          TEXT: "all"
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: RDS snapshot is not publicly accessible

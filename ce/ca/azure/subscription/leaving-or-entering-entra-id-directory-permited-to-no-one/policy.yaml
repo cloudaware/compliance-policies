@@ -1,0 +1,15 @@
+---
+names:
+  full: Azure Subscription Leaving Microsoft Entra ID Directory and Subscription Entering
+    Microsoft Entra ID Directory is not set to Permit No One
+  contextual: Subscription Leaving Microsoft Entra ID Directory and Subscription Entering
+    Microsoft Entra ID Directory is not set to Permit No One
+description: Users who are set as subscription owners are able to make administrative
+  changes to the subscriptions and move them into and out of Microsoft Entra ID.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/24
+  - /frameworks/cloudaware/identity-and-access-management/general-access-controls

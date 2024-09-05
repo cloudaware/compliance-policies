@@ -1,0 +1,22 @@
+---
+extracts:
+# Checkbox. Can't have no access, retrieved via Microsoft.Compute/virtualMachines
+  - name: "CA10__isOsDisk__c"
+    value: 
+      FIELD:
+        path: "CA10__isOsDisk__c"
+# Nullable. Can't have no access, retrieved via Microsoft.Compute/virtualMachines
+  - name: "CA10__managedDiskLookup__c"
+    value: 
+      FIELD:
+        path: "CA10__managedDiskLookup__c"
+# Nullable. Can't have no access, retrieved via Microsoft.Compute/virtualMachines
+  - name: "CA10__vhdUri__c"
+    value: 
+      FIELD:
+        path: "CA10__vhdUri__c"
+# Nullable. Can't have no access, retrieved via Microsoft.Compute/virtualMachines
+  - name: "CA10__managedDiskId__c"
+    value: 
+      FIELD:
+        path: "CA10__managedDiskId__c"

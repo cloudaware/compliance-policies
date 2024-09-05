@@ -1,0 +1,9 @@
+---
+name: 4.15 Ensure AWS Organizations changes are monitored - Level 1 (Manual)
+description: "Real-time monitoring of API calls can be achieved by directing CloudTrail\
+  \ Logs to CloudWatch Logs, and establishing corresponding metric filters and alarms.\
+  \ It is recommended that a metric filter and alarm be established for AWS Organizations\
+  \ changes made in the master AWS Account."
+similar:
+  internal:
+    - dec-c-85d97fcb

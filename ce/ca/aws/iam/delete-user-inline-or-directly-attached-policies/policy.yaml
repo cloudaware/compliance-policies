@@ -1,0 +1,23 @@
+---
+names:
+  full: AWS IAM User has inline or directly attached policies
+  contextual: User has inline or directly attached policies
+description: |-
+  IAM users are granted access to services, functions, and data through IAM policies. There are four ways to define policies for a user:
+   1) Edit the user policy directly, aka an inline, or user, policy.
+   2) attach a policy directly to a user.
+   3) add the user to an IAM group that has an attached policy.
+   4) add the user to an IAM group that has an inline policy.
+   Only the third implementation is recommended.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/01/15
+  - /frameworks/cloudaware/identity-and-access-management/user-management
+similarPolicies:
+  internal:
+    - dec-x-4157c58a
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/IAM/receive-permissions-via-groups-only.html
+      name: Receive Permissions via IAM Groups Only

@@ -1,0 +1,16 @@
+---
+extracts:
+# Not Nullable. Can't have no access, retrieved via Microsoft.Insights/diagnosticSettings/read
+  - name: "CA10__logsJson__c"
+    value: 
+      FIELD:
+        path: "CA10__logsJson__c"
+        undeterminedIf:
+          isEmpty: "Corrupted Data. Diagnostic Setting Logs JSON cannot be empty."
+  - name: "caJsonFrom__logsJson__c"
+    value: 
+      JSON_FROM:
+        arg: 
+          EXTRACT: "CA10__logsJson__c"
+        undeterminedIf:
+          isInvalid: "Logs JSON is invalid."

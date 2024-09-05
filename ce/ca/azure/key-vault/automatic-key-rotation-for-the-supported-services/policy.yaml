@@ -1,0 +1,15 @@
+---
+names:
+  full: Azure Key Vault Automatic Key Rotation for the supported services is not enabled
+  contextual: Automatic Key Rotation for the supported services is not enabled
+description: "Automatic Key Rotation is available in Public Preview. The currently\
+  \ supported applications are Key Vault, Managed Disks, and Storage accounts accessing\
+  \ keys within Key Vault. The number of supported applications will incrementally\
+  \ increased."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/08/08
+  - /frameworks/cloudaware/key-secret-certificate-management/expiration-management

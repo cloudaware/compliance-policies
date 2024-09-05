@@ -1,0 +1,33 @@
+---
+inputObject: "CA10__CaAwsUser__c"
+testData:
+  - file: test-data.json
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "User has directly attached policies."
+    remediationMessage: "Add a user to an IAM group"
+    condition:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__AWS_IAM_Policy_User_Links__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "User has inline policies."
+    remediationMessage: "Add a user to an IAM group."
+    condition:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__userPolicies__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "User doesn't have inline or directly attached policies."
+relatedLists:
+  - relationshipName: "CA10__userPolicies__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This is an inline policy."
+  - relationshipName: "CA10__AWS_IAM_Policy_User_Links__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This is a directly attached policy."

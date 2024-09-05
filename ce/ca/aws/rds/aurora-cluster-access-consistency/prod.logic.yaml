@@ -1,0 +1,84 @@
+---
+inputObject: CA10__CaAwsDbCluster__c
+importExtracts:
+  - file: /types/CA10__CaAwsDbCluster__c/object.extracts.yaml
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: This Policy applies only to AWS RDS Aurora clusters.
+    condition:
+      NOT:
+        arg:
+          STARTS_WITH:
+              arg:
+                EXTRACT: CA10__engine__c
+              prefix:
+                TEXT: aurora
+  - status: INAPPLICABLE
+    currentStateMessage: This AWS RDS Aurora cluster has no related AWS RDS Instances.
+    condition:
+      AND:
+        args:
+          - RELATED_LIST_HAS_NO:
+              relationshipName: CA10__AWS_RDS_Instances__r
+              status: COMPLIANT
+          - RELATED_LIST_HAS_NO:
+              relationshipName: CA10__AWS_RDS_Instances__r
+              status: INCOMPLIANT        
+  - status: COMPLIANT
+    currentStateMessage: This AWS RDS Aurora cluster's accessibility is consistent. 
+      All RDS Aurora Instances within the cluster are publicly accessible.
+    condition:
+      AND:
+        args:
+          - RELATED_LIST_HAS:
+              relationshipName: CA10__AWS_RDS_Instances__r
+              status: INCOMPLIANT
+          - RELATED_LIST_HAS_NO:
+              relationshipName: CA10__AWS_RDS_Instances__r
+              status: COMPLIANT              
+  - status: COMPLIANT
+    currentStateMessage: This AWS RDS Aurora cluster's accessibility is consistent. 
+      All RDS Aurora Instances within the cluster are private.
+    condition:
+      AND:
+        args:
+          - RELATED_LIST_HAS:
+              relationshipName: CA10__AWS_RDS_Instances__r
+              status: COMPLIANT
+          - RELATED_LIST_HAS_NO:
+              relationshipName: CA10__AWS_RDS_Instances__r
+              status: INCOMPLIANT               
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: This AWS RDS Aurora cluster's accessibility is not consistent.
+  remediationMessage: Consider modifying the accessibility of all AWS RDS Instances within the cluster
+    to be either public or private.
+relatedLists:
+  - relationshipName: CA10__AWS_RDS_Instances__r
+    importExtracts:
+      - file: /types/CA10__CaAwsDbInstance__c/object.extracts.yaml
+    conditions:
+      - status: INAPPLICABLE
+        currentStateMessage: This Policy applies only to AWS RDS Aurora Instances.
+        condition:
+          NOT:
+            arg:
+              STARTS_WITH:
+                arg:
+                  EXTRACT: CA10__engine__c
+                prefix:
+                  TEXT: aurora
+      - status: INCOMPLIANT
+        currentStateMessage: This AWS RDS Instance is publicly accessible.
+        remediationMessage: N/A
+        condition:
+          IS_EQUAL:
+            left:
+              EXTRACT: CA10__publiclyAccessible__c
+            right:
+              BOOLEAN: true 
+    otherwise:
+      status: COMPLIANT
+      currentStateMessage: This AWS RDS Instance is private.

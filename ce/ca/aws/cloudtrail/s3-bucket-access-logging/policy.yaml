@@ -1,0 +1,22 @@
+---
+names:
+  full: AWS CloudTrail S3 Bucket Access Logging is not enabled.
+  contextual: S3 Bucket Access Logging is not enabled.
+description: "S3 Bucket Access Logging generates a log that contains access records\
+  \ for each request made to your S3 bucket. An access log record contains details\
+  \ about the request, such as the request type, the resources specified in the request\
+  \ worked, and the time and date the request was processed. It is recommended that\
+  \ bucket access logging be enabled on the CloudTrail S3 bucket."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/03/04
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration
+similarPolicies:
+  internal:
+    - dec-x-e0014333
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/CloudTrail/cloudtrail-s3-bucket-logging-enabled.html
+      name: CloudTrail S3 Bucket Logging Enabled

@@ -1,0 +1,54 @@
+---
+inputObject: "CA10__CaAzureAccount__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureAccount__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Security notifications emailing is not enabled."
+    remediationMessage: "Consider enabling security notifications emailing to the subscription owner or other designated security contact."
+# Extract only for the default contact
+    condition:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "caJsonQueryText__securityCenterContacts_default_alert_notifications__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Security notifications emailing is not enabled."
+    remediationMessage: "Consider enabling security notifications emailing to the subscription owner or other designated security contact."
+# Extract only for the default contact
+    condition:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "caJsonQueryText__securityCenterContacts_default_alert_notifications__c"
+        right: 
+          TEXT: "On"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Security notifications for alerts with High severity is not set."
+    remediationMessage: "Consider enabling security notifications for alerts with High severity."
+# Extract only for the default contact
+    condition:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "caJsonQueryText__securityCenterContacts_default_alert_notifications_severity__c"
+        right: 
+          TEXT: "High"
+  - status: "COMPLIANT"
+    currentStateMessage: "Security alerts emailing is not enabled."
+# Extract only for the default contact
+    condition:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "caJsonQueryText__securityCenterContacts_default_alert_notifications_severity__c"
+              right: 
+                TEXT: "High"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "caJsonQueryText__securityCenterContacts_default_alert_notifications__c"
+              right: 
+                TEXT: "On"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields." 

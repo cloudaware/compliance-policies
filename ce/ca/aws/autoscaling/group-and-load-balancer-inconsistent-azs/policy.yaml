@@ -1,0 +1,8 @@
+---
+names:
+  full: AWS EC2 Auto Scaling Group And Load Balancer Inconsistent AZs
+  contextual: Auto Scaling Group And Load Balancer Inconsistent AZs
+description: Ensure that the AWS Auto Scaling Groups (ASGs) and their associated Elastic
+  Load Balancers (ELBs) are sharing the same Availability Zones (AZs) in order to
+  increase the performance of your auto scaling environments by allowing your applications
+  to use AWS low-latency network links.

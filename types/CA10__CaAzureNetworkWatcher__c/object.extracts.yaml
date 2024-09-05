@@ -1,0 +1,9 @@
+---
+extracts:
+# Values: Succeeded, Deploying, Canceled, Failed. Not Nullable. Can't have no access, retrieved via Microsoft.Network/networkWatchers
+  - name: "CA10__provisioningState__c"
+    value: 
+      FIELD:
+        path: "CA10__provisioningState__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Provisioning State cannot be empty."

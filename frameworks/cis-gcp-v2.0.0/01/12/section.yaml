@@ -1,0 +1,10 @@
+---
+name: 1.12 Ensure API Keys Only Exist for Active Services - Level 2 (Automated)
+description: "API Keys should only be used for services in cases where other authentication\
+  \ methods are unavailable. Unused keys with their permissions in tact may still\
+  \ exist within a project. Keys are insecure because they can be viewed publicly,\
+  \ such as from within a browser, or they can be accessed on a device where the key\
+  \ resides. It is recommended to use standard authentication flow instead."
+similar:
+  internal:
+    - dec-c-47292234

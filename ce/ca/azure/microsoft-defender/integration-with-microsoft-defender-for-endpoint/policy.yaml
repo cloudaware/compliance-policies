@@ -1,0 +1,21 @@
+---
+names:
+  full: Microsoft Defender For Cloud Integration With Microsoft Defender For Endpoint
+    is not enabled
+  contextual: Integration With Microsoft Defender For Endpoint is not enabled
+description: This integration setting enables Microsoft Defender for Endpoint (formerly
+  'Advanced Threat Protection' or 'ATP' or 'WDATP' - see additional info) to communicate
+  with Microsoft Defender for Cloud.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/02/01/21
+  - /frameworks/cloudaware/resource-security/microsoft-defender-configuration
+similarPolicies:
+  internal:
+    - dec-x-cff561fd
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/SecurityCenter/defender-endpoint-integration.html
+      name: Enable Defender for Endpoint Integration with Microsoft Defender for Cloud

@@ -1,0 +1,119 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test1",
+        "RecordTypeId": "recordType",
+        "CA10__disappearanceTime__c": "2024-06-07T14:13:24Z",
+        "CA10__networkAclsBypass__c": "AzureServices",
+        "RecordType": {
+            "DeveloperName": "StorageAccount",
+            "Id": "test1_1"
+        },
+        "CA10__Azure_Storage_Blob_Containers__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__Azure_Storage_Blob_Containers__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-12T19:31:46Z"
+        },
+        "Id": "test2",
+        "RecordTypeId": "recordType",
+        "CA10__disappearanceTime__c": null,
+        "RecordType": {
+            "DeveloperName": "StorageAccount",
+            "Id": "test2_1"
+        },
+        "CA10__Azure_Storage_Blob_Containers__r": [
+            {
+                "Id": "test2_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__remainingRetentionDays__c": 0,
+                "CA10__storageAccount__c": "test2"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10__Azure_Storage_Blob_Containers__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-12T19:31:46Z"
+        },
+        "Id": "test3",
+        "RecordTypeId": "recordType",
+        "CA10__disappearanceTime__c": null,
+        "RecordType": {
+            "DeveloperName": "StorageAccount",
+            "Id": "test3_1"
+        },
+        "CA10__Azure_Storage_Blob_Containers__r": [
+            {
+                "Id": "test3_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__remainingRetentionDays__c": 1,
+                "CA10__storageAccount__c": "test3"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-12T19:31:46Z"
+        },
+        "Id": "test4",
+        "RecordTypeId": "recordType",
+        "CA10__disappearanceTime__c": null,
+        "RecordType": {
+            "DeveloperName": "StorageAccount",
+            "Id": "test4_1"
+        },
+        "CA10__Azure_Storage_Blob_Containers__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-12T19:31:46Z"
+        },
+        "Id": "test5",
+        "RecordTypeId": "recordType",
+        "CA10__disappearanceTime__c": null,
+        "RecordType": {
+            "DeveloperName": "StorageAccount",
+            "Id": "test5_1"
+        },
+        "CA10__Azure_Storage_Blob_Containers__r": [
+            {
+                "Id": "test5_2",
+                "CA10__disappearanceTime__c": "2024-06-12T19:31:46Z",
+                "CA10__remainingRetentionDays__c": 1,
+                "CA10__storageAccount__c": "test5"
+            }
+        ]
+    }
+]

@@ -1,0 +1,22 @@
+---
+names:
+  full: AWS Account Root User Hardware MFA is not enabled.
+  contextual: Account Root User Hardware MFA is not enabled.
+description: "The root user account is the most privileged user in an AWS account.\
+  \ MFA adds an extra layer of protection on top of a user name and password. With\
+  \ MFA enabled, when a user signs in to an AWS website, they will be prompted for\
+  \ their user name and password as well as for an authentication code from their\
+  \ AWS MFA device. For Level 2, it is recommended that the root user account be protected\
+  \ with a hardware MFA."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/01/06
+  - /frameworks/cis-aws-v1.5.0/01/06
+  - /frameworks/cloudaware/identity-and-access-management/mfa-implementation
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/IAM/root-hardware-mfa.html
+      name: Hardware MFA for AWS Root Account

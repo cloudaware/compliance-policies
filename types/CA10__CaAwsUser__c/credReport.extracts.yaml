@@ -1,0 +1,228 @@
+
+# password_last_used: 2021-10-15T16:30:24+00:00
+# access_key_1_last_used_region: us-east-1
+# password_enabled: not_supported
+# access_key_1_last_used_date: 2020-02-27T12:03:00+00:00
+# access_key_1_last_used_service: s3
+# mfa_active: false
+# access_key_2_last_used_date: N/A
+# user_creation_time: 2008-06-17T18:41:41+00:00
+# cert_2_active: false
+# cert_1_active: true
+# cert_1_last_rotated: 2011-04-27T13:23:57+00:00
+# access_key_2_last_used_service: N/A
+# access_key_2_active: false
+# access_key_1_active: false
+# password_next_rotation: not_supported
+# access_key_2_last_rotated: 2014-07-03T15:12:24+00:00
+# arn: arn:aws:iam::814021343637:root
+# access_key_1_last_rotated: 2011-04-27T13:20:07+00:00
+# access_key_2_last_used_region: N/A
+# user: <root_account>
+# password_last_changed: not_supported
+# cert_2_last_rotated: N/A
+---
+extracts:
+  - name: caExtract_credReport_asAttributes__c
+    value:
+      ATTRIBUTES_FROM:
+        arg:
+          FIELD: 
+            path: CA10__credReportAttributes__c
+            undeterminedIf:
+              isEmpty: Credential report attributes are empty, this is either permission issue or the data haven't been populated yet
+        #we don't need this check, field already checked for emptiness
+        #undeterminedIf:
+          #isEmpty: Unable to parse credential report, no attributes found
+  - name: caExtract_credReport_user__c
+    value: 
+      ATTRIBUTE_VALUE:
+        key: 
+          TEXT: user
+        arg:
+          EXTRACT: caExtract_credReport_asAttributes__c
+        undeterminedIf: 
+          duplicateKey: Credential report contains more than one 'user' key, unexpected data
+          keyNotFound: Credential report must contain 'user' key, unexpected data
+          valueIsEmpty: Credential report 'user' key is empty, unexpected data
+  - name: caExtract_credReport_access_key_1_active__c
+    value:
+      BOOLEAN_FROM:
+        arg:
+          ATTRIBUTE_VALUE:
+            arg:
+              EXTRACT: caExtract_credReport_asAttributes__c
+            key:
+              TEXT: access_key_1_active 
+            undeterminedIf: 
+              duplicateKey: Credential report contains more than one 'access_key_1_active' key, unexpected data
+              keyNotFound: Credential report must contain 'access_key_1_active' key, unexpected data
+              valueIsEmpty: Credential report 'access_key_1_active' key is empty, unexpected data
+        undeterminedIf:
+          isEmpty: Value of 'access_key_1_active' is empty, unexpected data
+  - name: caExtract_credReport_access_key_2_active__c
+    value:
+      BOOLEAN_FROM:
+        arg:
+          ATTRIBUTE_VALUE:
+            arg:
+              EXTRACT: caExtract_credReport_asAttributes__c
+            key:
+              TEXT: access_key_2_active 
+            undeterminedIf: 
+              duplicateKey: Credential report contains more than one 'access_key_2_active' key, unexpected data
+              keyNotFound: Credential report must contain 'access_key_2_active' key, unexpected data
+              valueIsEmpty: Credential report 'access_key_2_active' key is empty, unexpected data
+        undeterminedIf:
+          isEmpty: Value of 'access_key_2_active' is empty, unexpected data
+  - name: caExtract_credReport_password_last_used__c
+    value:
+      DATE_TIME_FROM:
+        arg:
+          ATTRIBUTE_VALUE:
+            arg:
+              EXTRACT: caExtract_credReport_asAttributes__c
+            key:
+              TEXT: password_last_used
+            undeterminedIf: 
+              duplicateKey: Credential report contains more than one 'password_last_used' key, unexpected data
+              keyNotFound: Credential report must contain 'password_last_used' key, unexpected data
+              valueIsEmpty: Credential report 'password_last_used' key is empty, unexpected data
+        nullValues:
+          - "no_information"
+          - "N/A"
+        format: ISO_8601
+        undeterminedIf:
+          # value CAN be empty, for example when password was never used.
+          #isEmpty: Value of 'password_last_used' is empty, unexpected data
+          invalidFormat: Value of 'password_last_used' does not match ISO-8601 format
+  - name: caExtract_credReport_access_key_1_last_used_date__c
+    value:
+      DATE_TIME_FROM:
+        arg:
+          ATTRIBUTE_VALUE:
+            arg:
+              EXTRACT: caExtract_credReport_asAttributes__c
+            key:
+              TEXT: access_key_1_last_used_date
+            undeterminedIf: 
+              duplicateKey: Credential report contains more than one 'access_key_1_last_used_date' key, unexpected data
+              keyNotFound: Credential report must contain 'access_key_1_last_used_date' key, unexpected data
+              valueIsEmpty: Credential report 'access_key_1_last_used_date' key is empty, unexpected data
+        nullValues:
+          - "N/A"
+        format: ISO_8601
+        undeterminedIf:
+          # value CAN be empty, for example when password was never used.
+          #isEmpty: Value of 'access_key_1_last_used_date' is empty, unexpected data
+          invalidFormat: Value of 'access_key_1_last_used_date' does not match ISO-8601 format
+  - name: caExtract_credReport_access_key_2_last_used_date__c
+    value:
+      DATE_TIME_FROM:
+        arg:
+          ATTRIBUTE_VALUE:
+            arg:
+              EXTRACT: caExtract_credReport_asAttributes__c
+            key:
+              TEXT: access_key_2_last_used_date
+            undeterminedIf: 
+              duplicateKey: Credential report contains more than one 'access_key_2_last_used_date' key, unexpected data
+              keyNotFound: Credential report must contain 'access_key_2_last_used_date' key, unexpected data
+              valueIsEmpty: Credential report 'access_key_2_last_used_date' key is empty, unexpected data
+        nullValues:
+          - "N/A"
+        format: ISO_8601
+        undeterminedIf:
+          # value CAN be empty, for example when password was never used.
+          #isEmpty: Value of 'access_key_2_last_used_date' is empty, unexpected data
+          invalidFormat: Value of 'access_key_2_last_used_date' does not match ISO-8601 format
+  - name: caExtract_credReport_mfa_active__c
+    value:
+      BOOLEAN_FROM:
+        arg:
+          ATTRIBUTE_VALUE:
+            arg:
+              EXTRACT: caExtract_credReport_asAttributes__c
+            key:
+              TEXT: mfa_active
+            undeterminedIf: 
+              duplicateKey: Credential report contains more than one 'mfa_active' key, unexpected data
+              keyNotFound: Credential report must contain 'mfa_active' key, unexpected data
+              valueIsEmpty: Credential report 'mfa_active' key is empty, unexpected data
+        undeterminedIf:
+          isEmpty: Credential report 'mfa_active' key is empty, unexpected data
+  - name: caExtract_credReport_password_enabled__c
+    value:
+      BOOLEAN_FROM:
+        arg:
+          ATTRIBUTE_VALUE:
+            arg:
+              EXTRACT: caExtract_credReport_asAttributes__c
+            key:
+              TEXT: password_enabled 
+            undeterminedIf: 
+              duplicateKey: Credential report contains more than one 'password_enabled', unexpected data
+              keyNotFound: Credential report must contain 'password_enabled', unexpected data
+              valueIsEmpty: Credential report 'password_enabled' is empty, unexpected data
+        undeterminedIf:
+          isEmpty: Value of 'password_enabled' is empty, unexpected data
+  - name: caExtract_credReport_password_last_changed__c
+    value:
+      DATE_TIME_FROM:
+        arg:
+          ATTRIBUTE_VALUE:
+            arg:
+              EXTRACT: caExtract_credReport_asAttributes__c
+            key:
+              TEXT: password_last_changed
+            undeterminedIf: 
+              duplicateKey: Credential report contains more than one 'password_last_changed', unexpected data
+              keyNotFound: Credential report must contain 'password_last_changed', unexpected data
+              valueIsEmpty: Credential report 'password_last_changed' is empty, unexpected data
+        nullValues:
+            - "N/A"
+        format: ISO_8601
+        undeterminedIf:
+          # value CAN be empty, for example when password was never changed.
+          #isEmpty: Value of 'password_last_changed' is empty, unexpected data
+          invalidFormat: Value of 'password_last_changed' does not match ISO-8601 format
+  - name: caExtract_credReport_access_key_1_last_rotated__c
+    value:
+      DATE_TIME_FROM:
+        arg:
+          ATTRIBUTE_VALUE:
+            arg:
+              EXTRACT: caExtract_credReport_asAttributes__c
+            key:
+              TEXT: access_key_1_last_rotated
+            undeterminedIf: 
+              duplicateKey: Credential report contains more than one 'access_key_1_last_rotated' key, unexpected data
+              keyNotFound: Credential report must contain 'access_key_1_last_rotated' key, unexpected data
+              valueIsEmpty: Credential report 'access_key_1_last_rotated' key is empty, unexpected data
+        nullValues:
+            - "N/A"
+        format: ISO_8601
+        undeterminedIf:
+          # value CAN be empty, for example when key was never changed.
+          #isEmpty: Value of 'access_key_1_last_rotated' is empty, unexpected data
+          invalidFormat: Value of 'access_key_1_last_rotated' does not match ISO-8601 format
+  - name: caExtract_credReport_access_key_2_last_rotated__c
+    value:
+      DATE_TIME_FROM:
+        arg:
+          ATTRIBUTE_VALUE:
+            arg:
+              EXTRACT: caExtract_credReport_asAttributes__c
+            key:
+              TEXT: access_key_2_last_rotated
+            undeterminedIf: 
+              duplicateKey: Credential report contains more than one 'access_key_2_last_rotated' key, unexpected data
+              keyNotFound: Credential report must contain 'access_key_2_last_rotated' key, unexpected data
+              valueIsEmpty: Credential report 'access_key_2_last_rotated' key is empty, unexpected data
+        nullValues:
+            - "N/A"
+        format: ISO_8601
+        undeterminedIf:
+          # value CAN be empty, for example when key was never changed.
+          #isEmpty: Value of 'access_key_2_last_rotated' is empty, unexpected data
+          invalidFormat: Value of 'access_key_2_last_rotated' does not match ISO-8601 format

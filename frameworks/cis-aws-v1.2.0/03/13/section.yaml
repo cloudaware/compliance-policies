@@ -1,0 +1,10 @@
+---
+name: 3.13 Ensure a log metric filter and alarm exist for route table changes
+description: Real-time monitoring of API calls can be achieved by directing CloudTrail
+  Logs to CloudWatch Logs and establishing corresponding metric filters and alarms.
+  Routing tables are used to route network traffic between subnets and to network
+  gateways. It is recommended that a metric filter and alarm be established for changes
+  to route tables.
+similar:
+  internal:
+    - dec-c-a2856b56

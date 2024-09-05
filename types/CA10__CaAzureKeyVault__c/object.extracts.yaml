@@ -1,0 +1,21 @@
+---
+extracts:
+# Values: Enabled, Disabled. Not Nullable. Can't have no access, retrieved via Microsoft.KeyVault/vaults
+  - name: "CA10__rbacAuthorization__c"
+    value: 
+      FIELD:
+        path: "CA10__rbacAuthorization__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Key Vault RBAC Authorization cannot be empty."
+# Values: Enabled, null. Nullable. Can't have no access, retrieved via Microsoft.KeyVault/vaults
+  - name: "CA10__purgeProtection__c"
+    value: 
+      FIELD:
+        path: "CA10__purgeProtection__c"
+# Values: Enabled, Disabled. Not Nullable. Can't have no access, retrieved via Microsoft.KeyVault/vaults
+  - name: "CA10__softDelete__c"
+    value: 
+      FIELD:
+        path: "CA10__softDelete__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Soft Delete function cannot be empty."

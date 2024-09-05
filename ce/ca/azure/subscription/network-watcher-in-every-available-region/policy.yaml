@@ -1,0 +1,19 @@
+---
+names:
+  full: Azure Subscription Network Watcher is not enabled in every available region
+  contextual: Network Watcher is not enabled in every available region
+description: "Network diagnostic and visualization tools available with Network Watcher\
+  \ help users understand, diagnose, and gain insights to the network in Azure."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/06/06
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration
+similarPolicies:
+  internal:
+    - dec-x-629108da
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/Network/enable-network-watcher.html
+      name: Enable Azure Network Watcher

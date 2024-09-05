@@ -1,0 +1,23 @@
+---
+names:
+  full: Azure App Service does not run the latest Python version
+  contextual: App Service does not run the latest Python version
+description: "Periodically, newer versions are released for Python software either\
+  \ due to security flaws or to include additional functionality. Using the latest\
+  \ full Python version for web apps is recommended in order to take advantage of\
+  \ security fixes, if any, and/or additional functionalities of the newer version."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+  - RELIABILITY
+  - PERFORMANCE
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/09/06
+  - /frameworks/cloudaware/resource-reliability/up-to-date-infrastructure
+similarPolicies:
+  internal:
+    - dec-x-a20e54a0
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/AppService/latest-version-of-python.html
+      name: Check for Latest Version of Python

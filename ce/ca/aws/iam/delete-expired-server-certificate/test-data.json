@@ -1,0 +1,28 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__expiration__c').beforeToday()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-06-19T07:55:48Z" },
+    "Id": "a1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__certificateName__c": "certificateName1",
+    "CA10__expiration__c": "2019-07-24T16:15:54Z"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-06-19T07:55:48Z" },
+    "Id": "a2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__certificateName__c": "certificateName2",
+    "CA10__expiration__c": "2999-03-14T02:00:19Z"
+  }
+]

@@ -1,0 +1,20 @@
+---
+names:
+  full: Azure Storage Account Allow Blob Anonymous Access is set enabled
+  contextual: Allow Blob Anonymous Access is set enabled
+description: "The Azure Storage setting 'Allow Blob Anonymous Access' (aka 'allowBlobPublicAccess')\
+  \ controls whether anonymous access is allowed for blob data in a storage account.\
+  \ When this property is set to True, it enables public read access to blob data,\
+  \ which can be convenient for sharing data but may carry security risks."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/03/17
+  - /frameworks/cloudaware/resource-security/public-and-anonymous-access
+similarPolicies:
+  internal:
+    - dec-x-083928f5
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/StorageAccounts/disable-blob-public-access.html
+      name: Disable public access to storage accounts with blob containers

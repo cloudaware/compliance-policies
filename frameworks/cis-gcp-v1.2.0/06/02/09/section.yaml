@@ -1,0 +1,11 @@
+---
+name: 6.2.9 Ensure 'log_parser_stats' database flag for Cloud SQL PostgreSQL instance
+  is set to 'off' - Level 2 (Automated)
+description: The PostgreSQL planner/optimizer is responsible to parse and verify the
+  syntax of each query received by the server. If the syntax is correct a `parse tree`
+  is built up else an error is generated. The `log_parser_stats` flag controls the
+  inclusion of parser performance statistics in the PostgreSQL logs for each query.
+  Will be supported in the near future.
+similar:
+  internal:
+    - dec-c-45acca9b

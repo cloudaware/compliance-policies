@@ -1,0 +1,18 @@
+---
+names:
+  full: AWS S3 Bucket Policy is not set to deny HTTP requests
+  contextual: Bucket Policy is not set to deny HTTP requests
+description: "At the Amazon S3 bucket level, you can configure permissions through\
+  \ a bucket policy making the objects accessible only through HTTPS."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/02/01/01
+  - /frameworks/cloudaware/resource-security/data-encryption
+similarPolicies:
+  internal:
+    - dec-x-d5fbfc40
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/S3/secure-transport.html
+      name: Secure Transport

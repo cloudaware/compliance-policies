@@ -1,0 +1,100 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-11T20:42:28Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2024-07-09T13:42:15Z",
+        "CA10__policyDocument__c": ""
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__policyDocument__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-11T20:42:28Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyDocument__c": ""
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') == 0.0",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-11T20:42:28Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyDocument__c": "{\"Version\":\"2020-01-01\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"Principal\",\"Action\":\"Action\",\"Resource\":\"Resource\"}]}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') == 0.0",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-11T20:42:28Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyDocument__c": "{\"Version\":\"2020-01-01\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"Principal\",\"Action\":\"Action\",\"Resource\":\"Resource\",\"Condition\":{\"Bool\":{\"Condition1\":\"false\"}}}]}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') == 0.0",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-11T20:42:28Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyDocument__c": "{\"Version\":\"2020-01-01\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"Principal\",\"Action\":\"Action\",\"Resource\":\"Resource\",\"Condition\":{\"Condition1\":\"false\"}}]}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') == 0.0",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-11T20:42:28Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyDocument__c": "{\"Version\":\"2020-01-01\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"Principal\",\"Action\":\"Action\",\"Resource\":\"Resource\",\"Condition\":\"false\"}]}"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') > 0.0",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-11T20:42:28Z"
+        },
+        "Id": "test7",
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyDocument__c": "{\"Version\":\"2020-01-01\",\"Statement\":[{\"Effect\":\"Deny\",\"Principal\":\"*\",\"Action\":\"s3:*\",\"Resource\":\"Resource\",\"Condition\":{\"Bool\":{\"aws:SecureTransport\":\"false\"}}}]}"
+    }
+]

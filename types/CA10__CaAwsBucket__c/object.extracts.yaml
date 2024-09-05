@@ -1,0 +1,138 @@
+---
+extracts:
+# Values: yes, no. Not Nullable.
+  - name: "CA10__objectLockEnabled__c"
+    value: 
+      FIELD:
+        path: "CA10__objectLockEnabled__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__objectLockEnabled__c"
+            currentStateMessage: "Unable to determine Object Lock status. Possible permission issue with s3:GetObjectLockConfiguration"
+          isEmpty: "Object Lock status is not populated yet"
+# Nullable.
+  - name: "CA10__lifecycleRulesJson__c"
+    value: 
+      FIELD:
+        path: "CA10__lifecycleRulesJson__c"
+        # undeterminedIf:
+        #   noAccessDelegate:
+        #     path: "CA10__lifecycleRulesJson__c"
+        #     currentStateMessage: "Unable to determine Lifecycle Configuration. Possible permission issue with s3:GetLifecycleConfiguration"
+# Values: enabled, suspended, off. Not Nullable.
+  - name: "CA10__versioningStatus__c"
+    value: 
+      FIELD:
+        path: "CA10__versioningStatus__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__versioningStatus__c"
+            currentStateMessage: "Unable to determine versioning status. Possible permission issue with s3:GetBucketVersioning"
+          isEmpty: "Status is not populated yet"
+# Checkbox.
+  - name: "CA10__versioningMfaDeleteEnabled__c"
+    value: 
+      FIELD:
+        path: "CA10__versioningMfaDeleteEnabled__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__versioningStatus__c"
+            currentStateMessage: "Unable to determine versioning status. Possible permission issue with s3:GetBucketVersioning"
+# The field can be empty if server access logging is not enabled
+  - name: "CA10__loggingDestinationBucketName__c"
+    value: 
+      FIELD:
+        path: "CA10__loggingDestinationBucketName__c"
+        # undeterminedIf:
+        #   noAccessDelegate:
+        #     path: "CA10__loggingDestinationBucketName__c"
+        #     currentStateMessage: "Unable to determine if server access logging is enabled. Possible permission issue with s3:GetBucketLogging"
+# Cloudaware derives this field from CA10__loggingDestinationBucketName__c
+  - name: "CA10__loggingDestinationBucketArn__c"
+    value: 
+      FIELD:
+        path: "CA10__loggingDestinationBucketArn__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__loggingDestinationBucketName__c"
+            currentStateMessage: "Unable to determine if server access logging is enabled. Possible permission issue with s3:GetBucketLogging"
+# This is a look up on CA10__CaAwsBucket__c derived from CA10__loggingDestinationBucketName__c
+  - name: "CA10__loggingDestinationBucket__c"
+    value: 
+      FIELD:
+        path: "CA10__loggingDestinationBucket__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__loggingDestinationBucketName__c"
+            currentStateMessage: "Unable to determine if server access logging is enabled. Possible permission issue with s3:GetBucketLogging"
+  - name: "CA10__arn__c"
+    value: 
+      FIELD:
+        path: "CA10__arn__c"
+        undeterminedIf:
+          isEmpty: "Bucket ARN cannot be empty. Potential data corruption"
+  - name: "caJsonFrom__lifecycleRulesJson__c"
+    value: 
+      JSON_FROM:
+        arg: 
+          EXTRACT: "CA10__lifecycleRulesJson__c"
+        undeterminedIf:
+          isInvalid: "S3 Bucket Lifecycle Rules JSON is invalid."
+# Returns BOOLEAN true if number of enabled lifecycle rules more than 0 otherwise returns false
+  - name: "caJsonQueryBoolean__lifecycleRulesJson_status_enabled__c"
+    value: 
+      JSON_QUERY_BOOLEAN:
+        arg: 
+          EXTRACT: "caJsonFrom__lifecycleRulesJson__c"
+        expression: "length([?status=='Enabled']) > `0`"
+        undeterminedIf: 
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return a boolean."
+  - name: "CA10__blockPublicAcls__c"
+    value: 
+      FIELD:
+        path: "CA10__blockPublicAcls__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__blockPublicAcls__c"
+            currentStateMessage: "Unable to determine the bucket policy. Possible permission issue with s3:GetBucketPublicAccessBlock"
+  - name: "CA10__blockPublicPolicy__c"
+    value: 
+      FIELD:
+        path: "CA10__blockPublicPolicy__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__blockPublicPolicy__c"
+            currentStateMessage: "Unable to determine the bucket policy. Possible permission issue with s3:GetBucketPublicAccessBlock"
+  - name: "CA10__ignorePublicAcls__c"
+    value: 
+      FIELD:
+        path: "CA10__ignorePublicAcls__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__ignorePublicAcls__c"
+            currentStateMessage: "Unable to determine the bucket policy. Possible permission issue with s3:GetBucketPublicAccessBlock"
+  - name: "CA10__restrictPublicBuckets__c"
+    value: 
+      FIELD:
+        path: "CA10__restrictPublicBuckets__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__restrictPublicBuckets__c"
+            currentStateMessage: "Unable to determine the bucket policy. Possible permission issue with s3:GetBucketPublicAccessBlock"
+# Nullable.
+  - name: "CA10__policyDocument__c"
+    value: 
+      FIELD:
+        path: "CA10__policyDocument__c"
+        # undeterminedIf:
+        #   noAccessDelegate:
+        #     path: "CA10__policyDocument__c"
+        #     currentStateMessage: "Unable to determine the bucket policy. Possible permission issue with s3:GetBucketPolicy"
+  - name: "caJsonFrom__policyDocument__c"
+    value: 
+      JSON_FROM:
+        arg: 
+          EXTRACT: "CA10__policyDocument__c"
+        undeterminedIf:
+          isInvalid: "S3 Bucket Policy Document JSON is invalid."

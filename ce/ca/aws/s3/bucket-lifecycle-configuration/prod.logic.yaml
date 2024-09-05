@@ -1,0 +1,42 @@
+---
+# This policy is based on ce:ca:aws:s3:enable-bucket-lifecycle-configuration.
+# We're able to determine if the Lifecycle configuration is enabled on a bucket 
+# using the CA10__lifecycleRulesJson__c field.
+# Lifecycle configuration is not supported for MFA-enabled buckets and directory buckets.
+inputObject: "CA10__CaAwsBucket__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsBucket__c/object.extracts.yaml"
+conditions:
+  # Lifecycle configuration on multi-factor authentication (MFA)-enabled buckets is not supported. 
+  # https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-and-other-bucket-config.html#lifecycle-general-considerations-mfa-enabled-bucket
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Lifecycle configuration on multi-factor authentication (MFA)-enabled buckets is not supported."
+    condition:
+      IS_EQUAL:
+        left: 
+          EXTRACT: "CA10__versioningMfaDeleteEnabled__c"
+        right: 
+          BOOLEAN: true
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The bucket doesn't have a Lifecycle configuration."
+    remediationMessage: "Consider creating an S3 Lifecycle configuration for the bucket."
+    condition:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__lifecycleRulesJson__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Bucket Lifecycle configuration rules are disabled."
+    remediationMessage: "Consider enabling or adding active rules to the bucket Lifecycle configuration."
+    condition:
+      NOT:
+        arg:
+          EXTRACT: "caJsonQueryBoolean__lifecycleRulesJson_status_enabled__c"
+  - status: "COMPLIANT"
+    currentStateMessage: "The bucket Lifecycle configuration is enabled."
+    condition:
+      EXTRACT: "caJsonQueryBoolean__lifecycleRulesJson_status_enabled__c"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

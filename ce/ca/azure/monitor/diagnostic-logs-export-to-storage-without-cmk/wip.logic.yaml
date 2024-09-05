@@ -1,0 +1,49 @@
+inputObject: "CA10__CaAzureDiagnosticSetting__c"
+importExtracts:
+  - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
+# testData:
+#   - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is not a subscription Diagnostic Setting."
+    condition:
+      NOT_EQUAL:
+        left:
+          FIELD: 
+            path: "RecordType.DeveloperName"
+        right:
+          TEXT: "caDiagnosticSettingOnAzureSubscription"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This Diagnostic Setting logs are not sent to a Storage account."
+    condition:
+      IS_EMPTY_LOOKUP: "CA10__storageAccount__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This Diagnostic Setting logs are sent to a Storage account not encrypted with a Customer-managed Key."
+    remediationMessage: "Consider encrypting the destination Storage account with a Customer-managed encryption Key."
+    condition:
+      AND:
+        args:
+          - NOT_EQUAL:
+              left:
+                EXTRACT: "CA10__storageAccount__r.CA10__encryptionKeySource__c"
+              right:
+                TEXT: "Microsoft.Keyvault"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__storageAccount__r.CA10__encryptionKeyVaultUri__c"
+  - status: "COMPLIANT"
+    currentStateMessage: "This Diagnostic Setting logs are sent to a Storage account encrypted with Customer-managed Key."
+    condition:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__storageAccount__r.CA10__encryptionKeySource__c"
+              right:
+                TEXT: "Microsoft.Keyvault"
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10__storageAccount__r.CA10__encryptionKeyVaultUri__c"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

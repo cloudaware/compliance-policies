@@ -1,0 +1,16 @@
+---
+names:
+  full: Privileged Azure Virtual Machine is accessed by identities without MFA
+  contextual: Privileged Virtual Machine is accessed by identities without MFA
+description: "Verify identities without MFA that can log in to a privileged virtual\
+  \ machine using separate login credentials. An adversary can leverage the access\
+  \ to move laterally and perform actions with the virtual machine's managed identity.\
+  \ Make sure the virtual machine only has necessary permissions, and revoke the admin-level\
+  \ permissions according to the least privileges principal."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/07/08
+  - /frameworks/cloudaware/identity-and-access-management/mfa-implementation

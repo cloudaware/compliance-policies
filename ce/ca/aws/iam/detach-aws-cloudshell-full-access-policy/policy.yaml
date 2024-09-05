@@ -1,0 +1,16 @@
+---
+names:
+  full: AWS IAM AWSCloudShellFullAccess Policy is attached
+  contextual: AWSCloudShellFullAccess Policy is attached
+description: "AWS CloudShell is a convenient way of running CLI commands against AWS\
+  \ services. AWSCloudShellFullAccess managed IAM policy provides full access to CloudShell,\
+  \ which allows file upload and download capability between a user's local system\
+  \ and the CloudShell environment. Within the CloudShell environment a user has sudo\
+  \ permissions, and can access the internet. So it is feasible to install file transfer\
+  \ software (for example) and move data from CloudShell to external internet servers."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/01/22
+  - /frameworks/cloudaware/identity-and-access-management/general-access-controls

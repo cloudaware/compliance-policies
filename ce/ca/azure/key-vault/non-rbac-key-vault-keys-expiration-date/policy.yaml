@@ -1,0 +1,18 @@
+---
+names:
+  full: Azure Non-RBAC Key Vault stores Keys without expiration date
+  contextual: Non-RBAC Key Vault stores Keys without expiration date
+description: Ensure that all Keys in Non Role Based Access Control (RBAC) Azure Key
+  Vaults have an expiration date set.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/08/02
+  - /frameworks/cloudaware/key-secret-certificate-management/expiration-management
+similarPolicies:
+  internal:
+    - dec-x-0feec790
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/KeyVault/key-expiration-check.html
+      name: Check for Azure Key Vault Keys Expiration Date

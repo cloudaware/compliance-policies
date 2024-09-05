@@ -1,0 +1,8 @@
+---
+name: 1.12 Ensure credentials unused for 45 days or greater are disabled
+description: "AWS IAM users can access AWS resources using different types of credentials,\
+  \ such as passwords or access keys. It is recommended that all credentials that\
+  \ have been unused in 45 or greater days be deactivated or removed."
+similar:
+  internal:
+    - dec-c-ff3516b8

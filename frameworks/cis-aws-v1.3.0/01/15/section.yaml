@@ -1,0 +1,10 @@
+---
+name: 1.15 Ensure IAM Users Receive Permissions Only Through Groups
+description: "IAM users are granted access to services, functions, and data through\
+  \ IAM policies. There are three ways to define policies for a user: 1) Edit the\
+  \ user policy directly, aka an inline, or user, policy; 2) attach a policy directly\
+  \ to a user; 3) add the user to an IAM group that has an attached policy. \n\nOnly\
+  \ the third implementation is recommended."
+similar:
+  internal:
+    - dec-c-3f8a2984

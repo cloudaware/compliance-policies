@@ -1,0 +1,19 @@
+---
+names:
+  full: Azure Network Security Group allows unrestricted RDP access from the Internet
+  contextual: Security Group allows unrestricted RDP access from the Internet
+description: "Network security groups should be periodically evaluated for port misconfigurations.\
+  \ Where certain ports and protocols may be exposed to the Internet, they should\
+  \ be evaluated for necessity and restricted wherever they are not explicitly required."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/06/01
+  - /frameworks/cloudaware/resource-security/public-and-anonymous-access
+similarPolicies:
+  internal:
+    - dec-x-4c15a09f
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/Network/unrestricted-rdp-access.html
+      name: Check for Unrestricted RDP Access

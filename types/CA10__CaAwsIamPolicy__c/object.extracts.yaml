@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../schema/Extracts.schema.json
+---
+extracts:
+# Not Nullable. Can't have no Access, retrieved via iam:ListPolicies
+- name: "CA10__name__c"
+  value: 
+    FIELD:
+      path: "CA10__name__c"
+      undeterminedIf:
+        isEmpty: "Corrupted data. Policy Name cannot be empty."
+# Checkbox. Can't have no Access, retrieved via iam:ListPolicies
+- name: "CA10__attachable__c"
+  value: 
+    FIELD:
+      path: "CA10__attachable__c"
+- name: "CA10__attachmentCount__c"
+  value: 
+    FIELD:
+      path: "CA10__attachmentCount__c"
+- name: "CA10__policyDocument__c"
+  value: 
+    FIELD:
+      path: CA10__policyDocument__c
+      undeterminedIf:
+        noAccessDelegate:
+          path: "CA10__policyDocument__c"
+          currentStateMessage: "Unable to determine the Policy Document. Possible permission issue with iam:GetPolicyVersion"
+- name: "caJsonFrom_policyDocument__c"
+  value:
+    JSON_FROM:
+      arg:
+        EXTRACT: "CA10__policyDocument__c"
+      undeterminedIf:
+        isInvalid: "IAM policy document JSON is invalid"
+# Not Nullable. Can't have no Access, retrieved via iam:ListPolicies
+- name: "CA10__arn__c"
+  value: 
+    FIELD:
+      path: CA10__arn__c
+      undeterminedIf:
+        isEmpty: "Corrupted data. Policy ARN cannot be empty."

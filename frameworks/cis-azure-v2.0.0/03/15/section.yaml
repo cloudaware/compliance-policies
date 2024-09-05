@@ -1,0 +1,9 @@
+---
+name: 3.15 Ensure the "Minimum TLS version" for storage accounts is set to "Version
+  1.2" - Level 1 (Automated)
+description: "In some cases, Azure Storage sets the minimum TLS version to be version\
+  \ 1.0 by default. TLS 1.0 is a legacy version and has known vulnerabilities. This\
+  \ minimum TLS version can be configured to be later protocols such as TLS 1.2."
+similar:
+  internal:
+    - dec-c-35f49684

@@ -1,0 +1,27 @@
+---
+inputObject: "CA10__CaAzureStorageAccount__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Public Network Access is enabled."
+    remediationMessage: "Consider disabling Public Network Access."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__publicNetworkAccessState__c"
+        right:
+          TEXT: "Enabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "Public Network Access is disabled."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__publicNetworkAccessState__c"
+        right:
+          TEXT: "Disabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

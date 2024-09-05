@@ -1,0 +1,36 @@
+---
+extracts:
+# Nullable, null indicates ::/0. Can't have no access, retrieved via ec2:DescribeNetworkAcls
+  - name: "CA10__cidrBlock__c"
+    value: 
+      FIELD:
+        path: "CA10__cidrBlock__c"
+# Values: allow, deny. Not nullable. Can't have no access, retrieved via ec2:DescribeNetworkAcls
+  - name: "CA10__ruleAction__c"
+    value: 
+      FIELD:
+        path: "CA10__ruleAction__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Rule Action cannot be empty."
+# Checkbox. Can't have no access, retrieved via ec2:DescribeNetworkAcls
+  - name: "CA10__egress__c"
+    value: 
+      FIELD:
+        path: "CA10__egress__c"
+# Possible values: All, tcp, udp, icmp. Not nullable. Can't have no access, retrieved via ec2:DescribeNetworkAcls
+  - name: "CA10__protocol__c"
+    value: 
+      FIELD:
+        path: "CA10__protocol__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Protocol cannot be empty."
+# Nullable, null indicates All Ports (with CA10__portRangeTo__c empty as well). Can't have no access, retrieved via ec2:DescribeNetworkAcls
+  - name: "CA10__portRangeFrom__c"
+    value: 
+      FIELD:
+        path: "CA10__portRangeFrom__c"
+# Nullable, null indicates All Ports (with CA10__portRangeFrom__c empty as well). Can't have no access, retrieved via ec2:DescribeNetworkAcls
+  - name: "CA10__portRangeTo__c"
+    value: 
+      FIELD:
+        path: "CA10__portRangeTo__c"

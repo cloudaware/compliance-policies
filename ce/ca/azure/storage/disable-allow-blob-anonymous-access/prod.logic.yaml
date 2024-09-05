@@ -1,0 +1,27 @@
+---
+inputObject: "CA10__CaAzureStorageAccount__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This Storage account allows Blob Anonymous Access."
+    remediationMessage: "Consider disabling Blob Anonymous Access."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__blobPublicAccess__c"
+        right:
+          TEXT: "Allow"
+  - status: "COMPLIANT"
+    currentStateMessage: "Allow Blob Anonymous Access is disabled."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__blobPublicAccess__c"
+        right:
+          TEXT: "Deny"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

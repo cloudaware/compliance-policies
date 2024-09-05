@@ -1,0 +1,12 @@
+---
+name: 3.17 Ensure that `Allow Blob Anonymous Access` is set to `Disabled` - Level
+  1 (Automated)
+description: "The Azure Storage setting Allow Blob Anonymous Access (aka \"allowBlobPublicAccess\"\
+  ) controls whether anonymous access is allowed for blob data in a storage account.\
+  \ When this property is set to True, it enables public read access to blob data,\
+  \ which can be convenient for sharing data but may carry security risks. When set\
+  \ to False, it disallows public access to blob data, providing a more secure storage\
+  \ environment."
+similar:
+  internal:
+    - dec-c-9987ed03

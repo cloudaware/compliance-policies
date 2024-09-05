@@ -1,0 +1,23 @@
+---
+names:
+  contextual: "Bucket Server Access Logging is not enabled"
+  full: "AWS S3 Bucket Server Access Logging is not enabled"
+description: "S3 server access logging enables the tracking and analysis of\
+  \ requests made to S3 buckets. By activating this feature, detailed records are generated,\
+  \ capturing such information as the requester's IP address, the time of the request,\
+  \ the requested resource, and the response status."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration"
+similarPolicies:
+  internal:
+    - dec-x-e0014333
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/S3/s3-bucket-logging-enabled.html"
+      name: "S3 Bucket Logging Enabled"
+  awsTrustedAdvisor:
+    - checkId: "BueAdJ7NrP"
+      name: "Amazon S3 Bucket Logging"
+      url: "https://docs.aws.amazon.com/awssupport/latest/user/fault-tolerance-checks.html#amazon-s3-bucket-logging"

@@ -1,0 +1,17 @@
+---
+names:
+  full: Microsoft Entra ID User Notify Users On Password Resets is set to No
+  contextual: Notify Users On Password Resets is set to No
+description: Ensure that users are notified on their primary and secondary emails
+  on password resets.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/01/08
+  - /frameworks/cloudaware/identity-and-access-management/credentials-controls
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/notify-users-on-password-resets.html
+      name: Notify Users On Password Resets

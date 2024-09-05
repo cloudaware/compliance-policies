@@ -1,0 +1,10 @@
+---
+name: 1.1 Ensure that multi-factor authentication is enabled for all privileged users
+description: |-
+  Enable multi-factor authentication for all user credentials who have write access to Azure resources. These include roles like
+  - Service Co-Administrators
+  - Subscription Owners
+  - Contributors
+similar:
+  internal:
+    - dec-c-2729d081

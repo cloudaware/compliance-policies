@@ -1,0 +1,20 @@
+---
+names:
+  full: AWS EC2 Instance IAM role is not attached
+  contextual: Instance IAM role is not attached
+description: AWS access from within AWS instances can be done by either encoding AWS
+  keys into AWS API calls or by assigning the instance to a role which has an appropriate
+  permissions policy for the required access. 'AWS Access' means accessing the APIs
+  of AWS in order to access AWS resources or manage AWS account resources.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/01/18
+  - /frameworks/cloudaware/resource-security/secure-access-controls
+similarPolicies:
+  internal:
+    - dec-x-6c93750d
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/EC2/ec2-instance-using-iam-roles.html
+      name: EC2 Instance Using IAM Roles

@@ -1,0 +1,11 @@
+---
+name: "1.18 Ensure that 'Owners can manage group membership requests in the Access\
+  \ Panel' is set to 'No' - Level 2 (Manual | Not supported, no API/CLI available\
+  \ by Azure)"
+description: "Restrict security group management to administrators only. Please note\
+  \ that according to the CIS Benchmark audit steps, at this point in time, there\
+  \ is no API/CLI mechanism available to programmatically conduct a security assessment\
+  \ for this recommendation."
+similar:
+  internal:
+    - dec-c-5bcea5b6

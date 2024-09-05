@@ -1,0 +1,12 @@
+---
+names:
+  full: Azure Subscription Microsoft Defender For Azure Cosmos DB is not set to On
+  contextual: Microsoft Defender For Azure Cosmos DB is not set to On
+description: Microsoft Defender for Azure Cosmos DB scans all incoming network requests
+  for threats to your Azure Cosmos DB resources.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/02/01/06
+  - /frameworks/cloudaware/resource-security/microsoft-defender-configuration

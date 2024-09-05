@@ -1,0 +1,27 @@
+---
+inputObject: "CA10__CaAzureAccount__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureAccount__c/object.extracts.yaml"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Security alert emails to subscription owners are enabled."
+# Extracts only for the default contact
+    condition:
+      AND:
+        args:
+          - CONTAINS_IGNORE_CASE:
+              arg:
+                EXTRACT: "caJsonQueryBoolean__securityCenterContacts_default_roles__c"
+              substring:
+                TEXT: "Owner"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "caJsonQueryText__securityCenterContacts_default_state__c"
+              right:
+                TEXT: "On"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Security alert emails to subscription owners are not enabled."
+  remediationMessage: "Consider enabling security alert emails to subscription owners."

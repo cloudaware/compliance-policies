@@ -1,0 +1,11 @@
+---
+name: 3.4 All software on in-scope devices must be updated within 14 days of an update being released
+description: |-
+  All software on in-scope devices must be updated, including applying any manual configuration changes required to make the update effective, within 14 days* of an update being released, where:
+  - the update fixes vulnerabilities described by the vendor as ‘critical’ or ‘high risk’
+  - the update addresses vulnerabilities with a CVSS v3 base score of 7 or above
+  - there are no details of the level of vulnerabilities the update fixes provided by the vendor
+  Please note: For optimum security we strongly recommend (but it’s not mandatory) that all released updates are applied within 14 days of release.
+similar:
+  internal:
+    - dec-c-99ed2f86

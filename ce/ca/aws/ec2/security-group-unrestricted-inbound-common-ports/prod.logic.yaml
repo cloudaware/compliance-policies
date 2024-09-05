@@ -1,0 +1,568 @@
+---
+inputObject: "CA10__CaAwsSecurityGroup__c"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "There are rules that open common ports to the inbound connections"
+    remediationMessage: "Remove the rules or adjust them to accept connections from\
+      \ narrower CIDRs"
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
+        status: "INCOMPLIANT"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Group has no rules that open common ports to the internet"
+relatedLists:
+  - relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "Rule is not 'Inbound'"
+        condition:
+          NOT_EQUAL:
+            left:
+              FIELD: 
+                path: "CA10__direction__c"
+            right:
+              TEXT: "Inbound"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "Rule source is not 'IP'"
+        condition:
+          NOT_EQUAL:
+            left:
+              FIELD: 
+                path: "CA10__source__c"
+            right:
+              TEXT: "IP"
+      - status: "COMPLIANT"
+        currentStateMessage: "This is IPv4 rule, that does not open to the 0.0.0.0/0"
+        condition:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__sourceIpVersion__c"
+                  right:
+                    TEXT: "IPv4"
+              - NOT_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__sourceIpRange__c"
+                  right:
+                    TEXT: "0.0.0.0/0"
+      - status: "COMPLIANT"
+        currentStateMessage: "This is IPv6 rule, that does not open to the ::/0"
+        condition:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__sourceIpVersion__c"
+                  right:
+                    TEXT: "IPv6"
+              - NOT_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__sourceIpRange__c"
+                  right:
+                    TEXT: "::/0"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Rule opens all protocols and all ports to the internet"
+        remediationMessage: "Remove the rule or narrow it down to a specific port,\
+          \ protocol and CIDR"
+        condition:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__protocol__c"
+                  right:
+                    TEXT: "All"
+              - IS_EMPTY:
+                  arg:
+                    FIELD: 
+                      path: "CA10__fromPort__c"
+              - IS_EMPTY:
+                  arg:
+                    FIELD: 
+                      path: "CA10__toPort__c"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Rule opens access to CIFS to the internet.\nCommon Internet\
+          \ File System (CIFS) port 445 is used by client/server applications to provide\
+          \ shared access to files, printers and communications between network nodes\
+          \ directly over TCP (without NetBIOS) in Microsoft Windows Server 2003 and\
+          \ later. CIFS is based on the enhanced version of Server Message Block (SMB)\
+          \ protocol for internet/intranet file sharing, developed by Microsoft: https://en.wikipedia.org/wiki/Server_Message_Block"
+        remediationMessage: "Remove the rule or narrow it down to a specific port,\
+          \ protocol and CIDR"
+        condition:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__protocol__c"
+                  right:
+                    TEXT: "tcp"
+              - LESS_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__fromPort__c"
+                  right:
+                    NUMBER: 445.0
+              - GREATER_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__toPort__c"
+                  right:
+                    NUMBER: 445.0
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Rule opens access to DNS to the internet.\nTCP/UDP port\
+          \ 53 is used by the Domain Name Service during DNS resolution (DNS lookup),\
+          \ when the requests are sent from DNS clients to DNS servers or between\
+          \ DNS servers: https://en.wikipedia.org/wiki/Domain_Name_System"
+        remediationMessage: "Remove the rule or narrow it down to a specific port,\
+          \ protocol and CIDR"
+        condition:
+          AND:
+            args:
+              - OR:
+                  args:
+                    - IS_EQUAL:
+                        left:
+                          FIELD: 
+                            path: "CA10__protocol__c"
+                        right:
+                          TEXT: "tcp"
+                    - IS_EQUAL:
+                        left:
+                          FIELD: 
+                            path: "CA10__protocol__c"
+                        right:
+                          TEXT: "udp"
+              - LESS_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__fromPort__c"
+                  right:
+                    NUMBER: 53.0
+              - GREATER_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__toPort__c"
+                  right:
+                    NUMBER: 53.0
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Rule opens access to FTP to the internet.\nTCP ports\
+          \ 20 and 21 are used for data transfer and communication by the File Transfer\
+          \ Protocol (FTP) client-server applications: https://en.wikipedia.org/wiki/File_Transfer_Protocol"
+        remediationMessage: "Remove the rule or narrow it down to a specific port,\
+          \ protocol and CIDR"
+        condition:
+          OR:
+            args:
+              - AND:
+                  args:
+                    - IS_EQUAL:
+                        left:
+                          FIELD: 
+                            path: "CA10__protocol__c"
+                        right:
+                          TEXT: "tcp"
+                    - LESS_THAN_EQUAL:
+                        left:
+                          FIELD: 
+                            path: "CA10__fromPort__c"
+                        right:
+                          NUMBER: 20.0
+                    - GREATER_THAN_EQUAL:
+                        left:
+                          FIELD: 
+                            path: "CA10__toPort__c"
+                        right:
+                          NUMBER: 20.0
+              - AND:
+                  args:
+                    - IS_EQUAL:
+                        left:
+                          FIELD: 
+                            path: "CA10__protocol__c"
+                        right:
+                          TEXT: "tcp"
+                    - LESS_THAN_EQUAL:
+                        left:
+                          FIELD: 
+                            path: "CA10__fromPort__c"
+                        right:
+                          NUMBER: 21.0
+                    - GREATER_THAN_EQUAL:
+                        left:
+                          FIELD: 
+                            path: "CA10__toPort__c"
+                        right:
+                          NUMBER: 21.0
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Rule opens access to ICMP to the internet.\nInternet\
+          \ Control Message Protocol (ICMP) is an error-reporting protocol that is\
+          \ typically used to troubleshoot TCP/IP networks by generating error messages\
+          \ for any issues with delivering IP packets. Even if ICMP is not a transport\
+          \ protocol, it can be used to exploit network vulnerabilities."
+        remediationMessage: "Remove the rule or narrow it down to a specific port,\
+          \ protocol and CIDR"
+        condition:
+          IS_EQUAL:
+            left:
+              FIELD: 
+                path: "CA10__protocol__c"
+            right:
+              TEXT: "icmp"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Rule opens access to MongoDB to the internet.\nTCP port\
+          \ 27017 is used by the MongoDB Database which is free and open-source cross-platform\
+          \ document-oriented NoSQL database"
+        remediationMessage: "Remove the rule or narrow it down to a specific port,\
+          \ protocol and CIDR"
+        condition:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__protocol__c"
+                  right:
+                    TEXT: "tcp"
+              - LESS_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__fromPort__c"
+                  right:
+                    NUMBER: 27017.0
+              - GREATER_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__toPort__c"
+                  right:
+                    NUMBER: 27017.0
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Rule opens access to MSSQL to the internet.\nTCP port\
+          \ 1433 is used by the Microsoft SQL Server which is a relational database\
+          \ management system developed by Microsoft."
+        remediationMessage: "Remove the rule or narrow it down to a specific port,\
+          \ protocol and CIDR"
+        condition:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__protocol__c"
+                  right:
+                    TEXT: "tcp"
+              - LESS_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__fromPort__c"
+                  right:
+                    NUMBER: 1433.0
+              - GREATER_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__toPort__c"
+                  right:
+                    NUMBER: 1433.0
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Rule opens access to MySQL to the internet.\nTCP port\
+          \ 3306 is used by the MySQL Server which is an open-source relational database\
+          \ management system (RDBMS) server."
+        remediationMessage: "Remove the rule or narrow it down to a specific port,\
+          \ protocol and CIDR"
+        condition:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__protocol__c"
+                  right:
+                    TEXT: "tcp"
+              - LESS_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__fromPort__c"
+                  right:
+                    NUMBER: 3306.0
+              - GREATER_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__toPort__c"
+                  right:
+                    NUMBER: 3306.0
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Rule opens access to NetBIOS to the internet.\nThese\
+          \ ports are used for NetBIOS name resolution (i.e. mapping a NetBIOS name\
+          \ to an IP address) by services such as File and Printer Sharing service\
+          \ running on Microsoft Windows Server OS."
+        remediationMessage: "Remove the rule or narrow it down to a specific port,\
+          \ protocol and CIDR"
+        condition:
+          OR:
+            args:
+              - AND:
+                  args:
+                    - IS_EQUAL:
+                        left:
+                          FIELD: 
+                            path: "CA10__protocol__c"
+                        right:
+                          TEXT: "tcp"
+                    - LESS_THAN_EQUAL:
+                        left:
+                          FIELD: 
+                            path: "CA10__fromPort__c"
+                        right:
+                          NUMBER: 139.0
+                    - GREATER_THAN_EQUAL:
+                        left:
+                          FIELD: 
+                            path: "CA10__toPort__c"
+                        right:
+                          NUMBER: 139.0
+              - AND:
+                  args:
+                    - IS_EQUAL:
+                        left:
+                          FIELD: 
+                            path: "CA10__protocol__c"
+                        right:
+                          TEXT: "udp"
+                    - LESS_THAN_EQUAL:
+                        left:
+                          FIELD: 
+                            path: "CA10__fromPort__c"
+                        right:
+                          NUMBER: 137.0
+                    - GREATER_THAN_EQUAL:
+                        left:
+                          FIELD: 
+                            path: "CA10__toPort__c"
+                        right:
+                          NUMBER: 137.0
+              - AND:
+                  args:
+                    - IS_EQUAL:
+                        left:
+                          FIELD: 
+                            path: "CA10__protocol__c"
+                        right:
+                          TEXT: "udp"
+                    - LESS_THAN_EQUAL:
+                        left:
+                          FIELD: 
+                            path: "CA10__fromPort__c"
+                        right:
+                          NUMBER: 138.0
+                    - GREATER_THAN_EQUAL:
+                        left:
+                          FIELD: 
+                            path: "CA10__toPort__c"
+                        right:
+                          NUMBER: 138.0
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Rule opens access to Oracle to the internet.\nTCP port\
+          \ 1521 is used by the Oracle Database Server which is an object-relational\
+          \ database management system (RDBMS) server developed by Oracle Corporation:\
+          \ https://en.wikipedia.org/wiki/Oracle_Database"
+        remediationMessage: "Remove the rule or narrow it down to a specific port,\
+          \ protocol and CIDR"
+        condition:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__protocol__c"
+                  right:
+                    TEXT: "tcp"
+              - LESS_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__fromPort__c"
+                  right:
+                    NUMBER: 1521.0
+              - GREATER_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__toPort__c"
+                  right:
+                    NUMBER: 1521.0
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Rule opens access to PostgreSQL to the internet.\nTCP\
+          \ port 5432 is used by the PostgreSQL Database Server which is an object-relational\
+          \ database management system (RDBMS) server developed by PostgreSQL Global\
+          \ Development Group: https://en.wikipedia.org/wiki/PostgreSQL"
+        remediationMessage: "Remove the rule or narrow it down to a specific port,\
+          \ protocol and CIDR"
+        condition:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__protocol__c"
+                  right:
+                    TEXT: "tcp"
+              - LESS_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__fromPort__c"
+                  right:
+                    NUMBER: 5432.0
+              - GREATER_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__toPort__c"
+                  right:
+                    NUMBER: 5432.0
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Rule opens access to RDP to the internet.\nTCP port\
+          \ 3389 is used for secure remote GUI login to Microsoft servers by connecting\
+          \ an RDP (Remote Desktop Protocol) client application with an RDP server:\
+          \ https://en.wikipedia.org/wiki/Remote_Desktop_Protocol"
+        remediationMessage: "Remove the rule or narrow it down to a specific port,\
+          \ protocol and CIDR"
+        condition:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__protocol__c"
+                  right:
+                    TEXT: "tcp"
+              - LESS_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__fromPort__c"
+                  right:
+                    NUMBER: 3389.0
+              - GREATER_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__toPort__c"
+                  right:
+                    NUMBER: 3389.0
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Rule opens access to RPC to the internet.\nRemote Procedure\
+          \ Call (RPC) port 135 is used for client/server communication by Microsoft\
+          \ Message Queuing (MSMQ): https://en.wikipedia.org/wiki/Microsoft_Message_Queuing\
+          \ as well as other Microsoft Windows/Windows Server software."
+        remediationMessage: "Remove the rule or narrow it down to a specific port,\
+          \ protocol and CIDR"
+        condition:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__protocol__c"
+                  right:
+                    TEXT: "tcp"
+              - LESS_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__fromPort__c"
+                  right:
+                    NUMBER: 135.0
+              - GREATER_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__toPort__c"
+                  right:
+                    NUMBER: 135.0
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Rule opens access to SMTP to the internet.\nTCP port\
+          \ 25 is used by SMTP (Simple Mail Transfer Protocol) servers for electronic\
+          \ mail (email) transmission: https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol"
+        remediationMessage: "Remove the rule or narrow it down to a specific port,\
+          \ protocol and CIDR"
+        condition:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__protocol__c"
+                  right:
+                    TEXT: "tcp"
+              - LESS_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__fromPort__c"
+                  right:
+                    NUMBER: 25.0
+              - GREATER_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__toPort__c"
+                  right:
+                    NUMBER: 25.0
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Rule opens access to SSH to the internet.\nTCP port\
+          \ 22 is used for secure remote login by connecting an SSH client application\
+          \ with an SSH server: https://en.wikipedia.org/wiki/Secure_Shell"
+        remediationMessage: "Remove the rule or narrow it down to a specific port,\
+          \ protocol and CIDR"
+        condition:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__protocol__c"
+                  right:
+                    TEXT: "tcp"
+              - LESS_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__fromPort__c"
+                  right:
+                    NUMBER: 22.0
+              - GREATER_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__toPort__c"
+                  right:
+                    NUMBER: 22.0
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Rule opens access to Telnet to the internet.\nTCP port\
+          \ 23 is used by the Telnet server application (telnetd). Telnet is usually\
+          \ used to check whether a client is able to make TCP/IP connections to a\
+          \ particular service: https://en.wikipedia.org/wiki/Telnet"
+        remediationMessage: "Remove the rule or narrow it down to a specific port,\
+          \ protocol and CIDR"
+        condition:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__protocol__c"
+                  right:
+                    TEXT: "tcp"
+              - LESS_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__fromPort__c"
+                  right:
+                    NUMBER: 23.0
+              - GREATER_THAN_EQUAL:
+                  left:
+                    FIELD: 
+                      path: "CA10__toPort__c"
+                  right:
+                    NUMBER: 23.0
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Rule does not open any common ports to the internet"

@@ -1,0 +1,81 @@
+---
+inputObject: "CA10__CaAzureVirtualMachine__c"
+importExtracts:
+  - file: "/types/CA10__CaAzureVirtualMachine__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Security Type is not set."
+    remediationMessage: "Consider setting the SecurityType of the virtual machine.
+     It has to be set to any specified value to enable UefiSettings."
+    condition:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__securityProfileSecurityType__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Secure Boot and vTPM are disabled."
+    remediationMessage: "Consider enabling Secure Boot and vTPM."
+    condition:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__uefiSettingsVTpm__c"
+              right:
+                TEXT: "Disabled"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__uefiSettingsSecureBoot__c"
+              right:
+                TEXT: "Disabled"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Secure Boot is disabled."
+    remediationMessage: "Consider enabling Secure Boot."
+    condition:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__uefiSettingsVTpm__c"
+              right:
+                TEXT: "Enabled"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__uefiSettingsSecureBoot__c"
+              right:
+                TEXT: "Disabled"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "vTPM is disabled."
+    remediationMessage: "Consider enabling and vTPM."
+    condition:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__uefiSettingsVTpm__c"
+              right:
+                TEXT: "Disabled"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__uefiSettingsSecureBoot__c"
+              right:
+                TEXT: "Enabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "Secure Boot and vTPM are enabled."
+    condition:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__uefiSettingsVTpm__c"
+              right:
+                TEXT: "Enabled"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__uefiSettingsSecureBoot__c"
+              right:
+                TEXT: "Enabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

@@ -1,0 +1,22 @@
+---
+names:
+  full: AWS IAM User MFA is not enabled for all users with console password
+  contextual: User MFA is not enabled for all users with console password
+description: "Multi-Factor Authentication (MFA) adds an extra layer of authentication\
+  \ assurance beyond traditional credentials. With MFA enabled, when a user signs\
+  \ in to the AWS Console, they will be prompted for their user name and password\
+  \ as well as for an authentication code from their physical or virtual MFA token.\
+  \ It is recommended that MFA be enabled for all accounts that have a console password."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/01/10
+  - /frameworks/cis-aws-v1.5.0/01/10
+  - /frameworks/cloudaware/identity-and-access-management/mfa-implementation
+similarPolicies:
+  internal:
+    - dec-x-b92b08f4
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/IAM/iam-user-multi-factor-authentication-enabled.html
+      name: Enable MFA for IAM Users with Console Password

@@ -1,0 +1,9 @@
+---
+name: 3.8 Ensure Default Network Access Rule for Storage Accounts is Set to Deny -
+  Level 1 (Automated)
+description: "Restricting default network access helps to provide a new layer of security,\
+  \ since storage accounts accept connections from clients on any network. To limit\
+  \ access to selected networks, the default action must be changed."
+similar:
+  internal:
+    - dec-c-0c753238

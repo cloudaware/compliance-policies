@@ -1,0 +1,24 @@
+---
+names:
+  full: AWS CloudTrail is not encrypted with KMS CMK
+  contextual: CloudTrail is not encrypted with KMS CMK
+description: "AWS CloudTrail is a web service that records AWS API calls for an account\
+  \ and makes those logs available to users and resources in accordance with IAM policies.\
+  \ AWS Key Management Service (KMS) is a managed service that helps create and control\
+  \ the encryption keys used to encrypt account data, and uses Hardware Security Modules\
+  \ (HSMs) to protect the security of encryption keys. CloudTrail logs can be configured\
+  \ to leverage server side encryption (SSE) and KMS customer created master keys\
+  \ (CMK) to further protect CloudTrail logs. It is recommended that CloudTrail be\
+  \ configured to use SSE-KMS."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/03/05
+  - /frameworks/cloudaware/resource-security/data-encryption
+similarPolicies:
+  internal:
+    - dec-x-d896d172
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/CloudTrail/cloudtrail-logs-encrypted.html
+      name: CloudTrail Logs Encrypted

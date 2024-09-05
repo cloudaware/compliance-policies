@@ -1,0 +1,10 @@
+---
+name: "1.4 Ensure that 'Restore multi-factor authentication on all remembered devices'\
+  \ is Enabled - Level 2 (Manual | Not supported, no API/CLI available by Azure)"
+description: "Do not allow users to remember multi-factor authentication on devices.\
+  \ Please note that according to the CIS Benchmark audit steps, at this point in\
+  \ time, there is no API/CLI mechanism available to programmatically conduct a security\
+  \ assessment for this recommendation."
+similar:
+  internal:
+    - dec-c-824a2454

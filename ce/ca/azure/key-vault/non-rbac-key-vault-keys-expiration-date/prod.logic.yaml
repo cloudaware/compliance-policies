@@ -1,0 +1,66 @@
+---
+inputObject: "CA10__CaAzureKeyVault__c"
+importExtracts:
+  - file: "/types/CA10__CaAzureKeyVault__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is an RBAC Key Vault."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__rbacAuthorization__c"
+        right:
+          TEXT: "Enabled"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Key Vault has Keys without expiration date."
+    remediationMessage: "Consider setting the Keys' expiration date."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: CA10__Azure_Key_Vault_Keys__r
+        status: "INCOMPLIANT"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Key Vault Keys' expiration date is set for all enabled Keys."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: CA10__Azure_Key_Vault_Keys__r
+        status: "COMPLIANT"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Key Vault only has disabled Keys."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: CA10__Azure_Key_Vault_Keys__r
+        status: "INAPPLICABLE"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "The Key Vault doesn't have Keys or Cloudaware doesn't have access to view Keys."
+relatedLists:
+  - relationshipName: CA10__Azure_Key_Vault_Keys__r
+    importExtracts:
+    - file: "/types/CA10__CaAzureKeyVaultKey__c/object.extracts.yaml"
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "The Key is disabled."
+        condition:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__enabledStatus__c"
+            right:
+              TEXT: "Enabled"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The Key expiration date is not set."
+        remediationMessage: "Consider setting the Key expiration date."
+        condition:
+          IS_EMPTY:
+            arg:
+              EXTRACT: "CA10__expirationDate__c"
+      - status: "COMPLIANT"
+        currentStateMessage: "The Key expiration date is set."
+        condition:
+          NOT_EMPTY:
+            arg:
+              EXTRACT: "CA10__expirationDate__c"
+    otherwise:
+      status: "UNDETERMINED"
+      currentStateMessage: "Unexpected values in the fields."

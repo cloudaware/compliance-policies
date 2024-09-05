@@ -1,0 +1,46 @@
+---
+inputObject: "CA10__CaAwsAccount__c"
+testData:
+  - file: test-data.json
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Number of passwords to remember is set to the max of 24."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__AWS_IAM_Password_Policies__r"
+        status: "COMPLIANT"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Number of passwords to remember should be set to the max of 24."
+    remediationMessage: "Consider setting the Number of passwords to remember to the max of 24."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__AWS_IAM_Password_Policies__r"
+        status: "INCOMPLIANT"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "AWS Account password policy does not exist."
+relatedLists:
+  - relationshipName: "CA10__AWS_IAM_Password_Policies__r"
+    importExtracts:
+      - file: /types/CA10__CaAwsPasswordPolicy__c/object.extracts.yaml
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Password policy does not have 'Number of passwords to remember' set to the max of 24"
+        remediationMessage: "Set 'Number of passwords to remember' to the max of 24"
+        condition:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__passwordReusePrevention__c"
+            right:
+              NUMBER: 24.0
+      - status: "COMPLIANT"
+        currentStateMessage: "Password policy have 'Number of passwords to remember' set to the max of 24"
+        condition:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__passwordReusePrevention__c"
+            right:
+              NUMBER: 24.0
+    otherwise:
+      status: "UNDETERMINED"
+      currentStateMessage: "Unexpected value in the field."

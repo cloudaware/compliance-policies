@@ -1,0 +1,15 @@
+---
+names:
+  full: AWS VPC Route Table for VPC Peering does not follow the least privilege principle
+  contextual: Route Table for VPC Peering does not follow the least privilege principle
+description: "Once a VPC peering connection is established, routing tables must be\
+  \ updated to establish any connections between the peered VPCs. These routes can\
+  \ be as specific as desired - even peering a VPC to only a single host on the other\
+  \ side of the connection."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/05/05
+  - /frameworks/cloudaware/resource-security/secure-access-controls

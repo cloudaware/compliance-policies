@@ -1,0 +1,9 @@
+---
+extracts:
+# Values: Approved, Rejected, Removed. Not Nullable. Can't have no access, retrieved via Microsoft.Network/privateEndpoints/read
+  - name: "CA10Z1__state__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__state__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Connection State cannot be empty."

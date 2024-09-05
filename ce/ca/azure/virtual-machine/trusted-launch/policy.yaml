@@ -1,0 +1,16 @@
+---
+names:
+  full: Azure Virtual Machine Trusted Launch is not enabled
+  contextual: Trusted Launch is not enabled
+description: "When Secure Boot and vTPM are enabled together, they provide a strong\
+  \ foundation for protecting your VM from boot attacks. For example,   if an attacker\
+  \ attempts to replace the bootloader with a malicious version,   Secure Boot will\
+  \ prevent the VM from booting. If the attacker is able to bypass Secure Boot and\
+  \ install a malicious bootloader, vTPM can be used to detect the intrusion and alert\
+  \ you."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/07/09
+  - /frameworks/cloudaware/resource-security/threat-protection

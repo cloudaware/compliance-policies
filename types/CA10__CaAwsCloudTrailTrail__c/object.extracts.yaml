@@ -1,0 +1,62 @@
+---
+extracts:
+# Checkbox. Can't have no access, retrieved via cloudtrail:DescribeTrails
+  - name: "CA10__multiRegionTrail__c"
+    value: 
+      FIELD:
+        path: "CA10__multiRegionTrail__c"
+# Checkbox. 
+  - name: "CA10__isLogging__c"
+    value: 
+      FIELD:
+        path: "CA10__isLogging__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__isLogging__c"
+            currentStateMessage: "Unable to determine Logging status. Possible permission issue with cloudtrail:GetTrailStatus."
+# Checkbox. Can't have no access, retrieved via cloudtrail:DescribeTrails
+  - name: "CA10__logFileValidationEnabled__c"
+    value: 
+      FIELD:
+        path: "CA10__logFileValidationEnabled__c"
+# Nullable
+  - name: "CA10__eventSelectorsJson__c"
+    value: 
+      FIELD:
+        path: "CA10__eventSelectorsJson__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__eventSelectorsJson__c"
+            currentStateMessage: "Unable to determine Logging status. Possible permission issue with cloudtrail:GetEventSelectors."
+  - name: "caJsonFrom__eventSelectorsJson__c"
+    value: 
+      JSON_FROM:
+        arg:
+          EXTRACT: "CA10__eventSelectorsJson__c"
+        undeterminedIf:
+          isInvalid: "Provided CloudTrail Event Selector has invalid JSON."
+# Returns TEXT. Values: All, WriteOnly, ReadOnly
+  - name: "caJsonText__eventSelectorsJson_readWriteType__c"
+    value: 
+      JSON_QUERY_TEXT:
+        arg: 
+          EXTRACT: "caJsonFrom__eventSelectorsJson__c"
+        expression: "[*].readWriteType | [0]"
+        undeterminedIf:
+          evaluationError: "The JSON text query has failed."
+          resultTypeMismatch: "The JSON query did not return a text type."
+# Returns BOOLEAN true or false
+  - name: "caJsonBoolean__eventSelectorsJson_includeManagementEvents__c"
+    value: 
+      JSON_QUERY_BOOLEAN:
+        arg: 
+          EXTRACT: "caJsonFrom__eventSelectorsJson__c"
+        expression: "[*].includeManagementEvents | [0]"
+        undeterminedIf:
+          evaluationError: "The JSON boolean query has failed."
+          resultTypeMismatch: "The JSON query did not return a boolean type."
+# Nullable. Can't have no access, retrieved via cloudtrail:DescribeTrails
+  - name: "CA10__kmsKey__c"
+    value: 
+      FIELD:
+        path: "CA10__kmsKey__c"

@@ -1,0 +1,17 @@
+---
+names:
+  full: Network Security Group Flow Logs are not captured and sent to Log Analytics
+    Workspace
+  contextual: Network Security Group Flow Logs are not captured and sent to Log Analytics
+    Workspace
+description: Ensure that network flow logs are captured and fed into a central log
+  analytics workspace.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+  - RELIABILITY
+  - PERFORMANCE
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/05/01/05
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration

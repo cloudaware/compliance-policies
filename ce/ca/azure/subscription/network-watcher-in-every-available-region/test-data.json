@@ -1,0 +1,128 @@
+[
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('caExtract_availabilityZones_asCollection__c').size() > CA10__Azure_Network_Watchers__r.count(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-28T08:24:16Z"
+        },
+        "Id": "test1",
+        "CA10__availableLocationNames__c": "chinanorth3\nglobal\nchinaeast\nchinaeast2\nchinanorth\nchinanorth2",
+        "CA10__Azure_Network_Watchers__r": [
+            {
+                "Id": "test1_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__provisioningState__c": "Succeeded",
+                "CA10__subscription__c": "test1"
+            }
+
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('caExtract_availabilityZones_asCollection__c').size() > CA10__Azure_Network_Watchers__r.count(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-28T08:24:16Z"
+        },
+        "Id": "test2",
+        "CA10__availableLocationNames__c": "chinanorth3\nglobal\nchinaeast\nchinaeast2\nchinanorth\nchinanorth2",
+        "CA10__Azure_Network_Watchers__r": [
+            {
+                "Id": "test2_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__provisioningState__c": "Failed",
+                "CA10__subscription__c": "test2"
+            },
+            {
+                "Id": "test2_2",
+                "CA10__disappearanceTime__c": "2024-06-28T08:24:16Z",
+                "CA10__provisioningState__c": "Succeeded",
+                "CA10__subscription__c": "test2"
+            },
+            {
+                "Id": "test2_3",
+                "CA10__disappearanceTime__c": "2024-06-28T08:24:16Z",
+                "CA10__provisioningState__c": "Failed",
+                "CA10__subscription__c": "test2"
+            },
+            {
+                "Id": "test2_4",
+                "CA10__disappearanceTime__c": null,
+                "CA10__provisioningState__c": "Failed",
+                "CA10__subscription__c": "test2"
+            },
+            {
+                "Id": "test2_5",
+                "CA10__disappearanceTime__c": null,
+                "CA10__provisioningState__c": "Failed",
+                "CA10__subscription__c": "test2"
+            },
+            {
+                "Id": "test2_6",
+                "CA10__disappearanceTime__c": null,
+                "CA10__provisioningState__c": "Failed",
+                "CA10__subscription__c": "test2"
+            }
+
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('caExtract_availabilityZones_asCollection__c').size() <= CA10__Azure_Network_Watchers__r.count(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-28T08:24:16Z"
+        },
+        "Id": "test3",
+        "CA10__availableLocationNames__c": "chinanorth3\nglobal\nchinaeast\nchinaeast2\nchinanorth\nchinanorth2",
+        "CA10__Azure_Network_Watchers__r": [
+            {
+                "Id": "test3_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__provisioningState__c": "Succeeded",
+                "CA10__subscription__c": "test3"
+            },
+            {
+                "Id": "test3_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__provisioningState__c": "Succeeded",
+                "CA10__subscription__c": "test3"
+            },
+            {
+                "Id": "test3_3",
+                "CA10__disappearanceTime__c": null,
+                "CA10__provisioningState__c": "Succeeded",
+                "CA10__subscription__c": "test3"
+            },
+            {
+                "Id": "test3_4",
+                "CA10__disappearanceTime__c": null,
+                "CA10__provisioningState__c": "Succeeded",
+                "CA10__subscription__c": "test3"
+            },
+            {
+                "Id": "test3_5",
+                "CA10__disappearanceTime__c": null,
+                "CA10__provisioningState__c": "Succeeded",
+                "CA10__subscription__c": "test3"
+            },
+            {
+                "Id": "test3_6",
+                "CA10__disappearanceTime__c": null,
+                "CA10__provisioningState__c": "Succeeded",
+                "CA10__subscription__c": "test3"
+            }
+
+        ]
+    }
+]

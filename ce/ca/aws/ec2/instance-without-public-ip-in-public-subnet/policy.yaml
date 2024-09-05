@@ -1,0 +1,15 @@
+---
+names:
+  full: AWS EC2 Instance without a public IP address is in a public subnet
+  contextual: Instance without a public IP address is in a public subnet
+description: "Migrate EC2 instances that don't need internet access to a private subnet,\
+  \ or remove the direct route to an Internet Gateway within the subnet. EC2 Instances\
+  \ without a public IPv4/IPv6 address are unable to connect to the internet thus\
+  \ making it a potential misconfiguration that can lead to security breaches, convoluted\
+  \ network architecture, and unnecessary management overhead. Consider using a bastion\
+  \ host or NAT device to provide internet access to EC2 instances that do not require\
+  \ to be public."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+  - RELIABILITY

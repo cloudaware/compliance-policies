@@ -1,0 +1,11 @@
+---
+name: 1.25 Ensure fewer than 5 users have global administrator assignment - Level
+  1 (Manual)
+description: "This recommendation aims to maintain a balance between security and\
+  \ operational efficiency by ensuring that a minimum of 2 and a maximum of 4 users\
+  \ are assigned the Global Administrator role in Microsoft Entra ID. Having at least\
+  \ two Global Administrators ensures redundancy, while limiting the number to four\
+  \ reduces the risk of excessive privileged access."
+similar:
+  internal:
+    - dec-c-8bdaba6e

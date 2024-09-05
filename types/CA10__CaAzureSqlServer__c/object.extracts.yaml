@@ -1,0 +1,74 @@
+---
+extracts:
+# Values: Enabled, Disabled. Not Nullable.
+  - name: "CA10__auditing__c"
+    value: 
+      FIELD:
+        path: "CA10__auditing__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__auditing__c"
+            currentStateMessage: "Unable to determine Server auditing settings. Possible permission issue with Microsoft.Sql/servers/auditingSettings/read"
+          isEmpty: "SQL Server auditing settings are not populated yet"
+# Number field
+  - name: "CA10__auditingRetentionDays__c"
+    value: 
+      FIELD:
+        path: "CA10__auditingRetentionDays__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__auditingRetentionDays__c"
+            currentStateMessage: "Unable to determine Server auditing settings. Possible permission issue with Microsoft.Sql/servers/auditingSettings/read"
+# Values: servicemanaged, azurekeyvault. Not Nullable. 
+  - name: "CA10__encryptionProtectorKind__c"
+    value: 
+      FIELD:
+        path: "CA10__encryptionProtectorKind__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__encryptionProtectorKind__c"
+            currentStateMessage: "Unable to determine Server Encryption Protectors. Possible permission issue with Microsoft.Sql/servers/encryptionProtector/read"
+          isEmpty: "SQL Server Encryption Protectors are not populated yet"
+# Values: ServiceManaged, AzureKeyVault. Not Nullable. 
+  - name: "CA10__encryptionProtectorServerKeyType__c"
+    value: 
+      FIELD:
+        path: "CA10__encryptionProtectorServerKeyType__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__encryptionProtectorServerKeyType__c"
+            currentStateMessage: "Unable to determine Server Encryption Protectors. Possible permission issue with Microsoft.Sql/servers/encryptionProtector/read"
+          isEmpty: "SQL Server Encryption Protectors are not populated yet"
+# Nullable. 
+  - name: "CA10__encryptionProtectorUri__c"
+    value: 
+      FIELD:
+        path: "CA10__encryptionProtectorUri__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__encryptionProtectorUri__c"
+            currentStateMessage: "Unable to determine Server Encryption Protectors. Possible permission issue with Microsoft.Sql/servers/encryptionProtector/read"
+# Values: ActiveDirectory, null. Nullable. 
+  - name: "CA10__activeDirectoryAdminType__c"
+    value: 
+      FIELD:
+        path: "CA10__activeDirectoryAdminType__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__activeDirectoryAdminType__c"
+            currentStateMessage: "Unable to determine Server AD Administrator type. Possible permission issue with Microsoft.Sql/servers/administrators"
+  - name: "CA10__firewallRulesJson__c"
+    value: 
+      FIELD:
+        path: "CA10__firewallRulesJson__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__firewallRulesJson__c"
+            currentStateMessage: "Unable to determine Firewall Rules. Possible permission issue with Microsoft.Sql/servers/firewallRules/read"
+  - name: "caJsonFrom__firewallRulesJson__c"
+    value: 
+      JSON_FROM:
+        arg: 
+          EXTRACT: "CA10__firewallRulesJson__c"
+        undeterminedIf:
+          isInvalid: "Firewall Rules JSON is invalid."

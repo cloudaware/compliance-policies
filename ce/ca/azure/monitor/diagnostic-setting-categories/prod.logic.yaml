@@ -1,0 +1,54 @@
+inputObject: "CA10__CaAzureDiagnosticSetting__c"
+importExtracts:
+  - file: "/types/CA10__CaAzureDiagnosticSetting__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is not a subscription Diagnostic Setting."
+    condition:
+      NOT_EQUAL:
+        left:
+          FIELD: 
+            path: "RecordType.DeveloperName"
+        right:
+          TEXT: "caDiagnosticSettingOnAzureSubscription"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The diagnostic setting does not capture the appropriate activities from the management plane."
+    remediationMessage: "Consider configuring the diagnostic setting to capture Administrative, Alert, Policy, and Security log categories."
+    condition:
+      NOT:
+        arg:
+          AND:
+            args:
+              - JSON_QUERY_BOOLEAN:
+                  arg: 
+                    EXTRACT: "caJsonFrom__logsJson__c"
+                  expression: "[? category == `Administrative`].enabled | [0]"
+                  undeterminedIf: 
+                    evaluationError: "The JSON query has failed."
+                    resultTypeMismatch: "The JSON query did not return boolean type."
+              - JSON_QUERY_BOOLEAN:
+                  arg: 
+                    EXTRACT: "caJsonFrom__logsJson__c"
+                  expression: "[? category == `Alert`].enabled | [0]"
+                  undeterminedIf: 
+                    evaluationError: "The JSON query has failed."
+                    resultTypeMismatch: "The JSON query did not return boolean type."
+              - JSON_QUERY_BOOLEAN:
+                  arg: 
+                    EXTRACT: "caJsonFrom__logsJson__c"
+                  expression: "[? category == `Policy`].enabled | [0]"
+                  undeterminedIf: 
+                    evaluationError: "The JSON query has failed."
+                    resultTypeMismatch: "The JSON query did not return boolean type."
+              - JSON_QUERY_BOOLEAN:
+                  arg: 
+                    EXTRACT: "caJsonFrom__logsJson__c"
+                  expression: "[? category == `Security`].enabled | [0]"
+                  undeterminedIf: 
+                    evaluationError: "The JSON query has failed."
+                    resultTypeMismatch: "The JSON query did not return boolean type."
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The diagnostic setting captures the appropriate activities from the management plane."

@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS Account IAM Password Policy minimum password length is 14 characters or less"
+  contextual: "IAM Password Policy minimum password length is 14 characters or less"
+description: "Password policies are, in part, used to enforce password complexity requirements. \
+  IAM password policies can be used to ensure password are at least a given length. \
+  It is recommended that the password policy require a minimum password length 14."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/01/08
+  - /frameworks/cis-aws-v1.5.0/01/08
+  - /frameworks/cloudaware/identity-and-access-management/credentials-controls
+similarPolicies:
+  cloudConformity:
+  # One policy for 1.8 and 1.9. Checks are combined into one policy
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/IAM/password-policy.html"
+      name: "IAM Password Policy"

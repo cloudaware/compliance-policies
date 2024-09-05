@@ -1,0 +1,47 @@
+---
+inputObject: "CA10__CaAwsInstance__c"
+conditions:
+  - status: UNDETERMINED
+    currentStateMessage: There is not enough data in CMDB to identify if the instance is idling.
+    condition:
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                FIELD: 
+                  path: CA10__averageCpuOneWeek__c
+          - IS_EMPTY:
+              arg:
+                FIELD: 
+                  path: CA10__sumOneWeekNetworkInMb__c
+          - IS_EMPTY:
+              arg:
+                FIELD: 
+                  path: CA10__sumOneWeekNetworkOutMb__c
+  - status: INCOMPLIANT
+    currentStateMessage: Instance has <2% CPU usage and <5MB network IO during the last week
+    remediationMessage: Downscale or stop the instance
+    condition:
+      AND:
+        args:
+          - LESS_THAN:
+              left:
+                FIELD: 
+                  path: CA10__averageCpuOneWeek__c
+              right:
+                NUMBER: 2.0
+          - LESS_THAN:
+              left:
+                FIELD: 
+                  path: CA10__sumOneWeekNetworkInMb__c
+              right:
+                NUMBER: 5.0
+          - LESS_THAN:
+              left:
+                FIELD: 
+                  path: CA10__sumOneWeekNetworkOutMb__c
+              right:
+                NUMBER: 5.0
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: Instance is not idling

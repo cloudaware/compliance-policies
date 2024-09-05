@@ -1,0 +1,17 @@
+---
+names:
+  full: AWS EFS File System encryption is not enabled
+  contextual: File System encryption is not enabled
+description: EFS data should be encrypted at rest using AWS KMS (Key Management Service)
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/02/04/01
+  - /frameworks/cloudaware/resource-security/data-encryption
+similarPolicies:
+  internal:
+    - dec-x-966d3183
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EFS/encryption-enabled.html
+      name: EFS Encryption Enabled

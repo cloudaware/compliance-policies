@@ -1,0 +1,146 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-22T01:41:55Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2024-07-22T01:41:55Z",
+        "CA10__loggingDestinationBucketName__c": "BucketName1",
+        "CA10__arn__c": "BucketArn1",
+        "CA10__loggingDestinationBucketArn__c": "loggingBucketArn1",
+        "CA10__loggingDestinationBucket__c": "",
+        "CA10__loggingDestinationBucket__r": {
+            "Id": null,
+            "CA10__disappearanceTime__c": null
+        },
+        "CA10__loggingBucket__r": [
+            {
+                "Id": "test1_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__loggingDestinationBucket__c": "test1"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "CA10__loggingBucket__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-22T01:41:55Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__loggingDestinationBucketName__c": "BucketName2",
+        "CA10__arn__c": "BucketArn2",
+        "CA10__loggingDestinationBucketArn__c": "loggingBucketArn2",
+        "CA10__loggingDestinationBucket__c": "",
+        "CA10__loggingDestinationBucket__r": {
+            "Id": null,
+            "CA10__disappearanceTime__c": null
+        },
+        "CA10__loggingBucket__r": [
+            {
+                "Id": "test2_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__loggingDestinationBucket__c": "test2"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__loggingDestinationBucketName__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-22T01:41:55Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__loggingDestinationBucketName__c": "",
+        "CA10__arn__c": "BucketArn3",
+        "CA10__loggingDestinationBucketArn__c": "",
+        "CA10__loggingDestinationBucket__c": "",
+        "CA10__loggingDestinationBucket__r": {
+            "Id": null,
+            "CA10__disappearanceTime__c": null
+        },
+        "CA10__loggingBucket__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__arn__c') == extract('CA10__loggingDestinationBucketArn__c')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-22T01:41:55Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__loggingDestinationBucketName__c": "BucketName4",
+        "CA10__arn__c": "BucketArn4",
+        "CA10__loggingDestinationBucketArn__c": "BucketArn4",
+        "CA10__loggingDestinationBucket__c": "",
+        "CA10__loggingDestinationBucket__r": {
+            "Id": null,
+            "CA10__disappearanceTime__c": null
+        },
+        "CA10__loggingBucket__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "isEmptyLookup('CA10__loggingDestinationBucket__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-22T01:41:55Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__loggingDestinationBucketName__c": "BucketName5",
+        "CA10__arn__c": "BucketArn5",
+        "CA10__loggingDestinationBucketArn__c": "loggingBucketArn5",
+        "CA10__loggingDestinationBucket__c": "loggingBucketName5",
+        "CA10__loggingDestinationBucket__r": {
+            "Id": "loggingBucketName5",
+            "CA10__disappearanceTime__c": "2024-07-22T01:41:55Z"
+        },
+        "CA10__loggingBucket__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "599",
+            "conditionText": "notEmptyLookup('CA10__loggingDestinationBucket__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-22T01:41:55Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__loggingDestinationBucketName__c": "BucketName6",
+        "CA10__arn__c": "BucketArn6",
+        "CA10__loggingDestinationBucketArn__c": "loggingBucketArn6",
+        "CA10__loggingDestinationBucket__c": "loggingBucketName6",
+        "CA10__loggingDestinationBucket__r": {
+            "Id": "loggingBucketName6",
+            "CA10__disappearanceTime__c": null
+        },
+        "CA10__loggingBucket__r": []
+    }
+]

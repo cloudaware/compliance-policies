@@ -1,0 +1,36 @@
+---
+inputObject: "CA10__CaAwsBucket__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsBucket__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The bucket is not configured to block public access."
+    remediationMessage: "Consider configuring the bucket to block public access."
+    condition:
+      OR:
+        args:
+          - NOT_EQUAL:
+              left:
+                EXTRACT: CA10__blockPublicAcls__c
+              right:
+                TEXT: "Yes"
+          - NOT_EQUAL:
+              left:
+                EXTRACT: CA10__blockPublicPolicy__c
+              right:
+                TEXT: "Yes"
+          - NOT_EQUAL:
+              left:
+                EXTRACT: CA10__ignorePublicAcls__c
+              right:
+                TEXT: "Yes"
+          - NOT_EQUAL:
+              left:
+                EXTRACT: CA10__restrictPublicBuckets__c
+              right:
+                TEXT: "Yes"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The bucket is configured to block public access."

@@ -1,0 +1,22 @@
+---
+names:
+  full: AWS Account Object-level CloudTrail Logging for Read Events for S3 Buckets
+    is not enabled
+  contextual: Object-level CloudTrail Logging for Read Events for S3 Buckets is not
+    enabled
+description: "S3 object-level API operations such as GetObject, DeleteObject, and\
+  \ PutObject are called data events. By default, CloudTrail trails don't log data\
+  \ events and so it is recommended to enable Object-level logging for S3 buckets."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/03/09
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration
+similarPolicies:
+  internal:
+    - dec-x-b443805a
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/CloudTrail/data-events.html
+      name: CloudTrail Data Events

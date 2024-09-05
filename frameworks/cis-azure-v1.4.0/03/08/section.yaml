@@ -1,0 +1,9 @@
+---
+name: 3.8 Ensure Soft Delete is Enabled for Azure Storage - Level 1 (Automated)
+description: |-
+  The Azure Storage blobs contain data like ePHI, Financial, secret or personal. Erroneously modified or deleted accidentally by an application or other storage account user cause data loss or data unavailability.
+
+  It is recommended the Azure Storage be made recoverable by enabling **soft delete** configuration. This is to save and recover data when blobs or blob snapshots are deleted.
+similar:
+  internal:
+    - dec-c-3d74ad78

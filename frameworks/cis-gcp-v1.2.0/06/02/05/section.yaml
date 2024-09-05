@@ -1,0 +1,10 @@
+---
+name: "6.2.5 Ensure 'log_duration' database flag for Cloud SQL PostgreSQL instance\
+  \ is set to 'on' - Level 1 (Manual | Not supported, requires a manual assessment)"
+description: Enabling the `log_duration` setting causes the duration of each completed
+  statement to be logged. This does not logs the text of the query and thus behaves
+  different from the `log_min_duration_statement` flag. This parameter cannot be changed
+  after session start.
+similar:
+  internal:
+    - dec-c-552d6685

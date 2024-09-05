@@ -1,0 +1,8 @@
+---
+name: 5.1 Ensure That Cloud Storage Bucket Is Not Anonymously or Publicly Accessible
+  - Level 1 (Automated)
+description: It is recommended that IAM policy on Cloud Storage bucket does not allows
+  anonymous or public access.
+similar:
+  internal:
+    - dec-c-843a40b1

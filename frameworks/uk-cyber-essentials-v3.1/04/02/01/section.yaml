@@ -1,0 +1,10 @@
+---
+name: 4.2.1 Passwords are protected against brute-force password guessing
+description: |-
+  Passwords are protected against brute-force password guessing by implementing at least one of:
+  - multi-factor authentication
+  - 'throttling' the rate of attempts, so that the number of times the user must wait between attempts increases with each unsuccessful attempt – you shouldn’t allow more than 10 guesses in 5 minutes
+  - locking accounts after no more than 10 unsuccessful attempts
+similar:
+  internal:
+    - dec-c-1034bcf7

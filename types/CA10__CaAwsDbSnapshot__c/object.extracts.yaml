@@ -1,0 +1,38 @@
+---
+extracts:
+# Checkbox
+  - name: "CA10__encrypted__c"
+    value:
+      FIELD:
+        path: CA10__encrypted__c
+# Values: automated, manual, shared, public, awsbackup. Not nullable. Can't have no access retrieved via rds:DescribeDBSnapshots
+  - name: "CA10__snapshotType__c"
+    value:
+      FIELD:
+        path: "CA10__snapshotType__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Snapshot Type cannot be empty."
+#  Not Nullable.
+  - name: "CA10__attributes__c"
+    value:
+      FIELD:
+        path: "CA10__attributes__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__attributes__c"
+            currentStateMessage: "Unable to determine Snapshot Attributes. Possible permission issue with rds:DescribeDBSnapshotAttributes."
+          isEmpty: "Snapshot Attributes are not populated yet."
+  - name: "caExtract_attributes_asAttribute__c"
+    value: 
+      ATTRIBUTES_FROM:
+        arg:
+          EXTRACT: "CA10__attributes__c"
+  - name: "caExtract_attributes_restore_asAttribute__c"
+    value: 
+      ATTRIBUTE_VALUE:
+        arg:
+          EXTRACT: "caExtract_attributes_asAttribute__c"
+        key:
+          TEXT: "restore"
+        undeterminedIf:
+          duplicateKey: "Found duplicate restore attributes."

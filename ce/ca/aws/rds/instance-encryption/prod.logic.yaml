@@ -1,0 +1,19 @@
+---
+inputObject: "CA10__CaAwsDbInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsDbInstance__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "RDS Instance storage encryption is enabled."
+    condition: 
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__storageEncrypted__c
+        right:
+          BOOLEAN: true 
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "RDS Instance storage encryption is disabled."
+  remediationMessage: "Enable RDS Instance storage encryption."

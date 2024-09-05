@@ -1,0 +1,15 @@
+---
+names:
+  full: "[LEGACY] Azure Subscription Microsoft Defender For DNS is not set to On"
+  contextual: Microsoft Defender For DNS is not set to On
+description: Microsoft Defender for DNS scans all network traffic exiting from within
+  a subscription.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/02/01/10
+  - /frameworks/cloudaware/resource-security/microsoft-defender-configuration
+similarPolicies:
+  internal:
+    - dec-x-7bde497d

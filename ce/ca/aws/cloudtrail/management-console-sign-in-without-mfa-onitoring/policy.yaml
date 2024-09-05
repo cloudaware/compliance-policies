@@ -1,0 +1,23 @@
+---
+names:
+  full: AWS CloudTrail Management Console Sign-In without MFA Monitoring is not enabled
+  contextual: Management Console Sign-In without MFA Monitoring is not enabled
+description: "Real-time monitoring of API calls can be achieved by directing CloudTrail\
+  \ Logs to CloudWatch Logs, or an external Security information and event management\
+  \ (SIEM) environment, and establishing corresponding metric filters and alarms.\
+  \ It is recommended that a metric filter and alarm be established for console logins\
+  \ that are not protected by multi-factor authentication (MFA)."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/04/02
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management
+  - /frameworks/cloudaware/identity-and-access-management/mfa-implementation
+similarPolicies:
+  internal:
+    - dec-x-42eac387
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/CloudWatchLogs/console-sign-in-without-mfa.html
+      name: AWS Console Sign In Without MFA

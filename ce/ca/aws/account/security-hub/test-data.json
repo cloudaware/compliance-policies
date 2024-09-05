@@ -1,0 +1,53 @@
+[
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10A1__AWS_Security_Hubs__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-16T19:32:23Z"
+        },
+        "Id": "test1",
+        "CA10A1__AWS_Security_Hubs__r": [
+            {
+                "Id": "test1_1",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__account__c": "test1"   
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-16T19:32:23Z"
+        },
+        "Id": "test2",
+        "CA10A1__AWS_Security_Hubs__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-16T19:32:23Z"
+        },
+        "Id": "test3",
+        "CA10A1__AWS_Security_Hubs__r": [
+            {
+                "Id": "test3_1",
+                "CA10A1__disappearanceTime__c": "2024-06-16T19:32:23Z",
+                "CA10A1__account__c": "test3"   
+            }
+        ]
+    }
+]

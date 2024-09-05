@@ -1,0 +1,26 @@
+---
+names:
+  full: AWS IAM Server Certificate is expired
+  contextual: Server Certificate is expired
+description: "To enable HTTPS connections to your website or application in AWS, you\
+  \ need an SSL/TLS server certificate. You can use ACM or IAM to store and deploy\
+  \ server certificates. Use IAM as a certificate manager only when you must support\
+  \ HTTPS connections in a region that is not supported by ACM. IAM securely encrypts\
+  \ your private keys and stores the encrypted version in IAM SSL certificate storage.\
+  \ IAM supports deploying server certificates in all regions, but you must obtain\
+  \ your certificate from an external provider for use with AWS. You cannot upload\
+  \ an ACM certificate to IAM. Additionally, you cannot manage your certificates from\
+  \ the IAM Console."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/01/19
+  - /frameworks/cloudaware/key-secret-certificate-management/expiration-management
+similarPolicies:
+  internal:
+    - dec-x-12a85339
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/IAM/expired-ssl-tls-certificate.html
+      name: Expired SSL/TLS Certificate

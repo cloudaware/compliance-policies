@@ -1,0 +1,62 @@
+---
+inputObject: CA10__CaAwsIamPolicy__c
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: "This policy does not apply to other types of policies except \"Customer Managed\""
+    condition:
+      NOT_EQUAL:
+        left:
+          FIELD: 
+            path: CA10__policyType__c
+        right:
+          TEXT: Customer managed
+  - status: UNDETERMINED
+    currentStateMessage: "Policy JSON is empty, possible permission issue with iam:GetPolicyVersion"
+    condition:
+      IS_EMPTY:
+        arg:
+          FIELD: 
+            path: CA10__policyDocument__c
+  - status: UNDETERMINED
+    currentStateMessage: "Policy JSON Extended is empty, processing might not be completed yet"
+    condition:
+      IS_EMPTY:
+        arg:
+          FIELD: 
+            path: CA10__policyDocumentExt__c
+  - status: INCOMPLIANT
+    currentStateMessage: test
+    remediationMessage: test
+    condition:
+      AWS_POLICY_ALLOWS:
+        policyExtField: CA10__policyDocumentExt__c
+        widestAcceptableAccessLevel: EXTERNAL_PRINCIPAL
+        actions:
+          - chime:CreateApiKey
+          - codepipeline:PollForJobs
+          - cognito-identity:GetOpenIdToken
+          - cognito-identity:GetOpenIdTokenForDeveloperIdentity
+          - cognito-identity:GetCredentialsForIdentity
+          - connect:GetFederationToken
+          - ecr:GetAuthorizationToken
+          - gamelift:RequestUploadCredentials
+          - iam:CreateAccessKey
+          - iam:CreateLoginProfile
+          - iam:CreateServiceSpecificCredential
+          - iam:ResetServiceSpecificCredential
+          - iam:UpdateAccessKey
+          - lightsail:GetInstanceAccessDetails
+          - lightsail:GetRelationalDatabaseMasterUserPassword
+          - rds-db:connect
+          - redshift:GetClusterCredentials
+          - sso:GetRoleCredentials
+          - mediapackage:RotateChannelCredentials
+          - mediapackage:RotateIngestEndpointCredentials
+          - sts:AssumeRole
+          - sts:AssumeRoleWithSAML
+          - sts:AssumeRoleWithWebIdentity
+          - sts:GetFederationToken
+          - sts:GetSessionToken
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: "No credential exposure to external principals detected"

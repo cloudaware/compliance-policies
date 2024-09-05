@@ -1,0 +1,67 @@
+---
+inputObject: "CA10__CaAwsAccount__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "This AWS Account has a CloudTrail with object-level logging for read events for all S3 buckets."
+    condition:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__AWS_CloudTrail_Trails__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "This AWS Account doesn't have a CloudTrail with object-level logging for read events for all S3 buckets."
+  remediationMessage: "Consider creating a new CloudTrail or updating an existing one with object-level logging for read events for all S3 buckets."
+relatedLists:
+  - relationshipName: "CA10__AWS_CloudTrail_Trails__r"
+    importExtracts:
+    - file: "/types/CA10__CaAwsCloudTrailTrail__c/object.extracts.yaml"
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "CloudTrail with object-level logging for read events for all S3 buckets."
+        condition:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10__multiRegionTrail__c"
+                  right:
+                    BOOLEAN: true
+              - IS_EQUAL:
+                  left:
+                    JSON_QUERY_TEXT:
+                      arg: 
+                        EXTRACT: "caJsonFrom__eventSelectorsJson__c"
+                      expression: "[].dataResources[?type=='AWS::S3::Object'].type[] | [0]"
+                      undeterminedIf:
+                        evaluationError: "The JSON text query has failed."
+                        resultTypeMismatch: "The JSON query did not return a text type."
+                  right:
+                    TEXT: "AWS::S3::Object"
+              - IS_EQUAL:
+                  left:
+                    JSON_QUERY_BOOLEAN:
+                      arg: 
+                        EXTRACT: "caJsonFrom__eventSelectorsJson__c"
+                      expression: "contains([].dataResources[].values[], 'arn:aws:s3')"
+                      undeterminedIf:
+                        evaluationError: "The JSON boolean query has failed."
+                        resultTypeMismatch: "The JSON query did not return a boolean type."
+                  right:
+                    BOOLEAN: true
+              - OR:
+                  args:
+                    - IS_EQUAL:
+                        left:
+                          EXTRACT: "caJsonText__eventSelectorsJson_readWriteType__c"
+                        right:
+                          TEXT: "All"
+                    - IS_EQUAL:
+                        left:
+                          EXTRACT: "caJsonText__eventSelectorsJson_readWriteType__c"
+                        right:
+                          TEXT: "ReadOnly"
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "Unrelated CloudTrail."

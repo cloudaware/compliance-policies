@@ -1,0 +1,20 @@
+---
+names:
+  full: Azure Storage Account Private Endpoints are not used
+  contextual: Private Endpoints are not used
+description: Use private endpoints for your Azure Storage accounts to allow clients
+  and services to securely access data located over a network via an encrypted Private
+  Link.   Securing traffic between services through encryption protects the data from
+  easy interception and reading.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/03/10
+  - /frameworks/cloudaware/resource-security/secure-access-controls
+similarPolicies:
+  internal:
+    - dec-x-a7d8f0e7
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/StorageAccounts/private-endpoints.html
+      name: Private Endpoint in Use

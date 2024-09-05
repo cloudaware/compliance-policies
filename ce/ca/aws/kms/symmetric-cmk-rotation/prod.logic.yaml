@@ -1,0 +1,35 @@
+---
+inputObject: "CA10__CaAwsKmsKey__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsKmsKey__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "KMS Key rotation can not be enabled for any asymmetric CMK."
+    condition:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__keySpec__c"
+        right:
+          TEXT: "SYMMETRIC_DEFAULT"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "AWS KMS Key rotation is disabled."
+    remediationMessage: "Consider enabling KMS Key rotation."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__rotationEnabled__c"
+        right:
+          BOOLEAN: false
+  - status: "COMPLIANT"
+    currentStateMessage: "AWS KMS Key rotation is enabled."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__rotationEnabled__c"
+        right:
+          BOOLEAN: true
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

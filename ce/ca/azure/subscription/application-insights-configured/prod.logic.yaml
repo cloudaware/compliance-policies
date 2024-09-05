@@ -1,0 +1,20 @@
+---
+inputObject: "CA10__CaAzureAccount__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Application Insights are configured and successfully provisioned."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__Azure_Application_Insights_Components__r"
+        status: "COMPLIANT"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Application Insights are not configured."
+relatedLists:
+  - relationshipName: "CA10__Azure_Application_Insights_Components__r"
+    conditions: []
+    otherwise: 
+      status: "COMPLIANT"
+      currentStateMessage: "Application Insights are configured."

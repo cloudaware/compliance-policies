@@ -1,0 +1,17 @@
+---
+extracts:
+# Nullable. Can't have no access, retrieved via ec2:DescribeRouteTables
+  - name: "CA10__gatewayId__c"
+    value: 
+      FIELD:
+        path: "CA10__gatewayId__c"
+# Nullable. Can't have no access, retrieved via ec2:DescribeRouteTables
+  - name: "CA10__destinationIpv6CidrBlock__c"
+    value: 
+      FIELD:
+        path: "CA10__destinationIpv6CidrBlock__c"
+# Nullable. Can't have no access, retrieved via ec2:DescribeRouteTables
+  - name: "CA10__destinationCidrBlock__c"
+    value: 
+      FIELD:
+        path: "CA10__destinationCidrBlock__c"

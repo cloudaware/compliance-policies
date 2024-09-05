@@ -1,0 +1,74 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-07-09T20:48:18Z"
+    },
+    "Id": "test1",
+    "CA10__disappearanceTime__c": "2024-07-09T19:51:32Z",
+    "CA10__userPolicies__r": [],
+    "CA10__AWS_IAM_Policy_User_Links__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__AWS_IAM_Policy_User_Links__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-07-09T20:48:18Z"
+    },
+    "Id": "test2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__userPolicies__r": [],
+    "CA10__AWS_IAM_Policy_User_Links__r": [
+      {
+        "Id": "test2_1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__user__c": "test2"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__userPolicies__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-07-09T20:48:18Z"
+    },
+    "Id": "test3",
+    "CA10__disappearanceTime__c": null,
+    "CA10__userPolicies__r": [
+      {
+        "Id": "test3_1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__user__c": "test3"
+      }
+    ],
+    "CA10__AWS_IAM_Policy_User_Links__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-07-09T20:48:18Z"
+    },
+    "Id": "test4",
+    "CA10__disappearanceTime__c": null,
+    "CA10__userPolicies__r": [],
+    "CA10__AWS_IAM_Policy_User_Links__r": []
+  }
+]

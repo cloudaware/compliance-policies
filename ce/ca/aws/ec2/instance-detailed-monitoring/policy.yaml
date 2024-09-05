@@ -1,0 +1,12 @@
+---
+names:
+  full: Enable AWS EC2 Instance Detailed Monitoring
+  contextual: Enable Instance Detailed Monitoring
+description: "Ensure that detailed monitoring is enabled for your Amazon EC2 instances\
+  \ in order to have enough monitoring data to help you make better decisions on architecting\
+  \ and managing compute resources within your AWS account. By default, whenever an\
+  \ EC2 instance is launched, AWS CloudWatch enables basic monitoring for that instance.\
+  \ The basic monitoring level collects monitoring data in 5 minute periods. To increase\
+  \ this level and make the monitoring data available at 1-minute periods, you must\
+  \ specifically enable it for your instance(s). With detailed monitoring, you can\
+  \ also get aggregated data across groups of similar EC2 instances."

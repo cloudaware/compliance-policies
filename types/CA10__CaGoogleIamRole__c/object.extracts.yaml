@@ -1,0 +1,8 @@
+---
+extracts:
+  - name: "CA10__roleName__c"
+    value: 
+      FIELD:
+        path: "CA10__roleName__c"
+        undeterminedIf:
+          isEmpty:  "Name should not be empty"

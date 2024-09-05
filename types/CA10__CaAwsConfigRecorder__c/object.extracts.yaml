@@ -1,0 +1,30 @@
+---
+extracts:
+# Checkbox. Can't have no access, retrieved via config:DescribeConfigurationRecorders
+  - name: "CA10__allSupported__c"
+    value: 
+      FIELD:
+        path: "CA10__allSupported__c"
+# Checkbox. Can't have no access, retrieved via config:DescribeConfigurationRecorders
+  - name: "CA10__includeGlobalResourceTypes__c"
+    value: 
+      FIELD:
+        path: "CA10__includeGlobalResourceTypes__c"
+# Values: Pending, Success, Failure. Not Nullable.
+  - name: "CA10__lastStatus__c"
+    value: 
+      FIELD:
+        path: "CA10__lastStatus__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__lastStatus__c"
+            currentStateMessage: "Unable to determine Config Recorder status. Possible permission issue with config:DescribeConfigurationRecorderStatus."
+# Checkbox. 
+  - name: "CA10__recording__c"
+    value: 
+      FIELD:
+        path: "CA10__recording__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__recording__c"
+            currentStateMessage: "Unable to determine Config Recorder status. Possible permission issue with config:DescribeConfigurationRecorderStatus."

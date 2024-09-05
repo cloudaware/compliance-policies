@@ -1,0 +1,132 @@
+[
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__Azure_Authorization_Role_Definitions__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-09T19:33:20Z"
+        },
+        "Id": "test1",
+        "CA10__Azure_Authorization_Role_Definitions__r": [
+            {
+                "Id": "test1_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__roleType__c": "CustomRole",
+                "CA10__permissionsJson__c": "[{\"actions\":[\"*\", \"Microsoft.Resources/subscriptions/resourceGroups/read\"],\"notActions\":[],\"dataActions\":[],\"notDataActions\":[]}]",
+                "CA10__assignableScopesJson__c": "[\"/subscriptions/subscriptionId\"]",
+                "CA10__subscription__c": "test1",
+                "CA10__subscription__r": {
+                    "Id": "test1",
+                    "CA10__subscriptionId__c": "subscriptionId"
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-09T19:33:20Z"
+        },
+        "Id": "test2",
+        "CA10__Azure_Authorization_Role_Definitions__r": [
+            {
+                "Id": "test2_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__roleType__c": "BuiltInRole",
+                "CA10__permissionsJson__c": "[{\"actions\":[\"*\"],\"notActions\":[],\"dataActions\":[],\"notDataActions\":[]}]",
+                "CA10__assignableScopesJson__c": "[\"/subscriptions/subscriptionId\"]",
+                "CA10__subscription__c": "test2",
+                "CA10__subscription__r": {
+                    "Id": "test2",
+                    "CA10__subscriptionId__c": "subscriptionId"
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-09T19:33:20Z"
+        },
+        "Id": "test3",
+        "CA10__Azure_Authorization_Role_Definitions__r": [
+            {
+                "Id": "test3_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__roleType__c": "CustomRole",
+                "CA10__permissionsJson__c": "[{\"actions\":[\"Microsoft.Resources/subscriptions/resourceGroups/read\"],\"notActions\":[],\"dataActions\":[],\"notDataActions\":[]}]",
+                "CA10__assignableScopesJson__c": "[\"/subscriptions/subscriptionId\"]",
+                "CA10__subscription__c": "test3",
+                "CA10__subscription__r": {
+                    "Id": "test3",
+                    "CA10__subscriptionId__c": "subscriptionId"
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-09T19:33:20Z"
+        },
+        "Id": "test4",
+        "CA10__Azure_Authorization_Role_Definitions__r": [
+            {
+                "Id": "test4_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__roleType__c": "CustomRole",
+                "CA10__permissionsJson__c": "[{\"actions\":[\"*\"],\"notActions\":[],\"dataActions\":[],\"notDataActions\":[]}]",
+                "CA10__assignableScopesJson__c": "[\"/\"]",
+                "CA10__subscription__c": "test4",
+                "CA10__subscription__r": {
+                    "Id": "test4",
+                    "CA10__subscriptionId__c": "subscriptionId"
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-09T19:33:20Z"
+        },
+        "Id": "test5",
+        "CA10__Azure_Authorization_Role_Definitions__r": [
+            {
+                "Id": "test5_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__roleType__c": "CustomRole",
+                "CA10__permissionsJson__c": "{",
+                "CA10__assignableScopesJson__c": "[\"/\"]",
+                "CA10__subscription__c": "test5",
+                "CA10__subscription__r": {
+                    "Id": "test5",
+                    "CA10__subscriptionId__c": "subscriptionId"
+                }
+            }
+        ]
+    }
+]

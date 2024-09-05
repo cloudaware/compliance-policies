@@ -1,0 +1,23 @@
+---
+names:
+  full: AWS CloudTrail Management Console Authentication Failures Monitoring is not
+    enabled
+  contextual: Management Console Authentication Failures Monitoring is not enabled
+description: "Real-time monitoring of API calls can be achieved by directing CloudTrail\
+  \ Logs to CloudWatch Logs, or an external Security information and event management\
+  \ (SIEM) environment, and establishing corresponding metric filters and alarms.\
+  \ It is recommended that a metric filter and alarm be established for failed console\
+  \ authentication attempts."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/04/06
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management
+similarPolicies:
+  internal:
+    - dec-x-a27f4093
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/CloudWatchLogs/console-sign-in-failures-alarm.html
+      name: Console Sign-in Failures Alarm

@@ -1,0 +1,17 @@
+---
+inputObject: "CA10__CaAwsInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsInstance__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "The instance has an IAM role attached."
+    condition:
+      NOT_EMPTY:
+        arg:
+          EXTRACT: "CA10__iamInstanceProfileArn__c"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The instance doesn't have an IAM role attached."
+  remediationMessage: "Consider attaching an IAM role to the instance."

@@ -1,0 +1,41 @@
+---
+#This policy is based on ce:ca:aws:s3:bucket-versioning.
+#We're checking values of the CA10__versioningStatus__c field on the bucket.
+#Bucket versioning can be in one of three statuses: off, enabled, suspended.
+#If the status is enabled the object is compliant, if the status is off or suspended
+# the object is incompliant. If the field is empty, most likely, don't have permissions.
+inputObject: "CA10__CaAwsBucket__c"
+importExtracts:
+  - file: /types/CA10__CaAwsBucket__c/object.extracts.yaml
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Bucket Versioning has never been enabled"
+    remediationMessage: "Consider enabling S3 Versioning feature on the bucket"
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__versioningStatus__c"
+        right:
+          TEXT: "off"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Bucket Versioning feature has been suspended"
+    remediationMessage: "Consider reactivating S3 Versioning feature on the bucket"
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__versioningStatus__c"
+        right:
+          TEXT: "suspended"
+  - status: "COMPLIANT"
+    currentStateMessage: "Bucket Versioning is enabled"
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__versioningStatus__c"
+        right:
+          TEXT: "enabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field"

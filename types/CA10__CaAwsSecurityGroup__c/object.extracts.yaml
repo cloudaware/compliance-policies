@@ -1,0 +1,9 @@
+---
+extracts:
+# Not nullable. Can't have no access, retrieved via ec2:DescribeSecurityGroups
+  - name: "Name"
+    value: 
+      FIELD:
+        path: "Name"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Security Group name cannot be empty."

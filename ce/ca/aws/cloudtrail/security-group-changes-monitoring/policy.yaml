@@ -1,0 +1,23 @@
+---
+names:
+  full: AWS CloudTrail Security Group Changes Monitoring is not enabled
+  contextual: Security Group Changes Monitoring is not enabled
+description: "Real-time monitoring of API calls can be achieved by directing CloudTrail\
+  \ Logs to CloudWatch Logs, or an external Security information and event management\
+  \ (SIEM) environment, and establishing corresponding metric filters and alarms.\
+  \ Security Groups are a stateful packet filter that controls ingress and egress\
+  \ traffic within a VPC. It is recommended that a metric filter and alarm be established\
+  \ for detecting changes to Security Groups."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/04/10
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management
+similarPolicies:
+  internal:
+    - dec-x-3cfa5306
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/CloudWatchLogs/securitygroup-changes-alarm.html
+      name: Security Group Changes Alarm

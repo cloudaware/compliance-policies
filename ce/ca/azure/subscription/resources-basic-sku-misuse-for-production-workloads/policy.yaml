@@ -1,0 +1,16 @@
+---
+names:
+  full: Azure Subscription Resources Basic SKU is used for production workloads
+  contextual: Resources Basic SKU is used for production workloads
+description: "The use of Basic or Free SKUs in Azure whilst cost effective have significant\
+  \ limitations in terms of what can be monitored and what support can be realized\
+  \ from Microsoft. Typically, these SKU's do not have a service SLA and Microsoft\
+  \ may refuse to provide support for them. Consequently Basic/Free SKUs should never\
+  \ be used for production workloads."
+impossible: true
+type: BEST_PRACTICE
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/05/05
+  - /frameworks/cloudaware/resource-reliability/system-configuration

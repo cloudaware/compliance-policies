@@ -1,0 +1,25 @@
+---
+inputObject: CA10__CaPhysicalServer__c
+importExtracts:
+  - file: /types/CA10__CaPhysicalServer__c/breeze.extracts.yaml
+testData:
+  - file: test-data.json
+conditions:
+  - status: INCOMPLIANT
+    currentStateMessage: Server never had breeze agent installed
+    remediationMessage: Install breeze agent on the server
+    condition:
+      IS_EMPTY:
+        arg:
+          EXTRACT: breezeLastUpdate
+  - status: INCOMPLIANT
+    currentStateMessage: Server latest breeze report was more than a day ago
+    remediationMessage: Re-install breeze agent on the server and make sure it is reporting
+    condition:
+      IS_BEYOND_LAST_DAYS:
+        offsetDays: 1
+        arg:
+          EXTRACT: breezeLastUpdate
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: Server has breeze agent installed and has a recent report

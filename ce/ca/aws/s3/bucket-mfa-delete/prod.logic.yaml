@@ -1,0 +1,34 @@
+---
+# This policy is based on CE policy ce:ca:aws:s3:bucket-mfa-delete-enabled
+# We're checking the boolean field CA10__versioningMfaDeleteEnabled__c
+# If the CA10__versioningStatus__c field is empty we, likely, don't have permissions
+# If CA10__lifecycleRulesJson__c field has values than MFA Delete is not applicable
+# It doesn't matter if versioning is enabled because remediation will enable it anyway
+inputObject: "CA10__CaAwsBucket__c"
+testData:
+  - file: "test.data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsBucket__c/object.extracts.yaml"
+conditions:
+# You cannot activate MFA if you have lifecycle configuration in place. 
+# It doesn't matter if it's enabled or not.
+  - status: "INAPPLICABLE"
+    currentStateMessage: "It's not possible to use MFA Delete with existing Lifecycle configurations."
+    condition:
+      NOT_EMPTY:
+        arg:
+          EXTRACT: "CA10__lifecycleRulesJson__c"
+# It doesn't matter if versioning is active or not because remediation checks
+# if versioning is active and activates it if it's not       
+  - status: "INCOMPLIANT"
+    currentStateMessage: "MFA delete is not enabled."
+    remediationMessage: "Consider enabling MFA delete on the bucket."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__versioningMfaDeleteEnabled__c"
+        right:
+          BOOLEAN: false
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Bucket has MFA Delete."

@@ -1,0 +1,25 @@
+---
+names:
+  full: AWS S3 Bucket is not configured to block public access
+  contextual: Bucket is not configured to block public access
+description: "Amazon S3 provides `Block public access (bucket settings)` and `Block\
+  \ public access (account settings)` to help you manage public access to Amazon S3\
+  \ resources. By default, S3 buckets and objects are created with public access disabled.\
+  \ However, an IAM principal with sufficient S3 permissions can enable public access\
+  \ at the bucket and/or object level. While enabled, `Block public access (bucket\
+  \ settings)` prevents an individual bucket, and its contained objects, from becoming\
+  \ publicly accessible. Similarly, `Block public access (account settings)` prevents\
+  \ all buckets, and contained objects, from becoming publicly accessible across the\
+  \ entire account."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/02/01/04
+  - /frameworks/cloudaware/resource-security/public-and-anonymous-access
+similarPolicies:
+  internal:
+    - dec-x-ec547a7c
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/S3/bucket-public-access-block.html
+      name: Enable S3 Block Public Access for S3 Buckets

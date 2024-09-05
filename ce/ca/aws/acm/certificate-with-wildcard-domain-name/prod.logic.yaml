@@ -1,0 +1,27 @@
+---
+inputObject: "CA10__CaAwsAcmCertificate__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsAcmCertificate__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Certificate is issued for a wildcard (*) domain"
+    remediationMessage: "Delete the wildcard certificate and add single domain certificates\
+      \ for each domain you use"
+    condition:
+      AND:
+        args:
+          - NOT_EQUAL:
+              left:
+                EXTRACT: CA10__status__c
+              right:
+                TEXT: "ISSUED"
+          - STARTS_WITH:
+              arg:
+                EXTRACT: CA10__domainName__c
+              prefix:
+                TEXT: "*"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Certificate is compliant"

@@ -1,0 +1,22 @@
+---
+names:
+  full: AWS RDS Instance Auto Minor Version Upgrade is not enabled
+  contextual: Instance Auto Minor Version Upgrade is not enabled
+description: "Ensure that RDS database instances have the Auto Minor Version Upgrade\
+  \ flag enabled in order to receive automatically minor engine upgrades during the\
+  \ specified maintenance window. So, RDS instances can get the new features, bug\
+  \ fixes, and security patches for their database engines."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+  - RELIABILITY
+  - PERFORMANCE
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/02/03/02
+  - /frameworks/cloudaware/resource-reliability/up-to-date-infrastructure
+similarPolicies:
+  internal:
+    - dec-x-215302da
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/RDS/rds-auto-minor-version-upgrade.html
+      name: RDS Auto Minor Version Upgrade

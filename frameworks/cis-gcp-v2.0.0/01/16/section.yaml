@@ -1,0 +1,9 @@
+---
+name: 1.16 Ensure Essential Contacts is Configured for Organization - Level 1 (Automated)
+description: |-
+  It is recommended that Essential Contacts is configured to designate email addresses for Google Cloud services to notify of important technical or security information.
+
+  Note: The rule logic is based on CIS v3.0.0, which does not advise checking the 'Technical Incidents' notification category, as it is only available for Premium customers.
+similar:
+  internal:
+    - dec-c-b138d01a

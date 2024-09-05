@@ -1,0 +1,147 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$ref" : "#/definitions/Policy",
+  "definitions" : {
+    "AwsSecurityHubRef" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "url" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "name", "url" ],
+      "additionalProperties" : false
+    },
+    "AwsTrustedAdvisorRef" : {
+      "type" : "object",
+      "properties" : {
+        "checkId" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "url" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "checkId", "name", "url" ],
+      "additionalProperties" : false
+    },
+    "CloudConformityRuleRef" : {
+      "type" : "object",
+      "properties" : {
+        "url" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "url", "name" ],
+      "additionalProperties" : false
+    },
+    "Names" : {
+      "type" : "object",
+      "properties" : {
+        "full" : {
+          "type" : "string",
+          "description" : "Name to be used when there is not context (path) available"
+        },
+        "contextual" : {
+          "type" : "string",
+          "description" : "Name to be used when there is a context (path) available. Should be short and take into account the folders higher in the hierarchy"
+        }
+      },
+      "required" : [ "full", "contextual" ],
+      "additionalProperties" : false
+    },
+    "Policy" : {
+      "type" : "object",
+      "properties" : {
+        "names" : {
+          "$ref" : "#/definitions/Names"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "impossible" : {
+          "type" : "boolean"
+        },
+        "type" : {
+          "$ref" : "#/definitions/PolicyType"
+        },
+        "categories" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/PolicyCategory"
+          }
+        },
+        "frameworkMappings" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "frameworkIgnoreMappings" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "similarPolicies" : {
+          "$ref" : "#/definitions/SimilarPolicies"
+        },
+        "tags" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "required" : [ "names", "description" ],
+      "additionalProperties" : false
+    },
+    "PolicyCategory" : {
+      "type" : "string",
+      "enum" : [ "SECURITY", "RELIABILITY", "PERFORMANCE", "COST" ]
+    },
+    "PolicyType" : {
+      "type" : "string",
+      "enum" : [ "COMPLIANCE_POLICY", "BEST_PRACTICE" ]
+    },
+    "SimilarPolicies" : {
+      "type" : "object",
+      "properties" : {
+        "internal" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "cloudConformity" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/CloudConformityRuleRef"
+          }
+        },
+        "awsTrustedAdvisor" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AwsTrustedAdvisorRef"
+          }
+        },
+        "awsSecurityHub" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AwsSecurityHubRef"
+          }
+        }
+      },
+      "additionalProperties" : false
+    }
+  }
+}

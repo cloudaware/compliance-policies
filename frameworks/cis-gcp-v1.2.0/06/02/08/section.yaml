@@ -1,0 +1,11 @@
+---
+name: 6.2.8 Ensure 'log_hostname' database flag for Cloud SQL PostgreSQL instance
+  is set appropriately - Level 1 (Automated | Roadmapped)
+description: PostgreSQL logs only the IP address of the connecting hosts. The `log_hostname`
+  flag controls the logging of `hostnames` in addition to the IP addresses logged.
+  The performance hit is dependent on the configuration of the environment and the
+  host name resolution setup. This parameter can only be set in the `postgresql.conf`
+  file or on the server command line. Will be supported in the near future.
+similar:
+  internal:
+    - dec-c-c79f9db1

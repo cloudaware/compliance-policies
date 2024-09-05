@@ -1,0 +1,56 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$ref" : "#/definitions/Section",
+  "definitions" : {
+    "AwsSecurityHub" : {
+      "type" : "object",
+      "properties" : {
+        "controlUrl" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "controlUrl" ],
+      "additionalProperties" : false
+    },
+    "Section" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "singlePolicyOnly" : {
+          "type" : "boolean"
+        },
+        "similar" : {
+          "$ref" : "#/definitions/Similar"
+        }
+      },
+      "required" : [ "name" ],
+      "additionalProperties" : false
+    },
+    "Similar" : {
+      "type" : "object",
+      "properties" : {
+        "sections" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "internal" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "awsSecurityHub" : {
+          "$ref" : "#/definitions/AwsSecurityHub"
+        }
+      },
+      "additionalProperties" : false
+    }
+  }
+}

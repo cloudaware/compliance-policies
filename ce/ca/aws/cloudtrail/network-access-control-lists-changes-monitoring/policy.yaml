@@ -1,0 +1,23 @@
+---
+names:
+  full: AWS CloudTrail Network Access Control Lists Changes Monitoring is not enabled
+  contextual: Network Access Control Lists Changes Monitoring is not enabled
+description: "Real-time monitoring of API calls can be achieved by directing CloudTrail\
+  \ Logs to CloudWatch Logs, or an external Security information and event management\
+  \ (SIEM) environment, and establishing corresponding metric filters and alarms.\
+  \ NACLs are used as a stateless packet filter to control ingress and egress traffic\
+  \ for subnets within a VPC. It is recommended that a metric filter and alarm be\
+  \ established for changes made to NACLs."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/04/11
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management
+similarPolicies:
+  internal:
+    - dec-x-66cf8b15
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/CloudWatchLogs/network-acl-changes-alarm.html
+      name: Network ACL Changes Alarm

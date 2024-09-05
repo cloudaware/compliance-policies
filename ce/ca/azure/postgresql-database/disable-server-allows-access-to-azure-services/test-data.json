@@ -1,0 +1,128 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10Z1__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test1",
+        "CA10Z1__disappearanceTime__c": "2024-06-07T13:58:24Z",
+        "CA10Z1__firewallRules__c": "[{\"properties\":{\"startIpAddress\":\"0.0.0.0\",\"endIpAddress\":\"0.0.0.0\"},\"name\":\"AllowAllWindowsAzureIps\"}]"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('caJsonFrom__firewallRules__c').jsonQueryText('length([? properties.startIpAddress == \\'0.0.0.0\\' && (properties.endIpAddress == \\'0.0.0.0\\' || properties.endIpAddress == \\'255.255.255.255\\')])') > 0.0",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test2",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__firewallRules__c": "[{\"properties\":{\"startIpAddress\":\"0.0.0.0\",\"endIpAddress\":\"0.0.0.0\"},\"name\":\"FirewallRuleName\"}]"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('caJsonFrom__firewallRules__c').jsonQueryText('[? name == \\'AllowAllWindowsAzureIps\\'].name | [0]') == 'AllowAllWindowsAzureIps'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test3",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__firewallRules__c": "[{\"properties\":{\"startIpAddress\":\"1.1.1.1\",\"endIpAddress\":\"255.255.255.0\"},\"name\":\"AllowAllWindowsAzureIps\"}]"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('caJsonFrom__firewallRules__c').jsonQueryText('length([? properties.startIpAddress == \\'0.0.0.0\\' && (properties.endIpAddress == \\'0.0.0.0\\' || properties.endIpAddress == \\'255.255.255.255\\')])') > 0.0",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test4",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__firewallRules__c": "[{\"properties\":{\"startIpAddress\":\"0.0.0.0\",\"endIpAddress\":\"255.255.255.255\"},\"name\":\"FirewallRuleName\"}]"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test5",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__firewallRules__c": "[{\"properties\":{\"startIpAddress\":\"1.1.1.1\",\"endIpAddress\":\"1.1.1.1\"},\"name\":\"FirewallRuleName\"}]"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test6",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__firewallRules__c": "[{\"name\":\"FirewallRuleName\"}]"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test7",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__firewallRules__c": "[{\"properties\":{\"startIpAddress\":\"1.1.1.1\",\"endIpAddress\":\"1.1.1.1\"}}]"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('caJsonFrom__firewallRules__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test8",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__firewallRules__c": "[]"
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "101",
+            "conditionText": "CA10Z1__firewallRules__c.delegatedTo(CA10Z1__firewallRules__c).isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test9",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__firewallRules__c": null
+    }
+]

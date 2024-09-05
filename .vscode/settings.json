@@ -1,0 +1,53 @@
+{
+    "yaml.schemas": {
+        "schema/Policy.schema.json": [
+            "policy.yaml"
+        ],
+        "schema/Folder.schema.json": [
+            "folder.yaml"
+        ],
+        "schema/Logic.schema.json": [
+            "*.logic.yaml"
+        ],
+        "schema/Extracts.schema.json": [
+            "types/**/*.extracts.yaml"
+        ],
+        "schema/Section.schema.json": [
+          "frameworks/**/section.yaml"
+        ],
+        "schema/InternalRule.schema.json": [
+          "internal/rules/**/*.yaml"
+        ]
+    },
+    "cSpell.userWords": [
+        "Cloudaware",
+        "CMDB",
+        "Gcloud",
+        "overutilized",
+        "picklist",
+        "SFDC",
+        "SOQL",
+        "subselect",
+        "VSIX",
+        "authorisation",
+        "authorisations",
+        "authorise",
+        "authorised",
+        "defence",
+        "minimisation",
+        "organisation",
+        "organisational",
+        "organisations",
+        "organise",
+        "recognised",
+        "standardised"
+    ],
+    "path-autocomplete.triggerOutsideStrings": true,
+    "path-autocomplete.enableFolderTrailingSlash": false,
+    "workbench.editorAssociations": {
+        "*.md": "vscode.markdown.preview.editor"
+    },
+    "markdownlint.config": {
+        "MD025": false
+    }
+}

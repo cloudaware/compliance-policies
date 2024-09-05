@@ -1,0 +1,12 @@
+---
+name: "7.7 Ensure that VHD's are Encrypted - Level 2 (Manual | Not supported, requires\
+  \ a manual assessment)"
+description: "VHD (Virtual Hard Disks) are stored in BLOB storage and are the old\
+  \ style disks that were attached to Virtual Machines, and the BLOB VHD was then\
+  \ leased to the VM. By Default storage accounts are not encrypted, and Azure Defender(Security\
+  \ Centre) would then recommend that the OS disks should be encrypted. Storage accounts\
+  \ can be encrypted as a whole using PMK or CMK and this should be turned on for\
+  \ storage accounts containing VHD's."
+similar:
+  internal:
+    - dec-c-65510790

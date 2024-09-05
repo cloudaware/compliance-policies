@@ -1,0 +1,10 @@
+---
+name: "1.7 Ensure that 'Notify users on password resets?' is set to 'Yes' - Level\
+  \ 1 (Manual | Not supported, no API/CLI available by Azure)"
+description: "Ensure that users are notified on their primary and secondary emails\
+  \ on password resets. Please note that according to the CIS Benchmark audit steps,\
+  \ at this point in time, there is no API/CLI mechanism available to programmatically\
+  \ conduct a security assessment for this recommendation."
+similar:
+  internal:
+    - dec-c-2c24e3f2

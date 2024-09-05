@@ -1,0 +1,9 @@
+---
+names:
+  full: AWS EC2 Instance Idle
+  contextual: Instance Idle
+description: "Identify any Amazon EC2 instances that appear to be idle and stop or\
+  \ terminate them to help lower the cost of your monthly AWS bill. By default, an\
+  \ EC2 instance is considered 'idle' when it meets the two following criteria: 1)\
+  \ Average CPU Utilization has been less than 2% for the last 7 days; 2) Average\
+  \ Network I/O has been less than 5 MB for the last 7 days."

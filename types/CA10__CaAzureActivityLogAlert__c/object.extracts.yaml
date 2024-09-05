@@ -1,0 +1,23 @@
+---
+extracts:
+# Not nullable. Can't have no access, retrieved via Microsoft.Insights/ActivityLogAlerts
+  - name: "CA10__enabledStatus__c"
+    value: 
+      FIELD:
+        path: "CA10__enabledStatus__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Status cannot be empty."
+# Not nullable. Can't have no access, retrieved via Microsoft.Insights/ActivityLogAlerts
+  - name: "CA10__conditionJson__c"
+    value: 
+      FIELD:
+        path: "CA10__conditionJson__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Condition cannot be empty."
+  - name: "caJsonFrom__conditionJson__c"
+    value: 
+      JSON_FROM:
+        arg: 
+          EXTRACT: "CA10__conditionJson__c"
+        undeterminedIf:
+          isInvalid: "Condition JSON is invalid."

@@ -1,0 +1,55 @@
+---
+inputObject: "CA10__CaAzureAccount__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Microsoft Defender for App Services is in Free tier."
+    remediationMessage: "Consider enabling Defender for App Services Standard plan."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r"
+        status: "INCOMPLIANT"
+  - status: "COMPLIANT"
+    currentStateMessage: "Microsoft Defender for App Services Standard tier is enabled."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r"
+        status: "COMPLIANT"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Microsoft Defender for App Services is not enabled."
+  remediationMessage: "Consider enabling Microsoft Defender for App Services Standard plan."
+relatedLists:
+  - relationshipName: "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r"
+    importExtracts:
+      - file: "/types/CA10Z1__CaAzureDefenderPlan__c/object.extracts.yaml"
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "Other pricing configurations."
+        condition:
+          NOT_EQUAL:
+            left: 
+              EXTRACT: "CA10Z1__name__c"
+            right: 
+              TEXT: "AppServices"
+      - status: "COMPLIANT"
+        currentStateMessage: "This is a Standard tier."
+        condition:
+          IS_EQUAL:
+            left: 
+              EXTRACT: "CA10Z1__pricingTier__c"
+            right: 
+              TEXT: "Standard"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "This is a Free tier."
+        remediationMessage: "Enable Defender for App Services Standard plan."
+        condition:
+          IS_EQUAL:
+            left: 
+              EXTRACT: "CA10Z1__pricingTier__c"
+            right: 
+              TEXT: "Free"
+    otherwise: 
+      status: "UNDETERMINED"
+      currentStateMessage: "Unexpected values in the fields."

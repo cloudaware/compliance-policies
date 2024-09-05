@@ -1,0 +1,24 @@
+---
+names:
+  full: AWS CloudTrail VPC Changes Monitoring is not enabled
+  contextual: VPC Changes Monitoring is not enabled
+description: "Real-time monitoring of API calls can be achieved by directing CloudTrail\
+  \ Logs to CloudWatch Logs, or an external Security information and event management\
+  \ (SIEM) environment, and establishing corresponding metric filters and alarms.\
+  \ It is possible to have more than 1 VPC within an account, in addition it is also\
+  \ possible to create a peer connection between 2 VPCs enabling network traffic to\
+  \ route between VPCs. It is recommended that a metric filter and alarm be established\
+  \ for changes made to VPCs."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/04/14
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management
+similarPolicies:
+  internal:
+    - dec-x-9dc82014
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/CloudWatchLogs/vpc-changes-alarm.html
+      name: VPC Changes Alarm

@@ -1,0 +1,18 @@
+---
+names:
+  full: Azure SQL Server Microsoft Entra authentication is not configured
+  contextual: Server Microsoft Entra authentication is not configured
+description: Use Microsoft Entra authentication for authentication with SQL Database
+  to manage credentials in a single place.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/04/01/04
+  - /frameworks/cloudaware/resource-security/secure-access-controls
+similarPolicies:
+  internal:
+    - dec-x-2fcb6d85
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/Sql/data-encryption.html
+      name: Enable Transparent Data Encryption for SQL Databases

@@ -1,0 +1,27 @@
+---
+name: 5 Logging and Monitoring
+description: "This section covers security recommendations to follow for logging and\
+  \ monitoring policies on an Azure Subscription.\n\n**Scoping: A necessary exercise\
+  \ for effective and efficient use of Logging and Monitoring**\n\nFor recommendations\
+  \ contained in this section, it is crucial that your organization consider and settle\
+  \ on the scope of application for each recommendation individually. The scope of\
+  \ application cannot be realistically written in a generic prescriptive way within\
+  \ these recommendations, so a scoping exercise is strongly recommended. A scoping\
+  \ exercise will help you determine which resources are \"in scope\" and will receive\
+  \ partial or complete logging and monitoring treatment, and which resources are\
+  \ \"out of scope\" and will not receive any logging and monitoring treatment. \n\
+  \nYour objectives with the scoping exercise should be to:\n- Produce a clear classification\
+  \ of resources \n- Understand the control requirements of any relevant security\
+  \ or compliance frameworks\n- Ensure the appropriate personnel can detect and react\
+  \ to threats\n- Ensure relevant resources have a historical register for accountability\
+  \ and investigation\n- Minimize alert fatigue and cost \n\nRelease Environments\
+  \ provide a helpful context for understanding scope from a DevOps perspective. For\
+  \ example:\n1. Production Environment\n1. Staging Environment\n1. Testing Environment\n\
+  1. Development Environment\n\nWhile resources considered in the scope of a Production\
+  \ Environment might have a full set of recommendations applied for logging and monitoring,\
+  \ other release environments might have a limited set of recommendations applied\
+  \ for the sake of accountability. The names of these environments and which resources\
+  \ are in the scope of each environment will vary from one organization to another."
+similar:
+  internal:
+    - dec-b-18f041aa

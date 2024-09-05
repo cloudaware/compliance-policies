@@ -1,0 +1,25 @@
+---
+inputObject: "CA10__CaAwsSecurityGroup__c"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "There are more than 50 security group rules on this security\
+      \ group"
+    remediationMessage: "Reduce the number of rules by removing unnecessary or overlapping\
+      \ rules"
+    condition:
+      GREATER_THAN:
+        left:
+          RELATED_LIST_COUNT:
+            relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
+            status: "COMPLIANT"
+        right:
+          NUMBER: 50.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Group has less than 50 rules"
+relatedLists:
+  - relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Rule exists in the cloud"

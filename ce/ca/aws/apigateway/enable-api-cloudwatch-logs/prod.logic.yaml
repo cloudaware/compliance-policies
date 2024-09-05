@@ -1,0 +1,38 @@
+---
+inputObject: "CA10__CaAwsApiGatewayRestApi__c"
+testData:
+  - file: test-data.json
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This API is not of and 'HTTP' API, but different type"
+    condition:
+      NOT_EQUAL:
+        left:
+          FIELD: 
+            path: "RecordType.DeveloperName"
+        right:
+          TEXT: "httpApi"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "There is at least one incompliant related API Stage"
+    remediationMessage: "Fix the related incompliant API Stage"
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__AWS_API_Gateway_Stages__r"
+        status: "INCOMPLIANT"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "API is compliant"
+relatedLists:
+  - relationshipName: "CA10__AWS_API_Gateway_Stages__r"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "CloudWatch Logs are not enabled for this API Stage"
+        remediationMessage: "Enable CloudWatch Logs for this API Stage"
+        condition:
+          IS_EMPTY:
+            arg:
+              FIELD: 
+                path: "CA10__cloudWatchLogLevel__c"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Stage is compliant"

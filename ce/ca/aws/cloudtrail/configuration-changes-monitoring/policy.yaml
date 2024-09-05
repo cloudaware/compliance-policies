@@ -1,0 +1,22 @@
+---
+names:
+  full: AWS CloudTrail Configuration Changes Monitoring is not enabled
+  contextual: Configuration Changes Monitoring is not enabled
+description: "Real-time monitoring of API calls can be achieved by directing CloudTrail\
+  \ Logs to CloudWatch Logs, or an external Security information and event management\
+  \ (SIEM) environment, where metric filters and alarms can be established. It is\
+  \ recommended that a metric filter and alarm be utilized for detecting changes to\
+  \ CloudTrail's configurations."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/04/05
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management
+similarPolicies:
+  internal:
+    - dec-x-b1028741
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/CloudWatchLogs/cloudtrail-changes-alarm.html
+      name: CloudTrail Changes Alarm

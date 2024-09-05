@@ -1,0 +1,72 @@
+[
+    {
+        "expectedResult":{
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10Z1__disappearanceTime__c)",
+            "runtimeError": null
+        },
+            "context":{
+                "snapshotTime": "2024-06-13T04:17:29Z"
+            },
+            "Id": "test1",
+            "CA10Z1__disappearanceTime__c": "2024-06-13T04:17:29Z",
+            "CA10Z1__configurations__c": "[{\"name\":\"log_retention_days\",\"value\":\"4\"}]"
+        },
+        {
+        "expectedResult":{
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('caJsonFrom__configurations__c').jsonQueryText('to_number([? name == \\'log_retention_days\\'].value | [0])') > 3.0",
+            "runtimeError": null
+        },
+            "context":{
+                "snapshotTime": "2024-06-13T04:17:29Z"
+            },
+            "Id": "test2",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__configurations__c": "[{\"name\":\"log_retention_days\",\"value\":\"4\"}]"
+        },
+        {
+        "expectedResult":{
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('caJsonFrom__configurations__c').jsonQueryText('to_number([? name == \\'log_retention_days\\'].value | [0])') <= 3.0 && extract('caJsonFrom__configurations__c').jsonQueryText('to_number([? name == \\'log_retention_days\\'].value | [0])').isNotEmpty()",
+            "runtimeError": null
+        },
+            "context":{
+                "snapshotTime": "2024-06-13T04:17:29Z"
+            },
+            "Id": "test3",
+            "CA10Z1__disappearanceTime__c":null,
+            "CA10Z1__configurations__c": "[{\"name\":\"log_retention_days\",\"value\":\"3\"}]"
+        },
+        {
+        "expectedResult":{
+            "status": "UNDETERMINED",
+            "conditionIndex": "300",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+            "context":{
+                "snapshotTime": "2024-06-13T04:17:29Z"
+            },
+            "Id": "test4",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__configurations__c": "[]"
+        },
+        {
+        "expectedResult":{
+            "status": "UNDETERMINED",
+            "conditionIndex": "101",
+            "conditionText": "CA10Z1__configurations__c.delegatedTo(CA10Z1__configurations__c).isEmpty()",
+            "runtimeError": null
+        },
+            "context":{
+                "snapshotTime": "2024-06-13T04:17:29Z"
+            },
+            "Id": "test5",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__configurations__c": null
+        }
+]

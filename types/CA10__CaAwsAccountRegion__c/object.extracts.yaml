@@ -1,0 +1,14 @@
+---
+extracts:
+  - name: CA10__status__c
+    value: 
+      FIELD:
+        path: CA10__status__c
+        undeterminedIf:
+          isEmpty: "Account Region status must be specified "
+  - name: CA10__ebsStorageEncryption__c
+    value: 
+      FIELD:
+        path: CA10__ebsStorageEncryption__c
+        undeterminedIf:
+          isEmpty: "EBS Storage Encryption can not be empty. Possibly corrupted data."

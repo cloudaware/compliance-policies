@@ -1,0 +1,71 @@
+---
+inputObject: "CA10__CaAzureAccount__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This subscription has a custom role with owner permissions."
+    remediationMessage: "Consider removing the custom role."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__Azure_Authorization_Role_Definitions__r"
+        status: "INCOMPLIANT"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "This subscription doesn't have a custom role with owner permissions."
+relatedLists:
+  - relationshipName: "CA10__Azure_Authorization_Role_Definitions__r"
+    importExtracts:
+      - file: "/types/CA10__CaAzureAuthorizationRole__c/object.extracts.yaml"
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This is not a Custom role."
+        condition:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__roleType__c"
+            right:
+              TEXT: "CustomRole"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "Permissions do not have * actions."
+        condition:
+# Returns true if permissions actions have "*" action
+          IS_EQUAL:
+            left:
+              JSON_QUERY_BOOLEAN:
+                arg:
+                  JSON_FROM:
+                    arg: 
+                      EXTRACT: "CA10__permissionsJson__c"
+                    undeterminedIf:
+                      isInvalid: "The provided Permissions JSON is invalid."
+                expression: "contains([*].actions[], '*')"
+                undeterminedIf:
+                  evaluationError: "JSON query boolean has failed."
+                  resultTypeMismatch: "JSON query did not return boolean type."
+            right:
+              BOOLEAN: false
+      - status: "INCOMPLIANT"
+        currentStateMessage: "This custom role has owner permissions subscription scopes."
+        remediationMessage: "Consider removing this role."
+        condition:
+# JSON_QUERY_NUMBER returns the number of scopes that fall into the filter:
+# the scope start with '/subscriptions/' and does not contain 'resourceGroups'
+          GREATER_THAN:
+            left:
+              JSON_QUERY_NUMBER:
+                arg:
+                  JSON_FROM:
+                    arg: 
+                      EXTRACT: "CA10__assignableScopesJson__c"
+                    undeterminedIf:
+                      isInvalid: "The provided Assignable Scopes JSON is invalid."
+                expression: "length([?starts_with(@, '/subscriptions/') && !contains(@, 'resourceGroups')])"
+                undeterminedIf:
+                  evaluationError: "JSON query number has failed."
+                  resultTypeMismatch: "JSON query did not return number type."
+            right: 
+              NUMBER: 0.0
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "A role without owner permissions and subscription scopes."

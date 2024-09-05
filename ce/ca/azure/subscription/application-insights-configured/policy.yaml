@@ -1,0 +1,21 @@
+---
+names:
+  full: Azure Subscription Application Insights are not configured
+  contextual: Application Insights are not configured
+description: "Application Insights within Azure act as an Application Performance\
+  \ Monitoring solution providing valuable data into how well an application performs\
+  \ and additional information   when performing incident response. The types of log\
+  \ data collected include application metrics, telemetry data, and application trace\
+  \ logging data providing organizations with detailed information about application\
+  \ activity and application transactions."
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+  - PERFORMANCE
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/05/03/01
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/Monitor/diagnostic-logs-supported-resources.html
+      name: Enable Diagnostic Logs for the Supported Resources

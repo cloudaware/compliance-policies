@@ -1,0 +1,10 @@
+---
+name: 4.12 Ensure the Latest Operating System Updates Are Installed On Your Virtual
+  Machines in All Projects - Level 2 (Manual)
+description: |-
+  Google Cloud Virtual Machines have the ability via an OS Config agent API to periodically (about every 10 minutes) report OS inventory data. A patch compliance API periodically reads this data, and cross references metadata to determine if the latest updates are installed.
+
+  This is not the only Patch Management solution available to your organization and you should weigh your needs before committing to using this method.
+similar:
+  internal:
+    - dec-c-2ab7a360

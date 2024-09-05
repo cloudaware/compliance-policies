@@ -1,0 +1,18 @@
+---
+names:
+  full: Azure Subscription Activity Log Alert for Delete Security Solution does not
+    exist
+  contextual: Activity Log Alert for Delete Security Solution does not exist
+description: Create an activity log alert for the Delete Security Solution event.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/05/02/06
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management
+similarPolicies:
+  internal:
+    - dec-x-20c9ef83
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActivityLog/delete-security-solution-alert.html
+      name: Create Alert for 'Delete Security Solution' Events

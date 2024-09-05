@@ -1,0 +1,20 @@
+---
+names:
+  full: AWS Account Root User MFA is not enabled.
+  contextual: Account Root User MFA is not enabled.
+description: "The 'root' user account is the most privileged user in an AWS account.\
+  \ Multi-factor Authentication (MFA) adds an extra layer of protection on top of\
+  \ a username and password. With MFA enabled, when a user signs in to an AWS website,\
+  \ they will be prompted for their username and password as well as for an authentication\
+  \ code from their AWS MFA device."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/01/05
+  - /frameworks/cis-aws-v1.5.0/01/05
+  - /frameworks/cloudaware/identity-and-access-management/mfa-implementation
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/IAM/root-mfa-enabled.html
+      name: Root MFA Enabled

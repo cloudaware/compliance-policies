@@ -1,0 +1,27 @@
+---
+inputObject: "CA10__CaAzureStorageAccount__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Default network access is not restricted."
+    remediationMessage: "Consider configuring the default action to deny access to traffic from all networks."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__networkAclsDefaultAction__c"
+        right:
+          TEXT: "Allow"
+  - status: "COMPLIANT"
+    currentStateMessage: "The default action is configured to deny access to traffic from all networks."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__networkAclsDefaultAction__c"
+        right:
+          TEXT: "Deny"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

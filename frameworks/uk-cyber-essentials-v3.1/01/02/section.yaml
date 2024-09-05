@@ -1,0 +1,10 @@
+---
+name: |-
+  1.2 Prevent access to the administrative interface from the internet
+description: |-
+  Prevent access to the administrative interface (used to manage firewall configuration) from the internet, unless there is a clear and documented business need, and the interface is protected by one of the following controls:
+  - multi-factor authentication (see MFA details below)
+  - an IP allow list that limits access to a small range of trusted addresses combined with a properly managed password authentication approach
+similar:
+  internal:
+    - dec-c-7623022b

@@ -1,0 +1,18 @@
+---
+names:
+  full: Azure Cosmos DB Account Virtual Network Filter is not enabled
+  contextual: Virtual Network Filter is not enabled
+description: Limiting your Cosmos DB to only communicate on whitelisted networks lowers
+  its attack footprint.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/04/05/01
+  - /frameworks/cloudaware/resource-security/public-and-anonymous-access
+similarPolicies:
+  internal:
+    - dec-x-46a83a30
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/CosmosDB/restrict-default-network-access.html
+      name: Restrict Default Network Access for Azure Cosmos DB Accounts

@@ -1,0 +1,23 @@
+---
+names:
+  full: Azure Diagnostic Setting is not enabled for all services that support it
+  contextual: Diagnostic Setting is not enabled for all services that support it
+description: "Resource Logs capture activity to the data access plane while the Activity\
+  \ log is a subscription-level log for the control plane. Resource-level diagnostic\
+  \ logs provide insight into operations that were performed within that resource\
+  \ itself; for example, reading or updating a secret from a Key Vault. Currently,\
+  \ 95 Azure resources support Azure Monitoring (See the more information section\
+  \ for a complete list), including Network Security Groups, Load Balancers, Key Vault,\
+  \ AD, Logic Apps, and CosmosDB."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/05/04
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/Monitor/diagnostic-logs-supported-resources.html
+      name: Enable Diagnostic Logs for the Supported Resources

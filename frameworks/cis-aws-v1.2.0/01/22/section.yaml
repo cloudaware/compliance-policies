@@ -1,0 +1,12 @@
+---
+name: 1.22 Ensure IAM policies that allow full "*:*" administrative privileges are
+  not created
+description: "IAM policies are the means by which privileges are granted to users,\
+  \ groups, or roles. It is recommended and considered a standard security advice\
+  \ to grant _least privilege_—that is, granting only the permissions required to\
+  \ perform a task. Determine what users need to do and then craft policies for them\
+  \ that let the users perform _only_ those tasks, instead of allowing full administrative\
+  \ privileges."
+similar:
+  internal:
+    - dec-c-592623b5

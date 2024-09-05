@@ -1,0 +1,13 @@
+---
+names:
+  full: Azure MySQL Server audit_log_enabled Parameter is not set to ON
+  contextual: Server audit_log_enabled Parameter is not set to ON
+description: Enable audit_log_enabled on MySQL Servers.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+  - PERFORMANCE
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/04/04/03
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration

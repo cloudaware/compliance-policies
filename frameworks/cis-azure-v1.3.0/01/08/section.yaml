@@ -1,0 +1,10 @@
+---
+name: "1.8 Ensure that 'Notify all admins when other admins reset their password?'\
+  \ is set to 'Yes' - Level 2 (Manual | Not supported, no API/CLI available by Azure)"
+description: "Ensure that all administrators are notified if any other administrator\
+  \ resets their password. Please note that according to the CIS Benchmark audit steps,\
+  \ at this point in time, there is no API/CLI mechanism available to programmatically\
+  \ conduct a security assessment for this recommendation."
+similar:
+  internal:
+    - dec-c-298b9d96

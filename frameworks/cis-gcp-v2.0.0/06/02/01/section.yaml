@@ -1,0 +1,17 @@
+---
+name: 6.2.1 Ensure 'Log_error_verbosity' Database Flag for Cloud SQL PostgreSQL Instance
+  Is Set to 'DEFAULT' or Stricter - Level 2 (Automated)
+description: |-
+  The log_error_verbosity flag controls the verbosity/details of messages logged. Valid values are:
+  - TERSE
+  - DEFAULT
+  - VERBOSE
+
+  TERSE excludes the logging of DETAIL, HINT, QUERY, and CONTEXT error information.
+
+  VERBOSE output includes the SQLSTATE error code, source code file name, function name, and line number that generated the error.
+
+  Ensure an appropriate value is set to 'DEFAULT' or stricter.
+similar:
+  internal:
+    - dec-c-0b7ac1f7

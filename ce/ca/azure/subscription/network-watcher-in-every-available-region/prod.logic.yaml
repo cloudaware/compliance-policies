@@ -1,0 +1,53 @@
+---
+inputObject: "CA10__CaAzureAccount__c"
+importExtracts:
+  - file: /types/CA10__CaAzureAccount__c/object.extracts.yaml
+testData:
+  - file: "test-data.json"
+conditions:
+# only one Network Watcher per region is allowed
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Network Watcher is not enabled for every available region in the Subscription."
+    remediationMessage: "Consider enabling Network Watcher for all available regions in the Subscription."
+    condition:
+      GREATER_THAN:
+        left:
+          COLLECTION_SIZE:
+            arg: 
+              EXTRACT: "caExtract_availabilityZones_asCollection__c"
+        right:
+          RELATED_LIST_COUNT:
+            relationshipName: "CA10__Azure_Network_Watchers__r"
+            status: "COMPLIANT"
+  - status: "COMPLIANT"
+    currentStateMessage: "Network Watcher is enabled for every available region in the Subscription."
+    condition:
+      LESS_THAN_EQUAL:
+        left:
+          COLLECTION_SIZE:
+            arg: 
+              EXTRACT: "caExtract_availabilityZones_asCollection__c"
+        right:
+          RELATED_LIST_COUNT:
+            relationshipName: "CA10__Azure_Network_Watchers__r"
+            status: "COMPLIANT"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."
+relatedLists:
+  - relationshipName: "CA10__Azure_Network_Watchers__r"
+    importExtracts:
+      - file: "/types/CA10__CaAzureNetworkWatcher__c/object.extracts.yaml"
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "Network Watcher is provisioned successfully."
+        condition:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__provisioningState__c"
+            right:
+              TEXT: "Succeeded"
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "Network Watcher was not provisioned successfully."
+      remediationMessage: "Try restoring Network Watcher succeeded state."

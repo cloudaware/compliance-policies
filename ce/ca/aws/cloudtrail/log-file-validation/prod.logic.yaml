@@ -1,0 +1,27 @@
+---
+inputObject: "CA10__CaAwsCloudTrailTrail__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsCloudTrailTrail__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "CloudTrail Log File Validation is disabled."
+    remediationMessage: "Consider enabling CloudTrail Log File Validation."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__logFileValidationEnabled__c"
+        right:
+          BOOLEAN: false
+  - status: "COMPLIANT"
+    currentStateMessage: "CloudTrail Log File Validation is enabled."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__logFileValidationEnabled__c"
+        right:
+          BOOLEAN: true
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

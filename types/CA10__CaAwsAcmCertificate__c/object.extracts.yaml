@@ -1,0 +1,29 @@
+---
+extracts:
+  - name: CA10__status__c
+    value: 
+      FIELD:
+        path: CA10__status__c
+        undeterminedIf:
+          noAccessDelegate:
+            path: CA10__status__c
+            currentStateMessage: Unable to determine certificate status. Possible permission issue with acm:DescribeCertificate
+          isEmpty: Status is not populated yet
+  - name: CA10__notAfter__c
+    value: 
+      FIELD:
+        path: CA10__notAfter__c
+        undeterminedIf:
+          noAccessDelegate:
+            path: CA10__notAfter__c
+            currentStateMessage: Unable to determine certificate 'NotAfter'. Possible permission issue with acm:DescribeCertificate
+          isEmpty: NotAfter is not populated yet
+  - name: CA10__domainName__c
+    value: 
+      FIELD:
+        path: CA10__domainName__c
+        undeterminedIf:
+          noAccessDelegate:
+            path: CA10__domainName__c
+            currentStateMessage: Unable to determine certificate domain name. Possible permission issue with acm:DescribeCertificate
+          isEmpty: Domain name is not populated yet

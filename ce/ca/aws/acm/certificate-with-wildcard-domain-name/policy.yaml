@@ -1,0 +1,10 @@
+---
+names:
+  full: AWS ACM Certificate with Wildcard Domain Name
+  contextual: Certificate with Wildcard Domain Name
+description: "Ensure that ACM single domain name certificates are used instead of\
+  \ wildcard certificates within your AWS account in order to follow security best\
+  \ practices and protect each domain/subdomain with its own unique private key. An\
+  \ AWS ACM wildcard certificate matches any first level subdomain or hostname in\
+  \ a domain. For example, a wildcard certificate issued for *.cloudaware.com can\
+  \ protect both www.cloudaware.com and images.cloudaware.com."

@@ -1,0 +1,21 @@
+---
+names:
+  full: Azure Subscription Activity Log Alert for Create or Update SQL Server Firewall
+    Rule does not exist
+  contextual: Activity Log Alert for Create or Update SQL Server Firewall Rule does
+    not exist
+description: Create an activity log alert for the Create or Update SQL Server Firewall
+  Rule event.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/05/02/07
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management
+similarPolicies:
+  internal:
+    - dec-x-02eed49a
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActivityLog/create-or-update-or-delete-sql-server-firewall-rule-alert.html
+      name: "Create Alert for 'Create, Update or Delete SQL Server Firewall Rule'\
+        \ Events"

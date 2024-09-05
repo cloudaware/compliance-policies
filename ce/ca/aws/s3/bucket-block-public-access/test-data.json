@@ -1,0 +1,62 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-06-17T03:42:47Z" },
+    "Id": "test1",
+    "CA10__disappearanceTime__c": "2024-06-12T07:46:07Z",
+    "CA10__blockPublicAcls__c": "No",
+    "CA10__blockPublicPolicy__c": "No",
+    "CA10__ignorePublicAcls__c": "No",
+    "CA10__restrictPublicBuckets__c": "No"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__blockPublicAcls__c') != 'Yes' || extract('CA10__blockPublicPolicy__c') != 'Yes' || extract('CA10__ignorePublicAcls__c') != 'Yes' || extract('CA10__restrictPublicBuckets__c') != 'Yes'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-06-17T03:42:47Z" },
+    "Id": "tets2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__blockPublicAcls__c": "No",
+    "CA10__blockPublicPolicy__c": "No",
+    "CA10__ignorePublicAcls__c": "No",
+    "CA10__restrictPublicBuckets__c": "No"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__blockPublicAcls__c') != 'Yes' || extract('CA10__blockPublicPolicy__c') != 'Yes' || extract('CA10__ignorePublicAcls__c') != 'Yes' || extract('CA10__restrictPublicBuckets__c') != 'Yes'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-06-17T03:42:47Z" },
+    "Id": "test3",
+    "CA10__disappearanceTime__c": null,
+    "CA10__blockPublicAcls__c": "Yes",
+    "CA10__blockPublicPolicy__c": "No",
+    "CA10__ignorePublicAcls__c": "Yes",
+    "CA10__restrictPublicBuckets__c": "Yes"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-06-17T03:42:47Z" },
+    "Id": "test4",
+    "CA10__disappearanceTime__c": null,
+    "CA10__blockPublicAcls__c": "Yes",
+    "CA10__blockPublicPolicy__c": "Yes",
+    "CA10__ignorePublicAcls__c": "Yes",
+    "CA10__restrictPublicBuckets__c": "Yes"
+  }
+]

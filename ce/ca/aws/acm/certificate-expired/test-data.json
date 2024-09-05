@@ -1,0 +1,35 @@
+[
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ISSUED"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__status__c') == 'EXPIRED'",
+            "runtimeError": null
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "EXPIRED"
+    },
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": "2024-04-30T13:16:02Z",
+        "CA10__status__c": "ISSUED"
+    }
+]

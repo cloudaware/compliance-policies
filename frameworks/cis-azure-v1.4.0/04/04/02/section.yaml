@@ -1,0 +1,8 @@
+---
+name: 4.4.2 Ensure 'TLS Version' is set to 'TLSV1.2' for MySQL flexible Database Server
+  - Level 1 (Automated)
+description: Ensure 'TLS version' on 'MySQL flexible' servers is set to the default
+  value. Will be supported in the near future.
+similar:
+  internal:
+    - dec-c-021f55dc

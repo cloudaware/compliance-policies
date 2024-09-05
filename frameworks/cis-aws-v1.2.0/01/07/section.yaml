@@ -1,0 +1,9 @@
+---
+name: 1.7 Ensure IAM password policy require at least one symbol
+description: "Password policies are, in part, used to enforce password complexity\
+  \ requirements. IAM password policies can be used to ensure password are comprised\
+  \ of different character sets. It is recommended that the password policy require\
+  \ at least one symbol."
+similar:
+  internal:
+    - dec-c-767c71d5

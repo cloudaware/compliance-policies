@@ -1,0 +1,12 @@
+---
+name: "1.1 Ensure that multi-factor authentication is enabled for all privileged users\
+  \ - Level 1 (Manual | Not supported, no API/CLI available by Azure)"
+description: |-
+  Enable multi-factor authentication for all user credentials who have write access to Azure resources. These include roles like
+  - Service Co-Administrators
+  - Subscription Owners
+  - Contributors
+   Please note that according to the CIS Benchmark audit steps, at this point in time, there is no API/CLI mechanism available to programmatically conduct a security assessment for this recommendation.
+similar:
+  internal:
+    - dec-c-9a78739d

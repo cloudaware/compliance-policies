@@ -1,0 +1,20 @@
+---
+names:
+  full: "AWS Account IAM Password Policy Number of passwords to remember is not set to 24"
+  contextual: "IAM Password Policy Number of passwords to remember is not set to 24"
+description: "IAM password policies can prevent the reuse of a given password by \
+  the same user. It is recommended that the password policy prevent the reuse of passwords."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/01/09
+  - /frameworks/cis-aws-v1.5.0/01/09
+  - /frameworks/cloudaware/identity-and-access-management/credentials-controls
+similarPolicies:
+  internal:
+    - dec-x-f7c2faac
+  cloudConformity:
+   # One policy for 1.8 and 1.9. Checks are combined into one policy
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/IAM/password-policy.html"
+      name: "IAM Password Policy"

@@ -1,0 +1,116 @@
+---
+inputObject: "CA10__CaAwsIamPolicy__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsIamPolicy__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "This IAM Policy is not attached."
+    condition:
+      OR:
+        args:
+          - NOT_EQUAL:
+              left:
+                EXTRACT: CA10__attachable__c
+              right: 
+                BOOLEAN: true
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10__attachmentCount__c
+              right:
+                NUMBER: 0.0
+# For the Statement of array type
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This IAM policy with admin privileges is attached."
+    remediationMessage: "Consider detaching the IAM policy with admin privileges "
+    condition:
+      AND:
+        args:
+        # Verify that this is an array
+          - IS_EQUAL:
+              left:
+                JSON_QUERY_TEXT:
+                  arg:
+                    EXTRACT: "caJsonFrom_policyDocument__c"
+                  expression: "type(Statement)"
+                  undeterminedIf:
+                    evaluationError: "The JSON query has failed."
+                    resultTypeMismatch: "The JSON query did not return text type."
+              right:
+                TEXT: "array"
+        # Check number of statements with the following conditions is not 0 (Action == '*' OR Action == ['*']) AND (Resource == '*' OR Resource == ['*']) AND (Effect == 'Allow')
+        # we can't break it into smaller separate statements since we need to make sure that all 3 elements (Action, Resource, Effect) present in the same statement
+          - GREATER_THAN:
+              left:
+                JSON_QUERY_NUMBER:
+                  arg:
+                    EXTRACT: "caJsonFrom_policyDocument__c"
+                  expression: "length(Statement[? ((type(Action) == 'array' && contains(Action, '*')) || (type(Action) == 'string' && Action == '*')) && ((type(Resource) == 'array' && contains(Resource, '*')) || (type(Resource) == 'string' && Resource == '*')) && (Effect == 'Allow')])"
+                  undeterminedIf:
+                    evaluationError: "The JSON query has failed."
+                    resultTypeMismatch: "The JSON query did not return number type."
+              right:
+                NUMBER: 0.0        
+# at this step any other Statements of array type should be compliant
+  - status: "COMPLIANT"
+    currentStateMessage: "This IAM policy does not have admin privileges."
+    condition:
+      NOT_EQUAL:
+        left:
+          JSON_QUERY_TEXT:
+            arg:
+              EXTRACT: "caJsonFrom_policyDocument__c"
+            expression: "type(Statement)"
+            undeterminedIf:
+              evaluationError: "The JSON query has failed."
+              resultTypeMismatch: "The JSON query did not return text type."
+        right:
+          TEXT: "object"
+# For the Statement of object type Effect == Deny
+  - status: "COMPLIANT"
+    currentStateMessage: "This IAM policy does not have admin privileges."
+    condition:
+      NOT_EQUAL:
+        left:
+          JSON_QUERY_TEXT:
+            arg:
+              EXTRACT: "caJsonFrom_policyDocument__c"
+            expression: "Statement.Effect"
+            undeterminedIf:
+              evaluationError: "The JSON query has failed."
+              resultTypeMismatch: "The JSON query did not return text type."
+        right:
+          TEXT: "Allow"
+# For the Statement of object type (Action == '*' OR Action == ['*']) AND (Resource == '*' OR Resource == ['*'])
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This IAM policy with admin privileges is attached."
+    remediationMessage: "Consider detaching the IAM policy with admin privileges "
+    condition:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                JSON_QUERY_BOOLEAN:
+                  arg:
+                    EXTRACT: "caJsonFrom_policyDocument__c"
+                  expression: "(type(Statement.Action) == 'string' && Statement.Action == '*') || (type(Statement.Action) == 'array' && contains(Statement.Action, '*'))"
+                  undeterminedIf:
+                    evaluationError: "The JSON query has failed."
+                    resultTypeMismatch: "The JSON query did not return boolean type."
+              right:
+                BOOLEAN: true  
+          - IS_EQUAL:
+              left:
+                JSON_QUERY_BOOLEAN:
+                  arg:
+                    EXTRACT: "caJsonFrom_policyDocument__c"
+                  expression: "(type(Statement.Resource) == 'string' && Statement.Resource == '*') || (type(Statement.Resource) == 'array' && contains(Statement.Resource, '*'))"
+                  undeterminedIf:
+                    evaluationError: "The JSON query has failed."
+                    resultTypeMismatch: "The JSON query did not return boolean type."
+              right:
+                BOOLEAN: true  
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "This IAM policy does not have admin privileges."

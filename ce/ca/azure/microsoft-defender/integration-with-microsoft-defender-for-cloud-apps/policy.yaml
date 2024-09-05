@@ -1,0 +1,21 @@
+---
+names:
+  full: Microsoft Defender For Cloud Integration With Microsoft Defender For Cloud
+    Apps is not enabled
+  contextual: Integration With Microsoft Defender For Cloud Apps is not enabled
+description: This integration setting enables Microsoft Defender for Cloud Apps (formerly
+  'Microsoft Cloud App Security' or 'MCAS' - see additional info) to communicate with
+  Microsoft Defender for Cloud.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/02/01/20
+  - /frameworks/cloudaware/resource-security/microsoft-defender-configuration
+similarPolicies:
+  internal:
+    - dec-x-8a1ecfd0
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/SecurityCenter/defender-cloud-apps-integration.html
+      name: Enable Microsoft Defender for Cloud Apps Integration

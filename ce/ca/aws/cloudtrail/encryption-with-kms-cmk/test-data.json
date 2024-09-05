@@ -1,0 +1,82 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2024-05-28T17:35:50Z",
+        "CA10__kmsKey__c": "",
+        "CA10__kmsKeyArn__c": "",
+        "CA10__kmsKey__r": {
+            "Id": null,
+            "CA10__disappearanceTime__c": null,
+            "CA10__state__c": null
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "isEmptyLookup('CA10__kmsKey__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__kmsKey__c": "",
+        "CA10__kmsKeyArn__c": "",
+        "CA10__kmsKey__r": {
+            "Id": null,
+            "CA10__disappearanceTime__c": null,
+            "CA10__state__c": null
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__kmsKey__r.CA10__state__c') != 'Enabled'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__kmsKey__c": "test3_1",                
+        "CA10__kmsKeyArn__c": "arn:aws:kms:us-east-1:123456789123:key/1-2-3-4-5",
+        "CA10__kmsKey__r": {
+            "Id": "test3_1",
+            "CA10__disappearanceTime__c": null,
+            "CA10__state__c": "Disabled"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__kmsKey__r.CA10__state__c') == 'Enabled'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-05-28T17:35:50Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__kmsKey__c": "test4_1",
+        "CA10__kmsKeyArn__c": "arn:aws:kms:us-east-1:123456789123:key/1-2-3-4-5",
+        "CA10__kmsKey__r": {
+            "Id": "test4_1",
+            "CA10__disappearanceTime__c": null,
+            "CA10__state__c": "Enabled"
+        }
+    }
+]

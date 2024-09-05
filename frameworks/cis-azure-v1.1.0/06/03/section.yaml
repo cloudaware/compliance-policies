@@ -1,0 +1,15 @@
+---
+name: 6.3 Ensure no SQL Databases allow ingress 0.0.0.0/0 (ANY IP)
+description: "Ensure that no SQL Databases allow ingress from 0.0.0.0/0 (ANY IP).\
+  \ Implementation note: CIS instructs to fail any SQL database that has a firewall\
+  \ rule that has ‘Start IP’ of 0.0.0.0. This does not align with the rule title and\
+  \ description - to block any ingress traffic. Therefore, the assigned policy of\
+  \ this rule will fail for any SQL Server that has a firewall rule with ‘Start IP’\
+  \ 0.0.0.0 and ‘End IP’ 255.255.255.255. This range covers any IP (0.0.0.0/0). In\
+  \ addition, the benchmark instructs to make sure 'Allow Azure services and resources\
+  \ to access this service' is disabled. This option has nothing to do with ANY IP.\
+  \ It simply checks if the Server allows traffic from Azure services (from any subscription).\
+  \ We decided to create a dedicated rule to check if this feature is enabled."
+similar:
+  internal:
+    - dec-c-7308f55e

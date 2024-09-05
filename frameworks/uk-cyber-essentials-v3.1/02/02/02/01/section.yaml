@@ -1,0 +1,8 @@
+---
+name: 2.2.2.1 Shouldn’t allow more than 10 guesses in 5 minutes
+description: |-
+  When it's possible to configure, you should ‘throttling' the rate of attempts, so that the number of times the user must wait between attempts increases with each unsuccessful attempt you shouldn’t allow more than 10 guesses in 5 minutes
+  When the vendor doesn't allow you to configure the above, use the vendor’s default setting.
+similar:
+  internal:
+    - dec-c-df50b8b5

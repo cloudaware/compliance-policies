@@ -1,0 +1,8 @@
+---
+name: 5.1.7 Ensure that logging for Azure AppService 'AppServiceHTTPLogs' is enabled.
+  - Level 2 (Manual)
+description: Enable AppServiceHTTPLogs diagnostic log category for Azure App Service
+  instances to ensure all http requests are captured and centrally logged.
+similar:
+  internal:
+    - dec-c-40afd038

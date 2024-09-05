@@ -1,0 +1,24 @@
+---
+names:
+  contextual: "Bucket Lifecycle Configuration is not enabled"
+  full: "AWS S3 Bucket Lifecycle Configuration is not enabled"
+description: "Configure Amazon S3 Lifecycle in order to ensure that your objects\
+  \ are stored cost effectively throughout their lifecycle. An S3 Lifecycle configuration\
+  \ is a set of rules that define actions (such as Transition and Expiration actions)\
+  \ that Amazon S3 applies to a group of objects."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-management/optimization"
+similarPolicies:
+  internal:
+    - dec-x-edc86d3d
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/S3/lifecycle-configuration.html
+      name: S3 Buckets Lifecycle Configuration
+  awsTrustedAdvisor:
+    - checkId: "c18d2gz100"
+      name: "Amazon S3 Bucket Lifecycle Policy Configured"
+      url: "https://docs.aws.amazon.com/awssupport/latest/user/cost-optimization-checks.html#amazon-s3-bucket-lifecycle-policy-configured"

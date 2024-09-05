@@ -1,0 +1,79 @@
+[
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-10T19:35:50Z"
+        },
+        "Id": "test1",
+        "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r": [
+            {
+                "Id": "test1_1",
+                "CA10Z1__disappearanceTime__c": null,
+                "CA10Z1__pricingTier__c": "Free",
+                "CA10Z1__name__c": "Dns",
+                "CA10Z1__subscription__c": "test1"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-10T19:35:50Z"
+        },
+        "Id": "test4",
+        "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r": [
+            {
+                "Id": "test4_1",
+                "CA10Z1__disappearanceTime__c": null,
+                "CA10Z1__pricingTier__c": "Standard",
+                "CA10Z1__name__c": "Dns",
+                "CA10Z1__subscription__c": "test4"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "300",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-10T19:35:50Z"
+        },
+        "Id": "test5",
+        "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "300",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-10T19:35:50Z"
+        },
+        "Id": "test6",
+        "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r": [
+            {
+                "Id": "test6_1",
+                "CA10Z1__disappearanceTime__c": null,
+                "CA10Z1__pricingTier__c": "Standard",
+                "CA10Z1__name__c": "VirtualMachines",
+                "CA10Z1__subscription__c": "test6"
+            }
+        ]
+
+    }
+]

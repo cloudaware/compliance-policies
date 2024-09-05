@@ -1,0 +1,16 @@
+---
+extracts:
+  - name: "Name"
+    value: 
+      FIELD:
+        path: "Name"
+        undeterminedIf:
+          isEmpty:  "Name should not be empty"
+  - name: "CA10__rotationPeriod__c"
+    value: 
+      FIELD:
+        path: "CA10__rotationPeriod__c"
+  - name: "CA10__nextRotationTime__c"
+    value: 
+     FIELD:
+       path: "CA10__nextRotationTime__c"

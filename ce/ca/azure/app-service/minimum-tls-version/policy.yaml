@@ -1,0 +1,20 @@
+---
+names:
+  full: Azure App Service Minimum TLS Version is not set to TLS 1.2 or higher
+  contextual: Minimum TLS Version is not set to TLS 1.2 or higher
+description: "The TLS (Transport Layer Security) protocol secures transmission of\
+  \ data over the internet using standard encryption technology. Encryption should\
+  \ be set with the latest version of TLS. App service allows TLS 1.2 by default,\
+  \ which is the recommended TLS level by industry standards such as PCI DSS."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/09/03
+  - /frameworks/cloudaware/resource-security/data-encryption
+similarPolicies:
+  internal:
+    - dec-x-2ace1952
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/AppService/latest-version-of-tls-encryption-in-use.html
+      name: Check for TLS Protocol Latest Version

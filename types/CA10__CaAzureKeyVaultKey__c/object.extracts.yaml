@@ -1,0 +1,14 @@
+---
+extracts:
+# Values: Enabled, Disabled. Not Nullable. Can't have no access, retrieved via Microsoft.KeyVault/keys
+  - name: "CA10__enabledStatus__c"
+    value: 
+      FIELD:
+        path: "CA10__enabledStatus__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Key State cannot be empty."
+# Nullable. Can't have no access, retrieved via Microsoft.KeyVault/keys
+  - name: "CA10__expirationDate__c"
+    value: 
+      FIELD:
+        path: "CA10__expirationDate__c"

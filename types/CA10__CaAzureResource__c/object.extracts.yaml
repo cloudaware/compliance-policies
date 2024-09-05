@@ -1,0 +1,9 @@
+---
+extracts:
+# Not Nullable. Can't have no access, retrieved via Microsoft.Resources/subscriptions/resources/read
+  - name: "CA10__type__c"
+    value: 
+      FIELD:
+        path: "CA10__type__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Resource Type cannot be empty."

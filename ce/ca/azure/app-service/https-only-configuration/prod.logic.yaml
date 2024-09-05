@@ -1,0 +1,27 @@
+---
+inputObject: "CA10__CaAzureAppService__c"
+importExtracts:
+  - file: "/types/CA10__CaAzureAppService__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "App Service HTTPS Only configuration is disabled."
+    remediationMessage: "Consider enabling App Service HTTPS Only configuration."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__httpsOnly__c"
+        right:
+          TEXT: "Disabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "App Service HTTPS Only configuration is enabled."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__httpsOnly__c"
+        right:
+          TEXT: "Enabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

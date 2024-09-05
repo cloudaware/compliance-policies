@@ -1,0 +1,80 @@
+---
+inputObject: "CA10__CaAwsAccount__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsAccount__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Default encryption of EBS volume disabled"
+    remediationMessage: "Enable EBS Volume Encryption"
+    condition:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__AWS_Account_Regions__r"
+  - status: "UNDETERMINED"
+    currentStateMessage: "Can't determine default status of EBS encryption"
+    condition:
+     RELATED_LIST_HAS:
+      status: "UNDETERMINED"
+      relationshipName: "CA10__AWS_Account_Regions__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "Default encryption of EBS volume enabled"
+    condition:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__AWS_Account_Regions__r"
+otherwise:
+  status: "INAPPLICABLE"
+  currentStateMessage: "Region not in use"
+relatedLists:
+  - relationshipName: "CA10__AWS_Account_Regions__r"
+    importExtracts:
+    - file: "/types/CA10__CaAwsAccountRegion__c/object.extracts.yaml"
+    conditions:
+      - status: "UNDETERMINED"
+        currentStateMessage: "Can't determine default status of EBS encryption"
+        condition:
+          AND:
+            args:
+              - NOT_EQUAL: 
+                  left:
+                    EXTRACT: "CA10__status__c"
+                  right:
+                    TEXT: "not-opted-in"
+              - IS_EMPTY:
+                  arg:
+                    EXTRACT: "CA10__ebsStorageEncryption__c"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Default encryption of EBS volume disabled for region"
+        condition:
+          AND:
+            args:
+              - NOT_EQUAL: 
+                  left:
+                    EXTRACT: "CA10__status__c"
+                  right:
+                    TEXT: "not-opted-in"
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10__ebsStorageEncryption__c"
+                  right:
+                    TEXT: "Disabled"
+      - status: "COMPLIANT"
+        currentStateMessage: "Default encryption of EBS volume enabled for region"
+        condition:
+          AND:
+            args:
+              - NOT_EQUAL: 
+                  left:
+                    EXTRACT: "CA10__status__c"
+                  right:
+                    TEXT: "not-opted-in"
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10__ebsStorageEncryption__c"
+                  right:
+                    TEXT: "Enabled"
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "Region should be in-use."

@@ -1,0 +1,68 @@
+---
+extracts:
+# Values: Enabled, Disabled. Not Nullable.
+  - name: "CA10__authStatus__c"
+    value: 
+      FIELD:
+        path: "CA10__authStatus__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__authStatus__c"
+            currentStateMessage: "Unable to determine Auth Settings. Possible permission issue with Microsoft.Web/sites/config/authsettings/list"
+# Values: Enabled, Disabled. Not Nullable.
+  - name: "CA10__basicPublishingCredentialsFtpState__c"
+    value: 
+      FIELD:
+        path: "CA10__basicPublishingCredentialsFtpState__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__basicPublishingCredentialsFtpState__c"
+            currentStateMessage: "Unable to determine Basic Auth Settings. Possible permission issue with Microsoft.Web/sites/basicPublishingCredentialsPolicies"
+# Values: Enabled, Disabled. Not Nullable.
+  - name: "CA10__basicPublishingCredentialsScmState__c"
+    value: 
+      FIELD:
+        path: "CA10__basicPublishingCredentialsScmState__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__basicPublishingCredentialsScmState__c"
+            currentStateMessage: "Unable to determine Basic Auth Settings. Possible permission issue with Microsoft.Web/sites/basicPublishingCredentialsPolicies"
+# Values: Enabled, Disabled. Not Nullable. Can't have no access, retrieved via Microsoft.Web/sites
+  - name: "CA10__httpsOnly__c"
+    value: 
+      FIELD:
+        path: "CA10__httpsOnly__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. HTTPS Only configuration cannot be empty."
+# Values: 1.0, 1.1, 1.2. Not Nullable.
+  - name: "CA10__configMinTlsVersion__c"
+    value: 
+      FIELD:
+        path: "CA10__configMinTlsVersion__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__configMinTlsVersion__c"
+            currentStateMessage: "Unable to determine minimum version of TLS. Possible permission issue with Microsoft.Web/sites/config/web/read"
+# Nullable. Can't have no access, retrieved via Microsoft.Web/sites
+  - name: "CA10__identityPrincipalId__c"
+    value: 
+      FIELD:
+        path: "CA10__identityPrincipalId__c"
+# Values: Enabled, Disabled. Not Nullable.
+  - name: "CA10__configHttp20__c"
+    value: 
+      FIELD:
+        path: "CA10__configHttp20__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__configHttp20__c"
+            currentStateMessage: "Unable to determine HTTP2.0 configuration. Possible permission issue with Microsoft.Web/sites/config/web/read"
+# Values: AllAllowed, Disabled, FtpsOnly. Not Nullable.
+  - name: "CA10__configFtpsState__c"
+    value: 
+      FIELD:
+        path: "CA10__configFtpsState__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__configFtpsState__c"
+            currentStateMessage: "Unable to determine FTPS State. Possible permission issue with Microsoft.Web/sites/config/web/read"

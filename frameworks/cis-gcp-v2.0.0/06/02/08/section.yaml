@@ -1,0 +1,8 @@
+---
+name: 6.2.8 Ensure That 'cloudsql.enable_pgaudit' Database Flag for each Cloud Sql
+  Postgresql Instance Is Set to 'on' For Centralized Logging - Level 1 (Automated)
+description: Ensure cloudsql.enable_pgaudit database flag for Cloud SQL PostgreSQL
+  instance is set to on to allow for centralized logging.
+similar:
+  internal:
+    - dec-c-ccb84489

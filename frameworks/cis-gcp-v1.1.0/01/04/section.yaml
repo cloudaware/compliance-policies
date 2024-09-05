@@ -1,0 +1,7 @@
+---
+name: 1.4 Ensure that there are only GCP-managed service account keys for each service
+  account
+description: User managed service accounts should not have user-managed keys.
+similar:
+  internal:
+    - dec-c-cfa37a82

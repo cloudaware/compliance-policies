@@ -1,0 +1,9 @@
+---
+names:
+  full: AWS EC2 Instance Overutilized
+  contextual: Instance Overutilized
+description: "Identify any Amazon EC2 instances that appear to be overutilized and\
+  \ upgrade (resize) them in order to help your EC2-hosted applications to handle\
+  \ the workload better and improve the response time. By default, an EC2 instance\
+  \ is considered \"overutilized\" when it matches the following criteria: The average\
+  \ CPU utilization has been more than 90% for the last 7 days."

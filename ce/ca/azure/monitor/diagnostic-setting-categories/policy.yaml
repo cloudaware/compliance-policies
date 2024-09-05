@@ -1,0 +1,18 @@
+---
+names:
+  full: "Azure Diagnostic Setting captures Administrative, Alert, Policy, and Security\
+    \ categories"
+  contextual: "Diagnostic Setting captures Administrative, Alert, Policy, and Security\
+    \ categories"
+description: The diagnostic setting should be configured to log the appropriate activities
+  from the control/management plane.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/05/01/02
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration
+similarPolicies:
+  internal:
+    - dec-x-a193b20f

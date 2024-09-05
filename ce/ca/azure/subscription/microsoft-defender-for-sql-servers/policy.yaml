@@ -1,0 +1,20 @@
+---
+names:
+  full: Azure Subscription Microsoft Defender For SQL Servers On Machines is not set
+    to On
+  contextual: Microsoft Defender For SQL Servers On Machines is not set to On
+description: "Turning on Microsoft Defender for SQL Servers on Machines enables threat\
+  \ detection for SQL Servers on Machines, providing threat intelligence, anomaly\
+  \ detection, and behavior analytics in Microsoft Defender for Cloud."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/02/01/04
+  - /frameworks/cloudaware/resource-security/microsoft-defender-configuration
+similarPolicies:
+  internal:
+    - dec-x-fafadacd
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/SecurityCenter/defender-sql-server-virtual-machines.html
+      name: Enable Microsoft Defender for Cloud for SQL Server Virtual Machines

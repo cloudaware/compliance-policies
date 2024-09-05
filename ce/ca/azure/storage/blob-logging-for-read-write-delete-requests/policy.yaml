@@ -1,0 +1,22 @@
+---
+names:
+  full: "Azure Storage Blob Logging is not enabled for Read, Write, and Delete requests"
+  contextual: "Blob Logging is not enabled for Read, Write, and Delete requests"
+description: "The Storage Blob service provides scalable, cost-efficient object storage\
+  \ in the cloud. Storage Logging happens server-side and allows details for both\
+  \ successful and failed requests to be recorded in the storage account. These logs\
+  \ allow users to see the details of read, write, and delete operations against the\
+  \ blobs."
+type: BEST_PRACTICE
+categories:
+  - RELIABILITY
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-azure-v2.1.0/03/13
+  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration
+similarPolicies:
+  internal:
+    - dec-x-db1b7a1b
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/StorageAccounts/storage-blob-logging.html
+      name: Enable Logging for Azure Storage Blob Service

@@ -1,0 +1,21 @@
+---
+names:
+  full: AWS IAM User with credentials unused for 45 days or more is not disabled
+  contextual: User with credentials unused for 45 days or more is not disabled
+description: "AWS IAM users can access AWS resources using different types of credentials,\
+  \ such as passwords or access keys. It is recommended that all credentials that\
+  \ have been unused in 45 or greater days be deactivated or removed."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-aws-v3.0.0/01/12
+  - /frameworks/cloudaware/identity-and-access-management/credentials-controls
+similarPolicies:
+  internal:
+    - dec-x-ac93bf15
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/IAM/credentials-last-used.html
+      name: Credentials Last Used
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/IAM/access-keys-rotated-45-days.html
+      name: Access Keys Rotated 45 Days

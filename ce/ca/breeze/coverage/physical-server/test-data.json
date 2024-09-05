@@ -1,0 +1,44 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__deletedAt__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-24T00:11:51Z"
+        },
+        "Id": "test1",
+        "CA10__deletedAt__c": "2024-06-15T13:41:22Z",
+        "CA10__breezeLastUpdate__c": "2024-06-14T03:44:42Z"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('breezeLastUpdate').beyondLastDays(1)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-24T00:11:51Z"
+        },
+        "Id": "test2",
+        "CA10__deletedAt__c": null,
+        "CA10__breezeLastUpdate__c": "2024-06-22T22:19:43Z"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "300",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-24T00:11:51Z"
+        },
+        "Id": "test3",
+        "CA10__deletedAt__c": null,
+        "CA10__breezeLastUpdate__c": "2024-06-23T23:02:16Z"
+    }
+]
