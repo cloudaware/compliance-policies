@@ -4,6 +4,8 @@ The Key Vault contains object keys, secrets, and certificates. Accidental unavai
 
 It is recommended the Key Vault be made recoverable by enabling the "Do Not Purge" and "Soft Delete" functions. This is in order to prevent loss of encrypted data, including storage accounts, SQL databases, and/or dependent services provided by Key Vault objects (Keys, Secrets, Certificates) etc. This may happen in the case of accidental deletion by a user or from disruptive activity by a malicious user.
 
+**NOTE**: In February 2025, Microsoft will enable soft-delete protection on all key vaults, and users will no longer be able to opt out of or turn off soft-delete.
+
 **WARNING**: A current limitation is that role assignments disappearing when Key Vault is deleted. All role assignments will need to be recreated after recovery.
 
 ## Rationale
@@ -62,7 +64,12 @@ Examine the results of the above command for the `EnablePurgeProtection` setting
 
 ## Default Value
 
-When a new Key Vault is created, both the parameters `enableSoftDelete` and `enablePurgeProtection` are set to `null`, disabling both the features.
+When a new Key Vault is created,
+
+- enableSoftDelete is enabled by default, and
+- enablePurgeProtection is disabled by default.
+
+**NOTE**: In February 2025, Microsoft will enable soft-delete protection on all key vaults, and users will no longer be able to opt out of or turn off soft-delete.
 
 ## References
 

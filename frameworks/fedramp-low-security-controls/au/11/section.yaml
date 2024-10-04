@@ -1,0 +1,23 @@
+---
+name: AU-11 Audit Record Retention (L)(M)(H)
+description: |-
+  Retain audit records for [FedRAMP Assignment: a time period in compliance with M-21-31] to
+  provide support for after-the-fact investigations of incidents and to meet regulatory and
+  organizational information retention requirements.
+
+  **AU-11 Additional FedRAMP Requirements and Guidance:**
+
+  **Guidance**: The service provider is encouraged to align with M-21-31 where possible
+
+  **Requirement**: The service provider retains audit records on-line for at least ninety (90)
+  days and further preserves audit records off-line for a period that is in accordance with
+  NARA requirements.
+
+  **Requirement**: The service provider must support Agency requirements to comply with
+  [M-21-31](https://www.whitehouse.gov/wp-content/uploads/2021/08/M-21-31-Improving-the-Federal-Governments-Investigative-and-Remediation-Capabilities-Related-to-Cybersecurity-Incidents.pdf)
+similar:
+  internal:
+    - dec-c-ec0e32b7
+  sections:
+    - /frameworks/nist-sp-800-53-r5/au/11
+    - "/frameworks/fedramp-high-security-controls/au/11"

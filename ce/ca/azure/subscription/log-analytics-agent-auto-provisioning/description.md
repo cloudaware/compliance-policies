@@ -2,6 +2,8 @@
 
 Enable automatic provisioning of the monitoring agent to collect security data.
 
+**DEPRECATION PLANNED**: The Log Analytics Agent is slated for deprecation in August 2024. The Microsoft Defender for Endpoint agent, in tandem with new agentless capabilities will be providing replacement functionality. More detail is available here: <https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341>.
+
 ## Rationale
 
 When `Log Analytics agent for Azure VMs` is turned on, Microsoft Defender for Cloud provisions the Microsoft Monitoring Agent on all existing supported Azure virtual machines and any new ones that are created. The Microsoft Monitoring Agent scans for various security-related configurations and events such as system updates, OS vulnerabilities, endpoint protection, and provides alerts.
@@ -12,10 +14,10 @@ When `Log Analytics agent for Azure VMs` is turned on, Microsoft Defender for Cl
 
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Defender for Cloud`.
-3. Then `Environment Settings`.
+3. Under `Management`, select `Environment Settings`.
 4. Select a subscription.
-5. Click on `Settings & Monitoring`.
-6. Ensure that `Log Analytics agent/Azure Monitor agent` is set to `On`.
+5. Click on `Settings & monitoring`.
+6. Ensure that `Log Analytics agent` is set to `On`.
 
 Repeat the above for any additional subscriptions.
 
@@ -61,3 +63,5 @@ By default, `Automatic provisioning of monitoring agent` is set to `On`.
 
 - Excluding any of the entries in `input.json` may disable the specific setting by default.
 - Microsoft has recently changed APIs to get and Update Automatic Provisioning Setting. This recommendation is updated accordingly.
+
+**DEPRECATION PLANNED**: The Log Analytics Agent is slated for deprecation in August 2024. The Microsoft Defender for Endpoint agent, in tandem with new agentless capabilities will be providing replacement functionality. More detail is available here: <https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341>.

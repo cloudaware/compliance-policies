@@ -12,7 +12,7 @@ Microsoft Defender for Cloud emails the Subscription Owner to notify them about 
 
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Defender for Cloud`.
-3. Click on `Environment Settings`.
+3. Under `Management`, select `Environment Settings`.
 4. Click on the appropriate Management Group, Subscription, or Workspace.
 5. Click on `Email notifications`.
 6. Ensure that a valid security contact email address is listed in the `Additional email addresses` field.

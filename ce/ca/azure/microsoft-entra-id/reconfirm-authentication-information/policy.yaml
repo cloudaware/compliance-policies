@@ -9,8 +9,9 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-azure-v2.1.0/01/07
-  - /frameworks/cloudaware/identity-and-access-management/credentials-controls
+  - "/frameworks/cis-azure-v2.1.0/01/07"
+  - "/frameworks/cis-azure-v3.0.0/02/09"
+  - "/frameworks/cloudaware/identity-and-access-management/credentials-controls"
 similarPolicies:
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/number-of-days-before-authentication-information-re-confirmation.html

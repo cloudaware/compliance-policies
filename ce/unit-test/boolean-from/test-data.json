@@ -1,0 +1,156 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "unitTest(Test-1): 'true'.asBoolean()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Test-1",
+    "Name": "Test-1",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "unitTest(Test-2): 'TRUE'.asBoolean()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Test-2",
+    "Name": "Test-2",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "unitTest(Test-3): ' True '.asBoolean()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Test-3",
+    "Name": "Test-3",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "unitTest(Test-4): not('false'.asBoolean())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Test-4",
+    "Name": "Test-4",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "599",
+      "conditionText": "unitTest(Test-5): not('any-text'.asBoolean())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Test-5",
+    "Name": "Test-5",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "601",
+      "conditionText": "''.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Test-6",
+    "Name": "Test-6",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "701",
+      "conditionText": "null.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Test-7",
+    "Name": "Test-7",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "801",
+      "conditionText": "''.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Test-8",
+    "Name": "Test-8",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "999",
+      "conditionText": "unitTest(Test-9): '1'.asBoolean('1')",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Test-9",
+    "Name": "Test-9",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "1099",
+      "conditionText": "unitTest(Test-10): not('Off'.asBoolean('On'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Test-10",
+    "Name": "Test-10",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "1199",
+      "conditionText": "unitTest(Test-11): 'ENABLED'.asBoolean('Enabled')",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Test-11",
+    "Name": "Test-11",
+    "CA10__disappearanceTime__c": null
+  }
+]

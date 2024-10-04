@@ -89,13 +89,3 @@ By default, Azure Monitor Resource Logs are `Disabled` for all resources.
 9. Overview of Diagnostic Logs: <https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-logs-overview>
 10. Supported Services for Diagnostic Logs: <https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-logs-schema>
 11. Diagnostic Logs for CDNs: <https://docs.microsoft.com/en-us/azure/cdn/cdn-azure-diagnostic-logs>
-
-## Additional Information
-
-**Note**: The CIS Benchmark covers some specific Diagnostic Logs separately:
-
-- Section 3 - Storage Accounts: Ensure Storage Logging is Enabled for Queue Service for 'Read', 'Write', and 'Delete' requests.
-
-- Section 6 - Network: Ensure that Network Security Group Flow Log retention period is 'greater than 90 days'.
-
-For an up-to-date list of Azure resources which support Azure Monitor, refer to the "Supported Log Categories" reference.

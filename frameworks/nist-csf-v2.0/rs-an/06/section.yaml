@@ -1,0 +1,13 @@
+name: "RS.AN-06: Actions performed during an investigation are recorded, and the records' integrity 
+  and provenance are preserved"
+description: |-
+  1. Require each incident responder and others (e.g., system administrators, cybersecurity engineers) 
+  who perform incident response tasks to record their actions and make the record immutable
+  2. Require the incident lead to document the incident in detail and be responsible for preserving 
+  the integrity of the documentation and the sources of all information being reported
+similar:
+  sections:
+    - "/frameworks/nist-csf-v1.1/rs-an/03"
+    - "/frameworks/nist-sp-800-53-r5/au/07"
+    - "/frameworks/nist-sp-800-53-r5/ir/04"
+    - "/frameworks/nist-sp-800-53-r5/ir/06"

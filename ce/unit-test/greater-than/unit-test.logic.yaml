@@ -1,0 +1,163 @@
+---
+inputObject: CA10__CaAwsInstance__c
+testData:
+  - file: test-data.json
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: Simple-1
+    condition:
+      UNIT_TEST:
+        id: Simple-1
+        arg:
+          NOT:
+            arg:
+              GREATER_THAN:
+                left:
+                  NUMBER: 0
+                right:
+                  NUMBER: 1
+  - status: COMPLIANT
+    currentStateMessage: Simple-2
+    condition:
+      UNIT_TEST:
+        id: Simple-2
+        arg:
+          GREATER_THAN:
+            left:
+              NUMBER: 1
+            right:
+              NUMBER: 0
+  - status: COMPLIANT
+    currentStateMessage: Simple-3
+    condition:
+      UNIT_TEST:
+        id: Simple-3
+        arg:
+          NOT:
+            arg:
+              GREATER_THAN:
+                left:
+                  NUMBER: 1
+                right:
+                  NUMBER: 1
+  - status: COMPLIANT
+    currentStateMessage: Simple-4
+    condition:
+      UNIT_TEST:
+        id: Simple-4
+        arg:
+          GREATER_THAN:
+            left:
+              NUMBER: 1.0000000001
+            right:
+              NUMBER: 1
+  - status: COMPLIANT
+    currentStateMessage: Precision-1
+    condition:
+      UNIT_TEST:
+        id: Precision-1
+        arg:
+          GREATER_THAN:
+            left:
+              NUMBER: 1111111111.222224
+            right:
+              NUMBER: 1111111111.222223
+  - status: COMPLIANT
+    currentStateMessage: Precision-2
+    condition:
+      UNIT_TEST:
+        id: Precision-2
+        arg:
+          GREATER_THAN:
+            left:
+              NUMBER: 1111111111.2222235
+            right:
+              NUMBER: 1111111111.2222234
+  - status: COMPLIANT
+    currentStateMessage: Precision-3
+    condition:
+      UNIT_TEST:
+        id: Precision-3
+        arg:
+          NOT:
+            arg:
+              GREATER_THAN:
+                left:
+                  NUMBER: 1111111111.22222346
+                right:
+                  NUMBER: 1111111111.22222345
+  - status: COMPLIANT
+    currentStateMessage: Null-1
+    condition:
+      UNIT_TEST:
+        id: Null-1
+        arg:
+          NOT:
+            arg:
+              GREATER_THAN:
+                left:
+                  UNIT_TEST_NULL:
+                    returnType: NUMBER
+                right:
+                  UNIT_TEST_NULL:
+                    returnType: NUMBER
+  - status: COMPLIANT
+    currentStateMessage: Null-2
+    condition:
+      UNIT_TEST:
+        id: Null-2
+        arg:
+          NOT:
+            arg:
+              GREATER_THAN:
+                left:
+                  NUMBER: -1
+                right:
+                  UNIT_TEST_NULL:
+                    returnType: NUMBER
+  - status: COMPLIANT
+    currentStateMessage: Null-3
+    condition:
+      UNIT_TEST:
+        id: Null-3
+        arg:
+          NOT:
+            arg:
+              GREATER_THAN:
+                left:
+                  NUMBER: 1
+                right:
+                  UNIT_TEST_NULL:
+                    returnType: NUMBER
+  - status: COMPLIANT
+    currentStateMessage: Null-4
+    condition:
+      UNIT_TEST:
+        id: Null-4
+        arg:
+          NOT:
+            arg:
+              GREATER_THAN:
+                left:
+                  UNIT_TEST_NULL:
+                    returnType: NUMBER
+                right:
+                  NUMBER: -1
+  - status: COMPLIANT
+    currentStateMessage: Null-5
+    condition:
+      UNIT_TEST:
+        id: Null-5
+        arg:
+          NOT:
+            arg:
+              GREATER_THAN:
+                left:
+                  UNIT_TEST_NULL:
+                    returnType: NUMBER
+                right:
+                  NUMBER: 1
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: Test Failed
+  remediationMessage: Developer Fix Required

@@ -1,0 +1,15 @@
+---
+names:
+  full: Azure SQL Server Public Network Access is not disabled
+  contextual: Server Public Network Access is not disabled
+description: Public Network Access tends to be overly permissive and introduces unintended vectors for 
+  threat activity.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v3.0.0/05/01/07"
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+similarPolicies:
+  internal:
+    - dec-x-4f30f24e

@@ -14,11 +14,10 @@ Disabling Cross Tenant Replication may affect data availability and sharing acro
 
 ### From Azure Portal
 
-1. Login to the Azure Portal.
-2. Navigate to `Storage Accounts`.
-3. For each storage account, on the left blade under Data Management, click on `Object replication`.
-4. Select `Advanced settings`.
-5. Make sure `Allow cross-tenant replication` is not checked.
+1. Go to `Storage Accounts`.
+2. For each storage account, under `Data management`, click `Object replication`.
+3. Click `Advanced settings`.
+4. Ensure `Allow cross-tenant replication` is not checked.
 
 ### From Azure CLI
 

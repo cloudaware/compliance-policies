@@ -16,9 +16,9 @@ There may be administrative overhead, as users who lose access to their secondar
 
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Entra ID`.
-3. Then `Users`.
-4. Select `Password reset`.
-5. Then `Authentication methods`.
+3. Under `Manage`, select `Users`.
+4. Under `Manage`, select `Password reset`.
+5. Select `Authentication methods`.
 6. Ensure that `Number of methods required to reset` is set to `2`.
 
 ## Default Value
@@ -27,9 +27,9 @@ By default, the `Number of methods required to reset` is set to `2`.
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/active-directory/authentication/tutorial-enable-sspr>
-2. <https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-registration-mfa-sspr-combined>
+1. <https://learn.microsoft.com/en-us/entra/identity/authentication/tutorial-enable-sspr>
+2. <https://learn.microsoft.com/en-us/entra/identity/authentication/concept-registration-mfa-sspr-combined>
 3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-identity-management#im-6-use-strong-authentication-controls>
-4. <https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-faq#password-reset-registration>
-5. <https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-sspr-deployment>
-6. <https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-authentication-methods>
+4. <https://learn.microsoft.com/en-us/entra/identity/authentication/passwords-faq#password-reset-registration>
+5. <https://support.microsoft.com/en-us/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e>
+6. <https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-methods>

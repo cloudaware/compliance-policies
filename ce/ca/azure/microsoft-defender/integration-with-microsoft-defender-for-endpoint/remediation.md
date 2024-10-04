@@ -4,11 +4,11 @@
 
 1. From Azure Home select the Portal Menu.
 2. Go to `Microsoft Defender for Cloud`.
-3. Select `Environment Settings` blade.
-4. Select the subscription.
-5. Select `Integrations`.
-6. Check `Allow Microsoft Defender for Endpoint to access my data`.
-7. Select `Save`.
+3. Under `Management`, select `Environment Settings`.
+4. Click on the subscription name.
+5. Click `Settings & monitoring`.
+6. Set the `Status` for `Endpoint protection` to `On`.
+7. Click `Continue`.
 
 ## From Azure CLI
 

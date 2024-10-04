@@ -1,5 +1,7 @@
 # Description
 
+**[IMPORTANT - Please read the section overview**: If your organization pays for Microsoft Entra ID licensing (included in Microsoft 365 E3, E5, or F5, and EM&S E3 or E5 licenses) and **CAN** use Conditional Access, ignore the recommendations in this section and proceed to the Conditional Access section.]
+
 Do not allow users to remember multi-factor authentication on devices.
 
 ## Rationale
@@ -16,9 +18,9 @@ For every login attempt, the user will be required to perform multi-factor authe
 
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Entra ID`.
-3. Select `Users`.
+3. Under `Manage`, click `Users`.
 4. Click the `Per-user MFA` button on the top bar.
-5. Click on `service settings`.
+5. Click on `Service settings`.
 6. Ensure that `Allow users to remember multi-factor authentication on devices they trust` is not enabled.
 
 ## Default Value

@@ -14,10 +14,10 @@ All allowed networks will need to be whitelisted on each specific network, creat
 
 ### From Azure Console
 
-1. Go to Storage Accounts.
-2. For each storage account, Click on the `Networking` blade.
+1. Go to `Storage Accounts`.
+2. For each storage account, under `Security + networking`, click `Networking`.
 3. Click the `Firewalls and virtual networks` heading.
-4. Ensure that Allow access from `All networks` is not selected.
+4. Ensure that `Public network access` is not set to `Enabled from all networks`.
 
 ### From Azure CLI
 

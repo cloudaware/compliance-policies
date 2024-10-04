@@ -10,8 +10,9 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-azure-v2.1.0/01/20
-  - /frameworks/cloudaware/identity-and-access-management/user-management
+  - "/frameworks/cis-azure-v2.1.0/01/20"
+  - "/frameworks/cis-azure-v3.0.0/02/21"
+  - "/frameworks/cloudaware/identity-and-access-management/user-management"
 similarPolicies:
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/users-can-create-office-365-groups.html

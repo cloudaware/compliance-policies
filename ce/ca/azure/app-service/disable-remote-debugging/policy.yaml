@@ -1,0 +1,20 @@
+---
+names:
+  full: Azure App Service Remote Debugging is not disabled
+  contextual: Remote Debugging is not disabled
+description: >
+  Remote Debugging allows Azure App Service to be debugged in real-time directly on the Azure 
+  environment. When remote debugging is enabled, it opens a communication channel that could 
+  potentially be exploited by unauthorized users if not properly secured.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v3.0.0/09/12"
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+similarPolicies:
+  internal:
+    - dec-x-bbfcf890
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/AppService/disable-remote-debugging.html
+      name: Disable Remote Debugging

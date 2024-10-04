@@ -1,0 +1,30 @@
+name: "PR.DS-01: The confidentiality, integrity, and availability of data-at-rest are protected"
+description: |-
+  1. Use encryption, digital signatures, and cryptographic hashes to protect the confidentiality 
+  and integrity of stored data in files, databases, virtual machine disk images, container images, 
+  and other resources
+  2. Use full disk encryption to protect data stored on user endpoints
+  3. Confirm the integrity of software by validating signatures
+  4. Restrict the use of removable media to prevent data exfiltration
+  5. Physically secure removable media containing unencrypted sensitive information, such as 
+  within locked offices or file cabinets
+similar:
+  sections:
+    - "/frameworks/nist-csf-v1.1/pr-ds/01"
+    - "/frameworks/nist-csf-v1.1/pr-ds/05"
+    - "/frameworks/nist-csf-v1.1/pr-ds/06"
+    - "/frameworks/nist-csf-v1.1/pr-pt/02"
+    - "/frameworks/nist-sp-800-53-r5/ca/03"
+    - "/frameworks/nist-sp-800-53-r5/cp/09"
+    - "/frameworks/nist-sp-800-53-r5/mp/08"
+    - "/frameworks/nist-sp-800-53-r5/sc/04"
+    - "/frameworks/nist-sp-800-53-r5/sc/07"
+    - "/frameworks/nist-sp-800-53-r5/sc/12"
+    - "/frameworks/nist-sp-800-53-r5/sc/13"
+    - "/frameworks/nist-sp-800-53-r5/sc/28"
+    - "/frameworks/nist-sp-800-53-r5/sc/32"
+    - "/frameworks/nist-sp-800-53-r5/sc/39"
+    - "/frameworks/nist-sp-800-53-r5/sc/43"
+    - "/frameworks/nist-sp-800-53-r5/si/03"
+    - "/frameworks/nist-sp-800-53-r5/si/04"
+    - "/frameworks/nist-sp-800-53-r5/si/07"

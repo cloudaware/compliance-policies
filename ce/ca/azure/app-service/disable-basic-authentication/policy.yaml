@@ -1,0 +1,22 @@
+---
+names:
+  full: Azure App Service Basic Authentication is enabled
+  contextual: Basic Authentication is enabled
+description: >
+  Basic Authentication provides the ability to create identities and authentication for 
+  an App Service without a centralized Identity Provider. For a more effective, capable, 
+  and secure solution for Identity, Authentication, Authorization, and Accountability, 
+  a centralized Identity Provider such as Entra ID is strongly advised.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v3.0.0/09/06"
+  - "/frameworks/cloudaware/resource-security/secure-access-controls"
+similarPolicies:
+  internal:
+    - dec-x-ca52f63a
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/AppService/enable-app-service-authentication.html
+      name: Enable App Service Authentication

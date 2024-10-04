@@ -1,0 +1,29 @@
+---
+name: "SI-3 Malicious Code Protection (L)(M)(H)"
+description: |-
+  a. Implement [FedRAMP Assignment: signature based and non-signature based] malicious
+  code protection mechanisms at system entry and exit points to detect and eradicate
+  malicious code;
+
+  b. Automatically update malicious code protection mechanisms as new releases are
+  available in accordance with organizational configuration management policy and
+  procedures;
+  
+  c. Configure malicious code protection mechanisms to:
+  
+    1. Perform periodic scans of the system [FedRAMP Assignment: at least weekly] and
+    real-time scans of files from external sources at [FedRAMP Assignment: to include
+    endpoints and network entry and exit points] as the files are downloaded, opened,
+    or executed in accordance with organizational policy; and
+    
+    2. [FedRAMP Assignment: to include blocking and quarantining malicious code] and
+    send alert to [FedRAMP Assignment; administrator or defined security personnel
+    near-realtime] in response to malicious code detection; and
+  
+  d. Address the receipt of false positives during malicious code detection and eradication
+  and the resulting potential impact on the availability of the system.
+similar:
+  internal:
+    - "dec-c-5793a535"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/si/03

@@ -14,8 +14,8 @@ There are additional costs per transaction to run and store network data. For hi
 
 ### From Azure Portal
 
-1. Go to `Network Watcher`.
-2. Ensure that a network watcher is listed for each region.
+1. Use the Search bar to search for and click on the `Network Watcher` service.
+2. From the Overview menu item, review each Network Watcher listed, and ensure that a network watcher is listed for each region in use by the subscription.
 
 ### From Azure CLI
 
@@ -58,8 +58,8 @@ Network Watcher is automatically enabled. When you create or update a virtual ne
 ## References
 
 1. <https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview>
-2. <https://docs.azure.cn/zh-cn/cli/network/watcher?view=azure-cli-latest#az_network_watcher_list>
-3. <https://docs.azure.cn/zh-cn/cli/network/watcher?view=azure-cli-latest#az_network_watcher_configure>
-4. <https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-create>
+2. <https://learn.microsoft.com/en-us/cli/azure/network/watcher?view=azure-cli-latest>
+3. <https://learn.microsoft.com/en-us/cli/azure/network/watcher?view=azure-cli-latest#az-network-watcher-configure>
+4. <https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-create>
 5. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-logging-threat-detection#lt-4-enable-network-logging-for-security-investigation>
 6. <https://azure.microsoft.com/en-ca/pricing/details/network-watcher/>

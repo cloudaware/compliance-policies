@@ -1,0 +1,16 @@
+---
+name: IA-5(8) Multiple System Accounts (H)
+description: |-
+  Implement [FedRAMP Assignment: different authenticators in different user authentication
+  domains] to manage the risk of compromise due to individuals having accounts on multiple
+  systems.
+
+  **IA-5 (8) Additional FedRAMP Requirements and Guidance:**
+  
+  **Guidance**: If a single user authentication domain is used to access multiple systems,
+  such as in single-sign-on, then only a single authenticator is required.
+similar:
+  internal:
+    - "dec-c-50092a72"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/ia/05/08

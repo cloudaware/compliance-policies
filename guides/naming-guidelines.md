@@ -124,8 +124,8 @@
     >**Description**: Ensure that ACM single domain name certificates are used instead of wildcard
     certificates within your AWS account to adhere to security best practices and enhance protection for
     each domain or subdomain with its unique private key. While wildcard certificates match any
-    first-level subdomain or hostname within a domain, such as *.cloudaware.com covering both
-    <www.cloudaware.com> and images.cloudaware.com, they present a broader attack surface.
+    first-level subdomain or hostname within a domain, such as `*.cloudaware.com` covering both
+    `www.cloudaware.com` and `images.cloudaware.com`, they present a broader attack surface.
 
 9. Enable AWS API Gateway REST API CloudWatch Logs
 

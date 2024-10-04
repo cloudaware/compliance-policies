@@ -1,0 +1,24 @@
+---
+name: "SC-28 Protection of Information at Rest (L)(M)(H)"
+description: |-
+  Protect the [FedRAMP Assignment: confidentiality AND integrity] of the following information at
+  rest: [Assignment: organization-defined information at rest].
+
+  **SC-28 Additional FedRAMP Requirements and Guidance:**
+  
+  **Guidance**: The organization supports the capability to use cryptographic mechanisms to
+  protect information at rest.
+  
+  **Guidance**: When leveraging encryption from underlying IaaS/PaaS: While some
+  IaaS/PaaS services provide encryption by default, many require encryption to be
+  configured, and enabled by the customer. The CSP has the responsibility to verify
+  encryption is properly configured.
+  
+  **Guidance**: Note that this enhancement requires the use of cryptography in accordance
+  with SC-13.
+similar:
+  internal:
+    - "dec-c-ae145ea2"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/sc/28
+    - "/frameworks/fedramp-high-security-controls/sc/28"

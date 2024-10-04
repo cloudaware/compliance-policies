@@ -1,6 +1,8 @@
 # Description
 
-**WARNING**: Role assignments disappear when a Key Vault has been deleted (soft-delete) and recovered. Afterwards it will be required to recreate all role assignments. This is a limitation of the soft-delete feature across all Azure services.
+The recommended way to access Key Vaults is to use the Azure Role-Based Access Control (RBAC) permissions model.
+
+Azure RBAC is an authorization system built on Azure Resource Manager that provides fine-grained access management of Azure resources. It allows users to manage Key, Secret, and Certificate permissions. It provides one place to manage all permissions across all key vaults.
 
 ## Rationale
 

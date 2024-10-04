@@ -51,7 +51,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "399",
-            "conditionText": "extract('CA10__flowLogsRetentionPolicyDays__c') < 90.0",
+            "conditionText": "extract('CA10__flowLogsRetentionPolicyDays__c') < number(90.0)",
             "runtimeError": null
         },
         "context": {

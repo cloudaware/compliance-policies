@@ -1,0 +1,9 @@
+---
+name: 4.7 Ensure disabling or scheduled deletion of customer created CMKs is monitored (Manual)
+description: |-
+  Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to
+  CloudWatch Logs or an external Security Information and Event Management (SIEM)
+  environment, and establishing corresponding metric filters and alarms.
+
+  It is recommended that a metric filter and alarm be established for customer-created
+  CMKs that have changed state to disabled or are scheduled for deletion.

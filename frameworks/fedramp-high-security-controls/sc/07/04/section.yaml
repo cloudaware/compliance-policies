@@ -1,0 +1,30 @@
+---
+name: "SC-7(4) External Telecommunications Services (M)(H)"
+description: |-
+  (a) Implement a managed interface for each external telecommunication service;
+
+  
+  (b) Establish a traffic flow policy for each managed interface;
+  
+  (c) Protect the confidentiality and integrity of the information being transmitted across
+  each interface;
+  
+  (d) Document each exception to the traffic flow policy with a supporting mission or
+  business need and duration of that need;
+  
+  (e) Review exceptions to the traffic flow policy [FedRAMP Assignment: at least every
+  one hundred and eighty (180) days or whenever there is a change in the threat
+  environment that warrants a review of the exceptions] and remove exceptions that
+  are no longer supported by an explicit mission or business need;
+  
+  (f) Prevent unauthorized exchange of control plane traffic with external networks;
+  
+  (g) Publish information to enable remote networks to detect unauthorized control
+  plane traffic from internal networks; and
+  
+  (h) Filter unauthorized control plane traffic from external networks.
+similar:
+  internal:
+    - "dec-c-daae8c98"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/sc/07/04

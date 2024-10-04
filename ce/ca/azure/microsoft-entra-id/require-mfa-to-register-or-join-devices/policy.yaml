@@ -11,8 +11,9 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-azure-v2.1.0/01/21
-  - /frameworks/cloudaware/identity-and-access-management/mfa-implementation
+  - "/frameworks/cis-azure-v2.1.0/01/21"
+  - "/frameworks/cis-azure-v3.0.0/02/22"
+  - "/frameworks/cloudaware/identity-and-access-management/mfa-implementation"
 similarPolicies:
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/require-multi-factor-auth-to-join-devices.html

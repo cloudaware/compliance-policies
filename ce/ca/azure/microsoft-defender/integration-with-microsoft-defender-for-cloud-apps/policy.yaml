@@ -6,13 +6,13 @@ names:
 description: This integration setting enables Microsoft Defender for Cloud Apps (formerly
   'Microsoft Cloud App Security' or 'MCAS' - see additional info) to communicate with
   Microsoft Defender for Cloud.
-impossible: true
 type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-azure-v2.1.0/02/01/20
-  - /frameworks/cloudaware/resource-security/microsoft-defender-configuration
+  - "/frameworks/cis-azure-v2.1.0/02/01/20"
+  - "/frameworks/cis-azure-v3.0.0/03/01/01/02"
+  - "/frameworks/cloudaware/resource-security/microsoft-defender-configuration"
 similarPolicies:
   internal:
     - dec-x-8a1ecfd0

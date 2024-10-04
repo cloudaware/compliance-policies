@@ -1,0 +1,18 @@
+---
+name: "SA-11(1) Static Code Analysis (M)(H)"
+description: |-
+  Require the developer of the system, system component, or system service to employ static
+  code analysis tools to identify common flaws and document the results of the analysis.
+  
+  **SA-11(1) Additional FedRAMP Requirements:**
+
+  **Requirement**: The service provider must document its methodology for reviewing newly
+  developed code for the Service in its Continuous Monitoring Plan.
+  
+  If Static code analysis cannot be performed (for example, when the source code is not
+  available), then dynamic code analysis must be performed (see SA-11 (8)).
+similar:
+  internal:
+    - "dec-c-8509c279"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/sa/11/01

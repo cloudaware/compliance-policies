@@ -8,14 +8,14 @@ const config = {
     favicon: 'img/favicon.ico',
     url: 'https://ce.prod.cloudaware.com',
     baseUrl: '/',
-    organizationName: 'Gigware', // Usually your GitHub org/user name.
-    projectName: 'compliance-platform-policies', // Usually your repo name.
+    organizationName: 'cloudaware',
+    projectName: 'compliance-policies',
     onBrokenLinks: 'warn',
     onBrokenMarkdownLinks: 'warn',
     markdown: {
         format: 'detect'
     },
-    trailingSlash: false, 
+    trailingSlash: true,
     i18n: {
         defaultLocale: 'en',
         locales: ['en'],
@@ -95,6 +95,12 @@ const config = {
                 theme: {
                     customCss: ['./src/css/custom.css'],
                 },
+                gtag: {
+                    trackingID: 'G-JSTVPVNRFQ'
+                },
+                googleTagManager: {
+                    containerId: 'GTM-PSB5TPCV',
+                },
             }),
         ],
     ],
@@ -107,8 +113,7 @@ const config = {
                     autoCollapseCategories: true,
                 },
             },
-            // Replace with your project's social card
-            image: 'img/docusaurus-social-card.jpg',
+            image: 'img/cloudaware-social-card.png',
             navbar: {
                 title: 'CA Compliance Policies',
                 logo: {
@@ -128,26 +133,8 @@ const config = {
                         position: 'left',
                         label: 'Guides',
                     },
-                    // {
-                    //     type: 'docSidebar',
-                    //     sidebarId: 'frameworksSidebar',
-                    //     position: 'left',
-                    //     label: 'Frameworks',
-                    // },
-                    // {
-                    //     type: 'docSidebar',
-                    //     sidebarId: 'typesSidebar',
-                    //     position: 'left',
-                    //     label: 'Types',
-                    // },
-                    // {
-                    //     type: 'docSidebar',
-                    //     sidebarId: 'listsSidebar',
-                    //     position: 'left',
-                    //     label: 'Lists',
-                    // },
                     {
-                        href: 'https://github.com/Gigware/compliance-platform-policies',
+                        href: 'https://github.com/cloudaware/compliance-policies',
                         label: 'GitHub',
                         position: 'right',
                     },

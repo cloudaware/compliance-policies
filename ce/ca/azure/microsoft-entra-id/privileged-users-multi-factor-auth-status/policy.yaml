@@ -11,8 +11,9 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-azure-v2.1.0/01/01/02
-  - /frameworks/cloudaware/identity-and-access-management/mfa-implementation
+  - "/frameworks/cis-azure-v2.1.0/01/01/02"
+  - "/frameworks/cis-azure-v3.0.0/02/01/02"
+  - "/frameworks/cloudaware/identity-and-access-management/mfa-implementation"
 similarPolicies:
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/multi-factor-authentication-for-all-privileged-users.html

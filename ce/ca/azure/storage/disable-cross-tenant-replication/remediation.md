@@ -2,10 +2,11 @@
 
 ## From Azure Portal
 
-1. Navigate to `Storage Accounts`.
-2. For each storage account, on the left blade under Data Management, click on `Object replication`.
-3. Click on Advanced settings and uncheck `Allow cross-tenant replication`.
-4. Click on `OK`.
+1. Go to `Storage Accounts`.
+2. For each storage account, under `Data management`, click `Object replication`.
+3. Click `Advanced settings`.
+4. Uncheck `Allow cross-tenant replication`.
+5. Click `OK`.
 
 ## From Azure CLI
 

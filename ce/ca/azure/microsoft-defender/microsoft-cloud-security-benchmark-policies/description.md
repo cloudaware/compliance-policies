@@ -16,11 +16,11 @@ Policies within the MCSB default to an effect of `Audit` and will evaluate - but
 
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Defender for Cloud`.
-3. Then `Environment Settings`.
+3. Under `Management`, select `Environment Settings`.
 4. Select the appropriate Subscription.
-5. Click on `Security Policy` in the left column.
-6. Click on `Microsoft Cloud Security Benchmark`.
-7. Click Add `Filter` and select `Effect`.
+5. Click on `Security policies` in the left column.
+6. Click on `Microsoft cloud security benchmark`.
+7. Click `Add Filter` and select `Effect`.
 8. Check the `Disabled` box to search for all disabled policies.
 9. Click `Apply`.
 

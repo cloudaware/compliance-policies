@@ -18,7 +18,7 @@ Microsoft Defender for Cloud Apps works with Standard pricing tier Subscription.
 
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Defender for Cloud`.
-3. Select `Environment Settings` blade.
+3. Under `Management`, select `Environment Settings`.
 4. Click on the subscription name.
 5. Select the `Integrations` blade.
 6. Ensure setting `Allow Microsoft Defender for Cloud Apps to access my data` is selected.

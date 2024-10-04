@@ -1,0 +1,43 @@
+---
+inputObject: CA10__CaAwsInstance__c
+testData:
+  - file: test-data.json
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: Test-1
+    condition:
+      UNIT_TEST:
+        id: Test-1
+        arg:
+          IS_EQUAL:
+            left:
+              NUMBER: 10
+            right:
+              NUMBER: 10.0
+  - status: COMPLIANT
+    currentStateMessage: Test-2
+    condition:
+      UNIT_TEST:
+        id: Test-2
+        arg:
+          NOT_EQUAL:
+            left:
+              NUMBER: 10.0
+            right:
+              NUMBER: 1.0
+  - status: COMPLIANT
+    currentStateMessage: Test-3
+    condition:
+      UNIT_TEST:
+        id: Test-3
+        arg:
+          NOT_EQUAL:
+            left:
+              NUMBER: 0
+            right:
+              UNIT_TEST_NULL:
+                returnType: NUMBER
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: Test Failed
+  remediationMessage: Developer Fix Required

@@ -16,9 +16,8 @@ A diagnostic setting controls how the diagnostic log is exported. Capturing the 
 2. Click `Activity log`.
 3. Click on `Export Activity Logs`.
 4. Select the appropriate `Subscription`.
-5. If there is no `Diagnostic Settings` listed, generate a finding.
-6. Otherwise, click on `Edit Settings`.
-7. Ensure that the following categories are checked: `Administrative`, `Alert`, `Policy`, and `Security`.
+5. Click Edit setting next to a diagnostic setting.
+6. Ensure that the following categories are checked: `Administrative`, `Alert`, `Policy`, and `Security`.
 
 ### From Azure CLI
 

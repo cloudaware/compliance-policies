@@ -8,7 +8,7 @@ Self-service group management enables users to create and manage security groups
 
 ## Impact
 
-Setting to Yes could create administrative overhead by customers seeking certain group memberships that will have to be manually managed by administrators with appropriate permissions.
+Setting to `Yes` could create administrative overhead by customers seeking certain group memberships that will have to be manually managed by administrators with appropriate permissions.
 
 ## Audit
 
@@ -16,9 +16,9 @@ Setting to Yes could create administrative overhead by customers seeking certain
 
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Entra ID`.
-3. Select `Groups`.
-4. Select `General` under `Settings`.
-5. Ensure that `Restrict user ability to access groups features in My Groups` is set to `Yes`.
+3. Under `Manage`, select `Groups`.
+4. Under `Settings`, select `General`.
+5. Under `Self Service Group Management`, ensure that `Restrict user ability to access groups features in My Groups` is set to `Yes`.
 
 ## Default Value
 
@@ -26,7 +26,7 @@ By default, `Restrict user ability to access groups features in the Access Pane`
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/active-directory/active-directory-accessmanagement-self-service-group-management>
+1. <https://learn.microsoft.com/en-us/entra/identity/users/groups-self-service-management>
 2. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-privileged-access#pa-1-separate-and-limit-highly-privilegedadministrative-users>
 3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-privileged-access#pa-3-manage-lifecycle-of-identities-and-entitlements>
 4. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-governance-strategy#gs-2-define-and-implement-enterprise-segmentationseparation-of-duties-strategy>

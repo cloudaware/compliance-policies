@@ -1,0 +1,15 @@
+---
+name: "IA-2(2) Multi-factor Authentication to Non-privileged Accounts (L)(M)(H)"
+description: |-
+  Implement multi-factor authentication for access to non-privileged accounts.
+
+  **IA-2 (2) Additional FedRAMP Requirements and Guidance:**
+  
+  **Guidance**: Multi-factor authentication to subsequent components in the same user
+  domain is not required.
+similar:
+  internal:
+    - "dec-c-1521a791"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/ia/02/02
+    - "/frameworks/fedramp-high-security-controls/ia/02/02"

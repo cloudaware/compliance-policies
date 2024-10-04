@@ -25,8 +25,8 @@ This will create administrative overhead with user account and permission manage
 ### From Azure Portal
 
 1. Go to `SQL servers`.
-2. For each SQL server, click on `Microsoft Entra admin` under the Settings section.
-3. Ensure that a value has been set for `Admin Name` under the `Microsoft Entra admin` section.
+2. For each SQL server, under `Settings`, click `Microsoft Entra ID`.
+3. Under `Microsoft Entra admin`, ensure a value has been set for `Admin Name`.
 
 ### From Azure CLI
 

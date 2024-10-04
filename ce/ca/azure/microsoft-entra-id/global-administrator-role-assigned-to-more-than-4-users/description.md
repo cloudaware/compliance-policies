@@ -16,8 +16,8 @@ Implementing this recommendation may require changes in administrative workflows
 
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Entra ID`.
-3. Select `Roles and Administrators`.
-4. Select `Global Administrator`.
+3. Under `Manage`, select `Roles and administrators`.
+4. Under `Administrative Roles`, select `Global Administrator`.
 5. Ensure less than 5 users are actively assigned the role.
 6. Ensure that at least 2 users are actively assigned the role.
 

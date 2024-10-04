@@ -16,11 +16,11 @@ Additional storage costs may be incurred as snapshots are retained.
 
 ### From Azure Portal
 
-1. From the Azure home page, open the hamburger menu in the top left or click on the arrow pointing right with `More services` underneath.
-2. Select `Storage`.
-3. Select `Storage Accounts`.
-4. For each Storage Account, navigate to `Data protection` in the left scroll column.
-5. Ensure that `soft delete` is checked for both blobs and containers. Also check if the `retention period` is a sufficient length for your organization.
+1. Go to `Storage Accounts`.
+2. For each Storage Account, under `Data management`, go to `Data protection`.
+3. Ensure that `Enable soft delete for blobs` is checked.
+4. Ensure that `Enable soft delete for containers` is checked.
+5. Ensure that the retention period for both is a sufficient length for your organization.
 
 ### From Azure CLI
 
@@ -33,18 +33,12 @@ az storage blob service-properties delete-policy show --account-name <StorageAcc
 Azure Containers: Make certain that the --enable-container-delete-retention is `true`:
 
 ```sh
-az storage account blob-service-properties show --account-name <StorageAccountName> --account-key <accountkey> --resource-group <resource_group>
+az storage account blob-service-properties show --account-name <StorageAccountName> --resource-group <resourceGroup>
 ```
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [ea39f60f-9f00-473c-8604-be5eac4bb088](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea39f60f-9f00-473c-8604-be5eac4bb088) - **Name**: `Configure blob soft delete on a storage account`
 
 ## Default Value
 
-When a new storage account is created, soft delete for containers and blob storage is by default `disabled`.
+Soft delete for containers and blob storage is **enabled** by default on storage accounts created via the Azure Portal, and **disabled** by default on storage accounts created via Azure CLI or PowerShell.
 
 ## References
 

@@ -1,0 +1,16 @@
+---
+name: "AU-9(3) Cryptographic Protection (H)"
+description: |-
+  Implement cryptographic mechanisms to protect the integrity of audit information and audit
+  tools.
+
+  **AU-9 (3) Additional FedRAMP Requirements and Guidance:**
+  
+  **Guidance**: Note that this enhancement requires the use of cryptography which must be
+  compliant with Federal requirements and utilize FIPS validated or NSA approved
+  cryptography (see SC-13.)
+similar:
+  internal:
+    - "dec-c-19c963e1"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/au/09/03

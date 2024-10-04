@@ -38,18 +38,29 @@ Resources | where sku contains 'Basic' or sku contains 'consumption' | order by 
 ```
 
 4. Click `Run query` then evaluate the results in the results window.
+5. Ensure that no production artifacts are returned.
 
 ### From Azure CLI
 
 ```sh
-az graph query -q "Resources | sku contains 'Basic' or sku contains 'consumption' | order by type"
+az graph query -q "Resources | where sku contains 'Basic' or sku contains 'consumption' | order by type"
 ```
+
+Alternatively, to filter on a specific resource group: 
+
+```sh
+az graph query -q "Resources | where resourceGroup == '<resourceGroupName>' | where sku contains 'Basic' or sku contains 'consumption' | order by type"
+```
+
+Ensure that no production artifacts are returned.
 
 ### From PowerShell
 
 ```ps
 Get-AzResource | ?{ $_.Sku -EQ "Basic"}
 ```
+
+Ensure that no production artifacts are returned.
 
 ## Default Value
 

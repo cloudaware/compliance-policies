@@ -12,7 +12,7 @@ Enabling security alert emails ensures that security alert emails are received f
 
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Defender for Cloud`.
-3. Click on `Environment Settings`.
+3. Under `Management`, select `Environment Settings`.
 4. Click on the appropriate Management Group, Subscription, or Workspace.
 5. Click on `Email notifications`.
 6. Ensure that the `Notify about alerts with the following severity (or higher)` setting is checked and set to `High`.

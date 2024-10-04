@@ -1,0 +1,16 @@
+---
+name: "IA-5(7) No Embedded Unencrypted Static Authenticators (M)(H)"
+description: |-
+  Ensure that unencrypted static authenticators are not embedded in applications or other forms
+  of static storage.
+
+  **IA-5 (7) Additional FedRAMP Requirements and Guidance:**
+  
+  **Guidance**: In this context, prohibited static storage refers to any storage where
+  unencrypted authenticators, such as passwords, persist beyond the time required to
+  complete the access process.
+similar:
+  internal:
+    - "dec-c-eff1651d"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/ia/05/07

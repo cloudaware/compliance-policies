@@ -4,13 +4,11 @@
 
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Entra ID` blade.
-3. Select `Users`.
-4. Take note of all users with the role `Service Co-Administrators`, `Owners` or `Contributors`.
-5. Click on the `Per-User MFA` button in the top row menu.
-6. Check the box next to each noted user.
-7. Click `Enable` under quick steps in the right-hand panel.
-8. Click `enable multi-factor auth`.
-9. Click `close`.
+3. Under `Manage`, click `Users`.
+4. Click on the `Per-User MFA` button in the top row menu.
+5. Check the box next to each user.
+6. Click `Enable MFA`.
+7. Click `Enable`.
 
 ## Other Options within Azure Portal
 

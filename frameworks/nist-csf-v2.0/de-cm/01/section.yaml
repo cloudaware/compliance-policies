@@ -1,0 +1,20 @@
+name: "DE.CM-01: Networks and network services are monitored to find potentially adverse events"
+description: |-
+  1. Monitor DNS, BGP, and other network services for adverse events
+  2. Monitor wired and wireless networks for connections from unauthorized endpoints
+  3. Monitor facilities for unauthorized or rogue wireless networks
+  4. Compare actual network flows against baselines to detect deviations
+  5. Monitor network communications to identify changes in security postures for zero trust purposes
+similar:
+  sections:
+    - "/frameworks/nist-csf-v1.1/de-cm/01"
+    - "/frameworks/nist-csf-v1.1/de-cm/04"
+    - "/frameworks/nist-csf-v1.1/de-cm/05"
+    - "/frameworks/nist-csf-v1.1/de-cm/07"
+    - "/frameworks/nist-sp-800-53-r5/ac/02"
+    - "/frameworks/nist-sp-800-53-r5/au/12"
+    - "/frameworks/nist-sp-800-53-r5/ca/07"
+    - "/frameworks/nist-sp-800-53-r5/cm/03"
+    - "/frameworks/nist-sp-800-53-r5/sc/05"
+    - "/frameworks/nist-sp-800-53-r5/sc/07"
+    - "/frameworks/nist-sp-800-53-r5/si/04"

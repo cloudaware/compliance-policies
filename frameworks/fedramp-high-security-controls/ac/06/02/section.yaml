@@ -1,0 +1,17 @@
+---
+name: AC-6(2) Non-privileged Access for Nonsecurity Functions (M)(H)
+description: >
+  Require that users of system accounts (or roles) with access to [FedRAMP Assignment: all
+  security functions] use non-privileged accounts or roles, when accessing nonsecurity functions.
+
+  **AC-6 (2) Additional FedRAMP Requirements and Guidance:**
+
+  **Guidance**: Examples of security functions include but are not limited to: establishing
+  system accounts, configuring access authorizations (i.e., permissions, privileges), setting
+  events to be audited, and setting intrusion detection parameters, system programming,
+  system and security administration, other privileged functions.
+similar:
+  internal:
+    - dec-c-9da6a6b7
+  sections:
+    - "/frameworks/nist-sp-800-53-r5/ac/06/02"

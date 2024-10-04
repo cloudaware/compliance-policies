@@ -1,0 +1,32 @@
+---
+name: AC-20 Use of External Systems (L)(M)(H)
+description: |-
+  a. [Selection (one-or-more): Establish [Assignment: organization-defined terms and
+  conditions]; Identify [Assignment: organization-defined controls asserted to be
+  implemented on external systems]], consistent with the trust relationships established
+  with other organizations owning, operating, and/or maintaining external systems,
+  allowing authorized individuals to:
+
+    1. Access the system from external systems; and
+    2. Process, store, or transmit organization-controlled information using external
+    systems; or
+
+  b. Prohibit the use of [Assignment: organizationally-defined types of external systems].
+
+  **AC-20 Additional FedRAMP Requirements and Guidance:**
+  
+  **Guidance**: The interrelated controls of AC-20, CA-3, and SA-9 should be differentiated
+  as follows:
+
+  - AC-20 describes system access to and from external systems.
+
+  - CA-3 describes documentation of an agreement between the respective system owners
+  when data is exchanged between the CSO and an external system.
+
+  - SA-9 describes the responsibilities of external system owners. These responsibilities
+  would typically be captured in the agreement required by CA-3.
+similar:
+  internal:
+    - dec-c-82436250
+  sections:
+    - "/frameworks/fedramp-high-security-controls/ac/20"

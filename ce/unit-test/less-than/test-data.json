@@ -1,0 +1,170 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "unitTest(Simple-1): number(0.0) < number(1.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Simple-1",
+    "Name": "Simple-1",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "unitTest(Simple-2): not(number(1.0) < number(0.0))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Simple-2",
+    "Name": "Simple-2",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "unitTest(Simple-3): not(number(1.0) < number(1.0))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Simple-3",
+    "Name": "Simple-3",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "unitTest(Simple-4): number(1.0) < number(1.0000000001)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Simple-4",
+    "Name": "Simple-4",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "599",
+      "conditionText": "unitTest(Precision-1): number(1.111111111222223E9) < number(1.111111111222224E9)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Precision-1",
+    "Name": "Precision-1",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "699",
+      "conditionText": "unitTest(Precision-2): number(1.1111111112222233E9) < number(1.1111111112222235E9)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Precision-2",
+    "Name": "Precision-2",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "799",
+      "conditionText": "unitTest(Precision-3): not(number(1.1111111112222235E9) < number(1.1111111112222235E9))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Precision-3",
+    "Name": "Precision-3",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "899",
+      "conditionText": "unitTest(Null-1): not(null < null)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Null-1",
+    "Name": "Null-1",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "999",
+      "conditionText": "unitTest(Null-2): not(number(-1.0) < null)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Null-2",
+    "Name": "Null-2",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "1099",
+      "conditionText": "unitTest(Null-3): not(number(1.0) < null)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Null-3",
+    "Name": "Null-3",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "1199",
+      "conditionText": "unitTest(Null-4): not(null < number(-1.0))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Null-4",
+    "Name": "Null-4",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "1299",
+      "conditionText": "unitTest(Null-5): not(null < number(1.0))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Null-5",
+    "Name": "Null-5",
+    "CA10__disappearanceTime__c": null
+  }
+]

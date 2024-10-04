@@ -17,8 +17,8 @@ When it is enabled, every incoming HTTP request is redirected to the HTTPS port.
 1. Login to Azure Portal using <https://portal.azure.com>.
 2. Go to `App Services`.
 3. Click on each App.
-4. Click on `configuration`.
-5. Ensure that the `HTTPS Only` setting is toggled to `On`.
+4. Under `Setting` section, click on `Configuration`.
+5. Under the `General Settings` tab, ensure that `HTTPS Only` is set to `On` under `Platform Settings`.
 
 ### From Azure CLI
 
@@ -52,6 +52,7 @@ By default, HTTPS-only feature will be disabled when a new app is created using 
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-custom-ssl#enforce-https>
-2. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-data-protection#dp-3-encrypt-sensitive-data-in-transit>
-3. <https://docs.microsoft.com/en-us/powershell/module/az.websites/set-azwebapp?view=azps-8.1.0>
+1. <https://learn.microsoft.com/en-us/azure/app-service/overview-security?source=recommendations#https-and-certificates>
+2. <https://docs.microsoft.com/en-us/security/benchmark/azure/security-controls-v3-data-protection#dp-3-encrypt-sensitive-data-in-transit>
+3. <https://learn.microsoft.com/en-us/powershell/module/az.websites/set-azwebapp>
+4. <https://techcommunity.microsoft.com/t5/azure-paas-blog/enable-https-setting-on-azure-app-service-using-azure-policy/ba-p/3286603>

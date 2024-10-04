@@ -5,13 +5,13 @@ names:
   contextual: Guest Invite Settings is not set to Only Users Assigned To Specific
     Admin Roles Can Invite Guest Users
 description: Restrict invitations to users with specific administrative roles only.
-impossible: true
 type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-azure-v2.1.0/01/15
-  - /frameworks/cloudaware/identity-and-access-management/user-management
+  - "/frameworks/cis-azure-v2.1.0/01/15"
+  - "/frameworks/cis-azure-v3.0.0/02/16"
+  - "/frameworks/cloudaware/identity-and-access-management/user-management"
 similarPolicies:
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/guests-can-invite.html

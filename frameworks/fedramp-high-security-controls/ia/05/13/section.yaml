@@ -1,0 +1,14 @@
+---
+name: "IA-5(13) Expiration of Cached Authenticators (H)"
+description: |-
+  Prohibit the use of cached authenticators after [Assignment: organization-defined time period].
+  
+  **IA-5 (13) Additional FedRAMP Requirements and Guidance:**
+
+  **Guidance**: For components subject to configuration baseline(s) (such as STIG or CIS,)
+  the time period should conform to the baseline standard.
+similar:
+  internal:
+    - "dec-c-26c2055d"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/ia/05/13

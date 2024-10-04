@@ -1,0 +1,16 @@
+---
+names:
+  full: Microsoft Entra ID Device Code Authentication Flow is not restricted
+  contextual: Device Code Authentication Flow is not restricted
+description: >
+  Conditional Access Policies can be used to prevent the Device code authentication flow. 
+  Device code flow should be permitted only for users that regularly perform duties that 
+  explicitly require the use of Device Code to authenticate, such as utilizing Azure with 
+  PowerShell.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v3.0.0/02/02/03"
+  - "/frameworks/cloudaware/identity-and-access-management/general-access-controls"

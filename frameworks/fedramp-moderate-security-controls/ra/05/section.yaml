@@ -1,0 +1,76 @@
+---
+name: "RA-5 Vulnerability Monitoring and Scanning (L)(M)(H)"
+description: |-
+  a. Monitor and scan for vulnerabilities in the system and hosted applications [FedRAMP
+  Assignment: monthly operating system/infrastructure; monthly web applications
+  (including APIs) and databases] and when new vulnerabilities potentially affecting the
+  system are identified and reported;
+
+  b. Employ vulnerability monitoring tools and techniques that facilitate interoperability among
+  tools and automate parts of the vulnerability management process by using standards
+  for:
+  
+    1. Enumerating platforms, software flaws, and improper configurations;
+    
+    2. Formatting checklists and test procedures; and
+    
+    3. Measuring vulnerability impact;
+  
+  c. Analyze vulnerability scan reports and results from vulnerability monitoring;
+  
+  d. Remediate legitimate vulnerabilities [FedRAMP Assignment: high-risk vulnerabilities
+  mitigated within thirty (30) days from date of discovery; moderate-risk vulnerabilities
+  mitigated within ninety (90) days from date of discovery; low risk vulnerabilities mitigated
+  within one hundred and eighty (180) days from date of discovery] in accordance with an
+  organizational assessment of risk;
+  
+  e. Share information obtained from the vulnerability monitoring process and control
+  assessments with [Assignment: organization-defined personnel or roles] to help
+  eliminate similar vulnerabilities in other systems; and
+  
+  f. Employ vulnerability monitoring tools that include the capability to readily update the
+  vulnerabilities to be scanned.
+  
+  **RA-5 Additional FedRAMP Requirements and Guidance:**
+  
+  **Guidance**: See the FedRAMP Documents page > Vulnerability Scanning Requirements
+  <https://www.FedRAMP.gov/documents/>
+
+  **Guidance**: Informational findings from a scanner are detailed as a returned result that
+  holds no vulnerability risk or severity and for FedRAMP does not require an entry onto
+  the POA&M or entry onto the RET during any assessment phase.
+
+  Warning findings, on the other hand, are given a risk rating (low, moderate, high or
+  critical) by the scanning solution and should be treated like any other finding with a risk
+  or severity rating for tracking purposes onto either the POA&M or RET depending on
+  when the findings originated (during assessments or during monthly continuous
+  monitoring). If a warning is received during scanning, but further validation turns up no
+  actual issue then this item should be categorized as a false positive. If this situation
+  presents itself during an assessment phase (initial assessment, annual assessment or
+  any SCR), follow guidance on how to report false positives in the Security Assessment
+  Report (SAR). If this situation happens during monthly continuous monitoring, a
+  deviation request will need to be submitted per the FedRAMP Vulnerability Deviation
+  Request Form.
+  
+  Warnings are commonly associated with scanning solutions that also perform
+  compliance scans, and if the scanner reports a “warning” as part of the compliance
+  scanning of a CSO, follow guidance surrounding the tracking of compliance findings
+  during either the assessment phases (initial assessment, annual assessment or any
+  SCR) or monthly continuous monitoring as it applies. Guidance on compliance scan
+  findings can be found by searching on “Tracking of Compliance Scans” in FAQs.
+  
+  **(a) Requirement**: an accredited independent assessor scans operating
+  systems/infrastructure, web applications, and databases once annually.
+  
+  **(d) Requirement**: If a vulnerability is listed among the CISA Known Exploited
+  Vulnerability (KEV) Catalog
+  (<https://www.cisa.gov/known-exploited-vulnerabilities-catalog>) the KEV remediation date
+  supersedes the FedRAMP parameter requirement.
+  
+  **(e) Requirement**: to include all Authorizing Officials; for JAB authorizations to include
+  FedRAMP.
+similar:
+  internal:
+    - "dec-c-2ec566cd"
+  sections:
+    - /frameworks/fedramp-high-security-controls/ra/05

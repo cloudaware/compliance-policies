@@ -1,0 +1,18 @@
+---
+name: "SA-4(5) System, Component, and Service Configurations (H)"
+description: |-
+  Require the developer of the system, system component, or system service to:
+
+  (a) Deliver the system, component, or service with [FedRAMP Assignment: The
+  service provider shall use the DoD STIGs to establish configuration settings;
+  Center for Internet Security up to Level 2 (CIS Level 2) guidelines shall be used if
+  STIGs are not available; Custom baselines shall be used if CIS is not available.]
+  implemented; and
+  
+  (b) Use the configurations as the default for any subsequent system, component, or
+  service reinstallation or upgrade.
+similar:
+  internal:
+    - "dec-c-63fb999a"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/sa/04/05

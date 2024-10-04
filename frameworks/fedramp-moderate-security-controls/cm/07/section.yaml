@@ -1,0 +1,21 @@
+---
+name: CM-7 Least Functionality (L)(M)(H)
+description: |-
+  a. Configure the system to provide only [Assignment: organization-defined mission
+  essential capabilities]; and
+
+  b. Prohibit or restrict the use of the following functions, ports, protocols, software, and/or
+  services: [Assignment: organization-defined prohibited or restricted functions, system
+  ports, protocols, software, and/or services].
+
+  **CM-7 Additional FedRAMP Requirements and Guidance:**
+  
+  **(b) Requirement**: The service provider shall use Security guidelines (See CM-6) to
+  establish list of prohibited or restricted functions, ports, protocols, and/or services or
+  establishes its own list of prohibited or restricted functions, ports, protocols, and/or
+  services if STIGs or CIS is not available.
+similar:
+  internal:
+    - "dec-c-ff33d573"
+  sections:
+    - /frameworks/fedramp-high-security-controls/cm/07

@@ -1,0 +1,101 @@
+---
+inputObject: CA10__CaAwsInstance__c
+testData:
+  - file: test-data.json
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: Test-1
+    condition:
+      UNIT_TEST:
+        id: Test-1
+        arg:
+          IS_EMPTY:
+            arg:
+              COLLECTION_FROM:
+                arg:
+                  TEXT: ""
+                separator: ","
+  - status: COMPLIANT
+    currentStateMessage: Test-2
+    condition:
+      UNIT_TEST:
+        id: Test-2
+        arg:
+          IS_EQUAL:
+            left:
+              COLLECTION_FROM:
+                arg:
+                  TEXT: "a,a"
+                separator: ","
+            right:
+              COLLECTION:
+                items:
+                  - a
+  - status: COMPLIANT
+    currentStateMessage: Test-3
+    condition:
+      UNIT_TEST:
+        id: Test-3
+        arg:
+          IS_EQUAL:
+            left:
+              COLLECTION_FROM:
+                arg:
+                  TEXT: "a,b"
+                separator: ","
+            right:
+              COLLECTION:
+                items:
+                  - a
+                  - b
+  - status: COMPLIANT
+    currentStateMessage: Test-4
+    condition:
+      UNIT_TEST:
+        id: Test-4
+        arg:
+          IS_EQUAL:
+            left:
+              COLLECTION_FROM:
+                arg:
+                  TEXT: "A\n, a "
+                separator: ","
+            right:
+              COLLECTION:
+                items:
+                  - a
+  - status: COMPLIANT
+    currentStateMessage: Test-5
+    condition:
+      UNIT_TEST:
+        id: Test-5
+        arg:
+          IS_EQUAL:
+            left:
+              COLLECTION_FROM:
+                arg:
+                  TEXT: "\nline1\nline2\nline3\n"
+                separator: "\n"
+            right:
+              COLLECTION:
+                items:
+                  - line1
+                  - line2
+                  - line3
+  - status: COMPLIANT
+    currentStateMessage: Test-6
+    condition:
+      UNIT_TEST:
+        id: Test-6
+        arg:
+          COLLECTION_CONTAINS:
+            arg:
+              COLLECTION:
+                items:
+                  - " ABC "
+            search:
+              TEXT: "   abc\n\t"
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: Test Failed
+  remediationMessage: Developer Fix Required

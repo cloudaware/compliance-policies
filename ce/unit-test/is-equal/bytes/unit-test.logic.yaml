@@ -1,0 +1,76 @@
+---
+inputObject: CA10__CaAwsInstance__c
+testData:
+  - file: test-data.json
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: Test-1
+    condition:
+      UNIT_TEST:
+        id: Test-1
+        arg:
+          IS_EQUAL:
+            left:
+              BYTES: "abc"
+            right:
+              BYTES: "abc"
+  - status: COMPLIANT
+    currentStateMessage: Test-2
+    condition:
+      UNIT_TEST:
+        id: Test-2
+        arg:
+          NOT_EQUAL:
+            left:
+              BYTES: "a b c"
+            right:
+              BYTES: " a   b  c "
+  - status: COMPLIANT
+    currentStateMessage: Test-3
+    condition:
+      UNIT_TEST:
+        id: Test-3
+        arg:
+          NOT_EQUAL:
+            left:
+              BYTES: "ABC"
+            right:
+              BYTES: "abc"
+  - status: COMPLIANT
+    currentStateMessage: Test-4
+    condition:
+      UNIT_TEST:
+        id: Test-4
+        arg:
+          IS_EQUAL:
+            left:
+              BYTES: ""
+            right:
+              UNIT_TEST_NULL:
+                returnType: BYTES
+  - status: COMPLIANT
+    currentStateMessage: Test-5
+    condition:
+      UNIT_TEST:
+        id: Test-5
+        arg:
+          NOT_EQUAL:
+            left:
+              BYTES: ""
+            right:
+              BYTES: "\n\r\t"
+  - status: COMPLIANT
+    currentStateMessage: Test-6
+    condition:
+      UNIT_TEST:
+        id: Test-6
+        arg:
+          NOT_EQUAL:
+            left:
+              BYTES: "a b c"
+            right:
+              BYTES: "  A\n B \r C \t"
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: Test Failed
+  remediationMessage: Developer Fix Required

@@ -15,11 +15,11 @@ Enabling Microsoft Defender for Azure Cosmos DB requires enabling Microsoft Defe
 ### From Azure Portal
 
 1. Go to `Microsoft Defender for Cloud`.
-2. Select `Environment Settings` blade.
+2. Under `Management`, select `Environment Settings`.
 3. Click on the subscription name.
 4. Select the `Defender plans` blade.
 5. On the `Database` row click on `Select types >`.
-6. Ensure the radio button next to `Azure Cosmos DB` is set to `On`.
+6. Ensure the toggle switch next to `Azure Cosmos DB` is set to `On`.
 
 ### From Azure CLI
 

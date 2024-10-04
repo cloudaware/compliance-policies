@@ -1,0 +1,14 @@
+---
+name: "SC-5 Denial-of-service Protection (L)(M)(H)"
+description: |-
+  a. [FedRAMP Assignment: Protect against] the effects of the following types of
+  denial-of-service events: [FedRAMP Assignment: at a minimum: ICMP (ping) flood, SYN
+  flood, slowloris, buffer overflow attack, and volume attack] and;
+  
+  b. Employ the following controls to achieve the denial-of-service objective: [Assignment:
+  organization-defined controls by type of denial-of-service event].
+similar:
+  internal:
+    - "dec-c-ea48656f"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/sc/05

@@ -1,0 +1,21 @@
+---
+names:
+  full: Azure MySQL Flexible Server TLS Version is not set to TLS 1.2
+  contextual: Flexible Server TLS Version is not set to TLS 1.2
+description: TLS connectivity helps to provide a new layer of security by connecting
+  database server to client applications using Transport Layer Security (TLS). Enforcing
+  TLS connections between database server and client applications helps protect
+  against 'man in the middle' attacks by encrypting the data stream between the
+  server and application.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v3.0.0/05/03/02"
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+similarPolicies:
+  internal:
+    - dec-x-aeac09d6
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/MySQL/mysql-flexible-server-tls-version.html
+      name: Configure TLS Version for MySQL Flexible Database Servers

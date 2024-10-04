@@ -11,8 +11,9 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-azure-v2.1.0/07/01
-  - /frameworks/cloudaware/resource-security/secure-access-controls
+  - "/frameworks/cis-azure-v2.1.0/07/01"
+  - "/frameworks/cis-azure-v3.0.0/08/01"
+  - "/frameworks/cloudaware/resource-security/secure-access-controls"
 similarPolicies:
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/Network/bastion-host-exists.html

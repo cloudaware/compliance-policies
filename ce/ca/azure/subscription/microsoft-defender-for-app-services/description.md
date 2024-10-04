@@ -15,7 +15,7 @@ Turning on Microsoft Defender for App Service incurs an additional cost per reso
 ### From Azure Portal
 
 1. Go to `Microsoft Defender for Cloud`.
-2. Select `Environment Settings`.
+2. Under `Management`, select `Environment Settings`.
 3. Click on the subscription name.
 4. Select `Defender plans`.
 5. Ensure Status is `On` for `App Service`.

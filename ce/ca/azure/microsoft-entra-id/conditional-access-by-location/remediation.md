@@ -22,6 +22,8 @@
 10. Set `Enable policy` to `Report-only`.
 11. Click `Create`.
 
+Allow some time to pass to ensure the sign-in logs capture relevant conditional access events. These events will need to be reviewed to determine if additional considerations are necessary for your organization (e.g. legitimate locations are being blocked and investigation is needed for exception).
+
 **NOTE**: The policy is not yet 'live,' since `Report-only` is being used to audit the effect of the policy.
 
 ### Part 2 of 2 - Confirm that the policy is not blocking access that should be granted, then toggle to `On`
@@ -37,7 +39,7 @@
 
 ## From PowerShell
 
-First, set up the conditions objects values before updating an existing conditional access policy or before creating a new one. You may need to use additional PowerShell cmdlets to retrieve specific IDs such as the `Get-AzureADMSNamedLocationPolicy` which outputs the `Location IDs` for use with conditional access policies:
+First, set up the conditions objects values before updating an existing conditional access policy or before creating a new one. You may need to use additional PowerShell cmdlets to retrieve specific IDs such as the `Get-MgIdentityConditionalAccessNamedLocation` which outputs the `Location IDs` for use with conditional access policies:
 
 ```ps
 $conditions = New-Object -TypeName Microsoft.Open.MSGraph.Model.ConditionalAccessConditionSet $conditions.Applications = New-Object -TypeName Microsoft.Open.MSGraph.Model.ConditionalAccessApplicationCondition $conditions.Applications.IncludeApplications = <"All" | "Office365" | "app ID" | @("app ID 1", "app ID 2", etc...)> $conditions.Applications.ExcludeApplications = <"Office365" | "app ID" | @("app ID 1", "app ID 2", etc...)> $conditions.Users = New-Object -TypeName Microsoft.Open.MSGraph.Model.ConditionalAccessUserCondition $conditions.Users.IncludeUsers = <"All" | "None" | "GuestsOrExternalUsers" | "Specific User ID" | @("User ID 1", "User ID 2", etc.)> $conditions.Users.ExcludeUsers = <"GuestsOrExternalUsers" | "Specific User ID" | @("User ID 1", "User ID 2", etc.)> $conditions.Users.IncludeGroups = <"group ID" | "All" | @("Group ID 1", "Group ID 2", etc...)> $conditions.Users.ExcludeGroups = <"group ID" | @("Group ID 1", "Group ID 2", etc...)> $conditions.Users.IncludeRoles = <"Role ID" | "All" | @("Role ID 1", "Role ID 2", etc...)> $conditions.Users.ExcludeRoles = <"Role ID" | @("Role ID 1", "Role ID 2", etc...)> $conditions.Locations = New-Object -TypeName Microsoft.Open.MSGraph.Model.ConditionalAccessLocationCondition $conditions.Locations.IncludeLocations = <"Location ID" | @("Location ID 1", "Location ID 2", etc...) > $conditions.Locations.ExcludeLocations = <"AllTrusted" | "Location ID" | @("Location ID 1", "Location ID 2", etc...)> $controls = New-Object -TypeName Microsoft.Open.MSGraph.Model.ConditionalAccessGrantControls $controls._Operator = "OR" $controls.BuiltInControls = "block"
@@ -46,11 +48,11 @@ $conditions = New-Object -TypeName Microsoft.Open.MSGraph.Model.ConditionalAcces
 Next, update the existing conditional access policy with the condition set options configured with the previous commands:
 
 ```ps
-Set-AzureADMSConditionalAccessPolicy -PolicyId <policy ID> -Conditions $conditions -GrantControls $controls
+Update-MgIdentityConditionalAccessPolicy -PolicyId <policy ID> -Conditions $conditions -GrantControls $controls
 ```
 
 To create a new conditional access policy that complies with this best practice, run the following commands after creating the condition set above:
 
 ```ps
-New-AzureADMSConditionalAccessPolicy -Name "Policy Name" -State <enabled|disabled> -Conditions $conditions -GrantControls $controls
+New-MgIdentityConditionalAccessPolicy -Name "Policy Name" -State <enabled|disabled> -Conditions $conditions -GrantControls $controls
 ```

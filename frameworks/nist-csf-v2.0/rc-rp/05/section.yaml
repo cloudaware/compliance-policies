@@ -1,0 +1,10 @@
+name: "RC.RP-05: The integrity of restored assets is verified, systems and services are restored, 
+  and normal operating status is confirmed"
+description: |-
+  1. Check restored assets for indicators of compromise and remediation of root causes of the 
+  incident before production use
+  2. Verify the correctness and adequacy of the restoration actions taken before putting a 
+  restored system online
+similar:
+  sections:
+    - "/frameworks/nist-sp-800-53-r5/cp/10"

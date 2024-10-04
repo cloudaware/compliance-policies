@@ -1,0 +1,7 @@
+---
+name: 2.2.3 Ensure that RDS instances are not publicly accessible (Automated)
+description: >
+  Ensure and verify that the RDS database instances provisioned in your AWS account
+  restrict unauthorized access in order to minimize security risks. To restrict access to any
+  RDS database instance, you must disable the Publicly Accessible flag for the database
+  and update the VPC security group associated with the instance.

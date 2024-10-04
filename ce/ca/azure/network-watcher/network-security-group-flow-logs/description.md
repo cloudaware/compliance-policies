@@ -15,8 +15,12 @@ The impact of configuring NSG Flow logs is primarily one of cost and configurati
 ### From Azure Portal
 
 1. Navigate to `Network Watcher`.
-2. Select `NSG flow logs`.
-3. For each log you wish to audit select it from this view.
+2. Under `Logs`, select `Flow logs`.
+3. Click `Add filter`.
+4. From the `Filter` drop-down, select `Flow log type`.
+5. From the `Value` drop-down, check `Network security group` only.
+6. Click `Apply`.
+7. Ensure that at least one network security group flow log is listed and is configured to send logs to a `Log Analytics Workspace`.
 
 ### From Azure Policy
 

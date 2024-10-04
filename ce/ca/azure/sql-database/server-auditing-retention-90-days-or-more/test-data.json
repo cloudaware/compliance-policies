@@ -33,7 +33,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('CA10__auditingRetentionDays__c') < 90.0 && extract('CA10__auditingRetentionDays__c') > 0.0",
+            "conditionText": "extract('CA10__auditingRetentionDays__c') < number(90.0) && extract('CA10__auditingRetentionDays__c') > number(0.0)",
             "runtimeError": null
         },
         "context": {
@@ -48,7 +48,7 @@
         "expectedResult": {
             "status": "COMPLIANT",
             "conditionIndex": "399",
-            "conditionText": "extract('CA10__auditingRetentionDays__c') >= 90.0",
+            "conditionText": "extract('CA10__auditingRetentionDays__c') >= number(90.0)",
             "runtimeError": null
         },
         "context": {
@@ -63,7 +63,7 @@
         "expectedResult": {
             "status": "COMPLIANT",
             "conditionIndex": "499",
-            "conditionText": "extract('CA10__auditingRetentionDays__c') == 0.0",
+            "conditionText": "extract('CA10__auditingRetentionDays__c') == number(0.0)",
             "runtimeError": null
         },
         "context": {

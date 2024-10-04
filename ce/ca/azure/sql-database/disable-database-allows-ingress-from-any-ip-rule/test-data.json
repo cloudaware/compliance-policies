@@ -17,7 +17,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('caJsonFrom__firewallRulesJson__c').jsonQueryText('length([? properties.startIpAddress == \\'0.0.0.0\\' && (properties.endIpAddress == \\'0.0.0.0\\' || properties.endIpAddress == \\'255.255.255.255\\')])') > 0.0",
+            "conditionText": "extract('caJsonFrom__firewallRulesJson__c').jsonQueryText('length([? properties.startIpAddress == \\'0.0.0.0\\' && (properties.endIpAddress == \\'0.0.0.0\\' || properties.endIpAddress == \\'255.255.255.255\\')])') > number(0.0)",
             "runtimeError": null
         },
         "context": {
@@ -45,7 +45,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('caJsonFrom__firewallRulesJson__c').jsonQueryText('length([? properties.startIpAddress == \\'0.0.0.0\\' && (properties.endIpAddress == \\'0.0.0.0\\' || properties.endIpAddress == \\'255.255.255.255\\')])') > 0.0",
+            "conditionText": "extract('caJsonFrom__firewallRulesJson__c').jsonQueryText('length([? properties.startIpAddress == \\'0.0.0.0\\' && (properties.endIpAddress == \\'0.0.0.0\\' || properties.endIpAddress == \\'255.255.255.255\\')])') > number(0.0)",
             "runtimeError": null
         },
         "context": {

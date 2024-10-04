@@ -8,8 +8,9 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-azure-v2.1.0/01/14
-  - /frameworks/cloudaware/identity-and-access-management/user-management
+  - "/frameworks/cis-azure-v2.1.0/01/14"
+  - "/frameworks/cis-azure-v3.0.0/02/15"
+  - "/frameworks/cloudaware/identity-and-access-management/user-management"
 similarPolicies:
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/guest-user-permissions-are-limited.html

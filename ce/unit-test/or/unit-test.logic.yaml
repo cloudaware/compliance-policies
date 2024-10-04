@@ -1,0 +1,106 @@
+---
+inputObject: CA10__CaAwsInstance__c
+testData:
+  - file: test-data.json
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: Test-1
+    condition:
+      UNIT_TEST:
+        id: Test-1
+        arg:
+          OR:
+            args:
+              - BOOLEAN: true
+  - status: COMPLIANT
+    currentStateMessage: Test-2
+    condition:
+      UNIT_TEST:
+        id: Test-2
+        arg:
+          NOT:
+            arg:
+              OR:
+                args:
+                  - BOOLEAN: false
+  - status: COMPLIANT
+    currentStateMessage: Test-3
+    condition:
+      UNIT_TEST:
+        id: Test-3
+        arg:
+          NOT:
+            arg:
+              OR:
+                args:
+                  - BOOLEAN: false
+                  - BOOLEAN: false
+  - status: COMPLIANT
+    currentStateMessage: Test-4
+    condition:
+      UNIT_TEST:
+        id: Test-4
+        arg:
+          OR:
+            args:
+              - BOOLEAN: true
+              - BOOLEAN: false
+  - status: COMPLIANT
+    currentStateMessage: Test-5
+    condition:
+      UNIT_TEST:
+        id: Test-5
+        arg:
+          OR:
+            args:
+              - BOOLEAN: false
+              - BOOLEAN: true
+  - status: COMPLIANT
+    currentStateMessage: Test-6
+    condition:
+      UNIT_TEST:
+        id: Test-6
+        arg:
+          OR:
+            args:
+              - BOOLEAN: true
+              - BOOLEAN: true
+  - status: COMPLIANT
+    currentStateMessage: Test-7
+    condition:
+      UNIT_TEST:
+        id: Test-7
+        arg:
+          OR:
+            args:
+              - BOOLEAN: false
+              - BOOLEAN: false
+              - BOOLEAN: true
+  - status: COMPLIANT
+    currentStateMessage: Test-8
+    condition:
+      UNIT_TEST:
+        id: Test-8
+        arg:
+          OR:
+            args:
+              - BOOLEAN: true
+              - UNIT_TEST_RUNTIME_ERROR:
+                  returnType: BOOLEAN
+                  message: "Short-circuit evaluation: does not compute second argument"
+  - status: COMPLIANT
+    currentStateMessage: Test-9
+    condition:
+      UNIT_TEST:
+        id: Test-9
+        arg:
+          OR:
+            args:
+              - BOOLEAN: false
+              - UNIT_TEST_RUNTIME_ERROR:
+                  returnType: BOOLEAN
+                  message: "Short-circuit evaluation: compute second argument"
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: Test Failed
+  remediationMessage: Developer Fix Required

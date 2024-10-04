@@ -11,10 +11,9 @@ Audit Logs can be used to check for anomalies and give insight into suspected br
 ### From Azure Portal
 
 1. Go to `SQL servers`.
-2. For each server instance.
-3. Click on `Auditing`.
-4. If storage is selected, expand `Advanced properties`.
-5. Ensure `Retention (days)` setting is greater than `90` days or `0` for unlimited retention.
+2. For each SQL server, under `Security`, click `Auditing`.
+3. If `Storage` is checked, expand `Advanced properties`.
+4. Ensure `Retention (days)` is set to a value greater than `90`, or `0` for unlimited retention.
 
 ## From PowerShell
 

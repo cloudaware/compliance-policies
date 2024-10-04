@@ -15,7 +15,10 @@ MDE works only with Standard Tier subscriptions.
 
 ## Impact
 
-Microsoft Defender for Endpoint works with Standard pricing tier Subscription. Choosing the Standard pricing tier of Microsoft Defender for Cloud incurs an additional cost per resource.
+Endpoint protection requires licensing and is included in these plans:
+
+- Defender for Servers plan 1
+- Defender for Servers plan 2
 
 ## Audit
 
@@ -23,10 +26,10 @@ Microsoft Defender for Endpoint works with Standard pricing tier Subscription. C
 
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Defender for Cloud`.
-3. Select `Environment Settings` blade.
+3. Under `Management`, select `Environment Settings`.
 4. Click on the subscription name.
-5. Select the `Integrations` blade.
-6. Ensure setting `Allow Microsoft Defender for Endpoint to access my data` is selected.
+5. Click `Settings & monitoring`.
+6. Ensure the `Status` for `Endpoint protection` is set to `On`.
 
 ### From Azure CLI
 
@@ -55,6 +58,10 @@ Connect-AzAccount Set-AzContext -Subscription <subscriptionID> Get-AzSecuritySet
 |Name|Enabled|
 |---|---|
 |WDATP|True|
+
+## Default Value
+
+By default, Endpoint protection is `off`.
 
 ## References
 

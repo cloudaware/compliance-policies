@@ -1,0 +1,16 @@
+---
+name: "CM-7(5) Authorized Software — Allow-by-exception (M)(H)"
+description: |-
+  (a) Identify [Assignment: organization-defined software programs authorized to
+  execute on the system];
+
+  (b) Employ a deny-all, permit-by-exception policy to allow the execution of authorized
+  software programs on the system; and
+
+  (c) Review and update the list of authorized software programs [FedRAMP
+  Assignment: at least quarterly or when there is a change].
+similar:
+  internal:
+    - "dec-c-322fd20e"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/cm/07/05

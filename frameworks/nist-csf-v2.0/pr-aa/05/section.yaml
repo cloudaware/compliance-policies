@@ -1,0 +1,26 @@
+name: "PR.AA-05: Access permissions, entitlements, and authorizations are defined in a policy, 
+  managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+description: |-
+  1. Review logical and physical access privileges periodically and whenever someone changes roles 
+  or leaves the organization, and promptly rescind privileges that are no longer needed
+  2. Take attributes of the requester and the requested resource into account for authorization 
+  decisions (e.g., geolocation, day/time, requester endpoint's cyber health)
+  3. Restrict access and privileges to the minimum necessary (e.g., zero trust architecture)
+  4. Periodically review the privileges associated with critical business functions to confirm 
+  proper separation of duties
+similar:
+  sections:
+    - "/frameworks/nist-csf-v1.1/pr-ac/01"
+    - "/frameworks/nist-csf-v1.1/pr-ac/03"
+    - "/frameworks/nist-csf-v1.1/pr-ac/04"
+    - "/frameworks/nist-sp-800-53-r5/ac/01"
+    - "/frameworks/nist-sp-800-53-r5/ac/02"
+    - "/frameworks/nist-sp-800-53-r5/ac/03"
+    - "/frameworks/nist-sp-800-53-r5/ac/05"
+    - "/frameworks/nist-sp-800-53-r5/ac/06"
+    - "/frameworks/nist-sp-800-53-r5/ac/10"
+    - "/frameworks/nist-sp-800-53-r5/ac/16"
+    - "/frameworks/nist-sp-800-53-r5/ac/17"
+    - "/frameworks/nist-sp-800-53-r5/ac/18"
+    - "/frameworks/nist-sp-800-53-r5/ac/19"
+    - "/frameworks/nist-sp-800-53-r5/ac/24"

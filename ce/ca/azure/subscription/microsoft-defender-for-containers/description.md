@@ -20,10 +20,10 @@ Turning on Microsoft Defender for Containers incurs an additional cost per resou
 ### From Azure Portal
 
 1. Go to `Microsoft Defender for Cloud`.
-2. Select `Environment Settings`.
+2. Under `Management`, select `Environment Settings`.
 3. Click on the subscription name.
 4. Select `Defender plans`.
-5. Ensure `On` is set under `Status` for `Containers`.
+5. Ensure the `Status` for `Containers` is set to `On`.
 
 ### From Azure CLI
 

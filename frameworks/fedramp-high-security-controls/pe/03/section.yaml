@@ -1,0 +1,35 @@
+---
+name: "PE-3 Physical Access Control (L)(M)(H)"
+description: |-
+  a. Enforce physical access authorizations at [Assignment: organization-defined entry and
+  exit points to the facility where the system resides] by:
+
+  1. Verifying individual access authorizations before granting access to the facility; and
+  
+  2. Controlling ingress and egress to the facility using [FedRAMP Assignment: CSP
+  defined physical access control systems/devices AND guards];
+  
+  b. Maintain physical access audit logs for [Assignment: organization-defined entry or exit
+  points];
+  
+  c. Control access to areas within the facility designated as publicly accessible by
+  implementing the following controls: [Assignment: organization-defined physical access
+  controls];
+  
+  d. Escort visitors and control visitor activity [FedRAMP Assignment: in all circumstances
+  within restricted access area where the information system resides];
+  
+  e. Secure keys, combinations, and other physical access devices;
+  
+  f. Inventory [Assignment: organization-defined physical access devices] every [FedRAMP
+  Assignment: at least annually]; and
+  
+  g. Change combinations and keys [FedRAMP Assignment: at least annually or earlier as
+  required by a security relevant event] and/or when keys are lost, combinations are
+  compromised, or when individuals possessing the keys or combinations are transferred
+  or terminated.
+similar:
+  internal:
+    - "dec-c-819aec6d"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/pe/03

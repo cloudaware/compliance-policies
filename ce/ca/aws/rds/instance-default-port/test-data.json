@@ -93,7 +93,7 @@
         "expectedResult": {
             "status": "INAPPLICABLE",
             "conditionIndex": "699",
-            "conditionText": "extract('CA10__engine__c') != 'aurora' && extract('CA10__engine__c') != 'aurora-mysql' && extract('CA10__engine__c') != 'mariadb' && extract('CA10__engine__c') != 'mysql' && extract('CA10__engine__c') != 'docdb' && extract('CA10__engine__c') != 'aurora-postgresql' && extract('CA10__engine__c') != 'postgres' && !extract('CA10__engine__c').startsWithCaseSensitive('oracle-') && !extract('CA10__engine__c').startsWithCaseSensitive('sqlserver-')",
+            "conditionText": "extract('CA10__engine__c') != 'aurora' && extract('CA10__engine__c') != 'aurora-mysql' && extract('CA10__engine__c') != 'mariadb' && extract('CA10__engine__c') != 'mysql' && extract('CA10__engine__c') != 'docdb' && extract('CA10__engine__c') != 'aurora-postgresql' && extract('CA10__engine__c') != 'postgres' && not(extract('CA10__engine__c').startsWithCaseSensitive('oracle-')) && not(extract('CA10__engine__c').startsWithCaseSensitive('sqlserver-'))",
             "runtimeError": null
         },
         "context": {

@@ -31,6 +31,8 @@ Run the following command:
 az keyvault key rotation-policy show --vaultname <vaultName> --name <keyName>
 ```
 
+Ensure that the response contains a `lifetime action` of `Rotate`.
+
 ### From PowerShell
 
 Run the following command:
@@ -38,6 +40,8 @@ Run the following command:
 ```ps
 Get-AzKeyVaultKeyRotationPolicy -VaultName <vaultName> -Name <keyName>
 ```
+
+Ensure that the response contains a `lifetime action` of `Rotate`.
 
 ### From Azure Policy
 

@@ -1,0 +1,9 @@
+---
+name: "3.1.1.1 Ensure that Auto provisioning of 'Log Analytics agent for Azure VMs' is Set to 'On' (Automated)"
+description: |-
+  Enable automatic provisioning of the monitoring agent to collect security data.
+  
+  **DEPRECATION PLANNED**: The Log Analytics Agent is slated for deprecation in August 2024. 
+  The Microsoft Defender for Endpoint agent, in tandem with new agentless capabilities will 
+  be providing replacement functionality. More detail is available 
+  here: <https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341>.

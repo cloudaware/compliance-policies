@@ -9,14 +9,15 @@
 5. In the `Custom Role Name` field enter `Resource Lock Administrator`.
 6. In the Description field enter `Can Administer Resource Locks`.
 7. For Baseline permissions select `Start from scratch`
-8. Select `next`.
+8. Select `Next`.
 9. In the Permissions tab select `Add permissions`.
 10. In the Search for a permission box, type in `Microsoft.Authorization/locks` to search for permissions.
-11. Select the check box next to the permission `Microsoft.Authorization/locks`.
-12. Select `Add`.
-13. Select `Review + create`.
-14. Select `Create`.
-15. Assign the newly created role to the appropriate user.
+11. Click on the result.
+12. Check the box next to `Permission`.
+13. Select `Add`.
+14. Select `Review + create`.
+15. Select `Create`.
+16. Assign the newly created role to the appropriate user.
 
 ## From PowerShell
 

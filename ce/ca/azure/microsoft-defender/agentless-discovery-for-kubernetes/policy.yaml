@@ -1,0 +1,13 @@
+---
+names:
+  full: Microsoft Defender Agentless Discovery for Kubernetes Component is not enabled
+  contextual: Agentless Discovery for Kubernetes Component is not enabled
+description: >
+  Enable automatic discovery and configuration scanning of the Microsoft Kubernetes clusters.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v3.0.0/03/01/04/02"
+  - "/frameworks/cloudaware/resource-security/microsoft-defender-configuration"

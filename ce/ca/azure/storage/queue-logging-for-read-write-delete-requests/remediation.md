@@ -3,12 +3,12 @@
 ## From Azure Portal
 
 1. Go to `Storage Accounts`.
-2. Select the specific Storage Account.
-3. Click the `Diagnostics settings` under the `Monitoring` section in the left column.
-4. Select the `queue` tab indented below the storage account.
-5. Click `+ Add diagnostic setting`.
-6. Select `StorageRead`, `StorageWrite` and `StorageDelete` options under the `Logs` section to enable Storage Logging for Queue service.
-7. Select a destination for your logs to be sent to.
+2. For each storage account, under `Monitoring`, click `Diagnostics settings`.
+3. Select the `queue` tab indented below the storage account.
+4. To create a new diagnostic setting, click `+ Add diagnostic setting`. To update an existing diagnostic setting, click `Edit setting` on the diagnostic setting.
+5. Check the boxes next to `StorageRead`, `StorageWrite`, and `StorageDelete`.
+6. Select an appropriate destination.
+7. Click `Save`.
 
 ## From Azure CLI
 

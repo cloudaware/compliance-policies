@@ -1,0 +1,31 @@
+---
+name: "SC-21 Secure Name/Address Resolution Service (Recursive or Caching Resolver) (L)(M)(H)"
+description: |-
+  Request and perform data origin authentication and data integrity verification on the
+  name/address resolution responses the system receives from authoritative sources.
+
+  **SC-21 Additional FedRAMP Requirements and Guidance:**
+  
+  **Guidance**: Accepting an unsigned reply is acceptable
+  
+  **Guidance**: SC-21 applies to use of internal recursive DNS to access a domain outside
+  the boundary by a component inside the boundary. DNSSEC resolution to access a
+  component inside the boundary is excluded.
+  
+  **Requirement**: Control description should include how DNSSEC is implemented on
+  recursive DNS servers to make DNSSEC requests when resolving DNS requests from
+  internal components to domains external to the CSO boundary.
+  
+  - If the reply is signed, and fails DNSSEC, do not use the reply.
+  - If the reply is unsigned:
+    - CSP chooses the policy to apply.
+  
+  **Requirement**: Internal recursive DNS servers must be located inside an authorized
+  environment. It is typically within the boundary or leveraged from an underlying
+  IaaS/PaaS.
+similar:
+  internal:
+    - "dec-c-bceddd44"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/sc/21
+    - "/frameworks/fedramp-high-security-controls/sc/21"

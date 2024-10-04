@@ -21,3 +21,22 @@ extracts:
         path: "CA10__encryptionType__c"
         undeterminedIf:
           isEmpty: "Corrupted data. Encryption Type cannot be empty."
+# Values: Enabled, Disabled. Not Nullable. Can't have no access, retrieved via Microsoft.Compute/disks
+  - name: "CA10__publicNetworkAccess__c"
+    value: 
+      FIELD:
+        path: "CA10__publicNetworkAccess__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Public Network Access cannot be empty."
+# Values: AllowAll, AllowPrivate, DenyAll. Not Nullable. Can't have no access, retrieved via Microsoft.Compute/disks
+  - name: "CA10__networkAccessPolicy__c"
+    value: 
+      FIELD:
+        path: "CA10__networkAccessPolicy__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Public Network Access cannot be empty."
+# Values: AzureActiveDirectory, None. Nullable (which equals none). Can't have no access, retrieved via Microsoft.Compute/disks
+  - name: "CA10__dataAccessAuthMode__c"
+    value: 
+      FIELD:
+        path: "CA10__dataAccessAuthMode__c"

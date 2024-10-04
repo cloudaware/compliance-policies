@@ -29,7 +29,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "199",
-            "conditionText": "extract('CA10__securityCenterAutoProvisioning__c').asJson().jsonQueryText('length([? name == \\'default\\' && autoProvision == \\'Off\\'])') > 0.0",
+            "conditionText": "extract('CA10__securityCenterAutoProvisioning__c').asJson().jsonQueryText('length([? name == \\'default\\' && autoProvision == \\'Off\\'])') > number(0.0)",
             "runtimeError": null
         },
         "context": {
@@ -42,7 +42,7 @@
         "expectedResult": {
             "status": "COMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('CA10__securityCenterAutoProvisioning__c').asJson().jsonQueryText('length([? name == \\'default\\' && autoProvision == \\'On\\'])') > 0.0",
+            "conditionText": "extract('CA10__securityCenterAutoProvisioning__c').asJson().jsonQueryText('length([? name == \\'default\\' && autoProvision == \\'On\\'])') > number(0.0)",
             "runtimeError": null
         },
         "context": {

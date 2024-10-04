@@ -16,18 +16,18 @@ Enforcing this setting may create additional requests that administrators need t
 
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Entra ID`.
-3. Select `Enterprise Applications`.
-4. Select `Consent and permissions`.
-5. Select `User consent settings`.
+3. Under `Manage`, select `Enterprise applications`.
+4. Under `Security`, select `Consent and permissions`.
+5. Under `Manage`, select `User consent settings`.
 6. Ensure `User consent for applications` is set to `Do not allow user consent`.
 
 ### From PowerShell
 
 ```ps
-Connect-MsolService Get-MsolCompanyInformation | Select-Object UsersPermissionToUserConsentToAppEnabled
+Connect-MgGraph (Get-MgPolicyAuthorizationPolicy).DefaultUserRolePermissions | Select-Object -ExpandProperty PermissionGrantPoliciesAssigned
 ```
 
-Command should return `UsersPermissionToUserConsentToAppEnabled` with the value of `False`.
+If the command returns no values in response, the configuration complies with the recommendation.
 
 ## Default Value
 
@@ -35,8 +35,7 @@ By default, `Users consent for applications` is set to `Allow user consent for a
 
 ## References
 
-1. <https://nicksnettravels.builttoroam.com/post/2017/01/24/Admin-Consent-for-Permissions-in-Azure-Active-Directory.aspx>
-2. <https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-user-consent#configure-user-consent-to-applications>
-3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-privileged-access#pa-1-separate-and-limit-highly-privilegedadministrative-users>
-4. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-governance-strategy#gs-2-define-and-implement-enterprise-segmentationseparation-of-duties-strategy>
-5. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-governance-strategy#gs-6-define-and-implement-identity-and-privileged-access-strategy>
+1. <https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-user-consent?pivots=ms-powershell#configure-user-consent-to-applications>
+2. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-privileged-access#pa-1-separate-and-limit-highly-privilegedadministrative-users>
+3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-governance-strategy#gs-2-define-and-implement-enterprise-segmentationseparation-of-duties-strategy>
+4. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-governance-strategy#gs-6-define-and-implement-identity-and-privileged-access-strategy>

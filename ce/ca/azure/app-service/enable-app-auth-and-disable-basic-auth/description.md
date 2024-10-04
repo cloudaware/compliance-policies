@@ -24,14 +24,14 @@ Adding Authentication requirement will increase cost of App Service and require 
 6. Navigate back to the application blade.
 7. Under `Settings`, click on `Configuration`.
 8. Click on the `General Settings` tab.
-9. Under `Platform settings`, ensure `Basic Auth Publishing Credentials` is set to Off.
+9. Under `Platform settings`, ensure `Basic Auth Publishing Credentials` is set to `Off`.
 
 ### From Azure CLI
 
 To check App Service Authentication status for an existing app, run the following command (using `authV1` extension):
 
 ```sh
-az webapp auth show --resource-group <RESOURCE_GROUP_NAME> --name <APP_NAME>
+az webapp auth show --resource-group <RESOURCE_GROUP_NAME> --name <APP_NAME> --query enabled
 ```
 
 The output should return `true` if App Service authentication is set to `On`.
@@ -44,10 +44,10 @@ az webapp auth show --resource-group <RESOURCE_GROUP_NAME> --name <APP_NAME>
 
 Ensure that the `enabled` setting under `azureActiveDirectory` is set to `true`.
 
-To check whether the Basic Auth Publishing Credentials are disabled, issue the following commands:
+To check whether the `Basic Auth Publishing Credentials` are disabled, issue the following commands:
 
 ```sh
-az resource show --resource-group <RESOURCE GROUP NAME> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<APPLICATION NAME> 
+az resource show --resource-group <RESOURCE GROUP NAME> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<APPLICATION NAME>
 ```
 
 ```sh

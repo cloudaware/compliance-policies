@@ -1,0 +1,9 @@
+---
+name: "5.2.8 [LEGACY] Ensure 'Infrastructure double encryption' for PostgreSQL single server is 'Enabled' (Automated)"
+description: |-
+  Azure Database for PostgreSQL servers should be created with 'infrastructure double encryption' 
+  enabled.
+
+  **NOTE**: This recommendation currently only applies to Single Server, not Flexible Server. 
+  See additional information below for details about the planned retirement of Azure PostgreSQL 
+  Single Server.

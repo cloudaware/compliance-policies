@@ -1,0 +1,26 @@
+# Remediation
+
+## From Azure Portal
+
+1. From Azure Home select the Portal Menu.
+2. Go to `Azure Database for PostgreSQL flexible servers`.
+3. For each database, under `Settings`, click `Server parameters`.
+4. In the filter bar, type `logfiles.retention_days`.
+5. Input a value between 4 and 7 (inclusive).
+6. Click `Save`.
+
+## From Azure CLI
+
+Use the below command to update `logfiles.retention_days` configuration:
+
+```sh
+az postgres flexible-server parameter set --resource-group <resourceGroup> --server-name <serverName> --name logfiles.retention_days --value <4-7>
+```
+
+## From Powershell
+
+Use the below command to update `logfiles.retention_days` configuration:
+
+```ps
+Update-AzPostgreSqlFlexibleServerConfiguration -ResourceGroupName <resourceGroup> -ServerName <serverName> -Name logfiles.retention_days -Value <4-7>
+```

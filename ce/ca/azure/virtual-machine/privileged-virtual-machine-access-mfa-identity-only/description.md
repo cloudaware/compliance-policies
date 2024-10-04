@@ -10,7 +10,7 @@ An Adversary may log into accessible cloud services within a compromised environ
 
 ## Impact
 
-this recommendation requires an Azure AD P2 License to implement.
+This recommendation requires an Azure AD P2 License to implement.
 
 Ensure that identities that are provisioned to a virtual machine utilizes an RBAC/ABAC group and is allocated a role using Azure PIM, and the Role settings require MFA or use another PAM solution (like CyberArk) for accessing Virtual Machines.
 

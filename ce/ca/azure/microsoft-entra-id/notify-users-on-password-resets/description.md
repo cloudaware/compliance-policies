@@ -16,9 +16,9 @@ Users will receive emails alerting them to password changes to both their primar
 
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Entra ID`.
-3. Select `Users`.
-4. Go to `Password reset`.
-5. Under Manage, select `Notifications`.
+3. Under `Manage`, select `Users`.
+4. Under `Manage`, select `Password reset`.
+5. Under `Manage`, select `Notifications`.
 6. Ensure that `Notify users on password resets?` is set to `Yes`.
 
 ## Default Value

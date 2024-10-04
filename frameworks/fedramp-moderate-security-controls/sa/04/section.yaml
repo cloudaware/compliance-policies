@@ -1,0 +1,46 @@
+---
+name: "SA-4 Acquisition Process (L)(M)(H)"
+description: |-
+  Include the following requirements, descriptions, and criteria, explicitly or by reference, using
+  [Selection (one-or-more): standardized contract language; [Assignment: organization-defined
+  contract language]] in the acquisition contract for the system, system component, or system
+  service:
+
+  a. Security and privacy functional requirements;
+  
+  b. Strength of mechanism requirements;
+  
+  c. Security and privacy assurance requirements;
+  
+  d. Controls needed to satisfy the security and privacy requirements.
+  
+  e. Security and privacy documentation requirements;
+  
+  f. Requirements for protecting security and privacy documentation;
+  
+  g. Description of the system development environment and environment in which the
+  system is intended to operate;
+  
+  h. Allocation of responsibility or identification of parties responsible for information security,
+  privacy, and supply chain risk management; and
+  
+  i. Acceptance criteria.
+  
+  **SA-4 Additional FedRAMP Requirements and Guidance:**
+  
+  **Guidance**: The use of Common Criteria (ISO/IEC 15408) evaluated products is strongly
+  preferred.
+  
+  See <https://www.niap-ccevs.org/Product/index.cfm> or
+  <https://www.commoncriteriaportal.org/products/>.
+  
+  **Requirement**: The service provider must comply with Federal Acquisition Regulation
+  (FAR) Subpart 7.103, and Section 889 of the John S. McCain National Defense
+  Authorization Act (NDAA) for Fiscal Year 2019 (Pub. L. 115-232), and FAR Subpart
+  4.21, which implements Section 889 (as well as any added updates related to FISMA to
+  address security concerns in the system acquisitions process).
+similar:
+  internal:
+    - "dec-c-98d86f1f"
+  sections:
+    - /frameworks/fedramp-high-security-controls/sa/04

@@ -1,0 +1,18 @@
+---
+name: "AU-12 Audit Record Generation (L)(M)(H)"
+description: |-
+  a. Provide audit record generation capability for the event types the system is capable of
+  auditing as defined in AU-2a on [FedRAMP Assignment: all information system and
+  network components where audit capability is deployed/available];
+
+  b. Allow [Assignment: organization-defined personnel or roles] to select the event types
+  that are to be logged by specific components of the system; and
+
+  c. Generate audit records for the event types defined in AU-2c that include the audit record
+  content defined in AU-3.
+similar:
+  internal:
+    - "dec-c-c3dabc57"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/au/12
+    - "/frameworks/fedramp-high-security-controls/au/12"

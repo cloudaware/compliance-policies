@@ -1,0 +1,29 @@
+---
+name: "SC-28(1) Cryptographic Protection (L)(M)(H)"
+description: |-
+  Implement cryptographic mechanisms to prevent unauthorized disclosure and modification of
+  the following information at rest on [FedRAMP Assignment: all information system components
+  storing Federal data or system data that must be protected at the High or Moderate impact
+  levels]: [Assignment: organization-defined information].
+
+  **SC-28 (1) Additional FedRAMP Requirements and Guidance:**
+  
+  **Guidance**: Organizations should select a mode of protection that is targeted towards the
+  relevant threat scenarios.
+  
+  Examples:
+  
+  A. Organizations may apply full disk encryption (FDE) to a mobile device where the
+  primary threat is loss of the device while storage is locked.
+  
+  B. For a database application housing data for a single customer, encryption at the file
+  system level would often provide more protection than FDE against the more likely threat
+  of an intruder on the operating system accessing the storage.
+
+  C. For a database application housing data for multiple customers, encryption with
+  unique keys for each customer at the database record level may be more appropriate.
+similar:
+  internal:
+    - "dec-c-583700c7"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/sc/28/01

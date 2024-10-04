@@ -1,0 +1,38 @@
+---
+name: "CP-9 System Backup (L)(M)(H)"
+description: |-
+  a. Conduct backups of user-level information contained in [Assignment:
+  organization-defined system components][FedRAMP Assignment: daily incremental;
+  weekly full];
+
+  b. Conduct backups of system-level information contained in the system [FedRAMP
+  Assignment: daily incremental; weekly full];
+  
+  c. Conduct backups of system documentation, including security- and privacy-related
+  documentation [FedRAMP Assignment: daily incremental; weekly full]; and
+  
+  d. Protect the confidentiality, integrity, and availability of backup information.
+  
+  **CP-9 Additional FedRAMP Requirements and Guidance:**
+  
+  **Requirement**: The service provider shall determine what elements of the cloud
+  environment require the Information System Backup control. The service provider shall
+  determine how Information System Backup is going to be verified and appropriate
+  periodicity of the check.
+  
+  **(a) Requirement**: The service provider maintains at least three (3) backup copies of
+  user-level information (at least one of which is available online) or provides an
+  equivalent alternative.
+  
+  **(b) Requirement**: The service provider maintains at least three (3) backup copies of
+  system-level information (at least one of which is available online) or provides an
+  equivalent alternative.
+
+  **(c) Requirement**: The service provider maintains at least three (3) backup copies of
+  information system documentation including security information (at least one of which
+  is available online) or provides an equivalent alternative.
+similar:
+  internal:
+    - "dec-c-bf2e90c5"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/cp/09

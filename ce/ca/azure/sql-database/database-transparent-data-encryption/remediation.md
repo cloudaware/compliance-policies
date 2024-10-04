@@ -3,9 +3,9 @@
 ## From Azure Portal
 
 1. Go to `SQL databases`.
-2. For each DB instance.
-3. Click on `Transparent data encryption`.
-4. Set `Data encryption` to `On`.
+2. For each DB instance, under `Security`, click `Data Encryption`.
+3. Under `Transparent data encryption`, set `Data encryption` to `On`.
+4. Click `Save`.
 
 ## From Azure CLI
 

@@ -26,5 +26,5 @@ By default `Subscription leaving Microsoft Entra ID directory` and `Subscription
 ## References
 
 1. <https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/manage-azure-subscription-policy>
-2. <https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory>
+2. <https://learn.microsoft.com/en-us/entra/fundamentals/how-subscriptions-associated-directory>
 3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-identity-management#im-2-protect-identity-and-authentication-systems>

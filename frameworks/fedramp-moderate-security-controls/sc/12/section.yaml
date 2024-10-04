@@ -1,0 +1,21 @@
+---
+name: "SC-12 Cryptographic Key Establishment and Management (L)(M)(H)"
+description: |-
+  Establish and manage cryptographic keys when cryptography is employed within the system in
+  accordance with the following key management requirements: [FedRAMP Assignment: In
+  accordance with Federal requirements].
+
+  **SC-12 Additional FedRAMP Requirements and Guidance:**
+  
+  **Guidance**: See references in NIST 800-53 documentation.
+  
+  **Guidance**: Must meet applicable Federal Cryptographic Requirements. See References
+  Section of control.
+  
+  **Guidance**: Wildcard certificates may be used internally within the system, but are not
+  permitted for external customer access to the system.
+similar:
+  internal:
+    - "dec-c-c577f67c"
+  sections:
+    - /frameworks/fedramp-high-security-controls/sc/12

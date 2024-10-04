@@ -4,10 +4,9 @@
 
 1. Login to Azure Portal using <https://portal.azure.com>.
 2. Go to `App Services`.
-3. Click on each App.
-4. Click on configuration.
-5. Under the `HTTPS Only` heading select `On` to enable https only.
-6. Click `Save` at the top.
+3. For each App Service.
+4. Under `Setting` section, click on `Configuration`.
+5. Under the `General Settings` tab, set `HTTPS Only` to `On` under `Platform Settings`.
 
 ## From Azure CLI
 

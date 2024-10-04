@@ -17,7 +17,7 @@ By adding this role, specific permissions may be granted for managing just resou
 1. In the Azure portal, open a subscription or resource group where you want to view assigned roles.
 2. Select `Access control (IAM)`.
 3. Select `Roles`.
-4. Search for the custom role named `Resource Lock Administrator`.
+4. Search for the custom role named "role_name" e.g. from remediation `Resource Lock Administrator`.
 5. Ensure that the role is assigned to the appropriate users.
 
 ## References

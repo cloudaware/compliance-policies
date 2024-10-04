@@ -2,11 +2,10 @@
 
 ## From Azure Console
 
-1. Login to the Azure Portal.
-2. Go to `Storage Accounts`.
-3. Click on each Storage Account.
-4. Under `Setting` section, Click on `Configuration`.
-5. Set the `minimum TLS version` to be Version 1.2.
+1. Go to `Storage Accounts`.
+2. For each storage account, under `Settings`, click `Configuration`.
+3. Set the `Minimum TLS version` to `Version 1.2`.
+4. Click `Save`.
 
 ## From Azure CLI
 

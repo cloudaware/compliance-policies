@@ -66,3 +66,12 @@ extracts:
           noAccessDelegate:
             path: "CA10__configFtpsState__c"
             currentStateMessage: "Unable to determine FTPS State. Possible permission issue with Microsoft.Web/sites/config/web/read"
+# Values: Enabled, Disabled. Not Nullable.
+  - name: "CA10__configRemoteDebugging__c"
+    value: 
+      FIELD:
+        path: "CA10__configRemoteDebugging__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__configRemoteDebugging__c"
+            currentStateMessage: "Unable to determine FTPS State. Possible permission issue with Microsoft.Web/sites/config/web/read"

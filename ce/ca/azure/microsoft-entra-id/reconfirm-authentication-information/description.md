@@ -16,9 +16,9 @@ Users will be prompted for their multifactor authentication at the duration set 
 
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Entra ID`.
-3. Then `Users`.
-4. Select `Password reset`.
-5. Then `Registration`.
+3. Under `Manage`, select `Users`.
+4. Under `Manage`, select `Password reset`.
+5. Under `Manage`, select `Registration`.
 6. Ensure that `Number of days before users are asked to re-confirm their authentication information` is not set to `0`.
 
 ## Default Value

@@ -23,12 +23,9 @@ As far as toolsets go, check with your cryptographic key provider, as they may w
 ### From Azure Portal
 
 1. Go to `SQL servers`.
-
-For the desired server instance:
-
-2. Click On `Transparent data encryption`.
+2. For each SQL server, under `Security`, click `Transparent data encryption`.
 3. Ensure that `Customer-managed key` is selected.
-4. Ensure `Make selected key the default TDE protector` is checked.
+4. Ensure `Make this key the default TDE protector` is checked.
 
 ### From Azure CLI
 

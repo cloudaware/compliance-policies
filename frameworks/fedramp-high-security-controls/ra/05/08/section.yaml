@@ -1,0 +1,16 @@
+---
+name: "RA-5(8) Review Historic Audit Logs (H)"
+description: |-
+  Review historic audit logs to determine if a vulnerability identified in a [Assignment:
+  organization-defined system] has been previously exploited within an [Assignment:
+  organization-defined time period].
+
+  **RA-5(8) Additional FedRAMP Requirement:**
+  
+  **Requirement**: This enhancement is required for all high (or critical) vulnerability scan
+  findings.
+similar:
+  internal:
+    - "dec-c-cd66c2ca"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/ra/05/08

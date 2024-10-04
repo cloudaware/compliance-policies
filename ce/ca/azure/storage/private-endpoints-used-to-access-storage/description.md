@@ -8,16 +8,17 @@ Securing traffic between services through encryption protects the data from easy
 
 ## Impact
 
-There is no cost in deploying VNets between Azure resources. If improperly implemented, it may result in loss of critical network traffic.
+A Private Endpoint costs approximately US$7.30 per month. If an Azure Virtual Network is not implemented correctly, this may result in the loss of critical network traffic.
 
 ## Audit
 
 ### From Azure Portal
 
 1. Open the `Storage Accounts` blade.
-2. For each listed Storage Account, click on the `Networking` blade.
-3. Click on the `Private Endpoint Connections` tab at the top of the networking window.
-4. Ensure that for each VNet that the Storage Account must be accessed from, a unique Private Endpoint is deployed and the Connection State for each Private Endpoint is `Approved`.
+2. For each listed Storage Account, perform the following check.
+3. Under the Security + networking heading, click on `Networking`.
+4. Click on the `Private Endpoint Connections` tab at the top of the networking window.
+5. Ensure that for each VNet that the Storage Account must be accessed from, a unique Private Endpoint is deployed and the Connection State for each Private Endpoint is `Approved`.
 
 Repeat the procedure for each Storage Account.
 

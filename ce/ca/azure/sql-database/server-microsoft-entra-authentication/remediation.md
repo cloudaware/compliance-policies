@@ -3,10 +3,11 @@
 ## From Azure Portal
 
 1. Go to `SQL servers`.
-2. For each SQL server, click on `Microsoft Entra admin`.
+2. For each SQL server, under Settings, click `Microsoft Entra admin`.
 3. Click on `Set admin`.
 4. Select an admin.
-5. Click `Save`.
+5. Click `Select`.
+6. Click `Save`.
 
 ## From Azure CLI
 

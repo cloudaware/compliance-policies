@@ -9,7 +9,8 @@ Secure Boot and vTPM work together to protect your VM from a variety of boot att
 ## Impact
 
 Secure Boot and vTPM are not currently supported for Azure Generation 1 VMs.
-IMPORTANT: Before enabling Secure Boot and vTPM on a Generation 2 VM which does not already have both enabled, it is highly recommended to create a restore point of the VM prior to remediation.
+
+**IMPORTANT**: Before enabling Secure Boot and vTPM on a Generation 2 VM which does not already have both enabled, it is highly recommended to create a restore point of the VM prior to remediation.
 
 ## Audit
 

@@ -1,10 +1,12 @@
 # Description
 
-By default, Azure Functions, Web, and API Services can be deployed over FTP. If FTP is required for an essential deployment workflow, FTPS should be required for FTP login for all App Service Apps and Functions.
+By default, App Services can be deployed over FTP. If FTP is required for an essential deployment workflow, FTPS should be required for FTP login for all App Services.
+
+If FTPS is not expressly required for the App, the recommended setting is `Disabled`.
 
 ## Rationale
 
-Azure FTP deployment endpoints are public. An attacker listening to traffic on a wifi network used by a remote employee or a corporate network could see login traffic in clear-text which would then grant them full control of the code base of the app or service. This finding is more severe if User Credentials for deployment are set at the subscription level rather than using the default Application Credentials which are unique per App.
+FTP is an unencrypted network protocol that will transmit data - including passwords - in clear-text. The use of this protocol can lead to both data and credential compromise, and can present opportunities for exfiltration, persistence, and lateral movement.
 
 ## Impact
 
@@ -31,11 +33,14 @@ az webapp list
 List the publish profiles to obtain the username, password and ftp server url:
 
 ```sh
-az webapp deployment list-publishing-profiles --ids <ids> 
+az webapp deployment list-publishing-profiles --ids <ids>
+```
+
+```json
 { 
-    "publishUrl": <URL_FOR_WEB_APP>, 
-    "userName": <USER_NAME>, 
-    "userPWD": <USER_PASSWORD>, 
+    "publishUrl": "<URL_FOR_WEB_APP>", 
+    "userName": "<USER_NAME>", 
+    "userPWD": "<USER_PASSWORD>", 
 }
 ```
 
@@ -68,7 +73,8 @@ By default, FTP based deployment is `All allowed`.
 
 ## References
 
-1. [Azure Web Service Deploy via FTP](https://docs.microsoft.com/en-us/azure/app-service/deploy-ftp)
-2. [Azure Web Service Deployment](https://docs.microsoft.com/en-us/azure/app-service/overview-security)
-3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-data-protection#dp-3-encrypt-sensitive-data-in-transit>
-4. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-posture-vulnerability-management#pv-6-rapidly-and-automatically-remediate-vulnerabilities>
+1. <https://docs.microsoft.com/en-us/azure/app-service/deploy-ftp>
+2. <https://docs.microsoft.com/en-us/azure/app-service/overview-security>
+3. <https://docs.microsoft.com/en-us/security/benchmark/azure/security-controls-v3-data-protection#dp-4-encrypt-sensitive-information-in-transit>
+4. <https://docs.microsoft.com/en-us/security/benchmark/azure/security-controls-v3-posture-vulnerability-management#pv-7-rapidly-and-automatically-remediate-software-vulnerabilities>
+5. <https://learn.microsoft.com/en-us/rest/api/appservice/web-apps/create-or-update-configuration#ftpsstate>

@@ -1,0 +1,9 @@
+---
+name: "2.22 Ensure that 'Require Multifactor Authentication to register or join devices with Microsoft Entra' is set to 'Yes' (Manual)"
+description: |-
+  **NOTE**: This recommendation is only relevant if your subscription is using Per-User MFA. 
+  If your organization is licensed to use Conditional Access, the preferred method of requiring 
+  MFA to join devices to Entra ID is to use a Conditional Access policy (see additional information 
+  below for link).
+  
+  Joining or registering devices to Microsoft Entra ID should require multi-factor authentication.

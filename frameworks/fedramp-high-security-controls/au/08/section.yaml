@@ -1,0 +1,14 @@
+---
+name: "AU-8 Time Stamps (L)(M)(H)"
+description: |-
+  a. Use internal system clocks to generate time stamps for audit records; and
+
+  b. Record time stamps for audit records that meet [FedRAMP Assignment: one second
+  granularity of time measurement] and that use Coordinated Universal Time, have a fixed
+  local time offset from Coordinated Universal Time, or that include the local time offset as
+  part of the time stamp.
+similar:
+  internal:
+    - "dec-c-b884b435"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/au/08

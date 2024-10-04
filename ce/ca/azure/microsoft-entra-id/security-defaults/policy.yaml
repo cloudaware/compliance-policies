@@ -2,8 +2,9 @@
 names:
   full: Microsoft Entra ID Security Defaults are not enabled
   contextual: Security Defaults are not enabled
-description: Security defaults in Microsoft Entra ID make it easier to be secure and
-  help protect your organization. Security defaults contain preconfigured security   settings
+description: >
+  Security defaults in Microsoft Entra ID make it easier to be secure and
+  help protect your organization. Security defaults contain preconfigured security settings
   for common attacks.
 impossible: true
 type: COMPLIANCE_POLICY
@@ -11,6 +12,7 @@ categories:
   - SECURITY
 frameworkMappings:
   - /frameworks/cis-azure-v2.1.0/01/01/01
+  - "/frameworks/cis-azure-v3.0.0/02/01/01"
   - /frameworks/cloudaware/identity-and-access-management/general-access-controls
 similarPolicies:
   cloudConformity:

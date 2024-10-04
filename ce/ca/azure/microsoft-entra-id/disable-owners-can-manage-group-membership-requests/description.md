@@ -16,17 +16,17 @@ Group Membership for user accounts will need to be handled by Admins and cause a
 
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Entra ID`.
-3. Then `Groups`.
-4. Select `General` in `Settings`.
-5. Ensure that `Owners can manage group membership requests in the Access Panel` is set to `No`.
+3. Under `Manage`, select `Groups`.
+4. Under `Settings`, select `General`.
+5. Under `Self Service Group Management`, ensure that `Owners can manage group membership requests in My Groups` is set to `No`.
 
 ## Default Value
 
-By default, `Owners can manage group membership requests in the Access Panel` is set to `No`.
+By default, `Owners can manage group membership requests in My Groups` is set to `No`.
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/active-directory/active-directory-accessmanagement-self-service-group-management#making-a-group-available-for-end-user-self-service>
+1. <https://learn.microsoft.com/en-us/entra/identity/users/groups-self-service-management#making-a-group-available-for-end-user-self-service>
 2. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-privileged-access#pa-1-separate-and-limit-highly-privilegedadministrative-users>
 3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-privileged-access#pa-3-manage-lifecycle-of-identities-and-entitlements>
 4. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-privileged-access#pa-8-determine-access-process-for-cloud-provider-support>

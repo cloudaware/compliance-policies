@@ -19,10 +19,8 @@ This recommendation only creates a periodic reminder to regenerate access keys. 
 ### From Azure Portal
 
 1. Go to `Storage Accounts`.
-2. For each Storage Account, go to `Access keys`.
-3. Click `Set rotation reminder`.
-
-If the checkbox for `Enable key rotation reminders` is already checked, that Storage Account is compliant. Review the `Remind me every` field for a desirable periodic setting that fits your security program's needs.
+2. For each Storage Account, under `Security + networking`, go to `Access keys`.
+3. If the button `Edit rotation reminder` is displayed, the Storage Account is compliant. Click `Edit rotation reminder` and review the `Remind me every` field for a desirable periodic setting that fits your security program's needs. If the button `Set rotation reminder` is displayed, the Storage Account is not compliant.
 
 ### From Powershell
 
@@ -30,9 +28,9 @@ If the checkbox for `Enable key rotation reminders` is already checked, that Sto
 $rgName = <resource group name for the storage> $accountName = <storage account name> $account = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName Write-Output $accountName -> Write-Output "Expiration Reminder set to: $($account.KeyPolicy.KeyExpirationPeriodInDays) Days" Write-Output "Key1 Last Rotated: $($account.KeyCreationTime.Key1.ToShortDateString())" Write-Output "Key2 Last Rotated: $($account.KeyCreationTime.Key2.ToShortDateString())"
 ```
 
-If any of the creation dates is empty, then remediation is required, due to the need of at least one rotation of the keys.
+Key rotation is recommended if the creation date for any key is empty.
 
-If the reminder is set, the period in days will be returned. 90 days is the recommendation.
+If the reminder is set, the period in days will be returned. The recommended period is 90 days.
 
 ## Default Value
 

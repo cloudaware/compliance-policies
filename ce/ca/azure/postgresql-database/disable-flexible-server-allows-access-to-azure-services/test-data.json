@@ -1,0 +1,152 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10Z1__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test1",
+        "CA10Z1__disappearanceTime__c": "2024-06-07T13:58:24Z",
+        "CA10Z1__firewallRules__c": "[{\"properties\":{\"startIpAddress\":\"0.0.0.0\",\"endIpAddress\":\"0.0.0.0\"},\"name\":\"AllowAllAzureServicesAndResourcesWithinAzureIps\"}]",
+        "CA10Z1__deploymentMode__c": "Flexible"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('caJsonFrom__firewallRules__c').jsonQueryText('length([? properties.startIpAddress == \\'0.0.0.0\\' && (properties.endIpAddress == \\'0.0.0.0\\' || properties.endIpAddress == \\'255.255.255.255\\')])') > number(0.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test2",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__firewallRules__c": "[{\"properties\":{\"startIpAddress\":\"0.0.0.0\",\"endIpAddress\":\"0.0.0.0\"},\"name\":\"FirewallRuleName\"}]",
+        "CA10Z1__deploymentMode__c": "Flexible"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('caJsonFrom__firewallRules__c').jsonQueryText('length([? starts_with(name, \\'AllowAllAzureServicesAndResourcesWithinAzureIps\\')])') > number(0.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test3",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__firewallRules__c": "[{\"properties\":{\"startIpAddress\":\"1.1.1.1\",\"endIpAddress\":\"255.255.255.0\"},\"name\":\"AllowAllAzureServicesAndResourcesWithinAzureIps\"}]",
+        "CA10Z1__deploymentMode__c": "Flexible"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('caJsonFrom__firewallRules__c').jsonQueryText('length([? properties.startIpAddress == \\'0.0.0.0\\' && (properties.endIpAddress == \\'0.0.0.0\\' || properties.endIpAddress == \\'255.255.255.255\\')])') > number(0.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test4",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__firewallRules__c": "[{\"properties\":{\"startIpAddress\":\"0.0.0.0\",\"endIpAddress\":\"255.255.255.255\"},\"name\":\"FirewallRuleName\"}]",
+        "CA10Z1__deploymentMode__c": "Flexible"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "500",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test5",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__firewallRules__c": "[{\"properties\":{\"startIpAddress\":\"1.1.1.1\",\"endIpAddress\":\"1.1.1.1\"},\"name\":\"FirewallRuleName\"}]",
+        "CA10Z1__deploymentMode__c": "Flexible"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "500",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test6",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__firewallRules__c": "[{\"name\":\"FirewallRuleName\"}]",
+        "CA10Z1__deploymentMode__c": "Flexible"
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "204",
+            "conditionText": "extract('caJsonFrom__firewallRules__c').jsonQueryText('length([? starts_with(name, \\'AllowAllAzureServicesAndResourcesWithinAzureIps\\')])').isEvaluationFailed()",
+            "runtimeError": "TypeError: starts_with() expected argument 1 to be type 2 but received type 7 instead."
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test7",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__firewallRules__c": "[{\"properties\":{\"startIpAddress\":\"1.1.1.1\",\"endIpAddress\":\"1.1.1.1\"}}]",
+        "CA10Z1__deploymentMode__c": "Flexible"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "extract('caJsonFrom__firewallRules__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test8",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__firewallRules__c": "[]",
+        "CA10Z1__deploymentMode__c": "Flexible"
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "201",
+            "conditionText": "CA10Z1__firewallRules__c.delegatedTo(CA10Z1__firewallRules__c).isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test9",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__firewallRules__c": null,
+        "CA10Z1__deploymentMode__c": "Flexible"
+    },
+    {
+    "expectedResult":{
+        "status": "INAPPLICABLE",
+        "conditionIndex": "199",
+        "conditionText": "extract('CA10Z1__deploymentMode__c') != 'Flexible'",
+        "runtimeError": null
+    },
+        "context":{
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test10",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__configurations__c": "[{\"name\":\"require_secure_transport\",\"value\":\"on\"}]",
+        "CA10Z1__deploymentMode__c": "Single"
+    }
+]

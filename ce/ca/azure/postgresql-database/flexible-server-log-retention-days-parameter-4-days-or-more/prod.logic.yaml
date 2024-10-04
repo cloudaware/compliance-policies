@@ -1,0 +1,58 @@
+---
+inputObject: "CA10Z1__CaAzurePostgreSqlServer__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10Z1__CaAzurePostgreSqlServer__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is not the Flexible Server deployment mode."
+    condition:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__deploymentMode__c"
+        right:
+          TEXT: "Flexible"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "PostgreSQL Server logfiles.retention_days configuration is not enabled."
+    remediationMessage: "Consider enabling PostgreSQL Server logfiles.retention_days configuration."
+    condition:
+      AND:
+        args:
+          - LESS_THAN_EQUAL:
+              left:
+                JSON_QUERY_NUMBER:
+                    arg: 
+                      EXTRACT: "caJsonFrom__configurations__c"
+                    expression: "to_number([? name == 'logfiles.retention_days'].value | [0])"
+                    undeterminedIf: 
+                      evaluationError: "The JSON query has failed."
+                      resultTypeMismatch: "The JSON query did not return number type."
+              right:
+                NUMBER: 3.0
+          - NOT_EMPTY:
+              arg:
+                JSON_QUERY_NUMBER:
+                    arg: 
+                      EXTRACT: "caJsonFrom__configurations__c"
+                    expression: "to_number([? name == 'logfiles.retention_days'].value | [0])"
+                    undeterminedIf: 
+                      evaluationError: "The JSON query has failed."
+                      resultTypeMismatch: "The JSON query did not return number type."
+  - status: "COMPLIANT"
+    currentStateMessage: "PostgreSQL Server logfiles.retention_days configuration is enabled."
+    condition:
+      GREATER_THAN:
+        left:
+          JSON_QUERY_NUMBER:
+              arg: 
+                EXTRACT: "caJsonFrom__configurations__c"
+              expression: "to_number([? name == 'logfiles.retention_days'].value | [0])"
+              undeterminedIf: 
+                evaluationError: "The JSON query has failed."
+                resultTypeMismatch: "The JSON query did not return number type."
+        right:
+          NUMBER: 3.0
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

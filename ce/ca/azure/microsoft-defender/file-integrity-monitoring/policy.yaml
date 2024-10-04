@@ -1,0 +1,14 @@
+---
+names:
+  full: Microsoft Defender File Integrity Monitoring Component is not enabled
+  contextual: File Integrity Monitoring Component is not enabled
+description: >
+  File Integrity Monitoring (FIM) is a feature that monitors critical system files in 
+  Windows or Linux for potential signs of attack or compromise.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v3.0.0/03/01/03/05"
+  - "/frameworks/cloudaware/resource-security/microsoft-defender-configuration"

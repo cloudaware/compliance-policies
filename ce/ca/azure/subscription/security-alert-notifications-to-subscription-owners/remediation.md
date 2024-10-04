@@ -4,7 +4,7 @@
 
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Defender for Cloud`.
-3. Click on `Environment Settings`.
+3. Under `Management`, select `Environment Settings`.
 4. Click on the appropriate Management Group, Subscription, or Workspace.
 5. Click on `Email notifications`.
 6. In the drop down of the `All users with the following roles` field select `Owner`.

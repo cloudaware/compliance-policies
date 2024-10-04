@@ -4,12 +4,13 @@
 
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Entra ID`.
-3. Select `Users`.
-4. Select `User settings`.
+3. Under `Manage`, select `Users`.
+4. Under `Manage`, select `User settings`.
 5. Set `Users can register applications` to `No`.
+6. Click `Save`.
 
 ## From PowerShell
 
 ```ps
-Connect-MsolService Set-MsolCompanyInformation -UsersPermissionToCreateLOBAppsEnabled $False
+$param = @{ AllowedToCreateApps = "$false" } Update-MgPolicyAuthorizationPolicy -DefaultUserRolePermissions $param
 ```

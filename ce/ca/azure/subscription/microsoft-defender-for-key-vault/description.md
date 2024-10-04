@@ -15,7 +15,7 @@ Turning on Microsoft Defender for Key Vault incurs an additional cost per resour
 ### From Azure Portal
 
 1. Go to `Microsoft Defender for Cloud`.
-2. Select `Environment Settings` blade.
+2. Under `Management`, select `Environment Settings`.
 3. Click on the subscription name.
 4. Select the `Defender plans` blade.
 5. Ensure `Status` is set to `On` for `Key Vault`.

@@ -10,9 +10,10 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-azure-v2.1.0/05/01/03
-  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration
-  - /frameworks/cloudaware/resource-security/data-encryption
+  - "/frameworks/cis-azure-v2.1.0/05/01/03"
+  - "/frameworks/cis-azure-v3.0.0/06/01/03"
+  - "/frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration"
+  - "/frameworks/cloudaware/resource-security/data-encryption"
 similarPolicies:
   internal:
     - dec-x-5c3c2067

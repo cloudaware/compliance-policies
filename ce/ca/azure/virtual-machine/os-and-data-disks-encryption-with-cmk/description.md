@@ -9,7 +9,7 @@ Encrypting the IaaS VM's OS disk (boot volume) and Data disks (non-boot volume) 
 ## Impact
 
 Using CMK/BYOK will entail additional management of keys.
-NOTE: You must have your key vault set up to utilize this.
+**NOTE**: You must have your key vault set up to utilize this.
 
 ## Audit
 
@@ -30,7 +30,7 @@ $ResourceGroupName="yourResourceGroupName" $DiskName="yourDiskName" $disk=Get-Az
 
 If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
 
-- **Policy ID**: 0961003e-5a0a-4549-abde-af6a37f2724d - **Name**: `Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources`
+- **Policy ID**: [0961003e-5a0a-4549-abde-af6a37f2724d](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) - **Name**: `Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources`
 
 ## Default Value
 

@@ -3,7 +3,7 @@
 ## From Azure Portal
 
 1. Go to `Microsoft Defender for Cloud`.
-2. Select `Environment Settings`.
+2. Under `Management`, select `Environment Settings`.
 3. Click on the subscription name.
 4. Select `Defender plans`.
 5. Set `App Service` Status to `On`.

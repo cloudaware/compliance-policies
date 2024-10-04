@@ -1,0 +1,31 @@
+---
+name: "SC-8(1) Cryptographic Protection (L)(M)(H)"
+description: |-
+  Implement cryptographic mechanisms to [FedRAMP Assignment: prevent unauthorized
+  disclosure of information AND detect changes to information] during transmission.
+
+  **SC-8 (1) Additional FedRAMP Requirements and Guidance:**
+  
+  **Guidance**: See M-22-09, including "Agencies encrypt all DNS requests and HTTP traffic
+  within their environment"SC-8 (1) applies when encryption has been selected as the
+  method to protect confidentiality and integrity. Otherwise refer to SC-8 (5). SC-8 (1) is
+  strongly encouraged.
+  
+  **Guidance**: Note that this enhancement requires the use of cryptography which must be
+  compliant with Federal requirements and utilize FIPS validated or NSA approved
+  cryptography (see SC-13).
+  
+  **Guidance**: When leveraging encryption from the underlying IaaS/PaaS: While some
+  IaaS/PaaS services provide encryption by default, many require encryption to be
+  configured, and enabled by the customer. The CSP has the responsibility to verify
+  encryption is properly configured.
+  
+  **Requirement**: Please ensure SSP Section 10.3 Cryptographic Modules Implemented for
+  Data At Rest (DAR) and Data In Transit (DIT) is fully populated for reference in this
+  control.
+similar:
+  internal:
+    - "dec-c-cb51ef9f"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/sc/08/01
+    - "/frameworks/fedramp-high-security-controls/sc/08/01"

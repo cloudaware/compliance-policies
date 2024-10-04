@@ -3,13 +3,11 @@
 ## From Azure Console
 
 1. Go to `SQL servers`.
-
-For the desired server instance:
-
-2. Click On `Transparent data encryption`.
+2. For each SQL server, under `Security`, click `Transparent data encryption`.
 3. Set `Transparent data encryption` to `Customer-managed key`.
-4. Browse through your `key vaults` to Select an existing key or create a new key in the Azure Key Vault.
-5. Check `Make selected key the default TDE protector`.
+4. Select a key or enter a key identifier.
+5. Check `Make this key the default TDE protector`.
+6. Click `Save`.
 
 ## From Azure CLI
 

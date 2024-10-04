@@ -31,7 +31,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') == 0.0",
+            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') == number(0.0)",
             "runtimeError": null
         },
         "context": {
@@ -45,7 +45,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') == 0.0",
+            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') == number(0.0)",
             "runtimeError": null
         },
         "context": {
@@ -59,7 +59,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') == 0.0",
+            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') == number(0.0)",
             "runtimeError": null
         },
         "context": {
@@ -73,7 +73,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') == 0.0",
+            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') == number(0.0)",
             "runtimeError": null
         },
         "context": {
@@ -87,7 +87,7 @@
         "expectedResult": {
             "status": "COMPLIANT",
             "conditionIndex": "399",
-            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') > 0.0",
+            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') > number(0.0)",
             "runtimeError": null
         },
         "context": {

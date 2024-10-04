@@ -16,11 +16,12 @@ Being a level 2, enabling this setting can have a high impact on the cost of dat
 
 ### From Azure Portal
 
-1. From the default portal page select `Storage Accounts`.
-2. Select the specific Storage Account.
-3. Click the `Diagnostics settings` under the `Monitoring` section in the left column.
-4. Select the `table` tab indented below the storage account. Then select the diagnostic setting listed.
-5. Ensure `StorageRead`, `StorageWrite`, and `StorageDelete` options are selected under the `Logging section` and that they are sent to the correct destination.
+1. Go to `Storage Accounts`.
+2. For each storage account, under `Monitoring`, click `Diagnostics settings`.
+3. Select the `table` tab indented below the storage account.
+4. Ensure that at least one diagnostic setting is listed.
+5. Click `Edit setting` on a diagnostic setting.
+6. Ensure that at least one diagnostic setting has `StorageRead`, `StorageWrite`, and `StorageDelete` options selected under the `Logs` section and that they are sent to an appropriate destination.
 
 ### From Azure CLI
 

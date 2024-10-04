@@ -18,7 +18,7 @@ Constant `NumberType` value can be constructed from [`NUMBER`](operations/NUMBER
 
 Can be retrieved from fields, that return number, like `Number`, `Currency`, etc. using [`FIELD`](operations/FIELD.md) operation.
 
-Operations that [return](/tags/operation-returns-number) or [consume](/tags/operation-consumes-numner) `NumberType`.
+Operations that [return](/tags/operation-returns-number) or [consume](/tags/operation-consumes-number) `NumberType`.
 
 ## `TextType`
 
@@ -28,7 +28,7 @@ Constant `TextType` value can be constructed from [`TEXT`](operations/TEXT.md) o
 
 Can be retrieved from fields, that return strings, like `Text`, `TextArea`, `LongTextArea`, etc. using [`FIELD`](operations/FIELD.md) operation.
 
-Text is stored as case-sensitive, but [operations](operations) will have a have a case-sensitive and case-insensitive variants.
+Text is stored as case-sensitive, but [operations](operations/index.md) will have a case-sensitive and case-insensitive variants.
 
 Operations that [return](/tags/operation-returns-text) or [consume](/tags/operation-consumes-text) `TextType`.
 

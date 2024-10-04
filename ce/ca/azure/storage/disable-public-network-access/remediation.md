@@ -7,6 +7,7 @@ First, follow Microsoft documentation and create shared access signature tokens 
 1. Go to `Storage Accounts`.
 2. For each storage account, under the `Security + networking` section, click `Networking`.
 3. Set `Public Network Access` to `Disabled`.
+4. Click `Save`.
 
 ## From Azure CLI
 

@@ -8,8 +8,9 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-azure-v2.1.0/07/06
-  - /frameworks/cloudaware/resource-security/threat-protection
+  - "/frameworks/cis-azure-v2.1.0/07/06"
+  - "/frameworks/cis-azure-v3.0.0/08/08"
+  - "/frameworks/cloudaware/resource-security/threat-protection"
 similarPolicies:
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/VirtualMachines/install-endpoint-protection.html

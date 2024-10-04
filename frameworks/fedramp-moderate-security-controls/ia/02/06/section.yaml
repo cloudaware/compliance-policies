@@ -1,0 +1,24 @@
+---
+name: "IA-2(6) Access to Accounts —separate Device (M)(H)"
+description: |-
+  Implement multi-factor authentication for [FedRAMP Assignment: local, network and remote]
+  access to [FedRAMP Assignment: privileged accounts; non-privileged accounts] such that:
+  
+  (a) One of the factors is provided by a device separate from the system gaining
+  access; and
+  
+  (b) The device meets [FedRAMP Assignment: FIPS-validated or NSA-approved
+  cryptography].
+  
+  **IA-2 (6) Additional FedRAMP Requirements and Guidance:**
+  
+  **Guidance**: PIV=separate device. Please refer to NIST SP 800-157 Guidelines for
+  Derived Personal Identity Verification (PIV) Credentials.
+  
+  **Guidance**: See SC-13 Guidance for more information on FIPS-validated or
+  NSA-approved cryptography.
+similar:
+  internal:
+    - "dec-c-3e8bd6ae"
+  sections:
+    - /frameworks/fedramp-high-security-controls/ia/02/06

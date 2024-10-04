@@ -3,11 +3,11 @@
 ## From Azure Portal
 
 1. Go to `Microsoft Defender for Cloud`.
-2. Select `Environment Settings`.
+2. Under `Management`, select `Environment Settings`.
 3. Click on the subscription name.
-4. Select `Defender plans`.
-5. Set `Server` Status to `On`.
-6. Select Save.
+4. Click `Defender plans` in the left pane.
+5. Under `Cloud Workload Protection (CWP)`, locate `Server` in the Plan column, set Status to `On`.
+6. Select `Save`.
 
 ## From Azure CLI
 

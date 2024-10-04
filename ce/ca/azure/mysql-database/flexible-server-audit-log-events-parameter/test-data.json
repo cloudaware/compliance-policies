@@ -1,0 +1,107 @@
+[
+    {
+        "expectedResult":{
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10Z1__disappearanceTime__c)",
+            "runtimeError": null
+        },
+            "context":{
+                "snapshotTime": "2024-06-13T04:17:29Z"
+            },
+            "Id": "test1",
+            "CA10Z1__disappearanceTime__c": "2024-06-13T04:17:29Z",
+            "CA10Z1__configurations__c": "[{\"name\":\"audit_log_enabled\",\"value\":\"on\"}]",
+            "CA10Z1__deploymentMode__c": "Flexible"
+        },
+        {
+        "expectedResult":{
+            "status": "COMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "extract('caJsonFrom__configurations__c').jsonQueryText('[? name == \\'audit_log_enabled\\'].value | [0]') == 'on' && extract('caJsonFrom__configurations__c').jsonQueryText('[? name == \\'audit_log_events\\'].value | [0]') == 'CONNECTION'",
+            "runtimeError": null
+        },
+            "context":{
+                "snapshotTime": "2024-06-13T04:17:29Z"
+            },
+            "Id": "test2",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__configurations__c": "[{\"name\":\"audit_log_enabled\",\"value\":\"on\"}, {\"name\":\"audit_log_events\",\"value\":\"CONNECTION\"}]",
+            "CA10Z1__deploymentMode__c": "Flexible"
+        },
+        {
+        "expectedResult":{
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('caJsonFrom__configurations__c').jsonQueryText('[? name == \\'audit_log_enabled\\'].value | [0]') == 'off'",
+            "runtimeError": null
+        },
+            "context":{
+                "snapshotTime": "2024-06-13T04:17:29Z"
+            },
+            "Id": "test3",
+            "CA10Z1__disappearanceTime__c":null,
+            "CA10Z1__configurations__c": "[{\"name\":\"audit_log_enabled\",\"value\":\"off\"}, {\"name\":\"audit_log_events\",\"value\":\"CONNECTION\"}]",
+            "CA10Z1__deploymentMode__c": "Flexible"
+        },
+        {
+        "expectedResult":{
+            "status": "UNDETERMINED",
+            "conditionIndex": "500",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+            "context":{
+                "snapshotTime": "2024-06-13T04:17:29Z"
+            },
+            "Id": "test4",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__configurations__c": "[]",
+            "CA10Z1__deploymentMode__c": "Flexible"
+        },
+        {
+        "expectedResult":{
+            "status": "UNDETERMINED",
+            "conditionIndex": "201",
+            "conditionText": "CA10Z1__configurations__c.delegatedTo(CA10Z1__configurations__c).isEmpty()",
+            "runtimeError": null
+        },
+            "context":{
+                "snapshotTime": "2024-06-13T04:17:29Z"
+            },
+            "Id": "test5",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__configurations__c": null,
+            "CA10Z1__deploymentMode__c": "Flexible"
+        },
+        {
+        "expectedResult":{
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10Z1__deploymentMode__c') != 'Flexible'",
+            "runtimeError": null
+        },
+            "context":{
+                "snapshotTime": "2024-06-13T04:17:29Z"
+            },
+            "Id": "test6",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__configurations__c": "[{\"name\":\"audit_log_enabled\",\"value\":\"on\"}]",
+            "CA10Z1__deploymentMode__c": "Single"
+        },
+        {
+        "expectedResult":{
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('caJsonFrom__configurations__c').jsonQueryText('[? name == \\'audit_log_enabled\\'].value | [0]') == 'on' && extract('caJsonFrom__configurations__c').jsonQueryText('[? name == \\'audit_log_events\\'].value | [0]') != 'CONNECTION'",
+            "runtimeError": null
+        },
+            "context":{
+                "snapshotTime": "2024-06-13T04:17:29Z"
+            },
+            "Id": "test7",
+            "CA10Z1__disappearanceTime__c":null,
+            "CA10Z1__configurations__c": "[{\"name\":\"audit_log_enabled\",\"value\":\"on\"}, {\"name\":\"audit_log_events\",\"value\":\"GENERAL\"}]",
+            "CA10Z1__deploymentMode__c": "Flexible"
+        }
+]

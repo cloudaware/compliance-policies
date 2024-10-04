@@ -14,7 +14,7 @@ Auditing tracks database events and writes them to an audit log in the Azure sto
 
 1. Go to `SQL servers`.
 2. For each server instance.
-3. Click on `Auditing`.
+3. Under `Security`, click `Auditing`.
 4. Ensure that `Enable Azure SQL Auditing` is set to `On`.
 
 ### From PowerShell

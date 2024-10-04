@@ -1,0 +1,20 @@
+name: "PR.IR-01: Networks and environments are protected from unauthorized logical access and usage"
+description: |-
+  1. Logically segment organization networks and cloud-based platforms according to trust boundaries 
+  and platform types (e.g., IT, IoT, OT, mobile, guests), and permit required communications only 
+  between segments
+  2. Logically segment organization networks from external networks, and permit only necessary 
+  communications to enter the organization's networks from the external networks
+  3. Implement zero trust architectures to restrict network access to each resource to the minimum necessary
+  4. Check the cyber health of endpoints before allowing them to access and use production resources
+similar:
+  sections:
+    - "/frameworks/nist-csf-v1.1/pr-ac/03"
+    - "/frameworks/nist-csf-v1.1/pr-ac/05"
+    - "/frameworks/nist-csf-v1.1/pr-ds/07"
+    - "/frameworks/nist-csf-v1.1/pr-pt/04"
+    - "/frameworks/nist-sp-800-53-r5/ac/03"
+    - "/frameworks/nist-sp-800-53-r5/ac/04"
+    - "/frameworks/nist-sp-800-53-r5/sc/04"
+    - "/frameworks/nist-sp-800-53-r5/sc/05"
+    - "/frameworks/nist-sp-800-53-r5/sc/07"

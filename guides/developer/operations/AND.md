@@ -5,4 +5,8 @@ tags:
 ---
 # `AND`
 
-[boolean](/tags/operation-returns-attributes)
+## Quick Links
+
+- [Use these operations inside `AND`](/tags/operation-returns-boolean)
+- [Use `AND` inside these operations](/tags/operation-consumes-boolean)
+- [Unit-tests](../../../ce/unit-test/and/policy.gen.md)

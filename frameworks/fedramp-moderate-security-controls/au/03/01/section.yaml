@@ -1,0 +1,18 @@
+---
+name: "AU-3(1) Additional Audit Information (M)(H)"
+description: |-
+  Generate audit records containing the following additional information: [FedRAMP Assignment:
+  session, connection, transaction, or activity duration; for client-server transactions, the number
+  of bytes received and bytes sent; additional informational messages to diagnose or identify the
+  event; characteristics that describe or identify the object or resource being acted upon;
+  individual identities of group account users; full-text of privileged commands].
+
+  **AU-3 (1) Additional FedRAMP Requirements and Guidance:**
+
+  **Guidance**: For client-server transactions, the number of bytes sent and received gives
+  bidirectional transfer information that can be helpful during an investigation or inquiry.
+similar:
+  internal:
+    - dec-c-09df6a98
+  sections:
+    - /frameworks/fedramp-high-security-controls/au/03/01

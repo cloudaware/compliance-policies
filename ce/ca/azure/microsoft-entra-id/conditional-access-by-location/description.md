@@ -19,12 +19,14 @@ Microsoft Entra ID P1 or P2 is required. Limiting access geographically will den
 1. From Azure Home open the Portal menu in the top left, and select `Microsoft Entra ID`.
 2. Scroll down in the menu on the left, and select `Security`.
 3. Select on the left side `Conditional Access`.
-4. Select the policy you wish to audit, then:
-    - Under `Assignments`, Review the `Users and Groups` for the personnel the policy will apply to.
-    - Under `Assignments`, Review the `Cloud apps or actions` for the systems the policy will apply to.
-    - Under `Conditions`, Review the `Include` locations for those that should be **blocked**.
-    - Under `Conditions`, Review the `Exclude` locations for those that should be allowed (Note: locations set up in the previous recommendation for Trusted Location should be in the `Exclude` list.).
-    - Under `Access Controls` > `Grant` - Confirm that `Block Access` is selected.
+4. Select `Policies`.
+5. Select the policy you wish to audit, then:
+
+    - Under `Assignments` > `Users`, review the users and groups for the personnel the policy will apply to.
+    - Under `Assignments` > `Target resources`, review the cloud apps or actions for the systems the policy will apply to.
+    - Under `Conditions` > `Locations`, Review the `Include` locations for those that should be **blocked**.
+    - Under `Conditions` > `Locations`, Review the `Exclude` locations for those that should be allowed (**Note**: locations set up in the previous recommendation for Trusted Location should be in the `Exclude` list.).
+    - Under `Access Controls` > `Grant` - Confirm that `Block access` is selected.
 
 ### From Azure CLI
 
@@ -33,7 +35,7 @@ As of this writing there are no subcommands for Conditional Access Policies with
 ### From PowerShell
 
 ```ps
-$conditionalAccessPolicies = Get-AzureADMSConditionalAccessPolicy foreach($policy in $conditionalAccessPolicies) {$policy | Select-Object @{N='Policy ID'; E={$policy.id}}, @{N="Included Locations"; E={$policy.Conditions.Locations.IncludeLocations}}, @{N="Excluded Locations"; E={$policy.Conditions.Locations.ExcludeLocations}}, @{N="BuiltIn GrantControls"; E={$policy.GrantControls.BuiltInControls}}}
+$conditionalAccessPolicies = Get-MgIdentityConditionalAccessPolicy foreach($policy in $conditionalAccessPolicies) {$policy | Select-Object @{N='Policy ID'; E={$policy.id}}, @{N="Included Locations"; E={$policy.Conditions.Locations.IncludeLocations}}, @{N="Excluded Locations"; E={$policy.Conditions.Locations.ExcludeLocations}}, @{N="BuiltIn GrantControls"; E={$policy.GrantControls.BuiltInControls}}}
 ```
 
 Make sure there is at least 1 row in the output of the above PowerShell command that contains `Block` under the `BuiltIn GrantControls` column and location IDs under the `Included Locations` and `Excluded Locations` columns. If not, a policy containing these options has not been created and is considered a finding.

@@ -15,7 +15,7 @@ Secrets cannot be used beyond their assigned expiry date respectively. Secrets n
 ### From Azure Portal
 
 1. Go to `Key vaults`.
-2. For each Key vault, click on `Secrets.`.
+2. For each Key vault, click on `Secrets`.
 3. In the main pane, ensure that the status of the secret is `Enabled`.
 4. Set an appropriate `Expiration date` on all secrets.
 

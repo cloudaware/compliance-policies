@@ -1,0 +1,27 @@
+---
+inputObject: "CA10__CaAzureSqlServer__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureSqlServer__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "SQL Server Public Network Access is disabled."
+    remediationMessage: "Consider enabling SQL Server Public Network Access."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__publicNetworkAccess__c"
+        right:
+          TEXT: "Disabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "SQL Server Public Network Access is enabled."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__publicNetworkAccess__c"
+        right:
+          TEXT: "Enabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unable to determine Public Network Access."

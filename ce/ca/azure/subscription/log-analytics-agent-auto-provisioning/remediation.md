@@ -4,10 +4,13 @@
 
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Defender for Cloud`.
-3. Select `Environment Settings`.
+3. Under `Management`, select `Environment Settings`.
 4. Select a subscription.
-5. Click on `Settings & Monitoring`.
-6. Ensure that `Log Analytics agent for Azure VMs` is set to `On`.
+5. Click on `Settings & monitoring`.
+6. Set the `Status` of `Log Analytics agent` to `On`.
+7. Select a Workspace.
+8. Click `Apply`.
+9. Click `Continue`.
 
 Repeat the above for any additional subscriptions.
 

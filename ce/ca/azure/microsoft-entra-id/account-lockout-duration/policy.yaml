@@ -1,0 +1,15 @@
+---
+names:
+  full: Microsoft Entra ID Account Lockout Duration is not set 60 seconds or more
+  contextual: Account Lockout Duration is not set 60 seconds or more
+description: >
+  The account lockout duration value determines how long an account retains the status of 
+  lockout, and therefore how long before a user can continue to attempt to login after passing 
+  the lockout threshold.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v3.0.0/02/07"
+  - "/frameworks/cloudaware/identity-and-access-management/credentials-controls"

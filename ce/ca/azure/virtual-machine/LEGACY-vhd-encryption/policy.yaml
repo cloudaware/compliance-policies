@@ -11,8 +11,9 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-azure-v2.1.0/07/07
-  - /frameworks/cloudaware/resource-security/data-encryption
+  - "/frameworks/cis-azure-v2.1.0/07/07"
+  - "/frameworks/cis-azure-v3.0.0/08/09"
+  - "/frameworks/cloudaware/resource-security/data-encryption"
 similarPolicies:
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/VirtualMachines/virtual-hard-disk-cmk-encryption.html

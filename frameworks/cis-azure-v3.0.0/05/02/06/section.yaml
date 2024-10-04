@@ -1,0 +1,9 @@
+---
+name: "5.2.6 [LEGACY] Ensure server parameter 'log_connections' is set to 'ON' for PostgreSQL 
+  single server (Automated)"
+description: |-
+  Enable `log_connections` on `PostgreSQL single servers`.
+
+  **NOTE**: This recommendation currently only applies to Single Server, not Flexible Server. 
+  See additional information below for details about the planned retirement of Azure PostgreSQL 
+  Single Server.

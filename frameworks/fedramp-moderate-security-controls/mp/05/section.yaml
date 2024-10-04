@@ -1,0 +1,26 @@
+---
+name: "MP-5 Media Transport (M)(H)"
+description: |-
+  a. Protect and control [FedRAMP Assignment: all media with sensitive information] during
+  transport outside of controlled areas using [FedRAMP Assignment: prior to leaving
+  secure/controlled environment: for digital media, encryption in compliance with Federal
+  requirements and utilizes FIPS validated or NSA approved cryptography (see SC-13.);
+  for non-digital media, secured in locked container];
+
+  b. Maintain accountability for system media during transport outside of controlled areas;
+  
+  c. Document activities associated with the transport of system media; and
+  
+  d. Restrict the activities associated with the transport of system media to authorized
+  personnel.
+  
+  **MP-5 Additional FedRAMP Requirements and Guidance:**
+  
+  **(a) Requirement**: The service provider defines security measures to protect digital and
+  non-digital media in transport. The security measures are approved and accepted by the
+  JAB/AO.
+similar:
+  internal:
+    - "dec-c-4b39a92b"
+  sections:
+    - /frameworks/fedramp-high-security-controls/mp/05

@@ -1,0 +1,12 @@
+name: "PR.DS-11: Backups of data are created, protected, maintained, and tested"
+description: |-
+  1. Continuously back up critical data in near-real-time, and back up other data frequently 
+  at agreed-upon schedules
+  2. Test backups and restores for all types of data sources at least annually
+  3. Securely store some backups offline and offsite so that an incident or disaster will not damage them
+  4. Enforce geographic separation and geolocation restrictions for data backup storage
+similar:
+  sections:
+    - "/frameworks/nist-csf-v1.1/pr-ip/04"
+    - "/frameworks/nist-sp-800-53-r5/cp/06"
+    - "/frameworks/nist-sp-800-53-r5/cp/09"

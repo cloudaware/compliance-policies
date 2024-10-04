@@ -1,0 +1,11 @@
+---
+name: "SC-10 Network Disconnect (M)(H)"
+description: >
+  Terminate the network connection associated with a communications session at the end of the
+  session or after [FedRAMP Assignment: no longer than ten (10) minutes for privileged sessions
+  and no longer than fifteen (15) minutes for user sessions] of inactivity.
+similar:
+  internal:
+    - "dec-c-915d1fc7"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/sc/10

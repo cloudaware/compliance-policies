@@ -1,0 +1,16 @@
+name: "DE.AE-02: Potentially adverse events are analyzed to better understand associated activities"
+description: |-
+  1. Use security information and event management (SIEM) or other tools to continuously monitor log 
+  events for known malicious and suspicious activity
+  2. Utilize up-to-date cyber threat intelligence in log analysis tools to improve detection accuracy 
+  and characterize threat actors, their methods, and indicators of compromise
+  3. Regularly conduct manual reviews of log events for technologies that cannot be sufficiently 
+  monitored through automation
+  4. Use log analysis tools to generate reports on their findings
+similar:
+  sections:
+    - "/frameworks/nist-csf-v1.1/de-ae/02"
+    - "/frameworks/nist-sp-800-53-r5/au/06"
+    - "/frameworks/nist-sp-800-53-r5/ca/07"
+    - "/frameworks/nist-sp-800-53-r5/ir/04"
+    - "/frameworks/nist-sp-800-53-r5/si/04"

@@ -8,7 +8,9 @@ Selecting certain networks for your Cosmos DB to communicate restricts the numbe
 
 ## Impact
 
-Failure to whitelist the correct networks will result in a connection loss.
+**WARNING**: Failure to whitelist the correct networks will result in a connection loss.
+
+**WARNING**: Changes to Cosmos DB firewalls may take up to 15 minutes to apply. Ensure that sufficient time is planned for remediation or changes to avoid disruption.
 
 ## Audit
 

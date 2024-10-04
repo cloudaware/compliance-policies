@@ -1,0 +1,10 @@
+---
+name: 4.12 Ensure changes to network gateways are monitored (Manual)
+description: |-
+  Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to
+  CloudWatch Logs or an external Security Information and Event Management (SIEM)
+  environment, and establishing corresponding metric filters and alarms.
+
+  Network gateways are required to send and receive traffic to a destination outside of a
+  VPC. It is recommended that a metric filter and alarm be established for changes to
+  network gateways.

@@ -11,10 +11,11 @@ type: BEST_PRACTICE
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-azure-v2.1.0/04/05/03
-  - /frameworks/cloudaware/resource-security/secure-access-controls
+  - "/frameworks/cis-azure-v2.1.0/04/05/03"
+  - "/frameworks/cis-azure-v3.0.0/05/04/03"
+  - "/frameworks/cloudaware/resource-security/secure-access-controls"
 frameworkIgnoreMappings:
-  - /frameworks/cis-azure-v2.1.0/04/05/02
+  - "/frameworks/cis-azure-v2.1.0/04/05/02"
 similarPolicies:
   internal:
     - dec-x-b4d3d9dc

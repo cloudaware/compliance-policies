@@ -1,0 +1,21 @@
+---
+name: "SI-6 Security and Privacy Function Verification (M)(H)"
+description: |-
+  a. Verify the correct operation of [Assignment: organization-defined security and privacy
+  functions];
+
+  b. Perform the verification of the functions specified in SI-6a [Selection (one-or-more):
+  [FedRAMP Assignment: system transitional states to include upon system startup
+  and/or restart; upon command by user with appropriate privilege]; [FedRAMP
+  Assignment: at least monthly]];
+  
+  c. Alert [FedRAMP Assignment: to include system administrators and security personnel] to
+  failed security and privacy verification tests; and
+  
+  d. [Selection (one-or-more): Shut the system down; Restart the system; alternative
+  actions(s)] when anomalies are discovered.
+similar:
+  internal:
+    - "dec-c-9989558f"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/si/06

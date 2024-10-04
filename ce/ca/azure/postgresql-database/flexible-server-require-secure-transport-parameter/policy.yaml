@@ -1,0 +1,23 @@
+---
+names:
+  full: Azure PostgreSQL Flexible Server require_secure_transport Parameter is not set to ON
+  contextual: Flexible Server require_secure_transport Parameter is not set to ON
+description: SSL connectivity helps to provide a new layer of security by connecting 
+  database server to client applications using Secure Sockets Layer (SSL). Enforcing SSL 
+  connections between database server and client applications helps protect against 
+  "man in the middle" attacks by encrypting the data stream between the server and 
+  application.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v3.0.0/05/02/01"
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+frameworkIgnoreMappings:
+  - "/frameworks/cis-azure-v2.1.0/04/03/01"
+similarPolicies:
+  internal:
+    - dec-x-995424b7
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/PostgreSQL/in-transit-encryption.html
+      name: Enable In-Transit Encryption for PostgreSQL Database Servers

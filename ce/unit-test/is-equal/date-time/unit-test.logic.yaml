@@ -1,0 +1,67 @@
+---
+inputObject: CA10__CaAwsInstance__c
+testData:
+  - file: test-data.json
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: Test-1
+    condition:
+      UNIT_TEST:
+        id: Test-1
+        arg:
+          IS_EQUAL:
+            left:
+              UNIT_TEST_DATE_TIME: "2000-01-01T00:00:00Z"
+            right:
+              UNIT_TEST_DATE_TIME: "2000-01-01T00:00:00Z"
+  - status: COMPLIANT
+    currentStateMessage: Test-2
+    condition:
+      UNIT_TEST:
+        id: Test-2
+        arg:
+          IS_EQUAL:
+            left:
+              UNIT_TEST_DATE_TIME: "2000-01-01T00:00:00Z"
+            right:
+              UNIT_TEST_DATE_TIME: "2000-01-01T01:00:00+01:00"
+  - status: COMPLIANT
+    currentStateMessage: Test-3
+    condition:
+      UNIT_TEST:
+        id: Test-3
+        arg:
+          NOT_EQUAL:
+            left:
+              UNIT_TEST_DATE_TIME: "2000-01-01T00:00:00Z"
+            right:
+              UNIT_TEST_DATE_TIME: "2000-01-01T00:00:00.001Z"
+  - status: COMPLIANT
+    currentStateMessage: Test-4
+    condition:
+      UNIT_TEST:
+        id: Test-4
+        arg:
+          NOT_EQUAL:
+            left:
+              UNIT_TEST_DATE_TIME: "1970-01-01T00:00:00Z"
+            right:
+              UNIT_TEST_NULL:
+                returnType: DATE_TIME
+  - status: COMPLIANT
+    currentStateMessage: Test-5
+    condition:
+      UNIT_TEST:
+        id: Test-5
+        arg:
+          IS_EQUAL:
+            left:
+              UNIT_TEST_NULL:
+                returnType: DATE_TIME
+            right:
+              UNIT_TEST_NULL:
+                returnType: DATE_TIME
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: Test Failed
+  remediationMessage: Developer Fix Required

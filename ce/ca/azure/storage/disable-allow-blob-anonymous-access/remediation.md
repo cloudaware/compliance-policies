@@ -2,12 +2,10 @@
 
 ## From Azure Portal
 
-1. Open the Storage Accounts blade.
-2. Click on a Storage Account.
-3. In the storage account menu pane, under the Settings section, click `Configuration`.
-4. Under `Allow Blob Anonymous Access`, select `Disabled`.
-
-Repeat these steps for each Storage Account.
+1. Go to `Storage Accounts`.
+2. For each storage account, under `Settings`, click `Configuration`.
+3. Set `Allow Blob Anonymous Access` to `Disabled`.
+4. Click `Save`.
 
 ## From Powershell
 

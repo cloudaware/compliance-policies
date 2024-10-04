@@ -3,11 +3,11 @@
 ## From Azure Portal
 
 1. Go to `Microsoft Defender for Cloud`.
-2. Select `Environment Settings` blade.
+2. Under `Management`, select `Environment Settings`.
 3. Click on the subscription name.
 4. Select the `Defender plans` blade.
 5. On the `Database` row click on `Select types >`.
-6. Set the radio button next to `Azure Cosmos DB` to `On`.
+6. Set the toggle switch next to `Azure Cosmos DB` to `On`.
 7. Click `Continue`.
 8. Click `Save`.
 

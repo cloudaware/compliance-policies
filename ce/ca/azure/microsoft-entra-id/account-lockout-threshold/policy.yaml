@@ -1,0 +1,14 @@
+---
+names:
+  full: Microsoft Entra ID Account Lockout Threshold is not set to 10 or less
+  contextual: Account Lockout Threshold is not set to 10 or less
+description: >
+  The account lockout threshold determines how many failed login attempts are permitted 
+  prior to placing the account in a locked-out state and initiating a variable lockout duration.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v3.0.0/02/06"
+  - "/frameworks/cloudaware/identity-and-access-management/credentials-controls"

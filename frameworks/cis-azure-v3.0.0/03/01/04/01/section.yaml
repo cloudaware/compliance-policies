@@ -1,0 +1,11 @@
+---
+name: "3.1.4.1 Ensure That Microsoft Defender for Containers Is Set To 'On' (Automated)"
+description: |-
+  Turning on Microsoft Defender for Containers enables threat detection for Container Registries 
+  including Kubernetes, providing threat intelligence, anomaly detection, and behavior analytics 
+  in the Microsoft Defender for Cloud. The following services will be enabled for container instances:
+  
+  - Defender agent in Azure
+  - Azure Policy for Kubernetes
+  - Agentless discovery for Kubernetes
+  - Agentless container vulnerability assessment

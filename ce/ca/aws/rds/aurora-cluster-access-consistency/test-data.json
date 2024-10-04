@@ -93,8 +93,8 @@
     {
         "expectedResult": {
             "status": "COMPLIANT",
-            "conditionIndex": "499",
-            "conditionText": "CA10__AWS_RDS_Instances__r.has(COMPLIANT) && CA10__AWS_RDS_Instances__r.hasNo(INCOMPLIANT)",
+            "conditionIndex": "399",
+            "conditionText": "CA10__AWS_RDS_Instances__r.has(INCOMPLIANT) && CA10__AWS_RDS_Instances__r.hasNo(COMPLIANT)",
             "runtimeError": null
         },
         "context": {
@@ -110,6 +110,36 @@
                 "CA10__engine__c": "aurora-mysql",
                 "CA10__publiclyAccessible__c": true,
                 "CA10__cluster__c": "test5"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "500",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-29T06:25:44Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__engine__c": "aurora-mysql",
+        "CA10__AWS_RDS_Instances__r": [
+            {
+                "Id": "test6_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__engine__c": "aurora-mysql",
+                "CA10__publiclyAccessible__c": true,
+                "CA10__cluster__c": "test6"
+            },
+            {
+                "Id": "test6_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__engine__c": "aurora-mysql",
+                "CA10__publiclyAccessible__c": false,
+                "CA10__cluster__c": "test6"
             }
         ]
     }

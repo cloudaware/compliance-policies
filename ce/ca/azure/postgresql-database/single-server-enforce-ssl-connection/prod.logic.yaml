@@ -1,0 +1,35 @@
+---
+inputObject: "CA10Z1__CaAzurePostgreSqlServer__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10Z1__CaAzurePostgreSqlServer__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is not a Single Server deployment mode."
+    condition:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__deploymentMode__c"
+        right:
+          TEXT: "Single"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "PostgreSQL Server SSL Enforcement is disabled."
+    remediationMessage: "Consider enabling PostgreSQL Server SSL Enforcement."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__sslEnforcement__c"
+        right:
+          TEXT: "Disabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "PostgreSQL Server SSL Enforcement is enabled."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__sslEnforcement__c"
+        right:
+          TEXT: "Enabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

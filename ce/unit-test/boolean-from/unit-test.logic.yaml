@@ -1,0 +1,141 @@
+---
+inputObject: CA10__CaAwsInstance__c
+testData:
+  - file: test-data.json
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: Test-1
+    condition:
+      UNIT_TEST:
+        id: Test-1
+        arg:
+          BOOLEAN_FROM:
+            arg:
+              TEXT: "true"
+            undeterminedIf:
+              isEmpty: "Should not happen"
+  - status: COMPLIANT
+    currentStateMessage: Test-2
+    condition:
+      UNIT_TEST:
+        id: Test-2
+        arg:
+          BOOLEAN_FROM:
+            arg:
+              TEXT: "TRUE"
+            undeterminedIf:
+              isEmpty: "Should not happen"
+  - status: COMPLIANT
+    currentStateMessage: Test-3
+    condition:
+      UNIT_TEST:
+        id: Test-3
+        arg:
+          BOOLEAN_FROM:
+            arg:
+              TEXT: " True "
+            undeterminedIf:
+              isEmpty: "Should not happen"
+  - status: COMPLIANT
+    currentStateMessage: Test-4
+    condition:
+      UNIT_TEST:
+        id: Test-4
+        arg:
+          NOT:
+            arg:
+              BOOLEAN_FROM:
+                arg:
+                  TEXT: "false"
+                undeterminedIf:
+                  isEmpty: "Should not happen"
+  - status: COMPLIANT
+    currentStateMessage: Test-5
+    condition:
+      UNIT_TEST:
+        id: Test-5
+        arg:
+          NOT:
+            arg:
+              BOOLEAN_FROM:
+                arg:
+                  TEXT: "any-text"
+                undeterminedIf:
+                  isEmpty: "Should not happen"
+  - status: COMPLIANT
+    currentStateMessage: Test-6
+    condition:
+      UNIT_TEST:
+        id: Test-6
+        arg:
+          BOOLEAN_FROM:
+            arg:
+              TEXT: ""
+            undeterminedIf:
+              isEmpty: "Empty text received"
+  - status: COMPLIANT
+    currentStateMessage: Test-7
+    condition:
+      UNIT_TEST:
+        id: Test-7
+        arg:
+          BOOLEAN_FROM:
+            arg:
+              UNIT_TEST_NULL:
+                returnType: TEXT
+            undeterminedIf:
+              isEmpty: "Empty text received"
+  - status: COMPLIANT
+    currentStateMessage: Test-8
+    condition:
+      UNIT_TEST:
+        id: Test-8
+        arg:
+          BOOLEAN_FROM:
+            arg:
+              TEXT: ""
+            trueValue: ""
+            undeterminedIf:
+              isEmpty: "Empty text received"
+  - status: COMPLIANT
+    currentStateMessage: Test-9
+    condition:
+      UNIT_TEST:
+        id: Test-9
+        arg:
+          BOOLEAN_FROM:
+            arg:
+              TEXT: "1"
+            trueValue: "1"
+            undeterminedIf:
+              isEmpty: "Should not happen"
+  - status: COMPLIANT
+    currentStateMessage: Test-10
+    condition:
+      UNIT_TEST:
+        id: Test-10
+        arg:
+          NOT:
+            arg:
+              BOOLEAN_FROM:
+                arg:
+                  TEXT: "Off"
+                trueValue: "On"
+                undeterminedIf:
+                  isEmpty: "Should not happen"
+  - status: COMPLIANT
+    currentStateMessage: Test-11
+    condition:
+      UNIT_TEST:
+        id: Test-11
+        arg:
+          BOOLEAN_FROM:
+            arg:
+              TEXT: "ENABLED"
+            trueValue: "Enabled"
+            undeterminedIf:
+              isEmpty: "Should not happen"
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: Test Failed
+  remediationMessage: Developer Fix Required

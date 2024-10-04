@@ -7,7 +7,7 @@
 1. Go to `Virtual machines`.
 2. For each virtual machine, go to `Settings`.
 3. Click on `Disks`.
-4. Click the ellipsis (...), then click `Detach` to detach the disk from the VM.
+4. Click the ellipsis (`...`), then click `Detach` to detach the disk from the VM.
 5. Now search for `Disks` and locate the unattached disk.
 6. Click the disk then select `Encryption`.
 7. Change your encryption type, then select your encryption set.
@@ -22,4 +22,4 @@ $KVRGname = 'MyKeyVaultResourceGroup'; $VMRGName = 'MyVirtualMachineResourceGrou
 
 **NOTE**: During encryption it is likely that a reboot will be required. It may take up to 15 minutes to complete the process.
 
-**NOTE 2**: This may differ for Linux machines as you may need to set the -skipVmBackup parameter.
+For Linux machines you may need to set the `-skipVmBackup` parameter.

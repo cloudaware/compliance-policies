@@ -4,8 +4,8 @@
 
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Entra ID`.
-3. Select `Roles and Administrators`.
-4. Select `Global Administrator`.
+3. Under `Manage`, select `Roles and administrators`.
+4. Under `Administrative Roles`, select `Global Administrator`.
 
 ### If more than 4 users are assigned
 

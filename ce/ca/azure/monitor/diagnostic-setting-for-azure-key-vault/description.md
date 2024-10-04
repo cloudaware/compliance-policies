@@ -11,11 +11,10 @@ Monitoring how and when key vaults are accessed, and by whom, enables an audit t
 ### From Azure Portal
 
 1. Go to `Key vaults`.
-2. For each Key vault.
-3. Go to `Diagnostic settings`.
-4. Click `Edit setting`.
-5. Ensure that a destination is configured.
-6. Under `Category groups`, ensure that `audit` and `allLogs` are checked.
+2. For each Key vault, under `Monitoring`, go to `Diagnostic settings`.
+3. Click `Edit setting` next to a diagnostic setting.
+4. Ensure that a destination is configured.
+5. Under `Category groups`, ensure that `audit` and `allLogs` are checked.
 
 ### From Azure CLI
 

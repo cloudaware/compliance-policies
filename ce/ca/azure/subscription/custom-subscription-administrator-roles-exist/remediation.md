@@ -4,12 +4,13 @@
 
 1. From Azure Home select the Portal Menu.
 2. Select `Subscriptions`.
-3. Select `Access control (IAM)`.
-4. Select `Roles`.
-5. Click `Type` and select `CustomRole` from the drop down menu.
-6. Check the box next to each role which grants subscription administrator privileges.
-7. Select `Remove`.
-8. Select `Yes`.
+3. Select a subscription.
+4. Select `Access control (IAM)`.
+5. Select `Roles`.
+6. Click `Type` and select `Custom role` from the drop-down menu.
+7. Check the box next to each role which grants subscription administrator privileges.
+8. Select `Delete`.
+9. Select `Yes`.
 
 ## From Azure CLI
 

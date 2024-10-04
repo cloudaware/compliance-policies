@@ -1,0 +1,21 @@
+name: "PR.AA-03: Users, services, and hardware are authenticated"
+description: |-
+  1. Require multifactor authentication
+  2. Enforce policies for the minimum strength of passwords, PINs, and similar authenticators
+  3. Periodically reauthenticate users, services, and hardware based on risk (e.g., in zero trust architectures)
+  4. Ensure that authorized personnel can access accounts essential for protecting safety under 
+  emergency conditions
+similar:
+  sections:
+    - "/frameworks/nist-csf-v1.1/pr-ac/03"
+    - "/frameworks/nist-csf-v1.1/pr-ac/07"
+    - "/frameworks/nist-sp-800-53-r5/ac/07"
+    - "/frameworks/nist-sp-800-53-r5/ac/12"
+    - "/frameworks/nist-sp-800-53-r5/ia/02"
+    - "/frameworks/nist-sp-800-53-r5/ia/03"
+    - "/frameworks/nist-sp-800-53-r5/ia/05"
+    - "/frameworks/nist-sp-800-53-r5/ia/07"
+    - "/frameworks/nist-sp-800-53-r5/ia/08"
+    - "/frameworks/nist-sp-800-53-r5/ia/09"
+    - "/frameworks/nist-sp-800-53-r5/ia/10"
+    - "/frameworks/nist-sp-800-53-r5/ia/11"

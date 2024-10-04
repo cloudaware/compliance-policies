@@ -1,0 +1,28 @@
+---
+name: "SC-7 Boundary Protection (L)(M)(H)"
+description: |-
+  a. Monitor and control communications at the external managed interfaces to the system
+  and at key internal managed interfaces within the system;
+
+  b. Implement subnetworks for publicly accessible system components that are [Selection:
+  Assignment: physically; logically] separated from internal organizational networks; and
+  
+  c. Connect to external networks or systems only through managed interfaces consisting of
+  boundary protection devices arranged in accordance with an organizational security and
+  privacy architecture.
+  
+  **SC-7 Additional FedRAMP Requirements and Guidance:**
+  
+  **(b) Guidance**: SC-7 (b) should be met by subnet isolation. A subnetwork (subnet) is a
+  physically or logically segmented section of a larger network defined at TCP/IP Layer 3,
+  to both minimize traffic and, important for a FedRAMP Authorization, add a crucial layer
+  of network isolation. Subnets are distinct from VLANs (Layer 2), security groups, and
+  VPCs and are specifically required to satisfy SC-7 part b and other controls. See the
+  [FedRAMP Subnets White Paper]
+  (<https://www.fedramp.gov/assets/resources/documents/FedRAMP_subnets_white_paper.pdf>) for additional information.
+similar:
+  internal:
+    - "dec-c-826de890"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/sc/07
+    - "/frameworks/fedramp-high-security-controls/sc/07"

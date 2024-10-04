@@ -8,12 +8,12 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-azure-v2.1.0/05/02/08
-  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management
+  - "/frameworks/cis-azure-v2.1.0/05/02/08"
+  - "/frameworks/cis-azure-v3.0.0/06/02/08"
+  - "/frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management"
 similarPolicies:
   internal:
     - dec-x-6fc9c949
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActivityLog/create-or-update-or-delete-sql-server-firewall-rule-alert.html
-      name: "Create Alert for 'Create, Update or Delete SQL Server Firewall Rule'\
-        \ Events"
+      name: "Create Alert for 'Create, Update or Delete SQL Server Firewall Rule' Events"

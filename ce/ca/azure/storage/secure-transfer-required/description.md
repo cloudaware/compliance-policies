@@ -11,7 +11,7 @@ The secure transfer option enhances the security of a storage account by only al
 ### From Azure Portal
 
 1. Go to `Storage Accounts`.
-2. For each storage account, go to `Configuration`.
+2. For each storage account, under `Settings`, click `Configuration`.
 3. Ensure that `Secure transfer required` is set to `Enabled`.
 
 ### From Azure CLI
@@ -30,7 +30,7 @@ If referencing a digital copy of this Benchmark, clicking a Policy ID will open 
 
 ## Default Value
 
-By default, Secure transfer required is set to Disabled.
+By default, `Secure transfer required` is set to `Disabled`.
 
 ## References
 

@@ -1,0 +1,42 @@
+---
+name: "RA-3 Risk Assessment (L)(M)(H)"
+description: |-
+  a. Conduct a risk assessment, including:
+
+    1. Identifying threats to and vulnerabilities in the system;
+    
+    2. Determining the likelihood and magnitude of harm from unauthorized access, use,
+    disclosure, disruption, modification, or destruction of the system, the information it
+    processes, stores, or transmits, and any related information; and
+    
+    3. Determining the likelihood and impact of adverse effects on individuals arising
+    from the processing of personally identifiable information;
+  
+  b. Integrate risk assessment results and risk management decisions from the organization
+  and mission or business process perspectives with system-level risk assessments;
+  
+  c. Document risk assessment results in [FedRAMP Assignment: security assessment
+  report];
+  
+  d. Review risk assessment results [FedRAMP Assignment: at least every three (3) years
+  and when a significant change occurs];
+  
+  e. Disseminate risk assessment results to [Assignment: organization-defined personnel or
+  roles]; and
+  
+  f. Update the risk assessment [FedRAMP Assignment: at least every three (3) years] or
+  when there are significant changes to the system, its environment of operation, or other
+  conditions that may impact the security or privacy state of the system.
+  
+  **RA-3 Additional FedRAMP Requirements and Guidance:**
+  
+  **Guidance**: Significant change is defined in NIST Special Publication 800-37 Revision 2,
+  Appendix F.
+  
+  **(e) Requirement**: Include all Authorizing Officials; for JAB authorizations to include
+  FedRAMP.
+similar:
+  internal:
+    - "dec-c-79d45480"
+  sections:
+    - /frameworks/fedramp-high-security-controls/ra/03

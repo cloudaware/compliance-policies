@@ -15,11 +15,11 @@ Turning on Microsoft Defender for Azure SQL Databases incurs an additional cost 
 ### From Azure Portal
 
 1. Go to `Microsoft Defender for Cloud`.
-2. Select `Environment Settings` blade.
+2. Under `Management`, select `Environment Settings`.
 3. Click on the subscription name.
 4. Select the `Defender plans` blade.
 5. Click `Select types >` in the row for `Databases`.
-6. Ensure the radio button next to `Azure SQL Databases` is set to `On`.
+6. Ensure the toggle switch next to `Azure SQL Databases` is set to `On`.
 
 ### From Azure CLI
 

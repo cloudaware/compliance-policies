@@ -1,0 +1,19 @@
+---
+name: "IA-11 Re-authentication (L)(M)(H)"
+description: |-
+  Require users to re-authenticate when [Assignment: organization-defined circumstances or
+  situations requiring re-authentication].
+
+  **IA-11 Additional FedRAMP Requirements and Guidance:**
+  
+  **Guidance: The fixed time period cannot exceed the limits set in SP 800-63. At this time
+  they are:**
+
+  - AAL2 (moderate baseline)
+    - Twelve (12) hours or
+    - Thirty (30) minutes of inactivity.
+similar:
+  internal:
+    - "dec-c-98af0066"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/ia/11

@@ -5,15 +5,16 @@ names:
 description: "The Storage Queue service stores messages that may be read by any client\
   \ who has access to the storage account. Storage Logging happens server-side and\
   \ allows details for both successful and failed requests to be recorded in the storage\
-  \ account.   These logs allow users to see the details of read, write, and delete\
+  \ account. These logs allow users to see the details of read, write, and delete\
   \ operations against the queues."
 type: BEST_PRACTICE
 categories:
   - RELIABILITY
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-azure-v2.1.0/03/05
-  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration
+  - "/frameworks/cis-azure-v2.1.0/03/05"
+  - "/frameworks/cis-azure-v3.0.0/04/12"
+  - "/frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration"
 similarPolicies:
   internal:
     - dec-x-611eaa35

@@ -40,13 +40,13 @@ az keyvault private-endpoint-connection approve --resource-group <resourceGroup>
 ```
 
 3. Determine the Private Endpoint's IP address to connect the Key Vault to the Private DNS you have previously created.
-4. Look for the property networkInterfaces then id; the value must be placed in the variable <privateEndpointNIC> within step 7:
+4. Look for the property networkInterfaces then id; the value must be placed in the variable `privateEndpointNIC` within step 7:
 
 ```sh
 az network private-endpoint show -g <resourceGroupName> -n <privateEndpointName>
 ```
 
-5. Look for the property networkInterfaces then id; the value must be placed on <privateEndpointNIC> in step 7:
+5. Look for the property networkInterfaces then id; the value must be placed on `privateEndpointNIC` in step 7:
 
 ```sh
 az network nic show --ids <privateEndpointName>

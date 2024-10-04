@@ -11,6 +11,8 @@ Enabling multi-factor authentication is a recommended setting to limit the poten
 
 There is an increased cost, as Conditional Access policies require Microsoft Entra ID P1 or P2. Similarly, this may require additional overhead to maintain if users lose access to their MFA.
 
+**NOTE**: Starting July 2024, Microsoft will begin requiring MFA for All Users - including Break Glass Accounts. By the end of October 2024, this requirement will be enforced. Physical FIDO2 security keys, or a certificate kept on secure removable storage can fulfill this MFA requirement. If opting for a physical device, that device should be kept in a very secure, documented physical location.
+
 ## Audit
 
 ### From Azure Portal
@@ -18,13 +20,15 @@ There is an increased cost, as Conditional Access policies require Microsoft Ent
 1. From Azure Home open the Portal Menu in the top left, and select `Microsoft Entra ID`.
 2. Scroll down in the menu on the left, and select `Security`.
 3. Select on the left side `Conditional Access`.
-4. Select the policy you wish to audit.
-5. View under `Users and Groups` the corresponding users and groups to whom the policy is applied.
-6. View under `Exclude` to determine which users and groups to whom the policy is not applied.
+4. Select `Policies`.
+5. Select the policy you wish to audit.
+6. Click the blue text under `Users`.
+7. View under `Include` the corresponding users and groups to whom the policy is applied.
+8. View under `Exclude` to determine which users and groups to whom the policy is not applied.
 
 ## Default Value
 
-MFA is not enabled by default.
+Starting October 2024, MFA will be required for all accounts by default.
 
 ## References
 

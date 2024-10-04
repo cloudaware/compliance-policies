@@ -41,7 +41,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "!extract('caJsonFrom__logsJson__c').jsonQueryText('[? category == `Administrative`].enabled | [0]') && extract('caJsonFrom__logsJson__c').jsonQueryText('[? category == `Alert`].enabled | [0]') && extract('caJsonFrom__logsJson__c').jsonQueryText('[? category == `Policy`].enabled | [0]') && extract('caJsonFrom__logsJson__c').jsonQueryText('[? category == `Security`].enabled | [0]')",
+            "conditionText": "not(extract('caJsonFrom__logsJson__c').jsonQueryText('[? category == `Administrative`].enabled | [0]') && extract('caJsonFrom__logsJson__c').jsonQueryText('[? category == `Alert`].enabled | [0]') && extract('caJsonFrom__logsJson__c').jsonQueryText('[? category == `Policy`].enabled | [0]') && extract('caJsonFrom__logsJson__c').jsonQueryText('[? category == `Security`].enabled | [0]'))",
             "runtimeError": null
         },
         "context": {
@@ -79,7 +79,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "!extract('caJsonFrom__logsJson__c').jsonQueryText('[? category == `Administrative`].enabled | [0]') && extract('caJsonFrom__logsJson__c').jsonQueryText('[? category == `Alert`].enabled | [0]') && extract('caJsonFrom__logsJson__c').jsonQueryText('[? category == `Policy`].enabled | [0]') && extract('caJsonFrom__logsJson__c').jsonQueryText('[? category == `Security`].enabled | [0]')",
+            "conditionText": "not(extract('caJsonFrom__logsJson__c').jsonQueryText('[? category == `Administrative`].enabled | [0]') && extract('caJsonFrom__logsJson__c').jsonQueryText('[? category == `Alert`].enabled | [0]') && extract('caJsonFrom__logsJson__c').jsonQueryText('[? category == `Policy`].enabled | [0]') && extract('caJsonFrom__logsJson__c').jsonQueryText('[? category == `Security`].enabled | [0]'))",
             "runtimeError": null
         },
         "context": {

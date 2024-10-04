@@ -4,7 +4,7 @@ The principle of least privilege should be followed and only necessary privilege
 
 ## Rationale
 
-Classic subscription admin roles offer basic access management and include Account Administrator, Service Administrator, and Co-Administrators. It is recommended the least necessary permissions be given initially. Permissions can be added as needed by the account holder. This ensures the account holder cannot perform actions which were not intended.
+Custom roles in Azure with administrative access can obfuscate the permissions granted and introduce complexity and blind spots to the management of privileged identities. For less mature security programs without regular identity audits, the creation of Custom roles should be avoided entirely. For more mature security programs with regular identity audits, Custom Roles should be audited for use and assignment, used minimally, and the principle of least privilege should be observed when granting permissions.
 
 ## Impact
 
@@ -16,13 +16,14 @@ Subscriptions will need to be handled by Administrators with permissions.
 
 1. From Azure Home select the Portal Menu.
 2. Select `Subscriptions`.
-3. Select `Access control (IAM)`.
-4. Select `Roles`.
-5. Click `Type` and select `CustomRole` from the drop down menu.
-6. Select `View` next to a role.
-7. Select `JSON`.
-8. Check for `assignableScopes` set to the subscription, and `actions` set to `*`.
-9. Repeat steps 6-8 for each custom role.
+3. Select a subscription.
+4. Select `Access control (IAM)`.
+5. Select `Roles`.
+6. Click `Type` and select `Custom role` from the drop-down menu.
+7. Select `View` next to a role.
+8. Select `JSON`.
+9. Check for `assignableScopes` set to the subscription, and `actions` set to `*`.
+10. Repeat steps 7-9 for each custom role.
 
 ### From Azure CLI
 
@@ -40,7 +41,7 @@ Check for entries with `assignableScope` of the `subscription`, and an action of
 Connect-AzAccount Get-AzRoleDefinition |Where-Object {($_.IsCustom -eq $true) -and ($_.Actions.contains('*'))}
 ```
 
-Check the output for `AssignableScopes` value set to the `subscription`.
+Check the output for `AssignableScopes` value set to the subscription.
 
 ### From Azure Policy
 

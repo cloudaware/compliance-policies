@@ -4,7 +4,8 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "This subscription has a custom role with owner permissions."
+    currentStateMessage: "This subscription has a custom role with owner permissions\ 
+     \ and assignable scope is set to subscription."
     remediationMessage: "Consider removing the custom role."
     condition:
       RELATED_LIST_HAS:
@@ -29,7 +30,7 @@ relatedLists:
       - status: "INAPPLICABLE"
         currentStateMessage: "Permissions do not have * actions."
         condition:
-# Returns true if permissions actions have "*" action
+# Returns true if permissions' actions have "*" action
           IS_EQUAL:
             left:
               JSON_QUERY_BOOLEAN:
@@ -46,7 +47,7 @@ relatedLists:
             right:
               BOOLEAN: false
       - status: "INCOMPLIANT"
-        currentStateMessage: "This custom role has owner permissions subscription scopes."
+        currentStateMessage: "This custom role has owner permissions and subscription scopes."
         remediationMessage: "Consider removing this role."
         condition:
 # JSON_QUERY_NUMBER returns the number of scopes that fall into the filter:
@@ -68,4 +69,4 @@ relatedLists:
               NUMBER: 0.0
     otherwise:
       status: "INAPPLICABLE"
-      currentStateMessage: "A role without owner permissions and subscription scopes."
+      currentStateMessage: "A role has owner permissions without subscription scopes."

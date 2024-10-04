@@ -5,6 +5,7 @@ The Azure Storage setting ‘Allow Blob Anonymous Access’ (aka "allowBlobPubli
 ## Rationale
 
 If "Allow Blob Anonymous Access" is enabled, blobs can be accessed by adding the blob name to the URL to see the contents. An attacker can enumerate a blob using methods, such as brute force, and access them.
+
 Exfiltration of data by brute force enumeration of items from a storage account may occur if this setting is set to 'Enabled'.
 
 ## Impact
@@ -15,10 +16,9 @@ Additional consideration may be required for exceptional circumstances where ele
 
 ### From Azure Portal
 
-1. Open the Storage Accounts blade.
-2. Click on a Storage Account.
-3. In the storage account menu pane, under the Settings section, click `Configuration`.
-4. Under `Allow Blob Anonymous Access` ensure that the selected setting is `Disabled`.
+1. Go to `Storage Accounts`.
+2. For each storage account, under `Settings`, click `Configuration`.
+3. Ensure `Allow Blob Anonymous Access` is set to `Disabled`.
 
 Repeat these steps for each Storage Account.
 
@@ -27,7 +27,7 @@ Repeat these steps for each Storage Account.
 For every storage account in scope:
 
 ```sh
-az storage account show --Name "<yourStorageAccountName>" --query allowBlobPublicAccess
+az storage account show --name "<yourStorageAccountName>" --query allowBlobPublicAccess
 ```
 
 Ensure that every storage account in scope returns `false` for the `allowBlobPublicAccess` setting.
@@ -36,7 +36,7 @@ Ensure that every storage account in scope returns `false` for the `allowBlobPub
 
 If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
 
-- **Policy ID**: [13502221-8df0-4414-9937-de9c5c4e396b](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%13502221-8df0-4414-9937-de9c5c4e396b) - **Name**: `Configure your Storage account public access to be disallowed`
+- **Policy ID**: [4fa4b6c0-31ca-4c0d-b10d-24b96f62a751](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) - **Name**: `[Preview]: Storage account public access should be disallowed`
 
 ## Default Value
 

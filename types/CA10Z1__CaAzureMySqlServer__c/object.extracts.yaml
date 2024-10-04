@@ -14,3 +14,26 @@ extracts:
         path: "CA10Z1__minimalTlsVersion__c"
         undeterminedIf:
           isEmpty: "Corrupted Data. MySQL Server Minimal TLS Version cannot be empty."
+  - name: "CA10Z1__deploymentMode__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__deploymentMode__c"
+        undeterminedIf:
+          isEmpty: "Corrupted Data. MySQL Deployment Mode cannot be empty."
+# Not nullable
+  - name: "CA10Z1__configurations__c"
+    value:
+      FIELD:
+        path: "CA10Z1__configurations__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10Z1__configurations__c"
+            currentStateMessage: "Unable to determine Server Configurations. Possible permission issue with Microsoft.DBforPostgreSQL/servers/configurations/read"
+  - name: "caJsonFrom__configurations__c"
+    value: 
+      JSON_FROM:
+        arg: 
+          EXTRACT: "CA10Z1__configurations__c"
+        undeterminedIf:
+          isInvalid: "Configurations JSON is invalid."
+

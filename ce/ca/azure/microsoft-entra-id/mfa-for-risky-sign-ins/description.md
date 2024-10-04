@@ -1,14 +1,14 @@
 # Description
 
-For designated users, they will be prompted to use their multi-factor authentication (MFA) process on login.
+Entra ID tracks the behavior of sign-in events. If the Entra ID domain is licensed with P2, the sign-in behavior can be used as a detection mechanism for additional scrutiny during the sign-in event. If this policy is set up, then Risky Sign-in events will prompt users to use multi-factor authentication (MFA) tokens on login for additional verification.
 
 ## Rationale
 
-Enabling multi-factor authentication is a recommended setting to limit the potential of accounts being compromised and limiting access to authenticated personnel.
+Enabling multi-factor authentication is a recommended setting to limit the potential of accounts being compromised and limiting access to authenticated personnel. Enabling this policy allows Entra ID's risk-detection mechanisms to force additional scrutiny on the login event, providing a deterrent response to potentially malicious sign-in events, and adding an additional authentication layer as a reaction to potentially malicious behavior.
 
 ## Impact
 
-There is an increased cost, as Conditional Access policies require Microsoft Entra ID P1 or P2. Similarly, they may require additional overhead to maintain if users lose access to their MFA.
+Risk Policies for Conditional Access require Microsoft Entra ID P2. Additional overhead to support or maintain these policies may also be required if users lose access to their MFA tokens.
 
 ## Audit
 
@@ -17,20 +17,23 @@ There is an increased cost, as Conditional Access policies require Microsoft Ent
 1. From Azure Home select the Portal Menu in the top left, and select `Microsoft Entra ID`.
 2. Select `Security`.
 3. Select on the left side `Conditional Access`.
-4. Select the policy you wish to audit.
-5. View under `Users and Groups` the corresponding users and groups to whom the policy is applied.
-6. View under `Exclude` to determine which users and groups to whom the policy is not applied.
+4. Select `Policies`.
+5. Select the policy you wish to audit.
+6. Click the blue text under `Users`.
+7. View under `Include` the corresponding users and groups to whom the policy is applied.
+8. View under `Exclude` to determine which users and groups to whom the policy is not applied.
 
 ## Default Value
 
-MFA is not enabled by default.
+Starting October 2024, MFA will be required for all accounts by default.
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-policy-risk>
-2. <https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/troubleshoot-conditional-access-what-if>
-3. <https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting>
+1. <https://learn.microsoft.com/en-us/entra/identity/conditional-access/howto-conditional-access-policy-risk>
+2. <https://learn.microsoft.com/en-us/entra/identity/conditional-access/troubleshoot-conditional-access-what-if>
+3. <https://learn.microsoft.com/en-us/entra/identity/conditional-access/howto-conditional-access-insights-reporting>
 4. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-identity-management#im-7-restrict-resource-access-based-on--conditions>
+5. <https://learn.microsoft.com/en-us/entra/id-protection/overview-identity-protection#license-requirements>
 
 ## Additional Information
 

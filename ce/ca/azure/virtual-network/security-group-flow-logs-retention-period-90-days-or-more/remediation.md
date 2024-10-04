@@ -8,7 +8,7 @@
 4. Ensure `Status` is set to `On`.
 5. Ensure `Retention (days)` setting `greater than 90 days`.
 6. Select your storage account in the `Storage account` field.
-7. Select Save.
+7. Select `Save`.
 
 ## From Azure CLI
 

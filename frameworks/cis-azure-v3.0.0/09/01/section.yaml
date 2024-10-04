@@ -1,0 +1,6 @@
+---
+name: "9.1 Ensure 'HTTPS Only' is set to 'On' (Automated)"
+description: >
+  Azure App Service allows apps to run under both HTTP and HTTPS by default. Apps can be accessed by 
+  anyone using non-secure HTTP links by default. Non-secure HTTP requests can be restricted and all 
+  HTTP requests redirected to the secure HTTPS port. It is recommended to enforce HTTPS-only traffic.

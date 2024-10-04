@@ -2,15 +2,16 @@
 names:
   full: Azure Subscription Microsoft Defender For Servers is not set to On
   contextual: Microsoft Defender For Servers is not set to On
-description: "Turning on Microsoft Defender for Servers enables threat detection \
-  \  for Servers, providing threat intelligence, anomaly detection, and behavior analytics\
+description: "Turning on Microsoft Defender for Servers enables threat detection\
+  \ for Servers, providing threat intelligence, anomaly detection, and behavior analytics\
   \ in the Microsoft Defender for Cloud."
 type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-azure-v2.1.0/02/01/01
-  - /frameworks/cloudaware/resource-security/microsoft-defender-configuration
+  - "/frameworks/cis-azure-v2.1.0/02/01/01"
+  - "/frameworks/cis-azure-v3.0.0/03/01/03/01"
+  - "/frameworks/cloudaware/resource-security/microsoft-defender-configuration"
 similarPolicies:
   internal:
     - dec-x-52ac4ac0

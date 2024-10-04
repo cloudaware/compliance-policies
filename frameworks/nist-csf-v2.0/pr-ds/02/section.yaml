@@ -1,0 +1,28 @@
+name: "PR.DS-02: The confidentiality, integrity, and availability of data-in-transit are protected"
+description: |-
+  1. Use encryption, digital signatures, and cryptographic hashes to protect the confidentiality and 
+  integrity of network communications
+  2. Automatically encrypt or block outbound emails and other communications that contain sensitive 
+  data, depending on the data classification
+  3. Block access to personal email, file sharing, file storage services, and other personal 
+  communications applications and services from organizational systems and networks
+  4. Prevent reuse of sensitive data from production environments (e.g., customer records) in 
+  development, testing, and other non-production environments
+similar:
+  sections:
+    - "/frameworks/nist-csf-v1.1/pr-ds/02"
+    - "/frameworks/nist-csf-v1.1/pr-ds/05"
+    - "/frameworks/nist-sp-800-53-r5/au/16"
+    - "/frameworks/nist-sp-800-53-r5/ca/03"
+    - "/frameworks/nist-sp-800-53-r5/sc/04"
+    - "/frameworks/nist-sp-800-53-r5/sc/07"
+    - "/frameworks/nist-sp-800-53-r5/sc/08"
+    - "/frameworks/nist-sp-800-53-r5/sc/11"
+    - "/frameworks/nist-sp-800-53-r5/sc/12"
+    - "/frameworks/nist-sp-800-53-r5/sc/13"
+    - "/frameworks/nist-sp-800-53-r5/sc/16"
+    - "/frameworks/nist-sp-800-53-r5/sc/40"
+    - "/frameworks/nist-sp-800-53-r5/sc/43"
+    - "/frameworks/nist-sp-800-53-r5/si/03"
+    - "/frameworks/nist-sp-800-53-r5/si/04"
+    - "/frameworks/nist-sp-800-53-r5/si/07"

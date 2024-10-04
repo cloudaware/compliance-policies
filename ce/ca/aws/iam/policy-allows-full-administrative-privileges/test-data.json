@@ -19,7 +19,7 @@
         "expectedResult": {
             "status": "COMPLIANT",
             "conditionIndex": "199",
-            "conditionText": "extract('CA10__attachable__c') != true || extract('CA10__attachmentCount__c') == 0.0",
+            "conditionText": "extract('CA10__attachable__c') != true || extract('CA10__attachmentCount__c') == number(0.0)",
             "runtimeError": null
         },
         "context": {
@@ -35,7 +35,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('caJsonFrom_policyDocument__c').jsonQueryText('type(Statement)') == 'array' && extract('caJsonFrom_policyDocument__c').jsonQueryText('length(Statement[? ((type(Action) == \\'array\\' && contains(Action, \\'*\\')) || (type(Action) == \\'string\\' && Action == \\'*\\')) && ((type(Resource) == \\'array\\' && contains(Resource, \\'*\\')) || (type(Resource) == \\'string\\' && Resource == \\'*\\')) && (Effect == \\'Allow\\')])') > 0.0",
+            "conditionText": "extract('caJsonFrom_policyDocument__c').jsonQueryText('type(Statement)') == 'array' && extract('caJsonFrom_policyDocument__c').jsonQueryText('length(Statement[? ((type(Action) == \\'array\\' && contains(Action, \\'*\\')) || (type(Action) == \\'string\\' && Action == \\'*\\')) && ((type(Resource) == \\'array\\' && contains(Resource, \\'*\\')) || (type(Resource) == \\'string\\' && Resource == \\'*\\')) && (Effect == \\'Allow\\')])') > number(0.0)",
             "runtimeError": null
         },
         "context": {
@@ -51,7 +51,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('caJsonFrom_policyDocument__c').jsonQueryText('type(Statement)') == 'array' && extract('caJsonFrom_policyDocument__c').jsonQueryText('length(Statement[? ((type(Action) == \\'array\\' && contains(Action, \\'*\\')) || (type(Action) == \\'string\\' && Action == \\'*\\')) && ((type(Resource) == \\'array\\' && contains(Resource, \\'*\\')) || (type(Resource) == \\'string\\' && Resource == \\'*\\')) && (Effect == \\'Allow\\')])') > 0.0",
+            "conditionText": "extract('caJsonFrom_policyDocument__c').jsonQueryText('type(Statement)') == 'array' && extract('caJsonFrom_policyDocument__c').jsonQueryText('length(Statement[? ((type(Action) == \\'array\\' && contains(Action, \\'*\\')) || (type(Action) == \\'string\\' && Action == \\'*\\')) && ((type(Resource) == \\'array\\' && contains(Resource, \\'*\\')) || (type(Resource) == \\'string\\' && Resource == \\'*\\')) && (Effect == \\'Allow\\')])') > number(0.0)",
             "runtimeError": null
         },
         "context": {
@@ -67,7 +67,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('caJsonFrom_policyDocument__c').jsonQueryText('type(Statement)') == 'array' && extract('caJsonFrom_policyDocument__c').jsonQueryText('length(Statement[? ((type(Action) == \\'array\\' && contains(Action, \\'*\\')) || (type(Action) == \\'string\\' && Action == \\'*\\')) && ((type(Resource) == \\'array\\' && contains(Resource, \\'*\\')) || (type(Resource) == \\'string\\' && Resource == \\'*\\')) && (Effect == \\'Allow\\')])') > 0.0",
+            "conditionText": "extract('caJsonFrom_policyDocument__c').jsonQueryText('type(Statement)') == 'array' && extract('caJsonFrom_policyDocument__c').jsonQueryText('length(Statement[? ((type(Action) == \\'array\\' && contains(Action, \\'*\\')) || (type(Action) == \\'string\\' && Action == \\'*\\')) && ((type(Resource) == \\'array\\' && contains(Resource, \\'*\\')) || (type(Resource) == \\'string\\' && Resource == \\'*\\')) && (Effect == \\'Allow\\')])') > number(0.0)",
             "runtimeError": null
         },
         "context": {
@@ -83,7 +83,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('caJsonFrom_policyDocument__c').jsonQueryText('type(Statement)') == 'array' && extract('caJsonFrom_policyDocument__c').jsonQueryText('length(Statement[? ((type(Action) == \\'array\\' && contains(Action, \\'*\\')) || (type(Action) == \\'string\\' && Action == \\'*\\')) && ((type(Resource) == \\'array\\' && contains(Resource, \\'*\\')) || (type(Resource) == \\'string\\' && Resource == \\'*\\')) && (Effect == \\'Allow\\')])') > 0.0",
+            "conditionText": "extract('caJsonFrom_policyDocument__c').jsonQueryText('type(Statement)') == 'array' && extract('caJsonFrom_policyDocument__c').jsonQueryText('length(Statement[? ((type(Action) == \\'array\\' && contains(Action, \\'*\\')) || (type(Action) == \\'string\\' && Action == \\'*\\')) && ((type(Resource) == \\'array\\' && contains(Resource, \\'*\\')) || (type(Resource) == \\'string\\' && Resource == \\'*\\')) && (Effect == \\'Allow\\')])') > number(0.0)",
             "runtimeError": null
         },
         "context": {

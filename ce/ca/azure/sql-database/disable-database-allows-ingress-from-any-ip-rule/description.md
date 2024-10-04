@@ -12,6 +12,8 @@ Additionally, a custom rule can be set up with StartIp of 0.0.0.0 and EndIP of 2
 
 In order to reduce the potential attack surface for a SQL server, firewall rules should be defined with more granular IP addresses by referencing the range of addresses available from specific datacenters.
 
+If `Allow Azure services and resources to access this server` is 'Checked', this will allow resources outside of the subscription/tenant/organization boundary, within any region of Azure, to effectively bypass the defined SQL Server Network ACL on public endpoint. A malicious attacker can successfully launch a SQL server password bruteforce attack by creating a virtual machine in any Azure subscription/region, from outside of the subscription boundary where the SQL Server is residing.
+
 ## Impact
 
 Disabling `Allow Azure services and resources to access this server` will break all connections to SQL server and Hosted Databases unless custom IP specific rules are added in Firewall Policy.
@@ -22,8 +24,8 @@ Disabling `Allow Azure services and resources to access this server` will break 
 
 1. Go to `SQL servers`.
 2. For each SQL server.
-3. Click on `Networking`.
-4. Ensure that `Allow Azure services and resources to access this server` is `Unchecked`.
+3. Under `Security`, click `Networking`.
+4. Ensure that `Allow Azure services and resources to access this server` is unchecked.
 5. Ensure that no firewall rule exists with:
     - Start IP of `0.0.0.0`.
     - or other combinations which allows access to wider public IP ranges.
@@ -79,6 +81,7 @@ By default, `Allow access to Azure Services is set` to `NO`.
 5. <https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure>
 6. <https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database?view=azuresqldb-current>
 7. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-network-security#ns-2-secure-cloud-native-services-with-network-controls>
+8. <https://learn.microsoft.com/en-us/azure/azure-sql/database/network-access-controls-overview?view=azuresql#allow-azure-services>
 
 ## Additional Information
 

@@ -1,0 +1,21 @@
+---
+name: "CM-7(2) Prevent Program Execution (M)(H)"
+description: |-
+  Prevent program execution in accordance with [Selection (one-or-more): [Assignment:
+  organization-defined policies, rules of behavior, and/or access agreements regarding software
+  program usage and restrictions]; rules authorizing the terms and conditions of software program
+  usage].
+
+  **CM-7 (2) Additional FedRAMP Requirements and Guidance:**
+
+  **Guidance**: This control refers to software deployment by CSP personnel into the
+  production environment. The control requires a policy that states conditions for deploying
+  software. This control shall be implemented in a technical manner on the information
+  system to only allow programs to run that adhere to the policy (i.e. allow-listing). This
+  control is not to be based off of strictly written policy on what is allowed or not allowed to
+  run.
+similar:
+  internal:
+    - "dec-c-86b0755e"
+  sections:
+    - /frameworks/fedramp-high-security-controls/cm/07/02

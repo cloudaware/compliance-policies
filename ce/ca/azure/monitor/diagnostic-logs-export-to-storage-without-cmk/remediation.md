@@ -2,11 +2,16 @@
 
 ## From Azure Portal
 
-1. Navigate to the Storage accounts blade.
-2. Click on the storage account.
-3. Under `Security + networking`, click `Encryption`.
-4. Next to `Encryption type`, select `Customer-managed keys`.
-5. Complete the steps to configure a customer-managed key for encryption of the storage account.
+1. Go to `Monitor`.
+2. Select `Activity log`.
+3. Select `Export Activity Logs`.
+4. Select a `Subscription`.
+5. Note the name of the `Storage Account` for the diagnostic setting.
+6. Navigate to `Storage accounts`.
+7. Click on the storage account.
+8. Under `Security + networking`, click `Encryption`.
+9. Next to `Encryption type`, select `Customer-managed keys`.
+10. Complete the steps to configure a customer-managed key for encryption of the storage account.
 
 ## From Azure CLI
 

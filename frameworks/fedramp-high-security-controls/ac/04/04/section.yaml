@@ -1,0 +1,17 @@
+---
+name: "AC-4(4) Flow Control of Encrypted Information (H)"
+description: |-
+  Prevent encrypted information from bypassing [FedRAMP Assignment: intrusion detection
+  mechanisms] by [Selection (one-or-more): decrypting the information; blocking the flow of the
+  encrypted information; terminating communications sessions attempting to pass encrypted
+  information].
+
+  **AC-4 (4) Additional FedRAMP Requirements and Guidance:**
+  
+  **Requirement**: The service provider must support Agency requirements to comply with
+  [M-21-31](https://www.whitehouse.gov/wp-content/uploads/2021/08/M-21-31-Improving-the-Federal-Governments-Investigative-and-Remediation-Capabilities-Related-to-Cybersecurity-Incidents.pdf) and [M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf).
+similar:
+  internal:
+    - "dec-c-64dc5a36"
+  sections:
+    - "/frameworks/nist-sp-800-53-r5/ac/04/04"

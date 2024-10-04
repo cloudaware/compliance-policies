@@ -16,18 +16,18 @@ Enforcing this setting may create additional requests that administrators need t
 
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Entra ID`.
-3. Select `Enterprise Applications`.
-4. Select `Consent and permissions`.
-5. Select `User consent settings`.
+3. Under `Manage`, select `Enterprise applications`.
+4. Under `Security`, select `Consent and permissions`.
+5. Under `Manage`, select `User consent settings`.
 6. Under `User consent for applications`, ensure `Allow user consent for apps from verified publishers, for selected permissions` is selected.
 
 ### From PowerShell
 
 ```ps
-Connect-MsolService Get-MsolCompanyInformation | Select-Object UsersPermissionToUserConsentToAppEnabled
+Connect-MgGraph (Get-MgPolicyAuthorizationPolicy).DefaultUserRolePermissions | Select-Object -ExpandProperty PermissionGrantPoliciesAssigned
 ```
 
-Command should return `UsersPermissionToUserConsentToAppEnabled` with the value of `False`.
+The command should return either `ManagePermissionGrantsForSelf.microsoft-user-default-low` or a custom app consent policy id if one is in use.
 
 ## Default Value
 
@@ -35,9 +35,8 @@ By default, `User consent for applications` is set to `Allow user consent for ap
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-user-consent#configure-user-consent-to-applications>
+1. <https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-user-consent?pivots=ms-graph#configure-user-consent-to-applications>
 2. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-privileged-access#pa-1-separate-and-limit-highly-privilegedadministrative-users>
 3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-governance-strategy#gs-2-define-and-implement-enterprise-segmentationseparation-of-duties-strategy>
 4. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-governance-strategy#gs-6-define-and-implement-identity-and-privileged-access-strategy>
-5. <https://docs.microsoft.com/en-us/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0>
-6. <https://docs.microsoft.com/en-us/powershell/module/msonline/get-msolcompanyinformation?view=azureadps-1.0>
+5. <https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.identity.signins/get-mgpolicyauthorizationpolicy?view=graph-powershell-1.0>

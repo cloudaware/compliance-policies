@@ -4,9 +4,10 @@
 
 1. Go to `SQL servers`.
 2. For each SQL server.
-3. Click on `Networking`.
-4. Uncheck the checkbox for `Allow Azure services and resources to access this server`.
+3. Under `Security`, click `Networking`.
+4. Uncheck `Allow Azure services and resources to access this server`.
 5. Set firewall rules to limit access to only authorized connections.
+6. Click `Save`.
 
 ## From Azure CLI
 

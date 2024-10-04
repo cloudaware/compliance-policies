@@ -27,7 +27,7 @@
         "expectedResult": {
             "status": "COMPLIANT",
             "conditionIndex": "199",
-            "conditionText": "!extract('CA10__publiclyAccessible__c')",
+            "conditionText": "not(extract('CA10__publiclyAccessible__c'))",
             "runtimeError": null
         },
         "context": {

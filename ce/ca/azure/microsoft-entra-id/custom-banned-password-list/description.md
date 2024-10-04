@@ -16,9 +16,9 @@ Increasing needed password complexity might increase overhead on administration 
 
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Entra ID`.
-3. Select `Security`.
+3. Under `Manage`, select `Security`.
 4. Under `Manage`, select `Authentication Methods`.
-5. Select `Password Protection`.
+5. Under `Manage`, select `Password Protection`.
 6. Ensure `Enforce custom list` is set to `Yes`.
 7. Scroll through the list to view the enforced passwords.
 

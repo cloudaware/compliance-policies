@@ -11,9 +11,8 @@ Azure SQL Database transparent data encryption helps protect against the threat 
 ### From Azure Portal
 
 1. Go to `SQL databases`.
-2. For each DB instance.
-3. Click on `Transparent data encryption`.
-4. Ensure that `Data encryption` is set to `On`.
+2. For each DB instance, under `Security`, click `Data Encryption`.
+3. Under `Transparent data encryption`, ensure that `Data encryption` is set to `On`.
 
 ### From Azure CLI
 

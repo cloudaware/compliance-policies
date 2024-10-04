@@ -4,13 +4,13 @@ names:
   contextual: Private Endpoints are not used
 description: Private endpoints will secure network traffic from Azure Key Vault to
   the resources requesting secrets and keys.
-impossible: true
 type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-azure-v2.1.0/08/07
-  - /frameworks/cloudaware/resource-security/secure-access-controls
+  - "/frameworks/cis-azure-v2.1.0/08/07"
+  - "/frameworks/cis-azure-v3.0.0/03/03/07"
+  - "/frameworks/cloudaware/resource-security/secure-access-controls"
 similarPolicies:
   internal:
     - dec-x-807a37c9

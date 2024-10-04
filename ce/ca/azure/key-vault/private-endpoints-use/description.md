@@ -26,8 +26,10 @@ Incorrect or poorly-timed changing of network configuration could result in serv
 Run the following command within a subscription for each Key Vault you wish to audit:
 
 ```sh
-az keyvault private-endpoint-connection show -g <resourceGroup> --vault-name <keyVaultName>
+az keyvault show --name <keyVaultName>
 ```
+
+Ensure that `privateEndpointConnections` is not null.
 
 ### From Powershell
 

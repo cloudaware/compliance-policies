@@ -1,5 +1,7 @@
 # Description
 
+**[IMPORTANT - Please read the section overview**: If your organization pays for Microsoft Entra ID licensing (included in Microsoft 365 E3, E5, or F5, and EM&S E3 or E5 licenses) and **CAN** use Conditional Access, ignore the recommendations in this section and proceed to the Conditional Access section.]
+
 Enable multi-factor authentication for all non-privileged users.
 
 ## Rationale
@@ -16,10 +18,10 @@ Users would require two forms of authentication before any access is granted. Al
 
 1. From Azure Home select the Portal Menu.
 2. Select the `Microsoft Entra ID` blade.
-3. Select `Users`.
-4. Take note of all users except the roles `Service Co-Administrators`, `Owners` or `Contributors`.
-5. Click on the `Per-User MFA` button in the top row menu.
-6. Ensure that `MULTI-FACTOR AUTH STATUS` is `Enabled` for all noted users.
+3. Under `Manage`, click `Users`.
+4. Click the `Per-User MFA` button on the top bar.
+
+For every user listed, ensure that the `Status` column indicates `Enabled`.
 
 ### From REST API
 
@@ -53,10 +55,10 @@ Find all non-administrative roles (`$B.name`) in `Properties/roleDefinitionId` m
 
 4. Now Match `$CProperties/principalId` with `$A.uid` and get `$A.userPrincipalName` save this as `D.userPrincipleName`
 
-#### Step 2: Run MSOL PowerShell command
+#### Step 2: Run Graph PowerShell command
 
 ```ps
-Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName
+get-mguser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName
 ```
 
 If the output contains any of the `$D.userPrincipleName`, then this recommendation is non-compliant.

@@ -22,7 +22,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "199",
-            "conditionText": "!extract('CA10__networkAclsBypass__c').containsIgnoreCase('azureservices')",
+            "conditionText": "not(extract('CA10__networkAclsBypass__c').containsIgnoreCase('azureservices'))",
             "runtimeError": null
         },
         "context": {

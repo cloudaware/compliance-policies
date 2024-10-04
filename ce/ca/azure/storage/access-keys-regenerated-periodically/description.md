@@ -19,8 +19,8 @@ Regenerating access keys can affect services in Azure as well as the organizatio
 ### From Azure Portal
 
 1. Go to `Storage Accounts`.
-2. For each Storage Account, go to `Access keys`.
-3. Review the date in the `Last rotated` field for each key.
+2. For each Storage Account, under `Security + networking`, go to `Access keys`.
+3. Review the date in the `Last rotated` field for **each** key.
 
 If the `Last rotated` field indicates value greater than 90 day [or greater than your organization's period of validity], the key should be rotated.
 

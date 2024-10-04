@@ -1,0 +1,31 @@
+---
+name: "CP-3 Contingency Training (L)(M)(H)"
+description: |-
+  a. Provide contingency training to system users consistent with assigned roles and
+  responsibilities:
+
+    1. Within [FedRAMP Assignment: *See Additional Requirements] of assuming a
+    contingency role or responsibility;
+
+    2. When required by system changes; and
+
+    3. [FedRAMP Assignment: at least annually] thereafter; and
+  
+  b. Review and update contingency training content [FedRAMP Assignment: at least
+  annually] and following [Assignment: organization-defined events].
+  
+  **CP-3 Additional FedRAMP Requirements and Guidance:**
+  
+  **(a) Requirement**: Privileged admins and engineers must take the basic contingency
+  training within ten (10) days. Consideration must be given for those privileged admins
+  and engineers with critical contingency-related roles, to gain enough system context and
+  situational awareness to understand the full impact of contingency training as it applies
+  to their respective level. Newly hired critical contingency personnel must take this more
+  in-depth training within sixty (60) days of hire date when the training will have more
+  impact.
+similar:
+  internal:
+    - "dec-c-d563d3bf"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/cp/03
+    - "/frameworks/fedramp-high-security-controls/cp/03"

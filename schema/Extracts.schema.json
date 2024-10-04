@@ -367,6 +367,40 @@
       },
       "required" : [ "BOOLEAN" ]
     },
+    "ConstBytes" : {
+      "type" : "object",
+      "properties" : {
+        "BYTES" : {
+          "type" : "string",
+          "description" : "Operation that creates a byte array constant, can not be null"
+        }
+      },
+      "required" : [ "BYTES" ]
+    },
+    "ConstCollection" : {
+      "type" : "object",
+      "properties" : {
+        "items" : {
+          "description" : "A list of items to create a collection from, can not be null",
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "required" : [ "items" ],
+      "description" : "Operation that creates a collection, can not be null",
+      "additionalProperties" : false
+    },
+    "ConstCollectionWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "COLLECTION" : {
+          "$ref" : "#/definitions/ConstCollection"
+        }
+      },
+      "required" : [ "COLLECTION" ]
+    },
     "ConstNumber" : {
       "type" : "object",
       "properties" : {
@@ -525,7 +559,7 @@
         },
         "format" : {
           "allOf" : [ {
-            "$ref" : "#/definitions/Format"
+            "$ref" : "#/definitions/DateTimeFromFormat"
           }, {
             "description" : "A format that must be use to decode the text into date time"
           } ]
@@ -590,6 +624,44 @@
       },
       "required" : [ "DEBUG" ]
     },
+    "DurationFrom" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/OpText"
+          }, {
+            "description" : "The string that contains a duration"
+          } ]
+        },
+        "format" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/DurationFromFormat"
+          }, {
+            "description" : "A format that must be use to decode the text into duration"
+          } ]
+        },
+        "undeterminedIf" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/DurationFromUndeterminedIf"
+          }, {
+            "description" : "Checks that will return UNDETERMINED status if satisfied"
+          } ]
+        }
+      },
+      "required" : [ "arg", "format" ],
+      "description" : "Operation that returns an Duration from a string 'arg'",
+      "additionalProperties" : false
+    },
+    "DurationFromWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "DURATION_FROM" : {
+          "$ref" : "#/definitions/DurationFrom"
+        }
+      },
+      "required" : [ "DURATION_FROM" ]
+    },
     "Extract" : {
       "type" : "object",
       "properties" : {
@@ -653,9 +725,13 @@
       },
       "required" : [ "FIELD" ]
     },
-    "Format" : {
+    "DateTimeFromFormat" : {
       "type" : "string",
       "const" : "ISO_8601"
+    },
+    "DurationFromFormat" : {
+      "type" : "string",
+      "const" : "GCP_DURATION"
     },
     "IsDisappeared" : {
       "type" : "object",
@@ -786,6 +862,41 @@
         }
       },
       "required" : [ "JSON_QUERY_BOOLEAN" ]
+    },
+    "JsonQueryBytes" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/OpJson"
+          }, {
+            "description" : "JSON against which to evaluate 'expression'"
+          } ]
+        },
+        "expression" : {
+          "type" : "string",
+          "description" : "Expression to evaluate against JSON document 'arg'"
+        },
+        "undeterminedIf" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/JsonQueryUndeterminedIf"
+          }, {
+            "description" : "Checks that will return UNDETERMINED status if satisfied"
+          } ]
+        }
+      },
+      "required" : [ "arg", "expression", "undeterminedIf" ],
+      "description" : "Operation that evaluates 'expression' against JSON document 'arg' and returns BytesType",
+      "additionalProperties" : false
+    },
+    "JsonQueryBytesWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "JSON_QUERY_BYTES" : {
+          "$ref" : "#/definitions/JsonQueryBytes"
+        }
+      },
+      "required" : [ "JSON_QUERY_BYTES" ]
     },
     "JsonQueryNumber" : {
       "type" : "object",
@@ -1006,7 +1117,7 @@
       "required" : [ "NOT_EQUAL" ]
     },
     "Op" : {
-      "anyOf" : [ {
+      "oneOf" : [ {
         "$ref" : "#/definitions/AttributeValueWrapper"
       }, {
         "$ref" : "#/definitions/AttributesFromWrapper"
@@ -1033,6 +1144,10 @@
       }, {
         "$ref" : "#/definitions/ConstBoolean"
       }, {
+        "$ref" : "#/definitions/ConstBytes"
+      }, {
+        "$ref" : "#/definitions/ConstCollectionWrapper"
+      }, {
         "$ref" : "#/definitions/ConstNumber"
       }, {
         "$ref" : "#/definitions/ConstText"
@@ -1053,6 +1168,8 @@
       }, {
         "$ref" : "#/definitions/DebugWrapper"
       }, {
+        "$ref" : "#/definitions/DurationFromWrapper"
+      }, {
         "$ref" : "#/definitions/ExtractReference"
       }, {
         "$ref" : "#/definitions/FieldReferenceWrapper"
@@ -1068,6 +1185,8 @@
         "$ref" : "#/definitions/JsonFromWrapper"
       }, {
         "$ref" : "#/definitions/JsonQueryBooleanWrapper"
+      }, {
+        "$ref" : "#/definitions/JsonQueryBytesWrapper"
       }, {
         "$ref" : "#/definitions/JsonQueryNumberWrapper"
       }, {
@@ -1104,19 +1223,31 @@
         "$ref" : "#/definitions/TextPatternStartsWithWrapper"
       }, {
         "$ref" : "#/definitions/TextPatternStartsWithIgnoreCaseWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestDateTime"
+      }, {
+        "$ref" : "#/definitions/UnitTestNullWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestRuntimeErrorWrapper"
       } ]
     },
     "OpAttributes" : {
-      "anyOf" : [ {
+      "oneOf" : [ {
         "$ref" : "#/definitions/AttributesFromWrapper"
       }, {
         "$ref" : "#/definitions/DebugWrapper"
       }, {
         "$ref" : "#/definitions/ExtractReference"
+      }, {
+        "$ref" : "#/definitions/UnitTestNullWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestRuntimeErrorWrapper"
       } ]
     },
     "OpBoolean" : {
-      "anyOf" : [ {
+      "oneOf" : [ {
         "$ref" : "#/definitions/AwsPolicyAllowsWrapper"
       }, {
         "$ref" : "#/definitions/BetweenWrapper"
@@ -1192,19 +1323,31 @@
         "$ref" : "#/definitions/TextPatternStartsWithWrapper"
       }, {
         "$ref" : "#/definitions/TextPatternStartsWithIgnoreCaseWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestNullWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestRuntimeErrorWrapper"
       } ]
     },
     "OpCollection" : {
-      "anyOf" : [ {
+      "oneOf" : [ {
         "$ref" : "#/definitions/CollectionFromWrapper"
+      }, {
+        "$ref" : "#/definitions/ConstCollectionWrapper"
       }, {
         "$ref" : "#/definitions/DebugWrapper"
       }, {
         "$ref" : "#/definitions/ExtractReference"
+      }, {
+        "$ref" : "#/definitions/UnitTestNullWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestRuntimeErrorWrapper"
       } ]
     },
     "OpDateTime" : {
-      "anyOf" : [ {
+      "oneOf" : [ {
         "$ref" : "#/definitions/DateTimeFromWrapper"
       }, {
         "$ref" : "#/definitions/DebugWrapper"
@@ -1212,19 +1355,27 @@
         "$ref" : "#/definitions/ExtractReference"
       }, {
         "$ref" : "#/definitions/FieldReferenceWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestNullWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestRuntimeErrorWrapper"
       } ]
     },
     "OpJson" : {
-      "anyOf" : [ {
+      "oneOf" : [ {
         "$ref" : "#/definitions/DebugWrapper"
       }, {
         "$ref" : "#/definitions/ExtractReference"
       }, {
         "$ref" : "#/definitions/JsonFromWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestNullWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestRuntimeErrorWrapper"
       } ]
     },
     "OpNumber" : {
-      "anyOf" : [ {
+      "oneOf" : [ {
         "$ref" : "#/definitions/CollectionSizeWrapper"
       }, {
         "$ref" : "#/definitions/ConstNumber"
@@ -1238,10 +1389,14 @@
         "$ref" : "#/definitions/JsonQueryNumberWrapper"
       }, {
         "$ref" : "#/definitions/RelatedListAggregateCountWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestNullWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestRuntimeErrorWrapper"
       } ]
     },
     "OpText" : {
-      "anyOf" : [ {
+      "oneOf" : [ {
         "$ref" : "#/definitions/AttributeValueWrapper"
       }, {
         "$ref" : "#/definitions/ConstText"
@@ -1253,6 +1408,12 @@
         "$ref" : "#/definitions/FieldReferenceWrapper"
       }, {
         "$ref" : "#/definitions/JsonQueryTextWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestDateTime"
+      }, {
+        "$ref" : "#/definitions/UnitTestNullWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestRuntimeErrorWrapper"
       } ]
     },
     "RelatedListAggregateCount" : {
@@ -1566,6 +1727,98 @@
       },
       "required" : [ "invalidFormat" ],
       "additionalProperties" : false
+    },
+    "DurationFromUndeterminedIf" : {
+      "type" : "object",
+      "properties" : {
+        "isEmpty" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned if the supplied value is empty"
+        },
+        "invalidFormat" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned if supplied value can not be parsed into the requested format"
+        }
+      },
+      "required" : [ "invalidFormat" ],
+      "additionalProperties" : false
+    },
+    "UnitTest" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "arg" : {
+          "$ref" : "#/definitions/OpBoolean"
+        }
+      },
+      "required" : [ "id", "arg" ],
+      "additionalProperties" : false
+    },
+    "UnitTestWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "UNIT_TEST" : {
+          "$ref" : "#/definitions/UnitTest"
+        }
+      },
+      "required" : [ "UNIT_TEST" ]
+    },
+    "UnitTestDateTime" : {
+      "type" : "object",
+      "properties" : {
+        "UNIT_TEST_DATE_TIME" : {
+          "type" : "string",
+          "description" : "Operation that creates a DateTime constant, just for unit-test"
+        }
+      },
+      "required" : [ "UNIT_TEST_DATE_TIME" ]
+    },
+    "UnitTestNull" : {
+      "type" : "object",
+      "properties" : {
+        "returnType" : {
+          "$ref" : "#/definitions/UnitTestReturnType"
+        }
+      },
+      "required" : [ "returnType" ],
+      "additionalProperties" : false
+    },
+    "UnitTestNullWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "UNIT_TEST_NULL" : {
+          "$ref" : "#/definitions/UnitTestNull"
+        }
+      },
+      "required" : [ "UNIT_TEST_NULL" ]
+    },
+    "UnitTestReturnType" : {
+      "type" : "string",
+      "enum" : [ "TEXT", "BYTES", "NUMBER", "BOOLEAN", "DATE_TIME", "COLLECTION", "ATTRIBUTES", "JSON", "DURATION" ]
+    },
+    "UnitTestRuntimeError" : {
+      "type" : "object",
+      "properties" : {
+        "returnType" : {
+          "$ref" : "#/definitions/UnitTestReturnType"
+        },
+        "message" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "returnType", "message" ],
+      "additionalProperties" : false
+    },
+    "UnitTestRuntimeErrorWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "UNIT_TEST_RUNTIME_ERROR" : {
+          "$ref" : "#/definitions/UnitTestRuntimeError"
+        }
+      },
+      "required" : [ "UNIT_TEST_RUNTIME_ERROR" ]
     }
   }
 }

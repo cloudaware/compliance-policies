@@ -1,0 +1,56 @@
+---
+inputObject: "CA10Z1__CaAzurePostgreSqlServer__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10Z1__CaAzurePostgreSqlServer__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is not the Flexible Server deployment mode."
+    condition:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__deploymentMode__c"
+        right:
+          TEXT: "Flexible"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "PostgreSQL Database Server Firewall Rules contain AllowAllWindowsAzureIps rule allowing ingress from 0.0.0.0/0 (ANY IP)."
+    remediationMessage: "Consider removing or disabling the overly permissive rule."
+    condition:
+# returns the number of rules which names start with AllowAllAzureServicesAndResourcesWithinAzureIps
+      GREATER_THAN:
+        left:
+          JSON_QUERY_NUMBER:
+              arg: 
+                EXTRACT: "caJsonFrom__firewallRules__c"
+              expression: "length([? starts_with(name, 'AllowAllAzureServicesAndResourcesWithinAzureIps')])"
+              undeterminedIf: 
+                evaluationError: "The JSON query has failed."
+                resultTypeMismatch: "The JSON query did not return number type."
+        right:
+          NUMBER: 0.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "PostgreSQL Database Server Firewall Rules contain a rule allowing ingress from 0.0.0.0/0 (ANY IP)."
+    remediationMessage: "Consider removing or disabling the overly permissive rule."
+    condition:
+# number of rules with start and end IPs as 0.0.0.0
+      GREATER_THAN:
+        left:
+          JSON_QUERY_NUMBER:
+              arg: 
+                EXTRACT: "caJsonFrom__firewallRules__c"
+              expression: "length([? properties.startIpAddress == '0.0.0.0' && (properties.endIpAddress == '0.0.0.0' || properties.endIpAddress == '255.255.255.255')])"
+              undeterminedIf: 
+                evaluationError: "The JSON query has failed."
+                resultTypeMismatch: "The JSON query did not return number type."
+        right:
+          NUMBER: 0.0
+  - status: "COMPLIANT"
+    currentStateMessage: "PostgreSQL Database Server doesn't have any Firewall Rules."
+    condition:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "caJsonFrom__firewallRules__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "PostgreSQL Database Server Firewall Rules do not have a rule allowing ingress from 0.0.0.0/0 (ANY IP)."

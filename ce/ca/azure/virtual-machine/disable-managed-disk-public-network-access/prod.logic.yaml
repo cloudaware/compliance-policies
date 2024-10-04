@@ -1,0 +1,67 @@
+---
+inputObject: "CA10__CaAzureManagedDisk__c"
+importExtracts:
+  - file: "/types/CA10__CaAzureManagedDisk__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Managed Disk data is publicly accessible on the internet 
+      and can be exported or uploaded to from any network."
+    remediationMessage: "Consider restricting the Managed Disk Public Access."
+    condition:
+      AND:
+        args:
+        - IS_EQUAL:
+            left:
+              EXTRACT: "CA10__networkAccessPolicy__c"
+            right:
+              TEXT: "AllowAll"
+        - IS_EQUAL:
+            left:
+              EXTRACT: "CA10__publicNetworkAccess__c"
+            right:
+              TEXT: "Enabled"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Managed Disk Public Access is not disabled."
+    remediationMessage: "Consider disabling the Managed Disk Public Access."
+    condition:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__publicNetworkAccess__c"
+        right:
+          TEXT: "Disabled"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Managed Disk Network Access Policy allows access from any network."
+    remediationMessage: "Consider restricting the Managed Disk Network Access Policy."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__networkAccessPolicy__c"
+        right:
+          TEXT: "AllowAll"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Managed Disk Public Access is restricted."
+    condition:
+      AND:
+        args:
+          - OR:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: "CA10__networkAccessPolicy__c"
+                    right:
+                      TEXT: "AllowPrivate"
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: "CA10__networkAccessPolicy__c"
+                    right:
+                      TEXT: "DenyAll"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__publicNetworkAccess__c"
+              right:
+                TEXT: "Disabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the fields."

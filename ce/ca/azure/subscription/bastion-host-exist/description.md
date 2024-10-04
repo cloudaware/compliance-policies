@@ -15,7 +15,7 @@ The Azure Bastion service incurs additional costs and requires a specific virtua
 ### From Azure Portal
 
 1. Click on `Bastions`.
-2. Ensure there is at least one `Bastion` host listed under the Name column.
+2. Ensure there is at least one `Bastion` host listed under the `Name` column.
 
 ### From Azure CLI
 

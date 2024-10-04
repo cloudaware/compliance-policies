@@ -2,17 +2,18 @@
 names:
   full: Microsoft Entra ID Guest Users are not reviewed on a regular basis
   contextual: Guest Users are not reviewed on a regular basis
-description: "Guest users allow you to share your company's applications and services\
-  \ with users from any other organization, while maintaining control over your own\
-  \ corporate data. Guest users in every subscription should be review on a regular\
-  \ basis to ensure that inactive and unneeded accounts are removed."
+description: >
+  Microsoft Entra ID has native and extended identity functionality allowing you to invite 
+  people from outside your organization to be guest users in your cloud account and sign 
+  in with their own work, school, or social identities.
 impossible: true
 type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-azure-v2.1.0/01/04
-  - /frameworks/cloudaware/identity-and-access-management/user-management
+  - "/frameworks/cis-azure-v2.1.0/01/04"
+  - "/frameworks/cis-azure-v3.0.0/02/04"
+  - "/frameworks/cloudaware/identity-and-access-management/user-management"
 similarPolicies:
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/check-for-guest-users.html

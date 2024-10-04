@@ -1,0 +1,28 @@
+---
+name: "SA-10 Developer Configuration Management (M)(H)"
+description: |-
+  Require the developer of the system, system component, or system service to:
+
+  a. Perform configuration management during system, component, or service [FedRAMP
+  Assignment: development, implementation, AND operation];
+  
+  b. Document, manage, and control the integrity of changes to [Assignment:
+  organization-defined configuration items under configuration management];
+  
+  c. Implement only organization-approved changes to the system, component, or service;
+  
+  d. Document approved changes to the system, component, or service and the potential
+  security and privacy impacts of such changes; and
+  
+  e. Track security flaws and flaw resolution within the system, component, or service and
+  report findings to [Assignment: organization-defined personnel].
+  
+  **SA-10 Additional FedRAMP Requirements and Guidance:**
+  
+  **(e) Requirement**: track security flaws and flaw resolution within the system, component,
+  or service and report findings to organization-defined personnel, to include FedRAMP.
+similar:
+  internal:
+    - "dec-c-51b9180e"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/sa/10

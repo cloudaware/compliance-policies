@@ -1,0 +1,7 @@
+---
+name: 5.6 Ensure routing tables for VPC peering are "least access" (Manual)
+description: >
+  Once a VPC peering connection is established, routing tables must be updated to
+  enable any connections between the peered VPCs. These routes can be as specific as
+  desired, even allowing for the peering of a VPC to only a single host on the other side of
+  the connection.

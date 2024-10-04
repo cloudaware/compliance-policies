@@ -18,8 +18,8 @@ Log consumption and processing will incur additional cost.
 
 For each `App Service`:
 
-2. Go to `Diagnostic Settings`.
-3. Ensure that 'HTTP logs' is configured to log to a destination aligned to your environments approach to log consumption (event hub, storage account, etc. dependent on what is consuming the logs such as SIEM or other log aggregation utility).
+2. Under `Monitoring`, go to `Diagnostic Settings`.
+3. Ensure a diagnostic setting exists that logs `HTTP logs` to a destination aligned to your environment's approach to log consumption (event hub, storage account, etc. dependent on what is consuming the logs such as SIEM or other log aggregation utility).
 
 ## Default Value
 

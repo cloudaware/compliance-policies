@@ -6,10 +6,10 @@
 2. Click `Activity log`.
 3. Click on `Export Activity Logs`.
 4. Select the `Subscription` from the drop down menu.
-5. Click on `Add diagnostic setting`.
-6. Enter a name for your new Diagnostic Setting.
-7. Check the following categories: `Administrative`, `Alert`, `Policy`, and `Security`.
-8. Choose the destination details according to your organization's needs.
+5. Click `Edit setting` next to a diagnostic setting.
+6. Check the following categories: `Administrative`, `Alert`, `Policy`, and `Security`.
+7. Choose the destination details according to your organization's needs.
+8. Click `Save`.
 
 ## From Azure CLI
 

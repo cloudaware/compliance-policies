@@ -1,0 +1,18 @@
+---
+names:
+  full: Azure Managed Disk Public Network Access is not disabled
+  contextual: Managed Disk Public Network Access is not disabled
+description: >
+  The setting 'Enable public access from all networks' is, in many cases, an overly permissive 
+  setting on Virtual Machine Disks that presents atypical attack, data infiltration, and 
+  data exfiltration vectors. If a disk to network connection is required, the preferred 
+  setup is to disable public access and enable private access.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v3.0.0/08/05"
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+similarPolicies:
+  internal:
+    - dec-x-b17c005c

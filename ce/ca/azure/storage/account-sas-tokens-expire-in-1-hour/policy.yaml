@@ -9,8 +9,9 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-azure-v2.1.0/03/06
-  - /frameworks/cloudaware/resource-security/secure-access-controls
+  - "/frameworks/cis-azure-v2.1.0/03/06"
+  - "/frameworks/cis-azure-v3.0.0/04/05"
+  - "/frameworks/cloudaware/resource-security/secure-access-controls"
 similarPolicies:
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/StorageAccounts/shared-access-signature-tokens-expire-within-an-hour.html

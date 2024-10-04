@@ -12,19 +12,23 @@ When configuring `Named locations`, the organization can create locations using 
 
 In general, Conditional Access policies may completely prevent users from authenticating to Microsoft Entra ID, and thorough testing is recommended. To avoid complete lockout, a 'Break Glass' account with full Global Administrator rights is recommended in the event all other administrators are locked out of authenticating to Microsoft Entra ID. This 'Break Glass' account should be excluded from Conditional Access Policies and should be configured with the longest pass phrase feasible. This account should only be used in the event of an emergency and complete administrator lockout.
 
+**NOTE**: Starting July 2024, Microsoft will begin requiring MFA for All Users - including Break Glass Accounts. By the end of October 2024, this requirement will be enforced. Physical FIDO2 security keys, or a certificate kept on secure removable storage can fulfill this MFA requirement. If opting for a physical device, that device should be kept in a very secure, documented physical location.
+
 ## Audit
 
 ### From Azure Portal
 
-1. In the Azure Portal, navigate to `Microsoft Entra ID Conditional Access`.
-2. Click on `Manage`.
-3. Click on `Named Locations`.
+1. In the Azure Portal, navigate to `Microsoft Entra ID`.
+2. Under `Manage`, click `Security`.
+3. Under `Protect`, click `Conditional Access`.
+4. Under `Manage`, click `Named locations`.
+
 Ensure there are `IP ranges location` settings configured and marked as `Trusted`.
 
 ### From PowerShell
 
 ```ps
-Get-AzureADMSNamedLocationPolicy
+Get-MgIdentityConditionalAccessNamedLocation
 ```
 
 In the output from the above command, for each Named location group, make sure at least one entry contains the `IsTrusted` parameter with a value of `True`. Otherwise, if there is no output as a result of the above command or all of the entries contain the `IsTrusted` parameter with an empty value, a `NULL` value, or a value of `False`, the results are out of compliance with this check.
@@ -35,5 +39,6 @@ By default, no locations are configured under the `Named locations` blade within
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/location-condition>
+1. <https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-assignment-network>
 2. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-identity-management#im-7-restrict-resource-access-based-on--conditions>
+3. <https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-emergency-access>

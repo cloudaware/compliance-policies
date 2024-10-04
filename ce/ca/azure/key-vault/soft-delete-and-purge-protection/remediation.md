@@ -9,7 +9,7 @@ To enable `Do Not Purge` and `Soft Delete` for a Key Vault:
 3. Click `Properties`.
 4. Ensure the status of Purge protection reads `Enable purge protection (enforce a mandatory retention period for deleted vaults and vault objects)`.
 
-    **Note**, once enabled you cannot disable it.
+    **Note**: once enabled you cannot disable it.
 
 ## From Azure CLI
 

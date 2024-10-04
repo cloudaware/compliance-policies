@@ -10,8 +10,9 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-azure-v2.1.0/02/01/04
-  - /frameworks/cloudaware/resource-security/microsoft-defender-configuration
+  - "/frameworks/cis-azure-v2.1.0/02/01/04"
+  - "/frameworks/cis-azure-v3.0.0/03/01/07/04"
+  - "/frameworks/cloudaware/resource-security/microsoft-defender-configuration"
 similarPolicies:
   internal:
     - dec-x-fafadacd

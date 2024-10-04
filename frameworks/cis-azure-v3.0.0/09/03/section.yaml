@@ -1,0 +1,7 @@
+---
+name: "9.3 Ensure 'FTP State' is set to 'FTPS Only' or 'Disabled' (Automated)"
+description: |-
+  By default, App Services can be deployed over FTP. If FTP is required for an essential deployment 
+  workflow, FTPS should be required for FTP login for all App Services.
+  
+  If FTPS is not expressly required for the App, the recommended setting is `Disabled`.

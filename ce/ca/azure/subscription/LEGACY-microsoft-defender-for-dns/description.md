@@ -1,6 +1,6 @@
 # Description
 
-[**NOTE**: As of August 1, customers with an existing subscription to Defender for DNS can continue to use the service, but new subscribers will receive alerts about suspicious DNS activity as part of Defender for Servers P2.]
+[**NOTE**: As of August 1, 2023 customers with an existing subscription to Defender for DNS can continue to use the service, but new subscribers will receive alerts about suspicious DNS activity as part of Defender for Servers P2.]
 
 Microsoft Defender for DNS scans all network traffic exiting from within a subscription.
 
@@ -17,9 +17,9 @@ Enabling Microsoft Defender for DNS requires enabling Microsoft Defender for you
 ### From Azure Portal
 
 1. Go to `Microsoft Defender for Cloud`.
-2. Select `Environment Settings` blade.
-3. Click on the subscription name.
-4. Select the `Defender plans` blade.
+2. Under `Management`, select `Environment Settings`
+3. Click on the subscription name
+4. Select the `Defender plans` blade
 5. Ensure `Status` is set to `On` for `DNS`.
 
 ### From Azure CLI
@@ -57,3 +57,7 @@ By default, Microsoft Defender for DNS is not enabled.
 5. <https://docs.microsoft.com/en-us/azure/defender-for-cloud/alerts-overview>
 6. <https://docs.microsoft.com/en-us/security/benchmark/azure/security-controls-v3-network-security#ns-10-ensure-domain-name-system-dns-security>
 7. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-logging-threat-detection#lt-1-enable-threat-detection-capabilities>
+
+## Additional Information
+
+[**NOTE**: As of August 1, 2023 customers with an existing subscription to Defender for DNS can continue to use the service, but new subscribers will receive alerts about suspicious DNS activity as part of Defender for Servers P2.]

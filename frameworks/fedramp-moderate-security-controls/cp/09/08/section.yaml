@@ -1,0 +1,16 @@
+---
+name: CP-9(8) Cryptographic Protection (M)(H)
+description: |-
+  Implement cryptographic mechanisms to prevent unauthorized disclosure and modification of
+  [FedRAMP Assignment: all backup files].
+
+  **CP-9 (8) Additional FedRAMP Requirements and Guidance:**
+  
+  **Guidance**: Note that this enhancement requires the use of cryptography which must be
+  compliant with Federal requirements and utilize FIPS validated or National Security
+  Agency (NSA) approved cryptography (see SC-13).
+similar:
+  internal:
+    - "dec-c-8f8e7e48"
+  sections:
+    - /frameworks/fedramp-high-security-controls/cp/09/08

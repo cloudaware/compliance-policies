@@ -1,10 +1,10 @@
 # Description
 
-This recommendation ensures that users accessing Microsoft Admin Portals (i.e. Microsoft 365 Admin, Microsoft 365 Defender, Exchange Admin Center, Azure Portal, etc.) are required to use multifactor authentication (MFA) credentials when logging into an Admin Portal.
+This recommendation ensures that users accessing Microsoft Admin Portals (i.e. Microsoft 365 Admin, Microsoft 365 Defender, Exchange Admin Center, Azure Portal, etc.) are required to use multi-factor authentication (MFA) credentials when logging into an Admin Portal.
 
 ## Rationale
 
-Administrative Portals for Microsoft Azure should be secured with a higher level of scrutiny to authenticating mechanisms. Enabling multifactor authentication is recommended to reduce the potential for abuse of Administrative actions, and to prevent intruders or compromised admin credentials from changing administrative settings.
+Administrative Portals for Microsoft Azure should be secured with a higher level of scrutiny to authenticating mechanisms. Enabling multi-factor authentication is recommended to reduce the potential for abuse of Administrative actions, and to prevent intruders or compromised admin credentials from changing administrative settings.
 
 **IMPORTANT**: While this recommendation allows exceptions to specific Users or Groups, they should be very carefully tracked and reviewed for necessity on a regular interval through an Access Review process. It is important that this rule be built to include "All Users" to ensure that all users not specifically excepted will be required to use MFA to access Admin Portals.
 
@@ -25,10 +25,8 @@ Conditional Access policies require Microsoft Entra ID P1 or P2 licenses. Simila
 7. Under the `Include` section of Users, review `Users and Groups` to ensure that `All Users` is selected.
 8. Under the `Exclude` section of Users, review the `Users and Groups` that are excluded from the policy (**NOTE**: this should be limited to break-glass emergency access accounts, non-interactive service accounts, and other carefully considered exceptions).
 9. On the left side, click the blue text under `Target Resources`.
-10. Select what this policy applies to should have `Cloud apps` selected.
-11. Under the `Include` section of Target Resources, the `Select apps` radio button should be selected.
-12. Click the blue text under `Select`.
-13. From the select prompt that appears, the checkbox for `Microsoft Admin Portals` should be checked.
+10. Under the `Include` section of Target resources, ensure the `Select apps` radio button is selected.
+11. Under `Select`, ensure `Microsoft Admin Portals` is listed.
 
 ## Default Value
 

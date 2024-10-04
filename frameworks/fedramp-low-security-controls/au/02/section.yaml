@@ -1,0 +1,37 @@
+---
+name: AU-2 Event Logging (L)(M)(H)
+description: |-
+  a. Identify the types of events that the system is capable of logging in support of the audit
+  function: [FedRAMP Assignment: successful and unsuccessful account logon events,
+  account management events, object access, policy change, privilege functions, process
+  tracking, and system events. For Web applications: all administrator activity,
+  authentication checks, authorization checks, data deletions, data access, data changes,
+  and permission changes];
+
+  b. Coordinate the event logging function with other organizational entities requiring
+  audit-related information to guide and inform the selection criteria for events to be
+  logged;
+
+  c. Specify the following event types for logging within the system: [FedRAMP Assignment:
+  organization-defined subset of the auditable events defined in AU-2a to be audited
+  continually for each identified event.];
+
+  d. Provide a rationale for why the event types selected for logging are deemed to be
+  adequate to support after-the-fact investigations of incidents; and
+
+  e. Review and update the event types selected for logging [FedRAMP Assignment:
+  annually and whenever there is a change in the threat environment].
+
+  **AU-2 Additional FedRAMP Requirements and Guidance:**
+
+  **(e) Guidance**: Annually or whenever changes in the threat environment are
+  communicated to the service provider by the JAB/AO.
+
+  **Requirement**: Coordination between service provider and consumer shall be
+  documented and accepted by the JAB/AO.
+similar:
+  internal:
+    - dec-c-17d0421b
+  sections:
+    - /frameworks/nist-sp-800-53-r5/au/02
+    - "/frameworks/fedramp-high-security-controls/au/02"

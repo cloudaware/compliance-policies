@@ -8,14 +8,15 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-azure-v2.1.0/05/02/04
-  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management
+  - "/frameworks/cis-azure-v2.1.0/05/02/04"
+  - "/frameworks/cis-azure-v3.0.0/06/02/04"
+  - "/frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management"
 frameworkIgnoreMappings:
-  - /frameworks/cis-azure-v1.3.0/05/02/05
-  - /frameworks/cis-azure-v1.4.0/05/02/05
-  - /frameworks/cis-azure-v1.5.0/05/02/05
-  - /frameworks/cis-azure-v2.0.0/05/02/05
-  - /frameworks/cis-azure-v2.1.0/05/02/05
+  - "/frameworks/cis-azure-v1.3.0/05/02/05"
+  - "/frameworks/cis-azure-v1.4.0/05/02/05"
+  - "/frameworks/cis-azure-v1.5.0/05/02/05"
+  - "/frameworks/cis-azure-v2.0.0/05/02/05"
+  - "/frameworks/cis-azure-v2.1.0/05/02/05"
 similarPolicies:
   internal:
     - dec-x-c397d3ca

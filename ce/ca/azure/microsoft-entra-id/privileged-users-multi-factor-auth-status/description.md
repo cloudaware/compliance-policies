@@ -1,5 +1,7 @@
 # Description
 
+**[IMPORTANT - Please read the section overview**: If your organization pays for Microsoft Entra ID licensing (included in Microsoft 365 E3, E5, or F5, and EM&S E3 or E5 licenses) and **CAN** use Conditional Access, ignore the recommendations in this section and proceed to the Conditional Access section.]
+
 Enable multi-factor authentication for all roles, groups, and users that have write access or permissions to Azure resources. These include custom created objects or built-in roles such as:
 
 - Service Co-Administrators
@@ -19,11 +21,13 @@ Users would require two forms of authentication before any access is granted. Ad
 ### From Azure Portal
 
 1. From Azure Home select the Portal Menu.
-2. Select the `Microsoft Entra ID` blade.
-3. Select `Users`.
+2. Select the `Microsoft Entra` ID blade.
+3. Under `Manage`, click `Roles and administrators`.
 4. Take note of all users with the role `Service Co-Administrators`, `Owners` or `Contributors`.
-5. Click on the `Per-User MFA` button in the top row menu.
-6. Ensure that `MULTI-FACTOR AUTH STATUS` is `Enabled` for all noted users.
+5. Return to the `Overview`.
+6. Under `Manage`, click `Users`.
+7. Click on the `Per-User MFA` button in the top row menu.
+8. Ensure that `Status` is `Enabled` for all noted users.
 
 ### From REST API
 
@@ -57,10 +61,10 @@ Find all administrative roles (`$B.name`) in `Properties/roleDefinitionId` mappe
 
 4. Now Match `$CProperties/principalId` with `$A.uid` and get `$A.userPrincipalName` save this as `D.userPrincipalName`
 
-#### Step 2: Run MSOL PowerShell command
+#### Step 2: Run Graph PowerShell command
 
 ```ps
-Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName
+get-mguser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName
 ```
 
 If the output contains any of the `$D.userPrincipalName`, then this recommendation is non-compliant.
@@ -81,7 +85,3 @@ By default, multi-factor authentication is disabled for all users.
 1. <https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication>
 2. <https://stackoverflow.com/questions/41156206/azure-active-directory-premium-mfa-attributes-via-graph-api>
 3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-identity-management#im-4-authenticate-server-and-services>
-
-## Additional Information
-
-Please note that at the time of writing, there is no API, Azure CLI or Powershell mechanism available to programmatically conduct security assessment or remediation for this recommendation. The only option is MSOL.

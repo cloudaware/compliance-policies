@@ -39,5 +39,6 @@ New-AzKeyvault -name <name> -ResourceGroupName <resourceGroup> -Location <locati
 Encrypt the disk and store the key in Key Vault:
 
 ```ps
-$KeyVault = Get-AzKeyVault -VaultName <name> -ResourceGroupName <resourceGroup> Set-AzVMDiskEncryptionExtension -ResourceGroupName <resourceGroup> -VMName <name> -DiskEncryptionKeyVaultUrl $KeyVault.VaultUri -DiskEncryptionKeyVaultId $KeyVault.ResourceId
+$KeyVault = Get-AzKeyVault -VaultName <name> -ResourceGroupName <resourceGroup>
+Set-AzVMDiskEncryptionExtension -ResourceGroupName <resourceGroup> -VMName <name> -DiskEncryptionKeyVaultUrl $KeyVault.VaultUri -DiskEncryptionKeyVaultId $KeyVault.ResourceId
 ```

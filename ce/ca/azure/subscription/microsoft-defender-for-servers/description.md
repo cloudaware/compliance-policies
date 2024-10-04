@@ -10,15 +10,20 @@ Enabling Microsoft Defender for Servers allows for greater defense-in-depth, wit
 
 Turning on Microsoft Defender for Servers in Microsoft Defender for Cloud incurs an additional cost per resource.
 
+Two Defender for Servers plans exist:
+
+- Plan 1: Subscription only
+- Plan 2: Subscription and workspace
+
 ## Audit
 
 ### From Azure Portal
 
 1. Go to `Microsoft Defender for Cloud`.
-2. Select `Environment Settings`.
+2. Under `Management`, select `Environment Settings`.
 3. Click on the subscription name.
-4. Select `Defender plans`.
-5. Ensure `Servers` Status is set to `On`.
+4. Select `Defender plans` in the left pane.
+5. Under `Cloud Workload Protection (CWP)`, locate `Server` in the Plan column, ensure Status is set to `On`.
 
 ### From Azure CLI
 
@@ -52,8 +57,8 @@ By default, Microsoft Defender plan is `off`.
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/security-center/security-center-detection-capabilities>
-2. <https://docs.microsoft.com/en-us/rest/api/securitycenter/pricings/list>
-3. <https://docs.microsoft.com/en-us/rest/api/securitycenter/pricings/update>
-4. <https://docs.microsoft.com/en-us/powershell/module/az.security/get-azsecuritypricing>
+1. <https://learn.microsoft.com/en-us/azure/defender-for-cloud/plan-defender-for-servers>
+2. <https://learn.microsoft.com/en-us/rest/api/defenderforcloud/pricings/list?view=rest-defenderforcloud-2024-01-01&tabs=HTTP>
+3. <https://learn.microsoft.com/en-us/rest/api/defenderforcloud/pricings/update?view=rest-defenderforcloud-2024-01-01&tabs=HTTP>
+4. <https://learn.microsoft.com/en-us/powershell/module/az.security/get-azsecuritypricing?view=azps-12.2.0>
 5. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-endpoint-security#es-1-use-endpoint-detection-and-response-edr>

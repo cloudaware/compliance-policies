@@ -1,0 +1,14 @@
+---
+names:
+  full: Azure Managed Disk Data Access Auth Mode is not set to Azure Active Directory
+  contextual: Managed Disk Data Access Auth Mode is not set to Azure Active Directory
+description: >
+  Enabling data access authentication mode adds a layer of protection using an Entra ID 
+  role to further restrict users from creating and using Secure Access Signature (SAS) 
+  tokens for exporting a detached managed disk or virtual machine state.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v3.0.0/08/06"
+  - "/frameworks/cloudaware/resource-security/secure-access-controls"

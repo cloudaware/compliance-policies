@@ -6,9 +6,12 @@ Enable sensitive data encryption at rest using Customer Managed Keys (CMK) rathe
 
 By default, data in the storage account is encrypted using Microsoft Managed Keys at rest. All Azure Storage resources are encrypted, including blobs, disks, files, queues, and tables. All object metadata is also encrypted. If you want to control and manage this encryption key yourself, however, you can specify a customer-managed key. That key is used to protect and control access to the key that encrypts your data. You can also choose to automatically update the key version used for Azure Storage encryption whenever a new version is available in the associated Key Vault.
 
+While it is possible to automate the assessment of this recommendation, the assessment status for this recommendation remains 'Manual.' This is because the recommendation pertains to storage accounts that store critical data and is therefore not applicable to all storage accounts.
+
 ## Impact
 
 If the key expires by setting the `activation date` and `expiration date`, the user must rotate the key manually.
+
 Using Customer Managed Keys may also incur additional man-hour requirements to create, store, manage, and protect the keys as needed.
 
 ## Audit
@@ -16,8 +19,8 @@ Using Customer Managed Keys may also incur additional man-hour requirements to c
 ### From Azure Console
 
 1. Go to `Storage Accounts`.
-2. For each storage account, go to `Encryption`.
-3. Ensure that Encryption type is set to Customer Managed Keys.
+2. For each storage account, under `Security + networking`, go to `Encryption`.
+3. Ensure that `Encryption type` is set to `Customer-managed keys`.
 
 ### From PowerShell
 

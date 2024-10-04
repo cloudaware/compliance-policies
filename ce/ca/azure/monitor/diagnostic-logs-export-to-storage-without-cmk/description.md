@@ -14,15 +14,15 @@ Configuring the storage account with the activity log export container to use CM
 
 ### From Azure Portal
 
-1. Go to `Activity log`.
-2. Select `Export`.
-3. Select `Subscription`.
-4. In section `Storage Account`, note the name of the Storage account.
-5. Close the `Export Audit Logs` blade. Close the `Monitor - Activity Log` blade.
-6. In right column, Click service `Storage Accounts` to access Storage account blade.
-7. Click on the storage account name noted in step 4. This will open blade specific to that storage account.
+1. Go to `Monitor`.
+2. Select `Activity log`.
+3. Select `Export Activity Logs`.
+4. Select a `Subscription`.
+5. Note the name of the `Storage Account` for the diagnostic setting.
+6. Navigate to `Storage accounts`.
+7. Click on the storage account name noted in Step 5.
 8. Under `Security + networking`, click `Encryption`.
-9. Ensure `Customer-managed keys` is selected and `Key URI` is set.
+9. Ensure `Customer-managed keys` is selected and a key is set.
 
 ### From Azure CLI
 

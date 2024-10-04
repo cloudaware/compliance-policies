@@ -72,3 +72,8 @@ extracts:
           EXTRACT: "CA10__firewallRulesJson__c"
         undeterminedIf:
           isInvalid: "Firewall Rules JSON is invalid."
+# Nullable. Values: Enabled, Disabled, Can't have no access, retrieved via Microsoft.Sql/servers
+  - name: "CA10__publicNetworkAccess__c"
+    value: 
+      FIELD:
+        path: "CA10__publicNetworkAccess__c"

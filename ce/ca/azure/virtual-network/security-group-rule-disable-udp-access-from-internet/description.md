@@ -10,7 +10,7 @@ The potential security problem with broadly exposing UDP services over the Inter
 
 ### From Azure Portal
 
-1. For each VM, open the Networking blade.
+1. Open the `Networking` blade for the specific Virtual machine in Azure portal.
 2. Verify that the `INBOUND PORT RULES` does not have a rule for HTTP(S) such as:
     - protocol = `UDP`.
     - Source = `Any` OR `Internet`.

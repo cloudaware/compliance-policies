@@ -1,0 +1,20 @@
+---
+name: PE-14 Environmental Controls (L)(M)(H)
+description: |-
+  a. Maintain [FedRAMP Assignment: consistent with American Society of Heating,
+  Refrigerating and Air-conditioning Engineers (ASHRAE) document entitled Thermal
+  Guidelines for Data Processing Environments] levels within the facility where the system
+  resides at [Assignment: organization-defined acceptable levels]; and
+
+  b. Monitor environmental control levels [FedRAMP Assignment: continuously].
+  
+  **PE-14 Additional FedRAMP Requirements and Guidance:**
+  
+  **(a) Requirement**: The service provider measures temperature at server inlets and
+  humidity levels by dew point.
+similar:
+  internal:
+    - "dec-c-4a4842a2"
+  sections:
+    - /frameworks/nist-sp-800-53-r5/pe/14
+    - "/frameworks/fedramp-high-security-controls/pe/14"

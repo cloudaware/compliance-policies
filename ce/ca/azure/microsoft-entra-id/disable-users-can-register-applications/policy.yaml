@@ -4,13 +4,13 @@ names:
   contextual: Users Can Register Applications is set to Yes
 description: Require administrators or appropriately delegated users to register third-party
   applications.
-impossible: true
 type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-azure-v2.1.0/01/13
-  - /frameworks/cloudaware/identity-and-access-management/user-management
+  - "/frameworks/cis-azure-v2.1.0/01/13"
+  - "/frameworks/cis-azure-v3.0.0/02/14"
+  - "/frameworks/cloudaware/identity-and-access-management/user-management"
 similarPolicies:
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/users-can-register-applications.html

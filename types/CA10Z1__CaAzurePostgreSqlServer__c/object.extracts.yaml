@@ -45,3 +45,10 @@ extracts:
           EXTRACT: "CA10Z1__firewallRules__c"
         undeterminedIf:
           isInvalid: "Firewall Rules JSON is invalid."
+  - name: "CA10Z1__deploymentMode__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__deploymentMode__c"
+        undeterminedIf:
+          isEmpty: "Corrupted Data. PostgreSQL Deployment Mode cannot be empty."
+
