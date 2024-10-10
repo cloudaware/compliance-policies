@@ -1,6 +1,15 @@
 # Description
 
-Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs, or an external Security information and event management (SIEM) environment, and establishing corresponding metric filters and alarms. It is possible to have more than 1 VPC within an account, in addition it is also possible to create a peer connection between 2 VPCs enabling network traffic to route between VPCs. It is recommended that a metric filter and alarm be established for changes made to VPCs.
+Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to
+CloudWatch Logs or an external Security Information and Event Management (SIEM)
+environment, and establishing corresponding metric filters and alarms.
+
+It is possible to have more than one VPC within an account; additionally, it is also
+possible to create a peer connection between two VPCs, enabling network traffic to
+route between them.
+
+It is recommended that a metric filter and alarm be established for changes made to
+VPCs.
 
 ## Rationale
 

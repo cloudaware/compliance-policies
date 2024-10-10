@@ -20,6 +20,14 @@ Perform the following to configure CloudTrail to use SSE-KMS:
 
 ## From Command Line
 
+Run the following command to specify a KMS key ID to use with a trail:
+
 ```sh
-aws cloudtrail update-trail --name <trail_name> --kms-id <cloudtrail_kms_key> aws kms put-key-policy --key-id <cloudtrail_kms_key> --policy <cloudtrail_kms_key_policy>
+aws cloudtrail update-trail --name <trail-name> --kms-id <cloudtrail-kmskey>
+```
+
+Run the following command to attach a key policy to a specified KMS key:
+
+```sh
+aws kms put-key-policy --key-id <cloudtrail-kms-key> --policy <cloudtrailkms-key-policy>
 ```

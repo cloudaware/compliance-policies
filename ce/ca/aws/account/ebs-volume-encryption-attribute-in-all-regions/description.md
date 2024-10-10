@@ -41,4 +41,4 @@ aws --region <region> ec2 get-ebs-encryption-by-default
 
 ## Additional Information
 
-Default EBS volume encryption only applies to newly created EBS volumes. Existing EBS volumes are not converted automatically.
+Default EBS volume encryption only applies to newly created EBS volumes. Existing EBS volumes are **not** converted automatically.

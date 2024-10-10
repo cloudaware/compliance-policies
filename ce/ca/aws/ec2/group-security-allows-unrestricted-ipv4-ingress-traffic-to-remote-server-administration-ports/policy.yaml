@@ -12,8 +12,9 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-aws-v3.0.0/05/02
-  - /frameworks/cloudaware/resource-security/public-and-anonymous-access
+  - "/frameworks/cis-aws-v3.0.0/05/02"
+  - "/frameworks/cis-aws-v4.0.0/05/03"
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
 frameworkIgnoreMappings:
   - /frameworks/cis-aws-v1.3.0/05/03
   - /frameworks/cis-aws-v1.4.0/05/03

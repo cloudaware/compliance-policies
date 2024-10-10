@@ -18,7 +18,7 @@ Getting the certificates expiration information via AWS Management Console is no
 
 ### From Command Line
 
-Run list-server-certificates command to list all the IAM-stored server certificates:
+Run `list-server-certificates` command to list all the IAM-stored server certificates:
 
 ```sh
 aws iam list-server-certificates
@@ -49,11 +49,11 @@ If this command returns:
  { "ServerCertificateMetadataList": [] }
 ```
 
-This means that there are no expired certificates, It DOES NOT mean that no certificates exist.
+This means that there are no expired certificates, It **DOES NOT** mean that no certificates exist.
 
 ## Default Value
 
-By default, expired certificates won't get deleted.
+By default, expired certificates will not be deleted.
 
 ## References
 

@@ -1,0 +1,22 @@
+---
+names:
+  full: AWS RDS Instance Multi-AZ Deployment is not enabled
+  contextual: Instance Multi-AZ Deployment is not enabled
+description: >
+  Amazon RDS offers Multi-AZ deployments that provide enhanced availability and
+  durability for your databases, using synchronous replication to replicate data to a
+  standby instance in a different Availability Zone (AZ). In the event of an infrastructure
+  failure, Amazon RDS automatically fails over to the standby to minimize downtime and
+  ensure business continuity.
+type: COMPLIANCE_POLICY
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cis-aws-v4.0.0/02/02/04"
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+similarPolicies:
+  internal:
+    - dec-x-5b3728e8
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/RDS/rds-multi-az.html
+      name: RDS Multi-AZ

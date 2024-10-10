@@ -11,13 +11,13 @@
     },
     "Id": "a01",
     "CA10__disappearanceTime__c": "2024-05-20T12:40:12Z",
-    "CA10__credReportAttributes__c": "password_last_used: 2024-05-18T19:32:44+00:00\naccess_key_1_last_used_region: N/A\npassword_enabled: true\naccess_key_1_last_used_date: N/A\naccess_key_1_last_used_service: N/A\nmfa_active: true\naccess_key_2_last_used_date: N/A\nuser_creation_time: 2015-02-17T21:59:26+00:00\ncert_2_active: false\ncert_1_active: false\ncert_1_last_rotated: N/A\naccess_key_2_last_used_service: N/A\naccess_key_2_active: false\naccess_key_1_active: false\npassword_next_rotation: 2024-06-01T19:46:35+00:00\naccess_key_2_last_rotated: N/A\narn: arn:aws:iam::526216611803:user/srichter\naccess_key_1_last_rotated: N/A\naccess_key_2_last_used_region: N/A\nuser: srichter\npassword_last_changed: 2024-03-03T19:46:35+00:00\ncert_2_last_rotated: N/A"
+    "CA10__credReportAttributesJson__c": "{\"password_last_used\":\"2024-07-17T17:37:46Z\",\"access_key_1_last_used_region\":\"N/A\",\"password_enabled\":\"true\",\"access_key_1_last_used_date\":\"N/A\",\"access_key_1_last_used_service\":\"N/A\",\"mfa_active\":\"true\",\"access_key_2_last_used_date\":\"N/A\",\"user_creation_time\":\"2017-09-27T19:51:41Z\",\"cert_2_active\":\"false\",\"cert_1_active\":\"false\",\"cert_1_last_rotated\":\"N/A\",\"access_key_2_last_used_service\":\"N/A\",\"access_key_2_active\":\"false\",\"access_key_1_active\":\"false\",\"password_next_rotation\":\"2024-10-15T17:38:45Z\",\"access_key_2_last_rotated\":\"N/A\",\"arn\":\"arn:aws:iam::526216611803:user/srichter\",\"access_key_1_last_rotated\":\"N/A\",\"access_key_2_last_used_region\":\"N/A\",\"user\":\"srichter\",\"password_last_changed\":\"2024-07-17T17:38:45Z\",\"cert_2_last_rotated\":\"N/A\"}"
   },
   {
     "expectedResult": {
       "status": "INAPPLICABLE",
       "conditionIndex": "199",
-      "conditionText": "extract('caExtract_credReport_user__c') != '<root_account>'",
+      "conditionText": "extract('CA10__userName__c') != 'root'",
       "runtimeError": null
     },
     "context": {
@@ -25,7 +25,23 @@
     },
     "Id": "a02",
     "CA10__disappearanceTime__c": null,
-    "CA10__credReportAttributes__c": "password_last_used: 2024-05-23T13:14:21+00:00\naccess_key_1_last_used_region: N/A\npassword_enabled: true\naccess_key_1_last_used_date: N/A\naccess_key_1_last_used_service: N/A\nmfa_active: true\naccess_key_2_last_used_date: N/A\nuser_creation_time: 2019-09-17T18:19:07+00:00\ncert_2_active: false\ncert_1_active: false\ncert_1_last_rotated: N/A\naccess_key_2_last_used_service: N/A\naccess_key_2_active: false\naccess_key_1_active: false\npassword_next_rotation: 2024-07-01T20:35:22+00:00\naccess_key_2_last_rotated: N/A\narn: arn:aws:iam::870992006847:user/a520127\naccess_key_1_last_rotated: N/A\naccess_key_2_last_used_region: N/A\nuser: a520127\npassword_last_changed: 2024-04-02T20:35:22+00:00\ncert_2_last_rotated: N/A"
+    "CA10__credReportAttributesJson__c": "{\"password_last_used\":\"2024-07-17T17:37:46Z\",\"access_key_1_last_used_region\":\"N/A\",\"password_enabled\":\"true\",\"access_key_1_last_used_date\":\"N/A\",\"access_key_1_last_used_service\":\"N/A\",\"mfa_active\":\"true\",\"access_key_2_last_used_date\":\"N/A\",\"user_creation_time\":\"2017-09-27T19:51:41Z\",\"cert_2_active\":\"false\",\"cert_1_active\":\"false\",\"cert_1_last_rotated\":\"N/A\",\"access_key_2_last_used_service\":\"N/A\",\"access_key_2_active\":\"false\",\"access_key_1_active\":\"false\",\"password_next_rotation\":\"2024-10-15T17:38:45Z\",\"access_key_2_last_rotated\":\"N/A\",\"arn\":\"arn:aws:iam::526216611803:user/srichter\",\"access_key_1_last_rotated\":\"N/A\",\"access_key_2_last_used_region\":\"N/A\",\"user\":\"a520127\",\"password_last_changed\":\"2024-07-17T17:38:45Z\",\"cert_2_last_rotated\":\"N/A\"}",
+    "CA10__userName__c": "userName"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__credReportAccessKey1Active__c') == true || extract('CA10__credReportAccessKey2Active__c') == true",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-06-19T07:55:48Z"
+    },
+    "Id": "a03I",
+    "CA10__disappearanceTime__c": null,
+    "CA10__credReportAttributesJson__c": "{\"password_last_used\":\"2024-07-17T17:37:46Z\",\"access_key_1_last_used_region\":\"N/A\",\"password_enabled\":\"true\",\"access_key_1_last_used_date\":\"N/A\",\"access_key_1_last_used_service\":\"N/A\",\"mfa_active\":\"true\",\"access_key_2_last_used_date\":\"N/A\",\"user_creation_time\":\"2017-09-27T19:51:41Z\",\"cert_2_active\":\"false\",\"cert_1_active\":\"false\",\"cert_1_last_rotated\":\"N/A\",\"access_key_2_last_used_service\":\"N/A\",\"access_key_2_active\":\"true\",\"access_key_1_active\":\"false\",\"password_next_rotation\":\"2024-10-15T17:38:45Z\",\"access_key_2_last_rotated\":\"N/A\",\"arn\":\"arn:aws:iam::526216611803:user/srichter\",\"access_key_1_last_rotated\":\"N/A\",\"access_key_2_last_used_region\":\"N/A\",\"user\":\"<root_account>\",\"password_last_changed\":\"2024-07-17T17:38:45Z\",\"cert_2_last_rotated\":\"N/A\"}",
+    "CA10__userName__c": "root"
   },
   {
     "expectedResult": {
@@ -39,6 +55,7 @@
     },
     "Id": "a03",
     "CA10__disappearanceTime__c": null,
-    "CA10__credReportAttributes__c": "password_last_used: 2020-05-07T15:04:20+00:00\naccess_key_1_last_used_region: N/A\npassword_enabled: not_supported\naccess_key_1_last_used_date: N/A\naccess_key_1_last_used_service: N/A\nmfa_active: true\naccess_key_2_last_used_date: N/A\nuser_creation_time: 2020-05-06T18:59:14+00:00\ncert_2_active: false\ncert_1_active: false\ncert_1_last_rotated: N/A\naccess_key_2_last_used_service: N/A\naccess_key_2_active: false\naccess_key_1_active: false\npassword_next_rotation: not_supported\naccess_key_2_last_rotated: N/A\narn: arn:aws:iam::145220611478:root\naccess_key_1_last_rotated: N/A\naccess_key_2_last_used_region: N/A\nuser: <root_account>\npassword_last_changed: not_supported\ncert_2_last_rotated: N/A"
+    "CA10__credReportAttributesJson__c": "{\"password_last_used\":\"2024-07-17T17:37:46Z\",\"access_key_1_last_used_region\":\"N/A\",\"password_enabled\":\"true\",\"access_key_1_last_used_date\":\"N/A\",\"access_key_1_last_used_service\":\"N/A\",\"mfa_active\":\"true\",\"access_key_2_last_used_date\":\"N/A\",\"user_creation_time\":\"2017-09-27T19:51:41Z\",\"cert_2_active\":\"false\",\"cert_1_active\":\"false\",\"cert_1_last_rotated\":\"N/A\",\"access_key_2_last_used_service\":\"N/A\",\"access_key_2_active\":\"false\",\"access_key_1_active\":\"false\",\"password_next_rotation\":\"2024-10-15T17:38:45Z\",\"access_key_2_last_rotated\":\"N/A\",\"arn\":\"arn:aws:iam::526216611803:user/srichter\",\"access_key_1_last_rotated\":\"N/A\",\"access_key_2_last_used_region\":\"N/A\",\"user\":\"<root_account>\",\"password_last_changed\":\"2024-07-17T17:38:45Z\",\"cert_2_last_rotated\":\"N/A\"}",
+    "CA10__userName__c": "root"
   }
 ]

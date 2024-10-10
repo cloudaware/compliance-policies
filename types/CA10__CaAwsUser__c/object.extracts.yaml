@@ -9,3 +9,8 @@ extracts:
           noAccessDelegate:
             path: CA10__virtualMfaState__c
             currentStateMessage: Possible access issue with iam:GetAccountSummary, iam:ListVirtualMFADevices or iam:ListMFADevices
+# Not Nullable. Can't have no access, retrieved via iam:ListUsers
+  - name: "CA10__userName__c"
+    value:
+      FIELD:
+        path: "CA10__userName__c"

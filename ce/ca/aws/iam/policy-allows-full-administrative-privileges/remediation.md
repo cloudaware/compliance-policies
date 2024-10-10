@@ -10,8 +10,7 @@ Perform the following to detach the policy that has full administrative privileg
 4. In the policy action menu, select first `Detach`.
 5. Select all Users, Groups, Roles that have this policy attached.
 6. Click `Detach Policy`.
-7. In the policy action menu, select `Detach`.
-8. Select the newly detached policy and select `Delete`.
+7. Select the newly detached policy and select `Delete`.
 
 ## From Command Line
 

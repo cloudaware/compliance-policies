@@ -1,66 +1,5 @@
 # Remediation
 
-## Identify the affected AWS RDS Instances
-
-### From Console
-
-- Log in to the AWS management console and navigate to the RDS dashboard at <https://console.aws.amazon.com/rds/>.
-
-- In the left navigation panel, choose Databases.
-
-- Click on the name (link) of the RDS database instance that you want to examine. To identify RDS database instances, check the database role available in the Role column (i.e. Instance).
-
-- Select the Maintenance & backups tab and check the Auto minor version upgrade attribute value. If the Auto minor version upgrade value is set to Disabled, the feature is not enabled, therefore the minor database engine upgrades will not be applied to the selected Amazon RDS database instance.
-
-- Repeat the above steps for each Amazon RDS database instance available within the current AWS region.
-
-- Change the AWS cloud region from the navigation bar and repeat the Audit process for other regions.
-
-### From Command Line
-
-- Run describe-db-instances command (OSX/Linux/UNIX) with custom query filters to list the names of AWS RDS Instances available in the selected AWS region:
-
-```sh
-aws rds describe-db-instances
-  --region us-east-1
-  --output table
-  --query 'DBInstances[*].DBInstanceIdentifier | []'
-```
-
-- The command output should return a table with the requested database instance names:
-
-```sh
---------------------------------
-|     DescribeDBInstances      |
-+------------------------------+
-|  cc-project5-mysql-database  |
-|  cc-prod-postgres-database   |
-+------------------------------+
-```
-
-- Run describe-db-instances command (OSX/Linux/UNIX) using the name of the database instance that you want to examine as the identifier parameter and custom query filters to describe the Auto Minor Version Upgrade feature status available for the selected instance:
-
-```sh
-aws rds describe-db-instances
-  --region us-east-1
-  --db-instance-identifier cc-project5-mysql-database
-  --query 'DBInstances[*].AutoMinorVersionUpgrade'
-```
-
-- The command output should return the feature status (true for enabled, false for disabled):
-
-```json
-[
-    false
-]
-```
-
-- If the `describe-db-instances` command output returns false, as shown in the output example above, the Auto Minor Version Upgrade feature is not enabled for the selected Amazon RDS database instance.
-
-- Repeat the above steps for each Amazon RDS database instance available in the selected AWS region.
-
-- Change the AWS cloud region by updating the `--region` command parameter value and repeat the process for other regions.
-
 ## Remediate AWS RDS Instances
 
 ### Using AWS CLoudFormation
@@ -224,7 +163,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 
 - Terraform configuration file (.tf):
 
-~~~
+``` tf
 terraform {
  required_providers {
   aws = {
@@ -256,33 +195,17 @@ resource "aws_db_instance" "rds-database-instance" {
 
  apply_immediately = true
 }
-~~~
+```
 
 ### From Console
 
-- Log in to the AWS management console and navigate to the RDS dashboard at <https://console.aws.amazon.com/rds/>.
-
-- In the left navigation panel, choose Databases.
-
-- Select the Amazon RDS database instance that you want to reconfigure and choose Modify.
-
-- On the Modify DB instance: {{instance-name}} configuration page, perform the following operations:
-
-1. In the Additional configuration section, under Maintenance, select Enable auto minor version upgrade to enable the Auto Minor Version Upgrade feature for the selected database instance. Enabling minor database engine upgrades will automatically upgrade to new minor versions as they are released.
-
-2. Choose Continue and review the configuration changes that you want to apply, available in the Summary of modifications section.
-
-3. In the Scheduling of modifications section, perform one of the following actions based on your workload requirements:
-
-- Select Apply during the next scheduled maintenance window to apply the changes automatically during the next scheduled maintenance window.
-
-- Select Apply immediately to apply the changes right away. With this option any pending modifications will be asynchronously applied as soon as possible, regardless of the maintenance window configured for the selected database instance. Note that any changes available in the pending modifications queue are also applied. If any of the pending modifications require downtime, choosing this option can cause unexpected downtime for your database application.
-
-4. Choose Modify DB instance to apply the configuration changes.
-
-- Repeat the above steps for each Amazon RDS database instance available in the selected AWS region.
-
-- Change the AWS cloud region from the navigation bar and repeat the Remediation process for other regions.
+1. Log in to the AWS management console and navigate to the RDS dashboard at https://console.aws.amazon.com/rds/.
+2. In the left navigation panel, click `Databases`.
+3. Select the RDS instance that you want to update.
+4. Click on the `Modify` button located at the top right side.
+5. On the `Modify DB Instance: <instance identifier>` page, In the `Maintenance` section, select `Auto minor version upgrade` and click the `Yes` radio button.
+6. At the bottom of the page, click `Continue`, and check `Apply Immediately` to apply the changes immediately, or select `Apply during the next scheduled maintenance window` to avoid any downtime.
+7. Review the changes and click `Modify DB Instance`. The instance status should change from available to modifying and back to available. Once the feature is enabled, the `Auto Minor Version Upgrade` status should change to `Yes`.
 
 ### From Command Line
 
@@ -305,114 +228,10 @@ aws rds modify-db-instance
   "MasterUsername": "ccadmin",
   "MonitoringInterval": 0,
   "LicenseModel": "general-public-license",
-  "VpcSecurityGroups": [
-   {
-    "Status": "active",
-    "VpcSecurityGroupId": "sg-0abcd1234abcd1234"
-   },
-   {
-    "Status": "active",
-    "VpcSecurityGroupId": "sg-abcdabcd"
-   }
-  ],
-  "InstanceCreateTime": "2021-05-12T08:00:00.677Z",
-  "CopyTagsToSnapshot": true,
-  "OptionGroupMemberships": [
-   {
-    "Status": "in-sync",
-    "OptionGroupName": "default:mysql-5-7"
-   }
-  ],
-  "PendingModifiedValues": {},
-  "Engine": "mysql",
-  "MultiAZ": false,
-  "DBSecurityGroups": [],
-  "DBParameterGroups": [
-   {
-    "DBParameterGroupName": "default.mysql5.7",
-    "ParameterApplyStatus": "in-sync"
-   }
-  ],
-  "PerformanceInsightsEnabled": false,
+  ---
   "AutoMinorVersionUpgrade": true,
   "PreferredBackupWindow": "06:02-06:32",
-  "DBSubnetGroup": {
-   "Subnets": [
-    {
-     "SubnetStatus": "Active",
-     "SubnetIdentifier": "subnet-abcd1234",
-     "SubnetOutpost": {},
-     "SubnetAvailabilityZone": {
-      "Name": "us-east-1d"
-     }
-    },
-    {
-     "SubnetStatus": "Active",
-     "SubnetIdentifier": "subnet-1234abcd",
-     "SubnetOutpost": {},
-     "SubnetAvailabilityZone": {
-      "Name": "us-east-1e"
-     }
-    },
-    {
-     "SubnetStatus": "Active",
-     "SubnetIdentifier": "subnet-abcdabcd",
-     "SubnetOutpost": {},
-     "SubnetAvailabilityZone": {
-      "Name": "us-east-1b"
-     }
-    },
-    {
-     "SubnetStatus": "Active",
-     "SubnetIdentifier": "subnet-12341234",
-     "SubnetOutpost": {},
-     "SubnetAvailabilityZone": {
-      "Name": "us-east-1a"
-     }
-    },
-    {
-     "SubnetStatus": "Active",
-     "SubnetIdentifier": "subnet-abcd1234",
-     "SubnetOutpost": {},
-     "SubnetAvailabilityZone": {
-      "Name": "us-east-1f"
-     }
-    },
-    {
-     "SubnetStatus": "Active",
-     "SubnetIdentifier": "subnet-1234abcd",
-     "SubnetOutpost": {},
-     "SubnetAvailabilityZone": {
-      "Name": "us-east-1c"
-     }
-    }
-   ],
-   "DBSubnetGroupName": "default-vpc-abcdabcd",
-   "VpcId": "vpc-abcdabcd",
-   "DBSubnetGroupDescription": "Created from the AWS Management Console",
-   "SubnetGroupStatus": "Complete"
-  },
-  "ReadReplicaDBInstanceIdentifiers": [],
-  "AllocatedStorage": 50,
-  "DBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:cc-project5-mysql-database",
-  "BackupRetentionPeriod": 0,
-  "PreferredMaintenanceWindow": "thu:03:27-thu:03:57",
-  "Endpoint": {
-   "HostedZoneId": "ABCDABCDABCD",
-   "Port": 3306,
-   "Address": "cc-project5-mysql-database.abcdabcdabcd.us-east-1.rds.amazonaws.com"
-  },
-  "DBInstanceStatus": "available",
-  "IAMDatabaseAuthenticationEnabled": false,
-  "EngineVersion": "5.7.30",
-  "DeletionProtection": false,
-  "AvailabilityZone": "us-east-1a",
-  "DomainMemberships": [],
-  "StorageType": "gp2",
-  "DbiResourceId": "db-ABCDABCDABCDABCDABCDABCDAB",
-  "CACertificateIdentifier": "rds-ca-2019",
-  "StorageEncrypted": false,
-  "AssociatedRoles": [],
+  ---
   "DBInstanceClass": "db.t3.medium",
   "DbInstancePort": 0,
   "DBInstanceIdentifier": "cc-project5-mysql-database"

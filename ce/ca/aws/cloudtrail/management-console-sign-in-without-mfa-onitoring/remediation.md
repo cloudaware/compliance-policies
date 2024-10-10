@@ -16,7 +16,7 @@ Or (To reduce false positives incase Single Sign-On (SSO) is used in organizatio
 aws logs put-metric-filter --log-group-name <cloudtrail_log_group_name> --filter-name <no_mfa_console_signin_metric> --metric-transformations metricName=<no_mfa_console_signin_metric>, metricNamespace='CISBenchmark', metricValue=1 --filter-pattern '{ ($.eventName = "ConsoleLogin") && ($.additionalEventData.MFAUsed != "Yes") && ($.userIdentity.type = "IAMUser") && ($.responseElements.ConsoleLogin = "Success") }'
 ```
 
-**Note**: You can choose your own metricName and metricNamespace strings. Using the same metricNamespace for all Foundations Benchmark metrics will group them together.
+**Note**: You can choose your own `metricName` and `metricNamespace` strings. Using the same `metricNamespace` for all Foundations Benchmark metrics will group them together.
 
 2. Create an SNS topic that the alarm will notify:
 
@@ -24,7 +24,8 @@ aws logs put-metric-filter --log-group-name <cloudtrail_log_group_name> --filter
 aws sns create-topic --name <sns_topic_name>
 ```
 
-**Note**: you can execute this command once and then re-use the same topic for all monitoring alarms.
+**Note**: You can execute this command once and then reuse the same topic for all monitoring alarms.
+**Note**: Capture the TopicArn that is displayed when creating the SNS topic in step 2.
 
 3. Create an SNS subscription to the topic created in step 2:
 

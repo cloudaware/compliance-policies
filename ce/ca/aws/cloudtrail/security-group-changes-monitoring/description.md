@@ -1,14 +1,23 @@
 # Description
 
-Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs, or an external Security information and event management (SIEM) environment, and establishing corresponding metric filters and alarms. Security Groups are a stateful packet filter that controls ingress and egress traffic within a VPC.
+Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to
+CloudWatch Logs or an external Security Information and Event Management (SIEM)
+environment, and establishing corresponding metric filters and alarms.
 
-It is recommended that a metric filter and alarm be established for detecting changes to Security Groups.
+Security groups are stateful packet filters that control ingress and egress traffic within a
+VPC.
+
+It is recommended that a metric filter and alarm be established to detect changes to
+security groups.
 
 ## Rationale
 
-Monitoring changes to security group will help ensure that resources and services are not unintentionally exposed.
+CloudWatch is an AWS native service that allows you to observe and monitor resources
+and applications. CloudTrail logs can also be sent to an external Security Information
+and Event Management (SIEM) environment for monitoring and alerting.
 
-CloudWatch is an AWS native service that allows you to observe and monitor resources and applications. CloudTrail Logs can also be sent to an external Security information and event management (SIEM) environment for monitoring and alerting.
+Monitoring changes to security groups will help ensure that resources and services are
+not unintentionally exposed.
 
 ## Impact
 

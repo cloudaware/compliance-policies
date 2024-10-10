@@ -8,14 +8,20 @@ By default, Amazon S3 allows both HTTP and HTTPS requests. To achieve only allow
 
 ## Audit
 
-To allow access to HTTPS you can use a condition that checks for the key `"aws:SecureTransport: true"`. This means that the request is sent through HTTPS but that HTTP can still be used. So to make sure you do not allow HTTP access confirm that there is a bucket policy that explicitly denies access for HTTP requests and that it contains the key `"aws:SecureTransport": "false"`.
+To allow access to HTTPS, you can use a bucket policy with the effect `allow` and a
+condition that checks for the key `"aws:SecureTransport": "true"`. This means that
+HTTPS requests are allowed, but it does not deny HTTP requests. To explicitly deny
+HTTP access, ensure that there is also a bucket policy with the effect `deny` that contains
+the key `"aws:SecureTransport": "false"`. You may also require TLS by setting a
+policy to deny any version lower than the one you wish to require, using the condition
+`NumericLessThan` and the key `"s3:TlsVersion": "1.2"`.
 
 ## From Console
 
 1. Login to AWS Management Console and open the Amazon S3 console using <https://console.aws.amazon.com/s3/>.
 2. Select the Check box next to the Bucket.
 3. Click on `Permissions`, then Click on `Bucket Policy`.
-4. Ensure that a policy is listed that matches:
+4. Ensure that a policy is listed that matches either:
 
 ```json
 {
@@ -27,7 +33,27 @@ To allow access to HTTPS you can use a condition that checks for the key `"aws:S
     "Condition": {
         "Bool": {
             "aws:SecureTransport": "false"
-            }
+        }
+    }
+}
+```
+
+or
+
+```json
+{
+    "Sid": "<optional>",
+    "Effect": "Deny",
+    "Principal": "*",
+    "Action": "s3:*",
+    "Resource": [
+        "arn:aws:s3:::<bucket_name>",
+        "arn:aws:s3:::<bucket_name>/*"
+    ],
+    "Condition": {
+        "NumericLessThan": {
+            "s3:TlsVersion": "1.2"
+        }
     }
 }
 ```

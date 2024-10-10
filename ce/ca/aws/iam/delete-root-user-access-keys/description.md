@@ -31,12 +31,16 @@ If no `root` access keys exist the output will show `"AccountAccessKeysPresent":
 
 ## References
 
-1. <http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html>
+1. <http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-bestpractices.html>
 2. <http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html>
 3. <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountSummary.html>
 4. CCE-78910-7
-5. <https://aws.amazon.com/blogs/security/an-easier-way-to-determine-the-presence-of-aws-account-access-keys/>
+5. <https://aws.amazon.com/blogs/security/an-easier-way-to-determine-thepresence-of-aws-account-access-keys/>
 
 ## Additional Information
 
-Root User account for us-gov cloud regions is not enabled by default. However, on request to AWS support enables root access only through access-keys (CLI, API methods) for us-gov cloud region.
+- IAM User account "root" for us-gov cloud regions is not enabled by default.
+However, on request to AWS support enables 'root' access only through accesskeys
+(CLI, API methods) for us-gov cloud region.
+- Implement regular checks and alerts for any creation of new root access keys to
+promptly address any unauthorized or accidental creation.

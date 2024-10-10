@@ -11,8 +11,9 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-aws-v3.0.0/01/07
-  - /frameworks/cis-aws-v1.5.0/01/07
+  - "/frameworks/cis-aws-v1.5.0/01/07"
+  - "/frameworks/cis-aws-v3.0.0/01/07"
+  - "/frameworks/cis-aws-v4.0.0/01/07"
   - /frameworks/cloudaware/identity-and-access-management/user-management
 similarPolicies:
   internal:

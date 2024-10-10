@@ -4,15 +4,16 @@ testData:
   - file: test-data.json
 importExtracts:
   - file: /types/CA10__CaAwsUser__c/credReport.extracts.yaml
+  - file: /types/CA10__CaAwsUser__c/object.extracts.yaml
 conditions:
   - status: "INAPPLICABLE"
     currentStateMessage: "Requirements of this policy are applicable only to the root user"
     condition:
       NOT_EQUAL:
         left:
-          EXTRACT: caExtract_credReport_user__c
+          EXTRACT: CA10__userName__c
         right:
-          TEXT: "<root_account>"
+          TEXT: "root"
   - status: "INCOMPLIANT"
     currentStateMessage: "Either one or both access keys are active for the root user."
     remediationMessage: "Disable all active access keys for the root user."
@@ -21,12 +22,12 @@ conditions:
         args:
           - IS_EQUAL:
               left:
-                EXTRACT: caExtract_credReport_access_key_1_active__c
+                EXTRACT: CA10__credReportAccessKey1Active__c
               right:
                 BOOLEAN: true
           - IS_EQUAL:
               left:
-                EXTRACT: caExtract_credReport_access_key_2_active__c
+                EXTRACT: CA10__credReportAccessKey2Active__c
               right:
                 BOOLEAN: true
 otherwise:

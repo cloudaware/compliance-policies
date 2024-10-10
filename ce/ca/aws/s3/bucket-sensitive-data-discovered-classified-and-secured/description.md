@@ -5,6 +5,7 @@ Amazon S3 buckets can contain sensitive data, that for security purposes should 
 ## Rationale
 
 Using a Cloud service or 3rd Party software to continuously monitor and automate the process of data discovery and classification for S3 buckets using machine learning and pattern matching is a strong defense in protecting that information.
+
 Amazon Macie is a fully managed data security and data privacy service that uses machine learning and pattern matching to discover and protect your sensitive data in AWS.
 
 ## Impact

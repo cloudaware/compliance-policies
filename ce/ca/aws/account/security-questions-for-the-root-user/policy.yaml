@@ -10,8 +10,9 @@ type: COMPLIANCE_POLICY
 categories:
   - RELIABILITY
 frameworkMappings:
-  - /frameworks/cis-aws-v3.0.0/01/03
-  - /frameworks/cloudaware/resource-reliability/system-configuration
+  - "/frameworks/cis-aws-v3.0.0/01/03"
+  - "/frameworks/cis-aws-v4.0.0/01/03"
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
 similarPolicies:
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/IAM/security-challenge-questions.html

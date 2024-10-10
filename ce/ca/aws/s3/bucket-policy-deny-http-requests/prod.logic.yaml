@@ -16,31 +16,57 @@ conditions:
     currentStateMessage: "The bucket policy hasn't been configured to deny HTTP requests."
     remediationMessage: "Consider configuring the bucket policy that will deny HTTP requests."
     condition:
-      IS_EQUAL:
-        left:
-          JSON_QUERY_NUMBER:
-            arg:
-              EXTRACT: "caJsonFrom__policyDocument__c"
-            expression: "length(Statement[? Effect == 'Deny' && Condition.Bool.\"aws:SecureTransport\" == 'false'])"
-            undeterminedIf: 
-              evaluationError: "The JSON query has failed."
-              resultTypeMismatch: "The JSON query did not return a number type."
-        right:
-          NUMBER: 0.0
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                JSON_QUERY_NUMBER:
+                  arg:
+                    EXTRACT: "caJsonFrom__policyDocument__c"
+                  expression: "length(Statement[? Effect == 'Deny' && Condition.Bool.\"aws:SecureTransport\" == 'false'])"
+                  undeterminedIf: 
+                    evaluationError: "The JSON query has failed."
+                    resultTypeMismatch: "The JSON query did not return a number type."
+              right:
+                NUMBER: 0.0
+          - IS_EQUAL:
+              left:
+                JSON_QUERY_NUMBER:
+                  arg:
+                    EXTRACT: "caJsonFrom__policyDocument__c"
+                  expression: "length(Statement[? Effect == 'Deny' && Condition.NumericLessThan.\"s3:TlsVersion\" == '1.2'])"
+                  undeterminedIf: 
+                    evaluationError: "The JSON query has failed."
+                    resultTypeMismatch: "The JSON query did not return a number type."
+              right:
+                NUMBER: 0.0
   - status: "COMPLIANT"
     currentStateMessage: "The bucket policy has been configured to deny HTTP requests."
     condition:
-      GREATER_THAN:
-        left:
-          JSON_QUERY_NUMBER:
-            arg:
-              EXTRACT: "caJsonFrom__policyDocument__c"
-            expression: "length(Statement[? Effect == 'Deny' && Condition.Bool.\"aws:SecureTransport\" == 'false'])"
-            undeterminedIf: 
-              evaluationError: "The JSON query has failed."
-              resultTypeMismatch: "The JSON query did not return a number type."
-        right:
-          NUMBER: 0.0
+      OR: 
+        args:
+          - GREATER_THAN:
+              left:
+                JSON_QUERY_NUMBER:
+                  arg:
+                    EXTRACT: "caJsonFrom__policyDocument__c"
+                  expression: "length(Statement[? Effect == 'Deny' && Condition.Bool.\"aws:SecureTransport\" == 'false'])"
+                  undeterminedIf: 
+                    evaluationError: "The JSON query has failed."
+                    resultTypeMismatch: "The JSON query did not return a number type."
+              right:
+                NUMBER: 0.0
+          - GREATER_THAN:
+              left:
+                JSON_QUERY_NUMBER:
+                  arg:
+                    EXTRACT: "caJsonFrom__policyDocument__c"
+                  expression: "length(Statement[? Effect == 'Deny' && Condition.NumericLessThan.\"s3:TlsVersion\" == '1.2'])"
+                  undeterminedIf: 
+                    evaluationError: "The JSON query has failed."
+                    resultTypeMismatch: "The JSON query did not return a number type."
+              right:
+                NUMBER: 0.0
 otherwise:
   status: "UNDETERMINED"
   currentStateMessage: "Unexpected values in the field."

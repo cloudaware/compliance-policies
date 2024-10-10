@@ -1,0 +1,62 @@
+---
+inputObject: "CA10__CaAwsSecurityGroup__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This Security Group allows CIFS (port 445) access from 0.0.0.0/0 or ::/0."
+    remediationMessage: "Consider changing the Security Group source field to a range other than 0.0.0.0/0 or delete the offending inbound rule."
+    condition:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "This Security Group doesn't allow unrestricted CIFS access."
+relatedLists: 
+  - relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
+    importExtracts:
+    - file: "/types/CA10__CaAwsSecurityGroupRule2__c/object.extracts.yaml"
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This is an outbound security group rule."
+        condition:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__direction__c"
+            right:
+              TEXT: "Inbound"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This security group rule does not allow unrestricted access."
+        condition:
+          AND:
+            args:
+              - NOT_EQUAL:
+                  left:
+                    EXTRACT: "CA10__sourceIpRange__c"
+                  right:
+                    TEXT: "0.0.0.0/0"
+              - NOT_EQUAL:
+                  left:
+                    EXTRACT: "CA10__sourceIpRange__c"
+                  right:
+                    TEXT: "::/0"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "This Security Group allows CIFS access from 0.0.0.0/0 or ::/0."
+        remediationMessage: "Consider changing the source field to a range other than 0.0.0.0/0 or delete the offending inbound rule."
+        condition:
+          AND:
+            args:
+              - LESS_THAN_EQUAL:
+                  left:
+                    EXTRACT: "CA10__fromPort__c"
+                  right:
+                    NUMBER: 445.0
+              - GREATER_THAN_EQUAL:
+                  left:
+                    EXTRACT: "CA10__toPort__c"
+                  right:
+                    NUMBER: 445.0
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This Security Group doesn't allow ingress from 0.0.0.0/0."

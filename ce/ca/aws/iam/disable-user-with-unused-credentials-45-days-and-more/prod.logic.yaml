@@ -12,17 +12,17 @@ conditions:
         args:
           - IS_EQUAL:
               left:
-                EXTRACT: caExtract_credReport_password_enabled__c
+                EXTRACT: CA10__credReportPasswordEnabled__c
               right:
                 BOOLEAN: false
           - IS_EQUAL:
               left:
-                EXTRACT: caExtract_credReport_access_key_1_active__c
+                EXTRACT: CA10__credReportAccessKey1Active__c
               right:
                 BOOLEAN: false
           - IS_EQUAL:
               left:
-                EXTRACT: caExtract_credReport_access_key_2_active__c
+                EXTRACT: CA10__credReportAccessKey2Active__c
               right:
                 BOOLEAN: false
   - status: "INCOMPLIANT"
@@ -33,16 +33,16 @@ conditions:
         args:
           - IS_EQUAL:
               left:
-                EXTRACT: caExtract_credReport_password_enabled__c
+                EXTRACT: CA10__credReportPasswordEnabled__c
               right:
                 BOOLEAN: true
           - NOT_EMPTY:
               arg:
-                EXTRACT: caExtract_credReport_password_last_used__c
+                EXTRACT: CA10__credReportPasswordLastUsed__c
           - IS_BEYOND_LAST_DAYS:
               offsetDays: 45
               arg:
-                EXTRACT: caExtract_credReport_password_last_used__c
+                EXTRACT: CA10__credReportPasswordLastUsed__c
   - status: "INCOMPLIANT"
     currentStateMessage: "Password hasn't been changed over 45 days."
     remediationMessage: "Consider disabling the Console Access for the user."
@@ -51,19 +51,19 @@ conditions:
         args:
           - IS_EQUAL:
               left:
-                EXTRACT: caExtract_credReport_password_enabled__c
+                EXTRACT: CA10__credReportPasswordEnabled__c
               right:
                 BOOLEAN: true
           - IS_EMPTY:
               arg:
-                EXTRACT: caExtract_credReport_password_last_used__c
+                EXTRACT: CA10__credReportPasswordLastUsed__c
           - NOT_EMPTY:
               arg: 
-                EXTRACT: caExtract_credReport_password_last_changed__c
+                EXTRACT: CA10__credReportPasswordLastChanged__c
           - IS_BEYOND_LAST_DAYS:
               offsetDays: 45
               arg:
-                EXTRACT: caExtract_credReport_password_last_changed__c
+                EXTRACT: CA10__credReportPasswordLastChanged__c
   - status: "INCOMPLIANT"
     currentStateMessage: "Access Key 1 hasn't been used for over 45 days."
     remediationMessage: "Consider deactivating the Access Key 1."
@@ -72,16 +72,16 @@ conditions:
         args:
           - IS_EQUAL:
               left:
-                EXTRACT: caExtract_credReport_access_key_1_active__c
+                EXTRACT: CA10__credReportAccessKey1Active__c
               right:
                 BOOLEAN: true
           - NOT_EMPTY:
               arg:
-                EXTRACT: caExtract_credReport_access_key_1_last_used_date__c
+                EXTRACT: CA10__credReportAccessKey1LastUsed__c
           - IS_BEYOND_LAST_DAYS:
               offsetDays: 45
               arg:
-                EXTRACT: caExtract_credReport_access_key_1_last_used_date__c
+                EXTRACT: CA10__credReportAccessKey1LastUsed__c
   - status: "INCOMPLIANT"
     currentStateMessage: "Access key 1 hasn't been rotated for over 45 days."
     remediationMessage: "Consider deleting the Access Key 1."
@@ -90,16 +90,16 @@ conditions:
         args:
           - IS_EQUAL:
               left:
-                EXTRACT: caExtract_credReport_access_key_1_active__c
+                EXTRACT: CA10__credReportAccessKey1Active__c
               right:
                 BOOLEAN: true
           - IS_EMPTY:
               arg:
-                EXTRACT: caExtract_credReport_access_key_1_last_used_date__c
+                EXTRACT: CA10__credReportAccessKey1LastUsed__c
           - IS_BEYOND_LAST_DAYS:
               offsetDays: 45
               arg:
-                EXTRACT: caExtract_credReport_access_key_1_last_rotated__c
+                EXTRACT: CA10__credReportAccessKey1LastRotated__c
   - status: "INCOMPLIANT"
     currentStateMessage: "Access Key 2 hasn't been used for over 45 days."
     remediationMessage: "Consider deactivating the Access Key 2."
@@ -108,16 +108,16 @@ conditions:
         args:
           - IS_EQUAL:
               left:
-                EXTRACT: caExtract_credReport_access_key_2_active__c
+                EXTRACT: CA10__credReportAccessKey2Active__c
               right:
                 BOOLEAN: true
           - NOT_EMPTY:
               arg:
-                EXTRACT: caExtract_credReport_access_key_2_last_used_date__c
+                EXTRACT: CA10__credReportAccessKey2LastUsed__c
           - IS_BEYOND_LAST_DAYS:
               offsetDays: 45
               arg:
-                EXTRACT: caExtract_credReport_access_key_2_last_used_date__c
+                EXTRACT: CA10__credReportAccessKey2LastUsed__c
   - status: "INCOMPLIANT"
     currentStateMessage: "Access key 2 hasn't been rotated for over 45 days."
     remediationMessage: "Consider deleting the Access Key 2."
@@ -126,16 +126,16 @@ conditions:
         args:
           - IS_EQUAL:
               left:
-                EXTRACT: caExtract_credReport_access_key_2_active__c
+                EXTRACT: CA10__credReportAccessKey2Active__c
               right:
                 BOOLEAN: true
           - IS_EMPTY:
               arg:
-                EXTRACT: caExtract_credReport_access_key_2_last_used_date__c
+                EXTRACT: CA10__credReportAccessKey2LastUsed__c
           - IS_BEYOND_LAST_DAYS:
               offsetDays: 45
               arg:
-                EXTRACT: caExtract_credReport_access_key_2_last_rotated__c
+                EXTRACT: CA10__credReportAccessKey2LastRotated__c
 otherwise:
   status: "COMPLIANT"
   currentStateMessage: "All credentials unused for 45 days or longer were removed or deactivated"

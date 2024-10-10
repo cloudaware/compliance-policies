@@ -43,7 +43,7 @@ relatedLists:
             right:
               TEXT: "0.0.0.0/0"
       - status: "INAPPLICABLE"
-        currentStateMessage: "This NACL rule does not All, TCP, or UDP ports."
+        currentStateMessage: "This NACL rule does not use All, TCP, or UDP ports."
         condition:
 # check that protocol is neither all, tcp, or udp
           NOT:

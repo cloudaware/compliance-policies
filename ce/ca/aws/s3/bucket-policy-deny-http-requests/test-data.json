@@ -31,7 +31,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') == number(0.0)",
+            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') == number(0.0) && extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.NumericLessThan.\"s3:TlsVersion\" == \\'1.2\\'])') == number(0.0)",
             "runtimeError": null
         },
         "context": {
@@ -45,7 +45,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') == number(0.0)",
+            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') == number(0.0) && extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.NumericLessThan.\"s3:TlsVersion\" == \\'1.2\\'])') == number(0.0)",
             "runtimeError": null
         },
         "context": {
@@ -59,7 +59,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') == number(0.0)",
+            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') == number(0.0) && extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.NumericLessThan.\"s3:TlsVersion\" == \\'1.2\\'])') == number(0.0)",
             "runtimeError": null
         },
         "context": {
@@ -73,7 +73,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') == number(0.0)",
+            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') == number(0.0) && extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.NumericLessThan.\"s3:TlsVersion\" == \\'1.2\\'])') == number(0.0)",
             "runtimeError": null
         },
         "context": {
@@ -87,7 +87,7 @@
         "expectedResult": {
             "status": "COMPLIANT",
             "conditionIndex": "399",
-            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') > number(0.0)",
+            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') > number(0.0) || extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.NumericLessThan.\"s3:TlsVersion\" == \\'1.2\\'])') > number(0.0)",
             "runtimeError": null
         },
         "context": {
@@ -95,6 +95,20 @@
         },
         "Id": "test7",
         "CA10__disappearanceTime__c": null,
-        "CA10__policyDocument__c": "{\"Version\":\"2020-01-01\",\"Statement\":[{\"Effect\":\"Deny\",\"Principal\":\"*\",\"Action\":\"s3:*\",\"Resource\":\"Resource\",\"Condition\":{\"Bool\":{\"aws:SecureTransport\":\"false\"}}}]}"
+        "CA10__policyDocument__c": "{\"Version\": \"2012-10-17\",\"Id\":\"ExamplePolicy\",\"Statement\":[{\"Sid\":\"AllowSSLRequestsOnly\",\"Effect\":\"Deny\",\"Principal\":\"*\",\"Action\":\"s3:*\",\"Resource\":[\"arn:aws:s3:::boost-dev-screening-video-selfie\",\"arn:aws:s3:::boost-dev-screening-video-selfie/*\"],\"Condition\":{\"Bool\":{\"aws:SecureTransport\":\"false\"}}}]}"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.Bool.\"aws:SecureTransport\" == \\'false\\'])') > number(0.0) || extract('caJsonFrom__policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Deny\\' && Condition.NumericLessThan.\"s3:TlsVersion\" == \\'1.2\\'])') > number(0.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-07-11T20:42:28Z"
+        },
+        "Id": "test8",
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyDocument__c": "{\"Version\":\"2020-01-01\",\"Statement\":[{\"Effect\":\"Deny\",\"Principal\":\"*\",\"Action\":\"s3:*\",\"Resource\":\"Resource\",\"Condition\":{\"NumericLessThan\":{\"s3:TlsVersion\":\"1.2\"}}}]}"
     }
 ]

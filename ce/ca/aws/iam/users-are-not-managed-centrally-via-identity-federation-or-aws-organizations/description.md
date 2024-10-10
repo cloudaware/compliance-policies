@@ -17,17 +17,8 @@ For multi-account AWS environments with an external identity provider:
 5. Click `Identity providers`.
 6. Verify the configuration.
 
-Then, determine all accounts that should not have local users present. For each account:
-
-1. Determine all accounts that should not have local users present.
-2. Log into the AWS Management Console.
-3. Switch role into each identified account.
-4. Click `Services`.
-5. Click `IAM`.
-6. Click `Users`.
-7. Confirm that no IAM users representing individuals are present.
-
-For multi-account AWS environments implementing AWS Organizations without an external identity provider:
+For multi-account AWS environments with an external identity provider, as well as for
+those implementing AWS Organizations without an external identity provider:
 
 1. Determine all accounts that should not have local users present.
 2. Log into the AWS Management Console.

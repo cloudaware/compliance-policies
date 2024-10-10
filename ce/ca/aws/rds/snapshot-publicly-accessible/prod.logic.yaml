@@ -44,7 +44,13 @@ conditions:
     condition:
       IS_EQUAL:
         left:
-          EXTRACT: "caExtract_attributes_restore_asAttribute__c"
+          JSON_QUERY_TEXT:
+            arg:
+              EXTRACT: caJsonFrom__attributesJson__c
+            expression: "to_string(restore[0])"
+            undeterminedIf:
+              evaluationError: "The JSON query has failed."
+              resultTypeMismatch: "The JSON query did not return text type."
         right:
           TEXT: "all"
 otherwise:

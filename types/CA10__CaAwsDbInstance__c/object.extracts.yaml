@@ -29,3 +29,8 @@ extracts:
     value: 
       FIELD:
         path: CA10__autoMinorVersionUpgrade__c
+# Checkbox. Can't have no access, retrieved via rds:DescribeDBInstances
+  - name: CA10__multiAz__c
+    value: 
+      FIELD:
+        path: CA10__multiAz__c

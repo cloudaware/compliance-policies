@@ -6,9 +6,13 @@ It is recommended that a metric filter and alarm be established for failed conso
 
 ## Rationale
 
-CloudWatch is an AWS native service that allows you to observe and monitor resources and applications. CloudTrail Logs can also be sent to an external Security information and event management (SIEM) environment for monitoring and alerting.
+CloudWatch is an AWS native service that allows you to observe and monitor resources
+and applications. CloudTrail logs can also be sent to an external Security Information
+and Event Management (SIEM) environment for monitoring and alerting.
 
-Monitoring failed console logins may decrease lead time to detect an attempt to brute force a credential, which may provide an indicator, such as source IP address, that can be used in other event correlation.
+Monitoring failed console logins may decrease the lead time to detect an attempt to
+brute-force a credential, which may provide an indicator, such as the source IP address,
+that can be used in other event correlations.
 
 ## Impact
 
@@ -29,7 +33,7 @@ aws cloudtrail describe-trails
 - Identify Multi region Cloudtrails: Trails with `IsMultiRegionTrail` set to `true`.
 - From value associated with CloudWatchLogsLogGroupArn note `<cloudtrail_log_group_name>`.
 
-Example: for CloudWatchLogsLogGroupArn that looks like `arn:aws:logs:<region>:<aws_account_number>:log-group:NewGroup:*`, `<cloudtrail_log_group_name>` would be `NewGroup`.
+  - Example: for CloudWatchLogsLogGroupArn that looks like `arn:aws:logs:<region>:<aws_account_number>:log-group:NewGroup:*`, `<cloudtrail_log_group_name>` would be `NewGroup`.
 
 - Ensure Identified Multi region CloudTrail is active:
 
@@ -73,7 +77,7 @@ aws cloudwatch describe-alarms --query 'MetricAlarms[?MetricName== `<console_sig
 aws sns list-subscriptions-by-topic --topic-arn <sns_topic_arn>
 ```
 
-At least one subscription should have `SubscriptionArn` with valid aws ARN. Example of valid `SubscriptionArn`: `arn:aws:sns:<region>:<aws_account_number>:<SnsTopicName>:<SubscriptionID>`.
+- At least one subscription should have `SubscriptionArn` with valid aws ARN. Example of valid `SubscriptionArn`: `arn:aws:sns:<region>:<aws_account_number>:<SnsTopicName>:<SubscriptionID>`.
 
 ## References
 

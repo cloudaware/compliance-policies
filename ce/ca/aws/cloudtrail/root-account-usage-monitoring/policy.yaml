@@ -12,9 +12,10 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-aws-v3.0.0/04/03
-  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management
-  - /frameworks/cloudaware/identity-and-access-management/user-management
+  - "/frameworks/cis-aws-v3.0.0/04/03"
+  - "/frameworks/cis-aws-v4.0.0/04/03"
+  - "/frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management"
+  - "/frameworks/cloudaware/identity-and-access-management/user-management"
 similarPolicies:
   internal:
     - dec-x-e2973821

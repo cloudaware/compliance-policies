@@ -1,0 +1,19 @@
+---
+inputObject: "CA10__CaAwsDbInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsDbInstance__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "RDS Instance Multi-AZ deployment is enabled."
+    condition: 
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__multiAz__c
+        right:
+          BOOLEAN: true 
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "RDS Instance Multi-AZ deployment is disabled."
+  remediationMessage: "Consider enabling RDS Instance Multi-AZ deployment."

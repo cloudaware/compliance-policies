@@ -18,8 +18,9 @@ Enabling logging for these object level events may significantly increase the nu
 2. In the left panel, click `Trails` and then click on the CloudTrail Name that you want to examine.
 3. Review `General details`.
 4. Confirm that `Multi-region trail` is set to `Yes`.
-5. Scroll down to `Data events`.
-6. Confirm that it reads:
+5. Scroll down to `Data events` and confirm the configuration:
+
+- If `advanced event selectors` is being used, it should read:
 
 ```
 Data Events:S3 
@@ -35,24 +36,25 @@ Bucket Name: All current and future S3 buckets
 Read: Enabled
 ```
 
-7. Repeat steps 2 to 6 to verify that Multi-region trail and Data events logging of S3 buckets in CloudTrail.
+6. Repeat steps 2 to 5 to verify that Multi-region trail and Data events logging of S3 buckets in CloudTrail.
 
 ### From Command Line
 
-1. Run `list-trails` command to list the names of all Amazon CloudTrail trails currently available in the selected AWS region:
+1. Run the `describe-trails` command to list all trail names:
 
 ```sh
-aws cloudtrail describe-trails --region <region-name> --output table --query trailList[*].Name
+aws cloudtrail describe-trails --region <region-name> --output table --query
+trailList[*].Name
 ```
 
-2. The command output will be table of the requested trail names.
+2. The command output will be table of the trail names.
 3. Run `get-event-selectors` command using the name of the trail returned at the previous step and custom query filters to determine if Data events logging feature is enabled within the selected CloudTrail trail configuration for s3 bucket resources:
 
 ```sh
 aws cloudtrail get-event-selectors --region <region-name> --trail-name <trail-name> --query EventSelectors[*].DataResources[]
 ```
 
-4. The command output should be an array that contains the configuration of the AWS resource(S3 bucket) defined for the Data events selector.
+4. The command output should be an array that includes the S3 bucket defined for data event logging.
 5. If the `get-event-selectors` command returns an empty array, the Data events are not included into the selected AWS Cloudtrail trail logging configuration, therefore the S3 object-level API operations performed within your AWS account are not recorded.
 6. Repeat steps 1 to 5 for auditing each s3 bucket to identify other trails that are missing the capability to log Data events.
 7. Change the AWS region by updating the `--region` command parameter and perform the audit process for other regions.

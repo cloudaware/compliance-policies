@@ -6,20 +6,21 @@
 2. Under the navigation panel, On RDS Dashboard, click `Databases`.
 3. Select the RDS instance that you want to update.
 4. Click `Modify` from the dashboard top menu.
-5. On the Modify DB Instance panel, under the `Connectivity` section, click on `Additional connectivity configuration` and update the value for `Publicly Accessible` to Not publicly accessible to restrict public access. Follow the below steps to update subnet configurations:
+5. On the Modify DB Instance panel, under the `Connectivity` section, click on `Additional connectivity configuration` and update the value for `Publicly Accessible` to `Not publicly accessible` to restrict public access.
+6. Follow the below steps to update subnet configurations:
 
 - Select the `Connectivity and security` tab, and click on the VPC attribute value inside the `Networking` section.
 - Select the `Details` tab from the VPC dashboard bottom panel and click on Route table configuration attribute value.
 - On the Route table details page, select the Routes tab from the dashboard bottom panel and click on `Edit routes`.
 - On the Edit routes page, update the Destination of Target which is set to `igw-xxxxx` and click on `Save` routes.
 
-6. On the Modify DB Instance panel Click on `Continue` and In the Scheduling of modifications section, perform one of the following actions based on your requirements:
+7. On the Modify DB Instance panel Click on `Continue` and In the Scheduling of modifications section, perform one of the following actions based on your requirements:
 
-- Select Apply during the next scheduled maintenance window to apply the changes automatically during the next scheduled maintenance window.
-- Select Apply immediately to apply the changes right away. With this option, any pending modifications will be asynchronously applied as soon as possible, regardless of the maintenance window setting for this RDS database instance. Note that any changes available in the pending modifications queue are also applied. If any of the pending modifications require downtime, choosing this option can cause unexpected downtime for the application.
+- Select `Apply during the next scheduled maintenance window` to apply the changes automatically during the next scheduled maintenance window.
+- Select `Apply immediately` to apply the changes right away. With this option, any pending modifications will be asynchronously applied as soon as possible, regardless of the maintenance window setting for this RDS database instance. Note that any changes available in the pending modifications queue are also applied. If any of the pending modifications require downtime, choosing this option can cause unexpected downtime for the application.
 
-7. Repeat steps 3 to 6 for each RDS instance available in the current region.
-8. Change the AWS region from the navigation bar to repeat the process for other regions.
+8. Repeat steps 3 to 7 for each RDS instance available in the current region.
+9. Change the AWS region from the navigation bar to repeat the process for other regions.
 
 ## From Command Line
 

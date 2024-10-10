@@ -23,9 +23,10 @@ aws cloudtrail describe-trails
 ```
 
 - Identify Multi region CloudTrails: Trails with `IsMultiRegionTrail` set to `true`.
-- From value associated with CloudWatchLogsLogGroupArn note `<cloudtrail_log_group_name>`.
-
-Example: for CloudWatchLogsLogGroupArn that looks like `arn:aws:logs:<region>:<aws_account_number>:log-group:NewGroup:*`, `<cloudtrail_log_group_name>` would be `NewGroup`.
+- Note the value associated with `"Name":<trail-name>`
+- Note the `<trail-log-group-name>` within the value associated with
+`CloudWatchLogsLogGroupArn`
+  - Example: `arn:aws:logs:<region>:<account-id>:loggroup:<trail-log-group-name>:*`
 
 - Ensure Identified Multi region CloudTrail is active:
 
@@ -91,4 +92,5 @@ Configuring log metric filter and alarm on Multi-region (global) CloudTrail:
 
 - Ensures that activities from all regions (used as well as unused) are monitored.
 - Ensures that activities on all supported global services are monitored.
-- Ensures that all management events across all regions are monitored -Filter pattern set to `{ ($.eventName = "ConsoleLogin") && ($.additionalEventData.MFAUsed != "Yes") && ($.userIdentity.type = "IAMUser") && ($.responseElements.ConsoleLogin = "Success"}` reduces false alarms raised when user logs in via SSO account.
+- Ensures that all management events across all regions are monitored 
+- Filter pattern set to `{ ($.eventName = "ConsoleLogin") && ($.additionalEventData.MFAUsed != "Yes") && ($.userIdentity.type = "IAMUser") && ($.responseElements.ConsoleLogin = "Success"}` reduces false alarms raised when user logs in via SSO account.

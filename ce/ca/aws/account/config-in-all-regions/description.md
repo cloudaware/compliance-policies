@@ -8,7 +8,9 @@ The AWS configuration item history captured by AWS Config enables security analy
 
 ## Impact
 
-It is recommended AWS Config be enabled in all regions.
+Enabling AWS Config in all regions provides comprehensive visibility into resource
+configurations, enhancing security and compliance monitoring. However, this may incur
+additional costs and require proper configuration management.
 
 ## Audit
 
@@ -33,7 +35,7 @@ Process to evaluate AWS Config configuration per region:
 aws configservice describe-configuration-recorders
 ```
 
-2. Evaluate the output to ensure that all recorders have a recordingGroup object which includes `"allSupported": true`. Additionally, ensure that at least one recorder has `"includeGlobalResourceTypes": true`.
+2. Evaluate the output to ensure that all recorders have a `recordingGroup` object which includes `"allSupported": true`. Additionally, ensure that at least one recorder has `"includeGlobalResourceTypes": true`.
 
 **Note**: There is one more parameter `"ResourceTypes"` in recordingGroup object. We don't need to check the same as whenever we set `"allSupported": true`, AWS enforces resource types to be empty (`"ResourceTypes":[]`).
 

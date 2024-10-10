@@ -23,71 +23,53 @@
 # cert_2_last_rotated: N/A
 ---
 extracts:
-  - name: caExtract_credReport_asAttributes__c
-    value:
-      ATTRIBUTES_FROM:
+  - name: CA10__credReportAttributesJson__c
+    value: 
+      JSON_FROM:
         arg:
-          FIELD: 
-            path: CA10__credReportAttributes__c
+          FIELD:
+            path: CA10__credReportAttributesJson__c
             undeterminedIf:
               isEmpty: Credential report attributes are empty, this is either permission issue or the data haven't been populated yet
-        #we don't need this check, field already checked for emptiness
-        #undeterminedIf:
-          #isEmpty: Unable to parse credential report, no attributes found
-  - name: caExtract_credReport_user__c
-    value: 
-      ATTRIBUTE_VALUE:
-        key: 
-          TEXT: user
-        arg:
-          EXTRACT: caExtract_credReport_asAttributes__c
-        undeterminedIf: 
-          duplicateKey: Credential report contains more than one 'user' key, unexpected data
-          keyNotFound: Credential report must contain 'user' key, unexpected data
-          valueIsEmpty: Credential report 'user' key is empty, unexpected data
-  - name: caExtract_credReport_access_key_1_active__c
+        undeterminedIf:
+          isInvalid: "Cred report attributes JSON is invalid"
+  - name: CA10__credReportAccessKey1Active__c
     value:
       BOOLEAN_FROM:
         arg:
-          ATTRIBUTE_VALUE:
+          JSON_QUERY_TEXT:
             arg:
-              EXTRACT: caExtract_credReport_asAttributes__c
-            key:
-              TEXT: access_key_1_active 
-            undeterminedIf: 
-              duplicateKey: Credential report contains more than one 'access_key_1_active' key, unexpected data
-              keyNotFound: Credential report must contain 'access_key_1_active' key, unexpected data
-              valueIsEmpty: Credential report 'access_key_1_active' key is empty, unexpected data
+              EXTRACT: CA10__credReportAttributesJson__c
+            expression: "to_string(access_key_1_active)"
+            undeterminedIf:
+              evaluationError: "The JSON query has failed."
+              resultTypeMismatch: "The JSON query did not return text type."
         undeterminedIf:
           isEmpty: Value of 'access_key_1_active' is empty, unexpected data
-  - name: caExtract_credReport_access_key_2_active__c
+  - name: CA10__credReportAccessKey2Active__c
     value:
       BOOLEAN_FROM:
         arg:
-          ATTRIBUTE_VALUE:
+          JSON_QUERY_TEXT:
             arg:
-              EXTRACT: caExtract_credReport_asAttributes__c
-            key:
-              TEXT: access_key_2_active 
-            undeterminedIf: 
-              duplicateKey: Credential report contains more than one 'access_key_2_active' key, unexpected data
-              keyNotFound: Credential report must contain 'access_key_2_active' key, unexpected data
-              valueIsEmpty: Credential report 'access_key_2_active' key is empty, unexpected data
+              EXTRACT: CA10__credReportAttributesJson__c
+            expression: "to_string(access_key_2_active)"
+            undeterminedIf:
+              evaluationError: "The JSON query has failed."
+              resultTypeMismatch: "The JSON query did not return text type."
         undeterminedIf:
-          isEmpty: Value of 'access_key_2_active' is empty, unexpected data
-  - name: caExtract_credReport_password_last_used__c
+          isEmpty: Value of 'access_key_1_active' is empty, unexpected data
+  - name: CA10__credReportPasswordLastUsed__c
     value:
       DATE_TIME_FROM:
         arg:
-          ATTRIBUTE_VALUE:
+          JSON_QUERY_TEXT:
             arg:
-              EXTRACT: caExtract_credReport_asAttributes__c
-            key:
-              TEXT: password_last_used
-            undeterminedIf: 
-              duplicateKey: Credential report contains more than one 'password_last_used' key, unexpected data
-              keyNotFound: Credential report must contain 'password_last_used' key, unexpected data
-              valueIsEmpty: Credential report 'password_last_used' key is empty, unexpected data
+              EXTRACT: CA10__credReportAttributesJson__c
+            expression: "to_string(password_last_used)"
+            undeterminedIf:
+              evaluationError: "The JSON query has failed."
+              resultTypeMismatch: "The JSON query did not return text type."
         nullValues:
           - "no_information"
           - "N/A"
@@ -96,19 +78,17 @@ extracts:
           # value CAN be empty, for example when password was never used.
           #isEmpty: Value of 'password_last_used' is empty, unexpected data
           invalidFormat: Value of 'password_last_used' does not match ISO-8601 format
-  - name: caExtract_credReport_access_key_1_last_used_date__c
+  - name: CA10__credReportAccessKey1LastUsed__c
     value:
       DATE_TIME_FROM:
         arg:
-          ATTRIBUTE_VALUE:
+          JSON_QUERY_TEXT:
             arg:
-              EXTRACT: caExtract_credReport_asAttributes__c
-            key:
-              TEXT: access_key_1_last_used_date
-            undeterminedIf: 
-              duplicateKey: Credential report contains more than one 'access_key_1_last_used_date' key, unexpected data
-              keyNotFound: Credential report must contain 'access_key_1_last_used_date' key, unexpected data
-              valueIsEmpty: Credential report 'access_key_1_last_used_date' key is empty, unexpected data
+              EXTRACT: CA10__credReportAttributesJson__c
+            expression: "to_string(access_key_1_last_used_date)"
+            undeterminedIf:
+              evaluationError: "The JSON query has failed."
+              resultTypeMismatch: "The JSON query did not return text type."
         nullValues:
           - "N/A"
         format: ISO_8601
@@ -116,19 +96,17 @@ extracts:
           # value CAN be empty, for example when password was never used.
           #isEmpty: Value of 'access_key_1_last_used_date' is empty, unexpected data
           invalidFormat: Value of 'access_key_1_last_used_date' does not match ISO-8601 format
-  - name: caExtract_credReport_access_key_2_last_used_date__c
+  - name: CA10__credReportAccessKey2LastUsed__c
     value:
       DATE_TIME_FROM:
         arg:
-          ATTRIBUTE_VALUE:
+          JSON_QUERY_TEXT:
             arg:
-              EXTRACT: caExtract_credReport_asAttributes__c
-            key:
-              TEXT: access_key_2_last_used_date
-            undeterminedIf: 
-              duplicateKey: Credential report contains more than one 'access_key_2_last_used_date' key, unexpected data
-              keyNotFound: Credential report must contain 'access_key_2_last_used_date' key, unexpected data
-              valueIsEmpty: Credential report 'access_key_2_last_used_date' key is empty, unexpected data
+              EXTRACT: CA10__credReportAttributesJson__c
+            expression: "to_string(access_key_2_last_used_date)"
+            undeterminedIf:
+              evaluationError: "The JSON query has failed."
+              resultTypeMismatch: "The JSON query did not return text type."
         nullValues:
           - "N/A"
         format: ISO_8601
@@ -136,49 +114,43 @@ extracts:
           # value CAN be empty, for example when password was never used.
           #isEmpty: Value of 'access_key_2_last_used_date' is empty, unexpected data
           invalidFormat: Value of 'access_key_2_last_used_date' does not match ISO-8601 format
-  - name: caExtract_credReport_mfa_active__c
+  - name: CA10__credReportMfaActive__c
     value:
       BOOLEAN_FROM:
         arg:
-          ATTRIBUTE_VALUE:
+          JSON_QUERY_TEXT:
             arg:
-              EXTRACT: caExtract_credReport_asAttributes__c
-            key:
-              TEXT: mfa_active
-            undeterminedIf: 
-              duplicateKey: Credential report contains more than one 'mfa_active' key, unexpected data
-              keyNotFound: Credential report must contain 'mfa_active' key, unexpected data
-              valueIsEmpty: Credential report 'mfa_active' key is empty, unexpected data
+              EXTRACT: CA10__credReportAttributesJson__c
+            expression: "to_string(mfa_active)"
+            undeterminedIf:
+              evaluationError: "The JSON query has failed."
+              resultTypeMismatch: "The JSON query did not return text type."
         undeterminedIf:
           isEmpty: Credential report 'mfa_active' key is empty, unexpected data
-  - name: caExtract_credReport_password_enabled__c
+  - name: CA10__credReportPasswordEnabled__c
     value:
       BOOLEAN_FROM:
         arg:
-          ATTRIBUTE_VALUE:
+          JSON_QUERY_TEXT:
             arg:
-              EXTRACT: caExtract_credReport_asAttributes__c
-            key:
-              TEXT: password_enabled 
-            undeterminedIf: 
-              duplicateKey: Credential report contains more than one 'password_enabled', unexpected data
-              keyNotFound: Credential report must contain 'password_enabled', unexpected data
-              valueIsEmpty: Credential report 'password_enabled' is empty, unexpected data
+              EXTRACT: CA10__credReportAttributesJson__c
+            expression: "to_string(password_enabled)"
+            undeterminedIf:
+              evaluationError: "The JSON query has failed."
+              resultTypeMismatch: "The JSON query did not return text type."
         undeterminedIf:
           isEmpty: Value of 'password_enabled' is empty, unexpected data
-  - name: caExtract_credReport_password_last_changed__c
+  - name: CA10__credReportPasswordLastChanged__c
     value:
       DATE_TIME_FROM:
         arg:
-          ATTRIBUTE_VALUE:
+          JSON_QUERY_TEXT:
             arg:
-              EXTRACT: caExtract_credReport_asAttributes__c
-            key:
-              TEXT: password_last_changed
-            undeterminedIf: 
-              duplicateKey: Credential report contains more than one 'password_last_changed', unexpected data
-              keyNotFound: Credential report must contain 'password_last_changed', unexpected data
-              valueIsEmpty: Credential report 'password_last_changed' is empty, unexpected data
+              EXTRACT: CA10__credReportAttributesJson__c
+            expression: "to_string(password_last_changed)"
+            undeterminedIf:
+              evaluationError: "The JSON query has failed."
+              resultTypeMismatch: "The JSON query did not return text type."
         nullValues:
             - "N/A"
         format: ISO_8601
@@ -186,19 +158,17 @@ extracts:
           # value CAN be empty, for example when password was never changed.
           #isEmpty: Value of 'password_last_changed' is empty, unexpected data
           invalidFormat: Value of 'password_last_changed' does not match ISO-8601 format
-  - name: caExtract_credReport_access_key_1_last_rotated__c
+  - name: CA10__credReportAccessKey1LastRotated__c
     value:
       DATE_TIME_FROM:
         arg:
-          ATTRIBUTE_VALUE:
+          JSON_QUERY_TEXT:
             arg:
-              EXTRACT: caExtract_credReport_asAttributes__c
-            key:
-              TEXT: access_key_1_last_rotated
-            undeterminedIf: 
-              duplicateKey: Credential report contains more than one 'access_key_1_last_rotated' key, unexpected data
-              keyNotFound: Credential report must contain 'access_key_1_last_rotated' key, unexpected data
-              valueIsEmpty: Credential report 'access_key_1_last_rotated' key is empty, unexpected data
+              EXTRACT: CA10__credReportAttributesJson__c
+            expression: "to_string(access_key_1_last_rotated)"
+            undeterminedIf:
+              evaluationError: "The JSON query has failed."
+              resultTypeMismatch: "The JSON query did not return text type."
         nullValues:
             - "N/A"
         format: ISO_8601
@@ -206,19 +176,17 @@ extracts:
           # value CAN be empty, for example when key was never changed.
           #isEmpty: Value of 'access_key_1_last_rotated' is empty, unexpected data
           invalidFormat: Value of 'access_key_1_last_rotated' does not match ISO-8601 format
-  - name: caExtract_credReport_access_key_2_last_rotated__c
+  - name: CA10__credReportAccessKey2LastRotated__c
     value:
       DATE_TIME_FROM:
         arg:
-          ATTRIBUTE_VALUE:
+          JSON_QUERY_TEXT:
             arg:
-              EXTRACT: caExtract_credReport_asAttributes__c
-            key:
-              TEXT: access_key_2_last_rotated
-            undeterminedIf: 
-              duplicateKey: Credential report contains more than one 'access_key_2_last_rotated' key, unexpected data
-              keyNotFound: Credential report must contain 'access_key_2_last_rotated' key, unexpected data
-              valueIsEmpty: Credential report 'access_key_2_last_rotated' key is empty, unexpected data
+              EXTRACT: CA10__credReportAttributesJson__c
+            expression: "to_string(access_key_2_last_rotated)"
+            undeterminedIf:
+              evaluationError: "The JSON query has failed."
+              resultTypeMismatch: "The JSON query did not return text type."
         nullValues:
             - "N/A"
         format: ISO_8601

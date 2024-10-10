@@ -1,12 +1,25 @@
 # Description
 
-Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs, or an external Security information and event management (SIEM) environment, and establishing corresponding metric filters and alarms. Network gateways are required to send/receive traffic to a destination outside of a VPC. It is recommended that a metric filter and alarm be established for changes to network gateways.
+Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to
+CloudWatch Logs or an external Security Information and Event Management (SIEM)
+environment, and establishing corresponding metric filters and alarms.
+
+Network gateways are required to send and receive traffic to a destination outside of a
+VPC. It is recommended that a metric filter and alarm be established for changes to
+network gateways.
 
 ## Rationale
 
 CloudWatch is an AWS native service that allows you to observe and monitor resources and applications. CloudTrail Logs can also be sent to an external Security information and event management (SIEM) environment for monitoring and alerting.
 
 Monitoring changes to network gateways will help ensure that all ingress/egress traffic traverses the VPC border via a controlled path.
+
+## Impact
+
+Monitoring changes to network gateways helps detect unauthorized modifications that
+could compromise network security. Implementing automated monitoring and alerts can
+improve incident response times, but it may require additional configuration and
+maintenance efforts.
 
 ## Audit
 
@@ -70,6 +83,12 @@ aws sns list-subscriptions-by-topic --topic-arn <sns_topic_arn>
 At least one subscription should have `SubscriptionArn` with valid aws ARN.
 
 Example of valid `SubscriptionArn`: `arn:aws:sns:<region>:<aws_account_number>:<SnsTopicName>:<SubscriptionID>`.
+
+8. Ensure automated monitoring is enabled:
+
+```sh
+aws cloudwatch put-metric-alarm --alarm-name NetworkGatewayChanges --metric-name GatewayChanges --namespace AWS/EC2 --statistic Sum --period 300 --threshold 1 --comparison-operator GreaterThanOrEqualToThreshold --evaluation-periods 1 --alarm-actions <sns-topic-arn>
+```
 
 ## References
 

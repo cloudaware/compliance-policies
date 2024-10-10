@@ -12,12 +12,12 @@ conditions:
         args:
         - IS_EQUAL:
             left:
-              EXTRACT: caExtract_credReport_access_key_1_active__c
+              EXTRACT: CA10__credReportAccessKey1Active__c
             right:
               BOOLEAN: false
         - IS_EQUAL:
             left:
-              EXTRACT: caExtract_credReport_access_key_2_active__c
+              EXTRACT: CA10__credReportAccessKey2Active__c
             right:
               BOOLEAN: false
   - status: "INCOMPLIANT"
@@ -28,12 +28,12 @@ conditions:
         args:
         - IS_EQUAL:
             left:
-              EXTRACT: caExtract_credReport_access_key_1_active__c
+              EXTRACT: CA10__credReportAccessKey1Active__c
             right:
               BOOLEAN: true
         - IS_EQUAL:
             left:
-              EXTRACT: caExtract_credReport_access_key_2_active__c
+              EXTRACT: CA10__credReportAccessKey2Active__c
             right:
               BOOLEAN: true
 otherwise:

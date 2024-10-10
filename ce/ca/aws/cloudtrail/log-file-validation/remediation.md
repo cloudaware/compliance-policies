@@ -14,11 +14,13 @@ Perform the following to enable log file validation on a given trail:
 
 ## From Command Line
 
+Enable log file validation on a trail:
+
 ```sh
 aws cloudtrail update-trail --name <trail_name> --enable-log-file-validation
 ```
 
-Note that periodic validation of logs using these digests can be performed by running the following command:
+**Note**: periodic validation of logs using these digests can be performed by running the following command:
 
 ```sh
 aws cloudtrail validate-logs --trail-arn <trail_arn> --start-time <start_time> --end-time <end_time>

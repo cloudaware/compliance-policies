@@ -1,6 +1,11 @@
 # Description
 
-Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs, and establishing corresponding metric filters and alarms. It is recommended that a metric filter and alarm be established for AWS Organizations changes made in the master AWS Account.
+Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to
+CloudWatch Logs or an external Security Information and Event Management (SIEM)
+environment, and establishing corresponding metric filters and alarms.
+
+It is recommended that a metric filter and alarm be established for changes made to
+AWS Organizations in the master AWS account.
 
 ## Rationale
 
@@ -74,3 +79,11 @@ At least one subscription should have `SubscriptionArn` with valid aws ARN. Exam
 
 1. <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html>
 2. <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html>
+
+## Additional Information
+
+Configuring a log metric filter and alarm on a multi-region (global) CloudTrail trail:
+
+- ensures that activities from all regions (both used and unused) are monitored
+- ensures that activities on all supported global services are monitored
+- ensures that all management events across all regions are monitored

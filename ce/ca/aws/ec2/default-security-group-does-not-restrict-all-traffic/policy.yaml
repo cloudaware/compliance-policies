@@ -13,8 +13,9 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-aws-v3.0.0/05/04
-  - /frameworks/cloudaware/resource-security/secure-access-controls
+  - "/frameworks/cis-aws-v3.0.0/05/04"
+  - "/frameworks/cis-aws-v4.0.0/05/05"
+  - "/frameworks/cloudaware/resource-security/secure-access-controls"
 similarPolicies:
   internal:
     - dec-x-ecd99f88

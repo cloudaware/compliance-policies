@@ -13,8 +13,9 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-aws-v3.0.0/01/21
-  - /frameworks/cloudaware/identity-and-access-management/user-management
+  - "/frameworks/cis-aws-v3.0.0/01/21"
+  - "/frameworks/cis-aws-v4.0.0/01/21"
+  - "/frameworks/cloudaware/identity-and-access-management/user-management"
 similarPolicies:
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/IAM/aws-multi-account-centralized-management.html

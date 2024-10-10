@@ -1,11 +1,12 @@
 # Remediation
 
+**Note**: To manage MFA devices for the 'root' AWS account, you must use your 'root'
+account credentials to sign in to AWS. You cannot manage MFA devices for the 'root'
+account using other credentials.
+
 Perform the following to establish MFA for the root user account:
 
 1. Sign in to the AWS Management Console and open the IAM console at <https://console.aws.amazon.com/iam/>.
-
-Note: to manage MFA devices for the root AWS account, you must use your root account credentials to sign in to AWS. You cannot manage MFA devices for the root account using other credentials.
-
 2. Choose `Dashboard` , and under `Security Status` , expand `Activate MFA` on your root account.
 3. Choose `Activate MFA`.
 4. In the wizard, choose `A virtual MFA` device and then choose `Next Step`.

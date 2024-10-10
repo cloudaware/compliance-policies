@@ -16,10 +16,12 @@ Perform the following on each trail to determine if log file validation is enabl
 2. Click on `Trails` on the left navigation pane.
 3. For Every Trail:
 
-- Click on a trail via the link in the Name column.
+- Click on a trail via the link in the `Name` column.
 - Under the `General details` section, ensure `Log file validation` is set to `Enabled`.
 
 ### From Command Line
+
+List all trails:
 
 ```sh
 aws cloudtrail describe-trails

@@ -61,4 +61,4 @@ aws iam get-credential-report --query 'Content' --output text | base64 -d | cut 
 
 ## Additional Information
 
-<root_account> is excluded in the audit since the root account should not be used for day to day business and would likely be unused for more than 45 days.
+`root_account` is excluded in the audit since the root account should not be used for day to day business and would likely be unused for more than 45 days.

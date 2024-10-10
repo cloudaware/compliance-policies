@@ -6,9 +6,7 @@ The root user account is the most privileged user in an AWS account. MFA adds an
 
 A hardware MFA has a smaller attack surface than a virtual MFA. For example, a hardware MFA does not suffer the attack surface introduced by the mobile smartphone on which a virtual MFA resides.
 
-### Note
-
-Using hardware MFA for many, many AWS accounts may create a logistical device management issue. If this is the case, consider implementing this Level 2 recommendation selectively to the highest security AWS accounts and the Level 1 recommendation applied to the remaining accounts.
+**Note**: Using hardware MFA for many, many AWS accounts may create a logistical device management issue. If this is the case, consider implementing this Level 2 recommendation selectively to the highest security AWS accounts and the Level 1 recommendation applied to the remaining accounts.
 
 ## Audit
 
@@ -21,9 +19,11 @@ Perform the following to determine if the root user account has a hardware MFA s
     ```
 
     The `AccountMFAEnabled` property is set to `1` will ensure that the root user account has MFA (Virtual or Hardware) Enabled.
+    
     If `AccountMFAEnabled` property is set to `0` the account is not compliant with this recommendation.
 
 2. If `AccountMFAEnabled` property is set to `1`, determine root account has Hardware MFA enabled.
+
     Run the following command to list all virtual MFA devices:
 
     ```sh

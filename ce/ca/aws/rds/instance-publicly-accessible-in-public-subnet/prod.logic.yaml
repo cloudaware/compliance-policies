@@ -1,5 +1,6 @@
 ---
 # This policy goes through the same paths as /ce/ca/aws/ec2/instance-without-public-ip-in-public-subnet/prod.logic.yaml
+# Check that policy logic for details
 inputObject: "CA10__CaAwsDbInstance__c"
 testData:
  - file: test-data.json

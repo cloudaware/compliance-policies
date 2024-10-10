@@ -9,8 +9,9 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-aws-v3.0.0/01/12
-  - /frameworks/cloudaware/identity-and-access-management/credentials-controls
+  - "/frameworks/cis-aws-v3.0.0/01/12"
+  - "/frameworks/cis-aws-v4.0.0/01/12"
+  - "/frameworks/cloudaware/identity-and-access-management/credentials-controls"
 similarPolicies:
   internal:
     - dec-x-ac93bf15

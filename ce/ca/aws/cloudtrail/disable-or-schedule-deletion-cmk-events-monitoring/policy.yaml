@@ -13,9 +13,10 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-aws-v3.0.0/04/07
-  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management
-  - /frameworks/cloudaware/key-secret-certificate-management/key-secret-certificate-configuration
+  - "/frameworks/cis-aws-v3.0.0/04/07"
+  - "/frameworks/cis-aws-v4.0.0/04/07"
+  - "/frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management"
+  - "/frameworks/cloudaware/key-secret-certificate-management/key-secret-certificate-configuration"
 similarPolicies:
   internal:
     - dec-x-f70dd11f

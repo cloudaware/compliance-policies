@@ -35,4 +35,4 @@ aws ec2 associate-iam-instance-profile --region <region-name> --instance-id <Ins
 aws ec2 describe-instances --region <region-name> --instance-id <Instance-ID> --query 'Reservations[*].Instances[*].IamInstanceProfile'
 ```
 
-4. Repeat steps 1 to 3 for each EC2 instance in your AWS account that requires an IAM role to be attached.
+4. Repeat steps 2 to 3 for each EC2 instance in your AWS account that requires an IAM role to be attached.

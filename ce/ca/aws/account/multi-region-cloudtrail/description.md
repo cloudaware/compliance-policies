@@ -7,7 +7,7 @@ AWS CloudTrail is a web service that records AWS API calls for your account and 
 The AWS API call history produced by CloudTrail enables security analysis, resource change tracking, and compliance auditing. Additionally,
 
 - Ensuring that a multi-regions trail exists will ensure that unexpected activity occurring in otherwise unused regions is detected.
-- Ensuring that a multi-regions trail exists will ensure that Global Service Logging is enabled for a trail by default to capture recording of events generated on AWS global services.
+- Ensuring that a multi-regions trail exists will ensure that `Global Service Logging` is enabled for a trail by default to capture recording of events generated on AWS global services.
 - For a multi-regions trail, ensuring that management events configured for all type of Read/Writes ensures recording of management operations that are performed on all resources in an AWS account.
 
 ## Impact
@@ -35,23 +35,27 @@ Perform the following to determine if CloudTrail is enabled for all regions:
 
 ### From Command Line
 
+1. List all trails:
+
 ```sh
 aws cloudtrail describe-trails
 ```
 
-Ensure `IsMultiRegionTrail` is set to `true`.
+2. Ensure `IsMultiRegionTrail` is set to `true`:
 
 ```sh
 aws cloudtrail get-trail-status --name <trailname shown in describe-trails>
 ```
 
-Ensure `IsLogging` is set to `true`.
+3. Ensure `IsLogging` is set to `true`:
 
 ```sh
 aws cloudtrail get-event-selectors --trail-name <trailname shown in describe-trails>
 ```
 
-Ensure there is at least one fieldSelector for a Trail that equals `Management`. This should **NOT** output any results for `"Field": "readOnly"` if either `true` or `false` is returned one of the checkboxes is not selected for `read` or `write`.
+4. Ensure there is at least one `fieldSelector` for a Trail that equals `Management`:
+
+- This should **NOT** output any results for `"Field": "readOnly"` if either `true` or `false` is returned one of the checkboxes is not selected for `read` or `write`.
 
 Example of correct output:
 

@@ -14,8 +14,13 @@ Perform the following to determine if the account is configured as prescribed:
 
 1. Login to the AWS Management Console at <https://console.aws.amazon.com/vpc/home>.
 2. In the left pane, click `Network ACLs`.
-3. For each network ACL, perform the following: - Select the network ACL. - Click the `Inbound Rules` tab. - Ensure no rule exists that has a port range that includes port `22`, `3389`, using the protocols TCP (6), UDP (17) or ALL (-1) or other remote server administration ports for your environment and has a `Source` of `0.0.0.0/0` and shows `ALLOW`.
-   **Note**: A Port value of `ALL` or a port range such as `0-1024` are inclusive of port `22`, `3389`, and other remote server administration ports.
+3. For each network ACL, perform the following:
+
+   - Select the network ACL.
+   - Click the `Inbound Rules` tab.
+   - Ensure no rule exists that has a port range that includes port `22`, `3389`, using the protocols TCP (6), UDP (17) or ALL (-1) or other remote server administration ports for your environment and has a `Source` of `0.0.0.0/0` and shows `ALLOW`.
+
+**Note**: A Port value of `ALL` or a port range such as `0-1024` are inclusive of port `22`, `3389`, and other remote server administration ports.
 
 ## References
 

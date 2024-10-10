@@ -3,7 +3,7 @@
 ## From Console
 
 1. Login to the AWS Account as the root user.
-2. Click on the <Root_Account_Name> from the top right of the console.
+2. Click on the `Root_Account_Name` from the top right of the console.
 3. From the drop-down menu Click `My Account`.
 4. Scroll down to the `Configure Security Questions` section.
 5. Click on `Edit`.

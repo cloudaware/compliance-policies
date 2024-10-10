@@ -27,8 +27,18 @@ aws iam get-account-password-policy
 
 Ensure the output of the above command includes `"MinimumPasswordLength": 14` (or higher).
 
-### References
+## References
 
 1. CCE-78907-3
 2. <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html>
 3. <https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#configure-strong-password-policy>
+
+## Additional Information
+
+Ensure the password policy also includes requirements for password complexity, such
+as the inclusion of uppercase letters, lowercase letters, numbers, and special
+characters:
+
+```sh
+aws iam update-account-password-policy --require-uppercase-characters --require-lowercase-characters --require-numbers --require-symbols
+```

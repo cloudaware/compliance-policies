@@ -19,7 +19,9 @@ Perform the following to determine if CloudTrail is configured to use SSE-KMS:
 1. Sign in to the AWS Management Console and open the CloudTrail console at <https://console.aws.amazon.com/cloudtrail>.
 2. In the left navigation pane, choose `Trails`.
 3. Select a Trail.
-4. Under the S3 section, ensure `Encrypt log files` is set to `Yes` and a KMS key ID is specified in the `KSM Key Id` field.
+4. In the `General details` section, select `Edit` to edit the trail configuration.
+5. Ensure the box at `Log file SSE-KMS encryption` is checked and that a valid
+`AWS KMS alias` of a KMS key is entered in the respective text box.
 
 ### From Command Line
 
@@ -33,13 +35,15 @@ aws cloudtrail describe-trails
 
 ## References
 
-1. <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/encrypting-cloudtrail-log-files-with-aws-kms.html>
+1. <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/encryptingcloudtrail-log-files-with-aws-kms.html>
 2. <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html>
 3. CCE-78919-8
+4. <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/update-trail.html>
+5. <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/putkey-policy.html>
 
 ## Additional Information
 
-3 statements which need to be added to the CMK policy:
+Three statements that need to be added to the CMK policy:
 
 1. Enable Cloudtrail to describe CMK properties:
 

@@ -11,7 +11,7 @@ conditions:
     condition:
       IS_EQUAL:
         left:
-          EXTRACT: caExtract_credReport_password_enabled__c
+          EXTRACT: CA10__credReportPasswordEnabled__c
         right:
           BOOLEAN: false
   - status: "COMPLIANT"
@@ -19,7 +19,7 @@ conditions:
     condition:
       IS_EQUAL:
         left:
-          EXTRACT: caExtract_credReport_mfa_active__c
+          EXTRACT: CA10__credReportMfaActive__c
         right:
           BOOLEAN: true
 otherwise:

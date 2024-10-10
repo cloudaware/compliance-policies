@@ -1,6 +1,10 @@
 # Description
 
-S3 Bucket Access Logging generates a log that contains access records for each request made to your S3 bucket. An access log record contains details about the request, such as the request type, the resources specified in the request worked, and the time and date the request was processed. It is recommended that bucket access logging be enabled on the CloudTrail S3 bucket.
+Server access logging generates a log that contains access records for each request
+made to your S3 bucket. An access log record contains details about the request, such
+as the request type, the resources specified in the request worked, and the time and
+date the request was processed. It is recommended that server access logging be
+enabled on the CloudTrail S3 bucket.
 
 ## Rationale
 
@@ -18,7 +22,7 @@ Perform the following ensure the CloudTrail S3 bucket has access logging is enab
 4. Sign in to the AWS Management Console and open the S3 console at <https://console.aws.amazon.com/s3>.
 5. Under `All Buckets` click on a `target S3 bucket`.
 6. Click on `Properties` in the top right of the console.
-7. Under `Bucket: _ <bucket_name> _` click on `Logging`.
+7. Under `Bucket: <bucket_name>` click on `Logging`.
 8. Ensure `Enabled` is checked.
 
 ### From Command Line
@@ -42,8 +46,8 @@ Sample Output for a bucket with logging enabled:
 ```json
 { 
     "LoggingEnabled": { 
-        "TargetPrefix": "<Prefix_Test>", 
-        "TargetBucket": "<Bucket_name_for_Storing_Logs>" 
+        "TargetPrefix": "<log-file-prefix>", 
+        "TargetBucket": "<logging-bucket>" 
     } 
 }
 ```
@@ -56,3 +60,4 @@ Logging is disabled.
 
 1. CCE-78918-0
 2. <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html>
+3. <https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-accesslogging.html>

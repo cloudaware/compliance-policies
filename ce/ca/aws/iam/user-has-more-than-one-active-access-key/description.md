@@ -4,7 +4,8 @@ Access keys are long-term credentials for an IAM user or the AWS account root us
 
 ## Rationale
 
-Access keys are long-term credentials for an IAM user or the AWS account root user. You can use access keys to sign programmatic requests to the AWS CLI or AWS API. One of the best ways to protect your account is to not allow users to have multiple access keys.
+One of the best ways to protect your account is to not allow users to have multiple
+access keys.
 
 ## Audit
 

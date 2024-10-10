@@ -5,7 +5,9 @@ IAM policies are the means by which privileges are granted to users, groups, or 
 ## Rationale
 
 It's more secure to start with a minimum set of permissions and grant additional permissions as necessary, rather than starting with permissions that are too lenient and then trying to tighten them later.
+
 Providing full administrative privileges instead of restricting to the minimum set of permissions that the user is required to do exposes the resources to potentially unwanted actions.
+
 IAM policies that have a statement with `"Effect": "Allow"` with `"Action": "*"` over `"Resource": "*"` should be removed.
 
 ## Audit

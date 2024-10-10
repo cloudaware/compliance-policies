@@ -11,7 +11,8 @@
         "Statement": [
             {
             "Effect": "Allow",
-            "Principal": { "AWS": "<iam_user>"
+            "Principal": { 
+                "AWS": "<iam_user>"
             },
             "Action": "sts:AssumeRole"
             }

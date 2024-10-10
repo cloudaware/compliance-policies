@@ -12,12 +12,12 @@ conditions:
         args:
           - IS_EQUAL:
               left:
-                EXTRACT: caExtract_credReport_access_key_1_active__c
+                EXTRACT: CA10__credReportAccessKey1Active__c
               right:
                 BOOLEAN: false
           - IS_EQUAL:
               left:
-                EXTRACT: caExtract_credReport_access_key_2_active__c
+                EXTRACT: CA10__credReportAccessKey2Active__c
               right:
                 BOOLEAN: false
   - status: "INCOMPLIANT"
@@ -27,13 +27,13 @@ conditions:
         args:
           - IS_EQUAL:
               left:
-                EXTRACT: caExtract_credReport_access_key_1_active__c
+                EXTRACT: CA10__credReportAccessKey1Active__c
               right:
                 BOOLEAN: true
           - IS_BEYOND_LAST_DAYS:
               offsetDays: 90
               arg:
-                EXTRACT: caExtract_credReport_access_key_1_last_rotated__c
+                EXTRACT: CA10__credReportAccessKey1LastRotated__c
   - status: "INCOMPLIANT"
     currentStateMessage: "Access Key 2 hasn't been rotated for over 90 days."
     condition: 
@@ -41,13 +41,13 @@ conditions:
         args:
           - IS_EQUAL:
               left:
-                EXTRACT: caExtract_credReport_access_key_2_active__c
+                EXTRACT: CA10__credReportAccessKey2Active__c
               right:
                 BOOLEAN: true
           - IS_BEYOND_LAST_DAYS:
               offsetDays: 90
               arg:
-                EXTRACT: caExtract_credReport_access_key_2_last_rotated__c
+                EXTRACT: CA10__credReportAccessKey2LastRotated__c
 otherwise:
   status: "COMPLIANT"
   currentStateMessage: "All access keys are regularly rotated." 

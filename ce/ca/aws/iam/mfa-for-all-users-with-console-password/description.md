@@ -57,5 +57,6 @@ aws iam get-credential-report --query 'Content' --output text | base64 -d | cut 
 
 ## Additional Information
 
-Forced IAM User Self-Service Remediation
+### Forced IAM User Self-Service Remediation
+
 Amazon has published a pattern that forces users to self-service setup MFA before they have access to their complete permissions set. Until they complete this step, they cannot access their full permissions. This pattern can be used on new AWS accounts. It can also be used on existing accounts - it is recommended users are given instructions and a grace period to accomplish MFA enrollment before active enforcement on existing AWS accounts.

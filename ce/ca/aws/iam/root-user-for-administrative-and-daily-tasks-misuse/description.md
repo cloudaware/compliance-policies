@@ -31,9 +31,7 @@ aws iam get-credential-report --query 'Content' --output text | base64 -d | cut 
 
 Review `password_last_used`, `access_key_1_last_used_date`, `access_key_2_last_used_date` to determine when the root user was last used.
 
-### Note
-
-There are a few conditions under which the use of the root user account is required. Please see the reference links for all of the tasks that require use of the root user.
+**Note**: There are a few conditions under which the use of the root user account is required. Please see the reference links for all of the tasks that require use of the root user.
 
 ## References
 

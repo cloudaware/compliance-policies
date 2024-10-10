@@ -13,7 +13,7 @@
         "CA10__disappearanceTime__c": "2024-07-01T22:14:15Z",
         "CA10__encrypted__c": false,
         "CA10__snapshotType__c": "manual",
-        "CA10__attributes__c": ""
+        "CA10__attributesJson__c": ""
     },
     {
         "expectedResult": {
@@ -29,7 +29,7 @@
         "CA10__disappearanceTime__c": null,
         "CA10__encrypted__c": true,
         "CA10__snapshotType__c": "manual",
-        "CA10__attributes__c": "restore:"
+        "CA10__attributesJson__c": "{\"restore\":[]}"
     },
     {
         "expectedResult": {
@@ -45,7 +45,7 @@
         "CA10__disappearanceTime__c": null,
         "CA10__encrypted__c": false,
         "CA10__snapshotType__c": "automated",
-        "CA10__attributes__c": "restore:"
+        "CA10__attributesJson__c": "{\"restore\":[]}"
     },
     {
         "expectedResult": {
@@ -61,13 +61,13 @@
         "CA10__disappearanceTime__c": null,
         "CA10__encrypted__c": false,
         "CA10__snapshotType__c": "public",
-        "CA10__attributes__c": "restore:"
+        "CA10__attributesJson__c": "{\"restore\":[]}"
     },
     {
         "expectedResult": {
             "status": "UNDETERMINED",
             "conditionIndex": "401",
-            "conditionText": "CA10__attributes__c.delegatedTo(CA10__attributes__c).isEmpty()",
+            "conditionText": "CA10__attributesJson__c.delegatedTo(CA10__attributesJson__c).isEmpty()",
             "runtimeError": null
         },
         "context": {
@@ -77,13 +77,13 @@
         "CA10__disappearanceTime__c": null,
         "CA10__encrypted__c": false,
         "CA10__snapshotType__c": "manual",
-        "CA10__attributes__c": ""
+        "CA10__attributesJson__c": ""
     },
     {
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "499",
-            "conditionText": "extract('caExtract_attributes_restore_asAttribute__c') == 'all'",
+            "conditionText": "extract('caJsonFrom__attributesJson__c').jsonQueryText('to_string(restore[0])') == 'all'",
             "runtimeError": null
         },
         "context": {
@@ -93,7 +93,7 @@
         "CA10__disappearanceTime__c": null,
         "CA10__encrypted__c": false,
         "CA10__snapshotType__c": "manual",
-        "CA10__attributes__c": "restore: all"
+        "CA10__attributesJson__c": "{\"restore\":[\"all\"]}"
     },
     {
         "expectedResult": {
@@ -109,7 +109,7 @@
         "CA10__disappearanceTime__c": null,
         "CA10__encrypted__c": false,
         "CA10__snapshotType__c": "manual",
-        "CA10__attributes__c": "restore:"
+        "CA10__attributesJson__c": "{\"restore\":[]}"
     },
     {
         "expectedResult": {
@@ -125,6 +125,6 @@
         "CA10__disappearanceTime__c": null,
         "CA10__encrypted__c": false,
         "CA10__snapshotType__c": "manual",
-        "CA10__attributes__c": "restore: 012345678910"
+        "CA10__attributesJson__c": "{\"restore\":[\"241189877026\"]}"
     }
 ]

@@ -1,8 +1,8 @@
 ---
 names:
-  full: AWS EC2 Security Group allows allows unrestricted (::/0) ingress traffic to
+  full: AWS EC2 Security Group allows unrestricted (::/0) ingress traffic to
     remote server administration ports
-  contextual: Security Group allows allows unrestricted (::/0) ingress traffic to
+  contextual: Security Group allows unrestricted (::/0) ingress traffic to
     remote server administration ports
 description: "Security groups provide stateful filtering of ingress and egress network\
   \ traffic to AWS resources. It is recommended that no security group allows unrestricted\
@@ -12,8 +12,9 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-aws-v3.0.0/05/03
-  - /frameworks/cloudaware/resource-security/public-and-anonymous-access
+  - "/frameworks/cis-aws-v3.0.0/05/03"
+  - "/frameworks/cis-aws-v4.0.0/05/04"
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
 frameworkIgnoreMappings:
   - /frameworks/cis-aws-v1.3.0/05/02
   - /frameworks/cis-aws-v1.4.0/05/02

@@ -22,7 +22,7 @@ Additionally, if credentials are encoded into compiled applications or other har
     - If the value for `Instance profile arn` is an instance profile ARN, then an instance profile (that contains an IAM role) is attached.
     - If the value for `IAM Role` is blank, no role is attached.
     - If the value for `IAM Role` contains a role
-    - If the value for `IAM Role` is "No roles attached to instance profile: <Instance-Profile-Name>", then an instance profile is attached to the instance, but it does not contain an IAM role.
+    - If the value for `IAM Role` is "No roles attached to instance profile: `Instance-Profile-Name`", then an instance profile is attached to the instance, but it does not contain an IAM role.
 
 7. Repeat steps 3 to 6 for each EC2 instance in your AWS account.
 

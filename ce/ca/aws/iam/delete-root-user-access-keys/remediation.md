@@ -8,7 +8,7 @@ Perform the following to delete active `root` user access keys.
 2. Click on `<root_account>` at the top right and select `My Security Credentials` from the drop down list.
 3. On the pop out screen Click on `Continue to Security Credentials`.
 4. Click on `Access Keys` (Access Key ID and Secret Access Key).
-5. Under the `Status` column (if there are any Keys which are active).
-6. Click `Delete` (**Note**: Deleted keys cannot be recovered).
+5. If there are active keys, under `Status`, click `Delete` (**Note**: Deleted keys cannot
+be recovered).
 
 **Note**: While a key can be made inactive, this inactive key will still show up in the CLI command from the audit procedure, and may lead to a key being falsely flagged as being non-compliant.

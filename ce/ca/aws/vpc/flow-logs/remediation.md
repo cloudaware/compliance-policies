@@ -78,18 +78,21 @@ aws iam create-policy --policy-name <ami-policy-name> --policy-document file://<
 aws iam attach-group-policy --policy-arn arn:aws:iam::<aws-account-id>:policy/<iam-policy-name> --group-name <group-name>
 ```
 
+- If the command succeeds, no output is returned.
+
 6. Run `describe-vpcs` to get the VpcId available in the selected region:
 
 ```sh
 aws ec2 describe-vpcs --region <region>
 ```
 
-7. The command output should return the VPC Id available in the selected region.
-8. Run `create-flow-logs` to create a flow log for the vpc:
+- The command output should return a list of VPCs in the selected region.
+
+7. Run `create-flow-logs` to create a flow log for the vpc:
 
 ```sh
 aws ec2 create-flow-logs --resource-type VPC --resource-ids <vpc-id> --traffic-type REJECT --log-group-name <log-group-name> --deliver-logs-permission-arn <iam-role-arn>
 ```
 
-9. Repeat step 8 for other vpcs available in the selected region.
-10. Change the region by updating `--region` and repeat remediation procedure for other vpcs.
+8. Repeat step 7 for other vpcs available in the selected region.
+9. Change the region by updating `--region` and repeat remediation procedure for other vpcs.

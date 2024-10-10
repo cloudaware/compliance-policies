@@ -1,14 +1,16 @@
 # Description
 
 AWS console defaults to no check boxes selected when creating a new IAM user. When creating the IAM User credentials you have to determine what type of access they require.
+
 Programmatic access: The IAM user might need to make API calls, use the AWS CLI, or use the Tools for Windows PowerShell. In that case, create an access key (access key ID and a secret access key) for that user.
+
 AWS Management Console access: If the user needs to access the AWS Management Console, create a password for the user.
 
 ## Rationale
 
 Requiring the additional steps be taken by the user for programmatic access after their profile has been created will give a stronger indication of intent that access keys are `[a]` necessary for their work and `[b]` once the access key is established on an account that the keys may be in use somewhere in the organization.
 
-Note: Even if it is known the user will need access keys, require them to create the keys themselves or put in a support ticket to have them created as a separate step from user creation.
+**Note**: Even if it is known the user will need access keys, require them to create the keys themselves or put in a support ticket to have them created as a separate step from user creation.
 
 ## Audit
 
@@ -23,6 +25,9 @@ Perform the following to determine if access keys were created upon user creatio
 5. Click on `Security credentials` Tab.
 6. Compare the user `Creation time` to the Access Key `Created` date.
 7. For any that match, the key was created during initial user setup.
+
+- Keys that were created at the same time as the user profile and do not have a
+last used date should be deleted. Refer to the remediation below.
 
 ### From Command Line
 

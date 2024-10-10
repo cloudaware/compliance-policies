@@ -22,8 +22,17 @@ Perform the following to enable global (Multi-region) CloudTrail logging:
 
 ## From Command Line
 
+Create a multi-region trail:
+
 ```sh
 aws cloudtrail create-trail --name <trail_name> --bucket-name <s3_bucket_for_cloudtrail> --is-multi-region-trail aws cloudtrail update-trail --name <trail_name> --is-multi-region-trail
 ```
 
-**Note**: Creating CloudTrail via CLI without providing any overriding options configures `Management Events` to set `All` type of `Read/Writes` by default.
+Enable multi-region on an existing trail:
+
+```sh
+aws cloudtrail update-trail --name <trail-name> --is-multi-region-trail
+```
+
+**Note**: Creating a CloudTrail trail via the CLI without providing any overriding options
+configures all `read` and `write` `Management Events` to be logged by default.

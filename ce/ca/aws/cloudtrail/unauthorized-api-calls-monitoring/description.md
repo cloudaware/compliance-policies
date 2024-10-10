@@ -47,7 +47,7 @@ Ensure `IsLogging` is set to `TRUE`.
 - Ensure identified Multi-region Cloudtrail captures all Management Events:
 
 ```sh
-aws cloudtrail get-event-selectors --trail-name <"Name" as shown in describe-trails> 
+aws cloudtrail get-event-selectors --trail-name "<Name as shown in describe-trails>" 
 ```
 
 Ensure there is at least one Event Selector for a Trail with `IncludeManagementEvents` set to `true` and `ReadWriteType` set to `All`.
@@ -61,7 +61,7 @@ aws logs describe-metric-filters --log-group-name "<cloudtrail_log_group_name>"
 3. Ensure the output from the above command contains the following:
 
 ```json
-"filterPattern": "{ ($.errorCode =\"*UnauthorizedOperation\") || ($.errorCode =\"AccessDenied*\") && ($.sourceIPAddress!=\"delivery.logs.amazonaws.com\") && ($.eventName!=\"HeadBucket\") }",
+"filterPattern": "{ ($.errorCode ="*UnauthorizedOperation") || ($.errorCode ="AccessDenied*") && ($.sourceIPAddress!="delivery.logs.amazonaws.com") && ($.eventName!="HeadBucket") }",
 ```
 
 4. Note the `filterName` `<unauthorized_api_calls_metric>` value associated with the `filterPattern` found in step 3.

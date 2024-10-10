@@ -9,7 +9,7 @@
 5. Once the Cloudtrail is selected, Select the data `Data Events` check box.
 6. Select `S3` from the `Data event type` drop down.
 7. Select `Log all events` from the `Log selector template` drop down.
-8. Repeat steps 2 to 5 to enable object-level logging of read events for other S3 buckets.
+8. Repeat steps 2 to 7 to enable object-level logging of read events for other S3 buckets.
 
 ## From Command Line
 
@@ -21,5 +21,5 @@ aws cloudtrail put-event-selectors --region <region-name> --trail-name <trail-na
 
 2. The command output will be `object-level` event trail configuration.
 3. If you want to enable it for all buckets at once then change Values parameter to `["arn:aws:s3"]` in command given above.
-4. Repeat step 1 for each s3 bucket to update `object-level` logging of write events.
+4. Repeat step 1 for each s3 bucket to update `object-level` logging of read events.
 5. Change the AWS region by updating the `--region` command parameter and perform the process for other regions.

@@ -35,7 +35,7 @@ aws iam list-entities-for-policy --policy-arn arn:aws:iam::aws:policy/AWSSupport
 Example:
 
 ```
-PolicyRoles: [ ]'
+PolicyRoles: [ ]
 ```
 
 If it returns empty refer to the remediation.
@@ -50,4 +50,4 @@ If it returns empty refer to the remediation.
 
 ## Additional Information
 
-AWSSupportAccess policy is a global AWS resource. It has same ARN as arn:aws:iam::aws:policy/AWSSupportAccess for every account.
+AWSSupportAccess policy is a global AWS resource. It has same ARN as `arn:aws:iam::aws:policy/AWSSupportAccess` for every account.

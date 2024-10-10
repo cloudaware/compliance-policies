@@ -14,15 +14,16 @@ Ensure that no public-facing RDS database instances are provisioned in your AWS 
 2. Under the navigation panel, On RDS Dashboard, click `Databases`.
 3. Select the RDS instance that you want to examine.
 4. Click `Instance Name` from the dashboard, Under `Connectivity and Security`.
-5. On the `Security`, check if the `Publicly Accessible` flag status is set to `Yes`, follow the below-mentioned steps to check database subnet access.
+5. On the `Security`, check if the `Publicly Accessible` flag status is set to `Yes`.
+6. Follow the below-mentioned steps to check database subnet access:
 
     - In the `networking` section, click the subnet link available under `Subnets`.
     - The link will redirect you to the VPC Subnets page.
-    - Select the subnet listed on the page and click the `Route Table` tab from the dashboard bottom panel. If the route table contains any entries with the destination `CIDR block set to 0.0.0.0/0` and with an `Internet Gateway` attached.
-    - The selected RDS database instance was provisioned inside a public subnet, therefore is not running within a logically isolated environment and can be accessible from the Internet.
+    - Select the subnet listed on the page and click the `Route Table` tab from the dashboard bottom panel.
+    - If the route table contains any entries with the destination CIDR block set to `0.0.0.0/0` and with an `Internet Gateway` attached, the selected RDS database instance was provisioned inside a public subnet, therefore is not running within a logically isolated environment and can be accessible from the Internet.
 
-6. Repeat steps no. 4 and 5 to determine the type (public or private) and subnet for other RDS database instances provisioned in the current region.
-7. Change the AWS region from the navigation bar and repeat the audit process for other regions.
+7. Repeat steps no. 4 and 5 to determine the type (public or private) and subnet for other RDS database instances provisioned in the current region.
+8. Change the AWS region from the navigation bar and repeat the audit process for other regions.
 
 ### From Command Line
 

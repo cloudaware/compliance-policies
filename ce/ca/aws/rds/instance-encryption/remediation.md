@@ -36,7 +36,8 @@ aws rds create-db-snapshot --region <region-name> --db-snapshot-identifier <DB-S
 
 3. Now run `list-aliases` command to list the KMS keys aliases available in a specified region, The command output should return each `key alias currently available`. For our RDS encryption activation process, locate the ID of the AWS default KMS key.
 
-```shaws kms list-aliases --region <region-name>
+```sh
+aws kms list-aliases --region <region-name>
 ```
 
 4. Run `copy-db-snapshot` command using the default KMS key ID for RDS instances returned earlier to create an encrypted copy of the database instance snapshot, The command output will return the `encrypted instance snapshot configuration`.

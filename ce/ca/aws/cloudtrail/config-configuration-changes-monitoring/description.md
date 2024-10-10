@@ -6,9 +6,12 @@ It is recommended that a metric filter and alarm be established for detecting ch
 
 ## Rationale
 
-Monitoring changes to AWS Config configuration will help ensure sustained visibility of configuration items within the AWS account.
+CloudWatch is an AWS native service that allows you to observe and monitor resources
+and applications. CloudTrail logs can also be sent to an external Security Information
+and Event Management (SIEM) environment for monitoring and alerting.
 
-CloudWatch is an AWS native service that allows you to observe and monitor resources and applications. CloudTrail Logs can also be sent to an external Security information and event management (SIEM) environment for monitoring and alerting.
+Monitoring changes to the AWS Config configuration will help ensure sustained visibility
+of the configuration items within the AWS account.
 
 ## Audit
 

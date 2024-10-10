@@ -2,7 +2,11 @@
 
 A VPC comes with a default security group whose initial settings deny all inbound traffic, allow all outbound traffic, and allow all traffic between instances assigned to the security group. If you don't specify a security group when you launch an instance, the instance is automatically assigned to this default security group. Security groups provide stateful filtering of ingress/egress network traffic to AWS resources. It is recommended that the default security group restrict all traffic.
 
-The default VPC in every region should have its default security group updated to comply. Any newly created VPCs will automatically contain a default security group that will need remediation to comply with this recommendation.
+The default VPC in every region should have its default security group updated to
+comply with the following:
+
+- No inbound rules.s
+- No outbound rules.
 
 **NOTE**: When implementing this recommendation, VPC flow logging is invaluable in determining the least privilege port access required by systems to work properly because it can log all packet acceptances and rejections occurring under the current security groups. This dramatically reduces the primary barrier to least privilege engineering - discovering the minimum ports required by systems in the environment. Even if the VPC flow logging recommendation in this benchmark is not adopted as a permanent security measure, it should be used during any period of discovery and engineering for least privileged security groups.
 
@@ -12,7 +16,17 @@ Configuring all VPC default security groups to restrict all traffic will encoura
 
 ## Impact
 
-Implementing this recommendation in an existing VPC containing operating resources requires extremely careful migration planning as the default security groups are likely to be enabling many ports that are unknown. Enabling VPC flow logging (of accepts) in an existing environment that is known to be breach free will reveal the current pattern of ports being used for each instance to communicate successfully.
+Implementing this recommendation in an existing VPC that contains operating
+resources requires extremely careful migration planning, as the default security groups
+are likely enabling many ports that are unknown. Enabling VPC flow logging (for
+accepted connections) in an existing environment that is known to be breach-free will
+reveal the current pattern of ports being used for each instance to communicate
+successfully. The migration process should include:
+
+- Analyzing VPC flow logs to understand current traffic patterns.
+- Creating least privilege security groups based on the analyzed data.
+- Testing the new security group rules in a staging environment before applying
+them to production.
 
 ## Audit
 

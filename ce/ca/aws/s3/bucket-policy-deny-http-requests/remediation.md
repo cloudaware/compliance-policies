@@ -6,7 +6,7 @@
 2. Select the Check box next to the Bucket.
 3. Click on `Permissions`.
 4. Click `Bucket Policy`.
-5. Add this to the existing policy filling in the required information:
+5. Add either of the following to the existing policy, filling in the required information:
 
 ```json
 {
@@ -18,6 +18,26 @@
      "Condition": {
         "Bool": {
             "aws:SecureTransport": "false"
+        }
+    }
+}
+```
+
+or
+
+```json
+{
+    "Sid": "<optional>",
+    "Effect": "Deny",
+    "Principal": "*",
+    "Action": "s3:*",
+    "Resource": [
+        "arn:aws:s3:::<bucket_name>",
+        "arn:aws:s3:::<bucket_name>/*"
+    ],
+    "Condition": {
+        "NumericLessThan": {
+            "s3:TlsVersion": "1.2"
         }
     }
 }
@@ -48,7 +68,7 @@
 aws s3api get-bucket-policy --bucket <bucket_name> --query Policy --output text > policy.json
 ```
 
-2. Modify the policy.json file by adding in this statement:
+2. Modify the `policy.json` file by adding either of the following:
 
 ```json
 {
@@ -60,6 +80,26 @@ aws s3api get-bucket-policy --bucket <bucket_name> --query Policy --output text 
      "Condition": {
         "Bool": {
             "aws:SecureTransport": "false"
+        }
+    }
+}
+```
+
+or
+
+```json
+{
+    "Sid": "<optional>",
+    "Effect": "Deny",
+    "Principal": "*",
+    "Action": "s3:*",
+    "Resource": [
+        "arn:aws:s3:::<bucket_name>",
+        "arn:aws:s3:::<bucket_name>/*"
+    ],
+    "Condition": {
+        "NumericLessThan": {
+            "s3:TlsVersion": "1.2"
         }
     }
 }

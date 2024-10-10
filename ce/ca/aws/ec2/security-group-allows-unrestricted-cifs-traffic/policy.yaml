@@ -1,0 +1,22 @@
+---
+names:
+  full: AWS EC2 Security Group allows unrestricted CIFS traffic
+  contextual: Security Group allows unrestricted CIFS traffic
+description: >
+  Common Internet File System (CIFS) is a network file-sharing protocol that allows
+  systems to share files over a network. However, unrestricted CIFS access can expose
+  your data to unauthorized users, leading to potential security risks. It is important to
+  restrict CIFS access to only trusted networks and users to prevent unauthorized access
+  and data breaches.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-aws-v4.0.0/05/01/02"
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+similarPolicies:
+  internal:
+    - dec-x-14bf01f3
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EC2/unrestricted-cifs-access.html
+      name: Unrestricted CIFS Access

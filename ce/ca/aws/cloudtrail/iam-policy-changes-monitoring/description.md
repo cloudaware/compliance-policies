@@ -27,9 +27,9 @@ aws cloudtrail describe-trails
 ```
 
 - Identify Multi region Cloudtrails: Trails with `IsMultiRegionTrail` set to `true`.
-- From value associated with CloudWatchLogsLogGroupArn note `<cloudtrail_log_group_name>`.
+- From value associated with `CloudWatchLogsLogGroupArn` note `<cloudtrail_log_group_name>`.
 
-Example: for CloudWatchLogsLogGroupArn that looks like `arn:aws:logs:<region>:<aws_account_number>:log-group:NewGroup:*`, `<cloudtrail_log_group_name>` would be `NewGroup`.
+  - Example: for CloudWatchLogsLogGroupArn that looks like `arn:aws:logs:<region>:<aws_account_number>:log-group:NewGroup:*`, `<cloudtrail_log_group_name>` would be `NewGroup`.
 
 - Ensure Identified Multi region CloudTrail is active:
 

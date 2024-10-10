@@ -12,9 +12,10 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cis-aws-v3.0.0/04/02
-  - /frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management
-  - /frameworks/cloudaware/identity-and-access-management/mfa-implementation
+  - "/frameworks/cis-aws-v3.0.0/04/02"
+  - "/frameworks/cis-aws-v4.0.0/04/02"
+  - "/frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-alert-management"
+  - "/frameworks/cloudaware/identity-and-access-management/mfa-implementation"
 similarPolicies:
   internal:
     - dec-x-42eac387

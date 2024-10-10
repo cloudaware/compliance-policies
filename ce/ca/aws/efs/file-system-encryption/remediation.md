@@ -7,13 +7,13 @@ Steps to create an EFS file system with data encrypted at rest:
 
 ## From Console
 
-1. Login to the AWS Management Console and Navigate to `Elastic File System` (EFS) dashboard.
+1. Login to the AWS Management Console and Navigate to `Elastic File System (EFS)` dashboard.
 2. Select `File Systems` from the left navigation panel.
 3. Click `Create File System` button from the dashboard top menu to start the file system setup process.
 4. On the `Configure file system access` configuration page, perform the following actions.
 
 - Choose the right VPC from the VPC dropdown list.
-- Within Create mount targets section, select the checkboxes for all of the Availability Zones (AZs) within the selected VPC. These will be your mount targets.
+- Within `Create mount targets` section, select the checkboxes for all of the Availability Zones (AZs) within the selected VPC. These will be your mount targets.
 - Click `Next step` to continue.
 
 5. Perform the following on the `Configure optional settings` page.
