@@ -12,6 +12,14 @@ conditions:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__lastUsedDate__c"
+  - status: INCOMPLIANT
+    currentStateMessage: "Role has not been used in the past 90 days"
+    remediationMessage: "Delete unused role"
+    condition:
+      IS_BEYOND_LAST_DAYS:
+        offsetDays: 90
+        arg:
+          EXTRACT: "CA10__lastUsedDate__c"
 otherwise:
   status: COMPLIANT
   currentStateMessage: "The role was used."

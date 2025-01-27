@@ -4,6 +4,7 @@ names:
   contextual: IAM Role Unused
 description: >
   IAM provides last used information to help you identify unused roles so that you can remove them.\\
+  An IAM role is considered unused if there has been no usage/activity for this role in the past 90 days.\\
   This helps you to better adhere to the best practice of least privilege.
 type: "BEST_PRACTICE"
 categories:

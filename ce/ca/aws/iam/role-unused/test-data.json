@@ -6,7 +6,7 @@
       "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
       "runtimeError": null
     },
-    "context": { "snapshotTime": "2025-01-24T10:27:23Z" },
+    "context": { "snapshotTime": "2025-01-27T10:28:24Z" },
     "Id": "111",
     "CA10__disappearanceTime__c": "2020-08-28T09:44:02Z",
     "CA10__lastUsedDate__c": null
@@ -18,21 +18,33 @@
       "conditionText": "extract('CA10__lastUsedDate__c').isEmpty()",
       "runtimeError": null
     },
-    "context": { "snapshotTime": "2025-01-24T10:27:23Z" },
-    "Id": "222",
+    "context": { "snapshotTime": "2025-01-27T10:28:24Z" },
+    "Id": "112",
     "CA10__disappearanceTime__c": null,
     "CA10__lastUsedDate__c": null
   },
   {
     "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__lastUsedDate__c').beyondLastDays(90)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-01-27T10:28:24Z" },
+    "Id": "113",
+    "CA10__disappearanceTime__c": null,
+    "CA10__lastUsedDate__c": "2023-08-09T12:48:19Z"
+  },
+  {
+    "expectedResult": {
       "status": "COMPLIANT",
-      "conditionIndex": "200",
+      "conditionIndex": "300",
       "conditionText": "otherwise",
       "runtimeError": null
     },
-    "context": { "snapshotTime": "2025-01-24T10:27:23Z" },
-    "Id": "333",
+    "context": { "snapshotTime": "2025-01-27T10:28:24Z" },
+    "Id": "114",
     "CA10__disappearanceTime__c": null,
-    "CA10__lastUsedDate__c": "2025-01-23T23:17:20Z"
+    "CA10__lastUsedDate__c": "2025-01-26T07:32:19Z"
   }
 ]
