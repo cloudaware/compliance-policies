@@ -1,0 +1,19 @@
+---
+names:
+  full: AWS EC2 Security Group allows unrestricted traffic to Oracle DBMS
+  contextual: Security Group allows unrestricted traffic to Oracle DBMS
+description: >
+  Ensure that AWS EC2 Security Groups are configured to restrict inbound traffic 
+  to Oracle DBMS (ports 1521, 1830, 2483 and 2484) by limiting access to trusted 
+  IP addresses or internal networks. 
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+similarPolicies:
+  internal:
+    - dec-z-c82c9f97
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EC2/unrestricted-oracle-access.html
+      name: Unrestricted Oracle Access

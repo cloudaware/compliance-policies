@@ -11,7 +11,7 @@ conditions:
     condition:
       NOT:
         arg:
-          CONTAINS_IGNORE_CASE: 
+          CONTAINS: 
             arg:
               EXTRACT: "CA10__networkAclsBypass__c"
             substring:

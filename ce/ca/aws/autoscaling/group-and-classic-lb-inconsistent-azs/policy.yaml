@@ -1,0 +1,16 @@
+---
+names:
+  full: AWS EC2 Auto Scaling Group and Classic Load Balancer AZs are inconsistent
+  contextual: Auto Scaling Group and Classic Load Balancer AZs are inconsistent
+description: >
+  Ensure that AWS Auto Scaling Groups (ASGs) and Classic Load Balancers (CLBs) 
+  are configured to share the same Availability Zones (AZs). This helps optimize 
+  application performance by utilizing AWS's low-latency network links across 
+  the scaling environment.
+categories:
+  - "PERFORMANCE"
+  - "COST"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-performance/resource-configuration"
+  - "/frameworks/cloudaware/cost-management/optimization"

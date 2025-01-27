@@ -33,7 +33,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "199",
-            "conditionText": "extract('CA10__status__c') != 'ISSUED' && extract('CA10__domainName__c').startsWithCaseSensitive('*')",
+            "conditionText": "extract('CA10__status__c') != 'ISSUED' && extract('CA10__domainName__c').startsWith('*')",
             "runtimeError": null
         },
         "context": {

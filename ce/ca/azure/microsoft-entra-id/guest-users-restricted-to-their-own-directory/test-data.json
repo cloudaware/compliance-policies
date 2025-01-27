@@ -1,0 +1,75 @@
+[
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10Z1__Azure_Active_Directory_Auth_Policies__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-11T19:24:25Z"
+        },
+        "Id": "test1",
+        "CA10Z1__Azure_Active_Directory_Auth_Policies__r": [
+            {
+                "Id": "test1_1",
+                "CA10Z1__disappearanceTime__c": null,
+                "CA10Z1__guestUserRoleId__c": "10dae51f-b6af-4016-8d66-8c2a99b929b3",
+                "CA10Z1__activeDirectory__c": "test1"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10Z1__Azure_Active_Directory_Auth_Policies__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-11T19:24:25Z"
+        },
+        "Id": "test2",
+        "CA10Z1__Azure_Active_Directory_Auth_Policies__r": [
+            {
+                "Id": "test2_1",
+                "CA10Z1__disappearanceTime__c": null,
+                "CA10Z1__guestUserRoleId__c": "a0b1b346-4d3e-4e8b-98f8-753987be4970",
+                "CA10Z1__activeDirectory__c": "test2"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10Z1__Azure_Active_Directory_Auth_Policies__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-11T19:24:25Z"
+        },
+        "Id": "test3",
+        "CA10Z1__Azure_Active_Directory_Auth_Policies__r": [
+            {
+                "Id": "test3_1",
+                "CA10Z1__disappearanceTime__c": null,
+                "CA10Z1__guestUserRoleId__c": "2af84b1e-32c8-42b7-82bc-daa82404023b",
+                "CA10Z1__activeDirectory__c": "test3"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-11T19:24:25Z"
+        },
+        "Id": "test4",
+        "CA10Z1__Azure_Active_Directory_Auth_Policies__r": []
+    }
+]

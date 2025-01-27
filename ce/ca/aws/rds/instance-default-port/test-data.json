@@ -33,7 +33,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('CA10__endpointPort__c') == '1521' && extract('CA10__engine__c').startsWithCaseSensitive('oracle-')",
+            "conditionText": "extract('CA10__endpointPort__c') == '1521' && extract('CA10__engine__c').startsWith('oracle-')",
             "runtimeError": null
         },
         "context": {
@@ -63,7 +63,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "499",
-            "conditionText": "extract('CA10__endpointPort__c') == '1433' && extract('CA10__engine__c').startsWithCaseSensitive('sqlserver-')",
+            "conditionText": "extract('CA10__endpointPort__c') == '1433' && extract('CA10__engine__c').startsWith('sqlserver-')",
             "runtimeError": null
         },
         "context": {
@@ -93,7 +93,7 @@
         "expectedResult": {
             "status": "INAPPLICABLE",
             "conditionIndex": "699",
-            "conditionText": "extract('CA10__engine__c') != 'aurora' && extract('CA10__engine__c') != 'aurora-mysql' && extract('CA10__engine__c') != 'mariadb' && extract('CA10__engine__c') != 'mysql' && extract('CA10__engine__c') != 'docdb' && extract('CA10__engine__c') != 'aurora-postgresql' && extract('CA10__engine__c') != 'postgres' && not(extract('CA10__engine__c').startsWithCaseSensitive('oracle-')) && not(extract('CA10__engine__c').startsWithCaseSensitive('sqlserver-'))",
+            "conditionText": "extract('CA10__engine__c') != 'aurora' && extract('CA10__engine__c') != 'aurora-mysql' && extract('CA10__engine__c') != 'mariadb' && extract('CA10__engine__c') != 'mysql' && extract('CA10__engine__c') != 'docdb' && extract('CA10__engine__c') != 'aurora-postgresql' && extract('CA10__engine__c') != 'postgres' && not(extract('CA10__engine__c').startsWith('oracle-')) && not(extract('CA10__engine__c').startsWith('sqlserver-'))",
             "runtimeError": null
         },
         "context": {

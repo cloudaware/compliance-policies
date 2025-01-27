@@ -1,0 +1,20 @@
+---
+names:
+  full: AWS EC2 Security Group allows unrestricted traffic to MongoDB
+  contextual: Security Group allows unrestricted traffic to MongoDB
+description: >
+  Ensure that AWS EC2 Security Groups are configured to restrict access to 
+  MongoDB. This involves reviewing the Security Group rules to prevent 
+  unrestricted access (0.0.0.0/0) to MongoDB on ports 27017-27020 and ensuring 
+  that it is only accessible by trusted sources.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+similarPolicies:
+  internal:
+    - dec-x-63737248
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EC2/unrestricted-mongodb-access.html
+      name: Unrestricted MongoDB Access

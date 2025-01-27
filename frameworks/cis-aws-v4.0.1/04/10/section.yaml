@@ -1,0 +1,12 @@
+---
+name: 4.10 Ensure security group changes are monitored (Manual)
+description: |-
+  Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to
+  CloudWatch Logs or an external Security Information and Event Management (SIEM)
+  environment, and establishing corresponding metric filters and alarms.
+
+  Security groups are stateful packet filters that control ingress and egress traffic within a
+  VPC.
+
+  It is recommended that a metric filter and alarm be established to detect changes to
+  security groups.

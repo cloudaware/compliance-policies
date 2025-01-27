@@ -11,7 +11,7 @@ conditions:
     condition:
       AND:
         args:
-          - CONTAINS_IGNORE_CASE:
+          - CONTAINS:
               arg:
                 EXTRACT: "caJsonQueryBoolean__securityCenterContacts_default_roles__c"
               substring:

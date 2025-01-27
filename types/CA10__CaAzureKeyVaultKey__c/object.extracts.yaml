@@ -12,3 +12,12 @@ extracts:
     value: 
       FIELD:
         path: "CA10__expirationDate__c"
+# Nullable
+  - name: "CA10__lifetimeActions__c"
+    value: 
+      FIELD:
+        path: "CA10__lifetimeActions__c"
+        # undeterminedIf:
+        #   noAccessDelegate:
+        #     path: "CA10__lifetimeActions__c"
+        #     currentStateMessage: "Unable to determine Key Rotation Policy. Possible permission issue with keys/getrotationpolicy"

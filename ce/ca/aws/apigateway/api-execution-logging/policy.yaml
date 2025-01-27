@@ -1,0 +1,17 @@
+---
+names:
+  full: AWS API Gateway API Execution Logging in CloudWatch is not enabled
+  contextual: API Execution Logging in CloudWatch is not enabled
+description: >
+  Ensure that CloudWatch execution logging is enabled for APIs in API Gateway.
+  Execution logging for API Gateway allows tracking of API requests and responses 
+  in CloudWatch, providing insights into API usage and facilitating troubleshooting.
+categories:
+  - "PERFORMANCE"
+  - "RELIABILITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration"
+similarPolicies:
+  internal:
+    - "dec-x-2ac6c302"

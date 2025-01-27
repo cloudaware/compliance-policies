@@ -1,0 +1,61 @@
+---
+inputObject: "CA10__CaAzureActiveDirectory__c"
+testData:
+  - file: "test-data.json"
+conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The role templateId is set to either User or Guest User."
+        remediationMessage: "Consider updating the templateId to the Restricted Guest User role."
+        condition:
+          RELATED_LIST_HAS:
+            status: "INCOMPLIANT"
+            relationshipName: "CA10Z1__Azure_Active_Directory_Auth_Policies__r"
+      - status: "COMPLIANT"
+        currentStateMessage: "The role templateId is set to Restricted Guest User."
+        condition:
+          RELATED_LIST_HAS:
+            status: "COMPLIANT"
+            relationshipName: "CA10Z1__Azure_Active_Directory_Auth_Policies__r"
+      - status: "UNDETERMINED"
+        currentStateMessage: "Unable to determine Guest User role."
+        condition:
+          RELATED_LIST_HAS:
+            status: "UNDETERMINED"
+            relationshipName: "CA10Z1__Azure_Active_Directory_Auth_Policies__r"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "The Authorization Policy for Microsoft Entra is not present in the CMDB."
+relatedLists:
+  - relationshipName: "CA10Z1__Azure_Active_Directory_Auth_Policies__r"
+    importExtracts:
+      - file: "/types/CA10Z1__CaAzureActiveDirectoryAuthPolicy__c/object.extracts.yaml"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The role templateId is set to User."
+        remediationMessage: "Consider updating the templateId to the Restricted Guest User role."
+        condition:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10Z1__guestUserRoleId__c"
+            right:
+              TEXT: "a0b1b346-4d3e-4e8b-98f8-753987be4970"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The role templateId is set to Guest User."
+        remediationMessage: "Consider updating the templateId to the Restricted Guest User role."
+        condition:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10Z1__guestUserRoleId__c"
+            right:
+              TEXT: "10dae51f-b6af-4016-8d66-8c2a99b929b3"
+      - status: "COMPLIANT"
+        currentStateMessage: "The role templateId is set to Restricted Guest User."
+        condition:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10Z1__guestUserRoleId__c"
+            right:
+              TEXT: "2af84b1e-32c8-42b7-82bc-daa82404023b"
+    otherwise:
+      status: "UNDETERMINED"
+      currentStateMessage: "Unexpected value in the field."

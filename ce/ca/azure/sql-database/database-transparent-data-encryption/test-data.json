@@ -19,7 +19,7 @@
         "expectedResult": {
             "status": "INAPPLICABLE",
             "conditionIndex": "199",
-            "conditionText": "extract('CA10__name__c') == 'master' && extract('CA10__kind__c').containsCaseSensitive('system')",
+            "conditionText": "extract('CA10__name__c') == 'master' && extract('CA10__kind__c').contains('system')",
             "runtimeError": null
         },
         "context": {

@@ -6,15 +6,14 @@ importExtracts:
   - file: /types/CA10__CaAwsAcmCertificate__c/object.extracts.yaml
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "Certificate expired"
-    remediationMessage: "Delete, re-import or renew expired certificate"
+    currentStateMessage: "This certificate is expired."
+    remediationMessage: "Delete, re-import or renew the expired certificate."
     condition:
       IS_EQUAL:
         left:
-          EXTRACT: CA10__status__c
+          EXTRACT: "CA10__status__c"
         right:
           TEXT: "EXPIRED"
-# TODO: Internal policy also checks NotAfter < Now, should we do the same?
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "Certificate is compliant"
+  currentStateMessage: "The certificate is not expired."

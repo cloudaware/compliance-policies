@@ -2,11 +2,19 @@
 names:
   full: AWS ACM Certificate Expired
   contextual: Certificate Expired
-description: "Ensure that all the expired Secure Sockets Layer/Transport Layer Security\
-  \ (SSL/TLS) certificates managed by AWS Certificate Manager are removed in order\
-  \ to adhere to Amazon Security Best Practices. Certificate Manager is the AWS service\
-  \ that lets you easily provision, manage, and deploy SSL/TLS certificates for use\
-  \ with other Amazon services such as Elastic Load Balancing and CloudFront."
+description: >
+  Remove all expired SSL/TLS certificates in AWS Certificate Manager to comply 
+  with Amazon Security Best Practices. This action mitigates risks associated 
+  with outdated certificates, which can lead to vulnerabilities and compromised 
+  security. AWS Certificate Manager provisions, manages, and deploys SSL/TLS 
+  certificates for services like Elastic Load Balancing and CloudFront, ensuring 
+  secure communications.
+categories:
+  - "SECURITY"
+  - "RELIABILITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/key-secret-certificate-management/expiration-management"
 similarPolicies:
   internal:
     - dec-x-689858b5

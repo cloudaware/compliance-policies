@@ -1,0 +1,62 @@
+---
+inputObject: "CA10__CaAzureCosmosDbAccount__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "A private endpoint is not used by the Cosmos DB Account."
+    remediationMessage: "Consider creating a private endpoint to limit the\ 
+      \ network traffic to approved sources."
+    condition:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10Z1__Azure_Private_Endpoint_Connections__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "the Cosmos DB Account uses a private endpoint."
+    condition:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10Z1__Azure_Private_Endpoint_Connections__r"
+  - status: "UNDETERMINED"
+    currentStateMessage: "Unable to determine the private endpoint status."
+    condition:
+      RELATED_LIST_HAS:
+        status: "UNDETERMINED"
+        relationshipName: "CA10Z1__Azure_Private_Endpoint_Connections__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "A private endpoint is not used by the Cosmos DB Account."
+  remediationMessage: "Consider creating a private endpoint to limit the\ 
+    \ network traffic to approved sources."
+relatedLists:
+  - relationshipName: "CA10Z1__Azure_Private_Endpoint_Connections__r"
+    recordTypes:
+      - "privateEndpointOnCosmosDbAccount"
+    importExtracts:
+    - file: "/types/CA10Z1__CaAzurePrivateEndpointConnection__c/object.extracts.yaml"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "A private endpoint does not exist."
+        remediationMessage: "Consider creating a private endpoint."
+        condition:
+          IS_EMPTY_LOOKUP: "CA10Z1__privateEndpoint__r"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The private link service connection is not approved."
+        remediationMessage: "Resource owner rejected or removed the connection."
+        condition:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10Z1__serviceConnectionStatus__c"
+            right:
+              TEXT: "Approved"
+      - status: "COMPLIANT"
+        currentStateMessage: "The private link service connection is approved."
+        condition:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10Z1__serviceConnectionStatus__c"
+            right:
+              TEXT: "Approved"
+    otherwise:
+      status: "UNDETERMINED"
+      currentStateMessage: "Unexpected value in the field."

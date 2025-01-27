@@ -1,0 +1,8 @@
+---
+name: 1.16 Ensure IAM policies that allow full "*:*" administrative privileges are not attached (Automated)
+description: >
+  IAM policies are the means by which privileges are granted to users, groups, or roles. It
+  is recommended and considered standard security advice to grant least privilege—that
+  is, granting only the permissions required to perform a task. Determine what users need
+  to do, and then craft policies for them that allow the users to perform only those tasks,
+  instead of granting full administrative privileges.

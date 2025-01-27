@@ -1,0 +1,16 @@
+---
+names:
+  full: AWS API Gateway REST API Stage X-Ray Tracing is not enabled
+  contextual: REST API Stage X-Ray Tracing is not enabled
+description: >
+  Ensure AWS X-Ray active tracing is enabled for API Gateway REST API Stages. 
+  This functionality captures real-time metrics and insights into API request 
+  flows, helping monitor and optimize performance.
+categories:
+  - "PERFORMANCE"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-performance/resource-configuration"
+similarPolicies:
+  internal:
+    - "dec-x-82388e10"

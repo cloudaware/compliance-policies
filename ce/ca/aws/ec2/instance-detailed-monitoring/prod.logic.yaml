@@ -1,25 +1,35 @@
 ---
 inputObject: "CA10__CaAwsInstance__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsInstance__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
 conditions:
-  - status: "INCOMPLIANT"
-    currentStateMessage: "Instance is running without detailed monitoring enabled"
-    remediationMessage: "Enable detailed monitoring for instance"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The EC2 instance is not running."
     condition:
-      AND:
-        args:
-          - IS_EQUAL:
-              left:
-                FIELD: 
-                  path: "CA10__stateName__c"
-              right:
-                TEXT: "running"
-          - IS_EQUAL:
-              left:
-                FIELD: 
-                  path: "CA10__monitoringState__c"
-              right:
-                TEXT: "disabled"
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__stateName__c"
+        right:
+          TEXT: "running"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The instance is running without detailed monitoring enabled."
+    remediationMessage: "Consider enabling detailed monitoring for the instance."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__monitoringState__c"
+        right:
+          TEXT: "disabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "Detailed monitoring for the instance is enabled."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__monitoringState__c"
+        right:
+          TEXT: "enabled"
 otherwise:
-  status: "COMPLIANT"
-  currentStateMessage: "Instance has detailed monitoring enabled or instance is not\
-    \ running"
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

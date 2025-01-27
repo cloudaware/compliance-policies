@@ -6,75 +6,6 @@
       "type" : "string",
       "enum" : [ "NOBODY", "SAME_ACCOUNT", "SAME_ORG", "TRUSTED_PRINCIPAL", "AWS_SERVICE", "EXTERNAL_PRINCIPAL", "ANONYMOUS_PRINCIPAL" ]
     },
-    "AttributeValue" : {
-      "type" : "object",
-      "properties" : {
-        "arg" : {
-          "allOf" : [ {
-            "$ref" : "#/definitions/OpAttributes"
-          }, {
-            "description" : "Attributes from where to retrieve an attribute with a name 'key'"
-          } ]
-        },
-        "key" : {
-          "allOf" : [ {
-            "$ref" : "#/definitions/OpText"
-          }, {
-            "description" : "The name of an attribute to get from 'arg'"
-          } ]
-        },
-        "undeterminedIf" : {
-          "allOf" : [ {
-            "$ref" : "#/definitions/AttributeValueUndeterminedIf"
-          }, {
-            "description" : "Checks that will return UNDETERMINED status if satisfied"
-          } ]
-        }
-      },
-      "required" : [ "arg", "key", "undeterminedIf" ],
-      "description" : "Operation that gets the value of an attribute with specified 'key' from attributes 'arg'",
-      "additionalProperties" : false
-    },
-    "AttributeValueWrapper" : {
-      "type" : "object",
-      "properties" : {
-        "ATTRIBUTE_VALUE" : {
-          "$ref" : "#/definitions/AttributeValue"
-        }
-      },
-      "required" : [ "ATTRIBUTE_VALUE" ]
-    },
-    "AttributesFrom" : {
-      "type" : "object",
-      "properties" : {
-        "arg" : {
-          "allOf" : [ {
-            "$ref" : "#/definitions/OpText"
-          }, {
-            "description" : "The string that contains a serialized attributes"
-          } ]
-        },
-        "undeterminedIf" : {
-          "allOf" : [ {
-            "$ref" : "#/definitions/AttributesFromUndeterminedIf"
-          }, {
-            "description" : "Checks that will return UNDETERMINED status if satisfied"
-          } ]
-        }
-      },
-      "required" : [ "arg" ],
-      "description" : "Operation that returns an Attributes from a string 'arg'",
-      "additionalProperties" : false
-    },
-    "AttributesFromWrapper" : {
-      "type" : "object",
-      "properties" : {
-        "ATTRIBUTES_FROM" : {
-          "$ref" : "#/definitions/AttributesFrom"
-        }
-      },
-      "required" : [ "ATTRIBUTES_FROM" ]
-    },
     "AwsPolicyAllows" : {
       "type" : "object",
       "properties" : {
@@ -109,52 +40,6 @@
         }
       },
       "required" : [ "AWS_POLICY_ALLOWS" ]
-    },
-    "Between" : {
-      "type" : "object",
-      "properties" : {
-        "exclusiveFrom" : {
-          "type" : "boolean",
-          "description" : "Whether the lower range boundary is exclusive. By default or if this property is absent - inclusive"
-        },
-        "exclusiveTo" : {
-          "type" : "boolean",
-          "description" : "Whether the higher range boundary is exclusive. By default or if this property is absent - inclusive"
-        },
-        "arg" : {
-          "allOf" : [ {
-            "$ref" : "#/definitions/OpNumber"
-          }, {
-            "description" : "Argument to be checked against the range"
-          } ]
-        },
-        "rangeFrom" : {
-          "allOf" : [ {
-            "$ref" : "#/definitions/OpNumber"
-          }, {
-            "description" : "Lower boundary of the range. Inclusive by default, can be switched to exclusive with 'exclusiveFrom'"
-          } ]
-        },
-        "rangeTo" : {
-          "allOf" : [ {
-            "$ref" : "#/definitions/OpNumber"
-          }, {
-            "description" : "Higher boundary of the range. Inclusive by default, can be switched to exclusive with 'exclusiveTo'"
-          } ]
-        }
-      },
-      "required" : [ "arg", "rangeFrom", "rangeTo" ],
-      "description" : "Operation that checks if argument 'arg' is inside the specified range (from 'rangeFrom' to 'rangeTo'). Support both boundaries to be either inclusive or exclusive (inclusive by default). Works with numbers only.",
-      "additionalProperties" : false
-    },
-    "BetweenWrapper" : {
-      "type" : "object",
-      "properties" : {
-        "BETWEEN" : {
-          "$ref" : "#/definitions/Between"
-        }
-      },
-      "required" : [ "BETWEEN" ]
     },
     "BooleanFrom" : {
       "type" : "object",
@@ -736,6 +621,34 @@
       "type" : "string",
       "const" : "GCP_DURATION"
     },
+    "GcpLoggingQueryMatch" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/OpText"
+          }, {
+            "description" : "The string that contains GCP Logging query"
+          } ]
+        },
+        "value" : {
+          "type" : "string",
+          "description" : "GCP Logging query for comparing with arg"
+        }
+      },
+      "required" : [ "arg", "value" ],
+      "description" : "An operation that check if a GCP Logging query matched or not to another one",
+      "additionalProperties" : false
+    },
+    "GcpLoggingQueryMatchWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "GCP_LOGGING_QUERY_MATCH" : {
+          "$ref" : "#/definitions/GcpLoggingQueryMatch"
+        }
+      },
+      "required" : [ "GCP_LOGGING_QUERY_MATCH" ]
+    },
     "IsDisappeared" : {
       "type" : "object",
       "additionalProperties" : false
@@ -1164,13 +1077,7 @@
     },
     "Op" : {
       "oneOf" : [ {
-        "$ref" : "#/definitions/AttributeValueWrapper"
-      }, {
-        "$ref" : "#/definitions/AttributesFromWrapper"
-      }, {
         "$ref" : "#/definitions/AwsPolicyAllowsWrapper"
-      }, {
-        "$ref" : "#/definitions/BetweenWrapper"
       }, {
         "$ref" : "#/definitions/BooleanFromWrapper"
       }, {
@@ -1220,6 +1127,8 @@
       }, {
         "$ref" : "#/definitions/FieldReferenceWrapper"
       }, {
+        "$ref" : "#/definitions/GcpLoggingQueryMatchWrapper"
+      }, {
         "$ref" : "#/definitions/IsDisappearedWrapper"
       }, {
         "$ref" : "#/definitions/IsEmptyWrapper"
@@ -1258,17 +1167,9 @@
       }, {
         "$ref" : "#/definitions/TextPatternContainsWrapper"
       }, {
-        "$ref" : "#/definitions/TextPatternContainsIgnoreCaseWrapper"
-      }, {
         "$ref" : "#/definitions/TextPatternEndsWithWrapper"
       }, {
-        "$ref" : "#/definitions/TextPatternEndsWithIgnoreCaseWrapper"
-      }, {
-        "$ref" : "#/definitions/TextPatternRegexMatchesWrapper"
-      }, {
         "$ref" : "#/definitions/TextPatternStartsWithWrapper"
-      }, {
-        "$ref" : "#/definitions/TextPatternStartsWithIgnoreCaseWrapper"
       }, {
         "$ref" : "#/definitions/UnitTestWrapper"
       }, {
@@ -1279,24 +1180,9 @@
         "$ref" : "#/definitions/UnitTestRuntimeErrorWrapper"
       } ]
     },
-    "OpAttributes" : {
-      "oneOf" : [ {
-        "$ref" : "#/definitions/AttributesFromWrapper"
-      }, {
-        "$ref" : "#/definitions/DebugWrapper"
-      }, {
-        "$ref" : "#/definitions/ExtractReference"
-      }, {
-        "$ref" : "#/definitions/UnitTestNullWrapper"
-      }, {
-        "$ref" : "#/definitions/UnitTestRuntimeErrorWrapper"
-      } ]
-    },
     "OpBoolean" : {
       "oneOf" : [ {
         "$ref" : "#/definitions/AwsPolicyAllowsWrapper"
-      }, {
-        "$ref" : "#/definitions/BetweenWrapper"
       }, {
         "$ref" : "#/definitions/BooleanFromWrapper"
       }, {
@@ -1330,6 +1216,8 @@
       }, {
         "$ref" : "#/definitions/FieldReferenceWrapper"
       }, {
+        "$ref" : "#/definitions/GcpLoggingQueryMatchWrapper"
+      }, {
         "$ref" : "#/definitions/IsDisappearedWrapper"
       }, {
         "$ref" : "#/definitions/IsEmptyWrapper"
@@ -1358,17 +1246,9 @@
       }, {
         "$ref" : "#/definitions/TextPatternContainsWrapper"
       }, {
-        "$ref" : "#/definitions/TextPatternContainsIgnoreCaseWrapper"
-      }, {
         "$ref" : "#/definitions/TextPatternEndsWithWrapper"
       }, {
-        "$ref" : "#/definitions/TextPatternEndsWithIgnoreCaseWrapper"
-      }, {
-        "$ref" : "#/definitions/TextPatternRegexMatchesWrapper"
-      }, {
         "$ref" : "#/definitions/TextPatternStartsWithWrapper"
-      }, {
-        "$ref" : "#/definitions/TextPatternStartsWithIgnoreCaseWrapper"
       }, {
         "$ref" : "#/definitions/UnitTestWrapper"
       }, {
@@ -1401,6 +1281,8 @@
         "$ref" : "#/definitions/ExtractReference"
       }, {
         "$ref" : "#/definitions/FieldReferenceWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestDateTime"
       }, {
         "$ref" : "#/definitions/UnitTestNullWrapper"
       }, {
@@ -1443,8 +1325,6 @@
     },
     "OpText" : {
       "oneOf" : [ {
-        "$ref" : "#/definitions/AttributeValueWrapper"
-      }, {
         "$ref" : "#/definitions/ConstText"
       }, {
         "$ref" : "#/definitions/DebugWrapper"
@@ -1454,8 +1334,6 @@
         "$ref" : "#/definitions/FieldReferenceWrapper"
       }, {
         "$ref" : "#/definitions/JsonQueryTextWrapper"
-      }, {
-        "$ref" : "#/definitions/UnitTestDateTime"
       }, {
         "$ref" : "#/definitions/UnitTestNullWrapper"
       }, {
@@ -1617,28 +1495,6 @@
       },
       "required" : [ "CONTAINS" ]
     },
-    "TextPatternContainsIgnoreCase" : {
-      "type" : "object",
-      "properties" : {
-        "arg" : {
-          "$ref" : "#/definitions/OpText"
-        },
-        "substring" : {
-          "$ref" : "#/definitions/OpText"
-        }
-      },
-      "required" : [ "arg", "substring" ],
-      "additionalProperties" : false
-    },
-    "TextPatternContainsIgnoreCaseWrapper" : {
-      "type" : "object",
-      "properties" : {
-        "CONTAINS_IGNORE_CASE" : {
-          "$ref" : "#/definitions/TextPatternContainsIgnoreCase"
-        }
-      },
-      "required" : [ "CONTAINS_IGNORE_CASE" ]
-    },
     "TextPatternEndsWith" : {
       "type" : "object",
       "properties" : {
@@ -1660,50 +1516,6 @@
         }
       },
       "required" : [ "ENDS_WITH" ]
-    },
-    "TextPatternEndsWithIgnoreCase" : {
-      "type" : "object",
-      "properties" : {
-        "arg" : {
-          "$ref" : "#/definitions/OpText"
-        },
-        "suffix" : {
-          "$ref" : "#/definitions/OpText"
-        }
-      },
-      "required" : [ "arg", "suffix" ],
-      "additionalProperties" : false
-    },
-    "TextPatternEndsWithIgnoreCaseWrapper" : {
-      "type" : "object",
-      "properties" : {
-        "ENDS_WITH_IGNORE_CASE" : {
-          "$ref" : "#/definitions/TextPatternEndsWithIgnoreCase"
-        }
-      },
-      "required" : [ "ENDS_WITH_IGNORE_CASE" ]
-    },
-    "TextPatternRegexMatches" : {
-      "type" : "object",
-      "properties" : {
-        "arg" : {
-          "$ref" : "#/definitions/OpText"
-        },
-        "regex" : {
-          "$ref" : "#/definitions/OpText"
-        }
-      },
-      "required" : [ "arg", "regex" ],
-      "additionalProperties" : false
-    },
-    "TextPatternRegexMatchesWrapper" : {
-      "type" : "object",
-      "properties" : {
-        "REGEX_MATCHES" : {
-          "$ref" : "#/definitions/TextPatternRegexMatches"
-        }
-      },
-      "required" : [ "REGEX_MATCHES" ]
     },
     "TextPatternStartsWith" : {
       "type" : "object",
@@ -1727,65 +1539,6 @@
       },
       "required" : [ "STARTS_WITH" ]
     },
-    "TextPatternStartsWithIgnoreCase" : {
-      "type" : "object",
-      "properties" : {
-        "arg" : {
-          "$ref" : "#/definitions/OpText"
-        },
-        "prefix" : {
-          "$ref" : "#/definitions/OpText"
-        }
-      },
-      "required" : [ "arg", "prefix" ],
-      "additionalProperties" : false
-    },
-    "TextPatternStartsWithIgnoreCaseWrapper" : {
-      "type" : "object",
-      "properties" : {
-        "STARTS_WITH_IGNORE_CASE" : {
-          "$ref" : "#/definitions/TextPatternStartsWithIgnoreCase"
-        }
-      },
-      "required" : [ "STARTS_WITH_IGNORE_CASE" ]
-    },
-    "AttributesFromUndeterminedIf" : {
-      "type" : "object",
-      "properties" : {
-        "isEmpty" : {
-          "type" : "string",
-          "description" : "currentStateMessage returned in the supplied value is empty"
-        }
-      },
-      "required" : [ "isEmpty" ],
-      "additionalProperties" : false
-    },
-    "BooleanFromUndeterminedIf" : {
-      "type" : "object",
-      "properties" : {
-        "isEmpty" : {
-          "type" : "string",
-          "description" : "currentStateMessage returned in the supplied value is empty"
-        }
-      },
-      "required" : [ "isEmpty" ],
-      "additionalProperties" : false
-    },
-    "DateTimeFromUndeterminedIf" : {
-      "type" : "object",
-      "properties" : {
-        "isEmpty" : {
-          "type" : "string",
-          "description" : "currentStateMessage returned if the supplied value is empty"
-        },
-        "invalidFormat" : {
-          "type" : "string",
-          "description" : "currentStateMessage returned if supplied value can not be parsed into the requested format"
-        }
-      },
-      "required" : [ "invalidFormat" ],
-      "additionalProperties" : false
-    },
     "FieldReferenceUndeterminedIf" : {
       "type" : "object",
       "properties" : {
@@ -1803,21 +1556,6 @@
       },
       "additionalProperties" : false
     },
-    "DurationFromUndeterminedIf" : {
-      "type" : "object",
-      "properties" : {
-        "isEmpty" : {
-          "type" : "string",
-          "description" : "currentStateMessage returned if the supplied value is empty"
-        },
-        "invalidFormat" : {
-          "type" : "string",
-          "description" : "currentStateMessage returned if supplied value can not be parsed into the requested format"
-        }
-      },
-      "required" : [ "invalidFormat" ],
-      "additionalProperties" : false
-    },
     "JsonFromUndeterminedIf" : {
       "type" : "object",
       "properties" : {
@@ -1833,23 +1571,45 @@
       "required" : [ "isInvalid" ],
       "additionalProperties" : false
     },
-    "AttributeValueUndeterminedIf" : {
+    "DateTimeFromUndeterminedIf" : {
       "type" : "object",
       "properties" : {
-        "duplicateKey" : {
+        "isEmpty" : {
           "type" : "string",
-          "description" : "currentStateMessage returned in case the requested key has multiple values"
+          "description" : "currentStateMessage returned if the supplied value is empty"
         },
-        "keyNotFound" : {
+        "invalidFormat" : {
           "type" : "string",
-          "description" : "currentStateMessage returned in case the requested key is not present in Attributes"
-        },
-        "valueIsEmpty" : {
-          "type" : "string",
-          "description" : "currentStateMessage returned in case the value of requested key satisfies IS_EMPTY operation"
+          "description" : "currentStateMessage returned if supplied value can not be parsed into the requested format"
         }
       },
-      "required" : [ "duplicateKey" ],
+      "required" : [ "invalidFormat" ],
+      "additionalProperties" : false
+    },
+    "DurationFromUndeterminedIf" : {
+      "type" : "object",
+      "properties" : {
+        "isEmpty" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned if the supplied value is empty"
+        },
+        "invalidFormat" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned if supplied value can not be parsed into the requested format"
+        }
+      },
+      "required" : [ "invalidFormat" ],
+      "additionalProperties" : false
+    },
+    "BooleanFromUndeterminedIf" : {
+      "type" : "object",
+      "properties" : {
+        "isEmpty" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned in the supplied value is empty"
+        }
+      },
+      "required" : [ "isEmpty" ],
       "additionalProperties" : false
     },
     "UnitTest" : {
@@ -1905,7 +1665,7 @@
     },
     "UnitTestReturnType" : {
       "type" : "string",
-      "enum" : [ "TEXT", "BYTES", "NUMBER", "BOOLEAN", "DATE_TIME", "COLLECTION", "ATTRIBUTES", "JSON", "DURATION" ]
+      "enum" : [ "TEXT", "BYTES", "NUMBER", "BOOLEAN", "DATE_TIME", "COLLECTION", "JSON", "DURATION" ]
     },
     "UnitTestRuntimeError" : {
       "type" : "object",

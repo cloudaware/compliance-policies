@@ -1,0 +1,97 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-11T16:52:50Z"
+        },
+        "Id": "test1",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": "2024-12-11T16:52:50Z",
+        "CA10__xrayTracingEnabled__c": "No",
+        "RecordType": {
+            "DeveloperName": "restApiStage",
+            "Id": "RecordTypeId"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "RecordType.DeveloperName != 'restApiStage'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-11T16:52:50Z"
+        },
+        "Id": "test2",
+        "RecordTypeId": "RecordTypeId2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__xrayTracingEnabled__c": "No",
+        "RecordType": {
+            "DeveloperName": "httpApiStage",
+            "Id": "RecordTypeId2"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__xrayTracingEnabled__c') == 'No'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-11T16:52:50Z"
+        },
+        "Id": "test3",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__xrayTracingEnabled__c": "No",
+        "RecordType": {
+            "DeveloperName": "restApiStage",
+            "Id": "RecordTypeId"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__xrayTracingEnabled__c') == 'Yes'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-11T16:52:50Z"
+        },
+        "Id": "test4",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__xrayTracingEnabled__c": "Yes",
+        "RecordType": {
+            "DeveloperName": "restApiStage",
+            "Id": "RecordTypeId"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-11T16:52:50Z"
+        },
+        "Id": "test5",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__xrayTracingEnabled__c": "",
+        "RecordType": {
+            "DeveloperName": "restApiStage",
+            "Id": "RecordTypeId"
+        }
+    }
+]

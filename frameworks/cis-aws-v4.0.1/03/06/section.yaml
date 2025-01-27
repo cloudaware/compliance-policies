@@ -1,0 +1,10 @@
+---
+name: 3.6 Ensure rotation for customer-created symmetric CMKs is enabled (Automated)
+description: >
+  AWS Key Management Service (KMS) allows customers to rotate the backing key,
+  which is key material stored within the KMS that is tied to the key ID of the customer-created
+  customer master key (CMK). The backing key is used to perform cryptographic
+  operations such as encryption and decryption. Automated key rotation currently retains
+  all prior backing keys so that decryption of encrypted data can occur transparently. It is
+  recommended that CMK key rotation be enabled for symmetric keys. Key rotation
+  cannot be enabled for any asymmetric CMK.

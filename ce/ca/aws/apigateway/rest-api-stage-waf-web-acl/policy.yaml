@@ -1,0 +1,17 @@
+---
+names:
+  full: AWS API Gateway REST API Stage is not associated with a WAF Web ACL
+  contextual: REST API Stage is not associated with a WAF Web ACL
+description: >
+  Ensure that each AWS API Gateway REST API stage is associated with a WAF Web 
+  ACL to enhance its protection against malicious web traffic. AWS WAF enables 
+  configuration of rules to block, allow, or count web requests based on custom 
+  security criteria.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+similarPolicies:
+  internal:
+    - "dec-x-bfdadcc4"

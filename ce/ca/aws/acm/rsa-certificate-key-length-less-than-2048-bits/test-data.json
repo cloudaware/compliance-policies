@@ -1,0 +1,62 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-10T20:07:16Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2024-12-05T15:45:56Z",
+        "CA10__status__c": "ISSUED",
+        "CA10__keyAlgorithm__c": "RSA-1024"
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__status__c') != 'ISSUED'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-10T20:07:16Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "EXPIRED",
+        "CA10__keyAlgorithm__c": "RSA-1024"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__keyAlgorithm__c') == 'RSA-1024'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-10T20:07:16Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ISSUED",
+        "CA10__keyAlgorithm__c": "RSA-1024"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "300",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-10T20:07:16Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ISSUED",
+        "CA10__keyAlgorithm__c": "RSA-2048"
+    }
+]

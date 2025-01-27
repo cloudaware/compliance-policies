@@ -1,0 +1,20 @@
+---
+names:
+  full: AWS EC2 Security Group allows unrestricted ICMP traffic
+  contextual: Security Group allows unrestricted ICMP traffic
+description: >
+  Ensure that unrestricted ICMP access (including ping requests) is blocked or 
+  limited to trusted IP addresses. This ensures that only necessary network 
+  diagnostics can occur, mitigating potential security risks associated with 
+  exposing ICMP to the public internet.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+similarPolicies:
+  internal:
+    - dec-x-42a09084
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EC2/unrestricted-icmp-access.html
+      name: Unrestricted ICMP Access

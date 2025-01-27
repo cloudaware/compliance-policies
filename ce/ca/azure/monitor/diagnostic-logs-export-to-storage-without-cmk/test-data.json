@@ -1,0 +1,132 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-12T04:22:47Z"
+        },
+        "Id": "test1",
+        "RecordTypeId": "RecordTypeId2",
+        "CA10__disappearanceTime__c": "2024-11-12T04:22:47Z",
+        "CA10__storageAccount__c": "",
+        "CA10__storageAccountId__c": "",
+        "RecordType": {
+            "DeveloperName": "caDiagnosticSettingOnAzureResource",
+            "Id": "RecordTypeId2"
+        },
+        "CA10__storageAccount__r": {
+            "Id": null,
+            "CA10__disappearanceTime__c": null,
+            "CA10__encryptionKeySource__c": null,
+            "CA10__encryptionKeyVaultUri__c": null
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "RecordType.DeveloperName != 'caDiagnosticSettingOnAzureSubscription'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-12T04:22:47Z"
+        },
+        "Id": "test2",
+        "RecordTypeId": "RecordTypeId2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__storageAccount__c": "",
+        "CA10__storageAccountId__c": "",
+        "RecordType": {
+            "DeveloperName": "caDiagnosticSettingOnAzureResource",
+            "Id": "RecordTypeId2"
+        },
+        "CA10__storageAccount__r": {
+            "Id": null,
+            "CA10__disappearanceTime__c": null,
+            "CA10__encryptionKeySource__c": null,
+            "CA10__encryptionKeyVaultUri__c": null
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "299",
+            "conditionText": "isEmptyLookup('CA10__storageAccount__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-12T04:22:47Z"
+        },
+        "Id": "test3",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__storageAccount__c": "",
+        "CA10__storageAccountId__c": "",
+        "RecordType": {
+            "DeveloperName": "caDiagnosticSettingOnAzureSubscription",
+            "Id": "RecordTypeId"
+        },
+        "CA10__storageAccount__r": {
+            "Id": null,
+            "CA10__disappearanceTime__c": null,
+            "CA10__encryptionKeySource__c": null,
+            "CA10__encryptionKeyVaultUri__c": null
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__storageAccount__r.CA10__encryptionKeySource__c') != 'Microsoft.Keyvault' && extract('CA10__storageAccount__r.CA10__encryptionKeyVaultUri__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-12T04:22:47Z"
+        },
+        "Id": "test4",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__storageAccount__c": "storageAccount4",
+        "CA10__storageAccountId__c": "storageAccountId4",
+        "RecordType": {
+            "DeveloperName": "caDiagnosticSettingOnAzureSubscription",
+            "Id": "RecordTypeId"
+        },
+        "CA10__storageAccount__r": {
+            "Id": "storageAccount4",
+            "CA10__disappearanceTime__c": null,
+            "CA10__encryptionKeySource__c": "Microsoft.Storage",
+            "CA10__encryptionKeyVaultUri__c": ""
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "extract('CA10__storageAccount__r.CA10__encryptionKeySource__c') == 'Microsoft.Keyvault' && extract('CA10__storageAccount__r.CA10__encryptionKeyVaultUri__c').isNotEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-12T04:22:47Z"
+        },
+        "Id": "test5",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__storageAccount__c": "storageAccount5",
+        "CA10__storageAccountId__c": "storageAccountId5",
+        "RecordType": {
+            "DeveloperName": "caDiagnosticSettingOnAzureSubscription",
+            "Id": "RecordTypeId"
+        },
+        "CA10__storageAccount__r": {
+            "Id": "storageAccount5",
+            "CA10__disappearanceTime__c": null,
+            "CA10__encryptionKeySource__c": "Microsoft.Keyvault",
+            "CA10__encryptionKeyVaultUri__c": "https://example.vault.azure.net/"
+        }
+    }
+]

@@ -1,0 +1,17 @@
+---
+inputObject: CA10__CaAwsRole__c
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsRole__c/object.extracts.yaml"
+conditions:
+  - status: INCOMPLIANT
+    currentStateMessage: "Role has not been used within the tracking period and meets the unused criteria"
+    remediationMessage: "Delete unused role"
+    condition:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__lastUsedDate__c"
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: "The role was used."

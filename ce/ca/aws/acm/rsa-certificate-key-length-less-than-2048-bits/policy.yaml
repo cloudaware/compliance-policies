@@ -1,0 +1,16 @@
+---
+names:
+  full: "AWS ACM RSA Certificate key length is less than 2048 bits"
+  contextual: "RSA Certificate key length is less than 2048 bits"
+description: >
+  Ensure that RSA certificates managed by AWS Certificate Manager (ACM) have a 
+  key length of at least 2,048 bits since the strength of encryption directly 
+  correlates with key size.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/key-secret-certificate-management/key-secret-certificate-configuration"
+similarPolicies:
+  internal:
+    - "dec-x-4de1c44e"

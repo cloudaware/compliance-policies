@@ -1,0 +1,18 @@
+---
+names:
+  full: AWS EC2 Security Group allows unrestricted NetBIOS traffic
+  contextual: Security Group allows unrestricted NetBIOS traffic
+description: >
+  Ensure that AWS EC2 security groups do not allow unrestricted NetBIOS traffic 
+  (TCP: 137, 139; UDP: 137, 138).
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+similarPolicies:
+  internal:
+    - dec-x-6eab9b88
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EC2/unrestricted-netbios-access.html
+      name: Unrestricted NetBIOS Access

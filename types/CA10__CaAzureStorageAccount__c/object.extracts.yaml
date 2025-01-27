@@ -156,3 +156,23 @@ extracts:
     value: 
       FIELD:
         path: "CA10__encryptionKeyVaultUri__c"
+# Nullable. 
+  - name: "CA10__blobRetentionPolicyDays__c"
+    value: 
+      FIELD:
+        path: "CA10__blobRetentionPolicyDays__c"
+# Values: Enabled, Disabled. Nullable. 
+  - name: "CA10__blobRetentionPolicyState__c"
+    value: 
+      FIELD:
+        path: "CA10__blobRetentionPolicyState__c"
+# Nullable. 
+  - name: "CA10__containerRetentionPolicyDays__c"
+    value: 
+      FIELD:
+        path: "CA10__containerRetentionPolicyDays__c"
+# Values: Enabled, Disabled. Nullable. 
+  - name: "CA10__containerRetentionPolicyState__c"
+    value: 
+      FIELD:
+        path: "CA10__containerRetentionPolicyState__c"

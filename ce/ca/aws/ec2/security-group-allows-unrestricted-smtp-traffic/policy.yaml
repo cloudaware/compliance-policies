@@ -1,0 +1,18 @@
+---
+names:
+  full: AWS EC2 Security Group allows unrestricted SMTP traffic
+  contextual: Security Group allows unrestricted SMTP traffic
+description: >
+  Ensure that AWS EC2 Security Groups are configured to restrict inbound SMTP 
+  traffic (port 25) to trusted IP addresses.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+similarPolicies:
+  internal:
+    - dec-x-11c3009f
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EC2/unrestricted-smtp-access.html
+      name: Unrestricted SMTP Access

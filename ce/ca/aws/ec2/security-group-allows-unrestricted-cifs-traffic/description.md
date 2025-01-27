@@ -23,33 +23,11 @@ sensitive data far outweigh the potential challenges.
 
 ## Audit
 
-### From Console
+This policy marks an EC2 Security Group as `INCOMPLIANT` if it contains a rule that meets all the following conditions:
 
-1. Login to the AWS Management Console.
-2. Navigate to the EC2 Dashboard and select the Security Groups section under Network & Security.
-3. Identify the security groups associated with instances or resources that may be using CIFS.
-4. Review the inbound rules of each security group to check for rules that allow unrestricted access on port 445 (the port used by CIFS).
-   - Specifically, look for inbound rules that allow access from 0.0.0.0/0 or
-   ::/0 on port 445.
-5. Document any instances where unrestricted access is allowed and verify whether it is necessary for the specific use case.
+- The `Direction` is set to **Inbound**.
+- The `Source IP Range` is **0.0.0.0/0** or **::/0**.
+- The `Protocol` is **All**, **tcp**, or **udp**.
+- The `From Port` and `To Port` fields include port **445**.
 
-### From Command Line
-
-1. Run the following command to list all security groups and identify those
-associated with CIFS:
-
-```sh
-aws ec2 describe-security-groups --region <region-name> --query 'SecurityGroups[*].GroupId'
-```
-
-2. Check for any inbound rules that allow unrestricted access on port 445 using the
-following command:
-
-```sh
-aws ec2 describe-security-groups --region <region-name> --group-ids <security-group-id> --query 'SecurityGroups[*].IpPermissions[?FromPort==`445`].{CIDR:IpRanges[*].CidrIp,Port:FromPort}'
-```
-
-- Look for `0.0.0.0/0` or `::/0` in the output, which indicates unrestricted
-access.
-
-3. Repeat the audit for other regions and security groups as necessary.
+The EC2 Security Group that does not contain a rule meeting all these conditions is considered `COMPLIANT`.

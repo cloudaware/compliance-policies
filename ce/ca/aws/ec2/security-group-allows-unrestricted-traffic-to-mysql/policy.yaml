@@ -1,0 +1,18 @@
+---
+names:
+  full: AWS EC2 Security Group allows unrestricted traffic to MySQL
+  contextual: Security Group allows unrestricted traffic to MySQL
+description: >
+  Ensure that AWS EC2 Security Groups are configured to restrict inbound access 
+  to MySQL instances on port 3306 by limiting access to trusted IP addresses or internal networks. 
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+similarPolicies:
+  internal:
+    - dec-x-3e379c67
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EC2/unrestricted-mysql-access.html
+      name: Unrestricted MySQL Access

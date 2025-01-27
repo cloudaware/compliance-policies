@@ -37,6 +37,7 @@
 ### Impact
 
 - Describe the potential negative outcomes if the issue is not addressed
+- Consequences of remediating this policy violations
 
 ### Audit
 

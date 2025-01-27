@@ -1,0 +1,201 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-05T19:15:56Z"
+        },
+        "Id": "test1",
+        "RecordTypeId": "RecordType",
+        "CA10__disappearanceTime__c": "2024-11-05T19:15:56Z",
+        "RecordType": {
+            "DeveloperName": "restApi",
+            "Id": "RecordType"
+        },
+        "CA10__AWS_API_Gateway_Stages__r": [
+            {
+                "Id": "test1_1",
+                "RecordTypeId": "RecordType",
+                "CA10__disappearanceTime__c": null,
+                "CA10__accessLoggingDestination__c": "",
+                "CA10__accessLoggingDestinationArn__c": "",
+                "CA10__restApi__c": "test1",
+                "RecordType": {
+                    "DeveloperName": "restApiStage",
+                    "Id": "RecordType"
+                },
+                "CA10__accessLoggingDestination__r": {
+                    "Id": null,
+                    "CA10__disappearanceTime__c": null
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_API_Gateway_Stages__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-05T19:15:56Z"
+        },
+        "Id": "test2",
+        "RecordTypeId": "restApiRecordType",
+        "CA10__disappearanceTime__c": null,
+        "RecordType": {
+            "DeveloperName": "restApi",
+            "Id": "restApiRecordType"
+        },
+        "CA10__AWS_API_Gateway_Stages__r": [
+            {
+                "Id": "test2_1",
+                "RecordTypeId": "restApiStageRecordType",
+                "CA10__disappearanceTime__c": null,
+                "CA10__accessLoggingDestination__c": "",
+                "CA10__accessLoggingDestinationArn__c": "",
+                "CA10__restApi__c": "test2",
+                "RecordType": {
+                    "DeveloperName": "restApiStage",
+                    "Id": "restApiStageRecordType"
+                },
+                "CA10__accessLoggingDestination__r": {
+                    "Id": null,
+                    "CA10__disappearanceTime__c": null
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_API_Gateway_Stages__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-05T19:15:56Z"
+        },
+        "Id": "test3",
+        "RecordTypeId": "restApiRecordType",
+        "CA10__disappearanceTime__c": null,
+        "RecordType": {
+            "DeveloperName": "restApi",
+            "Id": "restApiRecordType"
+        },
+        "CA10__AWS_API_Gateway_Stages__r": [
+            {
+                "Id": "test3_1",
+                "RecordTypeId": "restApiStageRecordType",
+                "CA10__disappearanceTime__c": null,
+                "CA10__accessLoggingDestination__c": "",
+                "CA10__accessLoggingDestinationArn__c": "accessLoggingDestinationArn",
+                "CA10__restApi__c": "test3",
+                "RecordType": {
+                    "DeveloperName": "restApiStage",
+                    "Id": "restApiStageRecordType"
+                },
+                "CA10__accessLoggingDestination__r": {
+                    "Id": null,
+                    "CA10__disappearanceTime__c": null
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_API_Gateway_Stages__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-05T19:15:56Z"
+        },
+        "Id": "test4",
+        "RecordTypeId": "restApiRecordType",
+        "CA10__disappearanceTime__c": null,
+        "RecordType": {
+            "DeveloperName": "restApi",
+            "Id": "restApiRecordType"
+        },
+        "CA10__AWS_API_Gateway_Stages__r": [
+            {
+                "Id": "test4_1",
+                "RecordTypeId": "restApiStageRecordType",
+                "CA10__disappearanceTime__c": null,
+                "CA10__accessLoggingDestination__c": "test4_2",
+                "CA10__accessLoggingDestinationArn__c": "accessLoggingDestinationArn",
+                "CA10__restApi__c": "test4",
+                "RecordType": {
+                    "DeveloperName": "restApiStage",
+                    "Id": "restApiStageRecordType"
+                },
+                "CA10__accessLoggingDestination__r": {
+                    "Id": "test4_2",
+                    "CA10__disappearanceTime__c": "2024-11-05T19:15:56Z"
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-05T19:15:56Z"
+        },
+        "Id": "test5",
+        "RecordTypeId": "RecordType",
+        "CA10__disappearanceTime__c": null,
+        "RecordType": {
+            "DeveloperName": "restApi",
+            "Id": "RecordType"
+        },
+        "CA10__AWS_API_Gateway_Stages__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-05T19:15:56Z"
+        },
+        "Id": "test6",
+        "RecordTypeId": "RecordType",
+        "CA10__disappearanceTime__c": null,
+        "RecordType": {
+            "DeveloperName": "restApi",
+            "Id": "RecordType"
+        },
+        "CA10__AWS_API_Gateway_Stages__r": [
+            {
+                "Id": "test6_1",
+                "RecordTypeId": "RecordType",
+                "CA10__disappearanceTime__c": null,
+                "CA10__accessLoggingDestination__c": "test6_2",
+                "CA10__accessLoggingDestinationArn__c": "accessLoggingDestinationArn",
+                "CA10__restApi__c": "test6",
+                "RecordType": {
+                    "DeveloperName": "restApiStage",
+                    "Id": "RecordType"
+                },
+                "CA10__accessLoggingDestination__r": {
+                    "Id": "test6_2",
+                    "CA10__disappearanceTime__c": null
+                }
+            }
+        ]
+    }
+]

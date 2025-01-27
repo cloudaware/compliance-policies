@@ -6,9 +6,9 @@ importExtracts:
   - file: /types/CA10__CaAwsAcmCertificate__c/object.extracts.yaml
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "Certificate is issued for a wildcard (*) domain"
+    currentStateMessage: "This certificate is issued for a wildcard (*) domain."
     remediationMessage: "Delete the wildcard certificate and add single domain certificates\
-      \ for each domain you use"
+      \ for each domain you use."
     condition:
       AND:
         args:
@@ -24,4 +24,4 @@ conditions:
                 TEXT: "*"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "Certificate is compliant"
+  currentStateMessage: "This is not a wildcard certificate."

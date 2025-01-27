@@ -1,0 +1,58 @@
+---
+inputObject: "CA10__CaAwsApiGatewayStage__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsApiGatewayRestApi__c/object.extracts.yaml"
+testData:
+  - file: test-data.json
+recordTypes:
+  - "restApiStage"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Stage belongs to a private API endpoint."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__restApi__r.CA10__endpointType__c"
+        right:
+          TEXT: "PRIVATE"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Stage doesn't have HTTP integrations."
+    condition:
+      RELATED_LIST_HAS_NO:
+        status: "COMPLIANT"
+        relationshipName: "CA10__restApi__r.CA10A1__AWS_API_Gateway_Methods__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Stage is not configured to use an SSL certificate."
+    remediationMessage: "Consider generating an SSL certificate for authentication."
+    condition:
+      IS_EMPTY_LOOKUP: "CA10__clientCertificate__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Stage is configured to use an SSL certificate."
+    condition:
+      NOT_EMPTY_LOOKUP: "CA10__clientCertificate__r"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."
+relatedLists:
+  - relationshipName: "CA10__restApi__r.CA10A1__AWS_API_Gateway_Methods__r"
+    importExtracts:
+    - file: "/types/CA10A1__CaAwsApiGatewayMethod__c/object.extracts.yaml"
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "This is an HTTP integration."
+        condition:
+          OR:
+            args:
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10A1__integrationType__c"
+                  right:
+                    TEXT: "HTTP"
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10A1__integrationType__c"
+                  right:
+                    TEXT: "HTTP_PROXY"
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "This is not an HTTP integration."

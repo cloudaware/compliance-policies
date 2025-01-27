@@ -5,9 +5,25 @@ testData:
 importExtracts:
   - file: /types/CA10__CaAwsAcmCertificate__c/object.extracts.yaml
 conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The certificate is not active."
+    condition:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "ISSUED"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The certificate is eligible for automatic renewal."
+    condition:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__renewalEligibility__c"
+        right:
+          TEXT: "INELIGIBLE"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Certificate will expire in 7 days or less"
-    remediationMessage: "Renew the certificate"
+    currentStateMessage: "The certificate is ineligible for automatic renewal and expires in 7 days or less."
+    remediationMessage: "Consider reissuing the expiring certificate."
     condition:
       IS_WITHIN_NEXT_DAYS:
         offsetDays: 7
@@ -15,4 +31,4 @@ conditions:
           EXTRACT: CA10__notAfter__c
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "Certificate is compliant"
+  currentStateMessage: "The certificate is not expiring."

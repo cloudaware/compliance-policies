@@ -7,113 +7,128 @@
             "runtimeError": null
         },
         "context": {
-            "snapshotTime": "2024-06-13T04:17:29Z"
+            "snapshotTime": "2024-11-12T04:22:47Z"
         },
         "Id": "test1",
-        "RecordTypeId": "recordType",
-        "CA10__disappearanceTime__c": "2024-06-07T14:13:24Z",
-        "CA10__networkAclsBypass__c": "AzureServices",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": "2024-11-12T04:22:47Z",
+        "CA10__blobRetentionPolicyState__c": "",
+        "CA10__blobRetentionPolicyDays__c": null,
+        "CA10__containerRetentionPolicyState__c": "",
+        "CA10__containerRetentionPolicyDays__c": null,
         "RecordType": {
-            "DeveloperName": "StorageAccount",
-            "Id": "test1_1"
-        },
-        "CA10__Azure_Storage_Blob_Containers__r": []
+            "DeveloperName": "caAzureRMStorageAccount",
+            "Id": "RecordTypeId"
+        }
     },
     {
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "199",
-            "conditionText": "CA10__Azure_Storage_Blob_Containers__r.has(INCOMPLIANT)",
+            "conditionText": "extract('CA10__blobRetentionPolicyState__c') == 'Disabled' || extract('CA10__blobRetentionPolicyState__c').isEmpty() || extract('CA10__blobRetentionPolicyDays__c').isEmpty()",
             "runtimeError": null
         },
         "context": {
-            "snapshotTime": "2024-06-12T19:31:46Z"
+            "snapshotTime": "2024-11-12T04:22:47Z"
         },
         "Id": "test2",
-        "RecordTypeId": "recordType",
+        "RecordTypeId": "RecordTypeId",
         "CA10__disappearanceTime__c": null,
+        "CA10__blobRetentionPolicyState__c": "",
+        "CA10__blobRetentionPolicyDays__c": null,
+        "CA10__containerRetentionPolicyState__c": "",
+        "CA10__containerRetentionPolicyDays__c": null,
         "RecordType": {
-            "DeveloperName": "StorageAccount",
-            "Id": "test2_1"
-        },
-        "CA10__Azure_Storage_Blob_Containers__r": [
-            {
-                "Id": "test2_2",
-                "CA10__disappearanceTime__c": null,
-                "CA10__remainingRetentionDays__c": 0,
-                "CA10__storageAccount__c": "test2"
-            }
-        ]
+            "DeveloperName": "caAzureRMStorageAccount",
+            "Id": "RecordTypeId"
+        }
     },
     {
         "expectedResult": {
-            "status": "COMPLIANT",
-            "conditionIndex": "299",
-            "conditionText": "CA10__Azure_Storage_Blob_Containers__r.has(COMPLIANT)",
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__blobRetentionPolicyState__c') == 'Disabled' || extract('CA10__blobRetentionPolicyState__c').isEmpty() || extract('CA10__blobRetentionPolicyDays__c').isEmpty()",
             "runtimeError": null
         },
         "context": {
-            "snapshotTime": "2024-06-12T19:31:46Z"
+            "snapshotTime": "2024-11-12T04:22:47Z"
         },
         "Id": "test3",
-        "RecordTypeId": "recordType",
+        "RecordTypeId": "RecordTypeId",
         "CA10__disappearanceTime__c": null,
+        "CA10__blobRetentionPolicyState__c": "Disabled",
+        "CA10__blobRetentionPolicyDays__c": null,
+        "CA10__containerRetentionPolicyState__c": "",
+        "CA10__containerRetentionPolicyDays__c": null,
         "RecordType": {
-            "DeveloperName": "StorageAccount",
-            "Id": "test3_1"
-        },
-        "CA10__Azure_Storage_Blob_Containers__r": [
-            {
-                "Id": "test3_2",
-                "CA10__disappearanceTime__c": null,
-                "CA10__remainingRetentionDays__c": 1,
-                "CA10__storageAccount__c": "test3"
-            }
-        ]
+            "DeveloperName": "caAzureRMStorageAccount",
+            "Id": "RecordTypeId"
+        }
     },
     {
         "expectedResult": {
-            "status": "COMPLIANT",
-            "conditionIndex": "400",
-            "conditionText": "otherwise",
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__containerRetentionPolicyState__c') == 'Disabled' || extract('CA10__containerRetentionPolicyState__c').isEmpty() || extract('CA10__containerRetentionPolicyDays__c').isEmpty()",
             "runtimeError": null
         },
         "context": {
-            "snapshotTime": "2024-06-12T19:31:46Z"
+            "snapshotTime": "2024-11-12T04:22:47Z"
         },
         "Id": "test4",
-        "RecordTypeId": "recordType",
+        "RecordTypeId": "RecordTypeId",
         "CA10__disappearanceTime__c": null,
+        "CA10__blobRetentionPolicyState__c": "Enabled",
+        "CA10__blobRetentionPolicyDays__c": 7,
+        "CA10__containerRetentionPolicyState__c": "",
+        "CA10__containerRetentionPolicyDays__c": null,
         "RecordType": {
-            "DeveloperName": "StorageAccount",
-            "Id": "test4_1"
+            "DeveloperName": "caAzureRMStorageAccount",
+            "Id": "RecordTypeId"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__containerRetentionPolicyState__c') == 'Disabled' || extract('CA10__containerRetentionPolicyState__c').isEmpty() || extract('CA10__containerRetentionPolicyDays__c').isEmpty()",
+            "runtimeError": null
         },
-        "CA10__Azure_Storage_Blob_Containers__r": []
+        "context": {
+            "snapshotTime": "2024-11-12T04:22:47Z"
+        },
+        "Id": "test5",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__blobRetentionPolicyState__c": "Enabled",
+        "CA10__blobRetentionPolicyDays__c": 7,
+        "CA10__containerRetentionPolicyState__c": "Disabled",
+        "CA10__containerRetentionPolicyDays__c": null,
+        "RecordType": {
+            "DeveloperName": "caAzureRMStorageAccount",
+            "Id": "RecordTypeId"
+        }
     },
     {
         "expectedResult": {
             "status": "COMPLIANT",
-            "conditionIndex": "400",
-            "conditionText": "otherwise",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__containerRetentionPolicyState__c') == 'Enabled' && extract('CA10__containerRetentionPolicyDays__c').isNotEmpty() && extract('CA10__blobRetentionPolicyState__c') == 'Enabled' && extract('CA10__blobRetentionPolicyDays__c').isNotEmpty()",
             "runtimeError": null
         },
         "context": {
-            "snapshotTime": "2024-06-12T19:31:46Z"
+            "snapshotTime": "2024-11-12T04:22:47Z"
         },
-        "Id": "test5",
-        "RecordTypeId": "recordType",
+        "Id": "test6",
+        "RecordTypeId": "RecordTypeId",
         "CA10__disappearanceTime__c": null,
+        "CA10__blobRetentionPolicyState__c": "Enabled",
+        "CA10__blobRetentionPolicyDays__c": 7,
+        "CA10__containerRetentionPolicyState__c": "Enabled",
+        "CA10__containerRetentionPolicyDays__c": 7,
         "RecordType": {
-            "DeveloperName": "StorageAccount",
-            "Id": "test5_1"
-        },
-        "CA10__Azure_Storage_Blob_Containers__r": [
-            {
-                "Id": "test5_2",
-                "CA10__disappearanceTime__c": "2024-06-12T19:31:46Z",
-                "CA10__remainingRetentionDays__c": 1,
-                "CA10__storageAccount__c": "test5"
-            }
-        ]
+            "DeveloperName": "caAzureRMStorageAccount",
+            "Id": "RecordTypeId"
+        }
     }
 ]

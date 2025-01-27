@@ -1,0 +1,18 @@
+---
+names:
+  full: AWS EC2 Security Group allows unrestricted traffic to MSSQL
+  contextual: Security Group allows unrestricted traffic to MSSQL
+description: >
+  Ensure that AWS EC2 Security Groups are configured to restrict access to 
+  Microsoft SQL Server (MSSQL) on port 1433 by limiting inbound traffic to trusted IP addresses.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+similarPolicies:
+  internal:
+    - dec-x-f12d78aa
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EC2/unrestricted-mssql-access.html
+      name: Unrestricted MsSQL Access

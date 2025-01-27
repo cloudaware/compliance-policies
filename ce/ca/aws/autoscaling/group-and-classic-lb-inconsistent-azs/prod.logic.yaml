@@ -1,0 +1,69 @@
+---
+inputObject: "CA10__CaAwsAutoScalingGroup__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The AGS is linked to a LB through the Target Group or\
+      \ the Classic Load Balancer is not present is the CMDB."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r"
+        status: "INAPPLICABLE"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "There is at least one incompliant related Classic Load Balancer."
+    remediationMessage: "Consider updating the AZs for either the Load Balancer\
+      \ or the Auto Scaling Group."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r"
+        status: "INCOMPLIANT"
+  - status: "COMPLIANT"
+    currentStateMessage: "Unable to determine if AZs match."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r"
+        status: "COMPLIANT"
+  - status: "UNDETERMINED"
+    currentStateMessage: "Unable to determine if AZs match."
+    condition:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r"
+        status: "UNDETERMINED"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Auto Scaling Group is not linked to an active Load Balancer."
+relatedLists:
+  - relationshipName: "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r"
+    importExtracts:
+      - file: /types/CA10__CaAwsAutoScalingGroup__c/object.extracts.yaml
+      - file: /types/CA10__CaAwsLoadBalancer__c/object.extracts.yaml
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "The AGS is linked to a LB through a Target Group or\
+          \ the Classic Load Balancer is not present is the CMDB."
+        condition:
+          IS_EMPTY_LOOKUP: "CA10__loadBalancer__r"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The set of Availability Zones configured on the Auto\
+          \ Scaling Group does not match the set configured on Load Balancer."
+        remediationMessage: "Adjust the set of Availability Zones either on the Auto\
+          \ Scaling Group or the Load Balancer to match."
+        condition:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__autoScalingGroup__r.caExtract_availabilityZones_asCollection__c"
+            right:
+              EXTRACT: "CA10__loadBalancer__r.caExtract_availabilityZones_asCollection__c"
+      - status: "COMPLIANT"
+        currentStateMessage: "The set of Availability Zones configured on the Auto\
+          \ Scaling Group matches the set configured on Load Balancer."
+        condition:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__autoScalingGroup__r.caExtract_availabilityZones_asCollection__c"
+            right:
+              EXTRACT: "CA10__loadBalancer__r.caExtract_availabilityZones_asCollection__c"
+    otherwise:
+      status: "UNDETERMINED"
+      currentStateMessage: "Unable to determine the AZs."

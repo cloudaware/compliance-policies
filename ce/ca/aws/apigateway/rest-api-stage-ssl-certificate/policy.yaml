@@ -1,0 +1,16 @@
+---
+names:
+  full: AWS API Gateway REST API Stage is not configured to use an SSL certificate for authentication
+  contextual: REST API Stage is not configured to use an SSL certificate for authentication
+description: >
+  Ensure that the REST API Stage in AWS API Gateway is configured to use an SSL 
+  certificate for authentication. This ensures secure communication between 
+  backend systems and the API Gateway.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+similarPolicies:
+  internal:
+    - "dec-x-d9d39f21"

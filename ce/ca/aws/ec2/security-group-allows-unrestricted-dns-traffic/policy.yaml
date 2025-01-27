@@ -1,0 +1,20 @@
+---
+names:
+  full: AWS EC2 Security Group allows unrestricted DNS traffic
+  contextual: Security Group allows unrestricted DNS traffic
+description: >
+  Ensure that AWS EC2 Security Groups do not allow unrestricted DNS traffic.
+  Review and update security group rules to restrict DNS traffic to only trusted 
+  sources and destinations to enhance network security and prevent potential misuse.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+similarPolicies:
+  internal:
+    - dec-z-dbeeed9f
+    - dec-z-f778950c
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EC2/unrestricted-dns-access.html
+      name: Unrestricted DNS Access

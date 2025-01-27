@@ -101,3 +101,20 @@ extracts:
         undeterminedIf: 
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
+# Not Nullable
+  - name: "CA10__defenderForCloudSettingsJson__c"
+    value: 
+      FIELD:
+        path: "CA10__defenderForCloudSettingsJson__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__defenderForCloudSettingsJson__c"
+            currentStateMessage: "Unable to determine Microsoft Defender for Cloud Settings. Possible permission issue with Microsoft.Security/settings" 
+  - name: "caJsonFrom__defenderForCloudSettings__c"
+    value: 
+      JSON_FROM:
+        arg: 
+          EXTRACT: "CA10__defenderForCloudSettingsJson__c"
+        undeterminedIf:
+          isInvalid: "Security Center Contacts JSON is invalid."
+          isEmpty: "Unable to determine Security Contacts. Possible permission issue with Microsoft.Security/settings"

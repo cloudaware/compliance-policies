@@ -23,3 +23,44 @@ extracts:
     value: 
       FIELD:
         path: "CA10__publicIpAddress__c"
+# Values: enabled, disabled. Not nullable. Can't have no access, retrieved via ec2:DescribeInstances
+  - name: "CA10__monitoringState__c"
+    value: 
+      FIELD:
+        path: "CA10__monitoringState__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. EC2 Instances Detailed Monitoring State cannot be empty."
+# Values: pending | running | shutting-down | terminated | stopping | stopped. Not nullable.
+  - name: "CA10__stateName__c"
+    value: 
+      FIELD:
+        path: "CA10__stateName__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__stateName__c"
+            currentStateMessage: "Unable to determine EC2 Instances State Name. Possible permission issue with ec2:DescribeInstanceStatus"
+# Number of Days. Nullable. Can't have no access, retrieved via ec2:DescribeInstances
+  - name: "CA10__currentRunningTime__c"
+    value: 
+      FIELD:
+        path: "CA10__currentRunningTime__c"      
+# Nullable.
+  - name: "CA10__averageCpuTwoWeeks__c"
+    value: 
+      FIELD:
+        path: "CA10__averageCpuTwoWeeks__c"      
+# Nullable.
+  - name: "CA10__maxCpuTwoWeeks__c"
+    value: 
+      FIELD:
+        path: "CA10__maxCpuTwoWeeks__c"      
+# Nullable.
+  - name: "CA10__sumTwoWeekNetworkOutMb__c"
+    value: 
+      FIELD:
+        path: "CA10__sumTwoWeekNetworkOutMb__c"      
+# Nullable.
+  - name: "CA10__sumTwoWeekNetworkInMb__c"
+    value: 
+      FIELD:
+        path: "CA10__sumTwoWeekNetworkInMb__c"      

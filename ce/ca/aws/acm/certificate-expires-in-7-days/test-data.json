@@ -1,58 +1,82 @@
 [
     {
         "expectedResult": {
-            "status": "COMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-05-25T03:04:15Z"
-        },
-        "Id": "aAi4T0000009DbnSAE",
-        "CA10__disappearanceTime__c": null,
-        "CA10__notAfter__c": "2027-12-09T05:00:00Z"
-    },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "199",
-            "conditionText": "extract('CA10__notAfter__c').withinNextDays(7)",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-05-25T03:04:15Z"
-        },
-        "Id": "aAiPF00000001ct0AA",
-        "CA10__disappearanceTime__c": null,
-        "CA10__notAfter__c": "2024-05-30T15:22:24Z"
-    },
-    {
-        "expectedResult": {
             "status": "DISAPPEARED",
             "conditionIndex": "99",
             "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
             "runtimeError": null
         },
         "context": {
-            "snapshotTime": "2024-05-25T03:04:15Z"
+            "snapshotTime": "2024-11-01T12:04:09Z"
         },
-        "Id": "aAiPF00000007kh0AA",
-        "CA10__disappearanceTime__c": "2024-05-17T21:50:49Z",
-        "CA10__notAfter__c": "2025-06-14T23:59:59Z"
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2024-10-17T17:11:36Z",
+        "CA10__status__c": "ISSUED",
+        "CA10__renewalEligibility__c": "INELIGIBLE",
+        "CA10__notAfter__c": "2024-11-02T12:04:09Z"
     },
     {
         "expectedResult": {
-            "status": "UNDETERMINED",
-            "conditionIndex": "101",
-            "conditionText": "CA10__notAfter__c.delegatedTo(CA10__notAfter__c).isEmpty()",
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__status__c') != 'ISSUED'",
             "runtimeError": null
         },
         "context": {
-            "snapshotTime": "2024-05-25T03:04:15Z"
+            "snapshotTime": "2024-11-01T12:04:09Z"
         },
-        "Id": "aAi4T0000004euASAQ",
+        "Id": "test2",
         "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "FAILED",
+        "CA10__renewalEligibility__c": "INELIGIBLE",
         "CA10__notAfter__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__renewalEligibility__c') != 'INELIGIBLE'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-01T12:04:09Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ISSUED",
+        "CA10__renewalEligibility__c": "ELIGIBLE",
+        "CA10__notAfter__c": "2024-11-02T12:04:09Z"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__notAfter__c').withinNextDays(7)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-01T12:04:09Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ISSUED",
+        "CA10__renewalEligibility__c": "INELIGIBLE",
+        "CA10__notAfter__c": "2024-11-06T23:59:59Z"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-01T12:04:09Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ISSUED",
+        "CA10__renewalEligibility__c": "INELIGIBLE",
+        "CA10__notAfter__c": "2025-11-01T12:04:09Z"
     }
 ]

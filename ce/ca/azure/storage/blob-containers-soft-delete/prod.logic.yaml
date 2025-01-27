@@ -1,52 +1,65 @@
 ---
 inputObject: "CA10__CaAzureStorageAccount__c"
+importExtracts:
+  - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
 testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The soft delete configuration for Azure Storage Containers and Blob Storage is not enabled."
-    remediationMessage: "Consider enabling the soft delete configuration."
+    currentStateMessage: "The soft delete configuration for Azure Storage Blob Storage is not enabled."
+    remediationMessage: "Consider enabling soft delete for Blob Storage."
     condition:
-      RELATED_LIST_HAS:
-        relationshipName: "CA10__Azure_Storage_Blob_Containers__r"
-        status: "INCOMPLIANT"
+      OR:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__blobRetentionPolicyState__c"
+              right:
+                TEXT: "Disabled"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__blobRetentionPolicyState__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__blobRetentionPolicyDays__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The soft delete configuration for Azure Storage Containers is not enabled."
+    remediationMessage: "Consider enabling soft delete for Containers."
+    condition:
+      OR:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__containerRetentionPolicyState__c"
+              right:
+                TEXT: "Disabled"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__containerRetentionPolicyState__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__containerRetentionPolicyDays__c"
   - status: "COMPLIANT"
-    currentStateMessage: "The soft delete configuration is enabled."
+    currentStateMessage: "The soft delete for Azure Storage Containers is enabled."
     condition:
-      RELATED_LIST_HAS:
-        relationshipName: "CA10__Azure_Storage_Blob_Containers__r"
-        status: "COMPLIANT"
-  - status: "UNDETERMINED"
-    currentStateMessage: "Unexpected value in the field."
-    condition:
-      RELATED_LIST_HAS:
-        relationshipName: "CA10__Azure_Storage_Blob_Containers__r"
-        status: "UNDETERMINED"
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__containerRetentionPolicyState__c"
+              right:
+                TEXT: "Enabled"
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10__containerRetentionPolicyDays__c"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__blobRetentionPolicyState__c"
+              right:
+                TEXT: "Enabled"
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10__blobRetentionPolicyDays__c"
 otherwise:
-  status: "COMPLIANT"
-  currentStateMessage: "The Storage Account doesn't have Blob Containers."
-relatedLists:
-  - relationshipName: "CA10__Azure_Storage_Blob_Containers__r"
-    importExtracts:
-      - file: "/types/CA10__CaAzureStorageBlobContainer__c/object.extracts.yaml"
-    conditions:
-      - status: "INCOMPLIANT"
-        currentStateMessage: "The soft delete configuration is not enabled."
-        remediationMessage: "Consider enabling the soft delete configuration."
-        condition:
-          IS_EQUAL:
-            left:
-              EXTRACT: "CA10__remainingRetentionDays__c"
-            right:
-              NUMBER: 0.0
-      - status: "COMPLIANT"
-        currentStateMessage: "Soft delete configuration is enabled."
-        condition:
-          GREATER_THAN:
-            left:
-              EXTRACT: "CA10__remainingRetentionDays__c"
-            right:
-              NUMBER: 0.0
-    otherwise:
-      status: "UNDETERMINED"
-      currentStateMessage: "Unexpected value in the field."
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

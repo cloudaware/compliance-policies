@@ -1,0 +1,9 @@
+---
+extracts:
+# Values: Approved, Reject, Disconnected, Pending. Not Nullable. Can't have no access, retrieved via Microsoft.DocumentDB/databaseAccounts
+  - name: "CA10Z1__serviceConnectionStatus__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__serviceConnectionStatus__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. The Service Connection Status cannot be empty."

@@ -1,0 +1,130 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-04T19:27:53Z"
+        },
+        "Id": "test1",
+        "RecordTypeId": "RecordType",
+        "CA10__disappearanceTime__c": "2024-11-04T19:27:53Z",
+        "CA10__protocolType__c": "",
+        "RecordType": {
+            "DeveloperName": "restApi",
+            "Id": "RecordType"
+        },
+        "CA10__AWS_API_Gateway_Stages__r": [
+            {
+                "Id": "test1_1",
+                "RecordTypeId": "RecordType",
+                "CA10__disappearanceTime__c": null,
+                "CA10__cloudWatchLogLevel__c": "OFF",
+                "CA10__restApi__c": "test1",
+                "RecordType": {
+                    "DeveloperName": "restApiStage",
+                    "Id": "RecordType"
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__protocolType__c') == 'HTTP'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-04T19:27:53Z"
+        },
+        "Id": "test2",
+        "RecordTypeId": "RecordType",
+        "CA10__disappearanceTime__c": null,
+        "CA10__protocolType__c": "HTTP",
+        "RecordType": {
+            "DeveloperName": "restApi",
+            "Id": "RecordType"
+        },
+        "CA10__AWS_API_Gateway_Stages__r": [
+            {
+                "Id": "test2_1",
+                "RecordTypeId": "RecordType",
+                "CA10__disappearanceTime__c": null,
+                "CA10__cloudWatchLogLevel__c": "OFF",
+                "CA10__restApi__c": "test2",
+                "RecordType": {
+                    "DeveloperName": "restApiStage",
+                    "Id": "RecordType"
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10__AWS_API_Gateway_Stages__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-04T19:27:53Z"
+        },
+        "Id": "test3",
+        "RecordTypeId": "RecordType",
+        "CA10__disappearanceTime__c": null,
+        "CA10__protocolType__c": "",
+        "RecordType": {
+            "DeveloperName": "restApi",
+            "Id": "RecordType"
+        },
+        "CA10__AWS_API_Gateway_Stages__r": [
+            {
+                "Id": "test3_1",
+                "RecordTypeId": "RecordType",
+                "CA10__disappearanceTime__c": null,
+                "CA10__cloudWatchLogLevel__c": "OFF",
+                "CA10__restApi__c": "test3",
+                "RecordType": {
+                    "DeveloperName": "restApiStage",
+                    "Id": "RecordType"
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "300",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-04T19:27:53Z"
+        },
+        "Id": "test4",
+        "RecordTypeId": "RecordType",
+        "CA10__disappearanceTime__c": null,
+        "CA10__protocolType__c": "",
+        "RecordType": {
+            "DeveloperName": "restApi",
+            "Id": "RecordType"
+        },
+        "CA10__AWS_API_Gateway_Stages__r": [
+            {
+                "Id": "test4_1",
+                "RecordTypeId": "RecordType",
+                "CA10__disappearanceTime__c": null,
+                "CA10__cloudWatchLogLevel__c": "INFO",
+                "CA10__restApi__c": "test4",
+                "RecordType": {
+                    "DeveloperName": "restApiStage",
+                    "Id": "RecordType"
+                }
+            }
+        ]
+    }
+]

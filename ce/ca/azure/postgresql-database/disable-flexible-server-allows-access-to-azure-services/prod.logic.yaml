@@ -50,7 +50,7 @@ conditions:
     condition:
       IS_EMPTY:
         arg:
-          EXTRACT: "caJsonFrom__firewallRules__c"
+          EXTRACT: "CA10Z1__firewallRules__c"
 otherwise:
   status: "COMPLIANT"
   currentStateMessage: "PostgreSQL Database Server Firewall Rules do not have a rule allowing ingress from 0.0.0.0/0 (ANY IP)."

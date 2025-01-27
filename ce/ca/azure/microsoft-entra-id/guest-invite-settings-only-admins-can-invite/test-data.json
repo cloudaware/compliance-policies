@@ -1,0 +1,115 @@
+[
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10Z1__Azure_Active_Directory_Auth_Policies__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-11T19:24:25Z"
+        },
+        "Id": "test1",
+        "CA10Z1__Azure_Active_Directory_Auth_Policies__r": [
+            {
+                "Id": "test1_1",
+                "CA10Z1__disappearanceTime__c": null,
+                "CA10Z1__invitesFromState__c": "everyone",
+                "CA10Z1__activeDirectory__c": "test1"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10Z1__Azure_Active_Directory_Auth_Policies__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-11T19:24:25Z"
+        },
+        "Id": "test2",
+        "CA10Z1__Azure_Active_Directory_Auth_Policies__r": [
+            {
+                "Id": "test2_1",
+                "CA10Z1__disappearanceTime__c": null,
+                "CA10Z1__invitesFromState__c": "adminsGuestInvitersAndAllMembers",
+                "CA10Z1__activeDirectory__c": "test2"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10Z1__Azure_Active_Directory_Auth_Policies__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-11T19:24:25Z"
+        },
+        "Id": "test3",
+        "CA10Z1__Azure_Active_Directory_Auth_Policies__r": [
+            {
+                "Id": "test3_1",
+                "CA10Z1__disappearanceTime__c": null,
+                "CA10Z1__invitesFromState__c": "adminsAndGuestInviters",
+                "CA10Z1__activeDirectory__c": "test3"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10Z1__Azure_Active_Directory_Auth_Policies__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-11T19:24:25Z"
+        },
+        "Id": "test4",
+        "CA10Z1__Azure_Active_Directory_Auth_Policies__r": [
+            {
+                "Id": "test4_1",
+                "CA10Z1__disappearanceTime__c": null,
+                "CA10Z1__invitesFromState__c": "None",
+                "CA10Z1__activeDirectory__c": "test4"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-11T19:24:25Z"
+        },
+        "Id": "test5",
+        "CA10Z1__Azure_Active_Directory_Auth_Policies__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-11T19:24:25Z"
+        },
+        "Id": "test6",
+        "CA10Z1__Azure_Active_Directory_Auth_Policies__r": [
+            {
+                "Id": "test6_1",
+                "CA10Z1__disappearanceTime__c": "2024-11-11T19:24:25Z",
+                "CA10Z1__invitesFromState__c": "None",
+                "CA10Z1__activeDirectory__c": "test6"
+            }
+        ]
+    }
+]

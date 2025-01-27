@@ -1,0 +1,17 @@
+---
+names:
+  full: AWS EC2 Security Group allows unrestricted Telnet traffic
+  contextual: Security Group allows unrestricted Telnet traffic
+description: >
+  Ensure that AWS EC2 Security Groups do not allow unrestricted Telnet traffic. 
+  This involves reviewing and modifying Security Group rules to restrict access 
+  to port 23, typically used for Telnet, to prevent unauthorized or insecure access.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EC2/unrestricted-telnet-access.html
+      name: Unrestricted Telnet Access

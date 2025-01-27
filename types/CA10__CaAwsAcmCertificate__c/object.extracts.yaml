@@ -1,5 +1,7 @@
 ---
 extracts:
+# Values: PENDING_VALIDATION | ISSUED | INACTIVE | EXPIRED | REVOKED | FAILED | VALIDATION_TIMED_OUT
+# Not Nullable can't have no access
   - name: CA10__status__c
     value: 
       FIELD:
@@ -9,6 +11,7 @@ extracts:
             path: CA10__status__c
             currentStateMessage: Unable to determine certificate status. Possible permission issue with acm:DescribeCertificate
           isEmpty: Status is not populated yet
+# Nullable
   - name: CA10__notAfter__c
     value: 
       FIELD:
@@ -17,7 +20,7 @@ extracts:
           noAccessDelegate:
             path: CA10__notAfter__c
             currentStateMessage: Unable to determine certificate 'NotAfter'. Possible permission issue with acm:DescribeCertificate
-          isEmpty: NotAfter is not populated yet
+# Not Nullable
   - name: CA10__domainName__c
     value: 
       FIELD:
@@ -27,3 +30,24 @@ extracts:
             path: CA10__domainName__c
             currentStateMessage: Unable to determine certificate domain name. Possible permission issue with acm:DescribeCertificate
           isEmpty: Domain name is not populated yet
+# Values: ELIGIBLE | INELIGIBLE, Not Nullable
+  - name: CA10__renewalEligibility__c
+    value: 
+      FIELD:
+        path: CA10__renewalEligibility__c
+        undeterminedIf:
+          noAccessDelegate:
+            path: CA10__renewalEligibility__c
+            currentStateMessage: Unable to determine certificate renewal eligibility. Possible permission issue with acm:DescribeCertificate
+          isEmpty: Renewal eligibility is not populated yet
+# Values: RSA-1024 | RSA-2048 | RSA-3072 | RSA-4096 | EC-prime256v1 | EC-secp384r1 | EC-secp521r1
+# Not Nullable
+  - name: CA10__keyAlgorithm__c
+    value: 
+      FIELD:
+        path: CA10__keyAlgorithm__c
+        undeterminedIf:
+          noAccessDelegate:
+            path: CA10__keyAlgorithm__c
+            currentStateMessage: Unable to determine certificate status. Possible permission issue with acm:DescribeCertificate
+          isEmpty: Key Algorithm is not populated yet

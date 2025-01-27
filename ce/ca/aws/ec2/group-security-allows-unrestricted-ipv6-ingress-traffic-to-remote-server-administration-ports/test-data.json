@@ -31,6 +31,7 @@
                 "CA10__disappearanceTime__c": null,
                 "CA10__direction__c": "Inbound",
                 "CA10__sourceIpRange__c": "::/0",
+                "CA10__protocol__c": "All",
                 "CA10__fromPort__c": null,
                 "CA10__toPort__c": null,
                 "CA10__securityGroup__c": "test2"
@@ -55,6 +56,7 @@
                 "CA10__disappearanceTime__c": null,
                 "CA10__direction__c": "Inbound",
                 "CA10__sourceIpRange__c": "::/0",
+                "CA10__protocol__c": "tcp",
                 "CA10__fromPort__c": 21.0,
                 "CA10__toPort__c": 23.0,
                 "CA10__securityGroup__c": "test3"
@@ -79,7 +81,8 @@
                 "CA10__disappearanceTime__c": null,
                 "CA10__direction__c": "Inbound",
                 "CA10__sourceIpRange__c": "::/0",
-                "CA10__fromPort__c": 3388.0,
+                "CA10__protocol__c": "udp",
+                "CA10__fromPort__c": 3380.0,
                 "CA10__toPort__c": 3390.0,
                 "CA10__securityGroup__c": "test4"
             }
@@ -103,6 +106,7 @@
                 "CA10__disappearanceTime__c": null,
                 "CA10__direction__c": "Outbound",
                 "CA10__sourceIpRange__c": "::/0",
+                "CA10__protocol__c": "tcp",
                 "CA10__fromPort__c": null,
                 "CA10__toPort__c": null,
                 "CA10__securityGroup__c": "test5"
@@ -127,6 +131,7 @@
                 "CA10__disappearanceTime__c": null,
                 "CA10__direction__c": "Inbound",
                 "CA10__sourceIpRange__c": "0.0.0.0/0",
+                "CA10__protocol__c": "tcp",
                 "CA10__fromPort__c": null,
                 "CA10__toPort__c": null,
                 "CA10__securityGroup__c": "test6"
@@ -150,7 +155,8 @@
                 "Id": "test7_1",
                 "CA10__disappearanceTime__c": null,
                 "CA10__direction__c": "Inbound",
-                "CA10__sourceIpRange__c": "0.0.0.0/0",
+                "CA10__sourceIpRange__c": "::/0",
+                "CA10__protocol__c": "tcp",
                 "CA10__fromPort__c": 1111.0,
                 "CA10__toPort__c": 1111.0,
                 "CA10__securityGroup__c": "test7"

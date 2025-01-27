@@ -1,0 +1,248 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-07T19:25:33Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2024-11-07T19:25:33Z",
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": [
+            {
+                "Id": "test1_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__autoScalingGroup__c": "test1",
+                "CA10__autoScalingGroupArn__c": "autoScalingGroupArn1",
+                "CA10__autoScalingGroup__r": {
+                    "Id": "test1",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__availabilityZones__c": "us-east-1d\nus-east-1f"
+                },
+                "CA10__loadBalancer__c": "loadBalancer1",
+                "CA10__classicLoadBalancerArn__c": "loadBalancerArn1",
+                "CA10__loadBalancer__r": {
+                    "Id": "loadBalancer1",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__availabilityZones__c": "us-east-1d\nus-east-1f\nus-east-1e"
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r.has(INAPPLICABLE)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-07T19:25:33Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": [
+            {
+                "Id": "test2_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__autoScalingGroup__c": "test2",
+                "CA10__autoScalingGroupArn__c": "autoScalingGroupArn2",
+                "CA10__loadBalancer__c": null,
+                "CA10__classicLoadBalancerArn__c": "loadBalancerArn2",
+                "CA10__autoScalingGroup__r": {
+                    "Id": "test2",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__availabilityZones__c": "us-east-1a\nus-east-1b\nus-east-1c"
+                },
+                "CA10__loadBalancer__r": {
+                    "Id": null,
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__availabilityZones__c": null
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r.has(INAPPLICABLE)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-07T19:25:33Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": [
+            {
+                "Id": "test3_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__autoScalingGroup__c": "test3",
+                "CA10__autoScalingGroupArn__c": "autoScalingGroupArn3",
+                "CA10__loadBalancer__c": null,
+                "CA10__classicLoadBalancerArn__c": null,
+                "CA10__autoScalingGroup__r": {
+                    "Id": "test3",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__availabilityZones__c": "us-east-1a\nus-east-1b\nus-east-1c"
+                },
+                "CA10__loadBalancer__r": {
+                    "Id": null,
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__availabilityZones__c": null
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-07T19:25:33Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": [
+            {
+                "Id": "test4_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__autoScalingGroup__c": "test4",
+                "CA10__autoScalingGroupArn__c": "autoScalingGroupArn4",
+                "CA10__loadBalancer__c": "loadBalancer4",
+                "CA10__classicLoadBalancerArn__c": "loadBalancerArn4",
+                "CA10__autoScalingGroup__r": {
+                    "Id": "test4",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__availabilityZones__c": "us-east-1d"
+                },
+                "CA10__loadBalancer__r": {
+                    "Id": "loadBalancer4",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__availabilityZones__c": "us-east-1a"
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-07T19:25:33Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": [
+            {
+                "Id": "test5_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__autoScalingGroup__c": "test5",
+                "CA10__autoScalingGroupArn__c": "autoScalingGroupArn5",
+                "CA10__loadBalancer__c": "loadBalancer5",
+                "CA10__classicLoadBalancerArn__c": "loadBalancerArn5",
+                "CA10__autoScalingGroup__r": {
+                    "Id": "test5",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__availabilityZones__c": "us-east-1a\nus-east-1b"
+                },
+                "CA10__loadBalancer__r": {
+                    "Id": "loadBalancer5",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__availabilityZones__c": "us-east-1a\nus-east-1b\nus-east-1c"
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-07T19:25:33Z"
+        },
+        "Id": "test7",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": [
+            {
+                "Id": "test7_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__autoScalingGroup__c": "test7",
+                "CA10__autoScalingGroupArn__c": "autoScalingGroupArn7",
+                "CA10__autoScalingGroup__r": {
+                    "Id": "test7",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__availabilityZones__c": "us-east-1a\nus-east-1b\nus-east-1c"
+                },
+                "CA10__loadBalancer__c": "loadBalancer7",
+                "CA10__classicLoadBalancerArn__c": "loadBalancerArn7",
+                "CA10__loadBalancer__r": {
+                    "Id": "loadBalancer7",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__availabilityZones__c": "us-east-1a\nus-east-1b\nus-east-1c"
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "500",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-07T19:25:33Z"
+        },
+        "Id": "test8",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "499",
+            "conditionText": "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r.has(UNDETERMINED)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-07T19:25:33Z"
+        },
+        "Id": "test9",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": [
+            {
+                "Id": "test9_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__autoScalingGroup__c": "test9",
+                "CA10__autoScalingGroupArn__c": "autoScalingGroupArn9",
+                "CA10__autoScalingGroup__r": {
+                    "Id": "test9",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__availabilityZones__c": null
+                },
+                "CA10__loadBalancer__c": "loadBalancer9",
+                "CA10__classicLoadBalancerArn__c": "loadBalancerArn9",
+                "CA10__loadBalancer__r": {
+                    "Id": "loadBalancer9",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__availabilityZones__c": null
+                }
+            }
+
+        ]
+    }
+]

@@ -1,32 +1,54 @@
 ---
-inputObject: CA10__CaAwsInstance__c
+inputObject: "CA10__CaAwsInstance__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsInstance__c/object.extracts.yaml"
+testData:
+  - file: 'test-data.json'
 conditions:
-  - status: INAPPLICABLE
-    currentStateMessage: "Instance is not running, therefore cannot be overutilized"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The instance is not running."
     condition:
       NOT_EQUAL:
         left:
-          FIELD: 
-            path: CA10__stateName__c
+          EXTRACT: "CA10__stateName__c"
         right:
-          TEXT: running
+          TEXT: "running"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The instance has been running for less than 14 days."
+    condition:
+      LESS_THAN:
+        left:
+          EXTRACT: "CA10__currentRunningTime__c"
+        right:
+          NUMBER: 14.0
   - status: UNDETERMINED
-    currentStateMessage: CPU metrics are not available on the current instance
+    currentStateMessage: "There is not enough data in the CMDB to identify if the instance is overutilized."
     condition:
-      IS_EMPTY:
-        arg:
-          FIELD: 
-            path: CA10__averageCpuOneWeek__c
-  - status: INCOMPLIANT
-    currentStateMessage: CPU over 90%, instance is overutilized
-    remediationMessage: Consider resizing the instance to adjust capacity
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__averageCpuTwoWeeks__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__maxCpuTwoWeeks__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The instance is overutilized with Average CPU Utilization > 80%\
+      \ and Max CPU Utilization > 95%."
+    remediationMessage: "Consider scaling up the instance or implementing auto scaling."
     condition:
-      GREATER_THAN:
-        left: 
-          FIELD: 
-            path: CA10__averageCpuOneWeek__c
-        right:
-          NUMBER: 90.0
+      AND:
+        args:
+          - GREATER_THAN:
+              left:
+                EXTRACT: CA10__averageCpuTwoWeeks__c
+              right:
+                NUMBER: 80.0
+          - GREATER_THAN:
+              left:
+                EXTRACT: CA10__maxCpuTwoWeeks__c
+              right:
+                NUMBER: 95.0
 otherwise:
-  status: COMPLIANT
-  currentStateMessage: Instance is not overutilized
+  status: "COMPLIANT"
+  currentStateMessage: 'The instance is not overutilized.'

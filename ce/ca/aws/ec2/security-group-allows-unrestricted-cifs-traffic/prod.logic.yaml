@@ -5,7 +5,8 @@ testData:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "This Security Group allows CIFS (port 445) access from 0.0.0.0/0 or ::/0."
-    remediationMessage: "Consider changing the Security Group source field to a range other than 0.0.0.0/0 or delete the offending inbound rule."
+    remediationMessage: "Consider changing the Security Group source field to\
+      \ a range other than 0.0.0.0/0 or delete the offending inbound rule."
     condition:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
@@ -41,9 +42,33 @@ relatedLists:
                     EXTRACT: "CA10__sourceIpRange__c"
                   right:
                     TEXT: "::/0"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This security group rule protocol is not All, TCP, or UDP."
+        condition:
+# check that protocol is neither all, tcp, or udp
+          NOT:
+            arg:
+              OR:
+                args:
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__protocol__c"
+                      right:
+                        TEXT: "All"
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__protocol__c"
+                      right:
+                        TEXT: "tcp"
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__protocol__c"
+                      right:
+                        TEXT: "udp"
       - status: "INCOMPLIANT"
         currentStateMessage: "This Security Group allows CIFS access from 0.0.0.0/0 or ::/0."
-        remediationMessage: "Consider changing the source field to a range other than 0.0.0.0/0 or delete the offending inbound rule."
+        remediationMessage: "Consider changing the source field to a range other\
+          \ than 0.0.0.0/0 or delete the offending inbound rule."
         condition:
           AND:
             args:
@@ -59,4 +84,4 @@ relatedLists:
                     NUMBER: 445.0
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "This Security Group doesn't allow ingress from 0.0.0.0/0."
+      currentStateMessage: "This Security Group doesn't allow unrestricted access."

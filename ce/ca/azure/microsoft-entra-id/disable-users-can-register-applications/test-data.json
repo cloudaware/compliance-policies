@@ -1,0 +1,55 @@
+[
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10Z1__Azure_Active_Directory_Auth_Policies__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-11T19:24:25Z"
+        },
+        "Id": "test1",
+        "CA10Z1__Azure_Active_Directory_Auth_Policies__r": [
+            {
+                "Id": "test1_1",
+                "CA10Z1__disappearanceTime__c": null,
+                "CA10Z1__defaultPermissionCreateApps__c": "Disabled",
+                "CA10Z1__activeDirectory__c": "test1"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10Z1__Azure_Active_Directory_Auth_Policies__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-11T19:24:25Z"
+        },
+        "Id": "test2",
+        "CA10Z1__Azure_Active_Directory_Auth_Policies__r": [
+            {
+                "Id": "test2_1",
+                "CA10Z1__disappearanceTime__c": null,
+                "CA10Z1__defaultPermissionCreateApps__c": "Enabled",
+                "CA10Z1__activeDirectory__c": "test2"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-11T19:24:25Z"
+        },
+        "Id": "test3",
+        "CA10Z1__Azure_Active_Directory_Auth_Policies__r": []
+    }
+]

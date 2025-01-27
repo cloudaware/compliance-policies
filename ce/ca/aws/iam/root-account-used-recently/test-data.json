@@ -1,0 +1,92 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-06T07:21:54Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2024-12-06T07:21:54Z",
+        "CA10__userName__c": "root",
+        "CA10__credReportAttributesJson__c": "{\"password_last_used\":\"2024-11-29T17:56:06Z\",\"access_key_1_last_used_region\":\"N/A\",\"password_enabled\":\"true\",\"access_key_1_last_used_date\":\"N/A\",\"access_key_1_last_used_service\":\"N/A\",\"mfa_active\":\"false\",\"access_key_2_last_used_date\":\"N/A\",\"user_creation_time\":\"2021-05-06T14:51:01Z\",\"cert_2_active\":\"false\",\"cert_1_active\":\"false\",\"cert_1_last_rotated\":\"N/A\",\"access_key_2_last_used_service\":\"N/A\",\"access_key_2_active\":\"false\",\"access_key_1_active\":\"false\",\"password_next_rotation\":\"not_supported\",\"access_key_2_last_rotated\":\"N/A\",\"arn\":\"arn:aws:iam::012345678910:root\",\"access_key_1_last_rotated\":\"N/A\",\"access_key_2_last_used_region\":\"N/A\",\"user\":\"root\",\"password_last_changed\":\"2021-05-06T14:55:07Z\",\"cert_2_last_rotated\":\"N/A\"}"
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__userName__c') != 'root'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-06T07:21:54Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__userName__c": "User",
+        "CA10__credReportAttributesJson__c": "{\"password_last_used\":\"N/A\",\"access_key_1_last_used_region\":\"N/A\",\"password_enabled\":\"false\",\"access_key_1_last_used_date\":\"N/A\",\"access_key_1_last_used_service\":\"N/A\",\"mfa_active\":\"false\",\"access_key_2_last_used_date\":\"N/A\",\"user_creation_time\":\"2023-03-07T15:23:41Z\",\"cert_2_active\":\"false\",\"cert_1_active\":\"false\",\"cert_1_last_rotated\":\"N/A\",\"access_key_2_last_used_service\":\"N/A\",\"access_key_2_active\":\"false\",\"access_key_1_active\":\"false\",\"password_next_rotation\":\"N/A\",\"access_key_2_last_rotated\":\"N/A\",\"arn\":\"arn:aws:iam::012345678910:user/User\",\"access_key_1_last_rotated\":\"N/A\",\"access_key_2_last_used_region\":\"N/A\",\"user\":\"User\",\"password_last_changed\":\"N/A\",\"cert_2_last_rotated\":\"N/A\"}"
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "201",
+            "conditionText": "CA10__credReportAttributesJson__c.isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-06T07:21:54Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__userName__c": "root",
+        "CA10__credReportAttributesJson__c": ""
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__credReportPasswordLastUsed__c').withinLastDays(30)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-06T07:21:54Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__userName__c": "root",
+        "CA10__credReportAttributesJson__c": "{\"password_last_used\":\"2024-11-29T17:56:06Z\",\"access_key_1_last_used_region\":\"N/A\",\"password_enabled\":\"true\",\"access_key_1_last_used_date\":\"N/A\",\"access_key_1_last_used_service\":\"N/A\",\"mfa_active\":\"false\",\"access_key_2_last_used_date\":\"N/A\",\"user_creation_time\":\"2021-05-06T14:51:01Z\",\"cert_2_active\":\"false\",\"cert_1_active\":\"false\",\"cert_1_last_rotated\":\"N/A\",\"access_key_2_last_used_service\":\"N/A\",\"access_key_2_active\":\"false\",\"access_key_1_active\":\"false\",\"password_next_rotation\":\"not_supported\",\"access_key_2_last_rotated\":\"N/A\",\"arn\":\"arn:aws:iam::012345678910:root\",\"access_key_1_last_rotated\":\"N/A\",\"access_key_2_last_used_region\":\"N/A\",\"user\":\"root\",\"password_last_changed\":\"2021-05-06T14:55:07Z\",\"cert_2_last_rotated\":\"N/A\"}"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "300",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-06T07:21:54Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__userName__c": "root",
+        "CA10__credReportAttributesJson__c": "{\"password_last_used\":\"2021-10-15T16:30:24Z\",\"access_key_1_last_used_region\":\"us-east-1\",\"password_enabled\":\"true\",\"access_key_1_last_used_date\":\"2020-02-27T12:03:00Z\",\"access_key_1_last_used_service\":\"s3\",\"mfa_active\":\"false\",\"access_key_2_last_used_date\":\"N/A\",\"user_creation_time\":\"2008-06-17T18:41:41Z\",\"cert_2_active\":\"false\",\"cert_1_active\":\"true\",\"cert_1_last_rotated\":\"2011-04-27T13:23:57Z\",\"access_key_2_last_used_service\":\"N/A\",\"access_key_2_active\":\"false\",\"access_key_1_active\":\"false\",\"password_next_rotation\":\"not_supported\",\"access_key_2_last_rotated\":\"2014-07-03T15:12:24Z\",\"arn\":\"arn:aws:iam::012345678910:root\",\"access_key_1_last_rotated\":\"2011-04-27T13:20:07Z\",\"access_key_2_last_used_region\":\"N/A\",\"user\":\"root\",\"password_last_changed\":\"2023-02-07T18:24:40Z\",\"cert_2_last_rotated\":\"N/A\"}"
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "201",
+            "conditionText": "CA10__credReportAttributesJson__c.isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-06T07:21:54Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__userName__c": "root",
+        "CA10__credReportAttributesJson__c": null
+    }
+]

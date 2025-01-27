@@ -1,47 +1,70 @@
 ---
 inputObject: "CA10__CaAwsInstance__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsInstance__c/object.extracts.yaml"
+testData:
+  - file: 'test-data.json'
 conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The instance is not running."
+    condition:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__stateName__c"
+        right:
+          TEXT: "running"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The instance has been running for less than 14 days."
+    condition:
+      LESS_THAN:
+        left:
+          EXTRACT: "CA10__currentRunningTime__c"
+        right:
+          NUMBER: 14.0
   - status: UNDETERMINED
-    currentStateMessage: There is not enough data in CMDB to identify if the instance is idling.
+    currentStateMessage: "There is not enough data in the CMDB to identify if the instance is idle."
     condition:
       OR:
         args:
           - IS_EMPTY:
               arg:
-                FIELD: 
-                  path: CA10__averageCpuOneWeek__c
+                EXTRACT: "CA10__averageCpuTwoWeeks__c"
           - IS_EMPTY:
               arg:
-                FIELD: 
-                  path: CA10__sumOneWeekNetworkInMb__c
+                EXTRACT: "CA10__maxCpuTwoWeeks__c"
           - IS_EMPTY:
               arg:
-                FIELD: 
-                  path: CA10__sumOneWeekNetworkOutMb__c
+                EXTRACT: CA10__sumTwoWeekNetworkInMb__c
+          - IS_EMPTY:
+              arg:
+                EXTRACT: CA10__sumTwoWeekNetworkOutMb__c
   - status: INCOMPLIANT
-    currentStateMessage: Instance has <2% CPU usage and <5MB network IO during the last week
-    remediationMessage: Downscale or stop the instance
+    currentStateMessage: "The instance is idle with Average CPU Utilization < 5%,\
+      \ Max CPU Utilization < 15%, and Average Network I/O < 100 MB."
+    remediationMessage: "Consider stopping, terminating, or rightsizing the instance."
     condition:
       AND:
         args:
           - LESS_THAN:
               left:
-                FIELD: 
-                  path: CA10__averageCpuOneWeek__c
-              right:
-                NUMBER: 2.0
-          - LESS_THAN:
-              left:
-                FIELD: 
-                  path: CA10__sumOneWeekNetworkInMb__c
+                EXTRACT: CA10__averageCpuTwoWeeks__c
               right:
                 NUMBER: 5.0
           - LESS_THAN:
               left:
-                FIELD: 
-                  path: CA10__sumOneWeekNetworkOutMb__c
+                EXTRACT: CA10__maxCpuTwoWeeks__c
               right:
-                NUMBER: 5.0
+                NUMBER: 15.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__sumTwoWeekNetworkInMb__c
+              right:
+                NUMBER: 100.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__sumTwoWeekNetworkOutMb__c
+              right:
+                NUMBER: 100.0
 otherwise:
-  status: COMPLIANT
-  currentStateMessage: Instance is not idling
+  status: "COMPLIANT"
+  currentStateMessage: 'The instance is not idle.'

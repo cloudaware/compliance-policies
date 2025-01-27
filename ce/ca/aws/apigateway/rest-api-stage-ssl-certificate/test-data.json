@@ -1,0 +1,314 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-10T20:07:16Z"
+        },
+        "Id": "test1",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": "2024-12-10T20:07:16Z",
+        "CA10__restApi__c": "restApi1",
+        "CA10__restApiId__c": "restApiId1",
+        "CA10__clientCertificate__c": "clientCertificate1",
+        "CA10__clientCertificateId__c": "clientCertificateId1",
+        "RecordType": {
+            "DeveloperName": "restApiStage",
+            "Id": "RecordTypeId"
+        },
+        "CA10__restApi__r": {
+            "Id": "restApi1",
+            "CA10__disappearanceTime__c": null,
+            "CA10__endpointType__c": "REGIONAL",
+            "CA10A1__AWS_API_Gateway_Methods__r": [
+                {
+                    "Id": "test1_1",
+                    "CA10A1__disappearanceTime__c": null,
+                    "CA10A1__integrationType__c": "HTTP",
+                    "CA10A1__restApi__c": "restApi1"
+                }
+            ]
+        },
+        "CA10__clientCertificate__r": {
+            "Id": "clientCertificate1",
+            "CA10__disappearanceTime__c": null
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "RecordType.DeveloperName != 'restApiStage'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-10T20:07:16Z"
+        },
+        "Id": "test2",
+        "RecordTypeId": "RecordTypeId2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__restApi__c": "restApi2",
+        "CA10__restApiId__c": "restApiId2",
+        "CA10__clientCertificate__c": "clientCertificate2",
+        "CA10__clientCertificateId__c": "clientCertificateId2",
+        "RecordType": {
+            "DeveloperName": "httpApiStage",
+            "Id": "RecordTypeId2"
+        },
+        "CA10__restApi__r": {
+            "Id": "restApi2",
+            "CA10__disappearanceTime__c": null,
+            "CA10__endpointType__c": "REGIONAL",
+            "CA10A1__AWS_API_Gateway_Methods__r": [
+                {
+                    "Id": "test2_1",
+                    "CA10A1__disappearanceTime__c": null,
+                    "CA10A1__integrationType__c": "HTTP",
+                    "CA10A1__restApi__c": "restApi2"
+                }
+            ]
+        },
+        "CA10__clientCertificate__r": {
+            "Id": "clientCertificate2",
+            "CA10__disappearanceTime__c": null
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__restApi__r.CA10__endpointType__c') == 'PRIVATE'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-10T20:07:16Z"
+        },
+        "Id": "test3",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__restApi__c": "restApi3",
+        "CA10__restApiId__c": "restApiId3",
+        "CA10__clientCertificate__c": "clientCertificate3",
+        "CA10__clientCertificateId__c": "clientCertificateId3",
+        "RecordType": {
+            "DeveloperName": "restApiStage",
+            "Id": "RecordTypeId"
+        },
+        "CA10__restApi__r": {
+            "Id": "restApi3",
+            "CA10__disappearanceTime__c": null,
+            "CA10__endpointType__c": "PRIVATE",
+            "CA10A1__AWS_API_Gateway_Methods__r": [
+                {
+                    "Id": "test3_1",
+                    "CA10A1__disappearanceTime__c": null,
+                    "CA10A1__integrationType__c": "HTTP",
+                    "CA10A1__restApi__c": "restApi3"
+                }
+            ]
+        },
+        "CA10__clientCertificate__r": {
+            "Id": "clientCertificate3",
+            "CA10__disappearanceTime__c": null
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "399",
+            "conditionText": "CA10__restApi__r.CA10A1__AWS_API_Gateway_Methods__r.hasNo(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-10T20:07:16Z"
+        },
+        "Id": "test4",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__restApi__c": "restApi4",
+        "CA10__restApiId__c": "restApiId4",
+        "CA10__clientCertificate__c": "clientCertificate4",
+        "CA10__clientCertificateId__c": "clientCertificateId4",
+        "RecordType": {
+            "DeveloperName": "restApiStage",
+            "Id": "RecordTypeId"
+        },
+        "CA10__restApi__r": {
+            "Id": "restApi4",
+            "CA10__disappearanceTime__c": null,
+            "CA10__endpointType__c": "REGIONAL",
+            "CA10A1__AWS_API_Gateway_Methods__r": [
+                {
+                    "Id": "test4_1",
+                    "CA10A1__disappearanceTime__c": null,
+                    "CA10A1__integrationType__c": "AWS",
+                    "CA10A1__restApi__c": "restApi4"
+                }
+            ]
+        },
+        "CA10__clientCertificate__r": {
+            "Id": "clientCertificate4",
+            "CA10__disappearanceTime__c": null
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "isEmptyLookup('CA10__clientCertificate__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-10T20:07:16Z"
+        },
+        "Id": "test5",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__restApi__c": "restApi5",
+        "CA10__restApiId__c": "restApiId5",
+        "CA10__clientCertificate__c": "clientCertificate5",
+        "CA10__clientCertificateId__c": "clientCertificateId5",
+        "RecordType": {
+            "DeveloperName": "restApiStage",
+            "Id": "RecordTypeId"
+        },
+        "CA10__restApi__r": {
+            "Id": "restApi5",
+            "CA10__disappearanceTime__c": null,
+            "CA10__endpointType__c": "REGIONAL",
+            "CA10A1__AWS_API_Gateway_Methods__r": [
+                {
+                    "Id": "test5_1",
+                    "CA10A1__disappearanceTime__c": null,
+                    "CA10A1__integrationType__c": "HTTP",
+                    "CA10A1__restApi__c": "restApi5"
+                }
+            ]
+        },
+        "CA10__clientCertificate__r": {
+            "Id": "clientCertificate5",
+            "CA10__disappearanceTime__c": "2024-12-10T20:07:16Z"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "isEmptyLookup('CA10__clientCertificate__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-10T20:07:16Z"
+        },
+        "Id": "test6",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__restApi__c": "restApi6",
+        "CA10__restApiId__c": "restApiId6",
+        "CA10__clientCertificate__c": "",
+        "CA10__clientCertificateId__c": "clientCertificateId6",
+        "RecordType": {
+            "DeveloperName": "restApiStage",
+            "Id": "RecordTypeId"
+        },
+        "CA10__restApi__r": {
+            "Id": "restApi6",
+            "CA10__disappearanceTime__c": null,
+            "CA10__endpointType__c": "REGIONAL",
+            "CA10A1__AWS_API_Gateway_Methods__r": [
+                {
+                    "Id": "test6_1",
+                    "CA10A1__disappearanceTime__c": null,
+                    "CA10A1__integrationType__c": "HTTP_PROXY",
+                    "CA10A1__restApi__c": "restApi6"
+                }
+            ]
+        },
+        "CA10__clientCertificate__r": {
+            "Id": null,
+            "CA10__disappearanceTime__c": null
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "isEmptyLookup('CA10__clientCertificate__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-10T20:07:16Z"
+        },
+        "Id": "test7",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__restApi__c": "restApi7",
+        "CA10__restApiId__c": "restApiId7",
+        "CA10__clientCertificate__c": "",
+        "CA10__clientCertificateId__c": "",
+        "RecordType": {
+            "DeveloperName": "restApiStage",
+            "Id": "RecordTypeId"
+        },
+        "CA10__restApi__r": {
+            "Id": "restApi7",
+            "CA10__disappearanceTime__c": null,
+            "CA10__endpointType__c": "REGIONAL",
+            "CA10A1__AWS_API_Gateway_Methods__r": [
+                {
+                    "Id": "test7_1",
+                    "CA10A1__disappearanceTime__c": null,
+                    "CA10A1__integrationType__c": "HTTP_PROXY",
+                    "CA10A1__restApi__c": "restApi7"
+                }
+            ]
+        },
+        "CA10__clientCertificate__r": {
+            "Id": null,
+            "CA10__disappearanceTime__c": null
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "599",
+            "conditionText": "notEmptyLookup('CA10__clientCertificate__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-10T20:07:16Z"
+        },
+        "Id": "test8",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__restApi__c": "restApi8",
+        "CA10__restApiId__c": "restApiId8",
+        "CA10__clientCertificate__c": "clientCertificateId8",
+        "CA10__clientCertificateId__c": "clientCertificateId8",
+        "RecordType": {
+            "DeveloperName": "restApiStage",
+            "Id": "RecordTypeId"
+        },
+        "CA10__restApi__r": {
+            "Id": "restApi8",
+            "CA10__disappearanceTime__c": null,
+            "CA10__endpointType__c": "REGIONAL",
+            "CA10A1__AWS_API_Gateway_Methods__r": [
+                {
+                    "Id": "test8_1",
+                    "CA10A1__disappearanceTime__c": null,
+                    "CA10A1__integrationType__c": "HTTP_PROXY",
+                    "CA10A1__restApi__c": "restApi8"
+                }
+            ]
+        },
+        "CA10__clientCertificate__r": {
+            "Id": "clientCertificateId8",
+            "CA10__disappearanceTime__c": null
+        }
+    }
+]

@@ -1,0 +1,12 @@
+---
+names:
+  full: AWS IAM Role unused
+  contextual: IAM Role Unused
+description: >
+  IAM provides last used information to help you identify unused roles so that you can remove them.\\
+  This helps you to better adhere to the best practice of least privilege.
+type: "BEST_PRACTICE"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/identity-and-access-management/role-management"

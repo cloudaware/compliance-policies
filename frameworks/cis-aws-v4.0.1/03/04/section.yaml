@@ -1,0 +1,8 @@
+---
+name: 3.4 Ensure that server access logging is enabled on the CloudTrail S3 bucket (Automated)
+description: >
+  Server access logging generates a log that contains access records for each request
+  made to your S3 bucket. An access log record contains details about the request, such
+  as the request type, the resources specified in the request worked, and the time and
+  date the request was processed. It is recommended that server access logging be enabled 
+  on the CloudTrail S3 bucket.

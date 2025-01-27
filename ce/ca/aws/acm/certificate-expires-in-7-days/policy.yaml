@@ -1,9 +1,20 @@
 ---
 names:
-  full: AWS ACM Certificate Renewal (7 days before expiration)
-  contextual: Certificate Renewal (7 days before expiration)
-description: "Ensure that your SSL/TLS certificates managed by AWS ACM are renewed\
-  \ 7 days before their validity period ends. Certificate Manager is the AWS service\
-  \ that lets you easily provision, manage, and deploy SSL/TLS certificates for use\
-  \ with other AWS resources such as Elastic Load Balancers, CloudFront distributions\
-  \ or APIs on Amazon API Gateway."
+  full: "AWS ACM Certificate expires in the next 7 days"
+  contextual: "Certificate expires in the next 7 days"
+description: >
+  Renew your SSL/TLS certificates in AWS ACM that are ineligible for automatic renewal at 
+  least 7 days before their expiration date to ensure uninterrupted security coverage 
+  and prevent service disruptions. Proactive renewal safeguards your applications 
+  and maintains user trust. AWS Certificate Manager simplifies the provisioning, 
+  management, and deployment of SSL/TLS certificates for various AWS resources, 
+  including Elastic Load Balancers, CloudFront distributions, and APIs on Amazon API Gateway
+categories:
+  - "SECURITY"
+  - "RELIABILITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/key-secret-certificate-management/expiration-management"
+similarPolicies:
+  internal:
+    - "dec-x-b24d2338"

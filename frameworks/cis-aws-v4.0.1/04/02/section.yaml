@@ -1,0 +1,9 @@
+---
+name: 4.2 Ensure management console sign-in without MFA is monitored (Manual)
+description: |-
+  Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to
+  CloudWatch Logs or an external Security Information and Event Management (SIEM)
+  environment, and establishing corresponding metric filters and alarms.
+
+  It is recommended that a metric filter and alarm be established for console logins that
+  are not protected by multi-factor authentication (MFA).

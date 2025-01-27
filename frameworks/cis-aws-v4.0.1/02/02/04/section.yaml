@@ -1,0 +1,8 @@
+---
+name: 2.2.4 Ensure Multi-AZ deployments are used for enhanced availability in Amazon RDS (Manual)
+description: >
+  Amazon RDS offers Multi-AZ deployments that provide enhanced availability and
+  durability for your databases, using synchronous replication to replicate data to a
+  standby instance in a different Availability Zone (AZ). In the event of an infrastructure
+  failure, Amazon RDS automatically fails over to the standby to minimize downtime and
+  ensure business continuity.

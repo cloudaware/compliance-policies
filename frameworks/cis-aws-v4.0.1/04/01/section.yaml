@@ -1,0 +1,8 @@
+---
+name: 4.1 Ensure unauthorized API calls are monitored (Automated)
+description: |-
+  Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to
+  CloudWatch Logs or an external Security Information and Event Management (SIEM)
+  environment, and establishing corresponding metric filters and alarms.
+
+  It is recommended that a metric filter and alarm be established for unauthorized API calls.

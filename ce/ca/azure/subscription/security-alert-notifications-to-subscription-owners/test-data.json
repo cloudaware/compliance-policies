@@ -3,7 +3,7 @@
         "expectedResult": {
             "status": "COMPLIANT",
             "conditionIndex": "199",
-            "conditionText": "extract('caJsonQueryBoolean__securityCenterContacts_default_roles__c').containsIgnoreCase('Owner') && extract('caJsonQueryText__securityCenterContacts_default_state__c') == 'On'",
+            "conditionText": "extract('caJsonQueryBoolean__securityCenterContacts_default_roles__c').contains('Owner') && extract('caJsonQueryText__securityCenterContacts_default_state__c') == 'On'",
             "runtimeError": null
         },
         "context": {
@@ -16,7 +16,7 @@
         "expectedResult": {
             "status": "COMPLIANT",
             "conditionIndex": "199",
-            "conditionText": "extract('caJsonQueryBoolean__securityCenterContacts_default_roles__c').containsIgnoreCase('Owner') && extract('caJsonQueryText__securityCenterContacts_default_state__c') == 'On'",
+            "conditionText": "extract('caJsonQueryBoolean__securityCenterContacts_default_roles__c').contains('Owner') && extract('caJsonQueryText__securityCenterContacts_default_state__c') == 'On'",
             "runtimeError": null
         },
         "context": {
@@ -81,7 +81,7 @@
         "expectedResult": {
             "status": "COMPLIANT",
             "conditionIndex": "199",
-            "conditionText": "extract('caJsonQueryBoolean__securityCenterContacts_default_roles__c').containsIgnoreCase('Owner') && extract('caJsonQueryText__securityCenterContacts_default_state__c') == 'On'",
+            "conditionText": "extract('caJsonQueryBoolean__securityCenterContacts_default_roles__c').contains('Owner') && extract('caJsonQueryText__securityCenterContacts_default_state__c') == 'On'",
             "runtimeError": null
         },
         "context": {

@@ -1,0 +1,13 @@
+---
+name: 4.14 Ensure VPC changes are monitored (Manual)
+description: |-
+  Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to
+  CloudWatch Logs or an external Security Information and Event Management (SIEM)
+  environment, and establishing corresponding metric filters and alarms.
+
+  It is possible to have more than one VPC within an account; additionally, it is also
+  possible to create a peer connection between two VPCs, enabling network traffic to
+  route between them.
+
+  It is recommended that a metric filter and alarm be established for changes made to
+  VPCs.

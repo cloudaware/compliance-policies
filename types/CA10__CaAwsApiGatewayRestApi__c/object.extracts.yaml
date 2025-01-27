@@ -1,0 +1,13 @@
+---
+extracts:
+# Values: HTTP | WEBSOCKET. Nullable. Can't have no access, retrieved via apigateway:GetApis.
+# Null value indicates REST type
+  - name: CA10__protocolType__c
+    value: 
+      FIELD:
+        path: CA10__protocolType__c
+# Values: REGIONAL | EDGE | PRIVATE. Not Nullable. Can't have no access, retrieved via apigateway:GetRestApis.
+  - name: CA10__endpointType__c
+    value: 
+      FIELD:
+        path: CA10__endpointType__c

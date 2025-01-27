@@ -1,0 +1,19 @@
+---
+inputObject: "CA10__CaAwsApiGatewayStage__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsApiGatewayStage__c/object.extracts.yaml"
+testData:
+  - file: test-data.json
+recordTypes:
+  - "restApiStage"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The stage is not associated with a WAF Web ACL."
+    remediationMessage: "Consider associating a WAF Web ACL with an API Gateway Stage"
+    condition:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__webAclArn__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The stage is associated with a WAF Web ACL."

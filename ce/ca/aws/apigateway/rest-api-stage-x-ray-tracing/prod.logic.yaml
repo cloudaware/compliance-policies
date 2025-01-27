@@ -1,0 +1,29 @@
+---
+inputObject: "CA10__CaAwsApiGatewayStage__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsApiGatewayStage__c/object.extracts.yaml"
+testData:
+  - file: test-data.json
+recordTypes:
+  - "restApiStage"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "AWS X-Ray is not enabled in API Gateway."
+    remediationMessage: "Consider enabling AWS X-Ray in API Gateway."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__xrayTracingEnabled__c"
+        right:
+          TEXT: "No"
+  - status: "COMPLIANT"
+    currentStateMessage: "AWS X-Ray is enabled in API Gateway."
+    condition:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__xrayTracingEnabled__c"
+        right:
+          TEXT: "Yes"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

@@ -1,0 +1,17 @@
+---
+extracts:
+# Values: OFF | INFO | ERROR. Nullable. Can't have no access, retrieved via apigateway:GetStages.
+  - name: CA10__cloudWatchLogLevel__c
+    value: 
+      FIELD:
+        path: CA10__cloudWatchLogLevel__c
+# Values: Yes | No. Not nullable. Can't have no access, retrieved via apigateway:GetStages.
+  - name: CA10__xrayTracingEnabled__c
+    value: 
+      FIELD:
+        path: CA10__xrayTracingEnabled__c
+# Nullable. Can't have no access, retrieved via apigateway:GetStages.
+  - name: CA10__webAclArn__c
+    value: 
+      FIELD:
+        path: CA10__webAclArn__c

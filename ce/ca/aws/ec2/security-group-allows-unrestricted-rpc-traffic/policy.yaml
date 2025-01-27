@@ -1,0 +1,19 @@
+---
+names:
+  full: AWS EC2 Security Group allows unrestricted RPC traffic
+  contextual: Security Group allows unrestricted RPC traffic
+description: >
+  Ensure that AWS EC2 Security Groups are configured to restrict inbound RPC 
+  traffic to only trusted IP ranges or instances. RPC protocol enables inter-process 
+  communication and, if improperly secured, can expose EC2 instances to unauthorized access.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+similarPolicies:
+  internal:
+    - dec-x-66358b45
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EC2/unrestricted-rpc-access.html
+      name: Unrestricted RPC Access

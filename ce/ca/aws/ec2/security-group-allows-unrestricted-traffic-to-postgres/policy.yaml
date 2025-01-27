@@ -1,0 +1,18 @@
+---
+names:
+  full: AWS EC2 Security Group allows unrestricted traffic to PostgreSQL
+  contextual: Security Group allows unrestricted traffic to PostgreSQL
+description: >
+  Ensure that AWS EC2 Security Groups restrict inbound access to PostgreSQL on 
+  port 5432 by limiting traffic to trusted IP addresses or internal networks.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+similarPolicies:
+  internal:
+    - dec-x-ca1c0c0d
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EC2/unrestricted-postgresql-access.html
+      name: Unrestricted PostgreSQL Access

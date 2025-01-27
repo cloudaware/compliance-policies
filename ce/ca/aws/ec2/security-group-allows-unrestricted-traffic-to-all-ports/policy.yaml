@@ -1,0 +1,16 @@
+---
+names:
+  full: AWS EC2 Security Group allows unrestricted traffic to all ports
+  contextual: Security Group allows unrestricted traffic to all ports
+description: >
+  Ensure that AWS EC2 Security Groups are configured to avoid unrestricted 
+  traffic to all ports. This involves reviewing and limiting overly permissive 
+  inbound rules that expose all ports (0-65535) to unrestricted IP ranges (0.0.0.0/0).
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+similarPolicies:
+  internal:
+    - dec-x-3e95721c

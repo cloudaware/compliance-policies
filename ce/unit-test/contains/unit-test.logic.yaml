@@ -1,0 +1,219 @@
+---
+inputObject: CA10__CaAwsInstance__c
+testData:
+  - file: test-data.json
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: Word-1
+    condition:
+      UNIT_TEST:
+        id: Word-1
+        arg:
+          CONTAINS:
+            arg:
+              TEXT: "abcklmxyz"
+            substring:
+              TEXT: "abc"
+  - status: COMPLIANT
+    currentStateMessage: Word-2
+    condition:
+      UNIT_TEST:
+        id: Word-2
+        arg:
+          CONTAINS:
+            arg:
+              TEXT: "abcklmxyz"
+            substring:
+              TEXT: "klm"
+  - status: COMPLIANT
+    currentStateMessage: Word-3
+    condition:
+      UNIT_TEST:
+        id: Word-3
+        arg:
+          CONTAINS:
+            arg:
+              TEXT: "abcklmxyz"
+            substring:
+              TEXT: "xyz"
+  - status: COMPLIANT
+    currentStateMessage: Word-4
+    condition:
+      UNIT_TEST:
+        id: Word-4
+        arg:
+          NOT:
+            arg:
+              CONTAINS:
+                arg:
+                  TEXT: "abcklmxyz"
+                substring:
+                  TEXT: "123"
+  - status: COMPLIANT
+    currentStateMessage: Multiple-1
+    condition:
+      UNIT_TEST:
+        id: Multiple-1
+        arg:
+          CONTAINS:
+            arg:
+              TEXT: "abc klm xyz"
+            substring:
+              TEXT: "abc"
+  - status: COMPLIANT
+    currentStateMessage: Multiple-2
+    condition:
+      UNIT_TEST:
+        id: Multiple-2
+        arg:
+          CONTAINS:
+            arg:
+              TEXT: "abc klm xyz"
+            substring:
+              TEXT: "klm"
+  - status: COMPLIANT
+    currentStateMessage: Multiple-3
+    condition:
+      UNIT_TEST:
+        id: Multiple-3
+        arg:
+          CONTAINS:
+            arg:
+              TEXT: "abc klm xyz"
+            substring:
+              TEXT: "xyz"
+  - status: COMPLIANT
+    currentStateMessage: Multiple-4
+    condition:
+      UNIT_TEST:
+        id: Multiple-4
+        arg:
+          NOT:
+            arg:
+              CONTAINS:
+                arg:
+                  TEXT: "abc klm xyz"
+                substring:
+                  TEXT: "123"
+  - status: COMPLIANT
+    currentStateMessage: Whitespace-1
+    condition:
+      UNIT_TEST:
+        id: Whitespace-1
+        arg:
+          CONTAINS:
+            arg:
+              TEXT: " aa   bb  cc "
+            substring:
+              TEXT: "aa bb"
+  - status: COMPLIANT
+    currentStateMessage: Whitespace-2
+    condition:
+      UNIT_TEST:
+        id: Whitespace-2
+        arg:
+          CONTAINS:
+            arg:
+              TEXT: "aa bb cc"
+            substring:
+              TEXT: "  aa    bb "
+  - status: COMPLIANT
+    currentStateMessage: Whitespace-3
+    condition:
+      UNIT_TEST:
+        id: Whitespace-3
+        arg:
+          CONTAINS:
+            arg:
+              TEXT: ""
+            substring:
+              TEXT: "\n\r\t"
+  - status: COMPLIANT
+    currentStateMessage: Whitespace-4
+    condition:
+      UNIT_TEST:
+        id: Whitespace-4
+        arg:
+          CONTAINS:
+            arg:
+              TEXT: "a b c"
+            substring:
+              TEXT: "  a\n b \r c \t"
+  - status: COMPLIANT
+    currentStateMessage: Case-1
+    condition:
+      UNIT_TEST:
+        id: Case-1
+        arg:
+          CONTAINS:
+            arg:
+              TEXT: "ABC KLM XYZ"
+            substring:
+              TEXT: "klm"
+  - status: COMPLIANT
+    currentStateMessage: Null-1
+    condition:
+      UNIT_TEST:
+        id: Null-1
+        arg:
+          CONTAINS:
+            arg:
+              UNIT_TEST_NULL:
+                returnType: TEXT
+            substring:
+              UNIT_TEST_NULL:
+                returnType: TEXT
+  - status: COMPLIANT
+    currentStateMessage: Null-2
+    condition:
+      UNIT_TEST:
+        id: Null-2
+        arg:
+          CONTAINS:
+            arg:
+              TEXT: ""
+            substring:
+              UNIT_TEST_NULL:
+                returnType: TEXT
+  - status: COMPLIANT
+    currentStateMessage: Null-3
+    condition:
+      UNIT_TEST:
+        id: Null-3
+        arg:
+          CONTAINS:
+            arg:
+              TEXT: "abc"
+            substring:
+              UNIT_TEST_NULL:
+                returnType: TEXT
+  - status: COMPLIANT
+    currentStateMessage: Null-4
+    condition:
+      UNIT_TEST:
+        id: Null-4
+        arg:
+          CONTAINS:
+            arg:
+              UNIT_TEST_NULL:
+                returnType: TEXT
+            substring:
+              TEXT: ""
+  - status: COMPLIANT
+    currentStateMessage: Null-5
+    condition:
+      UNIT_TEST:
+        id: Null-5
+        arg:
+          NOT:
+            arg:
+              CONTAINS:
+                arg:
+                  UNIT_TEST_NULL:
+                    returnType: TEXT
+                substring:
+                  TEXT: "abc"
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: Test Failed
+  remediationMessage: Developer Fix Required

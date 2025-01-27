@@ -16,11 +16,9 @@ Perform the following to determine if access keys are rotated as prescribed:
 
 1. Go to [Management Console](https://console.aws.amazon.com/iam).
 2. Click on `Users`.
-3. Click `setting` icon.
-4. Select `Console last sign-in`.
-5. Click `Close`.
-6. Ensure that `Access key age` is less than 90 days ago.
-Note: `None` in the `Access key age` means the user has not used the access key.
+3. For each user, go to `Security Credentials`.
+4. Review each key under `Access Keys`.
+5. For each key that shows `Active` for status, ensure that `Created` is less than or equal to 90 days ago.
 
 ### From Command Line
 

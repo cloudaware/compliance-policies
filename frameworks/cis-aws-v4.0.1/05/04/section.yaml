@@ -1,0 +1,6 @@
+---
+name: 5.4 Ensure no security groups allow ingress from ::/0 to remote server administration ports (Automated)
+description: >
+  Security groups provide stateful filtering of ingress and egress network traffic to AWS
+  resources. It is recommended that no security group allows unrestricted ingress access
+  to remote server administration ports, such as SSH on port 22 and RDP on port 3389.

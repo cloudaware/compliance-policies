@@ -1,0 +1,35 @@
+---
+extracts:
+# Values: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone. Not Nullable. Can't have no access, retrieved via policies/authorizationPolicy
+  - name: "CA10Z1__invitesFromState__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__invitesFromState__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. The Allow Invites authorization setting cannot be empty."
+# Values: 
+# User (a0b1b346-4d3e-4e8b-98f8-753987be4970)
+# Guest User (10dae51f-b6af-4016-8d66-8c2a99b929b3)
+# Restricted Guest User (2af84b1e-32c8-42b7-82bc-daa82404023b).
+# Can't have no access, retrieved via policies/authorizationPolicy
+  - name: "CA10Z1__guestUserRoleId__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__guestUserRoleId__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. The Guest User Role Id cannot be empty."
+# Values: Enabled, Disabled. Not Nullable. Can't have no access, retrieved via policies/authorizationPolicy
+  - name: "CA10Z1__defaultPermissionCreateTenants__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__defaultPermissionCreateTenants__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. The Allowed To Create Tenants default setting cannot be empty."
+# Values: Enabled, Disabled. Not Nullable. Can't have no access, retrieved via policies/authorizationPolicy
+  - name: "CA10Z1__defaultPermissionCreateApps__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__defaultPermissionCreateApps__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. The Allowed To Create Apps default setting cannot be empty."
+

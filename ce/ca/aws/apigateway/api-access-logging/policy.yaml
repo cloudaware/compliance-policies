@@ -1,0 +1,16 @@
+---
+names:
+  full: AWS API Gateway API Access Logging in CloudWatch is not enabled
+  contextual: API Access Logging in CloudWatch is not enabled
+description: >
+  Ensure that access logging is enabled on API Gateway APIs, capturing essential 
+  details about API usage and access in Amazon CloudWatch Logs. This enables 
+  monitoring, troubleshooting, and auditing of API calls.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring-management/logging-and-monitoring-configuration"
+similarPolicies:
+  internal:
+    - "dec-x-d75f6d86"

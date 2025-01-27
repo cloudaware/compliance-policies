@@ -1,0 +1,20 @@
+---
+names:
+  full: AWS EC2 Security Group allows unrestricted FTP traffic
+  contextual: Security Group allows unrestricted FTP traffic
+description: >
+  Ensure that FTP traffic (ports 20 and 21) is restricted to trusted IP ranges 
+  or disable it entirely. Evaluate the security group settings in AWS EC2 to 
+  ensure they do not permit unrestricted access to these ports, which can expose 
+  systems to unauthorized access and potential attacks.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+similarPolicies:
+  internal:
+    - dec-x-293ab45b
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EC2/unrestricted-ftp-access.html
+      name: Unrestricted FTP Access

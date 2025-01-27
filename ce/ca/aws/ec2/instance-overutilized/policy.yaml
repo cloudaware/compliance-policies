@@ -1,9 +1,16 @@
 ---
 names:
-  full: AWS EC2 Instance Overutilized
-  contextual: Instance Overutilized
-description: "Identify any Amazon EC2 instances that appear to be overutilized and\
-  \ upgrade (resize) them in order to help your EC2-hosted applications to handle\
-  \ the workload better and improve the response time. By default, an EC2 instance\
-  \ is considered \"overutilized\" when it matches the following criteria: The average\
-  \ CPU utilization has been more than 90% for the last 7 days."
+  full: AWS EC2 Instance is overutilized
+  contextual: Instance is overutilized
+description: >
+  Identify and address overutilized Amazon EC2 instances to prevent performance 
+  degradation and optimize resource allocation. Instances are considered 
+  overutilized if their average CPU utilization exceeds 80% and maximum CPU 
+  utilization consistently spikes above 95% over a 14-day period.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+  - "PERFORMANCE"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-management/resource-right-sizing"
+  - "/frameworks/cloudaware/resource-performance/resource-utilization"
