@@ -21,7 +21,9 @@
     },
     "cSpell.userWords": [
         "Cloudaware",
+        "gigware",
         "CMDB",
+        "repomanager",
         "Gcloud",
         "overutilized",
         "picklist",
@@ -40,7 +42,15 @@
         "organisations",
         "organise",
         "recognised",
-        "standardised"
+        "standardised",
+        "gsutil",
+        "preconfigured",
+        "subfolder",
+        "subfolders",
+        "asciidoctor",
+        "roff",
+        "adoc",
+        "informix"
     ],
     "path-autocomplete.triggerOutsideStrings": true,
     "path-autocomplete.enableFolderTrailingSlash": false,
@@ -48,6 +58,9 @@
         "*.md": "vscode.markdown.preview.editor"
     },
     "markdownlint.config": {
-        "MD025": false
+        "MD025": false,
+        "MD024": {
+            "siblings_only": true
+        }
     }
 }
