@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureManagedDisk__c"
+inputType: "CA10__CaAzureManagedDisk__c"
 importExtracts:
   - file: "/types/CA10__CaAzureManagedDisk__c/object.extracts.yaml"
 testData:
@@ -8,7 +8,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The Managed Disk Data Access Auth Mode is not set to Azure Active Directory."
     remediationMessage: "Consider setting Data Access Auth Mode to Azure Active Directory."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__dataAccessAuthMode__c"
@@ -17,13 +17,13 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The Managed Disk Data Access Auth Mode is not set to Azure Active Directory."
     remediationMessage: "Consider setting Data Access Auth Mode to Azure Active Directory."
-    condition:
+    check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__dataAccessAuthMode__c"
   - status: "COMPLIANT"
     currentStateMessage: "The Managed Disk Data Access Auth Mode is set to Azure Active Directory."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__dataAccessAuthMode__c"

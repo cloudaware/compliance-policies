@@ -13,7 +13,7 @@ The policy originates from a customer request and developed to their specificati
 
 This policy basically looks for specific Actions in the policy statements. No other logic is applied.
 
-Because the `inputObject` is `AWS IAM Policy`, the policy document is `Identity-based` and would not have any `Principal`.
+Because the `inputType` is `AWS IAM Policy`, the policy document is `Identity-based` and would not have any `Principal`.
 
 We can not apply any specific `ACCESS_LEVEL` to filter out the statements, they all are going to be detected as `EXTERNAL_PRINCIPAL`,
 but actually you can only attach this policy to the objects in your account, so effectively it's like `SAME_ACCOUNT`.

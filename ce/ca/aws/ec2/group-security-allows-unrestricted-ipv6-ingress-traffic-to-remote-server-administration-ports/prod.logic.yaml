@@ -1,12 +1,12 @@
 ---
-inputObject: "CA10__CaAwsSecurityGroup__c"
+inputType: "CA10__CaAwsSecurityGroup__c"
 testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "This Security Group allows ingress from ::/0 to remote server administration ports."
     remediationMessage: "Consider changing the Security Group source field to a range other than ::/0 or delete the offending inbound rule."
-    condition:
+    check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
@@ -20,7 +20,7 @@ relatedLists:
     conditions:
       - status: "INAPPLICABLE"
         currentStateMessage: "This is an outbound security group rule."
-        condition:
+        check:
           NOT_EQUAL:
             left:
               EXTRACT: "CA10__direction__c"
@@ -28,7 +28,7 @@ relatedLists:
               TEXT: "Inbound"
       - status: "INAPPLICABLE"
         currentStateMessage: "This security group rule does not allow unrestricted access."
-        condition:
+        check:
           NOT_EQUAL:
             left:
               EXTRACT: "CA10__sourceIpRange__c"
@@ -36,7 +36,7 @@ relatedLists:
               TEXT: "::/0"
       - status: "INAPPLICABLE"
         currentStateMessage: "This security group rule protocol is not All, TCP, or UDP."
-        condition:
+        check:
 # check that protocol is neither all, tcp, or udp
           NOT:
             arg:
@@ -60,7 +60,7 @@ relatedLists:
       - status: "INCOMPLIANT"
         currentStateMessage: "This Security Group allows ingress from ::/0."
         remediationMessage: "Consider changing the source field to a range other than ::/0 or delete the offending inbound rule."
-        condition:
+        check:
 # check that port range either includes port 22 or port 3389, or the range is empty (all ports)
           OR:
             args:

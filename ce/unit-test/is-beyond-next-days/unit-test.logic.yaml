@@ -1,11 +1,11 @@
 ---
-inputObject: CA10__CaAwsInstance__c
+inputType: CA10__CaAwsInstance__c
 testData:
   - file: test-data.json
 conditions:
   - status: COMPLIANT
     currentStateMessage: "2024-01-05T00:00:00Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-05T00:00:00Z"
         arg:
@@ -17,7 +17,7 @@ conditions:
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-05T23:59:59Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-05T23:59:59Z"
         arg:
@@ -29,7 +29,7 @@ conditions:
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-06T00:00:00Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-06T00:00:00Z"
         arg:
@@ -41,7 +41,7 @@ conditions:
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-06T23:59:59Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-06T23:59:59Z"
         arg:
@@ -53,7 +53,7 @@ conditions:
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-07T00:00:00Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-07T00:00:00Z"
         arg:
@@ -65,7 +65,7 @@ conditions:
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-07T23:59:59Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-07T23:59:59Z"
         arg:
@@ -77,7 +77,7 @@ conditions:
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-08T00:00:00Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-08T00:00:00Z"
         arg:
@@ -89,7 +89,7 @@ conditions:
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-08T23:59:59Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-08T23:59:59Z"
         arg:
@@ -101,7 +101,7 @@ conditions:
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-09T00:00:00Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-09T00:00:00Z"
         arg:
@@ -113,7 +113,7 @@ conditions:
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-09T23:59:59Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-09T23:59:59Z"
         arg:
@@ -125,7 +125,7 @@ conditions:
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-10T00:00:00Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-10T00:00:00Z"
         arg:
@@ -137,7 +137,7 @@ conditions:
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "now"
-    condition:
+    check:
       UNIT_TEST:
         id: "now"
         arg:
@@ -148,7 +148,7 @@ conditions:
               UNIT_TEST_DATE_TIME: "2024-01-10T18:00:00Z"
   - status: COMPLIANT
     currentStateMessage: "2024-01-10T23:59:59Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-10T23:59:59Z"
         arg:
@@ -160,7 +160,7 @@ conditions:
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-11T00:00:00Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-11T00:00:00Z"
         arg:
@@ -172,7 +172,7 @@ conditions:
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-11T23:59:59Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-11T23:59:59Z"
         arg:
@@ -184,7 +184,7 @@ conditions:
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-12T00:00:00Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-12T00:00:00Z"
         arg:
@@ -196,7 +196,7 @@ conditions:
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-12T23:59:59Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-12T23:59:59Z"
         arg:
@@ -208,7 +208,7 @@ conditions:
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-13T00:00:00Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-13T00:00:00Z"
         arg:
@@ -220,7 +220,7 @@ conditions:
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-13T23:59:59Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-13T23:59:59Z"
         arg:
@@ -232,7 +232,7 @@ conditions:
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-14T00:00:00Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-14T00:00:00Z"
         arg:
@@ -242,7 +242,7 @@ conditions:
             offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-14T23:59:59Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-14T23:59:59Z"
         arg:
@@ -252,7 +252,7 @@ conditions:
             offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-15T00:00:00Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-15T00:00:00Z"
         arg:
@@ -262,7 +262,7 @@ conditions:
             offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-15T23:59:59Z"
-    condition:
+    check:
       UNIT_TEST:
         id: "2024-01-15T23:59:59Z"
         arg:
@@ -272,7 +272,7 @@ conditions:
             offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "Null-1"
-    condition:
+    check:
       UNIT_TEST:
         id: "Null-1"
         arg:

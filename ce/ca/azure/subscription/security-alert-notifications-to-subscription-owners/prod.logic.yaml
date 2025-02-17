@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureAccount__c"
+inputType: "CA10__CaAzureAccount__c"
 testData:
   - file: "test-data.json"
 importExtracts:
@@ -8,7 +8,7 @@ conditions:
   - status: "COMPLIANT"
     currentStateMessage: "Security alert emails to subscription owners are enabled."
 # Extracts only for the default contact
-    condition:
+    check:
       AND:
         args:
           - CONTAINS:

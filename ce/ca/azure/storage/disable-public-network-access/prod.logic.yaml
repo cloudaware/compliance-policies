@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureStorageAccount__c"
+inputType: "CA10__CaAzureStorageAccount__c"
 testData:
   - file: "test-data.json"
 importExtracts:
@@ -8,7 +8,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Public Network Access is enabled."
     remediationMessage: "Consider disabling Public Network Access."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__publicNetworkAccessState__c"
@@ -16,7 +16,7 @@ conditions:
           TEXT: "Enabled"
   - status: "COMPLIANT"
     currentStateMessage: "Public Network Access is disabled."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__publicNetworkAccessState__c"

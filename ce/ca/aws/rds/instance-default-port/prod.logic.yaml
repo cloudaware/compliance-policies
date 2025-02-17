@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAwsDbInstance__c"
+inputType: "CA10__CaAwsDbInstance__c"
 importExtracts:
   - file: "/types/CA10__CaAwsDbInstance__c/object.extracts.yaml"
 testData:
@@ -8,7 +8,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Default port 3306 used for MySQL-compatible database."
     remediationMessage: "Change the port from 3306 to any other port number."
-    condition:
+    check:
       AND:
         args:
           - IS_EQUAL:
@@ -41,7 +41,7 @@ conditions:
   - status: INCOMPLIANT
     currentStateMessage: "Default port 1521 used for Oracle database."
     remediationMessage: "Change the port from 1521 to any other port number."
-    condition:
+    check:
       AND:
         args:
           - IS_EQUAL:
@@ -57,7 +57,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Default port 5432 used for PostgreSQL-compatible database."
     remediationMessage: "Change the port from 5432 to any other port number."
-    condition:
+    check:
       AND:
         args:
           - IS_EQUAL:
@@ -80,7 +80,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Default port 1433 used for MSSQL server."
     remediationMessage: "Change the port from 1433 to any other port number."
-    condition:
+    check:
       AND:
         args:
           - IS_EQUAL:
@@ -96,7 +96,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Default port 27017 used for DocumentDB."
     remediationMessage: "Change the port from 27017 to any other port number."
-    condition:
+    check:
       AND:
         args:
           - IS_EQUAL:
@@ -111,7 +111,7 @@ conditions:
                 TEXT: "docdb"
   - status: "INAPPLICABLE"
     currentStateMessage: "This Database Engine is not checked by the policy."
-    condition:
+    check:
       AND:
         args:
           - NOT_EQUAL:

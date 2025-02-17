@@ -1,5 +1,5 @@
 ---
-inputObject: CA10__CaAwsDbSnapshot__c
+inputType: CA10__CaAwsDbSnapshot__c
 importExtracts:
   - file: "/types/CA10__CaAwsDbSnapshot__c/object.extracts.yaml"
 testData:
@@ -7,7 +7,7 @@ testData:
 conditions:
   - status: INAPPLICABLE
     currentStateMessage: Encrypted RDS Snapshots cannot be public # cannot be set to restore:all
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: CA10__encrypted__c
@@ -15,7 +15,7 @@ conditions:
           BOOLEAN: true
   - status: INAPPLICABLE
     currentStateMessage: RDS Snapshots created automatically or via AWS Backup Service cannot be public
-    condition:
+    check:
       OR:
         args:
           - IS_EQUAL:
@@ -31,7 +31,7 @@ conditions:
   - status: INCOMPLIANT
     currentStateMessage: RDS Snapshot is publicly accessible
     remediationMessage: Consider making the snapshot completely private or scoping the access to a subset of AWS Accounts.
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: CA10__snapshotType__c
@@ -41,7 +41,7 @@ conditions:
   - status: INCOMPLIANT
     currentStateMessage: RDS snapshot is publicly accessible
     remediationMessage: Consider making the snapshot completely private or scoping the access to a subset of AWS Accounts.
-    condition:
+    check:
       IS_EQUAL:
         left:
           JSON_QUERY_TEXT:

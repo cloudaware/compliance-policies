@@ -1,4 +1,4 @@
-inputObject: "CA10__CaAzureDiagnosticSetting__c"
+inputType: "CA10__CaAzureDiagnosticSetting__c"
 recordTypes:
   - "caDiagnosticSettingOnAzureSubscription"
 importExtracts:
@@ -8,12 +8,12 @@ testData:
 conditions:
   - status: "INAPPLICABLE"
     currentStateMessage: "This Diagnostic Setting logs are not sent to a Storage account."
-    condition:
+    check:
       IS_EMPTY_LOOKUP: "CA10__storageAccount__r"
   - status: "INCOMPLIANT"
     currentStateMessage: "This Diagnostic Setting logs are sent to a Storage account not encrypted with a Customer-managed Key."
     remediationMessage: "Consider encrypting the destination Storage account with a Customer-managed encryption Key."
-    condition:
+    check:
       AND:
         args:
           - NOT_EQUAL:
@@ -26,7 +26,7 @@ conditions:
                 EXTRACT: "CA10__storageAccount__r.CA10__encryptionKeyVaultUri__c"
   - status: "COMPLIANT"
     currentStateMessage: "This Diagnostic Setting logs are sent to a Storage account encrypted with Customer-managed Key."
-    condition:
+    check:
       AND:
         args:
           - IS_EQUAL:

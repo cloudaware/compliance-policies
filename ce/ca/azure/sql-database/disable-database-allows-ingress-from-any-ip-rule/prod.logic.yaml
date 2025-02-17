@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureSqlServer__c"
+inputType: "CA10__CaAzureSqlServer__c"
 testData:
   - file: "test-data.json"
 importExtracts:
@@ -8,7 +8,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "SQL Database Server Firewall Rules contain AllowAllWindowsAzureIps rule allowing ingress from 0.0.0.0/0 (ANY IP)."
     remediationMessage: "Consider removing or disabling the overly permissive rule."
-    condition:
+    check:
 # searches for the rule with the name AllowAllWindowsAzureIps
       IS_EQUAL:
         left:
@@ -24,7 +24,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "SQL Database Server Firewall Rules contain a rule allowing ingress from 0.0.0.0/0 (ANY IP)."
     remediationMessage: "Consider removing or disabling the overly permissive rule."
-    condition:
+    check:
 # number of rules with start and end IPs as 0.0.0.0
       GREATER_THAN:
         left:
@@ -39,7 +39,7 @@ conditions:
           NUMBER: 0.0
   - status: "COMPLIANT"
     currentStateMessage: "SQL Database Server doesn't have any Firewall Rules."
-    condition:
+    check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__firewallRulesJson__c"

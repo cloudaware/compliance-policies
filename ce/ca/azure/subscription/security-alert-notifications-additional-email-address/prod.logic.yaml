@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureAccount__c"
+inputType: "CA10__CaAzureAccount__c"
 testData:
   - file: "test-data.json"
 importExtracts:
@@ -9,14 +9,14 @@ conditions:
     currentStateMessage: "Security contact email address is not provided."
     remediationMessage: "You should provide a security contact email address as an additional email address."
 # Extract only for the default contact
-    condition:
+    check:
       IS_EMPTY:
         arg:
           EXTRACT: "caJsonQueryText__securityCenterContacts_default_email__c"
   - status: "COMPLIANT"
     currentStateMessage: "Security contact email address is provided."
 # Extract only for the default contact
-    condition:
+    check:
       NOT_EMPTY:
         arg:
           EXTRACT: "caJsonQueryText__securityCenterContacts_default_email__c"

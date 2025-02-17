@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureKeyVault__c"
+inputType: "CA10__CaAzureKeyVault__c"
 importExtracts:
   - file: "/types/CA10__CaAzureKeyVault__c/object.extracts.yaml"
 testData:
@@ -7,7 +7,7 @@ testData:
 conditions:
   - status: "INAPPLICABLE"
     currentStateMessage: "This is an RBAC Key Vault."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__rbacAuthorization__c"
@@ -16,19 +16,19 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The Key Vault has Secrets without expiration date."
     remediationMessage: "Consider setting the Secrets' expiration date."
-    condition:
+    check:
       RELATED_LIST_HAS:
         relationshipName: CA10__Azure_Key_Vault_Secrets__r
         status: "INCOMPLIANT"
   - status: "COMPLIANT"
     currentStateMessage: "The Key Vault Secrets' expiration date is set for all enabled Secrets."
-    condition:
+    check:
       RELATED_LIST_HAS:
         relationshipName: CA10__Azure_Key_Vault_Secrets__r
         status: "COMPLIANT"
   - status: "INAPPLICABLE"
     currentStateMessage: "The Key Vault only has disabled Secrets."
-    condition:
+    check:
       RELATED_LIST_HAS:
         relationshipName: CA10__Azure_Key_Vault_Secrets__r
         status: "INAPPLICABLE"
@@ -42,7 +42,7 @@ relatedLists:
     conditions:
       - status: "INAPPLICABLE"
         currentStateMessage: "The Secret is disabled."
-        condition:
+        check:
           NOT_EQUAL:
             left:
               EXTRACT: "CA10__enabledStatus__c"
@@ -51,13 +51,13 @@ relatedLists:
       - status: "INCOMPLIANT"
         currentStateMessage: "The Secret expiration date is not set."
         remediationMessage: "Consider setting the Secret expiration date."
-        condition:
+        check:
           IS_EMPTY:
             arg:
               EXTRACT: "CA10__expirationDate__c"
       - status: "COMPLIANT"
         currentStateMessage: "The Secret expiration date is set."
-        condition:
+        check:
           NOT_EMPTY:
             arg:
               EXTRACT: "CA10__expirationDate__c"

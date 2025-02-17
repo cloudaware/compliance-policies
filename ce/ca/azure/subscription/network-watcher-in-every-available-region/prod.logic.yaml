@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureAccount__c"
+inputType: "CA10__CaAzureAccount__c"
 importExtracts:
   - file: /types/CA10__CaAzureAccount__c/object.extracts.yaml
 testData:
@@ -9,7 +9,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Network Watcher is not enabled for every available region in the Subscription."
     remediationMessage: "Consider enabling Network Watcher for all available regions in the Subscription."
-    condition:
+    check:
       GREATER_THAN:
         left:
           COLLECTION_SIZE:
@@ -21,7 +21,7 @@ conditions:
             status: "COMPLIANT"
   - status: "COMPLIANT"
     currentStateMessage: "Network Watcher is enabled for every available region in the Subscription."
-    condition:
+    check:
       LESS_THAN_EQUAL:
         left:
           COLLECTION_SIZE:
@@ -41,7 +41,7 @@ relatedLists:
     conditions:
       - status: "COMPLIANT"
         currentStateMessage: "Network Watcher is provisioned successfully."
-        condition:
+        check:
           IS_EQUAL:
             left:
               EXTRACT: "CA10__provisioningState__c"

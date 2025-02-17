@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureStorageAccount__c"
+inputType: "CA10__CaAzureStorageAccount__c"
 testData:
   - file: "test-data.json"
 importExtracts:
@@ -7,7 +7,7 @@ importExtracts:
 conditions:
   - status: "COMPLIANT"
     currentStateMessage: "Storage Logging for Blob Service is enabled."
-    condition:
+    check:
       AND:
         args:
           - IS_EQUAL:
@@ -28,7 +28,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Storage Logging for Blob Service is disabled."
     remediationMessage: "Consider enabling Storage Logging for read, write, and delete requests."    
-    condition:
+    check:
       OR:
         args:
           - IS_EQUAL:

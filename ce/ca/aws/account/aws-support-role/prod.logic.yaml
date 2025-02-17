@@ -1,11 +1,11 @@
 ---
-inputObject: "CA10__CaAwsAccount__c"
+inputType: "CA10__CaAwsAccount__c"
 testData:
  - file: test-data.json
 conditions:
   - status: "COMPLIANT"
     currentStateMessage: "The AWS Account has a Support role for managing incidents with AWS Support."
-    condition:
+    check:
       AND:
         args:
           - RELATED_LIST_HAS:
@@ -17,14 +17,14 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "AWSSupportAccess IAM Policy for managing incidents with AWS Support does not exist."
     remediationMessage: "Consider creating AWSSupportAccess IAM Policy."
-    condition:
+    check:
       RELATED_LIST_HAS:
           status: "INCOMPLIANT"
           relationshipName: "CA10__AWS_IAM_Policies__r"
   - status: "INCOMPLIANT"
     currentStateMessage: "AWSSupportAccess IAM Policy is not attached to any IAM role."
     remediationMessage: "Consider attaching AWSSupportAccess IAM Policy to an IAM Role dedicated to managing incidents with AWS Support."
-    condition:
+    check:
       RELATED_LIST_HAS:
           status: "INCOMPLIANT"
           relationshipName: "CA10__AWS_IAM_Role_Policy_Attachments__r"
@@ -38,7 +38,7 @@ relatedLists:
     conditions:
     - status: "COMPLIANT"
       currentStateMessage: "This is an AWSSupportAccess IAM Policy."
-      condition:
+      check:
         IS_EQUAL:
           left: 
             EXTRACT: "CA10__arn__c"
@@ -53,7 +53,7 @@ relatedLists:
     conditions:
       - status: "COMPLIANT"
         currentStateMessage: "There is an AWS IAM Role attached to the AWSSupportAccess IAM Policy."
-        condition:
+        check:
          AND:
            args:
             - NOT_EMPTY_LOOKUP: "CA10__role__r"

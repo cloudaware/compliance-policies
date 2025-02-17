@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureStorageAccount__c"
+inputType: "CA10__CaAzureStorageAccount__c"
 testData:
   - file: "test-data.json"
 importExtracts:
@@ -8,7 +8,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Require Infrastructure Encryption setting is disabled."
     remediationMessage: "Consider enabling Require Infrastructure Encryption setting."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__requireInfrastructureEncryptionState__c"
@@ -16,7 +16,7 @@ conditions:
           TEXT: "Disabled"
   - status: "COMPLIANT"
     currentStateMessage: "Require Infrastructure Encryption setting is enabled."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__requireInfrastructureEncryptionState__c"

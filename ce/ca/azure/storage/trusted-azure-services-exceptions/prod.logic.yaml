@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureStorageAccount__c"
+inputType: "CA10__CaAzureStorageAccount__c"
 testData:
   - file: "test-data.json"
 importExtracts:
@@ -8,7 +8,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Allow trusted Azure services exception is not enabled."
     remediationMessage: "Consider enabling Trusted Azure Services."
-    condition:
+    check:
       NOT:
         arg:
           CONTAINS: 

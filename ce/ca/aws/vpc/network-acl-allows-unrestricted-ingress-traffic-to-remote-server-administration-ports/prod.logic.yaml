@@ -1,12 +1,12 @@
 ---
-inputObject: "CA10__CaAwsNetworkAcl__c"
+inputType: "CA10__CaAwsNetworkAcl__c"
 testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "This Network ACL allows ingress from 0.0.0.0/0 to remote server administration ports."
     remediationMessage: "Consider changing the Network ACL source field to a range other than 0.0.0.0/0 or delete the offending inbound rule."
-    condition:
+    check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__networkAclEntities__r"
@@ -20,7 +20,7 @@ relatedLists:
     conditions:
       - status: "INAPPLICABLE"
         currentStateMessage: "This is an egress NACL rule."
-        condition:
+        check:
           IS_EQUAL:
             left:
               EXTRACT: "CA10__egress__c"
@@ -28,7 +28,7 @@ relatedLists:
               BOOLEAN: true
       - status: "INAPPLICABLE"
         currentStateMessage: "This is not an allow NACL rule."
-        condition:
+        check:
           NOT_EQUAL:
             left:
               EXTRACT: "CA10__ruleAction__c"
@@ -36,7 +36,7 @@ relatedLists:
               TEXT: "allow"
       - status: "INAPPLICABLE"
         currentStateMessage: "This NACL rule does not allow unrestricted access."
-        condition:
+        check:
           NOT_EQUAL:
             left:
               EXTRACT: "CA10__cidrBlock__c"
@@ -44,7 +44,7 @@ relatedLists:
               TEXT: "0.0.0.0/0"
       - status: "INAPPLICABLE"
         currentStateMessage: "This NACL rule does not use All, TCP, or UDP ports."
-        condition:
+        check:
 # check that protocol is neither all, tcp, or udp
           NOT:
             arg:
@@ -68,7 +68,7 @@ relatedLists:
       - status: "INCOMPLIANT"
         currentStateMessage: "This Network ACL allows ingress from 0.0.0.0/0."
         remediationMessage: "Consider changing the source field to a range other than 0.0.0.0/0 or delete the offending inbound rule."
-        condition:
+        check:
 # check that port range either includes port 22 or port 3389, or the range is empty (all ports)
           OR:
             args:

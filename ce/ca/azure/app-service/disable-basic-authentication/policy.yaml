@@ -14,6 +14,12 @@ categories:
 frameworkMappings:
   - "/frameworks/cis-azure-v3.0.0/09/06"
   - "/frameworks/cloudaware/resource-security/secure-access-controls"
+frameworkIgnoreMappings:
+  - "/frameworks/cis-azure-v1.1.0/09/01"
+  - "/frameworks/cis-azure-v1.3.0/09/01"
+  - "/frameworks/cis-azure-v1.4.0/09/01"
+  - "/frameworks/cis-azure-v1.5.0/09/01"
+  - "/frameworks/cis-azure-v2.0.0/09/01"
 similarPolicies:
   internal:
     - dec-x-ca52f63a

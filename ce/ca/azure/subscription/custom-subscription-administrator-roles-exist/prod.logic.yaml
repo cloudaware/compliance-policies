@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureAccount__c"
+inputType: "CA10__CaAzureAccount__c"
 testData:
   - file: "test-data.json"
 conditions:
@@ -7,7 +7,7 @@ conditions:
     currentStateMessage: "This subscription has a custom role with owner permissions\ 
      \ and assignable scope is set to subscription."
     remediationMessage: "Consider removing the custom role."
-    condition:
+    check:
       RELATED_LIST_HAS:
         relationshipName: "CA10__Azure_Authorization_Role_Definitions__r"
         status: "INCOMPLIANT"
@@ -21,7 +21,7 @@ relatedLists:
     conditions:
       - status: "INAPPLICABLE"
         currentStateMessage: "This is not a Custom role."
-        condition:
+        check:
           NOT_EQUAL:
             left:
               EXTRACT: "CA10__roleType__c"
@@ -29,7 +29,7 @@ relatedLists:
               TEXT: "CustomRole"
       - status: "INAPPLICABLE"
         currentStateMessage: "Permissions do not have * actions."
-        condition:
+        check:
 # Returns true if permissions' actions have "*" action
           IS_EQUAL:
             left:
@@ -49,7 +49,7 @@ relatedLists:
       - status: "INCOMPLIANT"
         currentStateMessage: "This custom role has owner permissions and subscription scopes."
         remediationMessage: "Consider removing this role."
-        condition:
+        check:
 # JSON_QUERY_NUMBER returns the number of scopes that fall into the filter:
 # the scope start with '/subscriptions/' and does not contain 'resourceGroups'
           GREATER_THAN:

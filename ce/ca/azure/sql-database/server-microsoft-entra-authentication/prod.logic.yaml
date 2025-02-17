@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureSqlServer__c"
+inputType: "CA10__CaAzureSqlServer__c"
 testData:
   - file: "test-data.json"
 importExtracts:
@@ -7,7 +7,7 @@ importExtracts:
 conditions:
   - status: "COMPLIANT"
     currentStateMessage: "Microsoft Entra administrator is configured for this SQL server."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__activeDirectoryAdminType__c"

@@ -1,11 +1,11 @@
 ---
-inputObject: CA10__CaAwsInstance__c
+inputType: CA10__CaAwsInstance__c
 testData:
   - file: test-data.json
 conditions:
   - status: COMPLIANT
     currentStateMessage: Word-1
-    condition:
+    check:
       UNIT_TEST:
         id: Word-1
         arg:
@@ -18,7 +18,7 @@ conditions:
                   TEXT: "abc"
   - status: COMPLIANT
     currentStateMessage: Word-2
-    condition:
+    check:
       UNIT_TEST:
         id: Word-2
         arg:
@@ -31,7 +31,7 @@ conditions:
                   TEXT: "klm"
   - status: COMPLIANT
     currentStateMessage: Word-3
-    condition:
+    check:
       UNIT_TEST:
         id: Word-3
         arg:
@@ -42,7 +42,7 @@ conditions:
               TEXT: "xyz"
   - status: COMPLIANT
     currentStateMessage: Word-4
-    condition:
+    check:
       UNIT_TEST:
         id: Word-4
         arg:
@@ -55,7 +55,7 @@ conditions:
                   TEXT: "123"
   - status: COMPLIANT
     currentStateMessage: Multiple-1
-    condition:
+    check:
       UNIT_TEST:
         id: Multiple-1
         arg:
@@ -68,7 +68,7 @@ conditions:
                   TEXT: "abc"
   - status: COMPLIANT
     currentStateMessage: Multiple-2
-    condition:
+    check:
       UNIT_TEST:
         id: Multiple-2
         arg:
@@ -81,7 +81,7 @@ conditions:
                   TEXT: "klm"
   - status: COMPLIANT
     currentStateMessage: Multiple-3
-    condition:
+    check:
       UNIT_TEST:
         id: Multiple-3
         arg:
@@ -92,7 +92,7 @@ conditions:
               TEXT: "xyz"
   - status: COMPLIANT
     currentStateMessage: Multiple-4
-    condition:
+    check:
       UNIT_TEST:
         id: Multiple-4
         arg:
@@ -105,7 +105,7 @@ conditions:
                   TEXT: "123"
   - status: COMPLIANT
     currentStateMessage: Whitespace-1
-    condition:
+    check:
       UNIT_TEST:
         id: Whitespace-1
         arg:
@@ -116,7 +116,7 @@ conditions:
               TEXT: "bb cc"
   - status: COMPLIANT
     currentStateMessage: Whitespace-2
-    condition:
+    check:
       UNIT_TEST:
         id: Whitespace-2
         arg:
@@ -127,7 +127,7 @@ conditions:
               TEXT: "  bb    cc "
   - status: COMPLIANT
     currentStateMessage: Whitespace-3
-    condition:
+    check:
       UNIT_TEST:
         id: Whitespace-3
         arg:
@@ -138,7 +138,7 @@ conditions:
               TEXT: "\n\r\t"
   - status: COMPLIANT
     currentStateMessage: Whitespace-4
-    condition:
+    check:
       UNIT_TEST:
         id: Whitespace-4
         arg:
@@ -149,7 +149,7 @@ conditions:
               TEXT: "  a\n b \r c \t"
   - status: COMPLIANT
     currentStateMessage: Case-1
-    condition:
+    check:
       UNIT_TEST:
         id: Case-1
         arg:
@@ -160,7 +160,7 @@ conditions:
               TEXT: "xyz"
   - status: COMPLIANT
     currentStateMessage: Null-1
-    condition:
+    check:
       UNIT_TEST:
         id: Null-1
         arg:
@@ -173,7 +173,7 @@ conditions:
                 returnType: TEXT
   - status: COMPLIANT
     currentStateMessage: Null-2
-    condition:
+    check:
       UNIT_TEST:
         id: Null-2
         arg:
@@ -185,7 +185,7 @@ conditions:
                 returnType: TEXT
   - status: COMPLIANT
     currentStateMessage: Null-3
-    condition:
+    check:
       UNIT_TEST:
         id: Null-3
         arg:
@@ -197,7 +197,7 @@ conditions:
                 returnType: TEXT
   - status: COMPLIANT
     currentStateMessage: Null-4
-    condition:
+    check:
       UNIT_TEST:
         id: Null-4
         arg:
@@ -209,7 +209,7 @@ conditions:
               TEXT: ""
   - status: COMPLIANT
     currentStateMessage: Null-5
-    condition:
+    check:
       UNIT_TEST:
         id: Null-5
         arg:

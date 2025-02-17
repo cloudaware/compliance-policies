@@ -1,11 +1,11 @@
 ---
-inputObject: "CA10__CaAzureAccount__c"
+inputType: "CA10__CaAzureAccount__c"
 testData:
   - file: "test-data.json"
 conditions:
   - status: "COMPLIANT"
     currentStateMessage: "This subscription has an Activity Log Alert for Delete Policy Assignment."
-    condition:
+    check:
       RELATED_LIST_HAS:
         status: "COMPLIANT"
         relationshipName: "CA10__Azure_Activity_Log_Alerts__r"
@@ -20,7 +20,7 @@ relatedLists:
     conditions:
       - status: "INAPPLICABLE"
         currentStateMessage: "This is a disabled Activity Log Alert."
-        condition:
+        check:
           NOT_EQUAL:
             left:
               EXTRACT: "CA10__enabledStatus__c"
@@ -28,7 +28,7 @@ relatedLists:
               TEXT: "Enabled"
       - status: "COMPLIANT"
         currentStateMessage: "This is an Activity Log Alert for Delete Policy Assignment."
-        condition:
+        check:
           IS_EQUAL:
             left:
               JSON_QUERY_BOOLEAN:

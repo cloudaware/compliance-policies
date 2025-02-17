@@ -16,7 +16,7 @@
 # 1st step: -> Route Table Association CA10__main__c == true to slice off only the main table in 3 step
 # 2nd step: -> Route CA10__gatewayId__c starts with "igw"
 # 3rd step: finally we mark as INCOMPLIANT a Route Table that HAS Route Table Association CA10__main__c == true AND Route CA10__gatewayId__c starts with "igw" 
-inputObject: CA10__CaAwsInstance__c
+inputType: CA10__CaAwsInstance__c
 testData:
   - file: test-data.json
 importExtracts:
@@ -24,11 +24,11 @@ importExtracts:
 conditions:
   - status: "INAPPLICABLE"
     currentStateMessage: "Instance does not belong to a subnet"
-    condition:
+    check:
       IS_EMPTY_LOOKUP: "CA10__vpcSubnet__r"
   - status: "INAPPLICABLE"
     currentStateMessage: "Instance has a public IP"
-    condition:
+    check:
       NOT_EMPTY:
         arg:
           EXTRACT: "CA10__publicIpAddress__c"
@@ -36,7 +36,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "This EC2 Instance is in a public subnet."
     remediationMessage: "Consider removing the public route or migrating the instance to a private subnet."
-    condition:
+    check:
     # Case A: 1.1.
       RELATED_LIST_HAS: 
         status: "INCOMPLIANT"
@@ -44,7 +44,7 @@ conditions:
 # Case A: 1. COMPLIANT status if VPC Subnet -> Route Table Association DOESN'T have Route Table with a Route to Internet Gateway
   - status: "COMPLIANT"
     currentStateMessage: "This EC2 Instance is in a private subnet."
-    condition:
+    check:
     # Case A: 1.1.
       RELATED_LIST_HAS:
         status: "COMPLIANT"
@@ -53,7 +53,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "This EC2 Instance is in a public subnet."
     remediationMessage: "Consider removing the public route or migrating the instance to a private subnet."
-    condition:
+    check:
     # Case B: 2.1.
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
@@ -70,7 +70,7 @@ relatedLists:
       - status: "INCOMPLIANT"
         currentStateMessage: "This subnet route table has an Internet Gateway route."
         remediationMessage: "Consider removing Internet Gateway routes."
-        condition:
+        check:
         # Case A: 1.1.1.
           RELATED_LIST_HAS:
             status: "INCOMPLIANT"
@@ -85,7 +85,7 @@ relatedLists:
           - status: "INCOMPLIANT"
             currentStateMessage: "This is an Internet Gateway route."
             remediationMessage: "Consider removing this route."
-            condition:
+            check:
               STARTS_WITH:
                 arg:
                   EXTRACT: "CA10__gatewayId__c"
@@ -103,7 +103,7 @@ relatedLists:
       - status: "INCOMPLIANT"
         currentStateMessage: "This is a Main Route Table with an Internet Gateway route."
         remediationMessage: "Consider removing this route."
-        condition:
+        check:
           AND:
             args:
             # Case B: 2.1.1.
@@ -123,7 +123,7 @@ relatedLists:
 # Case B: 2.1.1. COMPLAINT status if Route Table Association CA10__main__c == true
           - status: "COMPLIANT"
             currentStateMessage: "This is a Main Route Table."
-            condition:
+            check:
               IS_EQUAL:
                 left:
                   EXTRACT: "CA10__main__c"
@@ -138,7 +138,7 @@ relatedLists:
           - status: "INCOMPLIANT"
             currentStateMessage: "This is an Internet Gateway route."
             remediationMessage: "Consider removing this route."
-            condition:
+            check:
               STARTS_WITH:
                 arg:
                   EXTRACT: "CA10__gatewayId__c"

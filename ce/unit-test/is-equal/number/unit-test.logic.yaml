@@ -1,11 +1,11 @@
 ---
-inputObject: CA10__CaAwsInstance__c
+inputType: CA10__CaAwsInstance__c
 testData:
   - file: test-data.json
 conditions:
   - status: COMPLIANT
     currentStateMessage: Test-1
-    condition:
+    check:
       UNIT_TEST:
         id: Test-1
         arg:
@@ -16,7 +16,7 @@ conditions:
               NUMBER: 10.0
   - status: COMPLIANT
     currentStateMessage: Test-2
-    condition:
+    check:
       UNIT_TEST:
         id: Test-2
         arg:
@@ -27,7 +27,7 @@ conditions:
               NUMBER: 1.0
   - status: COMPLIANT
     currentStateMessage: Test-3
-    condition:
+    check:
       UNIT_TEST:
         id: Test-3
         arg:

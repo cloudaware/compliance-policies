@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAwsApiGatewayRestApi__c"
+inputType: "CA10__CaAwsApiGatewayRestApi__c"
 importExtracts:
   - file: "/types/CA10__CaAwsApiGatewayStage__c/object.extracts.yaml"
   - file: "/types/CA10__CaAwsApiGatewayRestApi__c/object.extracts.yaml"
@@ -8,7 +8,7 @@ testData:
 conditions:
   - status: "INAPPLICABLE"
     currentStateMessage: "HTTP API does not support execution logs."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__protocolType__c"
@@ -17,7 +17,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "There is at least one related API Stage where CloudWatch Execution Logs are not enabled."
     remediationMessage: "Consider enabling CloudWatch Execution Logs for the API Stage."
-    condition:
+    check:
       RELATED_LIST_HAS:
         relationshipName: "CA10__AWS_API_Gateway_Stages__r"
         status: "INCOMPLIANT"
@@ -30,14 +30,14 @@ relatedLists:
       - status: "INCOMPLIANT"
         currentStateMessage: "CloudWatch Execution Logs are not enabled for this API Stage."
         remediationMessage: "Consider enabling CloudWatch Execution Logs for this API Stage."
-        condition:
+        check:
           IS_EMPTY:
             arg:
               EXTRACT: "CA10__cloudWatchLogLevel__c"
       - status: "INCOMPLIANT"
         currentStateMessage: "CloudWatch Execution Logs are turned off for this API Stage."
         remediationMessage: "Consider enabling CloudWatch Execution Logs for this API Stage."
-        condition:
+        check:
           IS_EQUAL:
             left:
               EXTRACT: "CA10__cloudWatchLogLevel__c"

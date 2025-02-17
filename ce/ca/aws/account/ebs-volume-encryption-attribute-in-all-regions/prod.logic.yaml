@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAwsAccount__c"
+inputType: "CA10__CaAwsAccount__c"
 testData:
   - file: test-data.json
 importExtracts:
@@ -8,19 +8,19 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Default encryption of EBS volume disabled"
     remediationMessage: "Enable EBS Volume Encryption"
-    condition:
+    check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__AWS_Account_Regions__r"
   - status: "UNDETERMINED"
     currentStateMessage: "Can't determine default status of EBS encryption"
-    condition:
+    check:
      RELATED_LIST_HAS:
       status: "UNDETERMINED"
       relationshipName: "CA10__AWS_Account_Regions__r"
   - status: "COMPLIANT"
     currentStateMessage: "Default encryption of EBS volume enabled"
-    condition:
+    check:
       RELATED_LIST_HAS:
         status: "COMPLIANT"
         relationshipName: "CA10__AWS_Account_Regions__r"
@@ -34,7 +34,7 @@ relatedLists:
     conditions:
       - status: "UNDETERMINED"
         currentStateMessage: "Can't determine default status of EBS encryption"
-        condition:
+        check:
           AND:
             args:
               - NOT_EQUAL: 
@@ -47,7 +47,7 @@ relatedLists:
                     EXTRACT: "CA10__ebsStorageEncryption__c"
       - status: "INCOMPLIANT"
         currentStateMessage: "Default encryption of EBS volume disabled for region"
-        condition:
+        check:
           AND:
             args:
               - NOT_EQUAL: 
@@ -62,7 +62,7 @@ relatedLists:
                     TEXT: "Disabled"
       - status: "COMPLIANT"
         currentStateMessage: "Default encryption of EBS volume enabled for region"
-        condition:
+        check:
           AND:
             args:
               - NOT_EQUAL: 

@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureAccount__c"
+inputType: "CA10__CaAzureAccount__c"
 importExtracts:
   - file: "/types/CA10__CaAzureAccount__c/object.extracts.yaml"
 testData:
@@ -8,7 +8,7 @@ conditions:
       - status: "INCOMPLIANT"
         currentStateMessage: "Microsoft Defender for Cloud Apps is not enabled."
         remediationMessage: "Consider enabling Microsoft Defender for Cloud Apps."
-        condition:
+        check:
           NOT:
             arg:
               JSON_QUERY_BOOLEAN:
@@ -20,7 +20,7 @@ conditions:
                   resultTypeMismatch: "The JSON query did not return text type."
       - status: "COMPLIANT"
         currentStateMessage: "Microsoft Defender for Cloud Apps is enabled."
-        condition:
+        check:
           JSON_QUERY_BOOLEAN:
             arg: 
               EXTRACT: "caJsonFrom__defenderForCloudSettings__c"

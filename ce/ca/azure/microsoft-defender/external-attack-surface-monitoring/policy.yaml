@@ -16,6 +16,9 @@ frameworkMappings:
   - "/frameworks/cis-azure-v2.1.0/02/01/22"
   - "/frameworks/cis-azure-v3.0.0/03/01/15"
   - "/frameworks/cloudaware/resource-security/microsoft-defender-configuration"
+frameworkIgnoreMappings:
+  - "/frameworks/cis-azure-v1.3.0/02/09"
+  - "/frameworks/cis-azure-v1.4.0/02/09"
 similarPolicies:
   internal:
     - dec-x-cff561fd

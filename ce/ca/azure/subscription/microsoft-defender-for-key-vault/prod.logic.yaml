@@ -1,18 +1,18 @@
 ---
-inputObject: "CA10__CaAzureAccount__c"
+inputType: "CA10__CaAzureAccount__c"
 testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Microsoft Defender for Key Vault is in Free tier."
     remediationMessage: "Consider enabling Defender for Key Vault Standard plan."
-    condition:
+    check:
       RELATED_LIST_HAS:
         relationshipName: "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r"
         status: "INCOMPLIANT"
   - status: "COMPLIANT"
     currentStateMessage: "Microsoft Defender for Key Vault Standard tier is enabled."
-    condition:
+    check:
       RELATED_LIST_HAS:
         relationshipName: "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r"
         status: "COMPLIANT"
@@ -27,7 +27,7 @@ relatedLists:
     conditions:
       - status: "INAPPLICABLE"
         currentStateMessage: "Other pricing configurations."
-        condition:
+        check:
           NOT_EQUAL:
             left: 
               EXTRACT: "CA10Z1__name__c"
@@ -35,7 +35,7 @@ relatedLists:
               TEXT: "KeyVaults"
       - status: "COMPLIANT"
         currentStateMessage: "This is a Standard tier."
-        condition:
+        check:
           IS_EQUAL:
             left: 
               EXTRACT: "CA10Z1__pricingTier__c"
@@ -44,7 +44,7 @@ relatedLists:
       - status: "INCOMPLIANT"
         currentStateMessage: "This is a Free tier."
         remediationMessage: "Enable Defender for Key Vault Standard plan."
-        condition:
+        check:
           IS_EQUAL:
             left: 
               EXTRACT: "CA10Z1__pricingTier__c"

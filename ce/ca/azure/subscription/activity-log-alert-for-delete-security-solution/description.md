@@ -21,7 +21,7 @@ Monitoring for Delete Security Solution events gives insight into changes to the
 ### From Azure CLI
 
 ```sh
-az monitor activity-log alert list --subscription <subscription Id> --query "[].{Name:name,Enabled:enabled,Condition:condition.allOf,Actions:actions}"
+az monitor activity-log alert list --subscription <subscription Id> --query "[].{Name:name,Enabled:enabled,check:condition.allOf,Actions:actions}"
 ```
 
 Look for `Microsoft.Security/securitySolutions/delete` in the output.

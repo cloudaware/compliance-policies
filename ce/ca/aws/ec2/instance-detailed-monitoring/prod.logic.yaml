@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAwsInstance__c"
+inputType: "CA10__CaAwsInstance__c"
 importExtracts:
   - file: "/types/CA10__CaAwsInstance__c/object.extracts.yaml"
 testData:
@@ -7,7 +7,7 @@ testData:
 conditions:
   - status: "INAPPLICABLE"
     currentStateMessage: "The EC2 instance is not running."
-    condition:
+    check:
       NOT_EQUAL:
         left:
           EXTRACT: "CA10__stateName__c"
@@ -16,7 +16,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The instance is running without detailed monitoring enabled."
     remediationMessage: "Consider enabling detailed monitoring for the instance."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__monitoringState__c"
@@ -24,7 +24,7 @@ conditions:
           TEXT: "disabled"
   - status: "COMPLIANT"
     currentStateMessage: "Detailed monitoring for the instance is enabled."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__monitoringState__c"

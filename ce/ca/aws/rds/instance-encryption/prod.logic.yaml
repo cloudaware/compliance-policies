@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAwsDbInstance__c"
+inputType: "CA10__CaAwsDbInstance__c"
 testData:
   - file: test-data.json
 importExtracts:
@@ -7,7 +7,7 @@ importExtracts:
 conditions:
   - status: "COMPLIANT"
     currentStateMessage: "RDS Instance storage encryption is enabled."
-    condition: 
+    check:
       IS_EQUAL:
         left:
           EXTRACT: CA10__storageEncrypted__c

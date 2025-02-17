@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureManagedDisk__c"
+inputType: "CA10__CaAzureManagedDisk__c"
 importExtracts:
   - file: "/types/CA10__CaAzureManagedDisk__c/object.extracts.yaml"
 testData:
@@ -9,7 +9,7 @@ conditions:
     currentStateMessage: "The Managed Disk data is publicly accessible on the internet 
       and can be exported or uploaded to from any network."
     remediationMessage: "Consider restricting the Managed Disk Public Access."
-    condition:
+    check:
       AND:
         args:
         - IS_EQUAL:
@@ -25,7 +25,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The Managed Disk Public Access is not disabled."
     remediationMessage: "Consider disabling the Managed Disk Public Access."
-    condition:
+    check:
       NOT_EQUAL:
         left:
           EXTRACT: "CA10__publicNetworkAccess__c"
@@ -34,7 +34,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The Managed Disk Network Access Policy allows access from any network."
     remediationMessage: "Consider restricting the Managed Disk Network Access Policy."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__networkAccessPolicy__c"
@@ -42,7 +42,7 @@ conditions:
           TEXT: "AllowAll"
   - status: "COMPLIANT"
     currentStateMessage: "The Managed Disk Public Access is restricted."
-    condition:
+    check:
       AND:
         args:
           - OR:

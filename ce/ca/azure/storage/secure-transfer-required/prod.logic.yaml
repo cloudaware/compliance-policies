@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureStorageAccount__c"
+inputType: "CA10__CaAzureStorageAccount__c"
 testData:
   - file: "test-data.json"
 importExtracts:
@@ -8,7 +8,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Secure transfer required configuration is disabled for the storage account."
     remediationMessage: "Consider enabling Secure transfer required configuration."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__secureTransferRequired__c"

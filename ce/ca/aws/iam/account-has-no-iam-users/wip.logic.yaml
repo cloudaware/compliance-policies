@@ -1,7 +1,7 @@
 ---
 # based on CA ce:ca:aws:iam:account-has-no-users
 # and Cloud Conformity's https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/IAM/iam-user-present.html
-inputObject: CA10__CaAwsAccount__c
+inputType: CA10__CaAwsAccount__c
 # but what if account does not have IAM Users, but have IAM Roles. Can account be used normally
 # only with IAM Roles, but no IAM Users?
 # On one customer:
@@ -16,7 +16,7 @@ inputObject: CA10__CaAwsAccount__c
 conditions:
   - status: COMPLIANT
     currentStateMessage: There is at least one IAM user present
-    condition:
+    check:
       # this condition might return false if there is not permissions to iam:ListUsers
       # TODO: add permission check if it becomes possible
       RELATED_LIST_HAS:
@@ -24,7 +24,7 @@ conditions:
         status: COMPLIANT
   - status: COMPLIANT
     currentStateMessage: There is at least one IAM role present
-    condition:
+    check:
       # this condition might return false if there is not permissions to iam:ListRoles
       # TODO: add permission check if it becomes possible
       RELATED_LIST_HAS:
@@ -40,7 +40,7 @@ relatedLists:
       - status: INCOMPLIANT
         currentStateMessage: "This is a 'root' user"
         remediationMessage: "No remediation required"
-        condition:
+        check:
           IS_EQUAL:
             left:
               FIELD: 

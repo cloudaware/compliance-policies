@@ -1,11 +1,11 @@
 ---
-inputObject: "CA10__CaAwsAccount__c"
+inputType: "CA10__CaAwsAccount__c"
 testData:
   - file: "test-data.json"
 conditions:
   - status: "COMPLIANT"
     currentStateMessage: "Security Hub is enabled."
-    condition:
+    check:
       RELATED_LIST_HAS:
         status: "COMPLIANT"
         relationshipName: "CA10A1__AWS_Security_Hubs__r"

@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAwsUser__c"
+inputType: "CA10__CaAwsUser__c"
 testData:
   - file: test-data.json
 importExtracts:
@@ -8,7 +8,7 @@ importExtracts:
 conditions:
   - status: "INAPPLICABLE"
     currentStateMessage: "Requirements of this policy are applicable only to the root user"
-    condition:
+    check:
       NOT_EQUAL:
         left:
           EXTRACT: CA10__userName__c
@@ -17,7 +17,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Either one or both access keys are active for the root user."
     remediationMessage: "Disable all active access keys for the root user."
-    condition:
+    check:
       OR:
         args:
           - IS_EQUAL:

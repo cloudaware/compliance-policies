@@ -1,5 +1,5 @@
 ---
-inputObject: CA10__CaAwsDbCluster__c
+inputType: CA10__CaAwsDbCluster__c
 importExtracts:
   - file: /types/CA10__CaAwsDbCluster__c/object.extracts.yaml
 testData:
@@ -7,7 +7,7 @@ testData:
 conditions:
   - status: INAPPLICABLE
     currentStateMessage: This Policy applies only to AWS RDS Aurora clusters.
-    condition:
+    check:
       NOT:
         arg:
           STARTS_WITH:
@@ -17,7 +17,7 @@ conditions:
                 TEXT: aurora
   - status: INAPPLICABLE
     currentStateMessage: This AWS RDS Aurora cluster has no related AWS RDS Instances.
-    condition:
+    check:
       AND:
         args:
           - RELATED_LIST_HAS_NO:
@@ -29,7 +29,7 @@ conditions:
   - status: COMPLIANT
     currentStateMessage: This AWS RDS Aurora cluster's accessibility is consistent. 
       All RDS Aurora Instances within the cluster are publicly accessible.
-    condition:
+    check:
       AND:
         args:
           - RELATED_LIST_HAS:
@@ -41,7 +41,7 @@ conditions:
   - status: COMPLIANT
     currentStateMessage: This AWS RDS Aurora cluster's accessibility is consistent. 
       All RDS Aurora Instances within the cluster are private.
-    condition:
+    check:
       AND:
         args:
           - RELATED_LIST_HAS:
@@ -62,7 +62,7 @@ relatedLists:
     conditions:
       - status: INAPPLICABLE
         currentStateMessage: This Policy applies only to AWS RDS Aurora Instances.
-        condition:
+        check:
           NOT:
             arg:
               STARTS_WITH:
@@ -73,7 +73,7 @@ relatedLists:
       - status: INCOMPLIANT
         currentStateMessage: This AWS RDS Instance is publicly accessible.
         remediationMessage: N/A
-        condition:
+        check:
           IS_EQUAL:
             left:
               EXTRACT: CA10__publiclyAccessible__c

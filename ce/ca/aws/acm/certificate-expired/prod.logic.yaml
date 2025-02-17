@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAwsAcmCertificate__c"
+inputType: "CA10__CaAwsAcmCertificate__c"
 testData:
   - file: test-data.json
 importExtracts:
@@ -8,7 +8,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "This certificate is expired."
     remediationMessage: "Delete, re-import or renew the expired certificate."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__status__c"

@@ -21,7 +21,7 @@ Monitoring for Create or Update Network Security Group events gives insight into
 ### From Azure CLI
 
 ```sh
-az monitor activity-log alert list --subscription <subscription ID> --query "[].{Name:name,Enabled:enabled,Condition:condition.allOf,Actions:actions}"
+az monitor activity-log alert list --subscription <subscription ID> --query "[].{Name:name,Enabled:enabled,check:condition.allOf,Actions:actions}"
 ```
 
 Look for `Microsoft.Network/networkSecurityGroups/write` in the output.

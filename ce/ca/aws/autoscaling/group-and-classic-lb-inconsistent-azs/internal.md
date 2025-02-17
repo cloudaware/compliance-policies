@@ -9,7 +9,7 @@ ASG -> Target Group Link.Target Group -> Load Balancer Link.(Application)Load Ba
     conditions:
       - status: "INCOMPLIANT"
         currentStateMessage: "LB TG is incompliant." 
-        condition:
+        check:
           RELATED_LIST_HAS:
             status: "INCOMPLIANT"
             relationshipName: "CA10__targetGroup__r.CA10__AWS_EC2_Load_Balancer_Target_Group_Links__r"
@@ -23,7 +23,7 @@ ASG -> Target Group Link.Target Group -> Load Balancer Link.(Application)Load Ba
         conditions:
           - status: "INCOMPLIANT"
             currentStateMessage: "LB AZ is incompliant."
-            condition:
+            check:
               NOT_EQUAL:
                 left:
                 #   EXTRACT: "CA10__autoScalingGroup__r.caExtract_availabilityZones_asCollection__c"

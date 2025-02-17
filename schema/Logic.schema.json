@@ -158,10 +158,10 @@
       "type" : "object",
       "properties" : {
         "left" : {
-          "$ref" : "#/definitions/OpNumber"
+          "$ref" : "#/definitions/OpNumeric"
         },
         "right" : {
-          "$ref" : "#/definitions/OpNumber"
+          "$ref" : "#/definitions/OpNumeric"
         }
       },
       "required" : [ "left", "right" ],
@@ -180,10 +180,10 @@
       "type" : "object",
       "properties" : {
         "left" : {
-          "$ref" : "#/definitions/OpNumber"
+          "$ref" : "#/definitions/OpNumeric"
         },
         "right" : {
-          "$ref" : "#/definitions/OpNumber"
+          "$ref" : "#/definitions/OpNumeric"
         }
       },
       "required" : [ "left", "right" ],
@@ -202,10 +202,10 @@
       "type" : "object",
       "properties" : {
         "left" : {
-          "$ref" : "#/definitions/OpNumber"
+          "$ref" : "#/definitions/OpNumeric"
         },
         "right" : {
-          "$ref" : "#/definitions/OpNumber"
+          "$ref" : "#/definitions/OpNumeric"
         }
       },
       "required" : [ "left", "right" ],
@@ -224,10 +224,10 @@
       "type" : "object",
       "properties" : {
         "left" : {
-          "$ref" : "#/definitions/OpNumber"
+          "$ref" : "#/definitions/OpNumeric"
         },
         "right" : {
-          "$ref" : "#/definitions/OpNumber"
+          "$ref" : "#/definitions/OpNumeric"
         }
       },
       "required" : [ "left", "right" ],
@@ -254,11 +254,11 @@
         "remediationMessage" : {
           "type" : "string"
         },
-        "condition" : {
+        "check" : {
           "$ref" : "#/definitions/OpBoolean"
         }
       },
-      "required" : [ "status", "currentStateMessage", "condition" ],
+      "required" : [ "status", "currentStateMessage", "check" ],
       "additionalProperties" : false
     },
     "ConstBoolean" : {
@@ -304,6 +304,16 @@
         }
       },
       "required" : [ "COLLECTION" ]
+    },
+    "ConstDuration" : {
+      "type" : "object",
+      "properties" : {
+        "DURATION" : {
+          "type" : "string",
+          "description" : "Operation that creates a duration constant, can not be null"
+        }
+      },
+      "required" : [ "DURATION" ]
     },
     "ConstNumber" : {
       "type" : "object",
@@ -613,13 +623,13 @@
       },
       "required" : [ "FIELD" ]
     },
+    "DurationFromFormat" : {
+      "type" : "string",
+      "enum" : [ "GCP_DURATION", "ISO_8601_DURATION" ]
+    },
     "DateTimeFromFormat" : {
       "type" : "string",
       "const" : "ISO_8601"
-    },
-    "DurationFromFormat" : {
-      "type" : "string",
-      "const" : "GCP_DURATION"
     },
     "GcpLoggingQueryMatch" : {
       "type" : "object",
@@ -906,7 +916,7 @@
     "LogicFile" : {
       "type" : "object",
       "properties" : {
-        "inputObject" : {
+        "inputType" : {
           "type" : "string"
         },
         "testData" : {
@@ -943,7 +953,7 @@
           }
         }
       },
-      "required" : [ "inputObject", "conditions", "otherwise" ],
+      "required" : [ "inputType", "conditions", "otherwise" ],
       "additionalProperties" : false
     },
     "LogicalAnd" : {
@@ -1101,6 +1111,8 @@
       }, {
         "$ref" : "#/definitions/ConstCollectionWrapper"
       }, {
+        "$ref" : "#/definitions/ConstDuration"
+      }, {
         "$ref" : "#/definitions/ConstNumber"
       }, {
         "$ref" : "#/definitions/ConstText"
@@ -1197,6 +1209,8 @@
         "$ref" : "#/definitions/ComparisonLessThanEqualWrapper"
       }, {
         "$ref" : "#/definitions/ConstBoolean"
+      }, {
+        "$ref" : "#/definitions/ConstDuration"
       }, {
         "$ref" : "#/definitions/DateRelativeRangeAfterTodayWrapper"
       }, {
@@ -1302,13 +1316,15 @@
         "$ref" : "#/definitions/UnitTestRuntimeErrorWrapper"
       } ]
     },
-    "OpNumber" : {
+    "OpNumeric" : {
       "oneOf" : [ {
         "$ref" : "#/definitions/CollectionSizeWrapper"
       }, {
         "$ref" : "#/definitions/ConstNumber"
       }, {
         "$ref" : "#/definitions/DebugWrapper"
+      }, {
+        "$ref" : "#/definitions/DurationFromWrapper"
       }, {
         "$ref" : "#/definitions/ExtractReference"
       }, {
@@ -1539,6 +1555,21 @@
       },
       "required" : [ "STARTS_WITH" ]
     },
+    "DurationFromUndeterminedIf" : {
+      "type" : "object",
+      "properties" : {
+        "isEmpty" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned if the supplied value is empty"
+        },
+        "invalidFormat" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned if supplied value can not be parsed into the requested format"
+        }
+      },
+      "required" : [ "invalidFormat" ],
+      "additionalProperties" : false
+    },
     "FieldReferenceUndeterminedIf" : {
       "type" : "object",
       "properties" : {
@@ -1572,21 +1603,6 @@
       "additionalProperties" : false
     },
     "DateTimeFromUndeterminedIf" : {
-      "type" : "object",
-      "properties" : {
-        "isEmpty" : {
-          "type" : "string",
-          "description" : "currentStateMessage returned if the supplied value is empty"
-        },
-        "invalidFormat" : {
-          "type" : "string",
-          "description" : "currentStateMessage returned if supplied value can not be parsed into the requested format"
-        }
-      },
-      "required" : [ "invalidFormat" ],
-      "additionalProperties" : false
-    },
-    "DurationFromUndeterminedIf" : {
       "type" : "object",
       "properties" : {
         "isEmpty" : {

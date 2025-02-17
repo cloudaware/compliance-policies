@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureStorageAccount__c"
+inputType: "CA10__CaAzureStorageAccount__c"
 importExtracts:
   - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
 testData:
@@ -8,7 +8,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The soft delete configuration for Azure Storage Blob Storage is not enabled."
     remediationMessage: "Consider enabling soft delete for Blob Storage."
-    condition:
+    check:
       OR:
         args:
           - IS_EQUAL:
@@ -25,7 +25,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The soft delete configuration for Azure Storage Containers is not enabled."
     remediationMessage: "Consider enabling soft delete for Containers."
-    condition:
+    check:
       OR:
         args:
           - IS_EQUAL:
@@ -41,7 +41,7 @@ conditions:
                 EXTRACT: "CA10__containerRetentionPolicyDays__c"
   - status: "COMPLIANT"
     currentStateMessage: "The soft delete for Azure Storage Containers is enabled."
-    condition:
+    check:
       AND:
         args:
           - IS_EQUAL:

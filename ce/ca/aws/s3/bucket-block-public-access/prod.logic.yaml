@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAwsBucket__c"
+inputType: "CA10__CaAwsBucket__c"
 testData:
   - file: test-data.json
 importExtracts:
@@ -8,7 +8,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The bucket is not configured to block public access."
     remediationMessage: "Consider configuring the bucket to block public access."
-    condition:
+    check:
       OR:
         args:
           - NOT_EQUAL:

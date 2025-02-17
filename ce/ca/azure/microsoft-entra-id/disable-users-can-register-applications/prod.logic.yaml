@@ -1,24 +1,24 @@
 ---
-inputObject: "CA10__CaAzureActiveDirectory__c"
+inputType: "CA10__CaAzureActiveDirectory__c"
 testData:
   - file: "test-data.json"
 conditions:
       - status: "INCOMPLIANT"
         currentStateMessage: "The default user role can create applications."
         remediationMessage: "Consider restricting the default user role from creating applications."
-        condition:
+        check:
           RELATED_LIST_HAS:
             status: "INCOMPLIANT"
             relationshipName: "CA10Z1__Azure_Active_Directory_Auth_Policies__r"
       - status: "COMPLIANT"
         currentStateMessage: "The default user role cannot create applications."
-        condition:
+        check:
           RELATED_LIST_HAS:
             status: "COMPLIANT"
             relationshipName: "CA10Z1__Azure_Active_Directory_Auth_Policies__r"
       - status: "UNDETERMINED"
         currentStateMessage: "Unable to determine the default user role permissions."
-        condition:
+        check:
           RELATED_LIST_HAS:
             status: "UNDETERMINED"
             relationshipName: "CA10Z1__Azure_Active_Directory_Auth_Policies__r"
@@ -33,7 +33,7 @@ relatedLists:
       - status: "INCOMPLIANT"
         currentStateMessage: "The default user role can create applications."
         remediationMessage: "Consider restricting the default user role from creating applications."
-        condition:
+        check:
           IS_EQUAL:
             left:
               EXTRACT: "CA10Z1__defaultPermissionCreateApps__c"
@@ -41,7 +41,7 @@ relatedLists:
               TEXT: "Disabled"
       - status: "COMPLIANT"
         currentStateMessage: "The default user role cannot create applications."
-        condition:
+        check:
           IS_EQUAL:
             left:
               EXTRACT: "CA10Z1__defaultPermissionCreateApps__c"

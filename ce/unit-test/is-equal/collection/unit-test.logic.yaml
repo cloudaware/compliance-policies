@@ -1,11 +1,11 @@
 ---
-inputObject: CA10__CaAwsInstance__c
+inputType: CA10__CaAwsInstance__c
 testData:
   - file: test-data.json
 conditions:
   - status: COMPLIANT
     currentStateMessage: Test-1
-    condition:
+    check:
       UNIT_TEST:
         id: Test-1
         arg:
@@ -24,7 +24,7 @@ conditions:
                   - c
   - status: COMPLIANT
     currentStateMessage: Test-2
-    condition:
+    check:
       UNIT_TEST:
         id: Test-2
         arg:
@@ -43,7 +43,7 @@ conditions:
                   - b
   - status: COMPLIANT
     currentStateMessage: Test-3
-    condition:
+    check:
       UNIT_TEST:
         id: Test-3
         arg:
@@ -65,7 +65,7 @@ conditions:
                   - c
   - status: COMPLIANT
     currentStateMessage: Test-4
-    condition:
+    check:
       UNIT_TEST:
         id: Test-4
         arg:
@@ -84,7 +84,7 @@ conditions:
                   - " c"
   - status: COMPLIANT
     currentStateMessage: Test-5
-    condition:
+    check:
       UNIT_TEST:
         id: Test-5
         arg:
@@ -103,7 +103,7 @@ conditions:
                   - C
   - status: COMPLIANT
     currentStateMessage: Test-6
-    condition:
+    check:
       UNIT_TEST:
         id: Test-6
         arg:
@@ -116,7 +116,7 @@ conditions:
                 items: []
   - status: COMPLIANT
     currentStateMessage: Test-7
-    condition:
+    check:
       UNIT_TEST:
         id: Test-7
         arg:
@@ -129,7 +129,7 @@ conditions:
                 returnType: COLLECTION
   - status: COMPLIANT
     currentStateMessage: Test-8
-    condition:
+    check:
       UNIT_TEST:
         id: Test-8
         arg:

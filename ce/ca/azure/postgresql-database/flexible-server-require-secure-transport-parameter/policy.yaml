@@ -15,6 +15,11 @@ frameworkMappings:
   - "/frameworks/cloudaware/resource-security/data-encryption"
 frameworkIgnoreMappings:
   - "/frameworks/cis-azure-v2.1.0/04/03/01"
+  - "/frameworks/cis-azure-v1.1.0/04/13"
+  - "/frameworks/cis-azure-v1.3.0/04/03/01"
+  - "/frameworks/cis-azure-v1.5.0/04/03/01"
+  - "/frameworks/cis-azure-v1.4.0/04/03/01"
+  - "/frameworks/cis-azure-v2.0.0/04/03/01"
 similarPolicies:
   internal:
     - dec-x-995424b7

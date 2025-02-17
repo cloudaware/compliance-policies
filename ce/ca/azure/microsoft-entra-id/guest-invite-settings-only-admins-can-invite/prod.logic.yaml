@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureActiveDirectory__c"
+inputType: "CA10__CaAzureActiveDirectory__c"
 testData:
   - file: "test-data.json"
 conditions:
@@ -7,19 +7,19 @@ conditions:
         currentStateMessage: "Users other than members of Global Administrator,\
           \ User Administrator, and Guest Inviter roles are allowed to invite guests."
         remediationMessage: "Consider restricting who can invite guests to the organization."
-        condition:
+        check:
           RELATED_LIST_HAS:
             status: "INCOMPLIANT"
             relationshipName: "CA10Z1__Azure_Active_Directory_Auth_Policies__r"
       - status: "COMPLIANT"
         currentStateMessage: "Guest invite settings are restricted."
-        condition:
+        check:
           RELATED_LIST_HAS:
             status: "COMPLIANT"
             relationshipName: "CA10Z1__Azure_Active_Directory_Auth_Policies__r"
       - status: "UNDETERMINED"
         currentStateMessage: "Unable to determine Guest invite settings."
-        condition:
+        check:
           RELATED_LIST_HAS:
             status: "UNDETERMINED"
             relationshipName: "CA10Z1__Azure_Active_Directory_Auth_Policies__r"
@@ -35,7 +35,7 @@ relatedLists:
         currentStateMessage: "Everyone in the organization, including guests,\
           \ is allowed to invite guests."
         remediationMessage: "Consider restricting who can invite guests to the organization."
-        condition:
+        check:
           IS_EQUAL:
             left:
               EXTRACT: "CA10Z1__invitesFromState__c"
@@ -44,7 +44,7 @@ relatedLists:
       - status: "INCOMPLIANT"
         currentStateMessage: "All User role members are allowed to invite guests."
         remediationMessage: "Consider restricting who can invite guests to the organization."
-        condition:
+        check:
           IS_EQUAL:
             left:
               EXTRACT: "CA10Z1__invitesFromState__c"
@@ -53,7 +53,7 @@ relatedLists:
       - status: "COMPLIANT"
         currentStateMessage: "Only members of Global Administrator, User Administrator,\
           \ and Guest Inviter roles are allowed to invite guests."
-        condition:
+        check:
           IS_EQUAL:
             left:
               EXTRACT: "CA10Z1__invitesFromState__c"
@@ -61,7 +61,7 @@ relatedLists:
               TEXT: "adminsAndGuestInviters"
       - status: "COMPLIANT"
         currentStateMessage: "Everyone is prevented, including admins, from inviting guests."
-        condition:
+        check:
           IS_EQUAL:
             left:
               EXTRACT: "CA10Z1__invitesFromState__c"

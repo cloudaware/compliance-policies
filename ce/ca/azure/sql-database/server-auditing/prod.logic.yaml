@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureSqlServer__c"
+inputType: "CA10__CaAzureSqlServer__c"
 testData:
   - file: "test-data.json"
 importExtracts:
@@ -8,7 +8,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "SQL Server auditing is disabled."
     remediationMessage: "Consider enabling SQL Server auditing."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__auditing__c"
@@ -16,7 +16,7 @@ conditions:
           TEXT: "Disabled"
   - status: "COMPLIANT"
     currentStateMessage: "SQL Server auditing is enabled."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__auditing__c"

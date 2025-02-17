@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAwsIamPolicy__c"
+inputType: "CA10__CaAwsIamPolicy__c"
 testData:
   - file: test-data.json
 importExtracts:
@@ -7,7 +7,7 @@ importExtracts:
 conditions:
   - status: "COMPLIANT"
     currentStateMessage: "This IAM Policy is not attached."
-    condition:
+    check:
       OR:
         args:
           - NOT_EQUAL:
@@ -24,7 +24,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "This IAM policy with admin privileges is attached."
     remediationMessage: "Consider detaching the IAM policy with admin privileges "
-    condition:
+    check:
       AND:
         args:
         # Verify that this is an array
@@ -55,7 +55,7 @@ conditions:
 # at this step any other Statements of array type should be compliant
   - status: "COMPLIANT"
     currentStateMessage: "This IAM policy does not have admin privileges."
-    condition:
+    check:
       NOT_EQUAL:
         left:
           JSON_QUERY_TEXT:
@@ -70,7 +70,7 @@ conditions:
 # For the Statement of object type Effect == Deny
   - status: "COMPLIANT"
     currentStateMessage: "This IAM policy does not have admin privileges."
-    condition:
+    check:
       NOT_EQUAL:
         left:
           JSON_QUERY_TEXT:
@@ -86,7 +86,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "This IAM policy with admin privileges is attached."
     remediationMessage: "Consider detaching the IAM policy with admin privileges "
-    condition:
+    check:
       AND:
         args:
           - IS_EQUAL:

@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureVirtualMachine__c"
+inputType: "CA10__CaAzureVirtualMachine__c"
 importExtracts:
   - file: "/types/CA10__CaAzureVirtualMachine__c/object.extracts.yaml"
 testData:
@@ -9,14 +9,14 @@ conditions:
     currentStateMessage: "Security Type is not set."
     remediationMessage: "Consider setting the SecurityType of the virtual machine.
      It has to be set to any specified value to enable UefiSettings."
-    condition:
+    check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__securityProfileSecurityType__c"
   - status: "INCOMPLIANT"
     currentStateMessage: "Secure Boot and vTPM are disabled."
     remediationMessage: "Consider enabling Secure Boot and vTPM."
-    condition:
+    check:
       AND:
         args:
           - IS_EQUAL:
@@ -32,7 +32,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Secure Boot is disabled."
     remediationMessage: "Consider enabling Secure Boot."
-    condition:
+    check:
       AND:
         args:
           - IS_EQUAL:
@@ -48,7 +48,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "vTPM is disabled."
     remediationMessage: "Consider enabling and vTPM."
-    condition:
+    check:
       AND:
         args:
           - IS_EQUAL:
@@ -63,7 +63,7 @@ conditions:
                 TEXT: "Enabled"
   - status: "COMPLIANT"
     currentStateMessage: "Secure Boot and vTPM are enabled."
-    condition:
+    check:
       AND:
         args:
           - IS_EQUAL:

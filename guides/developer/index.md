@@ -131,11 +131,11 @@ A logic file (`{name}.logic.yaml`) contains the actual instructions for the Comp
 
 The `{name}.logic.yaml` file contains these key properties:
 
-- `inputObject`: (Required) Specifies the API name of the object in the Cloudaware CMDB that this logic will evaluate, such as `CA10__CaAwsInstance__c`.
-- `recordTypes`: (Optional) Filters evaluation to specific Record Types when the `inputObject` supports multiple types.
+- `inputType`: (Required) Specifies the API name of the object in the Cloudaware CMDB that this logic will evaluate, such as `CA10__CaAwsInstance__c`.
+- `recordTypes`: (Optional) Filters evaluation to specific Record Types when the `inputType` supports multiple types.
 - `testData`: (Optional) Path to [test data](#test-data) files (e.g., local `test-data.json`, relative `../test-data.json`, or absolute paths). Used for validation during testing.
 - `importExtracts`: (Optional) References to reusable data extraction rules. See [Extracts](#extracts) section for details.
-- `conditions`: (Required) Ordered list of validation checks. The first condition returning `true` determines the object's status. Design conditions to be small and focused for better readability and maintainability.
+- `conditions`: (Required) Ordered list of validation checks. The first condition's check returning `true` determines the object's status. Design conditions to be small and focused for better readability and maintainability.
 - `otherwise`: (Required) Fallback status assigned if no conditions match.
 - `relatedLists`: (Optional) Nested validations for related objects via CMDB relationships. See [Related Lists](#related-lists) for details.
 
@@ -156,7 +156,7 @@ Condition structure:
 - `status`: Compliance status to assign (`DISAPPEARED`, `INAPPLICABLE`, `COMPLIANT`, `INCOMPLIANT`, or `UNDETERMINED`).  Refer to `Status` in the schema
 - `currentStateMessage`: Brief description of the object's state (1 sentence, no formatting recommended). **Write clear and concise messages that are specific to the condition.**
 - `remediationMessage`: Actionable guidance for `INCOMPLIANT` status or reference to `remediation.md` (omit for other statuses). Keep remediation messages brief and reference detailed instructions in `remediation.md`.
-- `condition`: Boolean operation defining the check. Choose the most appropriate operation for the task. Consult the schema and use code completion in your IDE to explore available operations.
+- `check`: Boolean operation defining the check. Choose the most appropriate operation for the task. Consult the schema and use code completion in your IDE to explore available operations.
 
 Status definitions:
 
@@ -180,7 +180,7 @@ When fields required for evaluation might be unpopulated, policies should explic
 
 Related lists enable multi-level validation through object relationships. Key differences from root logic:
 
-- Uses `relationshipName` instead of `inputObject` (supports relationship chains like `CA10__vpcSubnet__r.CA10__routeTableAssociations__r`)
+- Uses `relationshipName` instead of `inputType` (supports relationship chains like `CA10__vpcSubnet__r.CA10__routeTableAssociations__r`)
 - Excludes `testData` support. Related objects are tested with their parent object
 - Maintains identical structure for `conditions`, `otherwise`, and nested `relatedLists`
 
@@ -262,7 +262,7 @@ File structure:
 
 Key components:
 
-- **`expectedResults`**: Defines validation criteria
+- **`expectedResult`**: Defines validation criteria
   - `status`: Required compliance status
   - `conditionIndex`: Index of matching condition group. The condition from your `logic.yaml` file will have an index ending in `99`. Indexes ending in `01`, `02`, etc., represent *implicit* conditions.
   - `conditionText`: Human-readable condition logic
@@ -455,7 +455,7 @@ All entities feature clickable links to related objects and associated lists. Fo
 
 - Folders display contained policies
 - Policies show linked framework sections
-- Types list all logic files using them as `inputObject`
+- Types list all logic files using them as `inputType`
 
 For active development sessions, use `repo-manager docs generate --watch` to enable real-time documentation updates when files change. (Warning: This feature remains in alpha)
 
@@ -597,7 +597,7 @@ Developing a policy involves defining its purpose, documenting its rationale, an
 4. **Implement Logic:**
    - Create a logic file (e.g., `prod.logic.yaml`) to automate policy evaluation. Refer to the [Logic](#logic) section for the structure and properties of logic files.
    - Start with `wip.logic.yaml` for development and testing, and rename to `prod.logic.yaml` when the logic is production-ready.
-   - Define `inputObject`, `conditions`, `otherwise`, and `relatedLists` as needed to implement your policy logic.
+   - Define `inputType`, `conditions`, `otherwise`, and `relatedLists` as needed to implement your policy logic.
    - Leverage [Extracts](#extracts) to improve logic clarity and reusability.
 
 5. **Add Supporting Materials:** Store any relevant screenshots, external documentation, API references, or internal notes within the policy directory to provide context and aid future maintenance.

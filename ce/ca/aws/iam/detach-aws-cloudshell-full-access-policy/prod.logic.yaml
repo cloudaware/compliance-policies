@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAwsIamPolicy__c"
+inputType: "CA10__CaAwsIamPolicy__c"
 testData:
   - file: "test-data.json"
 importExtracts:
@@ -7,7 +7,7 @@ importExtracts:
 conditions:
   - status: "INAPPLICABLE"
     currentStateMessage: "This is not a AWSCloudShellFullAccess policy." 
-    condition:
+    check:
       NOT_EQUAL:
         left:
           EXTRACT: "CA10__name__c"
@@ -16,7 +16,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "AWSCloudShellFullAccess policy is attached to a role."
     remediationMessage: "Consider detaching the AWSCloudShellFullAccess policy."
-    condition:
+    check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__AWS_IAM_Role_Policy_Attachments__r"
@@ -29,7 +29,7 @@ relatedLists:
       - status: "INCOMPLIANT"
         currentStateMessage: "AWSCloudShellFullAccess policy is attached to a role."
         remediationMessage: "Consider detaching the AWSCloudShellFullAccess policy."
-        condition:
+        check:
           NOT_EMPTY_LOOKUP: "CA10__role__r"
     otherwise:
       status: "COMPLIANT"

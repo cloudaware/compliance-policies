@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10Z1__CaAzureMySqlServer__c"
+inputType: "CA10Z1__CaAzureMySqlServer__c"
 testData:
   - file: "test-data.json"
 importExtracts:
@@ -7,7 +7,7 @@ importExtracts:
 conditions:
   - status: "INAPPLICABLE"
     currentStateMessage: "This is not the Flexible Server deployment mode."
-    condition:
+    check:
       NOT_EQUAL:
         left:
           EXTRACT: "CA10Z1__deploymentMode__c"
@@ -16,7 +16,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "MySQL Flexible Server tls_version configuration parameter is not set to TLSv1.2."
     remediationMessage: "Consider setting MySQL Flexible Server tls_version configuration to TLSv1.2."
-    condition:
+    check:
       IS_EQUAL:
         left:
           JSON_QUERY_TEXT:
@@ -31,7 +31,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "MySQL Flexible Server tls_version configuration parameter is not set to TLSv1.2."
     remediationMessage: "Consider setting MySQL Flexible Server tls_version configuration to TLSv1.2."
-    condition:
+    check:
       IS_EQUAL:
         left:
           JSON_QUERY_TEXT:
@@ -45,7 +45,7 @@ conditions:
           TEXT: "TLSv1.1"
   - status: "COMPLIANT"
     currentStateMessage: "MySQL Flexible Server tls_version configuration parameter is set to TLSv1.2."
-    condition:
+    check:
       IS_EQUAL:
         left:
           JSON_QUERY_TEXT:
@@ -59,7 +59,7 @@ conditions:
           TEXT: "TLSv1.2"
   - status: "COMPLIANT"
     currentStateMessage: "MySQL Flexible Server tls_version configuration parameter is set to TLSv1.2."
-    condition:
+    check:
       IS_EQUAL:
         left:
           JSON_QUERY_TEXT:

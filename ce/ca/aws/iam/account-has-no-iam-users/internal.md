@@ -25,11 +25,12 @@ And seems like it is not only possible, but also currently preferred way:
 Considering this, we can try to look for accounts without IAM Users and without IAM Roles at the same time, but realistically there will be none. Only completely idle accounts that were created and abandoned immediately.
 
 Real-world example:
-|Condition|# of Accounts|Explanation|
-|---|---|---|
-|CA10__users__r.has(COMPLIANT)|218 hits|Had at least 1 IAM User|
-|CA10__roles__r.has(COMPLIANT)|90 hits|Did not have any IAM Users, but had at least 1 IAM Role|
-|otherwise|1 hit|Did not have neither IAM User, nor IAM Roles, but was checked and it's a permission issue|
+
+| Condition                     | # of Accounts | Explanation                                                                               |
+|-------------------------------|---------------|-------------------------------------------------------------------------------------------|
+| CA10__users__r.has(COMPLIANT) | 218 hits      | Had at least 1 IAM User                                                                   |
+| CA10__roles__r.has(COMPLIANT) | 90 hits       | Did not have any IAM Users, but had at least 1 IAM Role                                   |
+| otherwise                     | 1 hit         | Did not have neither IAM User, nor IAM Roles, but was checked and it's a permission issue |
 
 # Conclusion
 

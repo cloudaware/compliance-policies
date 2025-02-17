@@ -4,7 +4,7 @@
 #Bucket versioning can be in one of three statuses: off, enabled, suspended.
 #If the status is enabled the object is compliant, if the status is off or suspended
 # the object is incompliant. If the field is empty, most likely, don't have permissions.
-inputObject: "CA10__CaAwsBucket__c"
+inputType: "CA10__CaAwsBucket__c"
 importExtracts:
   - file: /types/CA10__CaAwsBucket__c/object.extracts.yaml
 testData:
@@ -13,7 +13,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Bucket Versioning has never been enabled"
     remediationMessage: "Consider enabling S3 Versioning feature on the bucket"
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__versioningStatus__c"
@@ -22,7 +22,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Bucket Versioning feature has been suspended"
     remediationMessage: "Consider reactivating S3 Versioning feature on the bucket"
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__versioningStatus__c"
@@ -30,7 +30,7 @@ conditions:
           TEXT: "suspended"
   - status: "COMPLIANT"
     currentStateMessage: "Bucket Versioning is enabled"
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__versioningStatus__c"

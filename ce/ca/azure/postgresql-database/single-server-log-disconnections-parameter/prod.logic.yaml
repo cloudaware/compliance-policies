@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10Z1__CaAzurePostgreSqlServer__c"
+inputType: "CA10Z1__CaAzurePostgreSqlServer__c"
 testData:
   - file: "test-data.json"
 importExtracts:
@@ -7,7 +7,7 @@ importExtracts:
 conditions:
   - status: "INAPPLICABLE"
     currentStateMessage: "This is not the Single Server deployment mode."
-    condition:
+    check:
       NOT_EQUAL:
         left:
           EXTRACT: "CA10Z1__deploymentMode__c"
@@ -16,7 +16,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "PostgreSQL Server log_disconnections configuration is not enabled."
     remediationMessage: "Consider enabling PostgreSQL Server log_disconnections."
-    condition:
+    check:
       IS_EQUAL:
         left:
           JSON_QUERY_TEXT:
@@ -30,7 +30,7 @@ conditions:
           TEXT: "off"
   - status: "COMPLIANT"
     currentStateMessage: "PostgreSQL Server log_disconnections configuration is enabled."
-    condition:
+    check:
       IS_EQUAL:
         left:
           JSON_QUERY_TEXT:

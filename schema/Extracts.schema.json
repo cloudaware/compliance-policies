@@ -158,10 +158,10 @@
       "type" : "object",
       "properties" : {
         "left" : {
-          "$ref" : "#/definitions/OpNumber"
+          "$ref" : "#/definitions/OpNumeric"
         },
         "right" : {
-          "$ref" : "#/definitions/OpNumber"
+          "$ref" : "#/definitions/OpNumeric"
         }
       },
       "required" : [ "left", "right" ],
@@ -180,10 +180,10 @@
       "type" : "object",
       "properties" : {
         "left" : {
-          "$ref" : "#/definitions/OpNumber"
+          "$ref" : "#/definitions/OpNumeric"
         },
         "right" : {
-          "$ref" : "#/definitions/OpNumber"
+          "$ref" : "#/definitions/OpNumeric"
         }
       },
       "required" : [ "left", "right" ],
@@ -202,10 +202,10 @@
       "type" : "object",
       "properties" : {
         "left" : {
-          "$ref" : "#/definitions/OpNumber"
+          "$ref" : "#/definitions/OpNumeric"
         },
         "right" : {
-          "$ref" : "#/definitions/OpNumber"
+          "$ref" : "#/definitions/OpNumeric"
         }
       },
       "required" : [ "left", "right" ],
@@ -224,10 +224,10 @@
       "type" : "object",
       "properties" : {
         "left" : {
-          "$ref" : "#/definitions/OpNumber"
+          "$ref" : "#/definitions/OpNumeric"
         },
         "right" : {
-          "$ref" : "#/definitions/OpNumber"
+          "$ref" : "#/definitions/OpNumeric"
         }
       },
       "required" : [ "left", "right" ],
@@ -285,6 +285,16 @@
         }
       },
       "required" : [ "COLLECTION" ]
+    },
+    "ConstDuration" : {
+      "type" : "object",
+      "properties" : {
+        "DURATION" : {
+          "type" : "string",
+          "description" : "Operation that creates a duration constant, can not be null"
+        }
+      },
+      "required" : [ "DURATION" ]
     },
     "ConstNumber" : {
       "type" : "object",
@@ -610,13 +620,13 @@
       },
       "required" : [ "FIELD" ]
     },
+    "DurationFromFormat" : {
+      "type" : "string",
+      "enum" : [ "GCP_DURATION", "ISO_8601_DURATION" ]
+    },
     "DateTimeFromFormat" : {
       "type" : "string",
       "const" : "ISO_8601"
-    },
-    "DurationFromFormat" : {
-      "type" : "string",
-      "const" : "GCP_DURATION"
     },
     "GcpLoggingQueryMatch" : {
       "type" : "object",
@@ -1055,6 +1065,8 @@
       }, {
         "$ref" : "#/definitions/ConstCollectionWrapper"
       }, {
+        "$ref" : "#/definitions/ConstDuration"
+      }, {
         "$ref" : "#/definitions/ConstNumber"
       }, {
         "$ref" : "#/definitions/ConstText"
@@ -1151,6 +1163,8 @@
         "$ref" : "#/definitions/ComparisonLessThanEqualWrapper"
       }, {
         "$ref" : "#/definitions/ConstBoolean"
+      }, {
+        "$ref" : "#/definitions/ConstDuration"
       }, {
         "$ref" : "#/definitions/DateRelativeRangeAfterTodayWrapper"
       }, {
@@ -1256,13 +1270,15 @@
         "$ref" : "#/definitions/UnitTestRuntimeErrorWrapper"
       } ]
     },
-    "OpNumber" : {
+    "OpNumeric" : {
       "oneOf" : [ {
         "$ref" : "#/definitions/CollectionSizeWrapper"
       }, {
         "$ref" : "#/definitions/ConstNumber"
       }, {
         "$ref" : "#/definitions/DebugWrapper"
+      }, {
+        "$ref" : "#/definitions/DurationFromWrapper"
       }, {
         "$ref" : "#/definitions/ExtractReference"
       }, {
@@ -1473,7 +1489,7 @@
       "required" : [ "isEmpty" ],
       "additionalProperties" : false
     },
-    "DateTimeFromUndeterminedIf" : {
+    "DurationFromUndeterminedIf" : {
       "type" : "object",
       "properties" : {
         "isEmpty" : {
@@ -1488,7 +1504,7 @@
       "required" : [ "invalidFormat" ],
       "additionalProperties" : false
     },
-    "DurationFromUndeterminedIf" : {
+    "DateTimeFromUndeterminedIf" : {
       "type" : "object",
       "properties" : {
         "isEmpty" : {

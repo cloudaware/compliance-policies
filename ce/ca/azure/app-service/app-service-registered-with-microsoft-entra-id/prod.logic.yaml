@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureAppService__c"
+inputType: "CA10__CaAzureAppService__c"
 importExtracts:
   - file: "/types/CA10__CaAzureAppService__c/object.extracts.yaml"
 testData:
@@ -8,7 +8,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "App Service is not registered with Entra ID."
     remediationMessage: "Consider registering App Service with Entra ID."
-    condition:
+    check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__identityPrincipalId__c"

@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureSqlServer__c"
+inputType: "CA10__CaAzureSqlServer__c"
 testData:
   - file: "test-data.json"
 importExtracts:
@@ -8,7 +8,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "SQL Server auditing is disabled."
     remediationMessage: "Consider enabling SQL Server auditing."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__auditing__c"
@@ -17,7 +17,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "SQL Server auditing retention is less than 90 days."
     remediationMessage: "Consider setting SQL Server auditing retention to be greater than 90 days or 0 for unlimited retention."
-    condition:
+    check:
       AND:
         args:
           - LESS_THAN:
@@ -32,7 +32,7 @@ conditions:
                 NUMBER: 0.0
   - status: "COMPLIANT"
     currentStateMessage: "SQL Server auditing retention is 90 days or more."
-    condition:
+    check:
       GREATER_THAN_EQUAL:
         left: 
           EXTRACT: "CA10__auditingRetentionDays__c"
@@ -40,7 +40,7 @@ conditions:
           NUMBER: 90.0
   - status: "COMPLIANT"
     currentStateMessage: "SQL Server auditing retention is unlimited."
-    condition:
+    check:
       IS_EQUAL:
         left: 
           EXTRACT: "CA10__auditingRetentionDays__c"

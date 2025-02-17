@@ -1,12 +1,12 @@
 ---
-inputObject: "CA10__CaAzureNetworkSecurityGroup__c"
+inputType: "CA10__CaAzureNetworkSecurityGroup__c"
 testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Network Security Group has a rule that allows HTTP(S) access from the Internet."
     remediationMessage: "Consider restricting internet-level access to your Azure resources."
-    condition:
+    check:
       RELATED_LIST_HAS:
         relationshipName: "CA10__Azure_Network_Security_Group_Rules__r"
         status: "INCOMPLIANT"
@@ -20,7 +20,7 @@ relatedLists:
     conditions:
       - status: "INAPPLICABLE"
         currentStateMessage: "NSG Deny Rule."
-        condition:
+        check:
           NOT_EQUAL:
             left:
               EXTRACT: "CA10__access__c"
@@ -28,7 +28,7 @@ relatedLists:
               TEXT: "Allow"
       - status: "INAPPLICABLE"
         currentStateMessage: "NSG Outbound Rule."
-        condition:
+        check:
           NOT_EQUAL:
             left:
               EXTRACT: "CA10__direction__c"
@@ -36,7 +36,7 @@ relatedLists:
               TEXT: "Inbound"
       - status: "INAPPLICABLE"
         currentStateMessage: "NSG Rule with the port other than UDP."
-        condition:
+        check:
           NOT_EQUAL:
             left:
               EXTRACT: "CA10__protocol__c"
@@ -44,7 +44,7 @@ relatedLists:
               TEXT: "TCP"
       - status: "INAPPLICABLE"
         currentStateMessage: "NSG Rule source is not any address."
-        condition:
+        check:
         # returns true when source is neither Internet, *, 0.0.0.0, /0, or Any
           NOT:
             arg:
@@ -78,7 +78,7 @@ relatedLists:
       - status: "INCOMPLIANT"
         currentStateMessage: "NSG Rule with HTTP(S) access from the Internet."
         remediationMessage: "Consider restricting internet-level access to your Azure resources."
-        condition:
+        check:
           OR:
             args:
               - IS_EQUAL:

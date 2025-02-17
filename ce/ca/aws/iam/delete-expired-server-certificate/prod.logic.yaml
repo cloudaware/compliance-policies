@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAwsServerCertificate__c"
+inputType: "CA10__CaAwsServerCertificate__c"
 testData:
   - file: test-data.json
 importExtracts:
@@ -8,7 +8,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "IAM Server Certificate is expired"
     remediationMessage: "Delete the expired IAM Server Certificate."
-    condition:
+    check:
       IS_BEFORE_TODAY: 
         arg:
           EXTRACT: CA10__expiration__c

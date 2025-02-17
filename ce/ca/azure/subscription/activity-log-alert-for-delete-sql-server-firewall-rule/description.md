@@ -25,7 +25,7 @@ There will be a substantial increase in log size if there are a large number of 
 ### From Azure CLI
 
 ```sh
-az monitor activity-log alert list --subscription <subscription Id> --query "[].{Name:name,Enabled:enabled,Condition:condition.allOf,Actions:actions}"
+az monitor activity-log alert list --subscription <subscription Id> --query "[].{Name:name,Enabled:enabled,check:condition.allOf,Actions:actions}"
 ```
 
 Look for `Microsoft.Sql/servers/firewallRules/delete` in the output.

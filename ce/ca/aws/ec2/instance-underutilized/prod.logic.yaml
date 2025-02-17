@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAwsInstance__c"
+inputType: "CA10__CaAwsInstance__c"
 importExtracts:
   - file: "/types/CA10__CaAwsInstance__c/object.extracts.yaml"
 testData:
@@ -7,7 +7,7 @@ testData:
 conditions:
   - status: "INAPPLICABLE"
     currentStateMessage: "The instance is not running."
-    condition:
+    check:
       NOT_EQUAL:
         left:
           EXTRACT: "CA10__stateName__c"
@@ -15,7 +15,7 @@ conditions:
           TEXT: "running"
   - status: "INAPPLICABLE"
     currentStateMessage: "The instance has been running for less than 14 days."
-    condition:
+    check:
       LESS_THAN:
         left:
           EXTRACT: "CA10__currentRunningTime__c"
@@ -23,7 +23,7 @@ conditions:
           NUMBER: 14.0
   - status: UNDETERMINED
     currentStateMessage: "There is not enough data in the CMDB to identify if the instance is underutilized."
-    condition:
+    check:
       OR:
         args:
           - IS_EMPTY:
@@ -34,7 +34,7 @@ conditions:
                 EXTRACT: "CA10__maxCpuTwoWeeks__c"
   - status: INAPPLICABLE
     currentStateMessage: "The instance is idle and considered by the 'AWS EC2 Instance is idle' policy."
-    condition:
+    check:
       AND:
         args:
           - LESS_THAN:
@@ -61,7 +61,7 @@ conditions:
     currentStateMessage: "The instance is underutilized with Average CPU Utilization < 40%\
       \ and Max CPU Utilization < 50%."
     remediationMessage: "Consider rightsizing, consolidating or terminating the instance."
-    condition:
+    check:
       AND:
         args:
           - LESS_THAN:

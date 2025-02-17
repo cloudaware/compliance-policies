@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAwsSecurityGroup__c"
+inputType: "CA10__CaAwsSecurityGroup__c"
 testData:
   - file: "test-data.json"
 conditions:
@@ -7,7 +7,7 @@ conditions:
     currentStateMessage: "There are rules that open common ports to the inbound connections"
     remediationMessage: "Remove the rules or adjust them to accept connections from\
       \ narrower CIDRs"
-    condition:
+    check:
       RELATED_LIST_HAS:
         relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
         status: "INCOMPLIANT"
@@ -21,7 +21,7 @@ relatedLists:
     conditions:
       - status: "INAPPLICABLE"
         currentStateMessage: "This is an outbound security group rule."
-        condition:
+        check:
           NOT_EQUAL:
             left:
               EXTRACT: "CA10__direction__c"
@@ -29,7 +29,7 @@ relatedLists:
               TEXT: "Inbound"
       - status: "INAPPLICABLE"
         currentStateMessage: "This is not an IP source based security group rule."
-        condition:
+        check:
           NOT_EQUAL:
             left:
               EXTRACT: "CA10__source__c"
@@ -37,7 +37,7 @@ relatedLists:
               TEXT: "IP"
       - status: "INAPPLICABLE"
         currentStateMessage: "This security group rule does not allow unrestricted access."
-        condition:
+        check:
           AND:
             args:
               - NOT_EQUAL:
@@ -54,7 +54,7 @@ relatedLists:
         currentStateMessage: "Rule opens all protocols and all ports to the internet"
         remediationMessage: "Remove the rule or narrow it down to a specific port,\
           \ protocol and CIDR"
-        condition:
+        check:
           AND:
             args:
               - IS_EQUAL:
@@ -72,7 +72,7 @@ relatedLists:
         currentStateMessage: "Rule opens all protocols and all ports to the internet"
         remediationMessage: "Remove the rule or narrow it down to a specific port,\
           \ protocol and CIDR"
-        condition:
+        check:
           AND:
             args:
               - IS_EQUAL:

@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAwsAcmCertificate__c"
+inputType: "CA10__CaAwsAcmCertificate__c"
 testData:
   - file: test-data.json
 importExtracts:
@@ -9,7 +9,7 @@ conditions:
     currentStateMessage: "This certificate is issued for a wildcard (*) domain."
     remediationMessage: "Delete the wildcard certificate and add single domain certificates\
       \ for each domain you use."
-    condition:
+    check:
       AND:
         args:
           - NOT_EQUAL:

@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureKeyVault__c"
+inputType: "CA10__CaAzureKeyVault__c"
 importExtracts:
   - file: "/types/CA10__CaAzureKeyVault__c/object.extracts.yaml"
 testData:
@@ -8,7 +8,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The Soft Delete is disabled. The Purge Protection is effective only if Soft Delete is also enabled."
     remediationMessage: "Consider enabling Soft Delete and Purge Protection functions."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__softDelete__c"
@@ -17,7 +17,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The Purge Protection is disabled."
     remediationMessage: "Consider enabling Purge Protection function."
-    condition:
+    check:
       NOT_EQUAL:
         left:
           EXTRACT: "CA10__purgeProtection__c"
@@ -25,7 +25,7 @@ conditions:
           TEXT: "Enabled"
   - status: "COMPLIANT"
     currentStateMessage: "The Soft Delete and Purge Protection functions are enabled."
-    condition:
+    check:
       AND:
         args:
           - IS_EQUAL:

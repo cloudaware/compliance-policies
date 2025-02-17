@@ -4,7 +4,7 @@
 # If the CA10__versioningStatus__c field is empty we, likely, don't have permissions
 # If CA10__lifecycleRulesJson__c field has values than MFA Delete is not applicable
 # It doesn't matter if versioning is enabled because remediation will enable it anyway
-inputObject: "CA10__CaAwsBucket__c"
+inputType: "CA10__CaAwsBucket__c"
 testData:
   - file: "test.data.json"
 importExtracts:
@@ -14,7 +14,7 @@ conditions:
 # It doesn't matter if it's enabled or not.
   - status: "INAPPLICABLE"
     currentStateMessage: "It's not possible to use MFA Delete with existing Lifecycle configurations."
-    condition:
+    check:
       NOT_EMPTY:
         arg:
           EXTRACT: "CA10__lifecycleRulesJson__c"
@@ -23,7 +23,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "MFA delete is not enabled."
     remediationMessage: "Consider enabling MFA delete on the bucket."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__versioningMfaDeleteEnabled__c"

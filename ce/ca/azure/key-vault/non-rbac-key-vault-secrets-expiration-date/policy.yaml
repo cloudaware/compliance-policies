@@ -11,6 +11,9 @@ frameworkMappings:
   - "/frameworks/cis-azure-v2.1.0/08/04"
   - "/frameworks/cis-azure-v3.0.0/03/03/04"
   - "/frameworks/cloudaware/key-secret-certificate-management/expiration-management"
+frameworkIgnoreMappings:
+  - "/frameworks/cis-azure-v1.1.0/08/02"
+  - "/frameworks/cis-azure-v1.3.0/08/02"
 similarPolicies:
   internal:
     - dec-x-82ca4127

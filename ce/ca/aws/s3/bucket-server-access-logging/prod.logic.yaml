@@ -3,7 +3,7 @@
 # We're checking CA10__loggingDestinationBucketName__c field to ensure
 # that server access logging is enabled.
 # Also verifying that the destination bucket is not deleted or missing
-inputObject: "CA10__CaAwsBucket__c"
+inputType: "CA10__CaAwsBucket__c"
 importExtracts:
   - file: "/types/CA10__CaAwsBucket__c/object.extracts.yaml"
 testData:
@@ -11,14 +11,14 @@ testData:
 conditions:
   - status: "INAPPLICABLE"
     currentStateMessage: "This is a destination bucket."
-    condition:
+    check:
       RELATED_LIST_HAS:
         relationshipName: "CA10__loggingBucket__r"
         status: "COMPLIANT"
   - status: "INCOMPLIANT"
     currentStateMessage: "Server access logging is not enabled."
     remediationMessage: "Consider enabling server access logging."
-    condition:
+    check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__loggingDestinationBucketName__c"
@@ -26,7 +26,7 @@ conditions:
 # then ARNs will be the same but CA10__loggingDestinationBucket__c will be empty
   - status: "COMPLIANT"
     currentStateMessage: "Server access logging is enabled. The bucket uses itself as the logging destination."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__arn__c"
@@ -35,11 +35,11 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The destination bucket is missing."
     remediationMessage: "Ensure that bucket access logging is referencing an active S3 bucket."
-    condition:
+    check:
       IS_EMPTY_LOOKUP: "CA10__loggingDestinationBucket__r"
   - status: "COMPLIANT"
     currentStateMessage: "Server access logging is enabled."
-    condition:
+    check:
       NOT_EMPTY_LOOKUP: "CA10__loggingDestinationBucket__r"
 otherwise:
   status: "UNDETERMINED"

@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureSqlServer__c"
+inputType: "CA10__CaAzureSqlServer__c"
 testData:
   - file: "test-data.json"
 importExtracts:
@@ -7,7 +7,7 @@ importExtracts:
 conditions:
   - status: "COMPLIANT"
     currentStateMessage: "SQL Server's Transparent Data Encryption (TDE) protector is encrypted with Customer-managed key."
-    condition:
+    check:
       AND:
         args:
           - IS_EQUAL:

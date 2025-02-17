@@ -1,5 +1,5 @@
 ---
-inputObject: CA10__CaAwsUser__c
+inputType: CA10__CaAwsUser__c
 testData:
   - file: "test-data.json"
 importExtracts:
@@ -8,7 +8,7 @@ importExtracts:
 conditions:
   - status: INAPPLICABLE
     currentStateMessage: "This is not a 'root' user"
-    condition:
+    check:
       NOT_EQUAL:
         left:
           EXTRACT: CA10__userName__c
@@ -17,7 +17,7 @@ conditions:
   - status: INCOMPLIANT
     currentStateMessage: "Root user's password has been used during last 30 days"
     remediationMessage: "Avoid logging in as 'root'"
-    condition:
+    check:
       IS_WITHIN_LAST_DAYS:
         offsetDays: 30
         arg:

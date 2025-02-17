@@ -1,25 +1,25 @@
 ---
-inputObject: "CA10__CaAwsAccount__c"
+inputType: "CA10__CaAwsAccount__c"
 testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "AWS Config is not enabled in all regions."
     remediationMessage: "Consider configuring AWS Config for all regions."
-    condition:
+    check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__AWS_Config_Settings__r"
   - status: "COMPLIANT"
     currentStateMessage: "AWS Config is enabled in all regions."
-    condition:
+    check:
       RELATED_LIST_HAS:
         status: "COMPLIANT"
         relationshipName: "CA10__AWS_Config_Settings__r"
   - status: "INCOMPLIANT"
     currentStateMessage: "The AWS Config doesn't have a recorder configured to include global resource types."
     remediationMessage: "Ensure that at least one AWS Config Recorder is configured to include global resource types."
-    condition:
+    check:
       RELATED_LIST_HAS:
         status: "INAPPLICABLE"
         relationshipName: "CA10__AWS_Config_Settings__r"
@@ -36,7 +36,7 @@ relatedLists:
       - status: "INCOMPLIANT"
         currentStateMessage: "This AWS Config Recorder is not configured properly."
         remediationMessage: "Consider reconfiguring the AWS Config Recorder."
-        condition:
+        check:
           OR:
             args:
               - IS_EQUAL:
@@ -57,7 +57,7 @@ relatedLists:
 # At least one recorder has to have a CA10__includeGlobalResourceTypes__c enabled 
       - status: "COMPLIANT"
         currentStateMessage: "This AWS Config Recorder is configured to include global resource types."
-        condition:
+        check:
           IS_EQUAL:
             left:
               EXTRACT: "CA10__includeGlobalResourceTypes__c"

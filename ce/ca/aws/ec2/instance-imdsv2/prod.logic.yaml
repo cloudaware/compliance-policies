@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAwsInstance__c"
+inputType: "CA10__CaAwsInstance__c"
 testData:
   - file: "test-data.json"
 importExtracts:
@@ -8,7 +8,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "EC2 Instance IMDSv2 is not enabled."
     remediationMessage: "Consider enabling EC2 Instance IMDSv2."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__metadataState__c"
@@ -17,7 +17,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "EC2 Instance IMDSv2 is not required."
     remediationMessage: "Ensure that EC2 Instance IMDSv2 is required."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__metadataHttpTokens__c"
@@ -25,7 +25,7 @@ conditions:
           TEXT: "optional"
   - status: "COMPLIANT"
     currentStateMessage: "EC2 Metadata Service only allows IMDSv2."
-    condition:
+    check:
       AND:
         args:
           - IS_EQUAL:

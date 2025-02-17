@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureAppService__c"
+inputType: "CA10__CaAzureAppService__c"
 importExtracts:
   - file: "/types/CA10__CaAzureAppService__c/object.extracts.yaml"
 testData:
@@ -8,7 +8,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "App Service Authentication is disabled and Basic Auth Publishing Credentials are enabled."
     remediationMessage: "Consider enabling App Service Authentication and disabling Basic Auth Publishing Credentials."
-    condition:
+    check:
       AND:
         args:
           - IS_EQUAL:
@@ -31,7 +31,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "App Service Authentication is disabled."
     remediationMessage: "Consider enabling App Service Authentication."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__authStatus__c"
@@ -40,7 +40,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Basic Auth Publishing Credentials are enabled."
     remediationMessage: "Consider disabling Basic Auth Publishing Credentials."
-    condition:
+    check:
       OR:
         args:
           - IS_EQUAL:
@@ -55,7 +55,7 @@ conditions:
                 TEXT: "Enabled"
   - status: "COMPLIANT"
     currentStateMessage: "App Service Authentication is enabled and Basic Auth Publishing Credentials are disabled."
-    condition:
+    check:
       AND:
         args:
           - IS_EQUAL:

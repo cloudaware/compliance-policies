@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10__CaAzureCosmosDbAccount__c"
+inputType: "CA10__CaAzureCosmosDbAccount__c"
 testData:
   - file: "test-data.json"
 importExtracts:
@@ -8,7 +8,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Cosmos DB Account Virtual Network Filter is disabled."
     remediationMessage: "Consider enabling Cosmos DB Account Virtual Network Filter."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__virtualNetworkFilterState__c"
@@ -16,7 +16,7 @@ conditions:
           TEXT: "Disabled"
   - status: "COMPLIANT"
     currentStateMessage: "Cosmos DB Account Virtual Network Filter is enabled."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__virtualNetworkFilterState__c"

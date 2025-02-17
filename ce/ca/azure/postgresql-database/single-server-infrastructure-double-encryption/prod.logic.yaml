@@ -1,5 +1,5 @@
 ---
-inputObject: "CA10Z1__CaAzurePostgreSqlServer__c"
+inputType: "CA10Z1__CaAzurePostgreSqlServer__c"
 testData:
   - file: "test-data.json"
 importExtracts:
@@ -8,7 +8,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "PostgreSQL Single Server Infrastructure Encryption is disabled."
     remediationMessage: "Consider enabling PostgreSQL Single Server Infrastructure Encryption."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10Z1__infrastructureEncryption__c"
@@ -16,7 +16,7 @@ conditions:
           TEXT: "Disabled"
   - status: "COMPLIANT"
     currentStateMessage: "PostgreSQL Single Server Infrastructure Encryption is enabled."
-    condition:
+    check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10Z1__infrastructureEncryption__c"
