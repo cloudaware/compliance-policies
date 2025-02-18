@@ -35,16 +35,16 @@ title: Operations
 | [`NOT`](#not)                                         | Boolean                       |
 | Text Comparison                                       |                               |
 | [`CONTAINS`](#contains)                               | Boolean                       |
-| [`ENDS_WITH`](#ends_with)                             | Boolean                       |
 | [`STARTS_WITH`](#starts_with)                         | Boolean                       |
+| [`ENDS_WITH`](#ends_with)                             | Boolean                       |
 | Numerical Comparison                                  |                               |
 | [`GREATER_THAN`](#greater_than)                       | Boolean                       |
 | [`GREATER_THAN_EQUAL`](#greater_than_equal)           | Boolean                       |
 | [`LESS_THAN`](#less_than)                             | Boolean                       |
 | [`LESS_THAN_EQUAL`](#less_than_equal)                 | Boolean                       |
 | Date & Time                                           |                               |
-| [`IS_AFTER_TODAY`](#is_after_today)                   | Boolean                       |
 | [`IS_BEFORE_TODAY`](#is_before_today)                 | Boolean                       |
+| [`IS_AFTER_TODAY`](#is_after_today)                   | Boolean                       |
 | [`IS_BEYOND_LAST_DAYS`](#is_beyond_last_days)         | Boolean                       |
 | [`IS_BEYOND_NEXT_DAYS`](#is_beyond_next_days)         | Boolean                       |
 | [`IS_WITHIN_LAST_DAYS`](#is_within_last_days)         | Boolean                       |
@@ -1370,39 +1370,1001 @@ Both arguments are required to be the same type. Cross-type comparisons are not 
 
 ### `AND`
 
+```yaml
+AND:
+  args: # required
+    - { arg1 }
+    - { arg2 }
+    # ...
+```
+
+#### Description
+
+The `AND` operation performs a logical AND operation on a list of boolean arguments. It returns a [boolean](#boolean-type) value: `true` if **all** arguments evaluate to `true`, and `false` otherwise.
+The operation uses short-circuit evaluation: if any argument evaluates to `false`, the operation immediately returns `false` without evaluating the remaining arguments.
+
+#### Parameters
+
+- **`args` (list of Operation<[Boolean](#boolean-type)>, required):**
+  - Specifies a YAML list of boolean operations to be evaluated.
+  - Must contain at least one argument. However, it only makes sense to use at lest two arguments, as a single argument `AND` is can be replaced by the argument itself.
+  - Each item in the list should be an operation that resolves to a [boolean](#boolean-type) value, such as [`IS_EQUAL`](#is_equal), [`IS_EMPTY`](#is_empty), [`CONTAINS`](#contains), or nested logical operations like `AND`, `OR`, `NOT`.
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. AND operation with mixed operations:
+
+    ```yaml
+    AND:
+      args:
+        - IS_EQUAL:
+            left:
+              FIELD:
+                path: CA10__stateName__c
+            right:
+              TEXT: "running"
+        - NOT_EMPTY:
+            arg:
+              FIELD:
+                path: CA10__publicIpAddress__c
+    ```
+
+   This example checks if an instance is both in the "running" state AND has a non-empty public IP address.
+
 ### `OR`
+
+```yaml
+OR:
+  args: # required
+    - { arg1 }
+    - { arg2 }
+    # ...
+```
+
+#### Description
+
+The `OR` operation performs a logical OR operation on a list of boolean arguments. It returns a [boolean](#boolean-type) value: `true` if **at least one** argument evaluates to `true`, and `false` if all arguments are `false`.
+The operation uses short-circuit evaluation: if any argument evaluates to `true`, the operation immediately returns `true` without evaluating the remaining arguments.
+
+#### Parameters
+
+- **`args` (list of Operation<[Boolean](#boolean-type)>, required):**
+  - Specifies a YAML list of boolean operations to be evaluated.
+  - Must contain at least one argument. However, it only makes sense to use at lest two arguments, as a single argument `AND` is can be replaced by the argument itself.
+  - Each item in the list should be an operation that resolves to a [boolean](#boolean-type) value.
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. OR operation with mixed operations:
+
+    ```yaml
+    OR:
+      args:
+        - GREATER_THAN:
+            left:
+              FIELD:
+                path: CA10__ramGb__c
+            right:
+              NUMBER: 32
+        - GREATER_THAN:
+            left:
+              FIELD:
+                path: CA10__vCpu__c
+            right:
+              NUMBER: 8
+    ```
+
+   This example checks if an instance has more the 32 GB of RAM or more than 8 vCPU.
 
 ### `NOT`
 
+```yaml
+NOT:
+  arg: { arg } # required
+```
+
+#### Description
+
+The `NOT` operation performs a logical NOT operation on a boolean argument. It returns a [boolean](#boolean-type) value: `true` if the argument is `false`, and `false` if the argument is `true`.
+
+Majority of operations come in normal and negated variants (e.g. [`IS_EMPTY`](#is_empty) and [`NOT_EMPTY`](#not_empty)) to reduce the number of operations required to describe the logic. It is advised to use appropriate variant of the operation to eliminate unneeded use of `NOT`. `NOT` operation is primarily intended to be used with complex operation without negated variant like [`AWS_POLICY_ALLOWS`](#aws_policy_allows), [`GCP_LOGGING_QUERY_MATCH`](#gcp_logging_query_match), etc.
+
+#### Parameters
+
+- **`arg` (Operation<[Boolean](#boolean-type)>, required):**
+  - Specifies the boolean operation to be negated.
+  - Should be an operation that resolves to a [boolean](#boolean-type) value.
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. NOT operation with another operation:
+
+    ```yaml
+    NOT:
+      arg:
+        FIELD:
+          path: CA10__publiclyAccessible__c
+    ```
+
+   This example checks if an instance is NOT publicly accessible.
+
 ### `CONTAINS`
 
-### `ENDS_WITH`
+```yaml
+CONTAINS:
+  arg: { arg } # required
+  substring: { substring } # required
+```
+
+#### Description
+
+The `CONTAINS` operation checks if a [text](#text-type) (string) value specified by the `arg` parameter contains another [text](#text-type) (string) value specified by the `substring` parameter.
+The comparison is case-insensitive and whitespace-normalized, consistent with the [Text Type](#text-type) behavior.
+It returns a [boolean](#boolean-type) value: `true` if the `arg` string contains the `substring`, and `false` otherwise.
+
+#### Parameters
+
+- **`arg` (Operation<[Text](#text-type)>, required):**
+  - Specifies the [text](#text-type) value to be searched within.
+  - This should be an operation that resolves to a [text](#text-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`JSON_QUERY_TEXT`](#json_query_text), etc.
+
+- **`substring` (Operation<[Text](#text-type)>, required):**
+  - Specifies the [text](#text-type) value to search for within the `arg`.
+  - This should be an operation that resolves to a [text](#text-type) value.
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. Checking if a field value contains a specific substring:
+
+    ```yaml
+    CONTAINS:
+      arg:
+        FIELD:
+          path: CA10__description__c
+      substring:
+        TEXT: "expired"
+    ```
+
+   This example checks if the `CA10__description__c` field value contains the substring `expired`.
+
+2. Using `NOT` with `CONTAINS` to check for the absence of a substring:
+
+    ```yaml
+    NOT:
+      arg:
+        CONTAINS:
+          arg:
+            FIELD:
+              path: CA10__name__c
+          substring:
+            TEXT: "test"
+    ```
+
+   This example checks if the `CA10__name__c` field value does *not* contain the substring `test`.
+
+See more details in:
+
+- [unit tests](../../../ce/unit-test/contains/unit-test.logic.yaml.gen.md) for [`CONTAINS`](#contains) operation
 
 ### `STARTS_WITH`
 
+```yaml
+STARTS_WITH:
+  arg: { arg } # required
+  prefix: { prefix } # required
+```
+
+#### Description
+
+The `STARTS_WITH` operation checks if a [text](#text-type) (string) value specified by the `arg` parameter starts with another [text](#text-type) (string) value specified by the `prefix` parameter.
+The comparison is case-insensitive and whitespace-normalized, consistent with the [Text Type](#text-type) behavior.
+It returns a [boolean](#boolean-type) value: `true` if the `arg` string starts with the `prefix`, and `false` otherwise.
+
+#### Parameters
+
+- **`arg` (Operation<[Text](#text-type)>, required):**
+  - Specifies the [text](#text-type) value to be checked.
+  - This should be an operation that resolves to a [text](#text-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`JSON_QUERY_TEXT`](#json_query_text), etc.
+
+- **`prefix` (Operation<[Text](#text-type)>, required):**
+  - Specifies the [text](#text-type) value to check as the starting prefix.
+  - This should be an operation that resolves to a [text](#text-type) value.
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. Checking if a field value starts with a specific prefix:
+
+    ```yaml
+    STARTS_WITH:
+      arg:
+        FIELD:
+          path: Name
+      prefix:
+        TEXT: "i-"
+    ```
+
+   This example checks if the `Name` field value starts with the prefix `i-`.
+
+2. Using `NOT` with `STARTS_WITH` to check if a string does not start with a prefix:
+
+    ```yaml
+    NOT:
+      arg:
+        STARTS_WITH:
+          arg:
+            FIELD:
+              path: CA10__domainName__c
+          prefix:
+            TEXT: "*"
+    ```
+
+   This example checks if the `CA10__domainName__c` field value does *not* start with the prefix `*` (wildcard).
+
+See more details in:
+
+- [unit tests](../../../ce/unit-test/starts-with/unit-test.logic.yaml.gen.md) for [`STARTS_WITH`](#starts_with) operation
+
+### `ENDS_WITH`
+
+```yaml
+ENDS_WITH:
+  arg: { arg } # required
+  suffix: { suffix } # required
+```
+
+#### Description
+
+The `ENDS_WITH` operation checks if a [text](#text-type) (string) value specified by the `arg` parameter ends with another [text](#text-type) (string) value specified by the `suffix` parameter.
+The comparison is case-insensitive and whitespace-normalized, consistent with the [Text Type](#text-type) behavior.
+It returns a [boolean](#boolean-type) value: `true` if the `arg` string ends with the `suffix`, and `false` otherwise.
+
+#### Parameters
+
+- **`arg` (Operation<[Text](#text-type)>, required):**
+  - Specifies the [text](#text-type) value to be checked.
+  - This should be an operation that resolves to a [text](#text-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`JSON_QUERY_TEXT`](#json_query_text), etc.
+
+- **`suffix` (Operation<[Text](#text-type)>, required):**
+  - Specifies the [text](#text-type) value to check as the ending suffix.
+  - This should be an operation that resolves to a [text](#text-type) value.
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. Checking if a field value ends with a specific suffix:
+
+    ```yaml
+    ENDS_WITH:
+      arg:
+        FIELD:
+          path: CA10__name__c
+      suffix:
+        TEXT: "-prod"
+    ```
+
+   This example checks if the `CA10__name__c` field value ends with the suffix `-prod`.
+
+2. Using `NOT` with `ENDS_WITH` to check if a string does not end with a suffix:
+
+    ```yaml
+    NOT:
+      arg:
+        ENDS_WITH:
+          arg:
+            FIELD:
+              path: CA10__domainName__c
+          suffix:
+            TEXT: ".com"
+    ```
+
+   This example checks if the `CA10__domainName__c` field value does *not* end with the suffix `.com`.
+
+See more details in:
+
+- [unit tests](../../../ce/unit-test/ends-with/unit-test.logic.yaml.gen.md) for [`ENDS_WITH`](#ends_with) operation
+
 ### `GREATER_THAN`
+
+```yaml
+GREATER_THAN:
+  left: { arg1 } # required
+  right: { arg2 } # required
+```
+
+#### Description
+
+The `GREATER_THAN` operation performs a numerical comparison to check if the `left` argument is strictly greater than the `right` argument. It returns a [boolean](#boolean-type) value: `true` if `left` is greater than `right`, and `false` otherwise.
+Both arguments must be of [number](#number-type) type.
+
+#### Parameters
+
+- **`left` (Operation<[Number](#number-type)>, required):**
+  - Specifies the first argument for comparison.
+  - This should be an operation that resolves to a [number](#number-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`NUMBER`](#number), [`COLLECTION_SIZE`](#collection_size), etc.
+
+- **`right` (Operation<[Number](#number-type)>, required):**
+  - Specifies the second argument for comparison.
+  - **Must be of the same type as the `left` argument.**
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. Checking if a number field is greater than a number constant:
+
+    ```yaml
+    GREATER_THAN:
+      left:
+        FIELD:
+          path: CA10__instanceCount__c
+      right:
+        NUMBER: 5
+    ```
+
+   This example checks if the value of the `CA10__instanceCount__c` field is greater than the number constant `5`.
+
+2. Using `GREATER_THAN` with `COLLECTION_SIZE`:
+
+    ```yaml
+    GREATER_THAN:
+      left:
+        COLLECTION_SIZE:
+          arg:
+            COLLECTION_FROM:
+              arg:
+                FIELD:
+                  path: CA10__availabilityZones__c
+              separator: "\n"
+        right:
+          NUMBER: 1
+    ```
+
+   This example checks if the size of the collection created from the `CA10__availabilityZones__c` field is greater than `1`.
+
+See more details in:
+
+- [unit tests](../../../ce/unit-test/greater-than/unit-test.logic.yaml.gen.md) for [`GREATER_THAN`](#greater_than) operation
 
 ### `GREATER_THAN_EQUAL`
 
+```yaml
+GREATER_THAN_EQUAL:
+  left: { arg1 } # required
+  right: { arg2 } # required
+```
+
+#### Description
+
+The `GREATER_THAN_EQUAL` operation performs a numerical comparison to check if the `left` argument is greater than or equal to the `right` argument. It returns a [boolean](#boolean-type) value: `true` if `left` is greater than or equal to `right`, and `false` otherwise.
+Both arguments must be of [number](#number-type) type.
+
+#### Parameters
+
+- **`left` (Operation<[Number](#number-type)>, required):**
+  - Specifies the first argument for comparison.
+  - This can be any operation that resolves to a [number](#number-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`NUMBER`](#number), [`COLLECTION_SIZE`](#collection_size), etc.
+
+- **`right` (Operation<[Number](#number-type)>, required):**
+  - Specifies the second argument for comparison.
+  - **Must be of the same type as the `left` argument.**
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. Checking if a number field is greater than or equal to a number constant:
+
+    ```yaml
+    GREATER_THAN_EQUAL:
+      left:
+        FIELD:
+          path: CA10__ruleCount__c
+      right:
+        NUMBER: 50
+    ```
+
+   This example checks if the value of the `CA10__ruleCount__c` field is greater than or equal to the number constant `50`.
+
+2. Using `GREATER_THAN_EQUAL` with `RELATED_LIST_COUNT`:
+
+    ```yaml
+      GREATER_THAN_EQUAL:
+        left:
+          RELATED_LIST_COUNT:
+            status: "COMPLIANT"
+            relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
+        right:
+          NUMBER: 1
+    ```
+
+   This example checks if the related list has at least 1 `COMPLIANT` object.
+
+See more details in:
+
+- [unit tests](../../../ce/unit-test/greater-than-equal/unit-test.logic.yaml.gen.md) for [`GREATER_THAN_EQUAL`](#greater_than_equal) operation
+
 ### `LESS_THAN`
+
+```yaml
+LESS_THAN:
+  left: { arg1 } # required
+  right: { arg2 } # required
+```
+
+#### Description
+
+The `LESS_THAN` operation performs a numerical comparison to check if the `left` argument is strictly less than the `right` argument. It returns a [boolean](#boolean-type) value: `true` if `left` is less than `right`, and `false` otherwise.
+Both arguments must be of [number](#number-type) type.
+
+#### Parameters
+
+- **`left` (Operation<[Number](#number-type)>, required):**
+  - Specifies the first argument for comparison.
+  - This can be any operation that resolves to a [number](#number-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`NUMBER`](#number), [`COLLECTION_SIZE`](#collection_size), etc.
+
+- **`right` (Operation<[Number](#number-type)>, required):**
+  - Specifies the second argument for comparison.
+  - **Must be of the same type as the `left` argument.**
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. Checking if a number field is less than a number constant:
+
+    ```yaml
+    LESS_THAN:
+      left:
+        FIELD:
+          path: CA10__cpuCount__c
+      right:
+        NUMBER: 4
+    ```
+
+   This example checks if the value of the `CA10__cpuCount__c` field is less than the number constant `4`.
+
+2. Using `LESS_THAN` with `JSON_QUERY_NUMBER`:
+
+    ```yaml
+      LESS_THAN:
+        left:
+          JSON_QUERY_NUMBER:
+            arg:
+              JSON_FROM:
+                arg: 
+                  EXTRACT: "CA10__securityCenterAutoProvisioning__c"
+            expression: "length([? name == 'default' && autoProvision == 'Off'])"
+        right:
+          NUMBER: 1
+    ```
+
+   This example checks if the number extracted from JSON is less than `1`.
+
+See more details in:
+
+- [unit tests](../../../ce/unit-test/less-than/unit-test.logic.yaml.gen.md) for [`LESS_THAN`](#less_than) operation
 
 ### `LESS_THAN_EQUAL`
 
-### `IS_AFTER_TODAY`
+```yaml
+LESS_THAN_EQUAL:
+  left: { arg1 } # required
+  right: { arg2 } # required
+```
+
+#### Description
+
+The `LESS_THAN_EQUAL` operation performs a numerical comparison to check if the `left` argument is less than or equal to the `right` argument. It returns a [boolean](#boolean-type) value: `true` if `left` is less than or equal to `right`, and `false` otherwise.
+Both arguments must be of [number](#number-type) type.
+
+#### Parameters
+
+- **`left` (Operation<[Number](#number-type)>, required):**
+  - Specifies the first argument for comparison.
+  - This can be any operation that resolves to a [number](#number-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`NUMBER`](#number), [`COLLECTION_SIZE`](#collection_size), etc.
+
+- **`right` (Operation<[Number](#number-type)>, required):**
+  - Specifies the second argument for comparison.
+  - **Must be of the same type as the `left` argument.**
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. Checking if a number field is less than or equal to a number constant:
+
+    ```yaml
+    LESS_THAN_EQUAL:
+      left:
+        FIELD:
+          path: CA10__ruleCount__c
+      right:
+        NUMBER: 50
+    ```
+
+   This example checks if the value of the `CA10__ruleCount__c` field is less than or equal to the number constant `50`.
+
+2. Using `LESS_THAN_EQUAL` with `JSON_QUERY_NUMBER`:
+
+    ```yaml
+      LESS_THAN_EQUAL:
+        left:
+          JSON_QUERY_NUMBER:
+            arg: 
+              EXTRACT: "caJsonFrom__firewallRules__c"
+            expression: "length([? starts_with(name, 'AllowAllAzureServicesAndResourcesWithinAzureIps')])"
+          right:
+            NUMBER: 2
+    ```
+
+   This example checks if the size of the number extracted from JSON is less than or equal to `2`.
+
+See more details in:
+
+- [unit tests](../../../ce/unit-test/less-than-equal/unit-test.logic.yaml.gen.md) for [`LESS_THAN_EQUAL`](#less_than_equal) operation
 
 ### `IS_BEFORE_TODAY`
 
+```yaml
+IS_BEFORE_TODAY:
+  arg: { arg } # required
+```
+
+#### Description
+
+The `IS_BEFORE_TODAY` operation checks if a [dateTime](#datetime-type) value, provided as the argument `arg`, is strictly before the current day (today). The comparison is based on the current date at UTC midnight. It returns a [boolean](#boolean-type) value: `true` if the `arg` DateTime is before today, and `false` otherwise.
+
+#### Parameters
+
+- **`arg` (Operation<[DateTime](#datetime-type)>, required):**
+  - Specifies the [dateTime](#datetime-type) value to be checked.
+  - This should be an operation that resolves to a [dateTime](#datetime-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`DATE_TIME_FROM`](#date_time_from), or [`UNIT_TEST_DATE_TIME`](#unit_test_date_time).
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. Checking if a date field is before today:
+
+    ```yaml
+    IS_BEFORE_TODAY:
+      arg:
+        FIELD:
+          path: CA10__dueDate__c # Assume this field returns a DateTime value
+    ```
+
+   This example checks if the date in the `CA10__dueDate__c` field is before the current day.
+
+2. Using `IS_BEFORE_TODAY` in a Condition:
+
+    ```yaml
+    - status: INCOMPLIANT
+      currentStateMessage: "The expiration date is in the past."
+      remediationMessage: "Review and update the expiration date to a future date."
+      check:
+        IS_BEFORE_TODAY:
+          arg:
+            EXTRACT: CA10__expirationDate__c # Assume 'CA10__expirationDate__c' is an extract returning DateTime
+    ```
+
+   This condition flags a resource as `INCOMPLIANT` if its expiration date, obtained from the `CA10__expirationDate__c` extract, is before today.
+
+See more details in:
+
+- [unit tests](../../../ce/unit-test/is-before-today/unit-test.logic.yaml.gen.md) for [`IS_BEFORE_TODAY`](#is_before_today) operation
+
+### `IS_AFTER_TODAY`
+
+```yaml
+IS_AFTER_TODAY:
+  arg: { arg } # required
+```
+
+#### Description
+
+The `IS_AFTER_TODAY` operation checks if a [dateTime](#datetime-type) value, provided as the argument `arg`, is strictly after the current day (today). The comparison is based on the current date at UTC midnight. It returns a [boolean](#boolean-type) value: `true` if the `arg` DateTime is after today, and `false` otherwise.
+
+#### Parameters
+
+- **`arg` (Operation<[DateTime](#datetime-type)>, required):**
+  - Specifies the [dateTime](#datetime-type) value to be checked.
+  - This can be any operation that resolves to a [dateTime](#datetime-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`DATE_TIME_FROM`](#date_time_from), or [`UNIT_TEST_DATE_TIME`](#unit_test_date_time).
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. Checking if a date field is after today:
+
+    ```yaml
+    IS_AFTER_TODAY:
+      arg:
+        FIELD:
+          path: CA10__startTime__c # Assume this field returns a DateTime value
+    ```
+
+   This example checks if the date in the `CA10__startTime__c` field is after the current day.
+
+2. Using `IS_AFTER_TODAY` in a Condition:
+
+    ```yaml
+    - status: COMPLIANT
+      currentStateMessage: "Certificate is not expired yet."
+      check:
+        IS_AFTER_TODAY:
+          arg:
+            EXTRACT: CA10__expiration__c # Assume 'CA10__expiration__c' is an extract returning DateTime
+    ```
+
+   This condition flags a resource as `COMPLIANT` if its expiration date, obtained from the `CA10__expiration__c` extract, is in the future.
+
+See more details in:
+
+- [unit tests](../../../ce/unit-test/is-after-today/unit-test.logic.yaml.gen.md) for [`IS_AFTER_TODAY`](#is_after_today) operation
+
 ### `IS_BEYOND_LAST_DAYS`
+
+```yaml
+IS_BEYOND_LAST_DAYS:
+  arg: { arg } # required
+  offsetDays: { offsetDays } # required
+```
+
+#### Description
+
+The `IS_BEYOND_LAST_DAYS` operation checks if a [dateTime](#datetime-type) value, provided as the argument `arg`, is strictly earlier than a date calculated by subtracting a specified number of days (`offsetDays`) from the current day (today). The comparison is based on the current date at UTC midnight. It returns a [boolean](#boolean-type) value: `true` if the `arg` DateTime is beyond the last `offsetDays`, and `false` otherwise.
+
+#### Parameters
+
+- **`arg` (Operation<[DateTime](#datetime-type)>, required):**
+  - Specifies the [dateTime](#datetime-type) value to be checked.
+  - This should be an operation that resolves to a [dateTime](#datetime-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`DATE_TIME_FROM`](#date_time_from), etc.
+
+- **`offsetDays` (number, required):**
+  - Specifies the number of days to subtract from the current date for the comparison.
+  - Must be a non-negative integer.
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. Checking if a date field is beyond the last 30 days:
+
+    ```yaml
+    IS_BEYOND_LAST_DAYS:
+      arg:
+        FIELD:
+          path: CA10__lastModifiedDate__c # Assume this field returns a DateTime value
+      offsetDays: 30
+    ```
+
+   This example checks if the date in the `CA10__lastModifiedDate__c` field is earlier than 30 days ago.
+
+2. Using `IS_BEYOND_LAST_DAYS` in a Condition:
+
+    ```yaml
+    - status: INCOMPLIANT
+      currentStateMessage: "The resource has not been modified in the last 90 days and is considered stale."
+      remediationMessage: "Review and update the resource or consider archiving it."
+      check:
+        IS_BEYOND_LAST_DAYS:
+          arg:
+            EXTRACT: CA10__lastModified__c # Assume 'CA10__lastModified__c' is an extract returning DateTime
+          offsetDays: 90
+    ```
+
+   This condition flags a resource as `INCOMPLIANT` if its last modification date, obtained from the `CA10__lastModified__c` extract, is beyond the last 90 days.
+
+See more details in:
+
+- [unit tests](../../../ce/unit-test/is-beyond-last-days/unit-test.logic.yaml.gen.md) for [`IS_BEYOND_LAST_DAYS`](#is_beyond_last_days) operation
 
 ### `IS_BEYOND_NEXT_DAYS`
 
+```yaml
+IS_BEYOND_NEXT_DAYS:
+  arg: { arg } # required
+  offsetDays: { offsetDays } # required
+```
+
+#### Description
+
+The `IS_BEYOND_NEXT_DAYS` operation checks if a [dateTime](#datetime-type) value, provided as the argument `arg`, is strictly later than a date calculated by adding a specified number of days (`offsetDays`) to the current day (today). The comparison is based on the current date at UTC midnight. It returns a [boolean](#boolean-type) value: `true` if the `arg` DateTime is beyond the next `offsetDays`, and `false` otherwise.
+
+#### Parameters
+
+- **`arg` (Operation<[DateTime](#datetime-type)>, required):**
+  - Specifies the [dateTime](#datetime-type) value to be checked.
+  - This can be any operation that resolves to a [dateTime](#datetime-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`DATE_TIME_FROM`](#date_time_from), etc.
+
+- **`offsetDays` (number, required):**
+  - Specifies the number of days to add to the current date for the comparison.
+  - Must be a non-negative integer.
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. Checking if a date field is beyond the next 7 days:
+
+    ```yaml
+    IS_BEYOND_NEXT_DAYS:
+      arg:
+        FIELD:
+          path: CA10__expiryDate__c # Assume this field returns a DateTime value
+      offsetDays: 7
+    ```
+
+   This example checks if the date in the `CA10__expiryDate__c` field is later than 7 days from now.
+
+2. Using `IS_BEYOND_NEXT_DAYS` in a Condition:
+
+    ```yaml
+    - status: COMPLIANT
+      currentStateMessage: "The resource is valid for more than 30 days."
+      check:
+        IS_BEYOND_NEXT_DAYS:
+          arg:
+            EXTRACT: CA10__validUntil__c # Assume 'CA10__validUntil__c' is an extract returning DateTime
+          offsetDays: 30
+    ```
+
+   This condition flags a resource as `COMPLIANT` if its validity date, obtained from the `CA10__validUntil__c` extract, is beyond the next 30 days.
+
+See more details in:
+
+- [unit tests](../../../ce/unit-test/is-beyond-next-days/unit-test.logic.yaml.gen.md) for [`IS_BEYOND_NEXT_DAYS`](#is_beyond_next_days) operation
+
 ### `IS_WITHIN_LAST_DAYS`
+
+```yaml
+IS_WITHIN_LAST_DAYS:
+  arg: { arg } # required
+  offsetDays: { offsetDays } # required
+```
+
+#### Description
+
+The `IS_WITHIN_LAST_DAYS` operation checks if a [dateTime](#datetime-type) value, provided as the argument `arg`, falls within the last number of days (`offsetDays`) including today. The comparison is based on the current date at UTC midnight. It returns a [boolean](#boolean-type) value: `true` if the `arg` DateTime is within the last `offsetDays`, and `false` otherwise.
+
+#### Parameters
+
+- **`arg` (Operation<[DateTime](#datetime-type)>, required):**
+  - Specifies the [dateTime](#datetime-type) value to be checked.
+  - This can be any operation that resolves to a [dateTime](#datetime-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`DATE_TIME_FROM`](#date_time_from), etc.
+
+- **`offsetDays` (number, required):**
+  - Specifies the number of days to define the "last days" range, including today.
+  - Must be a non-negative integer.
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. Checking if a last login date is within the last 7 days:
+
+    ```yaml
+    IS_WITHIN_LAST_DAYS:
+      arg:
+        FIELD:
+          path: CA10__lastLoginDate__c # Assume this field returns a DateTime value
+      offsetDays: 7
+    ```
+
+   This example checks if the date in the `CA10__lastLoginDate__c` field is within the last 7 days, including today.
+
+2. Using `IS_WITHIN_LAST_DAYS` in a Condition:
+
+    ```yaml
+    - status: COMPLIANT
+      currentStateMessage: "The user has logged in recently (within the last 30 days)."
+      check:
+        IS_WITHIN_LAST_DAYS:
+          arg:
+            EXTRACT: CA10__lastLogin__c # Assume 'CA10__lastLogin__c' is an extract returning DateTime
+          offsetDays: 30
+    ```
+
+   This condition flags a resource as `COMPLIANT` if the last login date, obtained from the `CA10__lastLogin__c` extract, is within the last 30 days.
+
+See more details in:
+
+- [unit tests](../../../ce/unit-test/is-within-last-days/unit-test.logic.yaml.gen.md) for [`IS_WITHIN_LAST_DAYS`](#is_within_last_days) operation
 
 ### `IS_WITHIN_NEXT_DAYS`
 
+```yaml
+IS_WITHIN_NEXT_DAYS:
+  arg: { arg } # required
+  offsetDays: { offsetDays } # required
+```
+
+#### Description
+
+The `IS_WITHIN_NEXT_DAYS` operation checks if a [dateTime](#datetime-type) value, provided as the argument `arg`, falls within the next number of days (`offsetDays`) including today. The comparison is based on the current date at UTC midnight. It returns a [boolean](#boolean-type) value: `true` if the `arg` DateTime is within the next `offsetDays`, and `false` otherwise.
+
+#### Parameters
+
+- **`arg` (Operation<[DateTime](#datetime-type)>, required):**
+  - Specifies the [dateTime](#datetime-type) value to be checked.
+  - This can be any operation that resolves to a [dateTime](#datetime-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`DATE_TIME_FROM`](#date_time_from), etc.
+
+- **`offsetDays` (number, required):**
+  - Specifies the number of days to define the "next days" range, including today.
+  - Must be a non-negative integer.
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. Checking if a certificate expiration date is within the next 14 days:
+
+    ```yaml
+    IS_WITHIN_NEXT_DAYS:
+      arg:
+        FIELD:
+          path: CA10__certificateExpiryDate__c # Assume this field returns a DateTime value
+      offsetDays: 14
+    ```
+
+   This example checks if the date in the `CA10__certificateExpiryDate__c` field is within the next 14 days, including today.
+
+2. Using `IS_WITHIN_NEXT_DAYS` in a Condition:
+
+    ```yaml
+    - status: INCOMPLIANT
+      currentStateMessage: "The certificate is expiring soon (within the next 30 days)."
+      remediationMessage: "Renew the certificate to avoid service disruption."
+      check:
+        IS_WITHIN_NEXT_DAYS:
+          arg:
+            EXTRACT: CA10__certExpiration__c # Assume 'CA10__certExpiration__c' is an extract returning DateTime
+          offsetDays: 30
+    ```
+
+   This condition flags a resource as `INCOMPLIANT` if its certificate expiration date, obtained from the `CA10__certExpiration__c` extract, is within the next 30 days.
+
+See more details in:
+
+- [unit tests](../../../ce/unit-test/is-within-next-days/unit-test.logic.yaml.gen.md) for [`IS_WITHIN_NEXT_DAYS`](#is_within_next_days) operation
+
 ### `COLLECTION_SIZE`
 
+```yaml
+COLLECTION_SIZE:
+  arg: { arg } # required
+```
+
+#### Description
+
+The `COLLECTION_SIZE` operation returns the number of elements in a [collection](#collection-type) value provided as the argument `arg`. It returns a [number](#number-type) representing the size of the collection.
+
+#### Parameters
+
+- **`arg` (Operation<[Collection](#collection-type)>, required):**
+  - Specifies the [collection](#collection-type) whose size you want to determine.
+  - This should be an operation that resolves to a [collection](#collection-type) value, such as [`COLLECTION_FROM`](#collection_from), etc.
+
+#### Return Type
+
+[Number](#number-type)
+
+#### Examples
+
+1. Using `COLLECTION_SIZE` in a condition to check if a collection has more than 5 elements:
+
+    ```yaml
+    GREATER_THAN:
+      left:
+        COLLECTION_SIZE:
+          arg:
+            COLLECTION_FROM:
+              arg:
+                FIELD:
+                  path: CA10__availabilityZones__c
+              separator: ","
+      right:
+        NUMBER: 5
+    ```
+
+   This condition checks if the collection created from the comma-separated string in `CA10__availabilityZones__c` field has more than 5 elements.
+
+See more details in:
+
+- [unit tests](../../../ce/unit-test/collection-size/unit-test.logic.yaml.gen.md) for [`COLLECTION_SIZE`](#collection_size) operation
+
 ### `COLLECTION_CONTAINS`
+
+```yaml
+COLLECTION_CONTAINS:
+  arg: { arg } # required
+  search: { search } # required
+```
+
+#### Description
+
+The `COLLECTION_CONTAINS` operation checks if a [collection](#collection-type) value, provided as the `arg` parameter, contains a specific element, provided as the `search` parameter. The element to search for must be a [text](#text-type) value.
+The search is case-insensitive and whitespace-normalized, consistent with the [Text Type](#text-type) behavior.
+It returns a [boolean](#boolean-type) value: `true` if the element is found in the collection, and `false` otherwise.
+
+#### Parameters
+
+- **`arg` (Operation<[Collection](#collection-type)>, required):**
+  - Specifies the [collection](#collection-type) to be searched.
+  - This should be an operation that resolves to a [collection](#collection-type) value, such as [`COLLECTION_FROM`](#collection_from), etc.
+
+- **`search` (Operation<[Text](#text-type)>, required):**
+  - Specifies the [text](#text-type) value to search for within the collection.
+  - This should be an operation that resolves to a [text](#text-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), or [`TEXT`](#text).
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. Using `COLLECTION_CONTAINS` with `FIELD` and `COLLECTION_FROM` to check if a collection contains a field value:
+
+    ```yaml
+    COLLECTION_CONTAINS:
+      arg:
+        COLLECTION_FROM:
+          arg:
+            FIELD:
+              path: CA10__availabilityZones__c
+          separator: ","
+      search:
+        TEXT: us-east-1a
+    ```
+
+   This example checks if the collection created from the comma-separated string in `CA10__availabilityZones__c` field contains the element `"us-east-1a"`.
+
+See more details in:
+
+- [unit tests](../../../ce/unit-test/collection-contains/unit-test.logic.yaml.gen.md) for [`COLLECTION_CONTAINS`](#collection_contains) operation
 
 ### `JSON_QUERY_TEXT`
 
