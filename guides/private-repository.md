@@ -13,7 +13,7 @@ When developing custom policies, it's beneficial to store them in a private repo
 
 ## Creating Your Repository
 
-The Compliance Engine supports integration with any Git repository accessible via the internet. Ensure your repository is publicly available for cloning.
+The Compliance Engine supports integration with any Git repository accessible via the internet. Ensure your repository is accessible from a public internet.
 
 ### GitHub Setup Instructions
 
