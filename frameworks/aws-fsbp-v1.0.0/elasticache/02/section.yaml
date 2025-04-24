@@ -1,0 +1,14 @@
+---
+name: >
+  [ElastiCache.2] ElastiCache clusters should have automatic minor 
+  version upgrades enabled
+description: |-
+  Automatic minor version upgrade is a feature that you can enable in Amazon ElastiCache 
+  to automatically upgrade your cache clusters when a new minor cache engine version 
+  is available. These upgrades might include security patches and bug fixes. 
+  Staying up-to-date with patch installation is an important step in securing systems.
+similar:
+  internal:
+    - dec-c-d0bd8f28
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/elasticache-controls.html#elasticache-2

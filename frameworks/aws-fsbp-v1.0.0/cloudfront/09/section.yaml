@@ -1,0 +1,10 @@
+---
+name: "[CloudFront.9] CloudFront distributions should encrypt traffic to custom origins"
+description: |-
+  HTTPS (TLS) can be used to help prevent eavesdropping or manipulation of network 
+  traffic. Only encrypted connections over HTTPS (TLS) should be allowed.
+similar:
+  internal:
+    - dec-c-0af8c6ba
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/cloudfront-controls.html#cloudfront-9

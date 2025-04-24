@@ -1,0 +1,51 @@
+---
+inputType: "CA10G1__CaGoogleUser__c"
+testData:
+  - file: test-data.json
+conditions:
+   - status: "INCOMPLIANT"
+     currentStateMessage: "User has 'Service Account Admin' and 'Service Account User' roles assigned at the same time."
+     remediationMessage: "Remove an extra role from the user."
+     check:
+      GREATER_THAN:
+        left:
+          RELATED_LIST_COUNT:
+            status: "INCOMPLIANT"
+            relationshipName: "CA10G1__Google_IAM_Policy_Bindings__r"
+        right:
+          NUMBER: 1.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The principle of 'Separation of Duties' is enforced."
+relatedLists:
+  - relationshipName: "CA10G1__Google_IAM_Policy_Bindings__r"
+    importExtracts:
+      - file: "/types/CA10__CaGoogleIamPolicyBinding__c/object.extracts.yaml"
+      - file: /types/CA10__CaGoogleIamRole__c/object.extracts.yaml
+    recordTypes:
+      - "caGoogleIamPolicyBindingProject"
+      - "caGoogleIamPolicyBindingFolder"
+      - "caGoogleIamPolicyBindingOrganization"
+    conditions: 
+      - status: "COMPLIANT"
+        currentStateMessage: "Empty policy binding"
+        check:
+          IS_EMPTY_LOOKUP: "CA10__iamRole__r"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "User has a service-account related role assigned"
+        check: 
+          OR:
+            args:
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10__iamRole__r.CA10__roleName__c"
+                  right:
+                    TEXT: "roles/iam.serviceAccountAdmin"
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10__iamRole__r.CA10__roleName__c"
+                  right:
+                    TEXT: "roles/iam.serviceAccountUser"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "User doesn't have a service-account related role assigned"

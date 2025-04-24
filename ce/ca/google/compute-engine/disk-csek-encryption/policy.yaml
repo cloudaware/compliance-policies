@@ -1,0 +1,20 @@
+---
+names: 
+  full: "Google GCE Disk for critical VMs is not encrypted with Customer-Supplied Encryption Key (CSEK)"
+  contextual: "Disk for critical VMs is not encrypted with Customer-Supplied Encryption Key (CSEK)"
+description: "Customer-Supplied Encryption Keys (CSEK) are a feature in Google Cloud Storage and \
+ Google Compute Engine. If you supply your own encryption keys, Google uses your key to protect  \ 
+ the Google-generated keys used to encrypt and decrypt your data. By default, Google Compute Engine \ 
+ encrypts all data at rest. Compute Engine handles and manages this encryption for you without any \ 
+ additional actions on your part. However, if you wanted to control and manage this encryption \ 
+ yourself, you can provide your own encryption keys."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/04/07
+  - /frameworks/cloudaware/resource-security/data-encryption
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/ComputeEngine/enable-encryption-with-csek.html"
+      name: "Enable VM Disk Encryption with Customer-Supplied Encryption Keys"

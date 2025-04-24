@@ -1,0 +1,14 @@
+---
+name: "[ECS.9] ECS task definitions should have a logging configuration"
+description: |-
+  Logging helps you maintain the reliability, availability, and performance of Amazon ECS. 
+  Collecting data from task definitions provides visibility, which can help you debug 
+  processes and find the root cause of errors. If you are using a logging solution 
+  that does not have to be defined in the ECS task definition (such as a third party 
+  logging solution), you can disable this control after ensuring that your logs are 
+  properly captured and delivered.
+similar:
+  internal:
+    - dec-c-e760a967
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ecs-controls.html#ecs-9

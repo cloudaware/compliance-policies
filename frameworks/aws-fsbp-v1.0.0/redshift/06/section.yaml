@@ -1,0 +1,14 @@
+---
+name: >
+  [Redshift.6] Amazon Redshift should have automatic upgrades to major 
+  versions enabled
+description: |-
+  Enabling automatic major version upgrades ensures that the latest major 
+  version updates to Amazon Redshift clusters are installed during the 
+  maintenance window. These updates might include security patches and bug fixes. 
+  Keeping up to date with patch installation is an important step in securing systems.
+similar:
+  internal:
+    - dec-c-512deb92
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/redshift-controls.html#redshift-6

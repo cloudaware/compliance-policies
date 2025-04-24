@@ -1,0 +1,15 @@
+---
+names: 
+  full: "Google GCE Instance OS Login is not enabled"
+  contextual: "Instance OS Login is not enabled"
+description: "Enabling OS login binds SSH certificates to IAM users and facilitates effective SSH certificate management."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/04/04
+  - /frameworks/cloudaware/resource-security/secure-access
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/ComputeEngine/enable-os-login.html"
+      name: "Enable OS Login for GCP Projects"

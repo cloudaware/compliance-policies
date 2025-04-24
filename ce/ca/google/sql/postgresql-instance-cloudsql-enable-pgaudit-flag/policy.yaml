@@ -1,0 +1,15 @@
+---
+names: 
+  full: "Google Cloud PostgreSQL Instance cloudsql.enable_pgaudit Database Flag is not set to on"
+  contextual: "PostgreSQL Instance cloudsql.enable_pgaudit Database Flag is not set to on"
+description: "Ensure cloudsql.enable_pgaudit database flag for Cloud SQL PostgreSQL instance is set to on to allow for centralized logging."
+type: COMPLIANCE_POLICY
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/06/02/08
+  - /frameworks/cloudaware/resource-reliability/system-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudSQL/postgre-sql-audit-flag.html"
+      name: "Enable 'cloudsql.enable_pgaudit' and 'pgaudit.log' Flags for PostgreSQL Database Instances"

@@ -1,0 +1,14 @@
+---
+name: >
+  [NetworkFirewall.3] Network Firewall policies should have at least one 
+  rule group associated
+description: |-
+  A firewall policy defines how your firewall monitors and handles traffic in 
+  Amazon Virtual Private Cloud (Amazon VPC). Configuration of stateless and 
+  stateful rule groups helps to filter packets and traffic flows, and defines 
+  default traffic handling.
+similar:
+  internal:
+    - dec-c-feb51058
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/networkfirewall-controls.html#networkfirewall-3

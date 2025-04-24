@@ -1,0 +1,15 @@
+---
+names: 
+  full: "Google Cloud SQL Server Instance remote access Database Flag is not set to off"
+  contextual: "SQL Server Instance remote access Database Flag is not set to off"
+description: "It is recommended to set remote access database flag for Cloud SQL SQL Server instance to 'off'."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/06/03/05
+  - /frameworks/cloudaware/resource-security/secure-access
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/CloudSQL/disable-remote-access-flag.html"
+      name: "Disable 'remote access' Flag for SQL Server Database Instances"

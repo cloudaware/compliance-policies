@@ -1,0 +1,15 @@
+---
+names: 
+  full: "Google Cloud MySQL Instance Local_infile Database Flag is not set to off"
+  contextual: "MySQL Instance Local_infile Database Flag is not set to off"
+description: "It is recommended to set the `local_infile` database flag for a Cloud SQL MySQL instance to `off`."
+type: COMPLIANCE_POLICY
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/06/01/03
+  - /frameworks/cloudaware/resource-reliability/system-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/CloudSQL/disable-local-infile-flag.html"
+      name: "Disable 'local_infile' Flag for MySQL Database Instances"

@@ -1,0 +1,11 @@
+---
+name: "[ES.5] Elasticsearch domains should have audit logging enabled"
+description: |-
+  Audit logs are highly customizable. They allow you to track user activity on your 
+  Elasticsearch clusters, including authentication successes and failures, requests 
+  to OpenSearch, index changes, and incoming search queries.
+similar:
+  internal:
+    - dec-c-44eebd5a
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/es-controls.html#es-5

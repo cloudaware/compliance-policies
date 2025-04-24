@@ -1,0 +1,13 @@
+---
+name: >
+  [ElastiCache.3] ElastiCache replication groups should have automatic failover enabled
+description: |-
+  When automatic failover is enabled for a replication group, the role of primary 
+  node will automatically fail over to one of the read replicas. This failover 
+  and replica promotion ensure that you can resume writing to the new primary after 
+  promotion is complete, which reduces overall downtime in case of failure.
+similar:
+  internal:
+    - dec-c-f4647259
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/elasticache-controls.html#elasticache-3

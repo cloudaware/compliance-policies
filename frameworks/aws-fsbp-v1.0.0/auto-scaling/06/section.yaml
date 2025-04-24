@@ -1,0 +1,14 @@
+---
+name: >
+  [AutoScaling.6] Auto Scaling groups should use multiple instance types 
+  in multiple Availability Zones
+description: |-
+  You can enhance availability by deploying your application across multiple instance types 
+  running in multiple Availability Zones. Security Hub recommends using multiple 
+  instance types so that the Auto Scaling group can launch another instance type 
+  if there is insufficient instance capacity in your chosen Availability Zones.
+similar:
+  internal:
+    - dec-c-ce74fb6d
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/autoscaling-controls.html#autoscaling-6

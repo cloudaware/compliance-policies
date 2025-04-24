@@ -1,0 +1,15 @@
+---
+name: >
+  [DMS.10] DMS endpoints for Neptune databases should have IAM authorization enabled
+description: |-
+  AWS Identity and Access Management (IAM) provides fine-grained access control 
+  across AWS. With IAM, you can specify who can access which services and resources, 
+  and under which conditions. With IAM policies, you manage permissions to your 
+  workforce and systems to ensure least-privilege permissions. By enabling IAM 
+  authorization on AWS DMS endpoints for Neptune databases, you can grant authorization 
+  privileges to IAM users by using a service role specified by the `ServiceAccessRoleARN` parameter.
+similar:
+  internal:
+    - dec-c-3c03ff2f
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/dms-controls.html#dms-10

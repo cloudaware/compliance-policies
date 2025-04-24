@@ -24,6 +24,7 @@ extracts:
     value: 
       FIELD:
         path: "CA10__eventSelectorsJson__c"
+        returnType: BYTES
         undeterminedIf:
           noAccessDelegate:
             path: "CA10__eventSelectorsJson__c"

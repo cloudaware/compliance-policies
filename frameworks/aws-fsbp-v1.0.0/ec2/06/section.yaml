@@ -1,0 +1,15 @@
+---
+name: "[EC2.6] VPC flow logging should be enabled in all VPCs"
+description: |-
+  With the VPC Flow Logs feature, you can capture information about the IP address 
+  traffic going to and from network interfaces in your VPC. After you create a flow log, 
+  you can view and retrieve its data in CloudWatch Logs. To reduce cost, you can 
+  also send your flow logs to Amazon S3.
+
+  By default, the record includes values for the different components of the IP 
+  address flow, including the source, destination, and protocol.
+similar:
+  internal:
+    - dec-c-865c576d
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-6

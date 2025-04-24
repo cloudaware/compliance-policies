@@ -9,7 +9,8 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cloudaware/resource-security/public-and-anonymous-access
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/01"
 similarPolicies:
   internal:
     - dec-x-b3342905

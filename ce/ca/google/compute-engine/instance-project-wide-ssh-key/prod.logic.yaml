@@ -1,0 +1,20 @@
+---
+
+inputType: "CA10__CaGoogleGceInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleGceInstance__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Block Project-wide SSH keys is enabled for the VM instance."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "caJsonFrom__metadataJson__block_project_ssh_keys_value"
+        substring:
+          TEXT: "true"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Block Project-wide SSH keys is disabled for the VM instance."
+  remediationMessage: "It is recommended to use Instance specific SSH key(s) instead of using common/shared project-wide SSH key(s) to access Instances."

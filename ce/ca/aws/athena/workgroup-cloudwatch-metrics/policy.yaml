@@ -1,0 +1,13 @@
+---
+names:
+  full: AWS Athena Workgroup CloudWatch Metrics are not enabled
+  contextual: Workgroup CloudWatch Metrics are not enabled
+description: >
+  Ensure that AWS Athena Workgroup has CloudWatch Metrics enabled.
+categories:
+  - "RELIABILITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/athena/04"

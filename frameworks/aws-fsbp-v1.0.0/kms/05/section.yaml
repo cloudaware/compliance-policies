@@ -1,0 +1,10 @@
+name: "[KMS.5] KMS keys should not be publicly accessible"
+description: |-
+  Implementing least privilege access is fundamental to reducing security risk 
+  and the impact of errors or malicious intent. If the key policy for an AWS KMS 
+  key allows access from external accounts, third parties might be able to 
+  encrypt and decrypt data by using the key. This could result in an internal or 
+  external threat exfiltrating data from AWS services that use the key.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/kms-controls.html#kms-5

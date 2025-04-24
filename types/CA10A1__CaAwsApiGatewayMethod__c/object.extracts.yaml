@@ -1,11 +1,9 @@
 ---
 extracts:
-#Values: HTTP | AWS | MOCK | HTTP_PROXY | AWS_PROXY. Not Nullable.
+#Values: HTTP | AWS | MOCK | HTTP_PROXY | AWS_PROXY. Not Nullable. Can't have no access, retrieved via apigateway:GetMethod.
   - name: CA10A1__integrationType__c
     value: 
       FIELD:
         path: CA10A1__integrationType__c
         undeterminedIf:
-          noAccessDelegate:
-            currentStateMessage: "Integration Type cannot be empty. Possible permission issue with apigateway:GetMethod"
-            path: "CA10A1__integrationType__c" 
+          isEmpty: "Integration Type cannot be empty. Possibly corrupted data."

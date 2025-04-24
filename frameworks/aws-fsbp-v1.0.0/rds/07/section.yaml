@@ -1,0 +1,10 @@
+---
+name: "[RDS.7] RDS clusters should have deletion protection enabled"
+description: |-
+  Enabling cluster deletion protection is an additional layer of protection 
+  against accidental database deletion or deletion by an unauthorized entity.
+similar:
+  internal:
+    - dec-c-b3660be2
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-7

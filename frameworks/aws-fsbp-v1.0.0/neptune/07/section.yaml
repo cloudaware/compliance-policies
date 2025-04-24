@@ -1,0 +1,14 @@
+---
+name: >
+  [Neptune.7] Neptune DB clusters should have IAM database authentication enabled
+description: |-
+  IAM database authentication for Amazon Neptune database clusters removes the 
+  need to store user credentials within the database configuration because 
+  authentication is managed externally using IAM. When IAM database 
+  authentication is enabled, each request needs to be signed using AWS Signature 
+  Version 4.
+similar:
+  internal:
+    - dec-c-7b907410
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/neptune-controls.html#neptune-7

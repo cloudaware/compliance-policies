@@ -1,0 +1,69 @@
+---
+inputType: "CA10G1__CaGoogleUser__c"
+testData:
+  - file: test-data.json
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Only for Cloud KMS Admin Users"
+    check:
+      NOT:
+        arg:
+          RELATED_LIST_HAS:
+            status: "INAPPLICABLE"
+            relationshipName: "CA10G1__Google_IAM_Policy_Bindings__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "User has 'Cloud KMS Admin' and Cloud KMS CryptoKey Encrypter or Decrypter roles assigned at the same time."
+    remediationMessage: "Remove an extra role from the user."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10G1__Google_IAM_Policy_Bindings__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The principle of 'Separation of Duties' is enforced."
+relatedLists:
+  - relationshipName: "CA10G1__Google_IAM_Policy_Bindings__r"
+    importExtracts:
+      - file: "/types/CA10__CaGoogleIamPolicyBinding__c/object.extracts.yaml"
+      - file: /types/CA10__CaGoogleIamRole__c/object.extracts.yaml
+    recordTypes:
+      - "caGoogleIamPolicyBindingOrganization"
+      - "caGoogleIamPolicyBindingFolder"
+      - "caGoogleIamPolicyBindingProject"
+    conditions: 
+      - status: "COMPLIANT"
+        currentStateMessage: "Empty policy binding"
+        check:
+          IS_EMPTY_LOOKUP: "CA10__iamRole__r"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "User has a KMS Admin role assigned"
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__iamRole__r.CA10__roleName__c"
+            right:
+              TEXT: "roles/cloudkms.admin" 
+      - status: "INCOMPLIANT"
+        currentStateMessage: "User has a KMS related role assigned"
+        check: 
+          OR:
+            args:
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10__iamRole__r.CA10__roleName__c"
+                  right:
+                    TEXT: "roles/cloudkms.cryptoKeyEncrypterDecrypter"
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10__iamRole__r.CA10__roleName__c"
+                  right:
+                    TEXT: "roles/cloudkms.cryptoKeyEncrypter"
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10__iamRole__r.CA10__roleName__c"
+                  right:
+                    TEXT: "roles/cloudkms.cryptoKeyDecrypter"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "User doesn't have a KMS related role assigned"
+

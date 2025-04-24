@@ -1,0 +1,25 @@
+name: >
+  6.3.3 All system components are protected from known vulnerabilities by 
+  installing applicable security patches/updates
+description: |-
+  As follows:
+
+  - Critical or high-security patches/updates (identified according to the risk 
+  ranking process at Requirement 6.3.1) are installed within one month of release.
+  - All other applicable security patches/updates are installed within an 
+  appropriate time frame as determined by the entity's assessment of the 
+  criticality of the risk to the environment as identified according to the risk 
+  ranking process at Requirement 6.3.1.
+similar:
+  sections:
+    - /frameworks/pci-dss-v4.0/06/03/03
+    - /frameworks/aws-fsbp-v1.0.0/dms/06
+    - /frameworks/aws-fsbp-v1.0.0/ecs/10
+    - /frameworks/aws-fsbp-v1.0.0/elastic-beanstalk/02
+    - /frameworks/aws-fsbp-v1.0.0/elasticache/02
+    - /frameworks/aws-fsbp-v1.0.0/mq/03
+    - /frameworks/aws-fsbp-v1.0.0/opensearch/10
+    - /frameworks/aws-fsbp-v1.0.0/rds/13
+    - /frameworks/aws-fsbp-v1.0.0/rds/35
+    - /frameworks/aws-fsbp-v1.0.0/ssm/02
+    - /frameworks/aws-fsbp-v1.0.0/ssm/03

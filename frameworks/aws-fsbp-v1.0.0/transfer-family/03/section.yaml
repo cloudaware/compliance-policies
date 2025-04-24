@@ -1,0 +1,14 @@
+name: >
+  [Transfer.3] Transfer Family connectors should have logging enabled
+description: |-
+  Amazon CloudWatch is a monitoring and observability service that provides 
+  visibility into your AWS resources, including AWS Transfer Family resources. 
+  For Transfer Family, CloudWatch provides consolidated auditing and logging for 
+  workflow progress and results. This includes several metrics that Transfer Family 
+  defines for workflows. You can configure Transfer Family to automatically log 
+  connector events in CloudWatch. To do this, you specify a logging role for 
+  the connector. For the logging role, you create an IAM role and 
+  a resource-based IAM policy that defines the permissions for the role.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/transfer-controls.html#transfer-3

@@ -1,0 +1,15 @@
+---
+names: 
+  full: "Google Cloud SQL Instance External Authorized Networks do not whitelist all public IP addresses"
+  contextual: "SQL Instance External Authorized Networks do not whitelist all public IP addresses"
+description: "Database Server should accept connections only from trusted Network(s)/IP(s) and restrict access from public IP addresses."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/06/05
+  - /frameworks/cloudaware/resource-security/public-and-anonymous-access
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudSQL/publicly-accessible-cloud-sql-instances.html"
+      name: "Check for Publicly Accessible Cloud SQL Database Instances"

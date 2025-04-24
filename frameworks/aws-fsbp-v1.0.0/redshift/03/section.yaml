@@ -1,0 +1,12 @@
+---
+name: >
+  [Redshift.3] Amazon Redshift clusters should have automatic snapshots enabled
+description: |-
+  Backups help you to recover more quickly from a security incident. They 
+  strengthen the resilience of your systems. Amazon Redshift takes periodic 
+  snapshots by default.
+similar:
+  internal:
+    - dec-c-941cf1af
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/redshift-controls.html#redshift-3

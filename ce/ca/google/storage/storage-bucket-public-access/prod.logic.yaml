@@ -1,0 +1,38 @@
+---
+
+inputType: "CA10__CaGoogleStorageBucket__c"
+testData:
+  - file: test-data.json
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "IAM policy on Cloud Storage bucket allows anonymous or public access."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__Google_IAM_Policy_Bindings__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "IAM policy on Cloud Storage bucket does not allow anonymous or public access."
+relatedLists:
+  - relationshipName: "CA10__Google_IAM_Policy_Bindings__r"
+    importExtracts:
+      - file: /types/CA10__CaGoogleIamPolicyBinding__c/object.extracts.yaml
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "IAM policy allows anonymous or public access."
+        check:
+         OR:
+           args:
+             - NOT_EQUAL:
+                left: 
+                  EXTRACT: "CA10__membersAllUsers__c"
+                right:
+                  TEXT: "No"
+             - NOT_EQUAL:
+                left: 
+                  EXTRACT: "CA10__membersAllAuthenticatedUsers__c"
+                right:
+                  TEXT: "No"
+    otherwise:
+      status: "COMPLIANT" 
+      currentStateMessage: "IAM policy does not allow anonymous or public access."

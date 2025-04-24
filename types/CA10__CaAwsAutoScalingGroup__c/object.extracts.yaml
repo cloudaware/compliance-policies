@@ -18,3 +18,9 @@ extracts:
         separator: "\n"
         arg:
           EXTRACT: CA10__availabilityZones__c
+# A comma-separated value string of one or more health check types.
+# Values: EC2, EBS, ELB, VPC_LATTICE.  Not nullable. Can't have no access, retrieved via autoscaling:DescribeAutoScalingGroups
+  - name: CA10__healthCheckType__c
+    value: 
+      FIELD:
+        path: CA10__healthCheckType__c          

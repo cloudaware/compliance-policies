@@ -1,8 +1,13 @@
 ---
 name: |-
-  3.3 Mask PAN when displayed (the first six and last four digits are the maximum number of digits to be displayed), such that only personnel with a legitimate business need can see more than the first six/last four digits of the PAN.
-  Note: This requirement does not supersede stricter requirements in place for displays of cardholder data—for example, legal or payment card brand requirements for point-of-sale (POS) receipts.
-description: ""
+  3.3 Mask PAN when displayed, such that only personnel with a legitimate 
+  business need can see more than the first six/last four digits of the PAN.
+description: >
+  This requirement does not supersede stricter requirements in place for 
+  displays of cardholder data—for example, legal or payment card brand 
+  requirements for point-of-sale (POS) receipts.
 similar:
   internal:
     - dec-c-fa399203
+  sections:
+    - /frameworks/pci-dss-v4.0/03/04/01

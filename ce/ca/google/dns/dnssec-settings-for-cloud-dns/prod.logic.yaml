@@ -1,0 +1,27 @@
+---
+inputType: "CA10__CaGoogleDnsManagedZone__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleDnsManagedZone__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Only for public DNS Managed Zone"
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__visibility__c"
+        right:
+          TEXT: 'public'
+  - status: "COMPLIANT"
+    currentStateMessage: "DNSSEC is enabled for the DNS Managed Zone."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__dnssecConfigurationState__c"
+        right:
+          TEXT: 'on'
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "DNSSEC is not enabled for the DNS Managed Zone."
+  remediationMessage: "Enable DNSSEC for the DNS Managed Zone."

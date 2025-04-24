@@ -1,8 +1,17 @@
 ---
-name: |-
-  9.1.1  Use either video cameras or access control mechanisms (or both) to monitor individual physical access to sensitive areas. Review collected data and correlate with other entries. Store for at least three months, unless otherwise restricted by law.
-  Note: “Sensitive areas” refers to any data center, server room or any area that houses systems that store, process, or transmit cardholder data. This excludes public-facing areas where only point-of-sale terminals are present, such as the cashier areas in a retail store.
-description: ""
+name: >
+  9.1.1  Use either video cameras or access control mechanisms (or both) to 
+  monitor individual physical access to sensitive areas. 
+description: |-
+  Review collected data and correlate with other entries. Store for at least 
+  three months, unless otherwise restricted by law.
+
+  “Sensitive areas” refers to any data center, server room or any area that 
+  houses systems that store, process, or transmit cardholder data. This 
+  excludes public-facing areas where only point-of-sale terminals are present, 
+  such as the cashier areas in a retail store.
 similar:
   internal:
     - dec-c-eee4fcb1
+  sections:
+    - /frameworks/pci-dss-v4.0/09/02/01/01

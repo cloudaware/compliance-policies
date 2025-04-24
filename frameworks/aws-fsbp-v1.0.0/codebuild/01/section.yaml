@@ -1,0 +1,16 @@
+---
+name: >
+  [CodeBuild.1] CodeBuild Bitbucket source repository URLs should not contain 
+  sensitive credentials
+description: |-
+  Sign-in credentials shouldn't be stored or transmitted in clear text or appear 
+  in the source repository URL. Instead of personal access tokens or sign-in credentials, 
+  you should access your source provider in CodeBuild, and change your source repository URL 
+  to contain only the path to the Bitbucket repository location. Using personal 
+  access tokens or sign-in credentials could result in unintended data exposure 
+  or unauthorized access.  
+similar:
+  internal:
+    - dec-c-cd4be6a9
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/codebuild-controls.html#codebuild-1

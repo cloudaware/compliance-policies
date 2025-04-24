@@ -1,0 +1,100 @@
+---
+inputType: CA10__CaAwsInstance__c
+testData:
+  - file: test-data.json
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: Test-1
+    check:
+      UNIT_TEST:
+        id: Test-1
+        arg:
+          IS_EQUAL:
+            left:
+              JSON: { name: "John", age: 30 }
+            right:
+              JSON: { age: 30, name: "John" }
+  - status: COMPLIANT
+    currentStateMessage: Test-2
+    check:
+      UNIT_TEST:
+        id: Test-2
+        arg:
+          NOT_EQUAL:
+            left:
+              JSON: { names: ["John", "Jane"] }
+            right:
+              JSON: { names: ["Jane", "John"] }
+  - status: COMPLIANT
+    currentStateMessage: Test-3
+    check:
+      UNIT_TEST:
+        id: Test-3
+        arg:
+          NOT_EQUAL:
+            left:
+              JSON: { age: 30 }
+            right:
+              JSON: { age: "30" }
+  - status: COMPLIANT
+    currentStateMessage: Test-4
+    check:
+      UNIT_TEST:
+        id: Test-4
+        arg:
+          IS_EQUAL:
+            left:
+              JSON: { name: "John", age: null }
+            right:
+              JSON: { name: "John" }
+  - status: COMPLIANT
+    currentStateMessage: Test-5
+    check:
+      UNIT_TEST:
+        id: Test-5
+        arg:
+          IS_EQUAL:
+            left:
+              JSON: { name: null, age: null}
+            right:
+              JSON: {}
+  - status: COMPLIANT
+    currentStateMessage: Test-6
+    check:
+      UNIT_TEST:
+        id: Test-6
+        arg:
+          IS_EQUAL:
+            left:
+              JSON: {}
+            right:
+              JSON: {}
+  - status: COMPLIANT
+    currentStateMessage: Test-7
+    check:
+      UNIT_TEST:
+        id: Test-7
+        arg:
+          IS_EQUAL:
+            left:
+              JSON: {}
+            right:
+              UNIT_TEST_NULL:
+                returnType: JSON
+  - status: COMPLIANT
+    currentStateMessage: Test-8
+    check:
+      UNIT_TEST:
+        id: Test-8
+        arg:
+          IS_EQUAL:
+            left:
+              UNIT_TEST_NULL:
+                returnType: JSON
+            right:
+              UNIT_TEST_NULL:
+                returnType: JSON
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: Test Failed
+  remediationMessage: Developer Fix Required

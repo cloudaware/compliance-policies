@@ -1,0 +1,55 @@
+---
+
+inputType: "CA10__CaGoogleProject__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleProject__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Log metric filter and alerts exist for Project Ownership Assignments/Changes."
+    check:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__Google_Logging_Log_Metrics__r"
+        status: "COMPLIANT"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "No log metric filter or alerts exist for Project Ownership Assignments/Changes."
+  remediationMessage: "Create log metric and alert policy."
+relatedLists:
+  - relationshipName: "CA10__Google_Logging_Log_Metrics__r"
+    importExtracts:
+      - file: /types/CA10__CaGoogleLoggingLogMetric__c/object.extracts.yaml
+      - file: /types/CA10__CaGoogleMonitoringAlertPolicy__c/object.extracts.yaml
+    conditions:
+        - status: "COMPLIANT"
+          currentStateMessage: "Corresponding log metric exists."
+          check:
+            AND:
+              args:
+                - GCP_LOGGING_QUERY_MATCH:
+                    arg: 
+                      EXTRACT: CA10__filter__c
+                    value: 'resource.type=gcs_bucket AND protoPayload.methodName="storage.setIamPermissions"'
+                - RELATED_LIST_HAS:
+                    relationshipName: "CA10__Google_Monitoring_Conditions__r"
+                    status: "COMPLIANT"
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "There is no log metric with such filter."
+      remediationMessage: "Create log metric with the appropriate filter."
+    relatedLists:
+      - relationshipName: "CA10__Google_Monitoring_Conditions__r"
+        conditions:
+          - status: "COMPLIANT"
+            currentStateMessage: "Alert policy exist and enabled."
+            check:
+              IS_EQUAL:
+                left:
+                  EXTRACT: CA10__alertPolicy__r.CA10__enabledState__c
+                right:
+                  TEXT: 'on'
+        otherwise:
+          status: "INCOMPLIANT"
+          currentStateMessage: "No alert policy exist or policy not enabled."
+          remediationMessage: "Create or enable alert policy."

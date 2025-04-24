@@ -1,0 +1,16 @@
+---
+names: 
+  full: "Google Accounts are not configured with MFA"
+  contextual: "Google Accounts are not configured with MFA"
+description: "Setup multi-factor authentication for Google Cloud Platform accounts."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+impossible: true
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/01/02
+  - /frameworks/cloudaware/identity-and-access-governance/mfa-implementation
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudIAM/enable-mfa-for-user-accounts.html"
+      name: "Enable Multi-Factor Authentication for User Accounts"

@@ -1,0 +1,20 @@
+---
+names: 
+  full: "Google API Key is not restricted for unused APIs"
+  contextual: "API Key is not restricted for unused APIs"
+description: "API Keys should only be used for services in cases where other authentication methods \
+  are unavailable. API keys are always at risk because they can be viewed publicly, such as from \
+  within a browser, or they can be accessed on a device where the key resides. It is recommended \ 
+  to restrict API keys to use (call) only APIs required by an application."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/01/14
+  - /frameworks/cloudaware/secret-and-certificate-governance/cryptographic-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/CloudAPI/check-for-api-key-application-restrictions.html"
+      name: "Check for API Key Application Restrictions"
+
+ 

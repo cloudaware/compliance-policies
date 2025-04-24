@@ -1,8 +1,12 @@
 ---
-name: "11.3.4.1 Additional requirement for service providers only: If segmentation\
-  \ is used, confirm PCI DSS scope by performing penetration testing on segmentation\
-  \ controls at least every six months and after any changes to segmentation controls/methods."
-description: ""
+name: >
+  11.3.4.1 If segmentation is used, confirm PCI DSS scope by performing 
+  penetration testing on segmentation controls at least every six months and 
+  after any changes to segmentation controls/methods.
+description: |-
+  **Additional requirement for service providers only.**
 similar:
   internal:
     - dec-c-7e62c2d1
+  sections:
+    - /frameworks/pci-dss-v4.0/11/04/06

@@ -1,0 +1,14 @@
+---
+name: >
+  [ACM.1] Imported and ACM-issued certificates should be renewed after a specified 
+  time period
+description: |-
+  ACM can automatically renew certificates that use DNS validation. For certificates 
+  that use email validation, you must respond to a domain validation email. ACM 
+  doesn't automatically renew certificates that you import. You must renew imported 
+  certificates manually.
+similar:
+  internal:
+    - dec-c-a5d85af5
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/acm-controls.html#acm-1

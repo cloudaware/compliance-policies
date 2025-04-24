@@ -1,0 +1,13 @@
+---
+name: >
+  [Redshift.15] Redshift security groups should allow ingress on the cluster 
+  port only from restricted origins
+description: |-
+  Permitting unrestricted inbound access to the Redshift cluster port 
+  (IP address with a /0 suffix) can result in unauthorized access or security 
+  incidents.
+similar:
+  internal:
+    - dec-c-e42fad13
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/redshift-controls.html#redshift-15

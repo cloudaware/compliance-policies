@@ -1,0 +1,16 @@
+---
+names:
+  full: "Google Organization Administrator Security Key Enforcement is not enabled"
+  contextual: "Organization Administrator Security Key Enforcement is not enabled"
+description: Setup Security Key Enforcement for Google Cloud Platform admin accounts.
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+impossible: true
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/01/03
+  - /frameworks/cloudaware/identity-and-access-governance/mfa-implementation
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudIAM/enable-security-key-enforcement-for-administrators.html
+      name: Enable Security Key Enforcement for Admin Accounts

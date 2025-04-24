@@ -1,0 +1,10 @@
+name: "[GuardDuty.10] GuardDuty S3 Protection should be enabled"
+description: |-
+  S3 Protection enables GuardDuty to monitor object-level API operations to 
+  identify potential security risks for data within your 
+  Amazon Simple Storage Service (Amazon S3) buckets. GuardDuty monitors threats 
+  against your S3 resources by analyzing AWS CloudTrail management events and 
+  CloudTrail S3 data events.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/guardduty-controls.html#guardduty-10

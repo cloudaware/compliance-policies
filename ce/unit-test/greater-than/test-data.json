@@ -166,5 +166,33 @@
     "Id": "Null-5",
     "Name": "Null-5",
     "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "1399",
+      "conditionText": "unitTest(Duration-1): 'PT1M' > 'PT1S'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Duration-1",
+    "Name": "Duration-1",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "1499",
+      "conditionText": "unitTest(Duration-2): '1m'.asDuration() > 'PT1S'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-01-01T00:00:00Z"
+    },
+    "Id": "Duration-2",
+    "Name": "Duration-2",
+    "CA10__disappearanceTime__c": null
   }
 ]

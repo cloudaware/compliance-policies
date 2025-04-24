@@ -1,0 +1,13 @@
+name: >
+  8.3.6 If passwords/passphrases are used as authentication factors to meet 
+  Requirement 8.3.1, they meet the minimum level of complexity.
+description: |-
+  As follows:
+
+  - A minimum length of 12 characters (or IF the system does not support 12 
+  characters, a minimum length of eight characters).
+  - Contain both numeric and alphabetic characters.
+similar:
+  sections:
+    - /frameworks/pci-dss-v4.0/08/03/06
+    - /frameworks/aws-fsbp-v1.0.0/iam/07

@@ -1,0 +1,9 @@
+name: "[ECS.16] ECS task sets should not automatically assign public IP addresses"
+description: |-
+  A public IP address is reachable from the internet. If you configure your task 
+  set with a public IP address, the resources associated with the task set can be 
+  reached from the internet. ECS task sets shouldn't be publicly accessible, as 
+  this may allow unintended access to your container application servers.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ecs-controls.html#ecs-16

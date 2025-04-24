@@ -1,0 +1,12 @@
+name: >
+  [FSx.5] FSx for Windows File Server file systems should be configured for Multi-AZ deployment
+description: |-
+  Amazon FSx for Windows File Server supports two deployment types for file systems: 
+  Single-AZ and Multi-AZ. The deployment types offer different levels of 
+  availability and durability. Single-AZ file systems are composed of a single 
+  Windows file server instance and a set of storage volumes within a single 
+  Availability Zone (AZ). Multi-AZ file systems are composed of a high-availability 
+  cluster of Windows file servers spread across two Availability Zones. 
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/fsx-controls.html#fsx-5

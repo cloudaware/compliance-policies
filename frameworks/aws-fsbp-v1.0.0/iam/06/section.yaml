@@ -1,0 +1,11 @@
+---
+name: "[IAM.6] Hardware MFA should be enabled for the root user"
+description: |-
+  Virtual MFA might not provide the same level of security as hardware MFA 
+  devices. We recommend that you use a virtual MFA device only while you wait 
+  for hardware purchase approval or for your hardware to arrive.
+similar:
+  internal:
+    - dec-c-8e37566a
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/iam-controls.html#iam-6

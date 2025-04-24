@@ -1,0 +1,11 @@
+---
+name: >
+  [EMR.1] Amazon EMR cluster primary nodes should not have public IP addresses
+description: |-
+  Public IP addresses are designated in the `PublicIp` field of the `NetworkInterfaces` 
+  configuration for the instance.
+similar:
+  internal:
+    - dec-c-0f181635
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/emr-controls.html#emr-1

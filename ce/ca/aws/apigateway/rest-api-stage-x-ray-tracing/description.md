@@ -12,4 +12,4 @@ Enabling X-Ray Active tracing incurs costs associated with trace data processing
 
 ## Audit
 
-This policy marks a Stage as `INCOMPLIANT` if the `X-Ray Tracing Enabled` field is set to  **No**.
+This policy marks an *API Gateway Stage* as `INCOMPLIANT` if the `X-Ray Tracing Enabled` field is set to **No**.

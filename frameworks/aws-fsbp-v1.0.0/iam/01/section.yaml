@@ -1,0 +1,21 @@
+---
+name: >
+  [IAM.1] IAM policies should not allow full "*" administrative privileges
+description: |
+  IAM policies define a set of privileges that are granted to users, groups, or 
+  roles. Following standard security advice, AWS recommends that you grant least 
+  privilege, which means to grant only the permissions that are required to 
+  perform a task. When you provide full administrative privileges instead of 
+  the minimum set of permissions that the user needs, you expose the resources 
+  to potentially unwanted actions.
+
+  Instead of allowing full administrative privileges, determine what users need 
+  to do and then craft policies that let the users perform only those tasks. It 
+  is more secure to start with a minimum set of permissions and grant additional 
+  permissions as necessary. Do not start with permissions that are too lenient 
+  and then try to tighten them later.
+similar:
+  internal:
+    - dec-c-1abf7265
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/iam-controls.html#iam-1

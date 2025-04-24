@@ -1,0 +1,15 @@
+---
+names: 
+  full: "Google Cloud SQL Server Instance contained database authentication Database Flag is set to on"
+  contextual: "SQL Server Instance contained database authentication Database Flag is set to on"
+description: "It is recommended not to set contained database authentication database flag for Cloud SQL on the SQL Server instance to 'on'."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/06/03/07
+  - /frameworks/cloudaware/resource-security/secure-access
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudSQL/disable-contained-database-authentication-flag.html"
+      name: "Disable 'Contained Database Authentication' Flag for SQL Server Database Instances"

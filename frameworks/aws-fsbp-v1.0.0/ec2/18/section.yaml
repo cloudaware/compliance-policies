@@ -1,0 +1,14 @@
+---
+name: >
+  [EC2.18] Security groups should only allow unrestricted incoming traffic for authorized ports
+description: |-
+  Security groups provide stateful filtering of ingress and egress network traffic 
+  to AWS. Security group rules should follow the principal of least privileged access. 
+  Unrestricted access (IP address with a /0 suffix) increases the opportunity for 
+  malicious activity such as hacking, denial-of-service attacks, and loss of data. 
+  Unless a port is specifically allowed, the port should deny unrestricted access.
+similar:
+  internal:
+    - dec-c-6d0673bc
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-18

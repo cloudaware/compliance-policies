@@ -1,0 +1,164 @@
+---
+inputType: CA10__CaAwsInstance__c
+testData:
+  - file: test-data.json
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: "Valid ISO 8601 date and time"
+    check:
+      UNIT_TEST:
+        id: Valid-ISO-8601
+        arg:
+          IS_EQUAL:
+            left:
+              DATE_TIME_FROM:
+                arg:
+                  TEXT: "2024-10-27T14:30:00Z"
+                format: "ISO_8601"
+                undeterminedIf:
+                  invalidFormat: "Invalid date format"
+            right:
+              DATE_TIME: "2024-10-27T14:30:00Z"
+  - status: COMPLIANT
+    currentStateMessage: "Valid ISO 8601 with timezone offset"
+    check:
+      UNIT_TEST:
+        id: Valid-Timezone-Offset
+        arg:
+          IS_EQUAL:
+            left:
+              DATE_TIME_FROM:
+                arg:
+                  TEXT: "2024-10-27T10:00:00-05:00"  # 10:00 AM EST = 3:00 PM UTC
+                format: "ISO_8601"
+                undeterminedIf:
+                  invalidFormat: "Invalid date format"
+            right:
+              DATE_TIME: "2024-10-27T15:00:00Z" # Expected result in UTC
+  - status: COMPLIANT
+    currentStateMessage: "Valid ISO 8601 date only"
+    check:
+      UNIT_TEST:
+        id: Valid-Date-Only
+        arg:
+          IS_EQUAL:
+            left:
+              DATE_TIME_FROM:
+                arg:
+                  TEXT: "2024-10-27"
+                format: "ISO_8601"
+                undeterminedIf:
+                  invalidFormat: "Invalid date format"
+            right:
+              DATE_TIME: "2024-10-27T00:00:00Z"
+  - status: COMPLIANT
+    currentStateMessage: "Valid ISO 8601 with milliseconds"
+    check:
+      UNIT_TEST:
+        id: Valid-Milliseconds
+        arg:
+          IS_EQUAL:
+            left:
+              DATE_TIME_FROM:
+                arg:
+                  TEXT: "2024-10-27T14:30:00.123Z"
+                format: "ISO_8601"
+                undeterminedIf:
+                  invalidFormat: "Invalid date format"
+            right:
+              DATE_TIME: "2024-10-27T14:30:00.123Z"
+  - status: COMPLIANT
+    currentStateMessage: "Null value handling (empty string)"
+    check:
+      UNIT_TEST:
+        id: Null-Value-Empty-String
+        arg:
+          IS_EMPTY:
+            arg:
+              DATE_TIME_FROM:
+                arg:
+                  TEXT: ""
+                format: "ISO_8601"
+                nullValues:
+                  - "N/A"
+                  - "Unknown"
+                undeterminedIf:
+                  isEmpty: "Input is empty"
+                  invalidFormat: "Invalid date format"
+  - status: COMPLIANT
+    currentStateMessage: "Null value handling (custom null value)"
+    check:
+      UNIT_TEST:
+        id: Null-Value-Custom
+        arg:
+          IS_EMPTY:
+            arg:
+              DATE_TIME_FROM:
+                arg:
+                  TEXT: "N/A"
+                format: "ISO_8601"
+                nullValues:
+                  - "N/A"
+                  - "Unknown"
+                undeterminedIf:
+                  isEmpty: "Input is empty"
+                  invalidFormat: "Invalid date format"
+  - status: COMPLIANT
+    currentStateMessage: "Null value handling (null input)"
+    check:
+      UNIT_TEST:
+        id: Null-Value-Null-Input
+        arg:
+          IS_EMPTY:
+            arg:
+              DATE_TIME_FROM:
+                arg:
+                  UNIT_TEST_NULL:
+                    returnType: TEXT
+                format: "ISO_8601"
+                nullValues:
+                  - "N/A"
+                  - "Unknown"
+                undeterminedIf:
+                  isEmpty: "Input is empty"
+                  invalidFormat: "Invalid date format"
+  - status: COMPLIANT
+    currentStateMessage: "Null value handling (whitespace string)"
+    check:
+      UNIT_TEST:
+        id: Null-Value-Empty-Whitespace
+        arg:
+          IS_EMPTY:
+            arg:
+              DATE_TIME_FROM:
+                arg:
+                  TEXT: "   "
+                format: "ISO_8601"
+                nullValues:
+                  - "N/A"
+                  - "Unknown"
+                undeterminedIf:
+                  isEmpty: "Input is empty"
+                  invalidFormat: "Invalid date format"
+
+  - status: COMPLIANT
+    currentStateMessage: "Invalid format - Undetermined"
+    check:
+      UNIT_TEST:
+        id: Invalid-Format
+        arg:
+          IS_EQUAL:
+            left:
+              DATE_TIME_FROM:
+                arg:
+                  TEXT: "invalid date"
+                format: "ISO_8601"
+                undeterminedIf:
+                  isEmpty: "Input is empty"
+                  invalidFormat: "Invalid date format"
+            right:
+              DATE_TIME: "2000-01-01T00:00:00Z"
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: Test Failed
+  remediationMessage: Developer Fix Required

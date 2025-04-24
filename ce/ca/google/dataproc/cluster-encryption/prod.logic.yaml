@@ -1,0 +1,18 @@
+---
+
+inputType: "CA10__CaGoogleDataprocCluster__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleDataprocCluster__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Dataproc Cluster is not encrypted with Customer-Managed Encryption Key."
+    remediationMessage: "Use Customer-Managed Encryption Key for Dataproc Cluster"
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__encryptionConfigKmsKeyName__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Dataproc Cluster is encrypted with Customer-Managed Encryption Key."

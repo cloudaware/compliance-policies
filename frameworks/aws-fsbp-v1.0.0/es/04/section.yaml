@@ -1,0 +1,11 @@
+---
+name: "[ES.4] Elasticsearch domain error logging to CloudWatch Logs should be enabled"
+description: |-
+  You should enable error logs for Elasticsearch domains and send those logs to 
+  CloudWatch Logs for retention and response. Domain error logs can assist with 
+  security and access audits, and can help to diagnose availability issues.
+similar:
+  internal:
+    - dec-c-f066ec54
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/es-controls.html#es-4

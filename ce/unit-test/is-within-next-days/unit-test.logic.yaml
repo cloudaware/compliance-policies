@@ -13,7 +13,7 @@ conditions:
             arg:
               IS_WITHIN_NEXT_DAYS:
                 arg:
-                  UNIT_TEST_DATE_TIME: "2024-01-05T00:00:00Z"
+                  DATE_TIME: "2024-01-05T00:00:00Z"
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-05T23:59:59Z"
@@ -25,7 +25,7 @@ conditions:
             arg:
               IS_WITHIN_NEXT_DAYS:
                 arg:
-                  UNIT_TEST_DATE_TIME: "2024-01-05T23:59:59Z"
+                  DATE_TIME: "2024-01-05T23:59:59Z"
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-06T00:00:00Z"
@@ -37,7 +37,7 @@ conditions:
             arg:
               IS_WITHIN_NEXT_DAYS:
                 arg:
-                  UNIT_TEST_DATE_TIME: "2024-01-06T00:00:00Z"
+                  DATE_TIME: "2024-01-06T00:00:00Z"
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-06T23:59:59Z"
@@ -49,7 +49,7 @@ conditions:
             arg:
               IS_WITHIN_NEXT_DAYS:
                 arg:
-                  UNIT_TEST_DATE_TIME: "2024-01-06T23:59:59Z"
+                  DATE_TIME: "2024-01-06T23:59:59Z"
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-07T00:00:00Z"
@@ -61,7 +61,7 @@ conditions:
             arg:
               IS_WITHIN_NEXT_DAYS:
                 arg:
-                  UNIT_TEST_DATE_TIME: "2024-01-07T00:00:00Z"
+                  DATE_TIME: "2024-01-07T00:00:00Z"
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-07T23:59:59Z"
@@ -73,7 +73,7 @@ conditions:
             arg:
               IS_WITHIN_NEXT_DAYS:
                 arg:
-                  UNIT_TEST_DATE_TIME: "2024-01-07T23:59:59Z"
+                  DATE_TIME: "2024-01-07T23:59:59Z"
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-08T00:00:00Z"
@@ -85,7 +85,7 @@ conditions:
             arg:
               IS_WITHIN_NEXT_DAYS:
                 arg:
-                  UNIT_TEST_DATE_TIME: "2024-01-08T00:00:00Z"
+                  DATE_TIME: "2024-01-08T00:00:00Z"
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-08T23:59:59Z"
@@ -97,7 +97,7 @@ conditions:
             arg:
               IS_WITHIN_NEXT_DAYS:
                 arg:
-                  UNIT_TEST_DATE_TIME: "2024-01-08T23:59:59Z"
+                  DATE_TIME: "2024-01-08T23:59:59Z"
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-09T00:00:00Z"
@@ -109,7 +109,7 @@ conditions:
             arg:
               IS_WITHIN_NEXT_DAYS:
                 arg:
-                  UNIT_TEST_DATE_TIME: "2024-01-09T00:00:00Z"
+                  DATE_TIME: "2024-01-09T00:00:00Z"
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-09T23:59:59Z"
@@ -121,7 +121,7 @@ conditions:
             arg:
               IS_WITHIN_NEXT_DAYS:
                 arg:
-                  UNIT_TEST_DATE_TIME: "2024-01-09T23:59:59Z"
+                  DATE_TIME: "2024-01-09T23:59:59Z"
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-10T00:00:00Z"
@@ -131,7 +131,7 @@ conditions:
         arg:
           IS_WITHIN_NEXT_DAYS:
             arg:
-              UNIT_TEST_DATE_TIME: "2024-01-10T00:00:00Z"
+              DATE_TIME: "2024-01-10T00:00:00Z"
             offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "now"
@@ -141,9 +141,9 @@ conditions:
         arg:
           IS_EQUAL:
             left:
-              UNIT_TEST_DATE_TIME: "2024-01-10T18:00:00Z"
+              DATE_TIME: "2024-01-10T18:00:00Z"
             right:
-              UNIT_TEST_DATE_TIME: "2024-01-10T18:00:00Z"
+              DATE_TIME: "2024-01-10T18:00:00Z"
   - status: COMPLIANT
     currentStateMessage: "2024-01-10T23:59:59Z"
     check:
@@ -152,7 +152,7 @@ conditions:
         arg:
           IS_WITHIN_NEXT_DAYS:
             arg:
-              UNIT_TEST_DATE_TIME: "2024-01-10T23:59:59Z"
+              DATE_TIME: "2024-01-10T23:59:59Z"
             offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-11T00:00:00Z"
@@ -162,7 +162,7 @@ conditions:
         arg:
           IS_WITHIN_NEXT_DAYS:
             arg:
-              UNIT_TEST_DATE_TIME: "2024-01-11T00:00:00Z"
+              DATE_TIME: "2024-01-11T00:00:00Z"
             offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-11T23:59:59Z"
@@ -172,7 +172,7 @@ conditions:
         arg:
           IS_WITHIN_NEXT_DAYS:
             arg:
-              UNIT_TEST_DATE_TIME: "2024-01-11T23:59:59Z"
+              DATE_TIME: "2024-01-11T23:59:59Z"
             offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-12T00:00:00Z"
@@ -182,7 +182,7 @@ conditions:
         arg:
           IS_WITHIN_NEXT_DAYS:
             arg:
-              UNIT_TEST_DATE_TIME: "2024-01-12T00:00:00Z"
+              DATE_TIME: "2024-01-12T00:00:00Z"
             offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-12T23:59:59Z"
@@ -192,7 +192,7 @@ conditions:
         arg:
           IS_WITHIN_NEXT_DAYS:
             arg:
-              UNIT_TEST_DATE_TIME: "2024-01-12T23:59:59Z"
+              DATE_TIME: "2024-01-12T23:59:59Z"
             offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-13T00:00:00Z"
@@ -202,7 +202,7 @@ conditions:
         arg:
           IS_WITHIN_NEXT_DAYS:
             arg:
-              UNIT_TEST_DATE_TIME: "2024-01-13T00:00:00Z"
+              DATE_TIME: "2024-01-13T00:00:00Z"
             offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-13T23:59:59Z"
@@ -212,7 +212,7 @@ conditions:
         arg:
           IS_WITHIN_NEXT_DAYS:
             arg:
-              UNIT_TEST_DATE_TIME: "2024-01-13T23:59:59Z"
+              DATE_TIME: "2024-01-13T23:59:59Z"
             offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-14T00:00:00Z"
@@ -224,7 +224,7 @@ conditions:
             arg:
               IS_WITHIN_NEXT_DAYS:
                 arg:
-                  UNIT_TEST_DATE_TIME: "2024-01-14T00:00:00Z"
+                  DATE_TIME: "2024-01-14T00:00:00Z"
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-14T23:59:59Z"
@@ -236,7 +236,7 @@ conditions:
             arg:
               IS_WITHIN_NEXT_DAYS:
                 arg:
-                  UNIT_TEST_DATE_TIME: "2024-01-14T23:59:59Z"
+                  DATE_TIME: "2024-01-14T23:59:59Z"
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-15T00:00:00Z"
@@ -248,7 +248,7 @@ conditions:
             arg:
               IS_WITHIN_NEXT_DAYS:
                 arg:
-                  UNIT_TEST_DATE_TIME: "2024-01-15T00:00:00Z"
+                  DATE_TIME: "2024-01-15T00:00:00Z"
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "2024-01-15T23:59:59Z"
@@ -260,7 +260,7 @@ conditions:
             arg:
               IS_WITHIN_NEXT_DAYS:
                 arg:
-                  UNIT_TEST_DATE_TIME: "2024-01-15T23:59:59Z"
+                  DATE_TIME: "2024-01-15T23:59:59Z"
                 offsetDays: 3
   - status: COMPLIANT
     currentStateMessage: "Null-1"

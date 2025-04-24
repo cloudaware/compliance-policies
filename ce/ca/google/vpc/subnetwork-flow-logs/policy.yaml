@@ -1,0 +1,18 @@
+---
+names: 
+  full: "Google GCE Subnetwork Flow Logs are not enabled"
+  contextual: "GCE Subnetwork Flow Logs are not enabled"
+description: "Flow Logs is a feature that enables users to capture information about the IP traffic \
+ going to and from network interfaces in the organization's VPC Subnets. Once a flow log is created, \
+ the user can view and retrieve its data in Stackdriver Logging. It is recommended that Flow Logs be \
+ enabled for every business-critical VPC subnet."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/03/08
+  - /frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/CloudVPC/enable-vpc-flow-logs.html"
+      name: "Enable VPC Flow Logs for VPC Subnets"

@@ -1,0 +1,24 @@
+---
+names:
+  full: AWS EC2 Security Group allows public IPv6 (::/0) access to admin ports
+  contextual: Security Group allows public IPv6 (::/0) access to admin ports
+description: "Security groups provide stateful filtering of ingress and egress network\
+  \ traffic to AWS resources. It is recommended that no security group allows unrestricted\
+  \ ingress access to remote server administration ports, such as SSH to port 22 and\
+  \ RDP to port 3389."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-aws-v5.0.0/05/04"
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/aws-fsbp-v1.0.0/ec2/19"
+frameworkIgnoreMappings:
+  - /frameworks/cis-aws-v1.3.0/05/02
+  - /frameworks/cis-aws-v1.4.0/05/02
+  - /frameworks/cis-aws-v1.5.0/05/02
+  - /frameworks/cis-aws-v2.0.0/05/02
+  - /frameworks/cis-aws-v3.0.0/05/02
+similarPolicies:
+  internal:
+    - dec-x-bcae85fb

@@ -1,0 +1,12 @@
+---
+name: >
+  [AutoScaling.9] Amazon EC2 Auto Scaling groups should use Amazon EC2 launch templates
+description: |-
+  An EC2 Auto Scaling group can be created from either an EC2 launch template or 
+  a launch configuration. However, using a launch template to create an Auto Scaling group 
+  ensures that you have access to the latest features and improvements.
+similar:
+  internal:
+    - dec-c-c6a71d55
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/autoscaling-controls.html#autoscaling-9

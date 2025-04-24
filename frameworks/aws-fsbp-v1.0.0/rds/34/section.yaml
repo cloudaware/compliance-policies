@@ -1,0 +1,15 @@
+---
+name: >
+  [RDS.34] Aurora MySQL DB clusters should publish audit logs to CloudWatch Logs
+description: |-
+  Audit logs capture a record of database activity, including login attempts, 
+  data modifications, schema changes, and other events that can be audited for 
+  security and compliance purposes. When you configure an Aurora MySQL DB cluster 
+  to publish audit logs to a log group in Amazon CloudWatch Logs, you can perform 
+  real-time analysis of the log data. CloudWatch Logs retains logs in highly 
+  durable storage. You can also create alarms and view metrics in CloudWatch.
+similar:
+  internal:
+    - dec-c-e22fa825
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-34

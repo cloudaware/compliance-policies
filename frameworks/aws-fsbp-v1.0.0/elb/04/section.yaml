@@ -1,0 +1,11 @@
+---
+name: >
+  [ELB.4] Application Load Balancer should be configured to drop invalid http headers
+description: |-
+  By default, Application Load Balancers are not configured to drop invalid HTTP 
+  header values. Removing these header values prevents HTTP desync attacks.
+similar:
+  internal:
+    - dec-c-2a4d3f5a
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-4

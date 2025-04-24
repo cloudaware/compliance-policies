@@ -11,10 +11,9 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - "/frameworks/cis-aws-v3.0.0/02/03/03"
-  - "/frameworks/cis-aws-v4.0.0/02/02/03"
-  - "/frameworks/cis-aws-v4.0.1/02/02/03"
+  - "/frameworks/cis-aws-v5.0.0/02/02/03"
   - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/02"
 similarPolicies:
   internal:
     - dec-x-f937c35f

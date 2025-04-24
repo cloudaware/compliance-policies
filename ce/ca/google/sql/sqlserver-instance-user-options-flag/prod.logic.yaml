@@ -1,0 +1,30 @@
+---
+
+inputType: "CA10__CaGoogleSqlInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleSqlInstance__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is not a SQL Server database instance."
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__databaseVersion__c"
+            substring:
+              TEXT: "SQLSERVER" 
+  - status: "COMPLIANT"
+    currentStateMessage: "user options database flag is not listed."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "caExtract_databaseFlags_user_options_flagValue__c"
+        right:
+          TEXT: "null"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "user options database flag should not be configured."
+  remediationMessage: "Clear the user options database flag for every SQL Server Instance."

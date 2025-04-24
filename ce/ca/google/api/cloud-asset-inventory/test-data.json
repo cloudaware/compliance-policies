@@ -1,0 +1,24 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__enabledServices__c').contains('cloudasset.googleapis.com')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-17T18:22:07Z" },
+    "Id": "a4p11",
+    "CA10__enabledServices__c": "bigquery.googleapis.com\ncloudasset.googleapis.com\ncloudapis.googleapis.com"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-17T18:22:07Z" },
+    "Id": "a4p22",
+    "CA10__enabledServices__c": "bigquery.googleapis.com\ncloudapis.googleapis.com"
+  }
+]

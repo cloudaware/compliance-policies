@@ -1,0 +1,42 @@
+---
+
+inputType: "CA10__CaGoogleSqlInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleSqlInstance__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is not a PostgreSQL database instance."
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__databaseVersion__c"
+            substring:
+              TEXT: "POSTGRE" 
+  - status: "COMPLIANT"
+    currentStateMessage: "log_statement database flag is set appropriately."
+    check:
+      OR:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "caExtract_databaseFlags_log_statement_flagValue__c"
+              right:
+                TEXT: "ddl"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "caExtract_databaseFlags_log_statement_flagValue__c"
+              right:
+                TEXT: "mod"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "caExtract_databaseFlags_log_statement_flagValue__c"
+              right:
+                TEXT: "all"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "log_statement database flag isn't set appropriately."
+  remediationMessage: "Set log_statement database flag to appropriate value."

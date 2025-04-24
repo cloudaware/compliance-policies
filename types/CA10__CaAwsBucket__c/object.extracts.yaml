@@ -15,6 +15,7 @@ extracts:
     value: 
       FIELD:
         path: "CA10__lifecycleRulesJson__c"
+        returnType: BYTES
         # undeterminedIf:
         #   noAccessDelegate:
         #     path: "CA10__lifecycleRulesJson__c"
@@ -125,6 +126,7 @@ extracts:
     value: 
       FIELD:
         path: "CA10__policyDocument__c"
+        returnType: BYTES
         # undeterminedIf:
         #   noAccessDelegate:
         #     path: "CA10__policyDocument__c"

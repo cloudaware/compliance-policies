@@ -1,0 +1,13 @@
+---
+name: "[NetworkFirewall.2] Network Firewall logging should be enabled"
+description: |-
+  Logging helps you maintain the reliability, availability, and performance of 
+  your firewalls. In Network Firewall, logging gives you detailed information 
+  about network traffic, including the time that the stateful engine received 
+  a packet flow, detailed information about the packet flow, and any stateful 
+  rule action taken against the packet flow.
+similar:
+  internal:
+    - dec-c-26d97a2b
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/networkfirewall-controls.html#networkfirewall-2

@@ -1,0 +1,14 @@
+---
+name: "[ElasticBeanstalk.3] Elastic Beanstalk should stream logs to CloudWatch"
+description: |-
+  CloudWatch helps you collect and monitor various metrics for your applications 
+  and infrastructure resources. You can also use CloudWatch to configure alarm 
+  actions based on specific metrics. We recommend integrating Elastic Beanstalk 
+  with CloudWatch to get increased visibility into your Elastic Beanstalk environment. 
+  Elastic Beanstalk logs include the eb-activity.log, access logs from the environment 
+  nginx or Apache proxy server, and logs that are specific to an environment.
+similar:
+  internal:
+    - dec-c-b7cf7243
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/elasticbeanstalk-controls.html#elasticbeanstalk-3

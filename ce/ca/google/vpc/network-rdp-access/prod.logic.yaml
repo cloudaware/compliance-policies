@@ -1,0 +1,62 @@
+---
+
+inputType: "CA10__CaGoogleGceNetwork__c"
+testData:
+  - file: test-data.json
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Network has GCE Firewall Rules which allow unrestricted RDP access"
+    remediationMessage: "Modify  firewall rule"
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__Google_GCE_Firewall_Rules__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "RDP access is restricted from the internet"
+relatedLists:
+  - relationshipName: "CA10__Google_GCE_Firewall_Rules__r"
+    importExtracts:
+      - file: /types/CA10__CaGoogleGceFirewallRule__c/object.extracts.yaml
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This is an ingress security firewall rule."
+        check:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__direction__c"
+            right:
+              TEXT: "INGRESS"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This security firewall rule does not allow unrestricted access."
+        check:
+          AND:
+            args:
+              - NOT_EQUAL:
+                  left:
+                    EXTRACT: "CA10__sourceRanges__c"
+                  right:
+                    TEXT: "0.0.0.0/0"
+              - NOT_EQUAL:
+                  left:
+                    EXTRACT: "CA10__sourceRanges__c"
+                  right:
+                    TEXT: "::/0"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Unsecured firewall rule"
+        remediationMessage: "Modify firewall rule"
+        check:
+          GREATER_THAN:
+            left:
+              JSON_QUERY_NUMBER:
+                arg:
+                  EXTRACT: "CA10__allowedProtocolsPortsJson__c"
+                expression: "length(ports[?((protocol=='all') || (startPort=='null' && endPort=='null') || (protocol=='tcp' && (startPort=='3389' || endPort=='3389' || (startPort<'3389' && endPort>'3389'))))])"
+                undeterminedIf:
+                  evaluationError: "The JSON query failed."
+                  resultTypeMismatch: "The JSON query did not return number type."
+            right:
+              NUMBER: 0.0
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Firewall rule set correctly"

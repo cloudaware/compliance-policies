@@ -1,0 +1,14 @@
+name: >
+  [ELB.17] Application and Network Load Balancers with listeners should 
+  use recommended security policies
+description: |-
+  Elastic Load Balancing uses an SSL negotiation configuration, known as a security policy, 
+  to negotiate connections between a client and a load balancer. The security policy 
+  specifies a combination of protocols and ciphers. The protocol establishes 
+  a secure connection between a client and a server. A cipher is an encryption algorithm 
+  that uses encryption keys to create a coded message. During the connection negotiation 
+  process, the client and the load balancer present a list of ciphers and protocols 
+  that they each support, in order of preference.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-17

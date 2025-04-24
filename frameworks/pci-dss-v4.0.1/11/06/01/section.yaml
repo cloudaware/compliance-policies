@@ -1,0 +1,23 @@
+name: >
+  11.6.1 A change- and tamper-detection mechanism is deployed.
+description: |-
+  As follows:
+
+  - To alert personnel to unauthorized modification (including indicators of 
+  compromise, changes, additions, and deletions) to the security-impacting HTTP 
+  headers and the script contents of payment pages as received by the consumer 
+  browser.
+  - The mechanism is configured to evaluate the received HTTP header and payment 
+  page.
+  - The mechanism functions are performed as follows:
+
+    - At least weekly.
+
+    OR
+    
+    - Periodically (at the frequency defined in the entity's targeted risk 
+    analysis, which is performed according to all elements specified in 
+    Requirement 12.3.1).
+similar:
+  sections:
+    - /frameworks/pci-dss-v4.0/11/06/01

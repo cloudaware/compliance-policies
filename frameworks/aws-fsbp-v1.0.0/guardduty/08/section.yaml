@@ -1,0 +1,14 @@
+name: "[GuardDuty.8] GuardDuty Malware Protection for EC2 should be enabled"
+description: |-
+  GuardDuty Malware Protection for EC2 helps you detect the potential presence 
+  of malware by scanning the Amazon Elastic Block Store (Amazon EBS) volumes 
+  that are attached to Amazon Elastic Compute Cloud (Amazon EC2) instances and 
+  container workloads. Malware Protection provides scan options where you can 
+  decide if you want to include or exclude specific EC2 instances and container 
+  workloads at the time of scanning. It also provides an option to retain the 
+  snapshots of EBS volumes attached to the EC2 instances or container workloads, 
+  in your GuardDuty accounts. The snapshots get retained only when malware is 
+  found and Malware Protection findings are generated.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/guardduty-controls.html#guardduty-8

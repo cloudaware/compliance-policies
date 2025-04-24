@@ -1,0 +1,14 @@
+---
+name: >
+  [Config.1] AWS Config should be enabled and use the service-linked role for resource recording
+description: |-
+  The AWS Config service performs configuration management of supported AWS resources 
+  in your account and delivers log files to you. The recorded information includes 
+  the configuration item (AWS resource), relationships between configuration items, 
+  and any configuration changes within resources. Global resources are resources 
+  that are available in any Region.
+similar:
+  internal:
+    - dec-c-97993ae8
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/config-controls.html#config-1

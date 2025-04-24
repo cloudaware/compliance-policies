@@ -1,2 +1,35 @@
 ---
-extracts: []
+extracts:
+  - name: "CA10__essentialContactsConfiguration__c"
+    value: 
+       FIELD:
+         path: "CA10__essentialContactsConfiguration__c"
+         returnType: BYTES
+  - name: "caJsonFrom__essentialContactsConfiguration__c"
+    value: 
+      JSON_FROM:
+        arg:
+          EXTRACT: "CA10__essentialContactsConfiguration__c"
+        undeterminedIf:
+          isInvalid: "JSON is invalid"
+  - name: "caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail"
+    value: 
+      JSON_QUERY_TEXT:
+        arg:
+          EXTRACT: "caJsonFrom__essentialContactsConfiguration__c"
+        expression: "to_string([?email != null].notificationCategorySubscriptions)"
+        undeterminedIf:
+          evaluationError: "The JSON query failed."
+          resultTypeMismatch: "The JSON query did not return a text."
+          resultIsEmpty: "The JSON query did not return a value."
+  - name: "CA10__accessApprovalStatus__c"
+    value: 
+       FIELD:
+         path: "CA10__accessApprovalStatus__c"
+  - name: "caJsonFrom__accessApprovalStatus__c"
+    value:
+      JSON_FROM:
+        arg:
+          EXTRACT: "CA10__accessApprovalStatus__c"
+        undeterminedIf:
+          isInvalid: "JSON is invalid"

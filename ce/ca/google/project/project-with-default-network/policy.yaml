@@ -1,0 +1,15 @@
+---
+names: 
+  full: "Google Project has a default network"
+  contextual: "Project has a default network"
+description: "To prevent use of default network, a project should not have a default network."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/03/01
+  - /frameworks/cloudaware/resource-security/secure-access
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudVPC/default-vpc-in-use.html"
+      name: "Default VPC Network In Use"

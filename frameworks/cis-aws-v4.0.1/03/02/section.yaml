@@ -5,3 +5,7 @@ description: >
   each log that CloudTrail writes to S3. These digest files can be used to determine
   whether a log file was changed, deleted, or remained unchanged after CloudTrail
   delivered the log. It is recommended that file validation be enabled for all CloudTrails.
+similar:
+  sections:
+    - /frameworks/cis-aws-v5.0.0/03/02
+    - /frameworks/cis-aws-v4.0.0/03/02

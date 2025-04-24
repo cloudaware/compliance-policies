@@ -1,0 +1,9 @@
+name: >
+  [EC2.170] EC2 launch templates should use Instance Metadata Service Version 2 (IMDSv2)
+description: |-
+  Running resources on supported software versions ensures optimal performance, 
+  security, and access to the latest features. Regular updates safeguard against 
+  vulnerabilities, which help ensure a stable and efficient user experience.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-170

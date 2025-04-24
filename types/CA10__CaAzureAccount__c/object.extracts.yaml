@@ -9,12 +9,13 @@ extracts:
           noAccessDelegate:
             path: "CA10__availableLocationNames__c"
             currentStateMessage: "Unable to determine Subscription Available Locations. Possible permission issue withMicrosoft.Resources/subscriptions/locations/read"
-  - name: caExtract_availabilityZones_asCollection__c
-    value: 
-      COLLECTION_FROM:
-        separator: "\n"
+  - name: "caJsonFrom_availableLocationNames__c"
+    value:
+      JSON_FROM:
         arg:
           EXTRACT: "CA10__availableLocationNames__c"
+        undeterminedIf:
+          isInvalid: "Subscription Available Locations JSON is invalid."
   - name: "CA10__subscriptionId__c"
     value: 
       FIELD:
@@ -26,6 +27,7 @@ extracts:
     value: 
       FIELD:
         path: "CA10__securityCenterAutoProvisioning__c"
+        returnType: BYTES
         undeterminedIf:
           noAccessDelegate:
             path: "CA10__securityCenterAutoProvisioning__c"
@@ -35,6 +37,7 @@ extracts:
     value: 
       FIELD:
         path: "CA10__securityCenterContacts__c"
+        returnType: BYTES
         undeterminedIf:
           noAccessDelegate:
             path: "CA10__securityCenterContacts__c"

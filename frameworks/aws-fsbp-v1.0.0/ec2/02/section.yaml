@@ -1,0 +1,14 @@
+---
+name: "[EC2.2] VPC default security groups should not allow inbound or outbound traffic"
+description: |-
+  The rules for the default security group allow all outbound and inbound traffic 
+  from network interfaces (and their associated instances) that are assigned to 
+  the same security group. We recommend that you don't use the default security group. 
+  Because the default security group cannot be deleted, you should change the default 
+  security group rules setting to restrict inbound and outbound traffic. This prevents 
+  unintended traffic if the default security group is accident
+similar:
+  internal:
+    - dec-c-81379a6b
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-2

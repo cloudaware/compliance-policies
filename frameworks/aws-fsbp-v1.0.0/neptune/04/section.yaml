@@ -1,0 +1,12 @@
+---
+name: "[Neptune.4] Neptune DB clusters should have deletion protection enabled"
+description: |-
+  Enabling cluster deletion protection offers an additional layer of protection 
+  against accidental database deletion or deletion by an unauthorized user. 
+  A Neptune DB cluster can't be deleted while deletion protection is enabled. 
+  You must first disable deletion protection before a delete request can succeed.
+similar:
+  internal:
+    - dec-c-4c051d3a
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/neptune-controls.html#neptune-4

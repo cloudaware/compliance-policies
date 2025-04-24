@@ -1,0 +1,17 @@
+---
+names: 
+  full: "Google Logging Log Sink exports logs to a Storage Bucket without Bucket Lock"
+  contextual: "og Sink exports logs to a Storage Bucket without Bucket Lock"
+description: "Enabling retention policies on log buckets will protect logs stored in cloud storage buckets from being overwritten \
+ or accidentally deleted. It is recommended to set up retention policies and configure Bucket Lock on all storage buckets that are \
+ used as log sinks."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/02/03
+  - /frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudStorage/retention-policies-with-bucket-lock.html"
+      name: "Configure Retention Policies with Bucket Lock"

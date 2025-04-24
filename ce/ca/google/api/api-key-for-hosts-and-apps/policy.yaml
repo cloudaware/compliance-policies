@@ -1,0 +1,21 @@
+---
+names: 
+  full: "Google API Key is not restricted for unspecified hosts and apps"
+  contextual: "API Key is not restricted for unspecified hosts and apps"
+description: "API Keys should only be used for services in cases where other authentication methods \
+ are unavailable. In this case, unrestricted keys are insecure because they can be viewed publicly, \
+ such as from within a browser, or they can be accessed on a device where the key resides. \ 
+ It is recommended to restrict API key usage to trusted hosts, HTTP referrers and apps. \ 
+ It is recommended to use the more secure standard authentication flow instead."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+impossible: true
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/01/13
+  - /frameworks/cloudaware/secret-and-certificate-governance/cryptographic-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/CloudAPI/api-key-specified-hosts-apps.html"
+      name: "Check for API Key Host and Application Restrictions"
+ 

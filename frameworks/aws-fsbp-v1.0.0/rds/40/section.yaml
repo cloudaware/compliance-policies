@@ -1,0 +1,13 @@
+name: >
+  [RDS.40] RDS for SQL Server DB instances should publish logs to CloudWatch Logs
+description: |-
+  Database logging provides detailed records of requests made to an Amazon RDS 
+  DB instance. Publishing logs to CloudWatch Logs centralizes log management 
+  and helps you perform real-time analysis of log data. CloudWatch Logs retains 
+  logs in highly durable storage. In addition, you can use it to create alarms 
+  for specific errors that can occur, such as frequent restarts that are 
+  recorded in an error log. Similarly, you can create alarms for errors or 
+  warnings that are recorded in SQL Server agent logs related to SQL agent jobs.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-40

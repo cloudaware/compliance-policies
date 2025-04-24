@@ -1,0 +1,15 @@
+---
+names: 
+  full: "Google Storage Bucket Uniform Bucket-Level Access is not enabled"
+  contextual: "Bucket Uniform Bucket-Level Access is not enabled"
+description: "It is recommended that uniform bucket-level access is enabled on Cloud Storage buckets."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/05/02
+  - /frameworks/cloudaware/resource-security/secure-access
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudStorage/enable-uniform-bucket-level-access.html"
+      name: "Enable Uniform Bucket-Level Access for Cloud Storage Buckets"

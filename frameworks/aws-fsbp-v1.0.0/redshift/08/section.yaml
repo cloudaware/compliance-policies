@@ -1,0 +1,13 @@
+---
+name: >
+  [Redshift.8] Amazon Redshift clusters should not use the default Admin username
+description: |- 
+  When creating a Redshift cluster, you should change the default admin username 
+  to a unique value. Default usernames are public knowledge and should be 
+  changed upon configuration. Changing the default usernames reduces the risk 
+  of unintended access.
+similar:
+  internal:
+    - dec-c-adc09ec1
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/redshift-controls.html#redshift-8

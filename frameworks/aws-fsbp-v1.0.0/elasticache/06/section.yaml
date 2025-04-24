@@ -1,0 +1,15 @@
+---
+name: >
+  [ElastiCache.6] ElastiCache (Redis OSS) replication groups of earlier 
+  versions should have Redis OSS AUTH enabled
+description: |-
+  When you use Redis authentication tokens, or passwords, Redis requires a password 
+  before allowing clients to run commands, which improves data security. For Redis 6.0 
+  and later versions, we recommend using Role-Based Access Control (RBAC). 
+  Since RBAC is not supported for Redis versions earlier than 6.0, this control 
+  only evaluates versions which can't use the RBAC feature.
+similar:
+  internal:
+    - dec-c-017a64ce
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/elasticache-controls.html#elasticache-6

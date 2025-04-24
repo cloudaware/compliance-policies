@@ -1,0 +1,19 @@
+---
+name: >
+  [S3.19] S3 access points should have block public access settings enabled
+description: |-
+  The Amazon S3 Block Public Access feature helps you manage access to your S3 
+  resources at three levels: the account, bucket, and access point levels. 
+  The settings at each level can be configured independently, allowing you to 
+  have different levels of public access restrictions for your data. The access 
+  point settings can't individually override the more restrictive settings at 
+  higher levels (account level or bucket assigned to the access point). Instead, 
+  the settings at the access point level are additive, meaning they complement 
+  and work alongside the settings at the other levels. Unless you intend an S3 
+  access point to be publicly accessible, you should enable block public access 
+  settings.
+similar:
+  internal:
+    - dec-c-2611e9e8
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/s3-controls.html#s3-19

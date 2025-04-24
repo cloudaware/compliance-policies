@@ -1,5 +1,11 @@
 ---
 extracts:
+  - name: "Name"
+    value: 
+      FIELD:
+        path: "Name"
+        undeterminedIf:
+          isEmpty: "Name should not be empty"
   - name: "CA10__roleName__c"
     value: 
       FIELD:

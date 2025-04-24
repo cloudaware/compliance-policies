@@ -1,8 +1,15 @@
 ---
-name: |-
-  8.5.1 Additional requirement for service providers only: Service providers with remote access to customer premises (for example, for support of POS systems or servers) must use a unique authentication credential (such as a password/phrase) for each customer.
-  Note: This requirement is not intended to apply to shared hosting providers accessing their own hosting environment, where multiple customer environments are hosted.
-description: ""
+name: >
+  8.5.1 Service providers with remote access to customer premises must use a 
+  unique authentication credential for each customer.
+description: |-
+  **Additional requirement for service providers only.**
+
+  This requirement is not intended to apply to shared hosting providers 
+  accessing their own hosting environment, where multiple customer environments 
+  are hosted.
 similar:
   internal:
     - dec-c-d5d3af18
+  sections:
+    - /frameworks/pci-dss-v4.0/08/02/03

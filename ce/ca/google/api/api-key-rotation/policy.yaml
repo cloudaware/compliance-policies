@@ -1,0 +1,17 @@
+---
+names: 
+  full: "Google API Key is not rotated every 90 days"
+  contextual: "API Key is not rotated every 90 days"
+description: "API Keys should only be used for services in cases where other authentication methods \ 
+  are unavailable. If they are in use it is recommended to rotate API keys every 90 days."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/01/15
+  - /frameworks/cloudaware/secret-and-certificate-governance/expiration-management
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudAPI/rotate-api-keys.html"
+      name: "Rotate Google Cloud API Keys"
+ 

@@ -1,0 +1,21 @@
+---
+names: 
+  full: "Google Cloud DNS Managed Zone DNSSEC is not enabled"
+  contextual: "Managed Zone DNSSEC is not enabled"
+description: "Cloud Domain Name System (DNS) is a fast, reliable and cost-effective \
+ domain name system that powers millions of domains on the internet. \
+ Domain Name System Security Extensions (DNSSEC) in Cloud DNS enables domain owners \ 
+ to take easy steps to protect their domains against DNS hijacking and \ 
+ man-in-the-middle and other attacks."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+  - "RELIABILITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/03/03
+  - /frameworks/cloudaware/resource-security/threat-protection
+  - /frameworks/cloudaware/resource-reliability/system-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudDNS/enable-dns-sec.html"
+      name: "Enable DNSSEC for Google Cloud DNS Zones"

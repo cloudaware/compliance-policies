@@ -1,0 +1,13 @@
+---
+name: "[EC2.9] Amazon EC2 instances should not have a public IPv4 address"
+description: |-
+  A public IPv4 address is an IP address that is reachable from the internet. 
+  If you launch your instance with a public IP address, then your EC2 instance 
+  is reachable from the internet. A private IPv4 address is an IP address that 
+  is not reachable from the internet. You can use private IPv4 addresses for communication 
+  between EC2 instances in the same VPC or in your connected private network.
+similar:
+  internal:
+    - dec-c-1a175672
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-9

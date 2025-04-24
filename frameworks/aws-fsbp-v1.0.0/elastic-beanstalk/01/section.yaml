@@ -1,0 +1,18 @@
+---
+name: >
+  [ElasticBeanstalk.1] Elastic Beanstalk environments should have enhanced 
+  health reporting enabled
+description: |-
+  Elastic Beanstalk enhanced health reporting enables a more rapid response to changes 
+  in the health of the underlying infrastructure. These changes could result in 
+  a lack of availability of the application.
+
+  Elastic Beanstalk enhanced health reporting provides a status descriptor to gauge 
+  the severity of the identified issues and identify possible causes to investigate. 
+  The Elastic Beanstalk health agent, included in supported Amazon Machine Images (AMIs), 
+  evaluates logs and metrics of environment EC2 instances.
+similar:
+  internal:
+    - dec-c-18a1d6fc
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/elasticbeanstalk-controls.html#elasticbeanstalk-1

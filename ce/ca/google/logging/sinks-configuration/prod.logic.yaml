@@ -1,0 +1,97 @@
+---
+
+inputType: "CA10__CaGoogleProject__c"
+testData:
+  - file: test-data.json
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Sinks are configured for all log entries"
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__Google_Resource_Manager_Projects__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The project does not have sinks configured for all log entries."
+  remediationMessage: "It is recommended to create a sink that will export copies of all the log entries."
+relatedLists:
+  - relationshipName: "CA10__Google_Resource_Manager_Projects__r"
+    importExtracts:
+      - file: /types/CA10G1__CaGoogleLoggingLogSink__c/object.extracts.yaml
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "Resource Manager Organization or Folder or Project with COMPLIANT Sink."
+        check:
+          OR:
+            args:
+              - RELATED_LIST_HAS:
+                  status: "COMPLIANT"
+                  relationshipName: "CA10G1__Google_Logging_Log_Sinks1__r"
+              - RELATED_LIST_HAS:
+                  status: "COMPLIANT"
+                  relationshipName: "CA10__resourceManagerFolder__r.CA10G1__Google_Logging_Log_Sinks1__r"
+              - RELATED_LIST_HAS:
+                  status: "COMPLIANT"
+                  relationshipName: "CA10__resourceManagerOrganization__r.CA10G1__Google_Logging_Log_Sinks1__r"
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "There is no COMPLIANT sink connected with project."
+    relatedLists:
+        # # ORG level
+      - relationshipName: "CA10__resourceManagerOrganization__r.CA10G1__Google_Logging_Log_Sinks1__r"
+        recordTypes:
+          - "caGoogleLoggingLogSinkOrganization"
+        conditions:
+          - status: "COMPLIANT"
+            currentStateMessage: "Resource Manager Organization with COMPLIANT Sink"
+            check:
+              AND:
+                args:
+                  - IS_EMPTY:
+                      arg:
+                        EXTRACT: "CA10G1__filter__c"
+                  - NOT_EMPTY:
+                      arg:
+                        EXTRACT: "CA10G1__destination__c"
+        otherwise:
+          status: "INCOMPLIANT"
+          currentStateMessage: "Resource Manager Organization does not have sinks configured for all log entries."
+    # FOLDER level
+      - relationshipName: "CA10__resourceManagerFolder__r.CA10G1__Google_Logging_Log_Sinks1__r"
+        recordTypes:
+          - "caGoogleLoggingLogSinkFolder"
+        conditions: 
+          - status: "COMPLIANT"
+            currentStateMessage: "Resource Manager Folder with COMPLIANT Sink."
+            check:
+              AND:
+                args:
+                  - IS_EMPTY:
+                      arg:
+                        EXTRACT: "CA10G1__filter__c"
+                  - NOT_EMPTY:
+                      arg:
+                        EXTRACT: "CA10G1__destination__c"
+        otherwise:
+          status: "INCOMPLIANT"
+          currentStateMessage: "Resource Manager Folder does not have sinks configured for all log entries."
+    # PROJECT level  
+      - relationshipName: "CA10G1__Google_Logging_Log_Sinks1__r"
+        recordTypes:
+          - "caGoogleLoggingLogSinkProject"
+        conditions: 
+          - status: "COMPLIANT"
+            currentStateMessage: "Resource Manager Project with COMPLIANT Sink."
+            check:
+              AND:
+                args:
+                  - IS_EMPTY:
+                      arg:
+                        EXTRACT: "CA10G1__filter__c"
+                  - NOT_EMPTY:
+                      arg:
+                        EXTRACT: "CA10G1__destination__c"
+        otherwise:
+          status: "INCOMPLIANT"
+          currentStateMessage: "Resource Manager Project does not have sinks configured for all log entries."
+

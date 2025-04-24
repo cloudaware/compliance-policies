@@ -1,0 +1,14 @@
+name: >
+  8.5.1 MFA systems are implemented.
+description: |-
+  As follows:
+
+  - The MFA system is not susceptible to replay attacks.
+  - MFA systems cannot be bypassed by any users, including administrative users 
+  unless specifically documented, and authorized by management on an exception 
+  basis, for a limited time period.
+  - At least two different types of authentication factors are used.
+  - Success of all authentication factors is required before access is granted.
+similar:
+  sections:
+    - /frameworks/pci-dss-v4.0.1/08/05/01

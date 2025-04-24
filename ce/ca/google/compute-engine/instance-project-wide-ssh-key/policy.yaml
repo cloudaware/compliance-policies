@@ -1,0 +1,16 @@
+---
+names: 
+  full: "Google GCE Instance Block Project-Wide SSH Keys is not enabled"
+  contextual: "Instance Block Project-Wide SSH Keys is not enabled"
+description: "It is recommended to use Instance specific SSH key(s) instead of using common/shared \
+ project-wide SSH key(s) to access Instances. "
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/04/03
+  - /frameworks/cloudaware/resource-security/secure-access
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/ComputeEngine/enable-block-project-wide-ssh-keys.html"
+      name: "Enable 'Block Project-Wide SSH Keys' Security Feature"

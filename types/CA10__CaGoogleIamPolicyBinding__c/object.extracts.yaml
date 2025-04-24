@@ -18,7 +18,3 @@ extracts:
         path: "CA10__membersAllAuthenticatedUsers__c"
         undeterminedIf:
           isEmpty:  "Field should not be empty"
-  - name: "CA10__iamRole__c"
-    value: 
-      FIELD:
-        path: "CA10__iamRole__c"

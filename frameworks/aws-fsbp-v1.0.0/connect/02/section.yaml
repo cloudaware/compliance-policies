@@ -1,0 +1,11 @@
+name: "[Connect.2] Amazon Connect instances should have CloudWatch logging enabled"
+description: |-
+  Amazon Connect flow logs provide real-time details about events in Amazon Connect flows. 
+  A flow defines the customer experience with an Amazon Connect contact center from 
+  start to finish. By default, when you create a new Amazon Connect instance, 
+  an Amazon CloudWatch log group is created automatically to store flow logs for 
+  the instance. Flow logs can help you analyze flows, find errors, and monitor 
+  operational metrics. You can also set up alerts for specific events that can occur in a flow.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/connect-controls.html#connect-2

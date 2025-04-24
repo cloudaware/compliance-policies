@@ -1,0 +1,12 @@
+---
+name: >
+  [CodeBuild.2] CodeBuild project environment variables should not contain clear text credentials
+description: |-
+  Authentication credentials `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` should 
+  never be stored in clear text, as this could lead to unintended data exposure 
+  and unauthorized access.
+similar:
+  internal:
+    - dec-c-627d50c1
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/codebuild-controls.html#codebuild-2

@@ -1,0 +1,12 @@
+---
+extracts:
+  - name: "CA10__kmsKeyName__c"
+    value: 
+      FIELD:
+        path: "CA10__kmsKeyName__c"
+# Values: TABLE|VIEW|EXTERNAL|MATERIALIZED_VIEW. Not nullable. Can't have no access, retrieved via bigquery.tables.get
+  - name: "CA10__type__c"
+    value:
+      FIELD:
+        path: "CA10__type__c"
+

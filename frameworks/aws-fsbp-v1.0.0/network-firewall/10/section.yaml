@@ -1,0 +1,11 @@
+name: >
+  [NetworkFirewall.10] Network Firewall firewalls should have subnet change protection enabled
+description: |-
+  AWS Network Firewall is a stateful, managed network firewall and intrusion 
+  detection service that you can use to inspect and filter traffic to, from, or 
+  between your Virtual Private Clouds (VPCs). If you enable subnet change 
+  protection for a Network Firewall firewall, you can protect the firewall 
+  against accidental changes to the firewall's subnet associations.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/networkfirewall-controls.html#networkfirewall-10

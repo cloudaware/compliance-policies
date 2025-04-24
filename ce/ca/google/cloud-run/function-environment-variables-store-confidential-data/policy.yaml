@@ -1,0 +1,19 @@
+---
+names: 
+  full: "Google Cloud Function Environment Variables store confidential data"
+  contextual: "Cloud Function Environment Variables store confidential data"
+description: "Google Cloud Functions allow you to host serverless code that is executed when an event is triggered, \
+  without the requiring the management a host operating system. These functions can also store environment variables \
+  to be used by the code that may contain authentication or other information that needs to remain confidential."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+impossible: true
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/01/17
+  - /frameworks/cloudaware/resource-security/secure-access
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudFunctions/functions-secrets-manager.html"
+      name: "Use Secrets Manager for Managing Secrets in Google Cloud Functions"
+ 

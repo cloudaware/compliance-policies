@@ -1,0 +1,16 @@
+---
+names: 
+  full: "Google Logging Log Metric Filter and Alerts for Audit Configuration Changes do not exist"
+  contextual: "Log Metric Filter and Alerts for Audit Configuration Changes do not exist"
+description: "Google Cloud Platform (GCP) services write audit log entries to the Admin Activity and \
+ Data Access logs to help answer the questions of, 'who did what, where, and when?' within GCP projects."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/02/05
+  - /frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudLogging/enable-audit-configuration-changes-monitoring.html"
+      name: "Enable Monitoring for Audit Configuration Changes"

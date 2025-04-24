@@ -1,0 +1,14 @@
+---
+name: >
+  [WAF.7] AWS WAF Classic global rule groups should have at least one rule
+description: |-
+  A WAF global rule group can contain multiple rules. The rule's conditions 
+  allow for traffic inspection and take a defined action (allow, block, or count). 
+  Without any rules, the traffic passes without inspection. A WAF global rule 
+  group with no rules, but with a name or tag suggesting allow, block, or count, 
+  could lead to the wrong assumption that one of those actions is occurring.
+similar:
+  internal:
+    - dec-c-f7980201
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/waf-controls.html#waf-7

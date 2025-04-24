@@ -1,10 +1,16 @@
 ---
-name: |-
-  5.2 Ensure that all anti-virus mechanisms are maintained as follows:
-  • Are kept current,
-  • Perform periodic scans
-  • Generate audit logs which are retained per PCI DSS Requirement 10.7.
-description: ""
+name: >
+  5.2 Ensure that all anti-virus mechanisms are maintained.
+description: |-
+  As follows:
+
+  - Are kept current,
+  - Perform periodic scans
+  - Generate audit logs which are retained per PCI DSS Requirement 10.7.
 similar:
   internal:
     - dec-c-8e95b774
+  sections:
+    - /frameworks/pci-dss-v4.0/05/03/01
+    - /frameworks/pci-dss-v4.0/05/03/02
+    - /frameworks/pci-dss-v4.0/05/03/04

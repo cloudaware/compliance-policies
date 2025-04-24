@@ -12,6 +12,7 @@ extracts:
     value: 
       FIELD:
         path: "CA10__conditionJson__c"
+        returnType: BYTES
         undeterminedIf:
           isEmpty: "Corrupted data. Condition cannot be empty."
   - name: "caJsonFrom__conditionJson__c"

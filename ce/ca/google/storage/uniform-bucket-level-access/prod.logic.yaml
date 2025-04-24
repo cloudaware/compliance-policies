@@ -1,0 +1,19 @@
+---
+
+inputType: "CA10__CaGoogleStorageBucket__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleStorageBucket__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Cloud Storage bucket has uniform bucket-level access enabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__levelAccessState__c"
+        right:
+          TEXT: "Enabled"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Cloud Storage bucket has uniform bucket-level access disabled."

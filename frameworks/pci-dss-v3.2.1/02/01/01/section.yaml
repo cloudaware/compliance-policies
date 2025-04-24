@@ -1,9 +1,13 @@
 ---
-name: "2.1.1 For wireless environments connected to the cardholder data environment\
-  \ or transmitting cardholder data, change ALL wireless vendor defaults at installation,\
-  \ including but not limited to default wireless encryption keys, passwords, and\
-  \ SNMP community strings."
+name: >
+  2.1.1 For wireless environments connected to the cardholder data environment 
+  or transmitting cardholder data, change ALL wireless vendor defaults at 
+  installation, including but not limited to default wireless encryption keys, 
+  passwords, and SNMP community strings.
 description: ""
 similar:
   internal:
     - dec-c-25ff8b50
+  sections:
+    - /frameworks/pci-dss-v4.0/02/03/01
+    - /frameworks/pci-dss-v4.0/02/03/02

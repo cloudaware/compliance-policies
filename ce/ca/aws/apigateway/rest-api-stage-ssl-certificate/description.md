@@ -8,9 +8,9 @@ Configuring SSL certificates for API Gateway REST API stages addresses several i
 
 ## Audit
 
-This policy marks an API Gateway Stage as `INCOMPLIANT` if an SSL Certificate is not configured. This is identified when the `Client Certificate` field is **empty** or the associated certificate has been **deleted** from the CMDB.
+This policy marks an *API Gateway Stage* as `INCOMPLIANT` if an SSL Certificate is not configured. This is identified when the `Client Certificate` field is **empty** or the associated certificate has been **deleted** from the CMDB.
 
 A Stage is marked as `INAPPLICABLE` in the following cases:
 
-1. The API's `Endpoint Type` is set to **PRIVATE**.
-2. The `Integration Type` of API Gateway Methods is neither **HTTP** nor **HTTP_PROXY**.
+1. The Stage's API `Endpoint Type` is set to **PRIVATE**.
+2. The `Integration Type` of the related *API Gateway Methods* is neither **HTTP** nor **HTTP_PROXY**.

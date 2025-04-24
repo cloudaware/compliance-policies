@@ -1,0 +1,18 @@
+---
+names: 
+  full: "Google Project has a legacy network"
+  contextual: "Project has a legacy network"
+description: "In order to prevent use of legacy networks, a project should not have a legacy \
+ network configured. As of now, Legacy Networks are gradually being phased out, and you can \
+ no longer create projects with them. This recommendation is to check older projects to ensure \
+ that they are not using Legacy Networks."
+type: COMPLIANCE_POLICY
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/03/02
+  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/CloudVPC/legacy-vpc-in-use.html"
+      name: "Check for Legacy Networks"

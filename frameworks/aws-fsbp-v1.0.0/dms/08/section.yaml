@@ -1,0 +1,23 @@
+---
+name: >
+  [DMS.8] DMS replication tasks for the source database should have logging enabled
+description: |-
+  DMS uses Amazon CloudWatch to log information during the migration process. 
+  Using logging task settings, you can specify which component activities are logged 
+  and how much information is logged. You should specify logging for the following tasks:
+
+  - `SOURCE_CAPTURE`: Ongoing replication or change data capture (CDC) data is 
+  captured from the source database or service, and passed to the SORTER service component.
+  - `SOURCE_UNLOAD`: Data is unloaded from the source database or service during full load.
+
+  Logging plays a critical role in DMS replication tasks by enabling monitoring, 
+  troubleshooting, auditing, performance analysis, error detection, and recovery, 
+  as well as historical analysis and reporting. It helps ensure the successful 
+  replication of data between databases while maintaining data integrity and compliance 
+  with regulatory requirements. Logging levels other than `DEFAULT` are rarely needed 
+  for these components during troubleshooting.
+similar:
+  internal:
+    - dec-c-9e287f03
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/dms-controls.html#dms-8

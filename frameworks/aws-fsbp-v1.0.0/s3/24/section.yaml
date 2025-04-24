@@ -1,0 +1,11 @@
+name: >
+  [S3.24] S3 Multi-Region Access Points should have block public 
+  access settings enabled
+description: |-
+  Publicly accessible resources can be lead to unauthorized access, data breaches, 
+  or exploitation of vulnerabilities. Restricting access through authentication 
+  and authorization measures helps to safeguard sensitive information and maintain 
+  the integrity of your resources.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/s3-controls.html#s3-24

@@ -1,0 +1,11 @@
+---
+name: "[RDS.10] IAM authentication should be configured for RDS instances"
+description: |-
+  IAM database authentication allows authentication to database instances with 
+  an authentication token instead of a password. Network traffic to and from 
+  the database is encrypted using SSL.
+similar:
+  internal:
+    - dec-c-8d905962
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-10

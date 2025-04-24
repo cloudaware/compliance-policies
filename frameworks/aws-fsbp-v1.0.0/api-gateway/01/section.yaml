@@ -1,0 +1,14 @@
+---
+name: >
+  [APIGateway.1] API Gateway REST and WebSocket API execution logging should be enabled
+description: |-
+  API Gateway REST or WebSocket API stages should have relevant logs enabled. API 
+  Gateway REST and WebSocket API execution logging provides detailed records of 
+  requests made to API Gateway REST and WebSocket API stages. The stages include 
+  API integration backend responses, Lambda authorizer responses, and the `requestId` 
+  for AWS integration endpoints.
+similar:
+  internal:
+    - dec-c-f3fa6a8c
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/apigateway-controls.html#apigateway-1

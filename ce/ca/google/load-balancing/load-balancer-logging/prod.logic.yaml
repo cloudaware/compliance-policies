@@ -1,0 +1,25 @@
+---
+
+inputType: "CA10__CaGoogleGceBackendService__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleGceBackendService__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Logging is enabled for the HTTP(S) Load Balancer."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__logConfigState__c"
+              right:
+                TEXT: "Enabled"
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10__logConfigSampleRate__c"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Logging isn't enabled for the HTTP(S) Load Balancer or sample rate isn't set."
+  remediationMessage: "Enable logging for the HTTP(S) Load Balancer."

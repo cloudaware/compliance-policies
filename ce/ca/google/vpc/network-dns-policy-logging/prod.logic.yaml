@@ -1,0 +1,26 @@
+---
+
+inputType: "CA10__CaGoogleGceNetwork__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleGceNetwork__c/object.extracts.yaml
+  - file: /types/CA10__CaGoogleCloudDnsPolicy__c/object.extracts.yaml
+conditions: 
+  - status: "INCOMPLIANT"
+    currentStateMessage: "There is no DNS policy associated with the network."
+    remediationMessage: "Associate the policy to the network."
+    check:
+      IS_EMPTY_LOOKUP: "CA10__dnsPolicy__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Logging for existing DNS Policy not enabled."
+    remediationMessage: "Enable Logging for existing DNS Policy."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__dnsPolicy__r.CA10__loggingStatus__c"
+        right:
+          TEXT: "Enable"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Cloud DNS Logging is enabled for all VPC Networks."

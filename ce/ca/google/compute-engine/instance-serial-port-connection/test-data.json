@@ -1,0 +1,50 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-08T18:22:06Z" },
+    "Id": "a4Z00",
+    "CA10__disappearanceTime__c": "2024-08-30T14:19:56Z",
+    "CA10__metadataJson__c": "{}"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "102",
+      "conditionText": "extract('CA10__metadataJson__c').asJson().isInvalid()",
+      "runtimeError": "Expected property name or '}' in JSON at position 78 (line 1 column 79)"
+    },
+    "context": { "snapshotTime": "2024-09-08T18:22:06Z" },
+    "Id": "a4Z11",
+    "CA10__disappearanceTime__c": null,
+    "CA10__metadataJson__c": "{\"fingerprint\":\"e51rHdmMjJY\\u003d\",\"items\":[{\"key\":\"startup-script\",\"value\": {\\n  curl -s -H \\\"Metadata-Flavor: Google\\\" \\\"http://metadata/computeMetadata/v1/instance/\\\"\\n}\\n\\nfunction get_token()\\n\\n# "
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('caJsonFrom__metadataJson__serial_port_enable_value').contains('true')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-08T18:22:06Z" },
+    "Id": "a4Z22",
+    "CA10__disappearanceTime__c": null,
+    "CA10__metadataJson__c": "{\"fingerprint\":\"000000\\u003d\",\"items\":[{\"key\":\"boostCpu\",\"value\":\"true\"},{\"key\":\"enable-oslogin\",\"value\":\"TRUE\"},{\"key\":\"serial-port-enable\",\"value\":\"true\"}],\"kind\":\"compute#metadata\"}"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-08T18:22:06Z" },
+    "Id": "a4Z33",
+    "CA10__disappearanceTime__c": null,
+    "CA10__metadataJson__c": "{\"fingerprint\":\"000000\\u003d\",\"items\":[{\"key\":\"boostCpu\",\"value\":\"true\"},{\"key\":\"enable-oslogin\",\"value\":\"TRUE\"},{\"key\":\"serial-port-enable\",\"value\":\"false\"}],\"kind\":\"compute#metadata\"}"
+  }
+]

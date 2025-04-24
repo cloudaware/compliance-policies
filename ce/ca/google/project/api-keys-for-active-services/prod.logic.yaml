@@ -1,0 +1,21 @@
+---
+inputType: "CA10__CaGoogleProject__c"
+testData:
+  - file: test-data.json
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "API Keys exist for a project."
+    remediationMessage: "To avoid the security risk in using API keys, it is recommended to use standard authentication flow instead."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10G1__Google_API_Keys__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "API keys are not created for a project."
+relatedLists:
+  - relationshipName: "CA10G1__Google_API_Keys__r"
+    conditions: []
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "API Key exists."

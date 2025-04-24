@@ -1,0 +1,18 @@
+---
+names: 
+  full: "Google Cloud PostgreSQL Instance `Log_error_verbosity` Database Flag is not set to DEFAULT or stricter"
+  contextual: "PostgreSQL Instance `Log_error_verbosity` Database Flag is not set to DEFAULT or stricter"
+description: "The log_error_verbosity flag controls the verbosity/details of messages logged. Valid \ 
+ values are: TERSE, DEFAULT, VERBOSE.  TERSE excludes the logging of DETAIL, HINT, QUERY, and CONTEXT \ 
+ error information. VERBOSE output includes the SQLSTATE error code, source code file name, function \ 
+ name, and line number that generated the error. Ensure an appropriate value is set to 'DEFAULT' or stricter."
+type: COMPLIANCE_POLICY
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/06/02/01
+  - /frameworks/cloudaware/resource-reliability/system-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudSQL/log-error-verbosity-flag-postgre-sql.html"
+      name: "Configure 'log_error_verbosity' Flag for PostgreSQL Instances"

@@ -1,0 +1,20 @@
+---
+names: 
+  full: "Google Cloud Asset Inventory API is not enabled"
+  contextual: "Asset Inventory API is not enabled"
+description: "GCP Cloud Asset Inventory is services that provides a historical view of GCP resources \
+ and IAM policies through a time-series database. The information recorded includes metadata on \
+ Google Cloud resources, metadata on policies set on Google Cloud projects or resources, and runtime \
+ information gathered within a Google Cloud resource. 
+ Cloud Asset Inventory Service (CAIS) API enablement is not required for operation of the service, but \ 
+ rather enables the mechanism for searching/exporting CAIS asset data directly."
+type: COMPLIANCE_POLICY
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/02/13
+  - /frameworks/cloudaware/resource-reliability/system-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudAPI/enabled-cloud-asset-inventory.html"
+      name: "Enable Cloud Asset Inventory"

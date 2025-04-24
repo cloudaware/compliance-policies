@@ -1,0 +1,10 @@
+---
+name: "[IAM.4] IAM root user access key should not exist"
+description: |-
+  The root user is the most privileged user in an AWS account. AWS access keys 
+  provide programmatic access to a given account.
+similar:
+  internal:
+    - dec-c-cc5a37c2
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/iam-controls.html#iam-4

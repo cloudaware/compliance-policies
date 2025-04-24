@@ -1,0 +1,17 @@
+---
+names: 
+  full: "Google Cloud PostgreSQL Instance Log_connections Database Flag is not set to On"
+  contextual: "PostgreSQL Instance Log_connections Database Flag is not set to On"
+description: "Enabling the log_connections setting causes each attempted connection to the server \
+ to be logged, along with successful completion of client authentication. This parameter cannot be \
+ changed after the session starts."
+type: COMPLIANCE_POLICY
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/06/02/02
+  - /frameworks/cloudaware/resource-reliability/system-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/CloudSQL/enable-log-connections-flag.html"
+      name: "Enable 'log_connections' Flag for PostgreSQL Database Instances"

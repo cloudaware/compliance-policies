@@ -1,0 +1,127 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-15T22:26:01Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-04-07T08:34:09Z",
+        "CA10__healthCheckType__c": "EC2",
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": [
+            {
+                "Id": "test1_1",
+                "CA10__disappearanceTime__c": "2025-04-07T08:34:09Z",
+                "CA10__trafficSourceType__c": "elbv2",
+                "CA10__autoScalingGroup__c": "test1"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r.hasNo(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-15T22:26:01Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__healthCheckType__c": "EC2",
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r.hasNo(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-15T22:26:01Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__healthCheckType__c": "EC2",
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": [
+            {
+                "Id": "test3_1",
+                "CA10__disappearanceTime__c": "2025-04-07T08:34:09Z",
+                "CA10__trafficSourceType__c": "elbv2",
+                "CA10__autoScalingGroup__c": "test3"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r.hasNo(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-15T22:26:01Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__healthCheckType__c": "EC2",
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": [
+            {
+                "Id": "test4_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__trafficSourceType__c": "vpc-lattice",
+                "CA10__autoScalingGroup__c": "test4"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "not(extract('CA10__healthCheckType__c').contains('ELB'))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-15T22:26:01Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__healthCheckType__c": "EC2",
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": [
+            {
+                "Id": "test5_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__trafficSourceType__c": "elbv2",
+                "CA10__autoScalingGroup__c": "test5"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__healthCheckType__c').contains('ELB')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-15T22:26:01Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__healthCheckType__c": "ELB",
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": [
+            {
+                "Id": "test6_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__trafficSourceType__c": "elb",
+                "CA10__autoScalingGroup__c": "test6"
+            }
+        ]
+    }
+]

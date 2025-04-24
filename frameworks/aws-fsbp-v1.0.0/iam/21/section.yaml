@@ -1,0 +1,16 @@
+---
+name: >
+  [IAM.21] IAM customer managed policies that you create should not allow 
+  wildcard actions for services
+description: |-
+  When you assign permissions to AWS services, it is important to scope the 
+  allowed IAM actions in your IAM policies. You should restrict IAM actions to 
+  only those actions that are needed. This helps you to provision least privilege 
+  permissions. Overly permissive policies might lead to privilege escalation if 
+  the policies are attached to an IAM principal that might not require the 
+  permission.
+similar:
+  internal:
+    - dec-c-a4276be8
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/iam-controls.html#iam-21

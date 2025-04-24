@@ -1,0 +1,18 @@
+name: "[Inspector.2] Amazon Inspector ECR scanning should be enabled"
+description: |-
+  Amazon Inspector scans container images stored in Amazon Elastic Container 
+  Registry (Amazon ECR) for software vulnerabilities to generate package 
+  vulnerability findings. When you activate Amazon Inspector scans for Amazon 
+  ECR, you set Amazon Inspector as your preferred scanning service for your 
+  private registry. This replaces basic scanning, which is provided at no charge 
+  by Amazon ECR, with enhanced scanning, which is provided and billed through 
+  Amazon Inspector. Enhanced scanning gives you the benefit of vulnerability 
+  scanning for both operating system and programming language packages at the 
+  registry level. You can review findings discovered using enhanced scanning at 
+  the image level, for each layer of the image, on the Amazon ECR console. 
+  Additionally, you can review and work with these findings in other services 
+  not available for basic scanning findings, including AWS Security Hub and 
+  Amazon EventBridge.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/inspector-controls.html#inspector-2

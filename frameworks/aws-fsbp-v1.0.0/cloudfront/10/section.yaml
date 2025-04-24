@@ -1,0 +1,11 @@
+---
+name: >
+  [CloudFront.10] CloudFront distributions should not use deprecated SSL 
+  protocols between edge locations and custom origins
+description: |-
+  It is recommended that you use TLSv1.2 or later for HTTPS communication to your custom origins.
+similar:
+  internal:
+    - dec-c-f421b2af
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/cloudfront-controls.html#cloudfront-10

@@ -1,0 +1,30 @@
+---
+
+inputType: "CA10__CaGoogleSqlInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleSqlInstance__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is a PostgreSQL database instance."
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__databaseVersion__c"
+            substring:
+              TEXT: "POSTGRE" 
+  - status: "COMPLIANT"
+    currentStateMessage: "log_disconnections database flag is set to on."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "caExtract_databaseFlags_log_disconnections_flagValue__c"
+        right:
+          TEXT: "on"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "log_disconnections database flag isn't set to on."
+  remediationMessage: "Set log_disconnections database flag to on."

@@ -1,0 +1,67 @@
+---
+
+inputType: "CA10__CaGoogleSqlInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleSqlInstance__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is not a PostgreSQL database instance."
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__databaseVersion__c"
+            substring:
+              TEXT: "POSTGRE" 
+  - status: "COMPLIANT"
+    currentStateMessage: "log_min_messages database flag is set appropriately."
+    check:
+      OR:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "caExtract_databaseFlags_log_min_messages_flagValue__c"
+              right:
+                TEXT: "DEBUG5"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "caExtract_databaseFlags_log_min_messages_flagValue__c"
+              right:
+                TEXT: "DEBUG4"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "caExtract_databaseFlags_log_min_messages_flagValue__c"
+              right:
+                TEXT: "DEBUG3"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "caExtract_databaseFlags_log_min_messages_flagValue__c"
+              right:
+                TEXT: "DEBUG2"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "caExtract_databaseFlags_log_min_messages_flagValue__c"
+              right:
+                TEXT: "DEBUG1"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "caExtract_databaseFlags_log_min_messages_flagValue__c"
+              right:
+                TEXT: "INFO"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "caExtract_databaseFlags_log_min_messages_flagValue__c"
+              right:
+                TEXT: "NOTICE"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "caExtract_databaseFlags_log_min_messages_flagValue__c"
+              right:
+                TEXT: "WARNING"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "log_min_messages database flag isn't set appropriately."
+  remediationMessage: "Set log_min_messages database flag to appropriate value."

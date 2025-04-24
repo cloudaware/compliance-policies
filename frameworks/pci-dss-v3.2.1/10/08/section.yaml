@@ -1,15 +1,22 @@
 ---
-name: |-
-  10.8 Additional requirement for service providers only: Implement a process for the timely detection and reporting of failures of critical security control systems, including but not limited to failure of:
-  • Firewalls
-  • IDS/IPS
-  • FIM
-  • Anti-virus
-  • Physical access controls
-  • Logical access controls
-  • Audit logging mechanisms
-  • Segmentation controls (if used)
-description: ""
+name: >
+  10.8 Implement a process for the timely detection and reporting of failures 
+  of critical security control systems.
+description: |-
+  **Additional requirement for service providers only.**
+
+  Including but not limited to failure of:
+
+  - Firewalls.
+  - IDS/IPS.
+  - FIM.
+  - Anti-virus.
+  - Physical access controls.
+  - Logical access controls.
+  - Audit logging mechanisms.
+  - Segmentation controls (if used).
 similar:
   internal:
     - dec-c-b9f6ceef
+  sections:
+    - /frameworks/pci-dss-v4.0/10/07/01

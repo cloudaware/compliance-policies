@@ -1,0 +1,14 @@
+---
+names: 
+  full: "Google Identity Aware Proxy (IAP) is not used to enforce access controls"
+  contextual: "Identity Aware Proxy (IAP) is not used to enforce access controls"
+description: "IAP authenticates the user requests to your apps via a Google single sign in. You can \
+ then manage these users with permissions to control access. It is recommended to use both IAP permissions \ 
+ and firewalls to restrict this access to your apps with sensitive information."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+impossible: true
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/03/10
+  - /frameworks/cloudaware/resource-security/secure-access

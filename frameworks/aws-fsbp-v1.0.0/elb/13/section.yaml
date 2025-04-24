@@ -1,0 +1,18 @@
+---
+name: >
+  [ELB.13] Application, Network and Gateway Load Balancers should span 
+  multiple Availability Zones
+description: |-
+  Elastic Load Balancing automatically distributes your incoming traffic across 
+  multiple targets, such as EC2 instances, containers, and IP addresses, in one 
+  or more Availability Zones. Elastic Load Balancing scales your load balancer 
+  as your incoming traffic changes over time. It is recommended to configure 
+  at least two availability zones to ensure availability of services, 
+  as the Elastic Load Balancer will be able to direct traffic to another availability zone 
+  if one becomes unavailable. Having multiple availability zones configured will 
+  help eliminate having a single point of failure for the application.
+similar:
+  internal:
+    - dec-c-4184575c
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-13

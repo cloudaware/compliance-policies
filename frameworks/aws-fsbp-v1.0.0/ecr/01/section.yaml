@@ -1,0 +1,11 @@
+---
+name: "[ECR.1] ECR private repositories should have image scanning configured"
+description: |-
+  ECR image scanning helps in identifying software vulnerabilities in your container images. 
+  Configuring image scanning on ECR repositories adds a layer of verification for 
+  the integrity and safety of the images being stored.
+similar:
+  internal:
+    - dec-c-9a62038d
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ecr-controls.html#ecr-1

@@ -1,0 +1,16 @@
+---
+name: "[EMR.2] Amazon EMR block public access setting should be enabled"
+description: |-
+  Amazon EMR block public access prevents you from launching a cluster in a public subnet 
+  if the cluster has a security configuration that allows inbound traffic from 
+  public IP addresses on a port. When a user from your AWS account launches a cluster, 
+  Amazon EMR checks the port rules in the security group for the cluster and compares 
+  them with your inbound traffic rules. If the security group has an inbound rule 
+  that opens ports to the public IP addresses IPv4 0.0.0.0/0 or IPv6 ::/0, and those 
+  ports aren't specified as exceptions for your account, Amazon EMR doesn't let 
+  the user create the cluster.
+similar:
+  internal:
+    - dec-c-a165f3f2
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/emr-controls.html#emr-2

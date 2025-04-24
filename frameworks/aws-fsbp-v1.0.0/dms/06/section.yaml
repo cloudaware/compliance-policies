@@ -1,0 +1,15 @@
+---
+name: >
+  [DMS.6] DMS replication instances should have automatic minor version upgrade enabled
+description: |-
+  DMS provides automatic minor version upgrade to each supported replication engine 
+  so that you can keep your replication instance up-to-date. Minor versions can 
+  introduce new software features, bug fixes, security patches, and performance 
+  improvements. By enabling automatic minor version upgrade on DMS replication 
+  instances, minor upgrades are applied automatically during the maintenance window 
+  or immediately if the **Apply changes immediately option is chosen**.
+similar:
+  internal:
+    - dec-c-99485e4f
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/dms-controls.html#dms-6

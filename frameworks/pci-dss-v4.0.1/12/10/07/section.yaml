@@ -1,0 +1,17 @@
+name: >
+  12.10.7 Incident response procedures are in place, to be initiated upon 
+  the detection of stored PAN anywhere it is not expected.
+description: |-
+  Include:
+
+  - Determining what to do if PAN is discovered outside the CDE, including its 
+  retrieval, secure deletion, and/or migration into the currently defined CDE, 
+  as applicable.
+  - Identifying whether sensitive authentication data is stored with PAN.
+  - Determining where the account data came from and how it ended up where it 
+  was not expected.
+  - Remediating data leaks or process gaps that resulted in the account data 
+  being where it was not expected.
+similar:
+  sections:
+    - /frameworks/pci-dss-v4.0/12/10/07

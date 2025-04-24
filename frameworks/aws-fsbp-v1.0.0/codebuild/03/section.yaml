@@ -1,0 +1,12 @@
+---
+name: "[CodeBuild.3] CodeBuild S3 logs should be encrypted"
+description: |-
+  Encryption of data at rest is a recommended best practice to add a layer of 
+  access management around your data. Encrypting the logs at rest reduces the risk 
+  that a user not authenticated by AWS will access the data stored on disk. It adds 
+  another set of access controls to limit the ability of unauthorized users to access the data.
+similar:
+  internal:
+    - dec-c-132e6374
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/codebuild-controls.html#codebuild-3

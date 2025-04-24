@@ -1,0 +1,13 @@
+---
+name: >
+  [S3.12] ACLs should not be used to manage user access 
+  to S3 general purpose buckets
+description: |-
+  ACLs are legacy access control mechanisms that predate IAM. Instead of ACLs, 
+  we recommend using S3 bucket policies or AWS Identity and Access Management 
+  (IAM) policies to manage access to your S3 buckets.
+similar:
+  internal:
+    - dec-c-dfd02461
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/s3-controls.html#s3-12

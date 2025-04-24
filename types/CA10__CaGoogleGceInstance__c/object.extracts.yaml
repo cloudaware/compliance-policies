@@ -1,6 +1,6 @@
 ---
 extracts:
-  - name: "InstanceName"
+  - name: "Name"
     value: 
       FIELD:
         path: "Name"
@@ -12,3 +12,68 @@ extracts:
         path: "CA10__labels__c"
         undeterminedIf:
           isEmpty:  "Labels should not be empty"
+  - name: "CA10__ipForwarding__c"
+    value: 
+      FIELD:
+        path: "CA10__ipForwarding__c"
+        undeterminedIf:
+          isEmpty: "IP forwarding can't be empty"
+  - name: "CA10__shieldedIntegrityMonitoringState__c"
+    value: 
+      FIELD:
+        path: "CA10__shieldedIntegrityMonitoringState__c"
+  - name: "CA10__shieldedVtpmState__c"
+    value: 
+      FIELD:
+        path: "CA10__shieldedVtpmState__c"
+  - name: "CA10__confidentialComputeStatus__c"
+    value: 
+      FIELD:
+        path: "CA10__confidentialComputeStatus__c"
+  - name: "CA10__machineTypeName__c"
+    value: 
+      FIELD:
+        path: "CA10__machineTypeName__c"
+  - name: "CA10__metadataJson__c"
+    value: 
+      FIELD:
+        path: "CA10__metadataJson__c"
+        returnType: BYTES
+  - name: "caJsonFrom__metadataJson__c"
+    value: 
+      JSON_FROM:
+        arg: 
+          EXTRACT: "CA10__metadataJson__c"
+        undeterminedIf:
+          isInvalid: "Metadata JSON is invalid."
+          isEmpty: "Metadata JSON is empty."
+  - name: "caJsonFrom__metadataJson__block_project_ssh_keys_value"
+    value: 
+      JSON_QUERY_TEXT:
+        arg:
+          EXTRACT: "caJsonFrom__metadataJson__c"
+        expression: "to_string(items[?key=='block-project-ssh-keys'].value)"
+        undeterminedIf:
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return a text."
+          resultIsEmpty: "The JSON query did not return a value."
+  - name: "caJsonFrom__metadataJson__enable_oslogin_value"
+    value: 
+      JSON_QUERY_TEXT:
+        arg:
+          EXTRACT: "caJsonFrom__metadataJson__c"
+        expression: "to_string(items[?key=='enable-oslogin'].value)"
+        undeterminedIf:
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return a text."
+          resultIsEmpty: "The JSON query did not return a value."
+  - name: "caJsonFrom__metadataJson__serial_port_enable_value"
+    value: 
+      JSON_QUERY_TEXT:
+        arg:
+          EXTRACT: "caJsonFrom__metadataJson__c"
+        expression: "to_string(items[?key=='serial-port-enable'].value)"
+        undeterminedIf:
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return a text."
+          resultIsEmpty: "The JSON query did not return a value."

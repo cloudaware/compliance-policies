@@ -1,0 +1,58 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-02T17:45:22Z" },
+    "Id": "a4Z1",
+    "CA10__disappearanceTime__c": "2024-08-25T08:14:56Z",
+    "Name": "d-amazon",
+    "CA10__labels__c": "",
+    "CA10__ipForwarding__c": false
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('Name').startsWith('gke-')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-02T17:45:22Z" },
+    "Id": "a4Z2",
+    "CA10__disappearanceTime__c": null,
+    "Name": "gke-camel-default",
+    "CA10__labels__c": "goog-gke-node:",
+    "CA10__ipForwarding__c": false
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__ipForwarding__c') == true",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-02T17:45:22Z" },
+    "Id": "a4Z3",
+    "CA10__disappearanceTime__c": null,
+    "Name": "gateway-2019",
+    "CA10__labels__c": "",
+    "CA10__ipForwarding__c": true
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-02T17:45:22Z" },
+    "Id": "a44",
+    "CA10__disappearanceTime__c": null,
+    "Name": "image",
+    "CA10__labels__c": "instance-name: image",
+    "CA10__ipForwarding__c": false
+  }
+]

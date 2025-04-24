@@ -1,0 +1,12 @@
+---
+name: "[CodeBuild.4] CodeBuild project environments should have a logging AWS Configuration"
+description: 
+  From a security perspective, logging is an important feature to enable for future 
+  forensics efforts in the case of any security incidents. Correlating anomalies 
+  in CodeBuild projects with threat detections can increase confidence in the accuracy 
+  of those threat detections.
+similar:
+  internal:
+    - dec-c-a53539a3
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/codebuild-controls.html#codebuild-4

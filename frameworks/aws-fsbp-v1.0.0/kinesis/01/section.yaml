@@ -1,0 +1,13 @@
+---
+name: "[Kinesis.1] Kinesis streams should be encrypted at rest"
+description: |-
+  Server-side encryption is a feature in Amazon Kinesis Data Streams that 
+  automatically encrypts data before it's at rest by using an AWS KMS key. Data 
+  is encrypted before it's written to the Kinesis stream storage layer, and 
+  decrypted after it's retrieved from storage. As a result, your data is 
+  encrypted at rest within the Amazon Kinesis Data Streams service.
+similar:
+  internal:
+    - dec-c-81eeb711
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/kinesis-controls.html#kinesis-1

@@ -1,0 +1,16 @@
+---
+names:
+  full: AWS API Gateway API Route Authorization Type is not configured
+  contextual: API Route Authorization Type is not configured
+description: >
+  Ensure that each API Route in AWS API Gateway API has a mechanisms for 
+  controlling and managing access to the API.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/secure-access"
+  - "/frameworks/aws-fsbp-v1.0.0/api-gateway/08"
+similarPolicies:
+  internal:
+    - "dec-x-5fa71eac"

@@ -1,0 +1,14 @@
+---
+name: >
+  [Neptune.8] Neptune DB clusters should be configured to copy tags to snapshots
+description: |-
+  Identification and inventory of your IT assets is a crucial aspect of governance 
+  and security. You should tag snapshots in the same way as their parent Amazon 
+  RDS database clusters. Copying tags ensures that the metadata for the DB 
+  snapshots matches that of the parent database clusters, and that access 
+  policies for the DB snapshot also match those of the parent DB instance.
+similar:
+  internal:
+    - dec-c-826955e9
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/neptune-controls.html#neptune-8

@@ -1,0 +1,60 @@
+---
+inputType: "CA10__CaAwsApiGatewayRestApi__c"
+recordTypes:
+  - httpApi
+importExtracts:
+  - file: "/types/CA10__CaAwsApiGatewayRestApi__c/object.extracts.yaml"
+  - file: "/types/CA10A1__CaAwsApiGatewayRoute__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The WebSocket API has at least one API Route with\
+      \ no Authorization Type configured."
+    remediationMessage: "Consider configuring an authorization type for the\
+      \ API Route in the API Gateway."
+    check: 
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__protocolType__c"
+              right:
+                TEXT: "WEBSOCKET"
+          - RELATED_LIST_HAS:
+              status: "INCOMPLIANT"
+              relationshipName: "CA10A1__AWS_API_Gateway_Routes__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The HTTP API has at least one API Route with\
+      \ no Authorization Type configured."
+    remediationMessage: "Consider configuring an authorization type for the\
+      \ API Route in the API Gateway."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__protocolType__c"
+              right:
+                TEXT: "HTTP"
+          - RELATED_LIST_HAS:
+              status: "INCOMPLIANT"
+              relationshipName: "CA10A1__AWS_API_Gateway_Routes__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The API doesn't have Routes without an Authorization Type."
+relatedLists:
+  - relationshipName: "CA10A1__AWS_API_Gateway_Routes__r"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "API Gateway Route Authorization Type is not configured."
+        remediationMessage: "Configure Authorization Type for the API Gateway Route."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10A1__authorizationType__c"
+            right:
+              TEXT: "NONE"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "API Gateway Route Authorization Type is configured."

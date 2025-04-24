@@ -1,0 +1,11 @@
+---
+name: "[SSM.4] SSM documents should not be public"
+description: |-
+  Systems Manager documents that are public might allow unintended access to 
+  your documents. A public Systems Manager document can expose valuable 
+  information about your account, resources, and internal processes.
+similar:
+  internal:
+    - dec-c-15ad9945
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ssm-controls.html#ssm-4

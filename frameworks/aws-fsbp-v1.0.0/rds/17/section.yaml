@@ -1,0 +1,13 @@
+---
+name: "[RDS.17] RDS DB instances should be configured to copy tags to snapshots"
+description: |-
+  Identification and inventory of your IT assets is a crucial aspect of 
+  governance and security. You need to have visibility of all your RDS DB 
+  instances so that you can assess their security posture and take action on 
+  potential areas of weakness. Snapshots should be tagged in the same way as 
+  their parent RDS database instances.
+similar:
+  internal:
+    - dec-c-cc6ae788
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-17

@@ -1,0 +1,11 @@
+---
+name: "[Opensearch.5] OpenSearch domains should have audit logging enabled"
+description: |-
+  Audit logs are highly customizable. They allow you to track user activity on 
+  your OpenSearch clusters, including authentication successes and failures, 
+  requests to OpenSearch, index changes, and incoming search queries.
+similar:
+  internal:
+    - dec-c-45b69854
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/opensearch-controls.html#opensearch-5

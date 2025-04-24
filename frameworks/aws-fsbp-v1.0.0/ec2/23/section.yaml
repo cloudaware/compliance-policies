@@ -1,0 +1,12 @@
+---
+name: >
+  [EC2.23] Amazon EC2 Transit Gateways should not automatically accept VPC attachment requests
+description: |-
+  Turning on `AutoAcceptSharedAttachments` configures a transit gateway to automatically 
+  accept any cross-account VPC attachment requests without verifying the request 
+  or the account the attachment is originating from.
+similar:
+  internal:
+    - dec-c-d9dad748
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-23

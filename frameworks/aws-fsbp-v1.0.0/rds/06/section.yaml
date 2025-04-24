@@ -1,0 +1,14 @@
+---
+name: "[RDS.6] Enhanced monitoring should be configured for RDS DB instances"
+description: |-
+  In Amazon RDS, Enhanced Monitoring enables a more rapid response to performance 
+  changes in underlying infrastructure. These performance changes could result 
+  in a lack of availability of the data. Enhanced Monitoring provides real-time 
+  metrics of the operating system that your RDS DB instance runs on. An agent is 
+  installed on the instance. The agent can obtain metrics more accurately than 
+  is possible from the hypervisor layer.
+similar:
+  internal:
+    - dec-c-0bcdc74d
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-6

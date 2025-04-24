@@ -1,0 +1,13 @@
+---
+name: >
+  [MQ.3] Amazon MQ brokers should have automatic minor version upgrade enabled
+description: |-
+  As Amazon MQ releases and supports new broker engine versions, the changes are 
+  backward-compatible with an existing application and don't deprecate existing 
+  functionality. Automatic broker engine version updates protect you against 
+  security risks, help fix bugs, and improve functionality.
+similar:
+  internal:
+    - dec-c-84e1e953
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/mq-controls.html#mq-3

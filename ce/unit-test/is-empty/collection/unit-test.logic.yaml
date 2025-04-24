@@ -60,7 +60,7 @@ conditions:
           IS_EMPTY:
             arg:
               UNIT_TEST_NULL:
-                returnType: TEXT
+                returnType: COLLECTION
 otherwise:
   status: INCOMPLIANT
   currentStateMessage: Test Failed

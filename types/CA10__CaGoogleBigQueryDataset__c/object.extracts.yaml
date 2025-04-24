@@ -1,0 +1,12 @@
+---
+extracts:
+  - name: "CA10__access__c"
+    value: 
+      FIELD:
+        path: "CA10__access__c"
+        undeterminedIf:
+          isEmpty:  "Access field should not be empty"
+  - name: "CA10__kmsKeyName__c"
+    value: 
+      FIELD:
+        path: "CA10__kmsKeyName__c"

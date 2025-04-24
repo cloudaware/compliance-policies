@@ -1,0 +1,472 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__Google_Resource_Manager_Projects__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-12-06T03:25:14Z" },
+    "Id": "a4p1",
+    "CA10__Google_Resource_Manager_Projects__r": [
+      {
+        "Id": "1111",
+        "CA10__disappearanceTime__c": null,
+        "CA10__googleProject__c": "a4p1",
+        "CA10__resourceManagerFolder__c": "aAFF111",
+        "CA10__resourceManagerOrganization__c": "aAOO111",
+        "CA10__resourceManagerFolder__r": {
+          "Id": "aAFF111",
+          "CA10__Google_IAM_Policy_Audit_Configs__r": []
+        },
+        "CA10__resourceManagerOrganization__r": {
+          "Id": "aAOO111",
+          "CA10__Google_IAM_Policy_Audit_Configs__r": [
+            {
+              "Id": "a9C111",
+              "RecordTypeId": "0124ORG",
+              "CA10__disappearanceTime__c": null,
+              "CA10__exemptedMembers__c": "",
+              "CA10__service__c": "allServices",
+              "CA10__resourceManagerOrganization__c": "aAOO111",
+              "RecordType": {
+                "DeveloperName": "caGoogleIamPolicyAuditConfigOrganization",
+                "Id": "0124ORG"
+              },
+              "CA10__Google_IAM_Policy_Audit_Log_Config1__r": [
+                {
+                  "Id": "a9xDIAK111",
+                  "RecordTypeId": "0124ORG",
+                  "CA10__disappearanceTime__c": null,
+                  "CA10__logType__c": "DATA_WRITE",
+                  "CA10__exemptedMembers__c": "",
+                  "CA10__iamPolicyAuditConfig__c": "a9C111",
+                  "RecordType": {
+                    "DeveloperName": "caGoogleIamPolicyAuditConfigOrganization",
+                    "Id": "0124ORG"
+                  }
+                },
+                {
+                  "Id": "a9EjIAK111",
+                  "RecordTypeId": "0124ORG",
+                  "CA10__disappearanceTime__c": null,
+                  "CA10__logType__c": "DATA_READ",
+                  "CA10__exemptedMembers__c": "",
+                  "CA10__iamPolicyAuditConfig__c": "a9C111",
+                  "RecordType": {
+                    "DeveloperName": "caGoogleIamPolicyAuditConfigOrganization",
+                    "Id": "0124ORG"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "CA10__Google_IAM_Policy_Audit_Configs__r": []
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__Google_Resource_Manager_Projects__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-12-06T03:25:14Z" },
+    "Id": "a4p2",
+    "CA10__Google_Resource_Manager_Projects__r": [
+      {
+        "Id": "2222",
+        "CA10__disappearanceTime__c": null,
+        "CA10__googleProject__c": "a4p2",
+        "CA10__resourceManagerFolder__c": "aAFF222",
+        "CA10__resourceManagerOrganization__c": "aAOO222",
+        "CA10__resourceManagerFolder__r": {
+          "Id": "aAFF222",
+          "CA10__Google_IAM_Policy_Audit_Configs__r": [
+            {
+                "Id": "a9C222",
+                "RecordTypeId": "0124FOLDER",
+                "CA10__disappearanceTime__c": null,
+                "CA10__exemptedMembers__c": "",
+                "CA10__service__c": "allServices",
+                "CA10__resourceManagerFolder__c": "aAFF222",
+                "RecordType": {
+                  "DeveloperName": "caGoogleIamPolicyAuditConfigFolder",
+                  "Id": "0124FOLDER"
+                },
+                "CA10__Google_IAM_Policy_Audit_Log_Config1__r": [
+                  {
+                    "Id": "a9xDIAK222",
+                    "RecordTypeId": "0124FOLDER",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__logType__c": "DATA_WRITE",
+                    "CA10__exemptedMembers__c": "",
+                    "CA10__iamPolicyAuditConfig__c": "a9C222",
+                    "RecordType": {
+                      "DeveloperName": "caGoogleIamPolicyAuditConfigFolder",
+                      "Id": "0124FOLDER"
+                    }
+                  },
+                  {
+                    "Id": "a9EjIAK222",
+                    "RecordTypeId": "0124FOLDER",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__logType__c": "DATA_READ",
+                    "CA10__exemptedMembers__c": "",
+                    "CA10__iamPolicyAuditConfig__c": "a9C222",
+                    "RecordType": {
+                      "DeveloperName": "caGoogleIamPolicyAuditConfigFolder",
+                      "Id": "0124FOLDER"
+                    }
+                  }
+                ]
+              }
+          ]
+        },
+        "CA10__resourceManagerOrganization__r": {
+          "Id": "aAOO222",
+          "CA10__Google_IAM_Policy_Audit_Configs__r": []
+        },
+        "CA10__Google_IAM_Policy_Audit_Configs__r": []
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__Google_Resource_Manager_Projects__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-12-06T03:25:14Z" },
+    "Id": "a4p3",
+    "CA10__Google_Resource_Manager_Projects__r": [
+      {
+        "Id": "333",
+        "CA10__disappearanceTime__c": null,
+        "CA10__googleProject__c": "a4p3",
+        "CA10__resourceManagerFolder__c": "aAFF333",
+        "CA10__resourceManagerOrganization__c": "aAOO333",
+        "CA10__resourceManagerFolder__r": {
+          "Id": "aAFF333",
+          "CA10__Google_IAM_Policy_Audit_Configs__r": []
+        },
+        "CA10__resourceManagerOrganization__r": {
+          "Id": "aAOO333",
+          "CA10__Google_IAM_Policy_Audit_Configs__r": []
+        },
+        "CA10__Google_IAM_Policy_Audit_Configs__r": [
+            {
+                "Id": "a9C333",
+                "RecordTypeId": "0124PRJ",
+                "CA10__disappearanceTime__c": null,
+                "CA10__exemptedMembers__c": "",
+                "CA10__service__c": "allServices",
+                "CA10__resourceManagerProject__c": "333",
+                "RecordType": {
+                  "DeveloperName": "caGoogleIamPolicyAuditConfigProject",
+                  "Id": "0124PRJ"
+                },
+                "CA10__Google_IAM_Policy_Audit_Log_Config1__r": [
+                  {
+                    "Id": "a9xDIAK333",
+                    "RecordTypeId": "0124PRJ",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__logType__c": "DATA_WRITE",
+                    "CA10__exemptedMembers__c": "",
+                    "CA10__iamPolicyAuditConfig__c": "a9C333",
+                    "RecordType": {
+                      "DeveloperName": "caGoogleIamPolicyAuditConfigProject",
+                      "Id": "0124PRJ"
+                    }
+                  },
+                  {
+                    "Id": "a9EjIAK333",
+                    "RecordTypeId": "0124PRJ",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__logType__c": "DATA_READ",
+                    "CA10__exemptedMembers__c": "",
+                    "CA10__iamPolicyAuditConfig__c": "a9C333",
+                    "RecordType": {
+                      "DeveloperName": "caGoogleIamPolicyAuditConfigProject",
+                      "Id": "0124PRJ"
+                    }
+                  }
+                ]
+              }
+        ]
+      }
+    ]
+  },
+
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-12-06T03:25:14Z" },
+    "Id": "a4p3IN",
+    "CA10__Google_Resource_Manager_Projects__r": [
+      {
+        "Id": "333IN",
+        "CA10__disappearanceTime__c": null,
+        "CA10__googleProject__c": "a4p3IN",
+        "CA10__resourceManagerFolder__c": "aAFF333IN",
+        "CA10__resourceManagerOrganization__c": "aAOO333IN",
+        "CA10__resourceManagerFolder__r": {
+          "Id": "aAFF333IN",
+          "CA10__Google_IAM_Policy_Audit_Configs__r": []
+        },
+        "CA10__resourceManagerOrganization__r": {
+          "Id": "aAOO333IN",
+          "CA10__Google_IAM_Policy_Audit_Configs__r": []
+        },
+        "CA10__Google_IAM_Policy_Audit_Configs__r": [
+            {
+                "Id": "a9C333IN",
+                "RecordTypeId": "0124PRJ",
+                "CA10__disappearanceTime__c": null,
+                "CA10__exemptedMembers__c": "",
+                "CA10__service__c": "someOther",
+                "CA10__resourceManagerProject__c": "333IN",
+                "RecordType": {
+                  "DeveloperName": "caGoogleIamPolicyAuditConfigProject",
+                  "Id": "0124PRJ"
+                },
+                "CA10__Google_IAM_Policy_Audit_Log_Config1__r": [
+                  {
+                    "Id": "a9xDIAK333IN",
+                    "RecordTypeId": "0124PRJ",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__logType__c": "DATA_WRITE",
+                    "CA10__exemptedMembers__c": "",
+                    "CA10__iamPolicyAuditConfig__c": "a9C333IN",
+                    "RecordType": {
+                      "DeveloperName": "caGoogleIamPolicyAuditConfigProject",
+                      "Id": "0124PRJ"
+                    }
+                  },
+                  {
+                    "Id": "a9EjIAK333IN",
+                    "RecordTypeId": "0124PRJ",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__logType__c": "DATA_READ",
+                    "CA10__exemptedMembers__c": "",
+                    "CA10__iamPolicyAuditConfig__c": "a9C333IN",
+                    "RecordType": {
+                      "DeveloperName": "caGoogleIamPolicyAuditConfigProject",
+                      "Id": "0124PRJ"
+                    }
+                  }
+                ]
+              }
+        ]
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-12-06T03:25:14Z" },
+    "Id": "a4p3IN2",
+    "CA10__Google_Resource_Manager_Projects__r": [
+      {
+        "Id": "333IN2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__googleProject__c": "a4p3IN2",
+        "CA10__resourceManagerFolder__c": "aAFF333IN2",
+        "CA10__resourceManagerOrganization__c": "aAOO333IN2",
+        "CA10__resourceManagerFolder__r": {
+          "Id": "aAFF333IN2",
+          "CA10__Google_IAM_Policy_Audit_Configs__r": []
+        },
+        "CA10__resourceManagerOrganization__r": {
+          "Id": "aAOO333IN2",
+          "CA10__Google_IAM_Policy_Audit_Configs__r": []
+        },
+        "CA10__Google_IAM_Policy_Audit_Configs__r": [
+            {
+                "Id": "a9C333IN2",
+                "RecordTypeId": "0124PRJ",
+                "CA10__disappearanceTime__c": null,
+                "CA10__exemptedMembers__c": "somebody",
+                "CA10__service__c": "allServices",
+                "CA10__resourceManagerProject__c": "333IN2",
+                "RecordType": {
+                  "DeveloperName": "caGoogleIamPolicyAuditConfigProject",
+                  "Id": "0124PRJ"
+                },
+                "CA10__Google_IAM_Policy_Audit_Log_Config1__r": [
+                  {
+                    "Id": "a9xDIAK333IN2",
+                    "RecordTypeId": "0124PRJ",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__logType__c": "DATA_WRITE",
+                    "CA10__exemptedMembers__c": "",
+                    "CA10__iamPolicyAuditConfig__c": "a9C333IN2",
+                    "RecordType": {
+                      "DeveloperName": "caGoogleIamPolicyAuditConfigProject",
+                      "Id": "0124PRJ"
+                    }
+                  },
+                  {
+                    "Id": "a9EjIAK333IN2",
+                    "RecordTypeId": "0124PRJ",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__logType__c": "DATA_READ",
+                    "CA10__exemptedMembers__c": "",
+                    "CA10__iamPolicyAuditConfig__c": "a9C333IN2",
+                    "RecordType": {
+                      "DeveloperName": "caGoogleIamPolicyAuditConfigProject",
+                      "Id": "0124PRJ"
+                    }
+                  }
+                ]
+              }
+        ]
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-12-06T03:25:14Z" },
+    "Id": "a4p3IN3",
+    "CA10__Google_Resource_Manager_Projects__r": [
+      {
+        "Id": "333IN3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__googleProject__c": "a4p3IN3",
+        "CA10__resourceManagerFolder__c": "aAFF333IN3",
+        "CA10__resourceManagerOrganization__c": "aAOO333IN3",
+        "CA10__resourceManagerFolder__r": {
+          "Id": "aAFF333IN3",
+          "CA10__Google_IAM_Policy_Audit_Configs__r": []
+        },
+        "CA10__resourceManagerOrganization__r": {
+          "Id": "aAOO333IN3",
+          "CA10__Google_IAM_Policy_Audit_Configs__r": []
+        },
+        "CA10__Google_IAM_Policy_Audit_Configs__r": [
+            {
+                "Id": "a9C333IN3",
+                "RecordTypeId": "0124PRJ",
+                "CA10__disappearanceTime__c": null,
+                "CA10__exemptedMembers__c": "",
+                "CA10__service__c": "allServices",
+                "CA10__resourceManagerProject__c": "333IN3",
+                "RecordType": {
+                  "DeveloperName": "caGoogleIamPolicyAuditConfigProject",
+                  "Id": "0124PRJ"
+                },
+                "CA10__Google_IAM_Policy_Audit_Log_Config1__r": [
+                  {
+                    "Id": "a9xDIAK333IN3",
+                    "RecordTypeId": "0124PRJ",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__logType__c": "DATA_WRITE",
+                    "CA10__exemptedMembers__c": "",
+                    "CA10__iamPolicyAuditConfig__c": "a9C333IN3",
+                    "RecordType": {
+                      "DeveloperName": "caGoogleIamPolicyAuditConfigProject",
+                      "Id": "0124PRJ"
+                    }
+                  },
+                  {
+                    "Id": "a9EjIAK333IN3",
+                    "RecordTypeId": "0124PRJ",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__logType__c": "ADMIN_READ",
+                    "CA10__exemptedMembers__c": "",
+                    "CA10__iamPolicyAuditConfig__c": "a9C333IN3",
+                    "RecordType": {
+                      "DeveloperName": "caGoogleIamPolicyAuditConfigProject",
+                      "Id": "0124PRJ"
+                    }
+                  }
+                ]
+              }
+        ]
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-12-06T03:25:14Z" },
+    "Id": "a4p3IN4",
+    "CA10__Google_Resource_Manager_Projects__r": [
+      {
+        "Id": "333IN4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__googleProject__c": "a4p3IN4",
+        "CA10__resourceManagerFolder__c": "aAFF333IN4",
+        "CA10__resourceManagerOrganization__c": "aAOO333IN4",
+        "CA10__resourceManagerFolder__r": {
+          "Id": "aAFF333IN4",
+          "CA10__Google_IAM_Policy_Audit_Configs__r": []
+        },
+        "CA10__resourceManagerOrganization__r": {
+          "Id": "aAOO333IN4",
+          "CA10__Google_IAM_Policy_Audit_Configs__r": []
+        },
+        "CA10__Google_IAM_Policy_Audit_Configs__r": [
+            {
+                "Id": "a9C333IN4",
+                "RecordTypeId": "0124PRJ",
+                "CA10__disappearanceTime__c": null,
+                "CA10__exemptedMembers__c": "",
+                "CA10__service__c": "allServices",
+                "CA10__resourceManagerProject__c": "333IN4",
+                "RecordType": {
+                  "DeveloperName": "caGoogleIamPolicyAuditConfigProject",
+                  "Id": "0124PRJ"
+                },
+                "CA10__Google_IAM_Policy_Audit_Log_Config1__r": [
+                  {
+                    "Id": "a9xDIAK333IN4",
+                    "RecordTypeId": "0124PRJ",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__logType__c": "DATA_WRITE",
+                    "CA10__exemptedMembers__c": "some members",
+                    "CA10__iamPolicyAuditConfig__c": "a9C333IN4",
+                    "RecordType": {
+                      "DeveloperName": "caGoogleIamPolicyAuditConfigProject",
+                      "Id": "0124PRJ"
+                    }
+                  },
+                  {
+                    "Id": "a9EjIAK333IN4",
+                    "RecordTypeId": "0124PRJ",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__logType__c": "DATA_READ",
+                    "CA10__exemptedMembers__c": "",
+                    "CA10__iamPolicyAuditConfig__c": "a9C333IN4",
+                    "RecordType": {
+                      "DeveloperName": "caGoogleIamPolicyAuditConfigProject",
+                      "Id": "0124PRJ"
+                    }
+                  }
+                ]
+              }
+        ]
+      }
+    ]
+  }
+]

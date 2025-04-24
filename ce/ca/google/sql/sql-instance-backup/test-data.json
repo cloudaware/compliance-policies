@@ -1,0 +1,72 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T21:37:59Z" },
+    "Id": "a8ED7",
+    "CA10__disappearanceTime__c": "2023-12-06T13:34:16Z",
+    "CA10__instanceType__c": "CLOUD_SQL_INSTANCE",
+    "CA10__backupEnabled__c": true,
+    "CA10__backupStartTime__c": "23:00"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__instanceType__c') == 'READ_REPLICA_INSTANCE'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T21:37:59Z" },
+    "Id": "a8E479",
+    "CA10__disappearanceTime__c": null,
+    "CA10__instanceType__c": "READ_REPLICA_INSTANCE",
+    "CA10__backupEnabled__c": true,
+    "CA10__backupStartTime__c": "09:00"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__backupEnabled__c') == true && extract('CA10__backupStartTime__c').isNotEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T21:37:59Z" },
+    "Id": "a8E47",
+    "CA10__disappearanceTime__c": null,
+    "CA10__instanceType__c": "CLOUD_SQL_INSTANCE",
+    "CA10__backupEnabled__c": true,
+    "CA10__backupStartTime__c": "09:00"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T21:37:59Z" },
+    "Id": "a8ED77",
+    "CA10__disappearanceTime__c": null,
+    "CA10__instanceType__c": "CLOUD_SQL_INSTANCE",
+    "CA10__backupEnabled__c": false,
+    "CA10__backupStartTime__c": "00:00"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T21:37:59Z" },
+    "Id": "a8E477",
+    "CA10__disappearanceTime__c": null,
+    "CA10__instanceType__c": "CLOUD_SQL_INSTANCE",
+    "CA10__backupEnabled__c": true,
+    "CA10__backupStartTime__c": ""
+  }
+]

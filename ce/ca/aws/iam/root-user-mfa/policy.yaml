@@ -11,11 +11,8 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - "/frameworks/cis-aws-v1.5.0/01/05"
-  - "/frameworks/cis-aws-v3.0.0/01/05"
-  - "/frameworks/cis-aws-v4.0.0/01/05"
-  - "/frameworks/cis-aws-v4.0.1/01/05"
-  - "/frameworks/cloudaware/identity-and-access-management/mfa-implementation"
+  - "/frameworks/cis-aws-v5.0.0/01/04"
+  - "/frameworks/cloudaware/identity-and-access-governance/mfa-implementation"
 similarPolicies:
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/IAM/root-mfa-enabled.html

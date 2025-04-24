@@ -1,0 +1,11 @@
+---
+name: >
+  [S3.9] S3 general purpose buckets should have server access logging enabled
+description: |-
+  Server access logging provides detailed records of requests made to a bucket. 
+  Server access logs can assist in security and access audits.
+similar:
+  internal:
+    - dec-c-10f83561
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/s3-controls.html#s3-9

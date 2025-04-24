@@ -1,0 +1,19 @@
+---
+
+inputType: "CA10__CaGoogleProject__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleProject__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Cloud Asset Inventory is enabled "
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "CA10__enabledServices__c"
+        substring:
+          TEXT: 'cloudasset.googleapis.com'
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Cloud Asset Inventory is not enabled"

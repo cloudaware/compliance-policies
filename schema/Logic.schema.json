@@ -305,6 +305,16 @@
       },
       "required" : [ "COLLECTION" ]
     },
+    "ConstDateTime" : {
+      "type" : "object",
+      "properties" : {
+        "DATE_TIME" : {
+          "type" : "string",
+          "description" : "Operation that creates a DateTime constant, can not be null"
+        }
+      },
+      "required" : [ "DATE_TIME" ]
+    },
     "ConstDuration" : {
       "type" : "object",
       "properties" : {
@@ -314,6 +324,15 @@
         }
       },
       "required" : [ "DURATION" ]
+    },
+    "ConstJson" : {
+      "type" : "object",
+      "properties" : {
+        "JSON" : {
+          "description" : "Operation that creates a JSON, can not be null"
+        }
+      },
+      "required" : [ "JSON" ]
     },
     "ConstNumber" : {
       "type" : "object",
@@ -601,7 +620,10 @@
       "properties" : {
         "path" : {
           "type" : "string",
-          "description" : "The string that contains a path to the field. For example: 'CA10_status__c' or 'CA10__account__r.CA10__accountId__c'"
+          "description" : "The string that contains a path to the field. For example: 'CA10__status__c' or 'CA10__account__r.CA10__accountId__c'"
+        },
+        "returnType" : {
+          "$ref" : "#/definitions/ReturnType"
         },
         "undeterminedIf" : {
           "allOf" : [ {
@@ -625,7 +647,7 @@
     },
     "DurationFromFormat" : {
       "type" : "string",
-      "enum" : [ "GCP_DURATION", "ISO_8601_DURATION" ]
+      "enum" : [ "GCP", "ISO_8601" ]
     },
     "DateTimeFromFormat" : {
       "type" : "string",
@@ -728,7 +750,7 @@
       "properties" : {
         "arg" : {
           "allOf" : [ {
-            "$ref" : "#/definitions/OpText"
+            "$ref" : "#/definitions/OpBytes"
           }, {
             "description" : "The string that contains a serialized JSON"
           } ]
@@ -1111,7 +1133,11 @@
       }, {
         "$ref" : "#/definitions/ConstCollectionWrapper"
       }, {
+        "$ref" : "#/definitions/ConstDateTime"
+      }, {
         "$ref" : "#/definitions/ConstDuration"
+      }, {
+        "$ref" : "#/definitions/ConstJson"
       }, {
         "$ref" : "#/definitions/ConstNumber"
       }, {
@@ -1177,6 +1203,12 @@
       }, {
         "$ref" : "#/definitions/RelatedListAggregateHasNoWrapper"
       }, {
+        "$ref" : "#/definitions/TagExistsWrapper"
+      }, {
+        "$ref" : "#/definitions/TagValueBytesWrapper"
+      }, {
+        "$ref" : "#/definitions/TagValueTextWrapper"
+      }, {
         "$ref" : "#/definitions/TextPatternContainsWrapper"
       }, {
         "$ref" : "#/definitions/TextPatternEndsWithWrapper"
@@ -1184,8 +1216,6 @@
         "$ref" : "#/definitions/TextPatternStartsWithWrapper"
       }, {
         "$ref" : "#/definitions/UnitTestWrapper"
-      }, {
-        "$ref" : "#/definitions/UnitTestDateTime"
       }, {
         "$ref" : "#/definitions/UnitTestNullWrapper"
       }, {
@@ -1209,8 +1239,6 @@
         "$ref" : "#/definitions/ComparisonLessThanEqualWrapper"
       }, {
         "$ref" : "#/definitions/ConstBoolean"
-      }, {
-        "$ref" : "#/definitions/ConstDuration"
       }, {
         "$ref" : "#/definitions/DateRelativeRangeAfterTodayWrapper"
       }, {
@@ -1258,6 +1286,8 @@
       }, {
         "$ref" : "#/definitions/RelatedListAggregateHasNoWrapper"
       }, {
+        "$ref" : "#/definitions/TagExistsWrapper"
+      }, {
         "$ref" : "#/definitions/TextPatternContainsWrapper"
       }, {
         "$ref" : "#/definitions/TextPatternEndsWithWrapper"
@@ -1271,11 +1301,32 @@
         "$ref" : "#/definitions/UnitTestRuntimeErrorWrapper"
       } ]
     },
+    "OpBytes" : {
+      "oneOf" : [ {
+        "$ref" : "#/definitions/ConstBytes"
+      }, {
+        "$ref" : "#/definitions/DebugWrapper"
+      }, {
+        "$ref" : "#/definitions/ExtractReference"
+      }, {
+        "$ref" : "#/definitions/FieldReferenceWrapper"
+      }, {
+        "$ref" : "#/definitions/JsonQueryBytesWrapper"
+      }, {
+        "$ref" : "#/definitions/TagValueBytesWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestNullWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestRuntimeErrorWrapper"
+      } ]
+    },
     "OpCollection" : {
       "oneOf" : [ {
         "$ref" : "#/definitions/CollectionFromWrapper"
       }, {
         "$ref" : "#/definitions/ConstCollectionWrapper"
+      }, {
+        "$ref" : "#/definitions/ConstJson"
       }, {
         "$ref" : "#/definitions/DebugWrapper"
       }, {
@@ -1288,6 +1339,8 @@
     },
     "OpDateTime" : {
       "oneOf" : [ {
+        "$ref" : "#/definitions/ConstDateTime"
+      }, {
         "$ref" : "#/definitions/DateTimeFromWrapper"
       }, {
         "$ref" : "#/definitions/DebugWrapper"
@@ -1295,8 +1348,6 @@
         "$ref" : "#/definitions/ExtractReference"
       }, {
         "$ref" : "#/definitions/FieldReferenceWrapper"
-      }, {
-        "$ref" : "#/definitions/UnitTestDateTime"
       }, {
         "$ref" : "#/definitions/UnitTestNullWrapper"
       }, {
@@ -1319,6 +1370,8 @@
     "OpNumeric" : {
       "oneOf" : [ {
         "$ref" : "#/definitions/CollectionSizeWrapper"
+      }, {
+        "$ref" : "#/definitions/ConstDuration"
       }, {
         "$ref" : "#/definitions/ConstNumber"
       }, {
@@ -1350,6 +1403,8 @@
         "$ref" : "#/definitions/FieldReferenceWrapper"
       }, {
         "$ref" : "#/definitions/JsonQueryTextWrapper"
+      }, {
+        "$ref" : "#/definitions/TagValueTextWrapper"
       }, {
         "$ref" : "#/definitions/UnitTestNullWrapper"
       }, {
@@ -1475,9 +1530,79 @@
       },
       "required" : [ "RELATED_LIST_HAS_NO" ]
     },
+    "ReturnType" : {
+      "type" : "string",
+      "enum" : [ "AUTO", "BYTES" ]
+    },
     "Status" : {
       "type" : "string",
       "enum" : [ "DISAPPEARED", "INAPPLICABLE", "COMPLIANT", "INCOMPLIANT", "UNDETERMINED" ]
+    },
+    "TagExists" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "$ref" : "#/definitions/Op"
+        },
+        "tagsJson" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "name" ],
+      "additionalProperties" : false
+    },
+    "TagExistsWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "TAG_EXISTS" : {
+          "$ref" : "#/definitions/TagExists"
+        }
+      },
+      "required" : [ "TAG_EXISTS" ]
+    },
+    "TagValueBytes" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "$ref" : "#/definitions/Op"
+        },
+        "tagsJson" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "name" ],
+      "additionalProperties" : false
+    },
+    "TagValueBytesWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "TAG_VALUE_BYTES" : {
+          "$ref" : "#/definitions/TagValueBytes"
+        }
+      },
+      "required" : [ "TAG_VALUE_BYTES" ]
+    },
+    "TagValueText" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "$ref" : "#/definitions/Op"
+        },
+        "tagsJson" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "name" ],
+      "additionalProperties" : false
+    },
+    "TagValueTextWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "TAG_VALUE_TEXT" : {
+          "$ref" : "#/definitions/TagValueText"
+        }
+      },
+      "required" : [ "TAG_VALUE_TEXT" ]
     },
     "TestDataFile" : {
       "type" : "object",
@@ -1649,16 +1774,6 @@
         }
       },
       "required" : [ "UNIT_TEST" ]
-    },
-    "UnitTestDateTime" : {
-      "type" : "object",
-      "properties" : {
-        "UNIT_TEST_DATE_TIME" : {
-          "type" : "string",
-          "description" : "Operation that creates a DateTime constant, just for unit-test"
-        }
-      },
-      "required" : [ "UNIT_TEST_DATE_TIME" ]
     },
     "UnitTestNull" : {
       "type" : "object",

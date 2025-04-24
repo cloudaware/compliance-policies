@@ -1,0 +1,12 @@
+---
+name: >
+  [ACM.2] RSA certificates managed by ACM should use a key length of at least 2,048 bits
+description: |-
+  The strength of encryption directly correlates with key size. We recommend key 
+  lengths of at least 2,048 bits to protect your AWS resources as computing power 
+  becomes less expensive and servers become more advanced.
+similar:
+  internal:
+    - dec-c-80adfcf2
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/acm-controls.html#acm-2

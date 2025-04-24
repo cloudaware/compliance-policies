@@ -1,0 +1,13 @@
+---
+name: >
+  [NetworkFirewall.4] The default stateless action for Network Firewall 
+  policies should be drop or forward for full packets
+description: |-
+  A firewall policy defines how your firewall monitors and handles traffic in 
+  Amazon VPC. You configure stateless and stateful rule groups to filter packets 
+  and traffic flows. Defaulting to `Pass` can allow unintended traffic.
+similar:
+  internal:
+    - dec-c-5fc5b6aa
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/networkfirewall-controls.html#networkfirewall-4

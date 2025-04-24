@@ -1,0 +1,15 @@
+---
+name: >
+  [AutoScaling.3] Auto Scaling group launch configurations should configure 
+  EC2 instances to require Instance Metadata Service Version 2 (IMDSv2)
+description: |-
+  IMDS provides data about your instance that you can use to configure or 
+  manage the running instance.
+
+  Version 2 of the IMDS adds new protections that weren't available in IMDSv1 
+  to further safeguard your EC2 instances.
+similar:
+  internal:
+    - dec-c-6e627327
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/autoscaling-controls.html#autoscaling-3

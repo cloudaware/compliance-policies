@@ -1,0 +1,15 @@
+---
+name: >
+  [ELB.3] Classic Load Balancer listeners should be configured with HTTPS 
+  or TLS termination
+description: |-
+  Before you start to use a load balancer, you must add one or more listeners. 
+  A listener is a process that uses the configured protocol and port to check for 
+  connection requests. Listeners can support both HTTP and HTTPS/TLS protocols. 
+  You should always use an HTTPS or TLS listener, so that the load balancer does 
+  the work of encryption and decryption in transit.
+similar:
+  internal:
+    - dec-c-738956ed
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-3

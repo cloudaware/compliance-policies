@@ -1,0 +1,12 @@
+---
+name: "[CloudTrail.4] CloudTrail log file validation should be enabled"
+description: |-
+  CloudTrail log file validation creates a digitally signed digest file that contains 
+  a hash of each log that CloudTrail writes to Amazon S3. You can use these digest 
+  files to determine whether a log file was changed, deleted, or unchanged after 
+  CloudTrail delivered the log.
+similar:
+  internal:
+    - dec-c-ef4fe33a
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/cloudtrail-controls.html#cloudtrail-4

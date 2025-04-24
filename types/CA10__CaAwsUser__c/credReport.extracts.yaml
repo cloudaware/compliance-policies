@@ -29,6 +29,7 @@ extracts:
         arg:
           FIELD:
             path: CA10__credReportAttributesJson__c
+            returnType: BYTES
             undeterminedIf:
               isEmpty: Credential report attributes are empty, this is either permission issue or the data haven't been populated yet
         undeterminedIf:

@@ -1,0 +1,28 @@
+---
+
+inputType: "CA10__CaGoogleGceInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleGceInstance__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Instance created by GKE."
+    check:
+      STARTS_WITH:
+        arg:
+          EXTRACT: "Name"
+        prefix:
+          TEXT: 'gke-'
+  - status: "COMPLIANT"
+    currentStateMessage: "OS login is enabled for the instance."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "caJsonFrom__metadataJson__enable_oslogin_value"
+        substring:
+          TEXT: "true"
+otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "OS login is disabled for the instance."
+      remediationMessage:  "Enable OS login for Instance."

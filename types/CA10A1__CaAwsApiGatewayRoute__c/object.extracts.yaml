@@ -1,0 +1,9 @@
+---
+extracts:
+#Values: NONE | AWS_IAM | CUSTOM | JWT. Not Nullable. Can't have no access, retrieved via apigatewayv2:GetRoutes.
+  - name: CA10A1__authorizationType__c
+    value: 
+      FIELD:
+        path: CA10A1__authorizationType__c
+        undeterminedIf:
+          isEmpty: "Authorization Type cannot be empty. Possibly corrupted data."

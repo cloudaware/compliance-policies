@@ -1,0 +1,19 @@
+---
+names: 
+  full: "Google GCE Instance Enable Connecting to Serial Ports is not disabled"
+  contextual: "Instance Enable Connecting to Serial Ports is not disabled"
+description: "Interacting with a serial port is often referred to as the serial console, which is similar to \
+ using a terminal window, in that input and output is entirely in text mode and there is no graphical \ 
+ interface or mouse support.
+ If you enable the interactive serial console on an instance, clients can attempt to connect to that instance \ 
+ from any IP address. Therefore interactive serial console support should be disabled."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/04/05
+  - /frameworks/cloudaware/resource-security/secure-access
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/ComputeEngine/disable-interactive-serial-console-support.html"
+      name: "Disable Interactive Serial Console Support"

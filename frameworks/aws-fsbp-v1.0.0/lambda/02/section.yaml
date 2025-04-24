@@ -1,0 +1,14 @@
+---
+name: "[Lambda.2] Lambda functions should use supported runtimes"
+description: |-
+  Lambda runtimes are built around a combination of operating system, programming 
+  language, and software libraries that are subject to maintenance and security 
+  updates. When a runtime component is no longer supported for security updates, 
+  Lambda deprecates the runtime. Even though you can't create functions that use 
+  the deprecated runtime, the function is still available to process invocation 
+  events.
+similar:
+  internal:
+    - dec-c-6e03478a
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/lambda-controls.html#lambda-2

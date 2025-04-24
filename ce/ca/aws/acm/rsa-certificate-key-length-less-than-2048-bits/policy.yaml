@@ -10,7 +10,8 @@ categories:
   - "SECURITY"
 type: "COMPLIANCE_POLICY"
 frameworkMappings:
-  - "/frameworks/cloudaware/key-secret-certificate-management/key-secret-certificate-configuration"
+  - "/frameworks/cloudaware/secret-and-certificate-governance/cryptographic-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/acm/02"
 similarPolicies:
   internal:
     - "dec-x-4de1c44e"

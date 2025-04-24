@@ -1,0 +1,27 @@
+---
+
+inputType: "CA10__CaGoogleBigQueryDataset__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleBigQueryDataset__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "IAM policy on BigQuery dataset allows anonymous and/or public access."
+    remediationMessage: "Update the dataset information to remove all roles containing 'allUsers' or 'allAuthenticatedUsers'."
+    check:
+      OR:
+        args:
+          - CONTAINS:
+              arg:
+                EXTRACT: "CA10__access__c"
+              substring:
+                TEXT: "allUsers"
+          - CONTAINS:
+              arg:
+                EXTRACT: "CA10__access__c"
+              substring:
+                TEXT: "allAuthenticatedUsers"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "IAM policy on BigQuery dataset does not allow anonymous and/or public access."

@@ -1,0 +1,13 @@
+---
+name: >
+  [ElastiCache.5] ElastiCache replication groups should be encrypted in transit
+description: |-
+  Encrypting data in transit reduces the risk that an unauthorized user can eavesdrop 
+  on network traffic. Enabling encryption in transit on an ElastiCache replication 
+  group encrypts your data whenever it's moving from one place to another, such 
+  as between nodes in your cluster or between your cluster and your application.
+similar:
+  internal:
+    - dec-c-7a3741b2
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/elasticache-controls.html#elasticache-5

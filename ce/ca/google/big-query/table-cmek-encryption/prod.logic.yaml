@@ -1,0 +1,26 @@
+---
+
+inputType: "CA10__CaGoogleBigQueryTable__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleBigQueryTable__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The encryption is only supported for Tables."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__type__c"
+        right:
+          TEXT: "TABLE"
+  - status: "COMPLIANT"
+    currentStateMessage: "The BigQuery Table is encrypted with a KMS Key."
+    check:
+      NOT_EMPTY:
+        arg:
+          EXTRACT: "CA10__kmsKeyName__c"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The BigQuery Table is not encrypted with a KMS Key."
+  remediationMessage: "Set a KMS key for the BigQuery Table."

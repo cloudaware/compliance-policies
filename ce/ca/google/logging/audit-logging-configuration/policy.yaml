@@ -1,0 +1,15 @@
+---
+names: 
+  full: "Google Cloud Audit Logging is not configured properly"
+  contextual: "Cloud Audit Logging is not configured properly"
+description: "It is recommended that Cloud Audit Logging is configured to track all admin activities and read, write access to user data."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/02/01
+  - /frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudIAM/record-all-activities.html"
+      name: "Configure Google Cloud Audit Logs to Track All Activities"

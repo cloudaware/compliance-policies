@@ -1,0 +1,13 @@
+---
+name: "[DynamoDB.7] DynamoDB Accelerator clusters should be encrypted in transit"
+description: |-
+  HTTPS (TLS) can be used to help prevent potential attackers from using person-in-the-middle 
+  or similar attacks to eavesdrop on or manipulate network traffic. You should only 
+  allow encrypted connections over TLS to access DAX clusters. However, encrypting 
+  data in transit can affect performance. You should test your application with 
+  encryption turned on to understand the performance profile and the impact of TLS.
+similar:
+  internal:
+    - dec-c-d09da39d
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/dynamodb-controls.html#dynamodb-7

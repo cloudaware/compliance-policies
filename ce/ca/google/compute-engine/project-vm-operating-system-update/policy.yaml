@@ -1,0 +1,22 @@
+---
+names: 
+  full: "Google GCE Instance doesn't have the latest operating system updates installed"
+  contextual: "Instance doesn't have the latest operating system updates installed"
+description: "Google Cloud Virtual Machines have the ability via an OS Config agent API to \ 
+ periodically (about every 10 minutes) report OS inventory data. A patch compliance API \ 
+ periodically reads this data, and cross references metadata to determine if the latest \ 
+ updates are installed. 
+ This is not the only Patch Management solution available to your organization and you \ 
+ should weigh your needs before committing to using this method. "
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+  - "RELIABILITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/04/12
+  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudAPI/latest-os-updates.html"
+      name: "Latest Operating System Updates"

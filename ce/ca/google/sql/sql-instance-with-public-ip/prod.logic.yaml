@@ -1,0 +1,49 @@
+---
+
+inputType: "CA10__CaGoogleSqlInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleSqlInstance__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Only instance of type 'CLOUD_SQL_INSTANCE' with backendType: 'SECOND_GEN' can be configured to have a private IP address."
+    check:
+      OR:
+        args:
+          - NOT_EQUAL:
+              left:
+                EXTRACT: "CA10__instanceType__c"
+              right:
+                TEXT: "CLOUD_SQL_INSTANCE"
+          - NOT_EQUAL:
+              left:
+                EXTRACT: "CA10__backendType__c"
+              right:
+                TEXT: "SECOND_GEN"                
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The SQL database instance has public IPs."
+    remediationMessage: "Remove the public IPs and assign a private IP instead."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__Google_Cloud_SQL_Instance_IP_Addresses__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Cloud SQL database instance does not have public IPs."
+relatedLists:
+   - relationshipName: "CA10__Google_Cloud_SQL_Instance_IP_Addresses__r"
+     importExtracts:
+       - file: /types/CA10__CaGoogleSqlInstanceIpAddress__c/object.extracts.yaml
+     conditions: 
+       - status: "INCOMPLIANT"
+         currentStateMessage: "This is a public IP address."
+         check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__type__c"
+            right:
+              TEXT: "PRIMARY"
+     otherwise:
+       status: "COMPLIANT"
+       currentStateMessage: "This is not a public IP address."

@@ -1,8 +1,12 @@
 ---
-name: "8.2.1  Using strong cryptography, render all authentication credentials (such\
-  \ as passwords/phrases) unreadable during transmission and storage on all system\
-  \ components."
+name: >
+  8.2.1  Using strong cryptography, render all authentication credentials 
+  unreadable during transmission and storage on all system components.
 description: ""
 similar:
   internal:
     - dec-c-2f346432
+  sections:
+    - /frameworks/pci-dss-v4.0/08/03/02
+    - /frameworks/aws-fsbp-v1.0.0/codebuild/01
+    - /frameworks/aws-fsbp-v1.0.0/codebuild/02

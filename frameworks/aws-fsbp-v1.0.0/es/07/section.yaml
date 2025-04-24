@@ -1,0 +1,15 @@
+---
+name: >
+  [ES.7] Elasticsearch domains should be configured with at least three 
+  dedicated master nodes
+description: |-
+  An Elasticsearch domain requires at least three dedicated primary nodes for high 
+  availability and fault-tolerance. Dedicated primary node resources can be strained 
+  during data node blue/green deployments because there are additional nodes to manage. 
+  Deploying an Elasticsearch domain with at least three dedicated primary nodes ensures 
+  sufficient primary node resource capacity and cluster operations if a node fails.
+similar:
+  internal:
+    - dec-c-677c5f85
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/es-controls.html#es-7

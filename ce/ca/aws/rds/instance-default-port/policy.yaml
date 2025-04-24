@@ -10,7 +10,8 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - /frameworks/cloudaware/resource-security/threat-protection
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/23"
 similarPolicies:
   internal:
     - dec-x-fd0bfd1b

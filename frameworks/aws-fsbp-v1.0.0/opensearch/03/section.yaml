@@ -1,0 +1,17 @@
+---
+name: "[Opensearch.3] OpenSearch domains should encrypt data sent between nodes"
+description: |-
+  HTTPS (TLS) can be used to help prevent potential attackers from eavesdropping 
+  on or manipulating network traffic using person-in-the-middle or similar attacks. 
+  Only encrypted connections over HTTPS (TLS) should be allowed. Enabling 
+  node-to-node encryption for OpenSearch domains ensures that intra-cluster 
+  communications are encrypted in transit.
+
+  There can be a performance penalty associated with this configuration. You 
+  should be aware of and test the performance trade-off before enabling this 
+  option.
+similar:
+  internal:
+    - dec-c-65b73a19
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/opensearch-controls.html#opensearch-3

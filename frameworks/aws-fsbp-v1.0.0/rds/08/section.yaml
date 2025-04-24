@@ -1,0 +1,10 @@
+---
+name: "[RDS.8] RDS DB instances should have deletion protection enabled"
+description: |-
+  Enabling instance deletion protection is an additional layer of protection 
+  against accidental database deletion or deletion by an unauthorized entity.
+similar:
+  internal:
+    - dec-c-720008b5
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-8

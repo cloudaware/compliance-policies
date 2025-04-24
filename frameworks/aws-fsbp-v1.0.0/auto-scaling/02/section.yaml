@@ -1,0 +1,14 @@
+---
+name: >
+  [AutoScaling.2] Amazon EC2 Auto Scaling group should cover multiple Availability Zones
+description: |-
+  An Auto Scaling group that doesn't span multiple AZs can't launch instances in 
+  another AZ to compensate if the configured single AZ becomes unavailable. 
+  However, an Auto Scaling group with a single Availability Zone may be preferred 
+  in some use cases, such as batch jobs or when inter-AZ transfer costs need to be kept 
+  to a minimum. In such cases, you can disable this control or suppress its findings.
+similar:
+  internal:
+    - dec-c-9bbacd90
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/autoscaling-controls.html#autoscaling-2

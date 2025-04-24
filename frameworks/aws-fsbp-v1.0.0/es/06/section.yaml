@@ -1,0 +1,11 @@
+---
+name: "[ES.6] Elasticsearch domains should have at least three data nodes"
+description: |-
+  An Elasticsearch domain requires at least three data nodes for high availability 
+  and fault-tolerance. Deploying an Elasticsearch domain with at least three data 
+  nodes ensures cluster operations if a node fails.
+similar:
+  internal:
+    - dec-c-b99c755f
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/es-controls.html#es-6

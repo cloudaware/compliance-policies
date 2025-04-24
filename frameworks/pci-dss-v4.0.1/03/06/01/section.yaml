@@ -1,0 +1,13 @@
+name: >
+  3.6.1 Procedures are defined and implemented to protect cryptographic keys 
+  used to protect stored account data against disclosure and misuse.
+description: |-
+  That include:
+  
+  - Access to keys is restricted to the fewest number of custodians necessary.
+  - Key-encrypting keys are at least as strong as the data-encrypting keys they protect.
+  - Key-encrypting keys are stored separately from data-encrypting keys.
+  - Keys are stored securely in the fewest possible locations and forms.
+similar:
+  sections:
+    - /frameworks/pci-dss-v4.0/03/06/01

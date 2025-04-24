@@ -1,0 +1,10 @@
+---
+name: "[CloudFront.7] CloudFront distributions should use custom SSL/TLS certificates"
+description: |-
+  Custom SSL/TLS allow your users to access content by using alternate domain names. 
+  You can store custom certificates in AWS Certificate Manager (recommended), or in IAM.
+similar:
+  internal:
+    - dec-c-e48c2c82
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/cloudfront-controls.html#cloudfront-7

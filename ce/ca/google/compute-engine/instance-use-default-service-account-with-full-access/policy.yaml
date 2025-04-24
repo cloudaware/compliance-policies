@@ -1,0 +1,17 @@
+---
+names: 
+  full: "Google GCE Instance is configured to use the Default Service Account with full access to all Cloud APIs"
+  contextual: "Instance is configured to use the Default Service Account with full access to all Cloud APIs"
+description: "To support principle of least privileges and prevent potential privilege escalation it is \
+ recommended that instances are not assigned to default service account Compute Engine default service \ 
+ account with Scope Allow full access to all Cloud APIs."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/04/02
+  - /frameworks/cloudaware/resource-security/secure-access
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/ComputeEngine/default-service-accounts-with-full-access-in-use.html"
+      name: "Check for Instance-Associated Service Accounts with Full API Access"

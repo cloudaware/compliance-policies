@@ -22,6 +22,14 @@ conditions:
           EXTRACT: CA10__credReportMfaActive__c
         right:
           BOOLEAN: true
+  - status: "COMPLIANT"
+    currentStateMessage: "The root user doesn't have credentials."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: CA10__credReportPasswordEnabled__c
+        right:
+          BOOLEAN: true
 otherwise:
   status: "INCOMPLIANT"
   currentStateMessage: "The root user does not have MFA enabled."

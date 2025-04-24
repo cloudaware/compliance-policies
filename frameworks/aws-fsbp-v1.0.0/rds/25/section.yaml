@@ -1,0 +1,13 @@
+---
+name: >
+  [RDS.25] RDS database instances should use a custom administrator username
+description: |-
+  Default administrative usernames on Amazon RDS databases are public knowledge. 
+  When creating an Amazon RDS database, you should change the default 
+  administrative username to a unique value to reduce the risk of unintended 
+  access.
+similar:
+  internal:
+    - dec-c-c36f4ca0
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-25

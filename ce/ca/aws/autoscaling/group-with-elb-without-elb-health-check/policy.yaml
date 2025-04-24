@@ -1,0 +1,17 @@
+---
+names:
+  full: AWS EC2 Auto Scaling Group behind ELB doesn't use ELB health check
+  contextual: Auto Scaling Group behind ELB doesn't use ELB health check
+description: >
+  Ensure that Auto Scaling Groups associated with Elastic Load Balancers (ELBs) are configured 
+  to use ELB health checks instead of EC2 health checks. ELB health checks provide more 
+  accurate health status for instances behind a load balancer.
+categories:
+  - "RELIABILITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/auto-scaling/01"
+similarPolicies:
+  internal:
+    - dec-x-71d45f32  

@@ -1,0 +1,13 @@
+---
+name: >
+  [EC2.25] Amazon EC2 launch templates should not assign public IPs to network interfaces
+description: |-
+  A public IP address is one that is reachable from the internet. If you configure 
+  your network interfaces with a public IP address, then the resources associated 
+  with those network interfaces may be reachable from the internet. EC2 resources 
+  shouldn't be publicly accessible because this may permit unintended access to your workloads.
+similar:
+  internal:
+    - dec-c-593941f1
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-25

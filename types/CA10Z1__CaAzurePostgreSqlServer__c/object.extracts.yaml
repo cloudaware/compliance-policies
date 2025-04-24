@@ -19,6 +19,7 @@ extracts:
     value:
       FIELD:
         path: "CA10Z1__configurations__c"
+        returnType: BYTES
         undeterminedIf:
           noAccessDelegate:
             path: "CA10Z1__configurations__c"
@@ -34,6 +35,7 @@ extracts:
     value: 
       FIELD:
         path: "CA10Z1__firewallRules__c"
+        returnType: BYTES
         undeterminedIf:
           noAccessDelegate:
             path: "CA10Z1__firewallRules__c"

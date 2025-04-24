@@ -5,12 +5,23 @@ extracts:
       FIELD:
         path: "Name"
         undeterminedIf:
-          isEmpty:  "Name should not be empty"
+          isEmpty: "Name should not be empty"
   - name: "CA10__rotationPeriod__c"
     value: 
       FIELD:
         path: "CA10__rotationPeriod__c"
+        undeterminedIf:
+          isEmpty: "Empty rotation period"
+  - name: "rotationDuration"
+    value:
+      DURATION_FROM:
+        arg:
+          EXTRACT: "CA10__rotationPeriod__c"
+        format: GCP
   - name: "CA10__nextRotationTime__c"
     value: 
-     FIELD:
-       path: "CA10__nextRotationTime__c"
+      FIELD:
+        path: "CA10__nextRotationTime__c"
+        undeterminedIf:
+          isEmpty: "Empty value of next rotation time"
+

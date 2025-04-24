@@ -1,0 +1,15 @@
+---
+name: >
+  [EC2.20] Both VPN tunnels for an AWS Site-to-Site VPN connection should be up
+description: |-
+  A VPN tunnel is an encrypted link where data can pass from the customer network 
+  to or from AWS within an AWS Site-to-Site VPN connection. Each VPN connection 
+  includes two VPN tunnels which you can simultaneously use for high availability. 
+  Ensuring that both VPN tunnels are up for a VPN connection is important for confirming 
+  a secure and highly available connection between an AWS VPC and your remote network.
+similar:
+  internal:
+    - dec-c-80729ad4
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-20
+

@@ -1,0 +1,86 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-08-27T19:17:54Z" },
+    "Id": "a4ZV1",
+    "CA10__disappearanceTime__c": "2024-08-26T21:36:28Z",
+    "Name": "gke-111",
+    "CA10__labels__c": "d",
+    "CA10__Google_Instance_Service_Account_Links__r": [
+      {
+        "Id": "aCRV1",
+        "CA10__disappearanceTime__c": "2024-08-26T21:36:28Z",
+        "CA10__scopes__c": "",
+        "CA10__gceInstance__c": "a4ZV1"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('Name').startsWith('gke-')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-08-27T19:17:54Z" },
+    "Id": "a4Z7V2",
+    "CA10__disappearanceTime__c": null,
+    "Name": "gke-x4p4",
+    "CA10__labels__c": "goog-gke-node:",
+    "CA10__Google_Instance_Service_Account_Links__r": [
+      {
+        "Id": "aCR7V2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__scopes__c": "",
+        "CA10__gceInstance__c": "a4Z7V2"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__Google_Instance_Service_Account_Links__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-08-27T19:17:54Z" },
+    "Id": "a4ZV3",
+    "CA10__disappearanceTime__c": null,
+    "Name": "instance-name",
+    "CA10__labels__c": "goog-gke-management",
+    "CA10__Google_Instance_Service_Account_Links__r": [
+      {
+        "Id": "aCRV3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__scopes__c": "https://www.googleapis.com/auth/cloud-platform",
+        "CA10__gceInstance__c": "a4ZV3"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-08-27T19:17:54Z" },
+    "Id": "a4Z04",
+    "CA10__disappearanceTime__c": null,
+    "Name": "statsbox-image",
+    "CA10__labels__c": "",
+    "CA10__Google_Instance_Service_Account_Links__r": [
+      {
+        "Id": "aCR04",
+        "CA10__disappearanceTime__c": null,
+        "CA10__scopes__c": "https://www.googleapis.com/auth/devstorage.read_only",
+        "CA10__gceInstance__c": "a4Z04"
+      }
+    ]
+  }
+]

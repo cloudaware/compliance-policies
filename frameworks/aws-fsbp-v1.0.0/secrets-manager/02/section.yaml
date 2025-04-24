@@ -1,0 +1,23 @@
+---
+name: >
+  [SecretsManager.2] Secrets Manager secrets configured with automatic 
+  rotation should rotate successfully
+description: |-
+  Secrets Manager helps you improve the security posture of your organization. 
+  Secrets include database credentials, passwords, and third-party API keys. 
+  You can use Secrets Manager to store secrets centrally, encrypt secrets 
+  automatically, control access to secrets, and rotate secrets safely 
+  and automatically.
+
+  Secrets Manager can rotate secrets. You can use rotation to replace long-term 
+  secrets with short-term ones. Rotating your secrets limits how long 
+  an unauthorized user can use a compromised secret. For this reason, you should 
+  rotate your secrets frequently.
+
+  In addition to configuring secrets to rotate automatically, you should ensure 
+  that those secrets rotate successfully based on the rotation schedule.
+similar:
+  internal:
+    - dec-c-636ce2e4
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/secretsmanager-controls.html#secretsmanager-2

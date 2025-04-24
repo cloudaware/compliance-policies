@@ -1,0 +1,92 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T17:52:17Z" },
+    "Id": "a8LVU1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__instanceType__c": "CLOUD_SQL_INSTANCE",
+    "CA10__backendType__c": "SECOND_GEN",
+    "CA10__Google_Cloud_SQL_Instance_IP_Addresses__r": [
+      {
+        "Id": "a8K111",
+        "CA10__disappearanceTime__c": null,
+        "CA10__type__c": "PRIVATE",
+        "CA10__sqlInstance__c": "a8LVU1"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__Google_Cloud_SQL_Instance_IP_Addresses__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T17:52:17Z" },
+    "Id": "a8LVU20",
+    "CA10__disappearanceTime__c": null,
+    "CA10__instanceType__c": "CLOUD_SQL_INSTANCE",
+    "CA10__backendType__c": "SECOND_GEN",
+    "CA10__Google_Cloud_SQL_Instance_IP_Addresses__r": [
+      {
+        "Id": "a8K2220",
+        "CA10__disappearanceTime__c": null,
+        "CA10__type__c": "PRIMARY",
+        "CA10__sqlInstance__c": "a8LVU20"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__Google_Cloud_SQL_Instance_IP_Addresses__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T17:52:17Z" },
+    "Id": "a8LVU2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__instanceType__c": "CLOUD_SQL_INSTANCE",
+    "CA10__backendType__c": "SECOND_GEN",
+    "CA10__Google_Cloud_SQL_Instance_IP_Addresses__r": [
+      {
+        "Id": "a8K222",
+        "CA10__disappearanceTime__c": null,
+        "CA10__type__c": "PRIMARY",
+        "CA10__sqlInstance__c": "a8LVU2"
+      },
+      {
+        "Id": "a8K223",
+        "CA10__disappearanceTime__c": null,
+        "CA10__type__c": "PRIVATE",
+        "CA10__sqlInstance__c": "a8LVU2"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__instanceType__c') != 'CLOUD_SQL_INSTANCE' || extract('CA10__backendType__c') != 'SECOND_GEN'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T17:52:17Z" },
+    "Id": "a8LVU3",
+    "CA10__disappearanceTime__c": null,
+    "CA10__instanceType__c": "READ_REPLICA_INSTANCE",
+    "CA10__backendType__c": "SECOND_GEN",
+    "CA10__Google_Cloud_SQL_Instance_IP_Addresses__r": [
+      {
+        "Id": "a8K333",
+        "CA10__disappearanceTime__c": null,
+        "CA10__type__c": "PRIVATE",
+        "CA10__sqlInstance__c": "a8LVU3"
+      }
+    ]
+  }
+]

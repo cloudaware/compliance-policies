@@ -1,0 +1,13 @@
+---
+name: "[ELB.10] Classic Load Balancer should span multiple Availability Zones"
+description: |-
+  A Classic Load Balancer can be set up to distribute incoming requests across 
+  Amazon EC2 instances in a single Availability Zone or multiple Availability Zones. 
+  A Classic Load Balancer that does not span multiple Availability Zones is unable 
+  to redirect traffic to targets in another Availability Zone if the sole configured 
+  Availability Zone becomes unavailable.
+similar:
+  internal:
+    - dec-c-f8c2e299
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-10

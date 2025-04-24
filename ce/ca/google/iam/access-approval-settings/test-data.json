@@ -1,0 +1,66 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-24T02:03:19Z" },
+    "Id": "a4p1",
+    "CA10__Google_Resource_Manager_Projects__r": [
+      {
+        "Id": "aA5D1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__resourceManagerFolder__c": "aA3V1",
+        "CA10__resourceManagerFolderId__c": "folders/1251",
+        "CA10__resourceManagerOrganization__c": "aA4D1",
+        "CA10__resourceManagerOrganizationId__c": "organizations/3051",
+        "CA10__accessApprovalStatus__c": "",
+        "CA10__googleProject__c": "a4p1",
+        "CA10__resourceManagerFolder__r": {
+          "Id": "aA3V1",
+          "CA10__disappearanceTime__c": null,
+          "CA10__accessApprovalStatus__c": ""
+        },
+        "CA10__resourceManagerOrganization__r": {
+          "Id": "aA4D1",
+          "CA10__disappearanceTime__c": null,
+          "CA10__accessApprovalStatus__c": ""
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__Google_Resource_Manager_Projects__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-24T02:03:19Z" },
+    "Id": "a4p12",
+    "CA10__Google_Resource_Manager_Projects__r": [
+      {
+        "Id": "aA5D2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__resourceManagerFolder__c": "aA3V12",
+        "CA10__resourceManagerFolderId__c": "folders/12512",
+        "CA10__resourceManagerOrganization__c": "aA4D12",
+        "CA10__resourceManagerOrganizationId__c": "organizations/30512",
+        "CA10__accessApprovalStatus__c": "",
+        "CA10__googleProject__c": "a4p12",
+        "CA10__resourceManagerFolder__r": {
+          "Id": "aA3V12",
+          "CA10__disappearanceTime__c": null,
+          "CA10__accessApprovalStatus__c": ""
+        },
+        "CA10__resourceManagerOrganization__r": {
+          "Id": "aA4D12",
+          "CA10__disappearanceTime__c": null,
+          "CA10__accessApprovalStatus__c": "[{\"languageTag\":\"en-US\",\"accessApproval\":[\"Enabled\"]}]"
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,13 @@
+---
+name: "[MSK.1] MSK clusters should be encrypted in transit among broker nodes"
+description: |-
+  HTTPS offers an extra layer of security as it uses TLS to move data and can be 
+  used to help prevent potential attackers from using person-in-the-middle or 
+  similar attacks to eavesdrop on or manipulate network traffic. By default, 
+  Amazon MSK encrypts data in transit with TLS. However, you can override this 
+  default at the time that you create the cluster.
+similar:
+  internal:
+    - dec-c-9b8dedf5
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/msk-controls.html#msk-1

@@ -1,8 +1,14 @@
 ---
-name: |-
-  9.9  Protect devices that capture payment card data via direct physical interaction with the card from tampering and substitution.
-  Note: These requirements apply to cardreading devices used in card-present transactions (that is, card swipe or dip) at the point of sale. This requirement is not intended to apply to manual key-entry components such as computer keyboards and POS keypads.
-description: ""
+name: >
+  9.9  Protect devices that capture payment card data via direct physical 
+  interaction with the card from tampering and substitution.
+description: >
+  These requirements apply to card-reading devices used in card-present 
+  transactions (that is, card swipe or dip) at the point of sale. This 
+  requirement is not intended to apply to manual key-entry components such as 
+  computer keyboards and POS keypads.
 similar:
   internal:
     - dec-c-a5724c5b
+  sections:
+    - /frameworks/pci-dss-v4.0/09/05/01

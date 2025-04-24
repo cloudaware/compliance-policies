@@ -1,0 +1,15 @@
+---
+name: "[EKS.3] EKS clusters should use encrypted Kubernetes secrets"
+description: |-
+  When you encrypt secrets, you can use AWS Key Management Service (AWS KMS) keys 
+  to provide envelope encryption of Kubernetes secrets stored in etcd for your cluster. 
+  This encryption is in addition to the EBS volume encryption that is enabled by default 
+  for all data (including secrets) that is stored in etcd as part of an EKS cluster. 
+  Using secrets encryption for your EKS cluster allows you to deploy a defense in depth 
+  strategy for Kubernetes applications by encrypting Kubernetes secrets with a KMS key 
+  that you define and manage.
+similar:
+  internal:
+    - dec-c-125e3031
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/eks-controls.html#eks-3

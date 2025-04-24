@@ -1,0 +1,12 @@
+---
+name: >
+  [RDS.15] RDS DB clusters should be configured for multiple Availability Zones
+description: |-
+  RDS DB clusters should be configured for multiple AZs to ensure availability 
+  of stored data. Deployment to multiple AZs allows for automated failover in 
+  the event of an AZ availability issue and during regular RDS maintenance events.
+similar:
+  internal:
+    - dec-c-f62fbbc5
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-15

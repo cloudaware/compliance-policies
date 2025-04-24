@@ -1,0 +1,30 @@
+---
+
+inputType: "CA10__CaGoogleSqlInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleSqlInstance__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is not a SQL Server database instance."
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__databaseVersion__c"
+            substring:
+              TEXT: "SQLSERVER" 
+  - status: "COMPLIANT"
+    currentStateMessage: "remote access database flag is set to off."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "caExtract_databaseFlags_remote_access_flagValue__c"
+        right:
+          TEXT: "off"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "remote access database flag isn't set to off."
+  remediationMessage: "Set remote access database flag to off."

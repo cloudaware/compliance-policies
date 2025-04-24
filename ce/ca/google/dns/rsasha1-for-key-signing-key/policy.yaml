@@ -1,0 +1,17 @@
+---
+names: 
+  full: "Google Cloud DNS Managed Zone DNSSEC Key-Signing Algorithm is RSASHA1"
+  contextual: "Managed Zone DNSSEC Key-Signing Algorithm is RSASHA1"
+description: "DNSSEC algorithm numbers in this registry may be used in CERT RRs. Zone signing (DNSSEC) \
+ and transaction security mechanisms (SIG(0) and TSIG) make use of particular subsets of these algorithms. \
+ The algorithm used for key signing should be a recommended one and it should be strong."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/03/04
+  - /frameworks/cloudaware/secret-and-certificate-governance/cryptographic-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/CloudDNS/dns-sec-key-signing-algorithm-in-use.html"
+      name: "Check for DNSSEC Key-Signing Algorithm in Use"

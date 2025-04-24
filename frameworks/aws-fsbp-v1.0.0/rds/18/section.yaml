@@ -1,0 +1,10 @@
+---
+name: "[RDS.18] RDS instances should be deployed in a VPC"
+description: |-
+  VPCs provide a number of network controls to secure access to RDS resources. 
+  These controls include VPC Endpoints, network ACLs, and security groups.
+similar:
+  internal:
+    - dec-c-1aa18f0b
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-18

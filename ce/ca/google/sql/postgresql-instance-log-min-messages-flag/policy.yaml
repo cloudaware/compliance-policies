@@ -1,0 +1,20 @@
+---
+names: 
+  full: "Google Cloud PostgreSQL Instance Log_min_messages Database Flag is not set at minimum to Warning"
+  contextual: "PostgreSQL Instance Log_min_messages Database Flag is not set at minimum to Warning"
+description: "The log_min_messages flag defines the minimum message severity level that is considered \
+ as an error statement. Messages for error statements are logged with the SQL statement. Valid values \ 
+ include (from lowest to highest severity) DEBUG5, DEBUG4, DEBUG3, DEBUG2, DEBUG1, INFO, NOTICE, \ 
+ WARNING, ERROR, LOG, FATAL, and PANIC. Each severity level includes the subsequent levels mentioned \ 
+ above. WARNING is considered the best practice setting. Changes should only be made in accordance with \ 
+ the organization's logging policy."
+type: COMPLIANCE_POLICY
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/06/02/05
+  - /frameworks/cloudaware/resource-reliability/system-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudSQL/log-min-messages-flag-postgresql.html"
+      name: "Configure 'log_min_messages' Flag for PostgreSQL Instances"

@@ -1,0 +1,14 @@
+---
+name: >
+  [NetworkFirewall.9] Network Firewall firewalls should have deletion 
+  protection enabled
+description: |-
+  WS Network Firewall is a stateful, managed network firewall and intrusion 
+  detection service that enables you to inspect and filter traffic to, from, or 
+  between your Virtual Private Clouds (VPCs). The deletion protection setting 
+  protects against accidental deletion of the firewall.
+similar:
+  internal:
+    - dec-c-fa509b1c
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/networkfirewall-controls.html#networkfirewall-9

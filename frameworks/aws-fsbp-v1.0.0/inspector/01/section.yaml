@@ -1,0 +1,9 @@
+name: "[Inspector.1] Amazon Inspector EC2 scanning should be enabled"
+description: |-
+  Amazon Inspector EC2 scanning extracts metadata from your Amazon Elastic 
+  Compute Cloud (Amazon EC2) instance, and then compares this metadata against 
+  rules collected from security advisories to produce findings. Amazon Inspector 
+  scans instances for package vulnerabilities and network reachability issues.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/inspector-controls.html#inspector-1

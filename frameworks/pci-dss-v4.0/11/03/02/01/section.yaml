@@ -1,0 +1,13 @@
+name: >
+  11.3.2.1 External vulnerability scans are performed after any significant change.
+description: |-
+  As follows:
+
+  - Vulnerabilities that are scored 4.0 or higher by the CVSS are resolved.
+  - Rescans are conducted as needed.
+  - Scans are performed by qualified personnel and organizational independence 
+  of the tester exists (not required to be a QSA or ASV).
+similar:
+  sections:
+    - /frameworks/pci-dss-v3.2.1/11/02/03
+    - /frameworks/pci-dss-v4.0.1/11/03/02/01

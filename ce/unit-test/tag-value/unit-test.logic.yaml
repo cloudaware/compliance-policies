@@ -1,0 +1,48 @@
+---
+inputType: CA10__CaAwsInstance__c
+testData:
+  - file: test-data.json
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: Test-1
+    check:
+      UNIT_TEST:
+        id: Test-1
+        arg:
+          IS_EQUAL:
+            left:
+              TAG_VALUE_BYTES:
+                name:
+                  BYTES: test-tag1
+            right:
+              BYTES: testv
+  - status: COMPLIANT
+    currentStateMessage: Test-2
+    check:
+      UNIT_TEST:
+        id: Test-2
+        arg:
+          IS_EQUAL:
+            left:
+              TAG_VALUE_TEXT:
+                name:
+                  TEXT: testtag1
+            right:
+              TEXT: testv
+  - status: COMPLIANT
+    currentStateMessage: Test-3
+    check:
+      UNIT_TEST:
+        id: Test-3
+        arg:
+          IS_EQUAL:
+            left:
+              TAG_VALUE_TEXT:
+                name:
+                  TEXT: testtag1
+            right:
+              TEXT: 'testv '
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: Test Failed
+  remediationMessage: Developer Fix Required

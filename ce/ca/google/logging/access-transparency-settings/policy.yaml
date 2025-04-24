@@ -1,0 +1,17 @@
+---
+names: 
+  full: "Google Cloud Access Transparency is not enabled"
+  contextual: "Cloud Access Transparency is not enabled"
+description: "GCP Access Transparency provides audit logs for all actions that Google \
+ personnel take in your Google Cloud resources."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+impossible: true
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/02/14
+  - /frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/CloudIAM/enable-access-transparency.html"
+      name: "Enable Access Transparency"

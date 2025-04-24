@@ -1,0 +1,13 @@
+---
+name: >
+  [RDS.19] Existing RDS event notification subscriptions should 
+  be configured for critical cluster events
+description: |-
+  RDS event notifications uses Amazon SNS to make you aware of changes in 
+  the availability or configuration of your RDS resources. These notifications 
+  allow for rapid response.
+similar:
+  internal:
+    - dec-c-6e43a5f2
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-19

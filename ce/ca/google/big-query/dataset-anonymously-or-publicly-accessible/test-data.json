@@ -1,0 +1,50 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T21:37:59Z" },
+    "Id": "a7fD9",
+    "CA10__disappearanceTime__c": "2023-12-03T17:06:36Z",
+    "CA10__access__c": "[{\"role\":\"OWNER\",\"userByEmail\":\"nietest@test.com\"}]"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "101",
+      "conditionText": "CA10__access__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T21:37:59Z" },
+    "Id": "a7fD99",
+    "CA10__disappearanceTime__c": null,
+    "CA10__access__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__access__c').contains('allUsers') || extract('CA10__access__c').contains('allAuthenticatedUsers')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T21:37:59Z" },
+    "Id": "a7f4P9",
+    "CA10__disappearanceTime__c": null,
+    "CA10__access__c": "[{\"role\":\"OWNER\",\"user\":\"allUsers\"}]"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T21:37:59Z" },
+    "Id": "a7f4P99",
+    "CA10__disappearanceTime__c": null,
+    "CA10__access__c": "[{\"role\":\"OWNER\",\"userByEmail\":\"schtest@test.com\"}]"
+  }
+]

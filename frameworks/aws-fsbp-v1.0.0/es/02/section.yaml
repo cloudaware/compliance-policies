@@ -1,0 +1,13 @@
+---
+name: "[ES.2] Elasticsearch domains should not be publicly accessible"
+description: |-
+  Elasticsearch domains deployed within a VPC can communicate with VPC resources 
+  over the private AWS network, without the need to traverse the public internet. 
+  This configuration increases the security posture by limiting access to the data 
+  in transit. VPCs provide a number of network controls to secure access to Elasticsearch 
+  domains, including network ACL and security groups.
+similar:
+  internal:
+    - dec-c-238ee34f
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/es-controls.html#es-2

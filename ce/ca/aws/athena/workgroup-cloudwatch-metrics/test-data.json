@@ -1,0 +1,44 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10A1__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-15T04:50:48Z"
+        },
+        "Id": "test1",
+        "CA10A1__disappearanceTime__c": "2025-04-15T04:50:48Z",
+        "CA10A1__configPublishCloudWatchMetrics__c": "Enabled"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10A1__configPublishCloudWatchMetrics__c') == 'Disabled'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-15T04:50:48Z"
+        },
+        "Id": "test2",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__configPublishCloudWatchMetrics__c": "Disabled"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10A1__configPublishCloudWatchMetrics__c') == 'Enabled'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-15T04:50:48Z"
+        },
+        "Id": "test3",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__configPublishCloudWatchMetrics__c": "Enabled"
+    }
+]

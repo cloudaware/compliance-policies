@@ -1,0 +1,17 @@
+---
+name: >
+  [SageMaker.1] Amazon SageMaker AI notebook instances should not have 
+  direct internet access
+description: |-
+  If you configure your SageMaker AI instance without a VPC, then by default 
+  direct internet access is enabled on your instance. You should configure your 
+  instance with a VPC and change the default setting to Disable—Access 
+  the internet through a VPC. To train or host models from a notebook, you need 
+  internet access. To enable internet access, your VPC must have either 
+  an interface endpoint (AWS PrivateLink) or a NAT gateway and a security group 
+  that allows outbound connections.
+similar:
+  internal:
+    - dec-c-37e9b15e
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/sagemaker-controls.html#sagemaker-1

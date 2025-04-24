@@ -14,6 +14,6 @@ Enabling access logging could introduce an increase in logging costs and require
 
 ## Audit
 
-This policy will mark an API Gateway API as `INCOMPLIANT` if the API Gateway Stage `Access Logging Destination ARN` field is empty, indicating access logs are not enabled.
+This policy will mark an *API Gateway API* as `INCOMPLIANT` if the *API Gateway Stage* `Access Logging Destination ARN` field is **empty**, indicating access logs are not enabled.
 
-It will also be marked `INCOMPLIANT` if the `Access Logging Destination` field is empty or if the log destination resource has been deleted, indicating that the API Gateway Stage might be referencing an inactive access logs destination.
+It will also be marked `INCOMPLIANT` if the `Access Logging Destination` field is **empty** or if the log destination resource has been **deleted**, indicating that the *API Gateway Stage* might be referencing an inactive access logs destination.

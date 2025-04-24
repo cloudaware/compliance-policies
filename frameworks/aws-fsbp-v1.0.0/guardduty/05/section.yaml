@@ -1,0 +1,10 @@
+name: "[GuardDuty.5] GuardDuty EKS Audit Log Monitoring should be enabled"
+description: |-
+  GuardDuty EKS Audit Log Monitoring helps you detect potentially suspicious 
+  activities in your Amazon Elastic Kubernetes Service (Amazon EKS) clusters. 
+  EKS Audit Log Monitoring uses Kubernetes audit logs to capture chronological 
+  activities from users, applications using the Kubernetes API, and the control 
+  plane.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/guardduty-controls.html#guardduty-5

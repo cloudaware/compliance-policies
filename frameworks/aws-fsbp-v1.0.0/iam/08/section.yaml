@@ -1,0 +1,10 @@
+---
+name: "[IAM.8] Unused IAM user credentials should be removed"
+description: |-
+  IAM users can access AWS resources using different types of credentials, such 
+  as passwords or access keys.
+similar:
+  internal:
+    - dec-c-007be9b3
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/iam-controls.html#iam-8

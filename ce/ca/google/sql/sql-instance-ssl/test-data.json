@@ -1,0 +1,26 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-11-25T19:20:39Z" },
+    "Id": "a8LVU0",
+    "CA10__disappearanceTime__c": null,
+    "CA10__sslMode__c": "ALLOW_UNENCRYPTED_AND_ENCRYPTED"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__sslMode__c') == 'ENCRYPTED_ONLY'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-11-25T19:20:39Z" },
+    "Id": "a8LVU1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__sslMode__c": "ENCRYPTED_ONLY"
+  }
+]

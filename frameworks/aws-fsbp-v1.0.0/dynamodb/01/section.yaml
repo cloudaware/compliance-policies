@@ -1,0 +1,15 @@
+---
+name: >
+  [DynamoDB.1] DynamoDB tables should automatically scale capacity with demand
+description: |-
+  Scaling capacity with demand avoids throttling exceptions, which helps to maintain 
+  availability of your applications. DynamoDB tables that use on-demand capacity 
+  mode are limited only by the DynamoDB throughput default table quotas. To raise 
+  these quotas, you can file a support ticket with Support. DynamoDB tables that 
+  use provisioned mode with auto scaling adjust the provisioned throughput capacity 
+  dynamically in response to traffic patterns.
+similar:
+  internal:
+    - dec-c-a0653f31
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/dynamodb-controls.html#dynamodb-1

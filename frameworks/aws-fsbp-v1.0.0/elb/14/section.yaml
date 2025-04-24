@@ -1,0 +1,15 @@
+---
+name: >
+  [ELB.14] Classic Load Balancer should be configured with defensive 
+  or strictest desync mitigation mode
+description: |-
+  HTTP Desync issues can lead to request smuggling and make applications vulnerable 
+  to request queue or cache poisoning. In turn, these vulnerabilities can lead 
+  to credential hijacking or execution of unauthorized commands. Classic Load Balancers 
+  configured with defensive or strictest desync mitigation mode protect your application 
+  from security issues that may be caused by HTTP Desync.
+similar:
+  internal:
+    - dec-c-e50a12aa
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-14

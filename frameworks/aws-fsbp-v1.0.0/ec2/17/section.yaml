@@ -1,0 +1,11 @@
+---
+name: "[EC2.17] Amazon EC2 instances should not use multiple ENIs"
+description: |-
+  Multiple ENIs can cause dual-homed instances, meaning instances that have 
+  multiple subnets. This can add network security complexity and introduce 
+  unintended network paths and access.
+similar:
+  internal:
+    - dec-c-83f9c59a
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-17

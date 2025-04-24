@@ -1,0 +1,101 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-03T17:55:55Z" },
+    "Id": "a8O0",
+    "CA10__disappearanceTime__c": "2024-09-02T17:02:49Z",
+    "CA10__Google_IAM_Policy_Bindings__r": [
+      {
+        "Id": "aAI70",
+        "RecordTypeId": "0120e0000009hWaAAI",
+        "CA10__disappearanceTime__c": "2024-09-02T17:03:47Z",
+        "CA10__membersAllUsers__c": "No",
+        "CA10__membersAllAuthenticatedUsers__c": "No",
+        "CA10__storageBucket__c": "a8O0",
+        "RecordType": {
+          "DeveloperName": "caGoogleIamPolicyBindingStorageBucket",
+          "Id": "0120e0000009hWaAAI"
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__Google_IAM_Policy_Bindings__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-03T17:55:55Z" },
+    "Id": "a8O1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Google_IAM_Policy_Bindings__r": [
+      {
+        "Id": "aAIV2",
+        "RecordTypeId": "0120e0000009hWaAAI",
+        "CA10__disappearanceTime__c": null,
+        "CA10__membersAllUsers__c": "Yes",
+        "CA10__membersAllAuthenticatedUsers__c": "No",
+        "CA10__storageBucket__c": "a8O1",
+        "RecordType": {
+          "DeveloperName": "caGoogleIamPolicyBindingStorageBucket",
+          "Id": "0120e0000009hWaAAI"
+        }
+      },
+      {
+        "Id": "aAIVU2",
+        "RecordTypeId": "0120e0000009hWaAAI",
+        "CA10__disappearanceTime__c": null,
+        "CA10__membersAllUsers__c": "No",
+        "CA10__membersAllAuthenticatedUsers__c": "No",
+        "CA10__storageBucket__c": "a8O1",
+        "RecordType": {
+          "DeveloperName": "caGoogleIamPolicyBindingStorageBucket",
+          "Id": "0120e0000009hWaAAI"
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-03T17:55:55Z" },
+    "Id": "a8O2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Google_IAM_Policy_Bindings__r": [
+      {
+        "Id": "aAI73",
+        "RecordTypeId": "0120e0000009hWaAAI",
+        "CA10__disappearanceTime__c": null,
+        "CA10__membersAllUsers__c": "No",
+        "CA10__membersAllAuthenticatedUsers__c": "No",
+        "CA10__storageBucket__c": "a8O2",
+        "RecordType": {
+          "DeveloperName": "caGoogleIamPolicyBindingStorageBucket",
+          "Id": "0120e0000009hWaAAI"
+        }
+      },
+      {
+        "Id": "aAI3",
+        "RecordTypeId": "0120e0000009hWaAAI",
+        "CA10__disappearanceTime__c": null,
+        "CA10__membersAllUsers__c": "No",
+        "CA10__membersAllAuthenticatedUsers__c": "No",
+        "CA10__storageBucket__c": "a8O2",
+        "RecordType": {
+          "DeveloperName": "caGoogleIamPolicyBindingStorageBucket",
+          "Id": "0120e0000009hWaAAI"
+        }
+      }
+    ]
+  }
+]

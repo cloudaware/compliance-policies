@@ -1,0 +1,11 @@
+---
+name: "[S3.3] S3 general purpose buckets should block public write access"
+description: |-
+  Some use cases require that everyone on the internet be able to write to your 
+  S3 bucket. However, those situations are rare. To ensure the integrity and 
+  security of your data, your S3 bucket should not be publicly writable.
+similar:
+  internal:
+    - dec-c-7de0eaf9
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/s3-controls.html#s3-3

@@ -1,0 +1,15 @@
+---
+name: >
+  [ECS.5] ECS containers should be limited to read-only access to root filesystems
+description: |-
+  If the readonlyRootFilesystem parameter is set to true in an Amazon ECS task 
+  definition, the ECS container is given read-only access to its root file system. 
+  This reduces security attack vectors because the container instance's root 
+  file system can't be tampered with or written to without explicit volume mounts 
+  that have read-write permissions for file system folders and directories. 
+  Enabling this option also adheres to the principle of least privilege.
+similar:
+  internal:
+    - dec-c-437eb07b
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ecs-controls.html#ecs-5

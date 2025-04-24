@@ -1,0 +1,11 @@
+---
+name: "[Opensearch.6] OpenSearch domains should have at least three data nodes"
+description: |-
+  An OpenSearch domain requires at least three data nodes for high availability 
+  and fault-tolerance. Deploying an OpenSearch domain with at least three data 
+  nodes ensures cluster operations if a node fails.
+similar:
+  internal:
+    - dec-c-d8637dc7
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/opensearch-controls.html#opensearch-6

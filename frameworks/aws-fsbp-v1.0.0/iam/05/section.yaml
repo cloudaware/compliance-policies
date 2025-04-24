@@ -1,0 +1,12 @@
+---
+name: "[IAM.5] MFA should be enabled for all IAM users that have a console password"
+description: |-
+  Multi-factor authentication (MFA) adds an extra layer of protection on top of 
+  a user name and password. With MFA enabled, when a user signs in to an AWS 
+  website, they are prompted for their user name and password. In addition, they 
+  are prompted for an authentication code from their AWS MFA device.
+similar:
+  internal:
+    - dec-c-6b4a77e4
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/iam-controls.html#iam-5

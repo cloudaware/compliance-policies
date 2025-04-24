@@ -1,0 +1,13 @@
+---
+name: "[RDS.13] RDS automatic minor version upgrades should be enabled"
+description: |-
+  Enabling automatic minor version upgrades ensures that the latest minor 
+  version updates to the relational database management system (RDBMS) are 
+  installed. These upgrades might include security patches and bug fixes. 
+  Keeping up to date with patch installation is an important step in securing 
+  systems.
+similar:
+  internal:
+    - dec-c-d1962bf9
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-13

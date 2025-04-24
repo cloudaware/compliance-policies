@@ -1,0 +1,12 @@
+---
+name: "[Neptune.5] Neptune DB clusters should have automated backups enabled"
+description: |-
+  Backups help you recover more quickly from a security incident and strengthen 
+  the resilience of your systems. By automating backups for your Neptune DB 
+  clusters, you'll be able to restore your systems to a point in time and 
+  minimize downtime and data loss.
+similar:
+  internal:
+    - dec-c-d3277a04
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/neptune-controls.html#neptune-5

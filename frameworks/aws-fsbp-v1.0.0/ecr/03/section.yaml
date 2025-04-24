@@ -1,0 +1,14 @@
+---
+name: >
+  [ECR.3] ECR repositories should have at least one lifecycle policy configured
+description: |-
+  Amazon ECR lifecycle policies enable you to specify the lifecycle management of 
+  images in a repository. By configuring lifecycle policies, you can automate 
+  the cleanup of unused images and the expiration of images based on age or count. 
+  Automating these tasks can help you avoid unintentionally using outdated 
+  images in your repository.
+similar:
+  internal:
+    - dec-c-83ea6448
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ecr-controls.html#ecr-3

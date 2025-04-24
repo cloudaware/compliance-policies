@@ -1,0 +1,30 @@
+---
+
+inputType: "CA10__CaGoogleSqlInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleSqlInstance__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is not a SQL Server database instance."
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__databaseVersion__c"
+            substring:
+              TEXT: "SQLSERVER" 
+  - status: "COMPLIANT"
+    currentStateMessage: "user connections database flag is set to unlimited connections."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "caExtract_databaseFlags_user_connections_flagValue__c"
+        right:
+          TEXT: "0"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "user connections database flag isn't set to unlimited connections."
+  remediationMessage: "Set user connections database flag to 0 (unlimited connections)."

@@ -1,0 +1,17 @@
+---
+name: "[RDS.23] RDS instances should not use a database engine default port"
+description: |-
+  If you use a known port to deploy an RDS cluster or instance, an attacker can 
+  guess information about the cluster or instance. The attacker can use this 
+  information in conjunction with other information to connect to an RDS cluster 
+  or instance or gain additional information about your application.
+
+  When you change the port, you must also update the existing connection strings 
+  that were used to connect to the old port. You should also check the security 
+  group of the DB instance to ensure that it includes an ingress rule that 
+  allows connectivity on the new port.
+similar:
+  internal:
+    - dec-c-fb785157
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-23

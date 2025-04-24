@@ -1,10 +1,17 @@
 ---
 name: |-
-  3.5.1 Additional requirement for service providers only: Maintain a documented description of the cryptographic architecture that includes:
-  • Details of all algorithms, protocols, and keys used for the protection of cardholder data, including key strength and expiry date
-  • Description of the key usage for each key
-  • Inventory of any HSMs and other SCDs used for key management.
-description: ""
+  3.5.1 Maintain a documented description of the cryptographic architecture 
+description: |-
+  **Additional requirement for service providers only.**
+  
+  That includes:
+
+  - Details of all algorithms, protocols, and keys used for the protection of 
+  cardholder data, including key strength and expiry date
+  - Description of the key usage for each key
+  - Inventory of any HSMs and other SCDs used for key management.
 similar:
   internal:
     - dec-c-925cde17
+  sections:
+    - /frameworks/pci-dss-v4.0/03/06/01/01

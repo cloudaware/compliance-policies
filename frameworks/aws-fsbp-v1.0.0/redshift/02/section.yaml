@@ -1,0 +1,15 @@
+---
+name: >
+  [Redshift.2] Connections to Amazon Redshift clusters should 
+  be encrypted in transit
+description: |-
+  TLS can be used to help prevent potential attackers from using 
+  person-in-the-middle or similar attacks to eavesdrop on or manipulate network 
+  traffic. Only encrypted connections over TLS should be allowed. Encrypting 
+  data in transit can affect performance. You should test your application with 
+  this feature to understand the performance profile and the impact of TLS.
+similar:
+  internal:
+    - dec-c-38a63ea5
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/redshift-controls.html#redshift-2

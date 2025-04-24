@@ -1,0 +1,13 @@
+---
+name: >
+  [WAF.8] AWS WAF Classic global web ACLs should have at least one rule 
+  or rule group
+description: |-
+  A WAF global web ACL can contain a collection of rules and rule groups that 
+  inspect and control web requests. If a web ACL is empty, the web traffic can 
+  pass without being detected or acted upon by WAF depending on the default action.
+similar:
+  internal:
+    - dec-c-0c868fe0
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/waf-controls.html#waf-8

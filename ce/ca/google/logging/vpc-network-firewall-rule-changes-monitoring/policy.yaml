@@ -1,0 +1,16 @@
+---
+names: 
+  full: "Google Logging Log Metric Filter and Alerts for VPC Network Firewall Rule Changes do not exist"
+  contextual: "Log Metric Filter and Alerts for VPC Network Firewall Rule Changes do not exist"
+description: "It is recommended that a metric filter and alarm be established for Virtual Private Cloud (VPC) \
+ Network Firewall rule changes. "
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/02/07
+  - /frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudLogging/enable-firewall-rule-changes-monitoring.html"
+      name: "Enable Monitoring for Firewall Rule Changes"

@@ -1,0 +1,67 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T07:34:25Z" },
+    "Id": "a8ED",
+    "CA10__disappearanceTime__c": "2023-12-06T13:34:16Z",
+    "CA10__databaseVersion__c": "MYSQL_5_6",
+    "CA10__databaseFlagsJson__c": "[{\"name\": \"log_checkpoints\", \"value\": \"on\" }]"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "not(extract('CA10__databaseVersion__c').contains('POSTGRE'))",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T07:34:25Z" },
+    "Id": "a8E4",
+    "CA10__disappearanceTime__c": null,
+    "CA10__databaseVersion__c": "MYSQL_8_0_26",
+    "CA10__databaseFlagsJson__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "201",
+      "conditionText": "CA10__databaseFlagsJson__c.asJson().isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T07:34:25Z" },
+    "Id": "a8ED2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__databaseVersion__c": "POSTGRES_9_6",
+    "CA10__databaseFlagsJson__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('caExtract_databaseFlags_log_disconnections_flagValue__c') == 'on'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T07:34:25Z" },
+    "Id": "a8E42",
+    "CA10__disappearanceTime__c": null,
+    "CA10__databaseVersion__c": "POSTGRES_14",
+    "CA10__databaseFlagsJson__c": "[{\"name\": \"log_checkpoints\", \"value\": \"on\" }, {\"name\" : \"log_disconnections\",  \"value\" : \"on\" }]"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T07:34:25Z" },
+    "Id": "a8E43",
+    "CA10__disappearanceTime__c": null,
+    "CA10__databaseVersion__c": "POSTGRES_14",
+    "CA10__databaseFlagsJson__c": "[{\"name\": \"log_checkpoints\", \"value\": \"on\" }, {\"name\" : \"log_disconnections\",  \"value\" : \"off\" }]"
+  }
+]

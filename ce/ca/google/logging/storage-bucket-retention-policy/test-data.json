@@ -1,0 +1,94 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10G1__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-12-01T20:32:29Z" },
+    "Id": "a0oVU111",
+    "RecordTypeId": "01211",
+    "CA10G1__disappearanceTime__c": "2024-11-25T07:52:01Z",
+    "CA10G1__bucket__c": "",
+    "CA10G1__bucketName__c": "",
+    "RecordType": {
+      "DeveloperName": "caGoogleLoggingLogSinkProject",
+      "Id": "01211"
+    },
+    "CA10G1__bucket__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null,
+      "CA10__retentionPolicyLock__c": null
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "isEmptyLookup('CA10G1__bucket__r')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-12-01T20:32:29Z" },
+    "Id": "a0oV222",
+    "RecordTypeId": "012VU22",
+    "CA10G1__disappearanceTime__c": null,
+    "CA10G1__bucket__c": "",
+    "CA10G1__bucketName__c": "",
+    "RecordType": {
+      "DeveloperName": "caGoogleLoggingLogSinkProject",
+      "Id": "012VU22"
+    },
+    "CA10G1__bucket__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null,
+      "CA10__retentionPolicyLock__c": null
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-12-01T20:32:29Z" },
+    "Id": "a0o33",
+    "RecordTypeId": "01233",
+    "CA10G1__disappearanceTime__c": null,
+    "CA10G1__bucket__c": "a8O0e33",
+    "CA10G1__bucketName__c": "cloudaware-logs-for-cloudaware-vm",
+    "RecordType": {
+      "DeveloperName": "caGoogleLoggingLogSinkProject",
+      "Id": "01233"
+    },
+    "CA10G1__bucket__r": {
+      "Id": "a8O0e000000k9dOEAQ",
+      "CA10__disappearanceTime__c": null,
+      "CA10__retentionPolicyLock__c": ""
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10G1__bucket__r.CA10__retentionPolicyLock__c') == 'Locked'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-12-01T20:32:29Z" },
+    "Id": "a0oV44",
+    "RecordTypeId": "012VU000000SkERYA0",
+    "CA10G1__disappearanceTime__c": null,
+    "CA10G1__bucket__c": "a8O044",
+    "CA10G1__bucketName__c": "cloudaware-logs-for-cloudaware-vm",
+    "RecordType": {
+      "DeveloperName": "caGoogleLoggingLogSinkProject",
+      "Id": "01244"
+    },
+    "CA10G1__bucket__r": {
+      "Id": "a8O044",
+      "CA10__disappearanceTime__c": null,
+      "CA10__retentionPolicyLock__c": "Locked"
+    }
+  }
+]

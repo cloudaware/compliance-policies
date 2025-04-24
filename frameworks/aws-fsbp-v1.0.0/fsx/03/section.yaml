@@ -1,0 +1,13 @@
+name:  >
+  [FSx.3] FSx for OpenZFS file systems should be configured for Multi-AZ deployment
+description: |-
+  Amazon FSx for OpenZFS supports several deployment types for file systems: 
+  Multi-AZ (HA), Single-AZ (HA), and Single-AZ (non-HA). The deployment types 
+  offer different levels of availability and durability. Multi-AZ (HA) file 
+  systems are composed of a high-availability (HA) pair of file servers that are 
+  spread across two Availability Zones (AZs). We recommend using the Multi-AZ (HA) 
+  deployment type for most production workloads due to the high availability and 
+  durability model that it provides.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/fsx-controls.html#fsx-3

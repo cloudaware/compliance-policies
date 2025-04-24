@@ -1,0 +1,51 @@
+---
+inputType: "CA10__CaGoogleProject__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleProject__c/object.extracts.yaml
+conditions:
+   - status: "INCOMPLIANT"
+     currentStateMessage: "The Service Account User or Service Account Token Creator roles are assigned at the Project level."
+     remediationMessage: "It is recommended to assign these roles to a user for a specific service account."
+     check:
+       RELATED_LIST_HAS:
+         status: "INCOMPLIANT"
+         relationshipName: "CA10__Google_IAM_Policy_Bindings__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Service Account User or Service Account Token Creator roles are not  assigned at the Project level."
+relatedLists:
+  - relationshipName: "CA10__Google_IAM_Policy_Bindings__r"
+    importExtracts:
+      - file: "/types/CA10__CaGoogleIamPolicyBinding__c/object.extracts.yaml"
+      - file: /types/CA10__CaGoogleIamRole__c/object.extracts.yaml
+    recordTypes:
+      - "caGoogleIamPolicyBindingProject"
+    conditions: 
+       - status: "COMPLIANT"
+         currentStateMessage: "Binding without a role."
+         check:
+           IS_EMPTY_LOOKUP: "CA10__iamRole__r"
+       - status: "INCOMPLIANT"
+         currentStateMessage: "Binding with the specified role."
+         remediationMessage: "Remove the binding."
+         check: 
+           OR:
+             args:
+               - IS_EQUAL:
+                   left:
+                     EXTRACT: "CA10__iamRole__r.CA10__roleName__c"
+                   right:
+                     TEXT: "roles/iam.serviceAccountUser"
+               - IS_EQUAL:
+                   left:
+                     EXTRACT: "CA10__iamRole__r.CA10__roleName__c"
+                   right:
+                     TEXT: "roles/iam.serviceAccountTokenCreator"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Other IAM Role Bindings."
+
+
+

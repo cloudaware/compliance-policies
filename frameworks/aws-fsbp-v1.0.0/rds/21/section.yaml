@@ -1,0 +1,13 @@
+---
+name: >
+  [RDS.21] An RDS event notifications subscription should be configured 
+  for critical database parameter group events
+description: |-
+  RDS event notifications use Amazon SNS to make you aware of changes in 
+  the availability or configuration of your RDS resources. These notifications 
+  allow for rapid response.
+similar:
+  internal:
+    - dec-c-c6f764c0
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-21

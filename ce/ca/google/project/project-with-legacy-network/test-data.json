@@ -1,0 +1,55 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__Google_GCE_Networks__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-11-27T19:20:52Z" },
+    "Id": "a4p361",
+    "CA10__Google_GCE_Networks__r": [
+      {
+        "Id": "a4b0e11",
+        "CA10__disappearanceTime__c": null,
+        "CA10__autoCreationSubnetworksMode__c": "custom",
+        "CA10__project__c": "a4p361"
+      },
+      {
+        "Id": "a4b3612",
+        "CA10__disappearanceTime__c": null,
+        "CA10__autoCreationSubnetworksMode__c": "legacy",
+        "CA10__project__c": "a4p361"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-11-27T19:20:52Z" },
+    "Id": "a4p02",
+    "CA10__Google_GCE_Networks__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-11-27T19:20:52Z" },
+    "Id": "a4p0e3",
+    "CA10__Google_GCE_Networks__r": [
+        {
+            "Id": "a4b0e15",
+            "CA10__disappearanceTime__c": null,
+            "CA10__autoCreationSubnetworksMode__c": "custom",
+            "CA10__project__c": "a4p0e3"
+          }
+    ]
+  }
+]

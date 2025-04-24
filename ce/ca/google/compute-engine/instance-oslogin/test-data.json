@@ -1,0 +1,67 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-01-16T06:54:27Z" },
+    "Id": "111",
+    "CA10__disappearanceTime__c": "2025-01-14T22:50:43Z",
+    "Name": "nat",
+    "CA10__metadataJson__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('Name').startsWith('gke-')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-01-16T06:54:27Z" },
+    "Id": "112",
+    "CA10__disappearanceTime__c": null,
+    "Name": "gke-kubeflow-5grx",
+    "CA10__metadataJson__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('caJsonFrom__metadataJson__enable_oslogin_value').contains('true')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-01-16T06:54:27Z" },
+    "Id": "113",
+    "CA10__disappearanceTime__c": null,
+    "Name": "kot",
+    "CA10__metadataJson__c": "{\"fingerprint\":\"YRNXNhzLlpE\\u003d\",\"items\":[{\"key\":\"disable-swap-binaries\",\"value\":\"true\"},{\"key\":\"enable-oslogin\",\"value\":\"TRUE\"}]}"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-01-16T06:54:27Z" },
+    "Id": "114",
+    "CA10__disappearanceTime__c": null,
+    "Name": "testname1",
+    "CA10__metadataJson__c": "{\"fingerprint\":\"f7SMBNRSt8g\\u003d\",\"items\":[{\"key\":\"ssh-keys\",\"value\":\"macrohon\"}, {\"key\":\"enable-oslogin\",\"value\":\"false\"}],\"kind\":\"compute#metadata\"}"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-01-16T06:54:27Z" },
+    "Id": "115",
+    "CA10__disappearanceTime__c": null,
+    "Name": "testname2",
+    "CA10__metadataJson__c": "{\"fingerprint\":\"f7SMBNRSt8g\\u003d\",\"items\":[{\"key\":\"ssh-keys\",\"value\":\"macrohon\"}],\"kind\":\"compute#metadata\"}"
+  }
+]

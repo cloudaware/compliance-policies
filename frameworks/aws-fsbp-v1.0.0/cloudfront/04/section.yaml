@@ -1,0 +1,11 @@
+---
+name: "[CloudFront.4] CloudFront distributions should have origin failover configured"
+description: |-
+  CloudFront origin failover can increase availability. Origin failover automatically 
+  redirects traffic to a secondary origin if the primary origin is unavailable or 
+  if it returns specific HTTP response status codes.
+similar:
+  internal:
+    - dec-c-bb5568c4
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/cloudfront-controls.html#cloudfront-4

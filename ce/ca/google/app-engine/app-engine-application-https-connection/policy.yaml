@@ -1,0 +1,17 @@
+---
+names: 
+  full: "Google App Engine Application HTTPS Connection is not enforced"
+  contextual: "Application HTTPS Connection is not enforced"
+description: "In order to maintain the highest level of security all connections to an application should \
+ be secure by default."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+impossible: true
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/04/10
+  - /frameworks/cloudaware/resource-security/data-encryption
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/ComputeEngine/enable-https-for-app-engine-applications.html"
+      name: "Enforce HTTPS Connections for App Engine Applications"

@@ -8,4 +8,4 @@ Aligning ASGs and CLBs within the same Availability Zones improves the efficienc
 
 ## Audit
 
-This policy will mark an Auto Scaling Group as `INCOMPLIANT` if its configured `Availability Zones` do not match `Availability Zones` of the associated Classic Load Balancer.
+This policy will mark an *Auto Scaling Group* as `INCOMPLIANT` if its configured `Availability Zones` do not match `Availability Zones` of the associated *Classic Load Balancer* which is identifies via *AWS EC2 Auto Scaling Group Tfc.Src.Links* object.

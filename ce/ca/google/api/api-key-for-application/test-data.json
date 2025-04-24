@@ -1,0 +1,38 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10G1__restrictionsApiTargets__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-10T18:10:52Z" },
+    "Id": "a0n11",
+    "CA10G1__disappearanceTime__c": null,
+    "CA10G1__restrictionsApiTargets__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10G1__restrictionsApiTargets__c').contains('service: \\'cloudapis.googleapis.com\\'')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-10T18:10:52Z" },
+    "Id": "a0n22",
+    "CA10G1__disappearanceTime__c": null,
+    "CA10G1__restrictionsApiTargets__c": "service: 'cloudapis.googleapis.com'"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-10T18:10:52Z" },
+    "Id": "a0n33",
+    "CA10G1__disappearanceTime__c": null,
+    "CA10G1__restrictionsApiTargets__c": "service: 'cloudbuild.googleapis.com', methods: ''"
+  }
+]

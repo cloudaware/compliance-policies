@@ -1,0 +1,17 @@
+---
+name: >
+  [ECS.3] ECS task definitions should not share the host's process namespace
+description: |-
+  A process ID (PID) namespace provides separation between processes. It prevents 
+  system processes from being visible, and allows PIDs to be reused, including PID 1. 
+  If the host's PID namespace is shared with containers, it would allow containers 
+  to see all of the processes on the host system. This reduces the benefit of process 
+  level isolation between the host and the containers. These circumstances could lead 
+  to unauthorized access to processes on the host itself, including the ability 
+  to manipulate and terminate them. Customers shouldn't share the host's process 
+  namespace with containers running on it.
+similar:
+  internal:
+    - dec-c-db1f78c5
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ecs-controls.html#ecs-3

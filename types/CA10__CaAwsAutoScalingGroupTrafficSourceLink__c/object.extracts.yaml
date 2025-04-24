@@ -1,0 +1,9 @@
+---
+extracts:
+# Values: elb, elbv2, vpc-lattice. Not Nullable. Can't have no access, retrieved via autoscaling:DescribeAutoScalingGroups
+  - name: CA10__trafficSourceType__c
+    value: 
+      FIELD:
+        path: CA10__trafficSourceType__c
+        undeterminedIf:
+          isEmpty: "Possibly corrupted data. Traffic source type cannot be empty."

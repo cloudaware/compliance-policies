@@ -1,0 +1,14 @@
+name: >
+  11.3.1.2 Internal vulnerability scans are performed via authenticated scanning.
+description: |-
+  As follows:
+  
+  - Systems that are unable to accept credentials for authenticated scanning 
+  are documented.
+  - Sufficient privileges are used for those systems that accept credentials 
+  for scanning.
+  - If accounts used for authenticated scanning can be used for interactive login, 
+  they are managed in accordance with Requirement 8.2.2.
+similar:
+  sections:
+    - /frameworks/pci-dss-v4.0.1/11/03/01/02

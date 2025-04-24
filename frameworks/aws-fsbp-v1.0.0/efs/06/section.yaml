@@ -1,0 +1,12 @@
+---
+name: "[EFS.6] EFS mount targets should not be associated with a public subnet"
+description: |-
+  By default, an file system is only accessible from the virtual private cloud (VPC) 
+  in which you created it. We recommend creating EFS mount targets in private subnets 
+  that are not accessible from the internet. This helps ensure that your file system 
+  is only accessible to authorized users and isn't vulnerable to unauthorized access or attacks.
+similar:
+  internal:
+    - dec-c-f8e0fcb5
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/efs-controls.html#efs-6

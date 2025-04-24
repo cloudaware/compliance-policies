@@ -1,0 +1,10 @@
+---
+name: "[Lambda.1] Lambda function policies should prohibit public access"
+description: |-
+  The Lambda function should not be publicly accessible, as this may allow 
+  unintended access to your function code.
+similar:
+  internal:
+    - dec-c-709a753d
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/lambda-controls.html#lambda-1

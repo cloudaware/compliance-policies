@@ -1,0 +1,11 @@
+---
+name: "[ECS.4] ECS containers should run as non-privileged"
+description: |-
+  We recommend that you remove elevated privileges from your ECS task definitions. 
+  When the privilege parameter is `true`, the container is given elevated privileges 
+  on the host container instance (similar to the root user).
+similar:
+  internal:
+    - dec-c-d71f8501
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ecs-controls.html#ecs-4

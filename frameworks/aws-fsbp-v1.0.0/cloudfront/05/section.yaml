@@ -1,0 +1,14 @@
+---
+name: "[CloudFront.5] CloudFront distributions should have logging enabled"
+description: |-
+  CloudFront access logs provide detailed information about every user request that 
+  CloudFront receives. Each log contains information such as the date and time 
+  the request was received, the IP address of the viewer that made the request, 
+  the source of the request, and the port number of the request from the viewer. 
+  These logs are useful for applications such as security and access audits and 
+  forensics investigation.
+similar:
+  internal:
+    - dec-c-3b43b170
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/cloudfront-controls.html#cloudfront-5

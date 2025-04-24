@@ -268,7 +268,7 @@ repo-manager policies test [OPTIONS] <id>
 ### Arguments
 
 - `id`
-  - Policy ID, Logic ID, or `'all'` to run tests for all policies.
+  - Policy ID, Logic ID, `'all'` to run tests for all policies or `'unit-tests'` to run tests for all unit-tests.
 
 ## `repo-manager schema`
 

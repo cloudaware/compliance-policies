@@ -1,0 +1,17 @@
+---
+name: >
+  [Transfer.2] Transfer Family servers should not use FTP protocol 
+  for endpoint connection
+description: |-
+  FTP (File Transfer Protocol) establishes the endpoint connection through 
+  unencrypted channels, leaving data sent over these channels vulnerable to 
+  interception. Using SFTP (SSH File Transfer Protocol), 
+  FTPS (File Transfer Protocol Secure), or AS2 (Applicability Statement 2) 
+  offers an extra layer of security by encrypting your data in transit and can 
+  be used to help prevent potential attackers from using person-in-the-middle or 
+  similar attacks to eavesdrop on or manipulate network traffic.
+similar:
+  internal:
+    - dec-c-4ab68f65
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/transfer-controls.html#transfer-2

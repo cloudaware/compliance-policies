@@ -1,0 +1,9 @@
+name: >
+  [Glue.3] AWS Glue machine learning transforms should be encrypted at rest
+description: |-
+  Data at rest refers to data that's stored in persistent, non-volatile storage 
+  for any duration. Encrypting data at rest helps you protect its confidentiality, 
+  which reduces the risk that an unauthorized user can access it.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/glue-controls.html#glue-3

@@ -1,0 +1,30 @@
+---
+
+inputType: "CA10__CaGoogleGceInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleGceInstance__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Confidential Computing is currently only supported on N2D and C2D machines."
+    check:
+      NOT:
+        arg:
+          STARTS_WITH:
+            arg:
+              EXTRACT: "CA10__machineTypeName__c"
+            prefix:
+              TEXT: "n2d-"
+  - status: "COMPLIANT"
+    currentStateMessage: "Instance has Confidential Computing enabled."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "CA10__confidentialComputeStatus__c"
+        substring:
+          TEXT: "Enabled"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Instance has Confidential Computing disabled."
+  remediationMessage: "Enable Confidential Computing."

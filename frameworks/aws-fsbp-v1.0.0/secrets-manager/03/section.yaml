@@ -1,0 +1,15 @@
+---
+name: "[SecretsManager.3] Remove unused Secrets Manager secrets"
+description: |-
+  Deleting unused secrets is as important as rotating secrets. Unused secrets 
+  can be abused by their former users, who no longer need access to these secrets. 
+  Also, as more users get access to a secret, someone might have mishandled 
+  and leaked it to an unauthorized entity, which increases the risk of abuse. 
+  Deleting unused secrets helps revoke secret access from users who no longer 
+  need it. It also helps to reduce the cost of using Secrets Manager. Therefore, 
+  it is essential to routinely delete unused secrets.
+similar:
+  internal:
+    - dec-c-3c8a6c26
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/secretsmanager-controls.html#secretsmanager-3

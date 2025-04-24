@@ -1,0 +1,13 @@
+---
+name: "[ES.1] Elasticsearch domains should have encryption at-rest enabled"
+description: |-
+  For an added layer of security for your sensitive data in OpenSearch, you should 
+  configure your OpenSearch to be encrypted at rest. Elasticsearch domains offer 
+  encryption of data at rest. The feature uses AWS KMS to store and manage your 
+  encryption keys. To perform the encryption, it uses the Advanced Encryption Standard 
+  algorithm with 256-bit keys (AES-256).
+similar:
+  internal:
+    - dec-c-852b1f1b
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/es-controls.html#es-1

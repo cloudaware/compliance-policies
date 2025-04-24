@@ -20,25 +20,25 @@ To better support the principle of separation of duties, it would be best to onl
 
 1. List IAM policies, filter for the `AWSSupportAccess` managed policy, and note the `Arn` element value:
 
-```sh
-aws iam list-policies --query "Policies[?PolicyName == 'AWSSupportAccess']"
-```
+    ```sh
+    aws iam list-policies --query "Policies[?PolicyName == 'AWSSupportAccess']"
+    ```
 
 2. Check if the `AWSSupportAccess` policy is attached to any role:
 
-```sh
-aws iam list-entities-for-policy --policy-arn arn:aws:iam::aws:policy/AWSSupportAccess
-```
+    ```sh
+    aws iam list-entities-for-policy --policy-arn arn:aws:iam::aws:policy/AWSSupportAccess
+    ```
 
 3. In Output, Ensure `PolicyRoles` does not return empty.
 
-Example:
+    Example:
 
-```
-PolicyRoles: [ ]
-```
+    ```plaintext
+    PolicyRoles: [ ]
+    ```
 
-If it returns empty refer to the remediation.
+    If it returns empty refer to the remediation.
 
 ## References
 

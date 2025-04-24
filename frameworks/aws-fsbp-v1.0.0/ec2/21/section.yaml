@@ -1,0 +1,12 @@
+---
+name: >
+  [EC2.21] Network ACLs should not allow ingress from 0.0.0.0/0 to port 22 or port 3389
+description: |-
+  Access to remote server administration ports, such as port 22 (SSH) and port 3389 (RDP), 
+  should not be publicly accessible, as this may allow unintended access to 
+  resources within your VPC.
+similar:
+  internal:
+    - dec-c-5c49db5a
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-21

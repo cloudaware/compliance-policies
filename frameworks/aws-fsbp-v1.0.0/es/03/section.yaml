@@ -1,0 +1,13 @@
+---
+name: "[ES.3] Elasticsearch domains should encrypt data sent between nodes"
+description: |-
+  HTTPS (TLS) can be used to help prevent potential attackers from eavesdropping on 
+  or manipulating network traffic using person-in-the-middle or similar attacks. 
+  Only encrypted connections over HTTPS (TLS) should be allowed. Enabling node-to-node 
+  encryption for Elasticsearch domains ensures that intra-cluster communications 
+  are encrypted in transit.
+similar:
+  internal:
+    - dec-c-dc5a5c95
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/es-controls.html#es-3

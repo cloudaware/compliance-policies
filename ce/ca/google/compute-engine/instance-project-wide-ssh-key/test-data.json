@@ -1,0 +1,50 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-08T18:22:06Z" },
+    "Id": "a4ZVU000001mQPR2A2",
+    "CA10__disappearanceTime__c": "2024-08-30T14:19:56Z",
+    "CA10__metadataJson__c": "{}"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "102",
+      "conditionText": "extract('CA10__metadataJson__c').asJson().isInvalid()",
+      "runtimeError": "Expected ',' or ']' after array element in JSON at position 43 (line 1 column 44)"
+    },
+    "context": { "snapshotTime": "2024-09-08T18:22:06Z" },
+    "Id": "a4ZVU000001p5iB2AQ",
+    "CA10__disappearanceTime__c": null,
+    "CA10__metadataJson__c": "{\"items\":[{\"key\":\"boostCpu\",\"value\":\"true\"}"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('caJsonFrom__metadataJson__block_project_ssh_keys_value').contains('true')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-08T18:22:06Z" },
+    "Id": "a4Z0e000000Su7DEAS",
+    "CA10__disappearanceTime__c": null,
+    "CA10__metadataJson__c": "{\"fingerprint\":\"F1wMChcl5Oc\\u003d\",\"items\":[{\"key\":\"block-project-ssh-keys\",\"value\":\"true\"}, {\"key\":\"boostCpu\",\"value\":\"true\"}]}"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-08T18:22:06Z" },
+    "Id": "a4Z0e000000qAcaEAE",
+    "CA10__disappearanceTime__c": null,
+    "CA10__metadataJson__c": "{\"fingerprint\":\"1tTBKQhMX4Y\\u003d\",\"kind\":\"compute#metadata\"}"
+  }
+]

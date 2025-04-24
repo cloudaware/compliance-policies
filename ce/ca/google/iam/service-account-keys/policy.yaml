@@ -1,0 +1,15 @@
+---
+names: 
+  full: "Google IAM Service Account has User-Managed Keys"
+  contextual: "Service Account has User-Managed Keys"
+description: "User-managed service accounts should not have user-managed keys."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/01/04
+  - /frameworks/cloudaware/identity-and-access-governance/credential-lifecycle-management
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudIAM/delete-user-managed-service-account-keys.html
+      name: "Delete User-Managed Service Account Keys"

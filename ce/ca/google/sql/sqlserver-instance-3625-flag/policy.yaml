@@ -1,0 +1,15 @@
+---
+names: 
+  full: "Google Cloud SQL Server Instance 3625 (trace flag) Database Flag is not set to on"
+  contextual: "SQL Server Instance 3625 (trace flag) Database Flag is not set to on"
+description: "It is recommended to set 3625 (trace flag) database flag for Cloud SQL SQL Server instance to 'on'."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/06/03/06
+  - /frameworks/cloudaware/resource-security/data-protection-and-recovery
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudSQL/disable-3625-trace-flag.html"
+      name: "Disable '3625' Trace Flag for SQL Server Database Instances"

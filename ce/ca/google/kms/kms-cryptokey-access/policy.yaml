@@ -1,0 +1,17 @@
+---
+names: 
+  full: "Google KMS Crypto Key is anonymously or publicly accessible"
+  contextual: "Crypto Key is anonymously or publicly accessible"
+description: "It is recommended that the IAM policy on Cloud KMS Crypto Key should restrict anonymous and/or public access."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+impossible: true
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/01/09
+  - /frameworks/cloudaware/resource-security/public-and-anonymous-access
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudKMS/publicly-accessible-kms-cryptokeys.html"
+      name: "Check for Publicly Accessible Cloud KMS Keys"
+ 

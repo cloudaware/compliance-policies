@@ -1,0 +1,33 @@
+---
+
+inputType: "CA10__CaGoogleSqlInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleSqlInstance__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "GCP does not provide Automated Backups for read-replica instances."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__instanceType__c"
+        right:
+          TEXT: "READ_REPLICA_INSTANCE"
+  - status: "COMPLIANT"
+    currentStateMessage: "SQL instance automated backups are configured."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__backupEnabled__c"
+              right:
+                BOOLEAN: true
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: CA10__backupStartTime__c
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Automated backups disabled for the Cloud SQL database instance."
+  remediationMessage: "Enable Automated backups for Cloud SQL database instance."

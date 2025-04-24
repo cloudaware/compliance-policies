@@ -1,0 +1,15 @@
+---
+names: 
+  full: "Google Cloud SQL Instance Automated Backups are not configured"
+  contextual: "SQL Instance Automated Backups are not configured"
+description: "It is recommended to have all SQL database instances set to enable automated backups."
+type: COMPLIANCE_POLICY
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/06/07
+  - /frameworks/cloudaware/resource-reliability/system-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudSQL/enable-automated-backups.html"
+      name: "Enable Automated Backups for Cloud SQL Database Instances"

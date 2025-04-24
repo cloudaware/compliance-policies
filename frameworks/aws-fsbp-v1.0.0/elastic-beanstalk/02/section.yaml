@@ -1,0 +1,12 @@
+---
+name: >
+  [ElasticBeanstalk.2] Elastic Beanstalk managed platform updates should be enabled
+description: |-
+  Enabling managed platform updates ensures that the latest available platform fixes, 
+  updates, and features for the environment are installed. Keeping up to date with 
+  patch installation is an important step in securing systems.
+similar:
+  internal:
+    - dec-c-f54bd6da
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/elasticbeanstalk-controls.html#elasticbeanstalk-2

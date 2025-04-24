@@ -1,0 +1,17 @@
+---
+names: 
+  full: "Google Organization Essential Contacts is not configured"
+  contextual: "Organization Essential Contacts is not configured"
+description: "It is recommended that Essential Contacts is configured to designate email addresses \
+ for Google Cloud services to notify of important technical or security information."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/01/16
+  - /frameworks/cloudaware/identity-and-access-governance/general-access-controls
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/CloudIAM/essential-contacts.html"
+      name: "Configure Essential Contacts for Organizations"
+ 

@@ -1,0 +1,12 @@
+---
+name: >
+  [RDS.5] RDS DB instances should be configured with multiple Availability Zones
+description: |-
+  Configuring Amazon RDS DB instances with AZs helps ensure the availability of 
+  stored data. Multi-AZ deployments allow for automated failover if there is 
+  an issue with AZ availability and during regular RDS maintenance.
+similar:
+  internal:
+    - dec-c-dc274fd5
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-5

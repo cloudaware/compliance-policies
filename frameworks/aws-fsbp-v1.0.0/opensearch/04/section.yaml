@@ -1,0 +1,13 @@
+---
+name: >
+  [Opensearch.4] OpenSearch domain error logging to CloudWatch Logs 
+  should be enabled
+description: |-
+  You should enable error logs for OpenSearch domains and send those logs to 
+  CloudWatch Logs for retention and response. Domain error logs can assist with 
+  security and access audits, and can help to diagnose availability issues.
+similar:
+  internal:
+    - dec-c-85a9b8be
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/opensearch-controls.html#opensearch-4

@@ -1,0 +1,11 @@
+---
+name: "[APIGateway.8] API Gateway routes should specify an authorization type"
+description: |-
+  API Gateway supports multiple mechanisms for controlling and managing access 
+  to your API. By specifying an authorization type, you can restrict access to your 
+  API to only authorized users or processes.
+similar:
+  internal:
+    - dec-c-8815d0f4
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/apigateway-controls.html#apigateway-8

@@ -1,0 +1,15 @@
+---
+name: >
+  [DocumentDB.5] Amazon DocumentDB clusters should have deletion protection enabled
+description: |-
+  Enabling cluster deletion protection offers an additional layer of protection 
+  against accidental database deletion or deletion by an unauthorized user. 
+  An Amazon DocumentDB cluster can't be deleted while deletion protection is enabled. 
+  You must first disable deletion protection before a delete request can succeed. 
+  Deletion protection is enabled by default when you create a cluster in 
+  the Amazon DocumentDB console.
+similar:
+  internal:
+    - dec-c-0aeb0a64
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/documentdb-controls.html#documentdb-5

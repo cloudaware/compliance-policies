@@ -157,6 +157,34 @@ conditions:
                     returnType: NUMBER
                 right:
                   NUMBER: 1
+  - status: COMPLIANT
+    currentStateMessage: Duration-1
+    check:
+      UNIT_TEST:
+        id: Duration-1
+        arg:
+          GREATER_THAN:
+            left:
+              DURATION: "PT1M"
+            right:
+              DURATION: "PT1S"
+  - status: COMPLIANT
+    currentStateMessage: Duration-2
+    check:
+      UNIT_TEST:
+        id: Duration-2
+        arg:
+          GREATER_THAN:
+            left:
+              DURATION_FROM:
+                arg:
+                  TEXT: "1m"
+                format: GCP
+                undeterminedIf:
+                  isEmpty: "Should not happen"
+                  invalidFormat: "Should not happen"
+            right:
+              DURATION: "PT1S"
 otherwise:
   status: INCOMPLIANT
   currentStateMessage: Test Failed

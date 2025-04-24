@@ -1,0 +1,80 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-08-27T19:17:54Z" },
+    "Id": "a41",
+    "CA10__disappearanceTime__c": "2024-08-26T21:36:28Z",
+    "Name": "gke-prod1",
+    "CA10__labels__c": "",
+    "CA10__Google_Instance_Service_Account_Links__r": [
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('Name').startsWith('gke-')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-08-27T19:17:54Z" },
+    "Id": "a42",
+    "CA10__disappearanceTime__c": null,
+    "Name": "gke-default-pool",
+    "CA10__labels__c": "goog-gke-node:",
+    "CA10__Google_Instance_Service_Account_Links__r": [
+      {
+        "Id": "aCR2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__iamServiceAccountEmail__c": "7011111-compute@developer.gserviceaccount.com",
+        "CA10__gceInstance__c": "a42"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__Google_Instance_Service_Account_Links__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-08-27T19:17:54Z" },
+    "Id": "a43",
+    "CA10__disappearanceTime__c": null,
+    "Name": "stat-image",
+    "CA10__labels__c": "",
+    "CA10__Google_Instance_Service_Account_Links__r": [
+      {
+        "Id": "aCR0e000000k9nHGAQ",
+        "CA10__disappearanceTime__c": null,
+        "CA10__iamServiceAccountEmail__c": "94111111-compute@developer.gserviceaccount.com",
+        "CA10__gceInstance__c": "a43"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-08-27T19:17:54Z" },
+    "Id": "a44",
+    "CA10__disappearanceTime__c": null,
+    "Name": "stat-image",
+    "CA10__labels__c": "goog-gke-cost-management",
+    "CA10__Google_Instance_Service_Account_Links__r": [
+      {
+        "Id": "aCRVU4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__iamServiceAccountEmail__c": "tfc@ce.iam.gserviceaccount.com",
+        "CA10__gceInstance__c": "a44"
+      }
+    ]
+  }
+]

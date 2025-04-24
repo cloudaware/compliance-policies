@@ -1,0 +1,41 @@
+---
+inputType: "CA10__CaGoogleProject__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleProject__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Access Approval is enabled."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__Google_Resource_Manager_Projects__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Access Approval is not enabled."
+  remediationMessage: "Consider enabling Access Approval."
+relatedLists:
+  - relationshipName: "CA10__Google_Resource_Manager_Projects__r"
+    importExtracts:
+      - file: /types/CA10__CaGoogleResourceManagerProject__c/object.extracts.yaml
+      - file: /types/CA10__CaGoogleResourceManagerFolder__c/object.extracts.yaml
+      - file: /types/CA10__CaGoogleResourceManagerOrganization__c/object.extracts.yaml
+    conditions: 
+      - status: "COMPLIANT"
+        currentStateMessage: "Resource Manager Project with Access Approval enabled."
+        check:
+          OR:
+            args:
+              - NOT_EMPTY:
+                  arg:
+                    EXTRACT: "CA10__resourceManagerFolder__r.caJsonFrom__accessApprovalStatus__c"
+              - NOT_EMPTY:
+                  arg:
+                    EXTRACT: "CA10__resourceManagerOrganization__r.caJsonFrom__accessApprovalStatus__c"
+              - NOT_EMPTY:
+                  arg:
+                    EXTRACT: "caJsonFrom__accessApprovalStatus__c"
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "Resource Manager Project without Access Approval."

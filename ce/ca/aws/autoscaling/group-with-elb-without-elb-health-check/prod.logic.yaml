@@ -1,0 +1,58 @@
+---
+inputType: "CA10__CaAwsAutoScalingGroup__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsAutoScalingGroupTrafficSourceLink__c/object.extracts.yaml"
+  - file: "/types/CA10__CaAwsAutoScalingGroup__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The AGS is not associated with a Load Balancer."
+    check:
+      RELATED_LIST_HAS_NO:
+        relationshipName: "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r"
+        status: "COMPLIANT"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The AGS behind ELB does not use ELB health check."
+    remediationMessage: "Configure Auto Scaling Group to use ELB health check."
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__healthCheckType__c"
+            substring:
+              TEXT: "ELB"
+  - status: "COMPLIANT"
+    currentStateMessage: "The ASG uses ELB health check."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "CA10__healthCheckType__c"
+        substring:
+          TEXT: "ELB"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."
+relatedLists:
+  - relationshipName: "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r"
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "The ASG traffic source is a Classic Load Balancer."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__trafficSourceType__c"
+            right:
+              TEXT: "elb"
+      - status: "COMPLIANT"
+        currentStateMessage: "The ASG traffic source is an ELB target group."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__trafficSourceType__c"
+            right:
+              TEXT: "elbv2"
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "Unrelated ASG traffic source."

@@ -1,0 +1,11 @@
+name: "[Kinesis.3] Kinesis streams should have an adequate data retention period"
+description: |-
+  In Kinesis Data Streams, a data stream is an ordered sequence of data records 
+  meant to be written to and read from in real time. Data records are stored in 
+  shards in your stream temporarily. The time period from when a record is added 
+  to when it is no longer accessible is called the retention period. Kinesis 
+  Data Streams almost immediately makes records older than the new retention 
+  period inaccessible after decreasing the retention period.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/kinesis-controls.html#kinesis-3

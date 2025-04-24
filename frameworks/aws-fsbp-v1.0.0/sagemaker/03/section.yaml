@@ -1,0 +1,12 @@
+---
+name: >
+  [SageMaker.3] Users should not have root access to SageMaker AI notebook instances
+description: |-
+  In adherence to the principal of least privilege, it is a recommended security 
+  best practice to restrict root access to instance resources to avoid 
+  unintentionally over provisioning permissions.
+similar:
+  internal:
+    - dec-c-8d1156a3
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/sagemaker-controls.html#sagemaker-3

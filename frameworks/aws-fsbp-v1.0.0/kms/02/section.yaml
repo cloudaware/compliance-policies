@@ -1,0 +1,17 @@
+---
+name: >
+  [KMS.2] IAM principals should not have IAM inline policies that allow 
+  decryption actions on all KMS keys
+description: |-
+  With AWS KMS, you control who can use your KMS keys and gain access to your 
+  encrypted data. IAM policies define which actions an identity (user, group, 
+  or role) can perform on which resources. Following security best practices, 
+  AWS recommends that you allow least privilege. In other words, you should 
+  grant to identities only the permissions they need and only for keys that are 
+  required to perform a task. Otherwise, the user might use keys that are not 
+  appropriate for your data.
+similar:
+  internal:
+    - dec-c-0ecbf812
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/kms-controls.html#kms-2

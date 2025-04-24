@@ -1,0 +1,30 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10G1__Google_API_Keys__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-08-07T17:46:07Z" },
+    "Id": "a4p1",
+    "CA10G1__Google_API_Keys__r": [
+      {
+        "Id": "a01",
+        "CA10G1__disappearanceTime__c": null,
+        "CA10G1__project__c": "a4p1"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-08-07T17:46:07Z" },
+    "Id": "a4p2",
+    "CA10G1__Google_API_Keys__r": []
+  }
+]

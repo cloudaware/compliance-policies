@@ -1,0 +1,15 @@
+---
+names: 
+  full: "Google Cloud SQL Server Instance user options Database Flag is configured"
+  contextual: "SQL Server Instance user options Database Flag is configured"
+description: "It is recommended that, user options database flag for Cloud SQL SQL Server instance should not be configured."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/06/03/04
+  - /frameworks/cloudaware/resource-security/secure-access
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudSQL/user-options-flag-not-configured.html"
+      name: "Disable 'user options' Flag for SQL Server Instances"

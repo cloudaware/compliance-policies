@@ -1,0 +1,38 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-01-16T06:54:27Z" },
+    "Id": "111",
+    "CA10__disappearanceTime__c": "2025-01-08T15:37:41Z",
+    "CA10__encryptionConfigKmsKeyName__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__encryptionConfigKmsKeyName__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-01-16T06:54:27Z" },
+    "Id": "112",
+    "CA10__disappearanceTime__c": null,
+    "CA10__encryptionConfigKmsKeyName__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-01-16T06:54:27Z" },
+    "Id": "113",
+    "CA10__disappearanceTime__c": null,
+    "CA10__encryptionConfigKmsKeyName__c": "name3"
+  }
+]

@@ -1,0 +1,14 @@
+---
+name: >
+  [Autoscaling.5] Amazon EC2 instances launched using Auto Scaling group 
+  launch configurations should not have Public IP addresses
+description: |-
+  Amazon EC2 instances in an Auto Scaling group launch configuration should not have 
+  an associated public IP address, except for in limited edge cases. Amazon EC2 instances 
+  should only be accessible from behind a load balancer instead of being directly 
+  exposed to the internet.
+similar:
+  internal:
+    - dec-c-8e483a0a
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/autoscaling-controls.html#autoscaling-5

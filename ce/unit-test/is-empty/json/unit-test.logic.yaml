@@ -1,0 +1,55 @@
+---
+inputType: CA10__CaAwsInstance__c
+testData:
+  - file: test-data.json
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: Test-1
+    check:
+      UNIT_TEST:
+        id: Test-1
+        arg:
+          NOT_EMPTY:
+            arg:
+              JSON: { name: "John", age: 30 }
+  - status: COMPLIANT
+    currentStateMessage: Test-2
+    check:
+      UNIT_TEST:
+        id: Test-2
+        arg:
+          NOT_EMPTY:
+            arg:
+              JSON: { name: "John"}
+  - status: COMPLIANT
+    currentStateMessage: Test-3
+    check:
+      UNIT_TEST:
+        id: Test-3
+        arg:
+          IS_EMPTY:
+            arg:
+              JSON: { name: null }
+  - status: COMPLIANT
+    currentStateMessage: Test-4
+    check:
+      UNIT_TEST:
+        id: Test-4
+        arg:
+          IS_EMPTY:
+            arg:
+              JSON: { }
+  - status: COMPLIANT
+    currentStateMessage: Test-5
+    check:
+      UNIT_TEST:
+        id: Test-5
+        arg:
+          IS_EMPTY:
+            arg:
+              UNIT_TEST_NULL:
+                returnType: TEXT
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: Test Failed
+  remediationMessage: Developer Fix Required

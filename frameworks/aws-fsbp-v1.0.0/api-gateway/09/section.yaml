@@ -1,0 +1,12 @@
+---
+name: "[APIGateway.9] Access logging should be configured for API Gateway V2 Stages"
+description: |-
+  API Gateway access logs provide detailed information about who has accessed your 
+  API and how the caller accessed the API. These logs are useful for applications 
+  such as security and access audits and forensics investigation. Enable these access 
+  logs to analyze traffic patterns and to troubleshoot issues.
+similar:
+  internal:
+    - dec-c-9d39a2dd
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/apigateway-controls.html#apigateway-9

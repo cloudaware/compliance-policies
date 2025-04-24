@@ -1,0 +1,11 @@
+---
+name: "[S3.2] S3 general purpose buckets should block public read access"
+description: |-
+  Some use cases may require that everyone on the internet be able to read from 
+  your S3 bucket. However, those situations are rare. To ensure the integrity 
+  and security of your data, your S3 bucket should not be publicly readable.
+similar:
+  internal:
+    - dec-c-904cf17a
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/s3-controls.html#s3-2

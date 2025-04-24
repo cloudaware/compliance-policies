@@ -1,0 +1,308 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__Google_Resource_Manager_Projects__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-12-06T06:06:17Z" },
+    "Id": "aKAI",
+    "CA10__Google_Resource_Manager_Projects__r": [
+      {
+        "Id": "aDOAW",
+        "CA10__disappearanceTime__c": null,
+        "CA10__googleProject__c": "aKAI",
+        "CA10__resourceManagerOrganization__c": "",
+        "CA10__resourceManagerFolder__c": "",
+        "CA10__resourceManagerOrganization__r": {
+          "Id": null,
+          "CA10G1__Google_Logging_Log_Sinks1__r": []
+        },
+        "CA10__resourceManagerFolder__r": {
+          "Id": null,
+          "CA10G1__Google_Logging_Log_Sinks1__r": []
+        },
+        "CA10G1__Google_Logging_Log_Sinks1__r": [
+          {
+            "Id": "a11Q",
+            "RecordTypeId": "012IA0",
+            "CA10G1__disappearanceTime__c": null,
+            "CA10G1__filter__c": "",
+            "CA10G1__destination__c": "logging.googleapis.com/projects",
+            "CA10G1__resourceManagerProject__c": "aDOAW",
+            "RecordType": {
+              "DeveloperName": "caGoogleLoggingLogSinkProject",
+              "Id": "012IA0"
+            }
+          },
+          {
+            "Id": "a12Q",
+            "RecordTypeId": "012IA0",
+            "CA10G1__disappearanceTime__c": null,
+            "CA10G1__filter__c": "LOG_ID(\"activity\") OR LOG_ID(\"googleapis.com/activity\")",
+            "CA10G1__destination__c": "logging.googleapis.com/projects",
+            "CA10G1__resourceManagerProject__c": "aDOAW",
+            "RecordType": {
+              "DeveloperName": "caGoogleLoggingLogSinkProject",
+              "Id": "012IA0"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-12-06T06:06:17Z" },
+    "Id": "aTKAY",
+    "CA10__Google_Resource_Manager_Projects__r": [
+      {
+        "Id": "aDtOAI",
+        "CA10__disappearanceTime__c": null,
+        "CA10__googleProject__c": "aTKAY",
+        "CA10__resourceManagerOrganization__c": "",
+        "CA10__resourceManagerFolder__c": "",
+        "CA10__resourceManagerOrganization__r": {
+          "Id": null,
+          "CA10G1__Google_Logging_Log_Sinks1__r": []
+        },
+        "CA10__resourceManagerFolder__r": {
+          "Id": null,
+          "CA10G1__Google_Logging_Log_Sinks1__r": []
+        },
+        "CA10G1__Google_Logging_Log_Sinks1__r": [
+          {
+            "Id": "a1oKAI",
+            "RecordTypeId": "012IA0",
+            "CA10G1__disappearanceTime__c": null,
+            "CA10G1__filter__c": "LOG_ID(\"activity\") OR LOG_ID(\"googleapis.com/activity\")",
+            "CA10G1__destination__c": "logging.googleapis.com/projects",
+            "CA10G1__resourceManagerProject__c": "aDtOAI",
+            "RecordType": {
+              "DeveloperName": "caGoogleLoggingLogSinkProject",
+              "Id": "012IA0"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-12-06T06:06:17Z" },
+    "Id": "aTKAY5",
+    "CA10__Google_Resource_Manager_Projects__r": [
+      {
+        "Id": "aDtOAI5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__googleProject__c": "aTKAY5",
+        "CA10__resourceManagerOrganization__c": "",
+        "CA10__resourceManagerFolder__c": "",
+        "CA10__resourceManagerOrganization__r": {
+          "Id": null,
+          "CA10G1__Google_Logging_Log_Sinks1__r": []
+        },
+        "CA10__resourceManagerFolder__r": {
+          "Id": null,
+          "CA10G1__Google_Logging_Log_Sinks1__r": []
+        },
+        "CA10G1__Google_Logging_Log_Sinks1__r": [
+          {
+            "Id": "a1oKAI5",
+            "RecordTypeId": "012IA0",
+            "CA10G1__disappearanceTime__c": null,
+            "CA10G1__filter__c": "",
+            "CA10G1__destination__c": "",
+            "CA10G1__resourceManagerProject__c": "aDtOAI5",
+            "RecordType": {
+              "DeveloperName": "caGoogleLoggingLogSinkProject",
+              "Id": "012IA0"
+            }
+          }
+        ]
+      }
+    ]
+  },
+
+
+
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__Google_Resource_Manager_Projects__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-12-06T06:06:17Z" },
+    "Id": "atKAI22",
+    "CA10__Google_Resource_Manager_Projects__r": [
+      {
+        "Id": "aDOAW22",
+        "CA10__disappearanceTime__c": null,
+        "CA10__googleProject__c": "atKAI22",
+        "CA10__resourceManagerOrganization__c": "",
+        "CA10__resourceManagerFolder__c": "aDOAW22FF",
+        "CA10__resourceManagerOrganization__r": {
+          "Id": null,
+          "CA10G1__Google_Logging_Log_Sinks1__r": []
+        },
+        "CA10__resourceManagerFolder__r": {
+          "Id": "aDOAW22FF",
+          "CA10G1__Google_Logging_Log_Sinks1__r": [          
+            {
+              "Id": "aRKAQ22",
+              "RecordTypeId": "012A022FF",
+              "CA10G1__disappearanceTime__c": null,
+              "CA10G1__filter__c": "",
+              "CA10G1__destination__c": "logging.googleapis.com/projects",
+              "CA10G1__resourceManagerFolder__c": "aDOAW22FF",
+              "RecordType": {
+              "DeveloperName": "caGoogleLoggingLogSinkFolder",
+              "Id": "012A022FF"
+              }
+            }
+          ]
+        },
+        "CA10G1__Google_Logging_Log_Sinks1__r": []
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-12-06T06:06:17Z" },
+    "Id": "aAY22",
+    "CA10__Google_Resource_Manager_Projects__r": [
+      {
+        "Id": "atOAI22",
+        "CA10__disappearanceTime__c": null,
+        "CA10__googleProject__c": "aAY22",
+        "CA10__resourceManagerOrganization__c": "",
+        "CA10__resourceManagerFolder__c": "aOAI22FF",
+        "CA10__resourceManagerOrganization__r": {
+          "Id": null,
+          "CA10G1__Google_Logging_Log_Sinks1__r": []
+        },
+        "CA10__resourceManagerFolder__r": {
+          "Id": "aOAI22FF",
+          "CA10G1__Google_Logging_Log_Sinks1__r": [
+            {
+              "Id": "aR21HoKAI22",
+              "RecordTypeId": "012A022FF",
+              "CA10G1__disappearanceTime__c": null,
+              "CA10G1__filter__c": "LOG_ID(\"activity\") OR LOG_ID(\"googleapis.com/activity\")",
+              "CA10G1__destination__c": "logging.googleapis.com/projects",
+              "CA10G1__resourceManagerFolder__c": "aOAI22FF",
+              "RecordType": {
+                "DeveloperName": "caGoogleLoggingLogSinkFolder",
+                "Id": "012A022FF"
+              }
+            }
+          ]
+        },
+        "CA10G1__Google_Logging_Log_Sinks1__r": []
+      }
+    ]
+  },
+
+
+
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__Google_Resource_Manager_Projects__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-12-06T06:06:17Z" },
+    "Id": "atKAI33",
+    "CA10__Google_Resource_Manager_Projects__r": [
+      {
+        "Id": "anDOAW33",
+        "CA10__disappearanceTime__c": null,
+        "CA10__googleProject__c": "atKAI33",
+        "CA10__resourceManagerOrganization__c": "aBAW33OO",
+        "CA10__resourceManagerFolder__c": "",
+        "CA10__resourceManagerOrganization__r": {
+          "Id": "aBAW33OO",
+          "CA10G1__Google_Logging_Log_Sinks1__r": [
+            {
+              "Id": "aKAQ33",
+              "RecordTypeId": "0A033OO",
+              "CA10G1__disappearanceTime__c": null,
+              "CA10G1__filter__c": "",
+              "CA10G1__destination__c": "logging.googleapis.com/projects",
+              "CA10G1__resourceManagerOrganization__c": "aBAW33OO",
+              "RecordType": {
+                "DeveloperName": "caGoogleLoggingLogSinkOrganization",
+                "Id": "0A033OO"
+              }
+            }
+          ]
+        },
+        "CA10__resourceManagerFolder__r": {
+          "Id": null,
+          "CA10G1__Google_Logging_Log_Sinks1__r": []
+        },
+        "CA10G1__Google_Logging_Log_Sinks1__r": []
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-12-06T06:06:17Z" },
+    "Id": "aB1TKAY33",
+    "CA10__Google_Resource_Manager_Projects__r": [
+      {
+        "Id": "aB1OAI33",
+        "CA10__disappearanceTime__c": null,
+        "CA10__googleProject__c": "aB1TKAY33",
+        "CA10__resourceManagerOrganization__c": "aB1AI33OO",
+        "CA10__resourceManagerFolder__c": "",
+        "CA10__resourceManagerOrganization__r": {
+          "Id": "aB1AI33OO",
+          "CA10G1__Google_Logging_Log_Sinks1__r": [
+            {
+              "Id": "aR12KAI33",
+              "RecordTypeId": "0A033OO",
+              "CA10G1__disappearanceTime__c": null,
+              "CA10G1__filter__c": "LOG_ID(\"activity\") OR LOG_ID(\"googleapis.com/activity\")",
+              "CA10G1__destination__c": "logging.googleapis.com/projects",
+              "CA10G1__resourceManagerOrganization__c": "aB1AI33OO",
+              "RecordType": {
+                "DeveloperName": "caGoogleLoggingLogSinkOrganization",
+                "Id": "0A033OO"
+              }
+            }
+          ]
+        },
+        "CA10__resourceManagerFolder__r": {
+          "Id": null,
+          "CA10G1__Google_Logging_Log_Sinks1__r": []
+        },
+        "CA10G1__Google_Logging_Log_Sinks1__r": []
+      }
+    ]
+  }
+
+]

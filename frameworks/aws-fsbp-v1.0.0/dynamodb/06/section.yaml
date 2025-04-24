@@ -1,0 +1,12 @@
+---
+name: "[DynamoDB.6] DynamoDB tables should have deletion protection enabled"
+description: |-
+  You can protect a DynamoDB table from accidental deletion with the deletion protection 
+  property. Enabling this property for tables helps ensure that tables don't get 
+  accidentally deleted during regular table management operations by your administrators. 
+  This helps prevent disruption to your normal business operations.
+similar:
+  internal:
+    - dec-c-3a4f0e6e
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/dynamodb-controls.html#dynamodb-6

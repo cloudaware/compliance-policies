@@ -1,11 +1,18 @@
 ---
 name: |-
-  6.3 Develop internal and external software applications (including web-based administrative access to applications) securely, as follows:
-  • In accordance with PCI DSS (for example, secure authentication and logging)
-  • Based on industry standards and/or best practices.
-  • Incorporating information security throughout the software-development life cycle
-  Note: this applies to all software developed internally as well as bespoke or custom software developed by a third party.
-description: ""
+  6.3 Develop internal and external software applications securely.
+description: |-
+  As follows:
+
+  - In accordance with PCI DSS (for example, secure authentication and logging)
+  - Based on industry standards and/or best practices.
+  - Incorporating information security throughout the software-development 
+  life cycle.
+
+  This applies to all software developed internally as well as bespoke or custom 
+  software developed by a third party.
 similar:
   internal:
     - dec-c-ec8dbb6f
+  sections:
+    - /frameworks/pci-dss-v4.0/06/02/01

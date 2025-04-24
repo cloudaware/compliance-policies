@@ -1,0 +1,32 @@
+---
+
+inputType: "CA10__CaGoogleSqlInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleSqlInstance__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is not a SQL Server database instance."
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__databaseVersion__c"
+            substring:
+              TEXT: "SQLSERVER" 
+  - status: "COMPLIANT"
+    currentStateMessage: "contained database authentication database flag isn't set to on."
+    check:
+      NOT:
+        arg:
+          IS_EQUAL:
+            left:
+              EXTRACT: "caExtract_databaseFlags_contained_database_authentication_flagValue__c"
+            right:
+              TEXT: "on"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "contained database authentication database flag is set to on."
+  remediationMessage: "Change contained database authentication database flag value to off."

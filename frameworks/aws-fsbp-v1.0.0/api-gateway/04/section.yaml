@@ -1,0 +1,13 @@
+---
+name: "[APIGateway.4] API Gateway should be associated with a WAF Web ACL"
+description: |-
+  AWS WAF is a web application firewall that helps protect web applications and 
+  APIs from attacks. It enables you to configure an ACL, which is a set of rules 
+  that allow, block, or count web requests based on customizable web security rules 
+  and conditions that you define. Ensure that your API Gateway stage is associated 
+  with an AWS WAF web ACL to help protect it from malicious attacks.
+similar:
+  internal:
+    - dec-c-cdc41a7c
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/apigateway-controls.html#apigateway-4

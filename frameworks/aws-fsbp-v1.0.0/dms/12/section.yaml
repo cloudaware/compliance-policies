@@ -1,0 +1,15 @@
+---
+name: >
+  [DMS.12] DMS endpoints for Redis OSS should have TLS enabled
+description: |-
+  TLS provides end-to-end security when data is sent between applications or databases 
+  over the internet. When you configure SSL encryption for your DMS endpoint, 
+  it enables encrypted communication between the source and target databases during 
+  the migration process. This helps prevent eavesdropping and interception of sensitive 
+  data by malicious actors. Without SSL encryption, sensitive data may be accessed, 
+  resulting in data breaches, data loss, or other security incidents.
+similar:
+  internal:
+    - dec-c-46706fa3
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/dms-controls.html#dms-12

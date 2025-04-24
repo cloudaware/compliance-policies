@@ -5,3 +5,7 @@ description: >
   restrict unauthorized access in order to minimize security risks. To restrict access to any
   RDS database instance, you must disable the Publicly Accessible flag for the database
   and update the VPC security group associated with the instance.
+similar:
+  sections:
+    - /frameworks/cis-aws-v5.0.0/02/02/03
+    - /frameworks/cis-aws-v4.0.0/02/02/03

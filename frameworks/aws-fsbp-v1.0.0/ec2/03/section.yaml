@@ -1,0 +1,13 @@
+---
+name: "[EC2.3] Attached Amazon EBS volumes should be encrypted at-rest"
+description: |-
+  For an added layer of security of your sensitive data in EBS volumes, you should 
+  enable EBS encryption at rest. Amazon EBS encryption offers a straightforward 
+  encryption solution for your EBS resources that doesn't require you to build, 
+  maintain, and secure your own key management infrastructure. It uses KMS keys 
+  when creating encrypted volumes and snapshots.
+similar:
+  internal:
+    - dec-c-912f2464
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-3

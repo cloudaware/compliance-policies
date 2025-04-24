@@ -1,0 +1,20 @@
+---
+
+inputType: "CA10__CaGoogleGceInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleGceInstance__c/object.extracts.yaml
+conditions: 
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Enable Connecting to Serial Ports is enabled for the instance."
+    remediationMessage: "It is recommended to disable Connecting to Serial Ports."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "caJsonFrom__metadataJson__serial_port_enable_value"
+        substring:
+          TEXT: "true"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Enable Connecting to Serial Ports is not enabled for the instance."

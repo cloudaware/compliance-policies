@@ -1,0 +1,14 @@
+---
+name: "[RDS.1] RDS snapshot should be private"
+description: |-
+  RDS snapshots are used to back up the data on your RDS instances at a specific 
+  point in time. They can be used to restore previous states of RDS instances.
+
+  An RDS snapshot must not be public unless intended. If you share an unencrypted 
+  manual snapshot as public, this makes the snapshot available to all AWS accounts. 
+  This may result in unintended data exposure of your RDS instance.
+similar:
+  internal:
+    - dec-c-3ae901a7
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-1

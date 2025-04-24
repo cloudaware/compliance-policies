@@ -1,0 +1,15 @@
+---
+names: 
+  full: "Google Cloud PostgreSQL Instance Log_disconnections Database Flag is not set to On"
+  contextual: "PostgreSQL Instance Log_disconnections Database Flag is not set to On"
+description: "Enabling the log_disconnections setting logs the end of each session, including the session duration."
+type: COMPLIANCE_POLICY
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/06/02/03
+  - /frameworks/cloudaware/resource-reliability/system-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudSQL/enable-log-disconnections-flag.html"
+      name: "Enable 'log_disconnections' Flag for PostgreSQL Database Instances"

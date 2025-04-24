@@ -1,0 +1,13 @@
+---
+name: >
+  [Redshift.9] Redshift clusters should not use the default database name
+description: |-
+  When creating a Redshift cluster, you should change the default database name 
+  to a unique value. Default names are public knowledge and should be changed 
+  upon configuration. As an example, a well-known name could lead to inadvertent 
+  access if it was used in IAM policy conditions.
+similar:
+  internal:
+    - dec-c-70bd5acc
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/redshift-controls.html#redshift-9

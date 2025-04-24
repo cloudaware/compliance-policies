@@ -1,0 +1,110 @@
+[
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "not(extract('CA10__serviceAccountEmail__c').endsWith('.iam.gserviceaccount.com') && extract('CA10__serviceAccountEmail__c').contains(extract('serviceAccountProjectId')))",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-08-20T17:39:01Z" },
+    "Id": "aAL1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__serviceAccountEmail__c": "compute@developer.gserviceaccount.com",
+    "CA10__googleProject__c": "a41",
+    "CA10__googleProject__r": {
+      "CA10__projectId__c": "dev",
+      "Id": "a41"
+    },
+    "CA10__Google_IAM_Policy_Bindings__r": [
+      {
+        "Id": "aAI1",
+        "RecordTypeId": "0121",
+        "CA10__disappearanceTime__c": null,
+        "CA10__iamRole__c": "aAJ1",
+        "CA10__iamCuratedRoleId__c": "roles/editor",
+        "CA10__membersServiceAccount__c": "aAL1",
+        "RecordType": {
+          "DeveloperName": "caGoogleIamPolicyBindingProject",
+          "Id": "0121"
+        },
+        "CA10__iamRole__r": {
+          "Id": "aAJ1",
+          "CA10__disappearanceTime__c": null,
+          "CA10__roleName__c": "roles/editor"
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__Google_IAM_Policy_Bindings__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-08-20T17:39:01Z" },
+    "Id": "aAL2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__serviceAccountEmail__c": "upload@lan.iam.gserviceaccount.com",
+    "CA10__googleProject__c": "a4p72",
+    "CA10__googleProject__r": {
+      "CA10__projectId__c": "lan",
+      "Id": "a4p72"
+    },
+    "CA10__Google_IAM_Policy_Bindings__r": [
+      {
+        "Id": "aAIV2",
+        "RecordTypeId": "0122",
+        "CA10__disappearanceTime__c": null,
+        "CA10__iamRole__c": "aAJ2",
+        "CA10__iamCuratedRoleId__c": "roles/storage.admin",
+        "CA10__membersServiceAccount__c": "aAL2",
+        "RecordType": {
+          "DeveloperName": "caGoogleIamPolicyBindingProject",
+          "Id": "0122"
+        },
+        "CA10__iamRole__r": {
+          "Id": "aAJ2",
+          "CA10__disappearanceTime__c": null,
+          "CA10__roleName__c": "roles/storage.admin"
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-08-20T17:39:01Z" },
+    "Id": "aAL3",
+    "CA10__disappearanceTime__c": null,
+    "CA10__serviceAccountEmail__c": "account@marine.iam.gserviceaccount.com",
+    "CA10__googleProject__c": "a4p7V3",
+    "CA10__googleProject__r": {
+      "CA10__projectId__c": "marine",
+      "Id": "a4p7V3"
+    },
+    "CA10__Google_IAM_Policy_Bindings__r": [
+      {
+        "Id": "aAIV3",
+        "RecordTypeId": "0123",
+        "CA10__disappearanceTime__c": null,
+        "CA10__iamRole__c": "aAJ3",
+        "CA10__iamCuratedRoleId__c": "roles/viewer",
+        "CA10__membersServiceAccount__c": "aAL3",
+        "RecordType": {
+          "DeveloperName": "caGoogleIamPolicyBindingProject",
+          "Id": "0123"
+        },
+        "CA10__iamRole__r": {
+          "Id": "aAJ3",
+          "CA10__disappearanceTime__c": null,
+          "CA10__roleName__c": "roles/viewer"
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,12 @@
+---
+name: "[Redshift.7] Redshift clusters should use enhanced VPC routing"
+description: |-
+  Enhanced VPC routing forces all `COPY` and `UNLOAD` traffic between the cluster 
+  and data repositories to go through your VPC. You can then use VPC features 
+  such as security groups and network access control lists to secure network 
+  traffic. You can also use VPC Flow Logs to monitor network traffic.
+similar:
+  internal:
+    - dec-c-42e29577
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/redshift-controls.html#redshift-7

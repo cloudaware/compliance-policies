@@ -1,0 +1,12 @@
+---
+name: "[Neptune.3] Neptune DB cluster snapshots should not be public"
+description: |-
+  A Neptune DB cluster manual snapshot should not be public unless intended. 
+  If you share an unencrypted manual snapshot as public, the snapshot is 
+  available to all AWS accounts. Public snapshots may result in unintended data 
+  exposure.
+similar:
+  internal:
+    - dec-c-e2e82965
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/neptune-controls.html#neptune-3

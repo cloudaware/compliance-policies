@@ -1,0 +1,11 @@
+---
+extracts:
+#Values: Enabled | Disabled. Not Nullable.
+  - name: CA10A1__configPublishCloudWatchMetrics__c
+    value: 
+      FIELD:
+        path: CA10A1__configPublishCloudWatchMetrics__c
+        undeterminedIf:
+          noAccessDelegate:
+            path: CA10A1__configPublishCloudWatchMetrics__c
+            currentStateMessage: "Publish CloudWatch Metrics cannot be empty. Possible permission issues with athena:GetWorkGroup."

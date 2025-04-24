@@ -1,0 +1,62 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail').contains('ALL') || (extract('caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail').contains('LEGAL') && extract('caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail').contains('SECURITY') && extract('caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail').contains('SUSPENSION') && extract('caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail').contains('TECHNICAL'))",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-23T11:48:39Z" },
+    "Id": "aA41",
+    "CA10__disappearanceTime__c": null,
+    "CA10__essentialContactsConfiguration__c": "[{\"email\":\"test@mail.com\",\"languageTag\":\"en-US\",\"notificationCategorySubscriptions\":[\"SUSPENSION\",\"SECURITY\",\"TECHNICAL\",\"TECHNICAL_INCIDENTS\",\"BILLING\",\"LEGAL\",\"PRODUCT_UPDATES\"],\"validateTime\":\"2024-03-26T20:59:46.580493Z\",\"validationState\":\"VALID\"}]"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail').contains('ALL') || (extract('caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail').contains('LEGAL') && extract('caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail').contains('SECURITY') && extract('caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail').contains('SUSPENSION') && extract('caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail').contains('TECHNICAL'))",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-23T11:48:39Z" },
+    "Id": "aA42",
+    "CA10__disappearanceTime__c": null,
+    "CA10__essentialContactsConfiguration__c": "[{\"email\":\"test@mail.com\",\"languageTag\":\"en-US\",\"notificationCategorySubscriptions\":[\"ALL\"],\"validateTime\":\"2024-03-26T20:59:46.580493Z\",\"validationState\":\"VALID\"}]"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-23T11:48:39Z" },
+    "Id": "aA43",
+    "CA10__disappearanceTime__c": null,
+    "CA10__essentialContactsConfiguration__c": "[{\"email\":\"test@mail.com\",\"languageTag\":\"en-US\",\"notificationCategorySubscriptions\":[\"SUSPENSION\",\"SECURITY\",\"TECHNICAL\"],\"validateTime\":\"2024-03-26T20:59:46.580493Z\",\"validationState\":\"VALID\"}]"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-23T11:48:39Z" },
+    "Id": "aA44",
+    "CA10__disappearanceTime__c": null,
+    "CA10__essentialContactsConfiguration__c": "[{\"languageTag\":\"en-US\",\"notificationCategorySubscriptions\":[\"ALL\"],\"validateTime\":\"2024-03-26T20:59:46.580493Z\",\"validationState\":\"VALID\"}]"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-23T11:48:39Z" },
+    "Id": "aA45",
+    "CA10__disappearanceTime__c": null,
+    "CA10__essentialContactsConfiguration__c": null
+  }
+]

@@ -1,0 +1,15 @@
+---
+name: >
+  [SSM.3] Amazon EC2 instances managed by Systems Manager should have 
+  an association compliance status of COMPLIANT
+description: |-
+  A State Manager association is a configuration that is assigned to your 
+  managed instances. The configuration defines the state that you want to 
+  maintain on your instances. For example, an association can specify that 
+  antivirus software must be installed and running on your instances or that 
+  certain ports must be closed.
+similar:
+  internal:
+    - dec-c-884ac937
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ssm-controls.html#ssm-3

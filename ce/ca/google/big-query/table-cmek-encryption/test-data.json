@@ -1,0 +1,56 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T17:52:17Z" },
+    "Id": "a7nV0",
+    "CA10__disappearanceTime__c": "2024-09-04T09:01:33Z",
+    "CA10__type__c": "TABLE",
+    "CA10__kmsKeyName__c": ""
+  },
+  {
+      "expectedResult": {
+          "status": "INAPPLICABLE",
+          "conditionIndex": "199",
+          "conditionText": "extract('CA10__type__c') != 'TABLE'",
+          "runtimeError": null
+      },
+      "context": {
+          "snapshotTime": "2025-02-27T01:50:30Z"
+      },
+      "Id": "test1",
+      "CA10__disappearanceTime__c": null,
+      "CA10__type__c": "VIEW",
+      "CA10__kmsKeyName__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T17:52:17Z" },
+    "Id": "a7n01",
+    "CA10__disappearanceTime__c": null,
+    "CA10__type__c": "TABLE",
+    "CA10__kmsKeyName__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__kmsKeyName__c').isNotEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T17:52:17Z" },
+    "Id": "a7n02",
+    "CA10__disappearanceTime__c": null,
+    "CA10__type__c": "TABLE",
+    "CA10__kmsKeyName__c": "keyName"
+  }
+]

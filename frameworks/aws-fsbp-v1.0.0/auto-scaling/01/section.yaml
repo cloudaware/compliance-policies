@@ -1,0 +1,14 @@
+---
+name: >
+  [AutoScaling.1] Auto Scaling groups associated with a load balancer should 
+  use ELB health checks
+description: |-
+  ELB health checks help ensure that an Auto Scaling group can determine an instance's 
+  health based on additional tests provided by the load balancer. Using Elastic Load Balancing 
+  health checks also helps support the availability of applications that use 
+  EC2 Auto Scaling groups.
+similar:
+  internal:
+    - dec-c-8cbd012d
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/autoscaling-controls.html#autoscaling-1

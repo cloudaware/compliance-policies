@@ -1,0 +1,16 @@
+---
+names: 
+  full: "Google Logging Log Sink for All Log Entries is not configured"
+  contextual: "Log Sink for All Log Entries is not configured"
+description: "It is recommended to create a sink that will export copies of all the log entries. This can \
+ help aggregate logs from multiple projects and export them to a Security Information and Event Management (SIEM)."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/02/02
+  - /frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudLogging/export-all-log-entries.html"
+      name: "Export All Log Entries Using Sinks"

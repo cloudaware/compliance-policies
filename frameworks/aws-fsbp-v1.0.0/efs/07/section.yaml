@@ -1,0 +1,10 @@
+name: "[EFS.7] EFS file systems should have automatic backups enabled"
+description: |-
+  A data backup is a copy of your system, configuration, or application data that's 
+  stored separately from the original. Enabling regular backups helps you safeguard 
+  valuable data against unforeseen events like system failures, cyberattacks, or 
+  accidental deletions. Having a robust backup strategy also facilitates quicker 
+  recovery, business continuity, and peace of mind in the face of potential data loss.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/efs-controls.html#efs-7

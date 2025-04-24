@@ -1,0 +1,15 @@
+---
+name: >
+  [SageMaker.2] SageMaker AI notebook instances should be launched in a custom VPC
+description: |-
+  Subnets are a range of IP addresses within a VPC. We recommend keeping your 
+  resources inside a custom VPC whenever possible to ensure secure network 
+  protection of your infrastructure. An Amazon VPC is a virtual network 
+  dedicated to your AWS account. With an Amazon VPC, you can control the network 
+  access and internet connectivity of your SageMaker AI Studio and notebook 
+  instances.
+similar:
+  internal:
+    - dec-c-762949b7
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/sagemaker-controls.html#sagemaker-2

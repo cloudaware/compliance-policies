@@ -1,0 +1,8 @@
+---
+extracts:
+  - name: "CA10__type__c"
+    value: 
+      FIELD:
+        path: "CA10__type__c"
+        undeterminedIf:
+          isEmpty:  "Labels should not be empty"

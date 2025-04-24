@@ -22,7 +22,7 @@
         "expectedResult": {
             "status": "INAPPLICABLE",
             "conditionIndex": "199",
-            "conditionText": "RecordType.DeveloperName != 'restApiStage'",
+            "conditionText": "not(['restApiStage'].contains(RecordType.DeveloperName))",
             "runtimeError": null
         },
         "context": {

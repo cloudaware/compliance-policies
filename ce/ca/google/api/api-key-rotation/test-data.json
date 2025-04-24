@@ -1,0 +1,26 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10G1__createTime__c').beyondLastDays(90)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T17:52:17Z" },
+    "Id": "a0n11",
+    "CA10G1__disappearanceTime__c": null,
+    "CA10G1__createTime__c": "2020-02-13T04:56:18Z"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T17:52:17Z" },
+    "Id": "a0n22",
+    "CA10G1__disappearanceTime__c": null,
+    "CA10G1__createTime__c": "2024-07-17T12:36:12Z"
+  }
+]

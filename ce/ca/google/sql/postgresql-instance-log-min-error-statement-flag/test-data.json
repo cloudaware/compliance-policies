@@ -1,0 +1,67 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T07:34:25Z" },
+    "Id": "a8ED1",
+    "CA10__disappearanceTime__c": "2023-12-06T13:34:16Z",
+    "CA10__databaseVersion__c": "MYSQL_5_6",
+    "CA10__databaseFlagsJson__c": "[{\"name\": \"log_duration\", \"value\": \"on\" }]"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "not(extract('CA10__databaseVersion__c').contains('POSTGRE'))",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T07:34:25Z" },
+    "Id": "a8E41",
+    "CA10__disappearanceTime__c": null,
+    "CA10__databaseVersion__c": "MYSQL_8_0_26",
+    "CA10__databaseFlagsJson__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "201",
+      "conditionText": "CA10__databaseFlagsJson__c.asJson().isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T07:34:25Z" },
+    "Id": "a8ED11",
+    "CA10__disappearanceTime__c": null,
+    "CA10__databaseVersion__c": "POSTGRES_9_6",
+    "CA10__databaseFlagsJson__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('caExtract_databaseFlags_log_min_error_statement_flagValue__c') == 'DEBUG5' || extract('caExtract_databaseFlags_log_min_error_statement_flagValue__c') == 'DEBUG4' || extract('caExtract_databaseFlags_log_min_error_statement_flagValue__c') == 'DEBUG3' || extract('caExtract_databaseFlags_log_min_error_statement_flagValue__c') == 'DEBUG2' || extract('caExtract_databaseFlags_log_min_error_statement_flagValue__c') == 'DEBUG1' || extract('caExtract_databaseFlags_log_min_error_statement_flagValue__c') == 'INFO' || extract('caExtract_databaseFlags_log_min_error_statement_flagValue__c') == 'NOTICE' || extract('caExtract_databaseFlags_log_min_error_statement_flagValue__c') == 'WARNING' || extract('caExtract_databaseFlags_log_min_error_statement_flagValue__c') == 'ERROR'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T07:34:25Z" },
+    "Id": "a8E411",
+    "CA10__disappearanceTime__c": null,
+    "CA10__databaseVersion__c": "POSTGRES_14",
+    "CA10__databaseFlagsJson__c": "[{\"name\": \"log_duration\", \"value\": \"on\" }, {\"name\" : \"log_min_error_statement\",  \"value\" : \"error\" }]"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T07:34:25Z" },
+    "Id": "a8E422",
+    "CA10__disappearanceTime__c": null,
+    "CA10__databaseVersion__c": "POSTGRES_14",
+    "CA10__databaseFlagsJson__c": "[{\"name\": \"log_duration\", \"value\": \"on\" }]"
+  }
+]

@@ -1,0 +1,14 @@
+---
+name: >
+  [CloudFront.12] CloudFront distributions should not point to non-existent S3 origins
+description: |-
+  When a CloudFront distribution in your account is configured to point to a 
+  non-existent bucket, a malicious third party can create the referenced bucket 
+  and serve their own content through your distribution. We recommend checking 
+  all origins regardless of routing behavior to ensure that your distributions 
+  are pointing to appropriate origins.
+similar:
+  internal:
+    - dec-c-6393fb33
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/cloudfront-controls.html#cloudfront-12

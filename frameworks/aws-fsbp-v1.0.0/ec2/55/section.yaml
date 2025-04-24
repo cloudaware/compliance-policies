@@ -1,0 +1,10 @@
+name: "[EC2.55] VPCs should be configured with an interface endpoint for ECR API"
+description: |-
+  AWS PrivateLink enables customers to access services hosted on AWS in a highly 
+  available and scalable manner, while keeping all the network traffic within 
+  the AWS network. Service users can privately access services powered by PrivateLink 
+  from their VPC or their on-premises, without using public IPs, and without requiring 
+  traffic to traverse across the internet.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-55

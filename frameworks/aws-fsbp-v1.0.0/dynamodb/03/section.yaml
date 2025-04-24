@@ -1,0 +1,13 @@
+---
+name: >
+  [DynamoDB.3] DynamoDB Accelerator (DAX) clusters should be encrypted at rest
+description: |-
+  Encrypting data at rest reduces the risk of data stored on disk being accessed 
+  by a user not authenticated to AWS. The encryption adds another set of access 
+  controls to limit the ability of unauthorized users to access to the data. 
+  For example, API permissions are required to decrypt the data before it can be read.
+similar:
+  internal:
+    - dec-c-eaf35c3d
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/dynamodb-controls.html#dynamodb-3

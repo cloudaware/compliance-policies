@@ -1,0 +1,15 @@
+---
+name: >
+  [Neptune.2] Neptune DB clusters should publish audit logs to CloudWatch Logs
+description: |-
+  Amazon Neptune and Amazon CloudWatch are integrated so that you can gather and 
+  analyze performance metrics. Neptune automatically sends metrics to CloudWatch 
+  and also supports CloudWatch Alarms. Audit logs are highly customizable. When 
+  you audit a database, each operation on the data can be monitored and logged 
+  to an audit trail, including information about which database cluster is 
+  accessed and how.
+similar:
+  internal:
+    - dec-c-512b8ccf
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/neptune-controls.html#neptune-2

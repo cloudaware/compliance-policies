@@ -24,6 +24,9 @@ extracts:
     value: 
      FIELD:
        path: "CA10G1__createTime__c"
+       undeterminedIf:
+        isEmpty: "Create time should not be empty"
+        
 
 
 

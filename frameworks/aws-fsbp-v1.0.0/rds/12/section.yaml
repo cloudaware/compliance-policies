@@ -1,0 +1,11 @@
+---
+name: "[RDS.12] IAM authentication should be configured for RDS clusters"
+description: |-
+  IAM database authentication allows for password-free authentication to 
+  database instances. The authentication uses an authentication token. Network 
+  traffic to and from the database is encrypted using SSL.
+similar:
+  internal:
+    - dec-c-e34559bb
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-12

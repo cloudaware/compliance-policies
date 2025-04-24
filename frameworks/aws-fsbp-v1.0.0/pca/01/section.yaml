@@ -1,0 +1,14 @@
+---
+name: "[PCA.1] AWS Private CA root certificate authority should be disabled"
+description: |-
+  With AWS Private CA, you can create a CA hierarchy that includes a root CA 
+  and subordinate CAs. You should minimize the use of the root CA for daily 
+  tasks, especially in production environments. The root CA should only be used 
+  to issue certificates for intermediate CAs. This allows the root CA to be 
+  stored out of harm's way while the intermediate CAs perform the daily task of 
+  issuing end-entity certificates.
+similar:
+  internal:
+    - dec-c-26e56508
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/pca-controls.html#pca-1

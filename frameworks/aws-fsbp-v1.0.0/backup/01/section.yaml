@@ -1,0 +1,14 @@
+---
+name: "[Backup.1] AWS Backup recovery points should be encrypted at rest"
+description: |-
+  An AWS Backup recovery point refers to a specific copy or snapshot of data that 
+  is created as part of a backup process. It represents a particular moment in time 
+  when the data was backed up and serves as a restore point in case the original data 
+  becomes lost, corrupted, or inaccessible. Encrypting the backup recovery points 
+  adds an extra layer of protection against unauthorized access. Encryption is 
+  a best practice to protect the confidentiality, integrity, and security of backup data.
+similar:
+  internal:
+    - dec-c-21a4b408
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/backup-controls.html#backup-1

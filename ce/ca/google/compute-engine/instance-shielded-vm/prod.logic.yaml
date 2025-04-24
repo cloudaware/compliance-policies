@@ -1,0 +1,26 @@
+---
+inputType: "CA10__CaGoogleGceInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleGceInstance__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Compute instance is launched with Shielded VM enabled."
+    check:
+      AND:
+        args:
+          - CONTAINS:
+              arg:
+                EXTRACT: "CA10__shieldedIntegrityMonitoringState__c"
+              substring:
+                TEXT: "Enabled"
+          - CONTAINS:
+              arg:
+                EXTRACT: "CA10__shieldedVtpmState__c"
+              substring:
+                TEXT: "Enabled"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Compute instance is launched without Shielded VM enabled."
+  remediationMessage: "Update the instance to enable Shielded VM."

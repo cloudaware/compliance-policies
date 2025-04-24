@@ -1,0 +1,38 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__Google_GCE_Networks__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T17:52:17Z" },
+    "Id": "a4p77",
+    "CA10__Google_GCE_Networks__r": [
+      {
+        "Id": "a4b7V01",
+        "CA10__disappearanceTime__c": null,
+        "Name": "default",
+        "CA10__project__c": "a4p77"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T17:52:17Z" },
+    "Id": "a4p077",
+    "CA10__Google_GCE_Networks__r": [
+        {
+            "Id": "a4b7V02",
+            "CA10__disappearanceTime__c": null,
+            "Name": "customNetwork",
+            "CA10__project__c": "a4p077"
+          }
+    ]
+  }
+]

@@ -12,9 +12,13 @@ conditions:
     check:
       GREATER_THAN:
         left:
-          COLLECTION_SIZE:
-            arg: 
-              EXTRACT: "caExtract_availabilityZones_asCollection__c"
+          JSON_QUERY_NUMBER:
+            arg:
+              EXTRACT: "caJsonFrom_availableLocationNames__c"
+            expression: "length(values)"
+            undeterminedIf:
+              evaluationError: "The JSON query has failed."
+              resultTypeMismatch: "The JSON query did not return a number type."
         right:
           RELATED_LIST_COUNT:
             relationshipName: "CA10__Azure_Network_Watchers__r"
@@ -24,9 +28,13 @@ conditions:
     check:
       LESS_THAN_EQUAL:
         left:
-          COLLECTION_SIZE:
-            arg: 
-              EXTRACT: "caExtract_availabilityZones_asCollection__c"
+          JSON_QUERY_NUMBER:
+            arg:
+              EXTRACT: "caJsonFrom_availableLocationNames__c"
+            expression: "length(values)"
+            undeterminedIf:
+              evaluationError: "The JSON query has failed."
+              resultTypeMismatch: "The JSON query did not return a number type."
         right:
           RELATED_LIST_COUNT:
             relationshipName: "CA10__Azure_Network_Watchers__r"

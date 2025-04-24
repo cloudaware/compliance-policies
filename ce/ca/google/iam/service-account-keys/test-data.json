@@ -1,0 +1,53 @@
+[
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "not(extract('CA10__serviceAccountEmail__c').endsWith('iam.gserviceaccount.com'))",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-08-20T17:39:01Z" },
+    "Id": "aAL1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__serviceAccountEmail__c": "compute@developer.gserviceaccount.com",
+    "CA10__Google_IAM_Service_Account_Keys__r": [
+      {
+        "Id": "aAK1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__iamServiceAccount__c": "aAL1"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__Google_IAM_Service_Account_Keys__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-08-20T17:39:01Z" },
+    "Id": "aAL2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__serviceAccountEmail__c": "upload@kap.iam.gserviceaccount.com",
+    "CA10__Google_IAM_Service_Account_Keys__r": [
+      {
+        "Id": "aAK2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__iamServiceAccount__c": "aAL2"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-08-20T17:39:01Z" },
+    "Id": "aAL3",
+    "CA10__disappearanceTime__c": null,
+    "CA10__serviceAccountEmail__c": "export@cad.iam.gserviceaccount.com",
+    "CA10__Google_IAM_Service_Account_Keys__r": []
+  }
+]

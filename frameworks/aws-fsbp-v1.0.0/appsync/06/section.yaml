@@ -1,0 +1,10 @@
+---
+name: "[AppSync.6] AWS AppSync API caches should be encrypted in transit"
+description: |-
+  Data in transit refers to data that moves from one location to another, such as 
+  between nodes in your cluster or between your cluster and your application. 
+  Data may move across the internet or within a private network. Encrypting data 
+  in transit reduces the risk that an unauthorized user can eavesdrop on network traffic.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/appsync-controls.html#appsync-6

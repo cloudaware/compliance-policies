@@ -1,0 +1,13 @@
+---
+name: "[EC2.1] Amazon EBS snapshots should not be publicly restorable"
+description: |-
+  EBS snapshots are used to back up the data on your EBS volumes to Amazon S3 at 
+  a specific point in time. You can use the snapshots to restore previous states 
+  of EBS volumes. It is rarely acceptable to share a snapshot with the public. 
+  Typically the decision to share a snapshot publicly was made in error or without 
+  a complete understanding of the implications.
+similar:
+  internal:
+    - dec-c-0c409ca1
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-1

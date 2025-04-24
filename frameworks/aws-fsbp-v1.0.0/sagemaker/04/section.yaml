@@ -1,0 +1,15 @@
+---
+name: >
+  [SageMaker.4] SageMaker AI endpoint production variants should have 
+  an initial instance count greater than 1
+description: |-
+  Production variants running with an instance count greater than 1 permit 
+  multi-AZ instance redundancy managed by SageMaker AI. Deploying resources 
+  across multiple Availability Zones is an AWS best practice to provide high 
+  availability within your architecture. High availability helps you to recover 
+  from security incidents.
+similar:
+  internal:
+    - dec-c-3d090118
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/sagemaker-controls.html#sagemaker-4

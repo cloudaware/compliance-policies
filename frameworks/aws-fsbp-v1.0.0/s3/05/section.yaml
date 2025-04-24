@@ -1,0 +1,11 @@
+---
+name: "[S3.5] S3 general purpose buckets should require requests to use SSL"
+description: |-
+  S3 buckets should have policies that require all requests (`Action: S3:*`) to 
+  only accept transmission of data over HTTPS in the S3 resource policy, 
+  indicated by the condition key `aws:SecureTransport`.
+similar:
+  internal:
+    - dec-c-08c8ebac
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/s3-controls.html#s3-5

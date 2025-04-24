@@ -17,7 +17,9 @@ title: Operations
 | [`BYTES`](#bytes)                                     | Bytes                         |
 | [`BOOLEAN`](#boolean)                                 | Boolean                       |
 | [`NUMBER`](#number)                                   | Number                        |
+| [`DATE_TIME`](#date_time)                             | DateTime                      |
 | [`COLLECTION`](#collection)                           | Collection                    |
+| [`JSON`](#json)                                       | Collection                    |
 | Type Conversions                                      |                               |
 | [`BOOLEAN_FROM`](#boolean_from)                       | Boolean                       |
 | [`DATE_TIME_FROM`](#date_time_from)                   | DateTime                      |
@@ -68,7 +70,6 @@ title: Operations
 | Development                                           |                               |
 | [`DEBUG`](#debug)                                     | Any                           |
 | [`UNIT_TEST`](#unit_test)                             | Boolean                       |
-| [`UNIT_TEST_DATE_TIME`](#unit_test_date_time)         | DateTime                      |
 | [`UNIT_TEST_NULL`](#unit_test_null)                   | Any                           |
 | [`UNIT_TEST_RUNTIME_ERROR`](#unit_test_runtime_error) | Any                           |
 
@@ -78,31 +79,192 @@ Compliance Engine type system is tailored for declarative policy development. Th
 
 ### Text Type
 
-Text type represents a simple text string. Key features:
+The `Text` type in the Compliance Engine is a fundamental type designed for handling string data. It simplifies comparisons by normalizing case and a wide range of whitespace characters—including spaces, tabs (`\t`), newlines (`\n`), and carriage returns (`\r`)—making it ideal for scenarios where the general content of the text matters more than its exact formatting. Unlike the [`Bytes`](#bytes-type) type, which preserves precise string representations, the `Text` type ensures that variations in case and whitespace do not impact equality or pattern matching operations.
 
-- Case-insensitive (`"a" == "A"`)
-- Trims space characters from the beginning and the end of a text (`" a " == "a"`)
-- Normalizes spaces in between words in the text (`"a   b" == "a b"`)
-- `null`, empty text and text containing only space characters are equal (`null == "" == " "`)
+#### Key Characteristics
 
-See more details in:
+- **Case Insensitivity:** All comparisons ignore case differences. For example, `"Hello"` is treated as equal to `"hello"`.
+- **Whitespace Normalization:**
+  - Leading and trailing whitespace characters (spaces, tabs, newlines, carriage returns) are removed.
+  - Multiple consecutive whitespace characters (spaces, tabs, newlines, carriage returns) are collapsed into a single space.
+  - Examples of normalization:
+    - `"  Hello   World  "` becomes `"hello world"`.
+    - `"a\nb\tc\r d"` becomes `"a b c d"`.
+    - `" aa   bb  cc "` becomes `"aa bb cc"`.
+- **Text-Only:** The `Text` type is limited to text data and does not support binary data.
 
-- [unit tests](../../../ce/unit-test/is-equal/text/unit-test.logic.yaml.gen.md) for [`IS_EQUAL`](#is_equal) operation on Text type
-- [unit tests](../../../ce/unit-test/is-empty/text/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on Text type
+#### Purpose
+
+The `Text` type is tailored for use cases where exact casing and whitespace formatting (including special characters like tabs and newlines) are not significant, such as:
+
+- **General Text Handling:** Comparing or searching strings where case and extra whitespace should be ignored, like usernames, descriptions, or tags.
+- **User-Friendly Inputs:** Managing fields where users might input data inconsistently in terms of case or spacing (e.g., `"John Doe"`, `"john doe"`, or `"John\nDoe"`).
+- **Simplified Matching:** Enabling straightforward string matching in policies without needing to account for formatting variations caused by different whitespace characters.
+
+#### When to Use `Text` Type
+
+Choose the `Text` type when your policy requires string comparisons that are tolerant of differences in case and whitespace, including special characters like tabs, newlines, and carriage returns. For cases where exact string matching is essential—such as API keys, passwords, or encoded data—use the [`Bytes`](#bytes-type) type instead.
+
+#### Examples
+
+Here are practical examples demonstrating how the `Text` type behaves in policy conditions, incorporating its normalization of special characters:
+
+1. **Case-Insensitive Matching with Newlines:**
+   - **Field:** `CA10__status__c` contains `"Active\n"`.
+   - **Operation:**
+
+     ```yaml
+     IS_EQUAL:
+       left:
+         FIELD:
+           path: CA10__status__c
+       right:
+         TEXT: "active"
+     ```
+
+   - **Result:** `true` because `"Active\n"` normalizes to `"active"`, ignoring case and the newline.
+
+2. **Whitespace Normalization with Tabs and Spaces:**
+   - **Field:** `CA10__name__c` contains `"  John\tDoe  "`.
+   - **Operation:**
+
+     ```yaml
+     IS_EQUAL:
+       left:
+         FIELD:
+           path: CA10__name__c
+       right:
+         TEXT: "john doe"
+     ```
+
+   - **Result:** `true` because leading/trailing spaces and tabs are trimmed, and internal tabs collapse to spaces.
+
+3. **Handling Multiple Spaces and Newlines:**
+   - **Field:** `CA10__description__c` contains `"Hello   World\n\nTest"`.
+   - **Operation:**
+
+     ```yaml
+     CONTAINS:
+       arg:
+         FIELD:
+           path: CA10__description__c
+       substring:
+         TEXT: "hello world test"
+     ```
+
+   - **Result:** `true` because multiple spaces and newlines are collapsed into single spaces, normalizing to `"hello world test"`.
+
+4. **Matching Strings with Mixed Whitespace:**
+   - **Field:** `CA10__config__c` contains `"key=value\r\nsetting=enabled"`.
+   - **Operation:**
+
+     ```yaml
+     CONTAINS:
+       arg:
+         FIELD:
+           path: CA10__config__c
+       substring:
+         TEXT: "key=value setting=enabled"
+     ```
+
+   - **Result:** `true` because `\r\n` is normalized to a single space, aligning the strings for comparison.
+
+#### Important Notes
+
+- **Normalization Impact:** The normalization of case and whitespace may cause unexpected matches if exact string representation matters. For precise matching, use the [`Bytes`](#bytes-type) type.
+- **Not for Sensitive Data:** Avoid the `Text` type for data where case or whitespace is significant, such as passwords, API keys, or encoded strings.
+- **Null and Empty String Handling:** Empty strings (`""`) and null values are treated as equivalent. In operations like `CONTAINS`, an empty or null string contains another empty or null string but not a non-empty string.
+
+#### Relevant Unit Tests
+
+To explore or validate the `Text` type's behavior further, check these unit tests:
+
+- [Unit tests](../../../ce/unit-test/is-empty/text/unit-test.logic.yaml.gen.md) for `IS_EMPTY` operation on Text type
+- [Unit tests](../../../ce/unit-test/is-equal/text/unit-test.logic.yaml.gen.md) for `IS_EQUAL` operation on Text type
+- [Unit tests](../../../ce/unit-test/contains/unit-test.logic.yaml.gen.md) for `CONTAINS` operation on Text type
+- [Unit tests](../../../ce/unit-test/starts-with/unit-test.logic.yaml.gen.md) for `STARTS_WITH` operation on Text type
+- [Unit tests](../../../ce/unit-test/ends-with/unit-test.logic.yaml.gen.md) for `ENDS_WITH` operation on Text type
 
 ### Bytes Type
 
-Bytes type represents an array of bytes. You can also think about it as a more strict analog of Text type. Key features:
+The `Bytes` type in the Compliance Engine is a specialized text type designed to preserve case sensitivity and retain all whitespace exactly as provided, without trimming or normalization. Unlike the standard [`Text`](#text-type) type, which may normalize case or whitespace for comparisons, the `Bytes` type ensures that string values are treated precisely as they are entered. This makes it ideal for scenarios requiring exact string matching.
 
-- Case-sensitive (`"a" != "A"`)
-- No trims of space characters (`" a " != "a"`)
-- Does not normalize spaces in between words in the text (`"a   b" != "a b"`)
-- `null` and empty text are equal (`null == ""`), empty string and string of only space characters are not equal (`"" != " "`)
+#### Key Characteristics
 
-See more details in:
+- **Case Sensitivity:** Uppercase and lowercase letters are treated as distinct (e.g., `"Key"` and `"key"` are different).
+- **Whitespace Preservation:** All spaces, tabs, and newlines are retained with no trimming or normalization (e.g., `"  hello "` keeps its leading and trailing spaces).
+- **Text-Only:** Despite its name, the `Bytes` type does not store or process binary data; it is strictly a text type with specific handling rules.
 
-- [unit tests](../../../ce/unit-test/is-equal/bytes/unit-test.logic.yaml.gen.md) for [`IS_EQUAL`](#is_equal) operation on Bytes type
-- [unit tests](../../../ce/unit-test/is-empty/bytes/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on Bytes type
+#### Purpose
+
+The `Bytes` type is intended for use cases where the exact representation of text matters, such as:
+
+- **Sensitive Identifiers:** API keys, tokens, or other identifiers where case and whitespace are significant.
+- **Encoded Strings:** Text-based encoded data (e.g., base64 strings) that must remain unaltered for accurate processing or comparison.
+- **Precise Configuration Values:** Settings or strings where whitespace or case differences carry meaning.
+
+#### When to Use `Bytes` Type
+
+Use the `Bytes` type when your policy requires exact string comparisons without modifications to case or whitespace. For general text handling where normalization is acceptable, the `Text` type is more appropriate.
+
+#### Examples
+
+1. **Matching an API Key Exactly:**
+   - **Field**: `CA10__apiKey__c` contains `"AbCdEf123"`.
+   - **Operation**:
+
+     ```yaml
+     IS_EQUAL:
+       left:
+         FIELD:
+           path: CA10__apiKey__c
+       right:
+         BYTES: "AbCdEf123"
+     ```
+
+   - **Result:** `true` only if the field matches `"AbCdEf123"` exactly, including case.
+
+2. **Checking Whitespace in a Configuration String:**
+   - **Field**: `CA10__configString__c` contains `"  indent: 4"`.
+   - **Operation**:
+
+     ```yaml
+     STARTS_WITH:
+       arg:
+         FIELD:
+           path: CA10__configString__c
+       prefix:
+         BYTES: "  "
+     ```
+
+   - **Result:** `true` because the string starts with exactly two spaces.
+
+3. **Comparing Encoded Data:**
+   - **Field**: `CA10__encodedData__c` contains `"SGVsbG8="`.
+   - **Operation**:
+
+     ```yaml
+     IS_EQUAL:
+       left:
+         FIELD:
+           path: CA10__encodedData__c
+       right:
+         BYTES: "SGVsbG8="
+     ```
+
+   - **Result:** `true` if the field matches the base64 string exactly.
+
+#### Important Notes
+
+- **Not for Binary Data:** The `Bytes` type is not a container for binary data. The Cloudaware CMDB does not support binary storage, and this type is meant solely for text with precise handling.
+- **Naming Clarification:** The name "Bytes" reflects its focus on exactness (like raw bytes in some contexts), but it remains a text-based type in practice.
+
+#### Relevant Unit Tests
+
+To explore or validate the `Bytes` type's behavior further, check these unit tests:
+
+- [Unit tests](../../../ce/unit-test/is-equal/bytes/unit-test.logic.yaml.gen.md) for [`IS_EQUAL`](#is_equal) operation on Bytes type
+- [Unit tests](../../../ce/unit-test/is-empty/bytes/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on Bytes type
 
 ### Boolean Type
 
@@ -130,12 +292,12 @@ Number type represents numeric values, including integers and decimal numbers. K
 
 See more details in:
 
-- [unit tests](../../../ce/unit-test/is-equal/number/unit-test.logic.yaml.gen.md) for [`IS_EQUAL`](#is_equal) operation on Number type
-- [unit tests](../../../ce/unit-test/is-empty/number/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on Number type
-- [unit tests](../../../ce/unit-test/greater-than/unit-test.logic.yaml.gen.md) for [`GREATER_THAN`](#greater_than)
-- [unit tests](../../../ce/unit-test/greater-than-equal/unit-test.logic.yaml.gen.md) for [`GREATER_THAN_EQUAL`](#greater_than_equal)
-- [unit tests](../../../ce/unit-test/less-than/unit-test.logic.yaml.gen.md) for [`LESS_THAN`](#less_than)
-- [unit tests](../../../ce/unit-test/less-than-equal/unit-test.logic.yaml.gen.md) for [`LESS_THAN_EQUAL`](#less_than_equal)
+- [Unit Tests](../../../ce/unit-test/is-equal/number/unit-test.logic.yaml.gen.md) for [`IS_EQUAL`](#is_equal) operation on Number type
+- [Unit Tests](../../../ce/unit-test/is-empty/number/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on Number type
+- [Unit Tests](../../../ce/unit-test/greater-than/unit-test.logic.yaml.gen.md) for [`GREATER_THAN`](#greater_than)
+- [Unit Tests](../../../ce/unit-test/greater-than-equal/unit-test.logic.yaml.gen.md) for [`GREATER_THAN_EQUAL`](#greater_than_equal)
+- [Unit Tests](../../../ce/unit-test/less-than/unit-test.logic.yaml.gen.md) for [`LESS_THAN`](#less_than)
+- [Unit Tests](../../../ce/unit-test/less-than-equal/unit-test.logic.yaml.gen.md) for [`LESS_THAN_EQUAL`](#less_than_equal)
 
 ### DateTime Type
 
@@ -149,16 +311,23 @@ DateTime type represents a specific point in time, combining both date and time 
 
 See more details in:
 
-- [unit tests](../../../ce/unit-test/is-equal/date-time/unit-test.logic.yaml.gen.md) for [`IS_EQUAL`](#is_equal) operation on DateTime type
-- [unit tests](../../../ce/unit-test/is-empty/date-time/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on DateTime type
-- [unit tests](../../../ce/unit-test/is-after-today/unit-test.logic.yaml.gen.md) for [`IS_AFTER_TODAY`](#is_after_today)
-- [unit tests](../../../ce/unit-test/is-before-today/unit-test.logic.yaml.gen.md) for [`IS_BEFORE_TODAY`](#is_before_today)
-- [unit tests](../../../ce/unit-test/is-beyond-last-days/unit-test.logic.yaml.gen.md) for [`IS_BEYOND_LAST_DAYS`](#is_beyond_last_days)
-- [unit tests](../../../ce/unit-test/is-beyond-next-days/unit-test.logic.yaml.gen.md) for [`IS_BEYOND_NEXT_DAYS`](#is_beyond_next_days)
-- [unit tests](../../../ce/unit-test/is-within-last-days/unit-test.logic.yaml.gen.md) for [`IS_WITHIN_LAST_DAYS`](#is_within_last_days)
-- [unit tests](../../../ce/unit-test/is-within-next-days/unit-test.logic.yaml.gen.md) for [`IS_WITHIN_NEXT_DAYS`](#is_within_next_days)
+- [Unit Tests](../../../ce/unit-test/is-equal/date-time/unit-test.logic.yaml.gen.md) for [`IS_EQUAL`](#is_equal) operation on DateTime type
+- [Unit Tests](../../../ce/unit-test/is-empty/date-time/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on DateTime type
+- [Unit Tests](../../../ce/unit-test/is-after-today/unit-test.logic.yaml.gen.md) for [`IS_AFTER_TODAY`](#is_after_today)
+- [Unit Tests](../../../ce/unit-test/is-before-today/unit-test.logic.yaml.gen.md) for [`IS_BEFORE_TODAY`](#is_before_today)
+- [Unit Tests](../../../ce/unit-test/is-beyond-last-days/unit-test.logic.yaml.gen.md) for [`IS_BEYOND_LAST_DAYS`](#is_beyond_last_days)
+- [Unit Tests](../../../ce/unit-test/is-beyond-next-days/unit-test.logic.yaml.gen.md) for [`IS_BEYOND_NEXT_DAYS`](#is_beyond_next_days)
+- [Unit Tests](../../../ce/unit-test/is-within-last-days/unit-test.logic.yaml.gen.md) for [`IS_WITHIN_LAST_DAYS`](#is_within_last_days)
+- [Unit Tests](../../../ce/unit-test/is-within-next-days/unit-test.logic.yaml.gen.md) for [`IS_WITHIN_NEXT_DAYS`](#is_within_next_days)
 
 ### Duration Type
+
+Duration type represents a span of time, expressed in days, hours, minutes, and seconds. Key features:
+
+- Represents a time difference, not a specific point in time.
+- Can represent durations of any length, from seconds to many years.
+- `null` is considered an empty Duration value.
+- Durations are always positive. Negative durations are not supported.
 
 ### Collection Type
 
@@ -172,11 +341,11 @@ The Collection Type represents an unordered collection of [Text](#text-type) val
 
 See more details in:
 
-- [unit tests](../../../ce/unit-test/is-equal/collection/unit-test.logic.yaml.gen.md) for [`IS_EQUAL`](#is_equal) operation on Collection type
-- [unit tests](../../../ce/unit-test/is-empty/collection/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on Collection type
-- [unit tests](../../../ce/unit-test/collection-size/unit-test.logic.yaml.gen.md) for [`COLLECTION_SIZE`](#collection_size) operation
-- [unit tests](../../../ce/unit-test/collection-contains/unit-test.logic.yaml.gen.md) for [`COLLECTION_CONTAINS`](#collection_contains) operation
-- [unit tests](../../../ce/unit-test/collection-from/unit-test.logic.yaml.gen.md) for [`COLLECTION_FROM`](#collection_from) operation
+- [Unit Tests](../../../ce/unit-test/is-equal/collection/unit-test.logic.yaml.gen.md) for [`IS_EQUAL`](#is_equal) operation on Collection type
+- [Unit Tests](../../../ce/unit-test/is-empty/collection/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on Collection type
+- [Unit Tests](../../../ce/unit-test/collection-size/unit-test.logic.yaml.gen.md) for [`COLLECTION_SIZE`](#collection_size) operation
+- [Unit Tests](../../../ce/unit-test/collection-contains/unit-test.logic.yaml.gen.md) for [`COLLECTION_CONTAINS`](#collection_contains) operation
+- [Unit Tests](../../../ce/unit-test/collection-from/unit-test.logic.yaml.gen.md) for [`COLLECTION_FROM`](#collection_from) operation
 
 ### JSON Type
 
@@ -703,6 +872,8 @@ The `NUMBER` operation creates a constant [number](#number-type) value. This ope
         NUMBER: 5
     ```
 
+### `DATE_TIME`
+
 ### `COLLECTION`
 
 ```yaml
@@ -759,6 +930,8 @@ The `COLLECTION` operation creates a constant [collection](#collection-type) val
         FIELD: 
           path: CA10__stateName__c
     ```
+
+### `JSON`
 
 ### `BOOLEAN_FROM`
 
@@ -1160,12 +1333,12 @@ The `IS_EMPTY` operation checks if the provided argument `arg` is considered emp
 
 See more details in:
 
-- [unit tests](../../../ce/unit-test/is-empty/text/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on [Text](#text-type) type
-- [unit tests](../../../ce/unit-test/is-empty/bytes/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on [Bytes](#bytes-type) type
-- [unit tests](../../../ce/unit-test/is-empty/boolean/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on [Boolean](#boolean-type) type
-- [unit tests](../../../ce/unit-test/is-empty/number/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on [Number](#number-type) type
-- [unit tests](../../../ce/unit-test/is-empty/date-time/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on [DateTime](#datetime-type) type
-- [unit tests](../../../ce/unit-test/is-empty/collection/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on [Collection](#collection-type) type
+- [Unit Tests](../../../ce/unit-test/is-empty/text/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on [Text](#text-type) type
+- [Unit Tests](../../../ce/unit-test/is-empty/bytes/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on [Bytes](#bytes-type) type
+- [Unit Tests](../../../ce/unit-test/is-empty/boolean/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on [Boolean](#boolean-type) type
+- [Unit Tests](../../../ce/unit-test/is-empty/number/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on [Number](#number-type) type
+- [Unit Tests](../../../ce/unit-test/is-empty/date-time/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on [DateTime](#datetime-type) type
+- [Unit Tests](../../../ce/unit-test/is-empty/collection/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on [Collection](#collection-type) type
 
 ### `NOT_EMPTY`
 
@@ -1229,12 +1402,12 @@ The `NOT_EMPTY` operation is the inverse of [`IS_EMPTY`](#is_empty). It checks i
 
 See more details in:
 
-- [unit tests](../../../ce/unit-test/is-empty/text/unit-test.logic.yaml.gen.md) for [`NOT_EMPTY`](#not_empty) operation on [Text](#text-type) type
-- [unit tests](../../../ce/unit-test/is-empty/bytes/unit-test.logic.yaml.gen.md) for [`NOT_EMPTY`](#not_empty) operation on [Bytes](#bytes-type) type
-- [unit tests](../../../ce/unit-test/is-empty/boolean/unit-test.logic.yaml.gen.md) for [`NOT_EMPTY`](#not_empty) operation on [Boolean](#boolean-type) type
-- [unit tests](../../../ce/unit-test/is-empty/number/unit-test.logic.yaml.gen.md) for [`NOT_EMPTY`](#not_empty) operation on [Number](#number-type) type
-- [unit tests](../../../ce/unit-test/is-empty/date-time/unit-test.logic.yaml.gen.md) for [`NOT_EMPTY`](#not_empty) operation on [DateTime](#datetime-type) type
-- [unit tests](../../../ce/unit-test/is-empty/collection/unit-test.logic.yaml.gen.md) for [`NOT_EMPTY`](#not_empty) operation on [Collection](#collection-type) type
+- [Unit Tests](../../../ce/unit-test/is-empty/text/unit-test.logic.yaml.gen.md) for [`NOT_EMPTY`](#not_empty) operation on [Text](#text-type) type
+- [Unit Tests](../../../ce/unit-test/is-empty/bytes/unit-test.logic.yaml.gen.md) for [`NOT_EMPTY`](#not_empty) operation on [Bytes](#bytes-type) type
+- [Unit Tests](../../../ce/unit-test/is-empty/boolean/unit-test.logic.yaml.gen.md) for [`NOT_EMPTY`](#not_empty) operation on [Boolean](#boolean-type) type
+- [Unit Tests](../../../ce/unit-test/is-empty/number/unit-test.logic.yaml.gen.md) for [`NOT_EMPTY`](#not_empty) operation on [Number](#number-type) type
+- [Unit Tests](../../../ce/unit-test/is-empty/date-time/unit-test.logic.yaml.gen.md) for [`NOT_EMPTY`](#not_empty) operation on [DateTime](#datetime-type) type
+- [Unit Tests](../../../ce/unit-test/is-empty/collection/unit-test.logic.yaml.gen.md) for [`NOT_EMPTY`](#not_empty) operation on [Collection](#collection-type) type
 
 ### `IS_EQUAL`
 
@@ -1560,7 +1733,7 @@ It returns a [boolean](#boolean-type) value: `true` if the `arg` string contains
 
 See more details in:
 
-- [unit tests](../../../ce/unit-test/contains/unit-test.logic.yaml.gen.md) for [`CONTAINS`](#contains) operation
+- [Unit Tests](../../../ce/unit-test/contains/unit-test.logic.yaml.gen.md) for [`CONTAINS`](#contains) operation
 
 ### `STARTS_WITH`
 
@@ -1622,7 +1795,7 @@ It returns a [boolean](#boolean-type) value: `true` if the `arg` string starts w
 
 See more details in:
 
-- [unit tests](../../../ce/unit-test/starts-with/unit-test.logic.yaml.gen.md) for [`STARTS_WITH`](#starts_with) operation
+- [Unit Tests](../../../ce/unit-test/starts-with/unit-test.logic.yaml.gen.md) for [`STARTS_WITH`](#starts_with) operation
 
 ### `ENDS_WITH`
 
@@ -1684,7 +1857,7 @@ It returns a [boolean](#boolean-type) value: `true` if the `arg` string ends wit
 
 See more details in:
 
-- [unit tests](../../../ce/unit-test/ends-with/unit-test.logic.yaml.gen.md) for [`ENDS_WITH`](#ends_with) operation
+- [Unit Tests](../../../ce/unit-test/ends-with/unit-test.logic.yaml.gen.md) for [`ENDS_WITH`](#ends_with) operation
 
 ### `GREATER_THAN`
 
@@ -1748,7 +1921,7 @@ Both arguments must be of [number](#number-type) type.
 
 See more details in:
 
-- [unit tests](../../../ce/unit-test/greater-than/unit-test.logic.yaml.gen.md) for [`GREATER_THAN`](#greater_than) operation
+- [Unit Tests](../../../ce/unit-test/greater-than/unit-test.logic.yaml.gen.md) for [`GREATER_THAN`](#greater_than) operation
 
 ### `GREATER_THAN_EQUAL`
 
@@ -1808,7 +1981,7 @@ Both arguments must be of [number](#number-type) type.
 
 See more details in:
 
-- [unit tests](../../../ce/unit-test/greater-than-equal/unit-test.logic.yaml.gen.md) for [`GREATER_THAN_EQUAL`](#greater_than_equal) operation
+- [Unit Tests](../../../ce/unit-test/greater-than-equal/unit-test.logic.yaml.gen.md) for [`GREATER_THAN_EQUAL`](#greater_than_equal) operation
 
 ### `LESS_THAN`
 
@@ -1871,7 +2044,7 @@ Both arguments must be of [number](#number-type) type.
 
 See more details in:
 
-- [unit tests](../../../ce/unit-test/less-than/unit-test.logic.yaml.gen.md) for [`LESS_THAN`](#less_than) operation
+- [Unit Tests](../../../ce/unit-test/less-than/unit-test.logic.yaml.gen.md) for [`LESS_THAN`](#less_than) operation
 
 ### `LESS_THAN_EQUAL`
 
@@ -1932,7 +2105,7 @@ Both arguments must be of [number](#number-type) type.
 
 See more details in:
 
-- [unit tests](../../../ce/unit-test/less-than-equal/unit-test.logic.yaml.gen.md) for [`LESS_THAN_EQUAL`](#less_than_equal) operation
+- [Unit Tests](../../../ce/unit-test/less-than-equal/unit-test.logic.yaml.gen.md) for [`LESS_THAN_EQUAL`](#less_than_equal) operation
 
 ### `IS_BEFORE_TODAY`
 
@@ -1949,7 +2122,7 @@ The `IS_BEFORE_TODAY` operation checks if a [dateTime](#datetime-type) value, pr
 
 - **`arg` (Operation<[DateTime](#datetime-type)>, required):**
   - Specifies the [dateTime](#datetime-type) value to be checked.
-  - This should be an operation that resolves to a [dateTime](#datetime-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`DATE_TIME_FROM`](#date_time_from), or [`UNIT_TEST_DATE_TIME`](#unit_test_date_time).
+  - This should be an operation that resolves to a [dateTime](#datetime-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`DATE_TIME_FROM`](#date_time_from), or [`DATE_TIME`](#date_time).
 
 #### Return Type
 
@@ -1984,7 +2157,7 @@ The `IS_BEFORE_TODAY` operation checks if a [dateTime](#datetime-type) value, pr
 
 See more details in:
 
-- [unit tests](../../../ce/unit-test/is-before-today/unit-test.logic.yaml.gen.md) for [`IS_BEFORE_TODAY`](#is_before_today) operation
+- [Unit Tests](../../../ce/unit-test/is-before-today/unit-test.logic.yaml.gen.md) for [`IS_BEFORE_TODAY`](#is_before_today) operation
 
 ### `IS_AFTER_TODAY`
 
@@ -2001,7 +2174,7 @@ The `IS_AFTER_TODAY` operation checks if a [dateTime](#datetime-type) value, pro
 
 - **`arg` (Operation<[DateTime](#datetime-type)>, required):**
   - Specifies the [dateTime](#datetime-type) value to be checked.
-  - This can be any operation that resolves to a [dateTime](#datetime-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`DATE_TIME_FROM`](#date_time_from), or [`UNIT_TEST_DATE_TIME`](#unit_test_date_time).
+  - This can be any operation that resolves to a [dateTime](#datetime-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`DATE_TIME_FROM`](#date_time_from), or [`DATE_TIME`](#date_time).
 
 #### Return Type
 
@@ -2035,7 +2208,7 @@ The `IS_AFTER_TODAY` operation checks if a [dateTime](#datetime-type) value, pro
 
 See more details in:
 
-- [unit tests](../../../ce/unit-test/is-after-today/unit-test.logic.yaml.gen.md) for [`IS_AFTER_TODAY`](#is_after_today) operation
+- [Unit Tests](../../../ce/unit-test/is-after-today/unit-test.logic.yaml.gen.md) for [`IS_AFTER_TODAY`](#is_after_today) operation
 
 ### `IS_BEYOND_LAST_DAYS`
 
@@ -2094,7 +2267,7 @@ The `IS_BEYOND_LAST_DAYS` operation checks if a [dateTime](#datetime-type) value
 
 See more details in:
 
-- [unit tests](../../../ce/unit-test/is-beyond-last-days/unit-test.logic.yaml.gen.md) for [`IS_BEYOND_LAST_DAYS`](#is_beyond_last_days) operation
+- [Unit Tests](../../../ce/unit-test/is-beyond-last-days/unit-test.logic.yaml.gen.md) for [`IS_BEYOND_LAST_DAYS`](#is_beyond_last_days) operation
 
 ### `IS_BEYOND_NEXT_DAYS`
 
@@ -2152,7 +2325,7 @@ The `IS_BEYOND_NEXT_DAYS` operation checks if a [dateTime](#datetime-type) value
 
 See more details in:
 
-- [unit tests](../../../ce/unit-test/is-beyond-next-days/unit-test.logic.yaml.gen.md) for [`IS_BEYOND_NEXT_DAYS`](#is_beyond_next_days) operation
+- [Unit Tests](../../../ce/unit-test/is-beyond-next-days/unit-test.logic.yaml.gen.md) for [`IS_BEYOND_NEXT_DAYS`](#is_beyond_next_days) operation
 
 ### `IS_WITHIN_LAST_DAYS`
 
@@ -2210,7 +2383,7 @@ The `IS_WITHIN_LAST_DAYS` operation checks if a [dateTime](#datetime-type) value
 
 See more details in:
 
-- [unit tests](../../../ce/unit-test/is-within-last-days/unit-test.logic.yaml.gen.md) for [`IS_WITHIN_LAST_DAYS`](#is_within_last_days) operation
+- [Unit Tests](../../../ce/unit-test/is-within-last-days/unit-test.logic.yaml.gen.md) for [`IS_WITHIN_LAST_DAYS`](#is_within_last_days) operation
 
 ### `IS_WITHIN_NEXT_DAYS`
 
@@ -2269,7 +2442,7 @@ The `IS_WITHIN_NEXT_DAYS` operation checks if a [dateTime](#datetime-type) value
 
 See more details in:
 
-- [unit tests](../../../ce/unit-test/is-within-next-days/unit-test.logic.yaml.gen.md) for [`IS_WITHIN_NEXT_DAYS`](#is_within_next_days) operation
+- [Unit Tests](../../../ce/unit-test/is-within-next-days/unit-test.logic.yaml.gen.md) for [`IS_WITHIN_NEXT_DAYS`](#is_within_next_days) operation
 
 ### `COLLECTION_SIZE`
 
@@ -2314,7 +2487,7 @@ The `COLLECTION_SIZE` operation returns the number of elements in a [collection]
 
 See more details in:
 
-- [unit tests](../../../ce/unit-test/collection-size/unit-test.logic.yaml.gen.md) for [`COLLECTION_SIZE`](#collection_size) operation
+- [Unit Tests](../../../ce/unit-test/collection-size/unit-test.logic.yaml.gen.md) for [`COLLECTION_SIZE`](#collection_size) operation
 
 ### `COLLECTION_CONTAINS`
 
@@ -2364,21 +2537,918 @@ It returns a [boolean](#boolean-type) value: `true` if the element is found in t
 
 See more details in:
 
-- [unit tests](../../../ce/unit-test/collection-contains/unit-test.logic.yaml.gen.md) for [`COLLECTION_CONTAINS`](#collection_contains) operation
+- [Unit Tests](../../../ce/unit-test/collection-contains/unit-test.logic.yaml.gen.md) for [`COLLECTION_CONTAINS`](#collection_contains) operation
 
 ### `JSON_QUERY_TEXT`
 
+```yaml
+JSON_QUERY_TEXT:
+  arg: { arg } # required, Operation<JSON>
+  expression: { expression } # required, string (JMESPath expression)
+  undeterminedIf:
+    evaluationError: { message } # required, string
+    resultTypeMismatch: { message } # required, string
+    resultIsEmpty: { message } # optional, string
+```
+
+#### Description
+
+The `JSON_QUERY_TEXT` operation evaluates a JMESPath expression against a JSON object and returns the result as a text value. It enables the extraction of specific text data from JSON structures, leveraging the JMESPath query language to navigate and transform JSON documents stored in fields or extracts.
+
+#### Parameters
+
+- **`arg` (Operation<[JSON](#json-type)>, required):**
+  - The JSON object against which the JMESPath expression will be evaluated.
+  - Typically, sourced using `JSON_FROM` to convert a text field containing JSON data into a JSON object, or directly from an extract providing a JSON type.
+
+- **`expression` (string, required):**
+  - The JMESPath expression that defines what data to extract from the JSON object.
+  - Must result in a text value (string); otherwise, the operation returns an undetermined status with the `resultTypeMismatch` message.
+  - JMESPath is a powerful query language for JSON, supporting operations like selecting elements, filtering arrays, and applying functions (e.g., `join`).
+  - For complex JSON queries, refer to the [JMESPath documentation](https://jmespath.org/) for supported syntax and functions.
+
+- **`undeterminedIf` (object, required):**
+  - Specifies conditions under which the operation returns an undetermined status instead of a value.
+
+    - **`evaluationError` (string, required):**
+      - Message returned if there is an error evaluating the JMESPath expression, such as a syntax error.
+
+    - **`resultTypeMismatch` (string, required):**
+      - Message returned if the result of the expression is not a text value (e.g., a number, boolean, or array).
+
+    - **`resultIsEmpty` (string, optional):**
+      - Message returned if the result is an empty string. When provided, an empty result triggers an undetermined status with this message. If omitted, an empty string is returned as the result.
+
+#### Return Type
+
+[Text](#text-type)
+
+#### Examples
+
+1. **Extracting a simple key from a JSON object:**
+   - **Field:** `CA10__configJson__c` contains `{"name": "example", "value": "test"}`.
+   - **Operation:**
+
+    ```yaml
+    JSON_QUERY_TEXT:
+      arg:
+        JSON_FROM:
+          arg:
+            FIELD:
+              path: CA10__configJson__c # Assume '' contains  
+          undeterminedIf:
+            isEmpty: "Config JSON is empty"
+            isInvalid: "Config JSON is invalid"
+      expression: "name"
+      undeterminedIf:
+        evaluationError: "Error in JMESPath expression"
+        resultTypeMismatch: "Result is not a text value"
+    ```
+
+   - **Result:** `"example"`
+   - **Explanation:** Extracts the value of the `"name"` key from the JSON object.
+
+2. **Extracting a nested value:**
+   - **Field:** `CA10__detailsJson__c` contains `{"details": {"id": "123", "status": "active"}}`.
+   - **Operation:**
+
+    ```yaml
+    JSON_QUERY_TEXT:
+      arg:
+        JSON_FROM:
+          arg:
+            FIELD:
+              path: CA10__detailsJson__c 
+          undeterminedIf:
+            isEmpty: "Details JSON is empty"
+            isInvalid: "Details JSON is invalid"
+      expression: "details.status"
+      undeterminedIf:
+        evaluationError: "Error in JMESPath expression"
+        resultTypeMismatch: "Result is not a text value"
+    ```
+
+   - **Result:** `"active"`
+   - **Explanation:** Accesses the nested `"status"` field within the `"details"` object.
+
+3. **Using JMESPath functions:**
+   - **Field:** `CA10__itemsJson__c` contains `{"items": [{"name": "item1"}, {"name": "item2"}]}`.
+   - **Operation:**
+
+    ```yaml
+    JSON_QUERY_TEXT:
+      arg:
+        JSON_FROM:
+          arg:
+            FIELD:
+              path: CA10__itemsJson__c 
+          undeterminedIf:
+            isEmpty: "Items JSON is empty"
+            isInvalid: "Items JSON is invalid"
+      expression: "join(', ', items[].name)"
+      undeterminedIf:
+        evaluationError: "Error in JMESPath expression"
+        resultTypeMismatch: "Result is not a text value"
+      ```
+
+   - **Result:** `"item1, item2"`
+   - **Explanation:** Uses the JMESPath `join` function to concatenate the `"name"` values from the `"items"` array into a single string.
+
+4. **Handling empty results:**
+   - **Field:** `CA10__configJson__c` contains `{"description": ""}`.
+   - **Operation:**
+
+    ```yaml
+   JSON_QUERY_TEXT:
+     arg:
+       JSON_FROM:
+         arg:
+           FIELD:
+             path: CA10__configJson__c # 
+         undeterminedIf:
+           isEmpty: "Config JSON is empty"
+           isInvalid: "Config JSON is invalid"
+     expression: "description"
+     undeterminedIf:
+       evaluationError: "Error in JMESPath expression"
+       resultTypeMismatch: "Result is not a text value"
+       resultIsEmpty: "Description is empty"
+   ```
+
+   - **Result:** Undetermined status with message `"Description is empty"`
+   - **Explanation:** Since `resultIsEmpty` is specified and the result is an empty string, the operation returns undetermined. Without `resultIsEmpty`, it would return `""`.
+
 ### `JSON_QUERY_BYTES`
+
+```yaml
+JSON_QUERY_BYTES:
+  arg: { arg } # required, Operation<JSON>
+  expression: { expression } # required, string (JMESPath expression)
+  undeterminedIf:
+    evaluationError: { message } # required, string
+    resultTypeMismatch: { message } # required, string
+    resultIsEmpty: { message } # optional, string
+```
+
+#### Description
+
+The `JSON_QUERY_BYTES` operation evaluates a JMESPath expression against a JSON object and returns the result as a `Bytes` type value - a case-sensitive, whitespace-preserving text string. It enables the extraction of specific text data from JSON structures where exact string representation matters, leveraging the JMESPath query language to navigate and select data from JSON documents stored in fields or extracts.
+
+#### Parameters
+
+- **`arg` (Operation<[JSON](#json-type)>, required):**
+  - The JSON object against which the JMESPath expression is evaluated.
+  - Typically, sourced using `JSON_FROM` to convert a text field containing JSON data into a JSON object, or directly from an extract providing a JSON type.
+
+- **`expression` (string, required):**
+  - The JMESPath expression defining the data to extract from the JSON object.
+  - Must result in a string value; otherwise, the operation returns an undetermined status with the `resultTypeMismatch` message.
+  - The returned string is treated as a `Bytes` type, preserving its exact case and whitespace (including spaces, tabs, newlines, and carriage returns) without normalization.
+  - JMESPath supports operations like selecting fields, filtering arrays, and applying functions (e.g., `join`). Refer to the [JMESPath documentation](https://jmespath.org/) for syntax and capabilities.
+
+- **`undeterminedIf` (object, required):**
+  - Specifies conditions under which the operation returns an undetermined status instead of a value.
+
+    - **`evaluationError` (string, required):**
+      - Message returned if the JMESPath expression evaluation fails, such as due to a syntax error.
+
+    - **`resultTypeMismatch` (string, required):**
+      - Message returned if the expression's result is not a string (e.g., a number, boolean, or array).
+
+    - **`resultIsEmpty` (string, optional):**
+      - Message returned if the result is an empty string (`""`). When provided, an empty result triggers an undetermined status with this message. If omitted, an empty string is returned as a `Bytes` value.
+
+#### Return Type
+
+[Bytes](#bytes-type)
+
+#### Examples
+
+1. **Extracting a Case-Sensitive Key:**
+   - **Field:** `CA10__configJson__c` contains `{"apiKey": "AbCdEf123"}`.
+   - **Operation:**
+
+    ```yaml
+    JSON_QUERY_BYTES:
+      arg:
+        JSON_FROM:
+          arg:
+            FIELD:
+              path: CA10__configJson__c
+          undeterminedIf:
+            isEmpty: "Config JSON is empty"
+            isInvalid: "Config JSON is invalid"
+      expression: "apiKey"
+      undeterminedIf:
+        evaluationError: "Error in JMESPath expression"
+        resultTypeMismatch: "Result is not a string"
+    ```
+
+   - **Result:** `"AbCdEf123"` (as a `Bytes` type, preserving exact case).
+   - **Explanation:** Extracts the `"apiKey"` value, maintaining its original casing.
+
+2. **Extracting a Whitespace-Sensitive Value:**
+   - **Field:** `CA10__detailsJson__c` contains `{"format": "  indent: 4\n"}`.
+   - **Operation:**
+
+    ```yaml
+    JSON_QUERY_BYTES:
+      arg:
+        JSON_FROM:
+          arg:
+            FIELD:
+              path: CA10__detailsJson__c
+          undeterminedIf:
+            isEmpty: "Details JSON is empty"
+            isInvalid: "Details JSON is invalid"
+      expression: "format"
+      undeterminedIf:
+        evaluationError: "Error in JMESPath expression"
+        resultTypeMismatch: "Result is not a string"
+    ```
+
+   - **Result:** `"  indent: 4\n"` (as a `Bytes` type, preserving spaces and newline).
+   - **Explanation:** Retrieves the `"format"` field, keeping all whitespace intact.
+
+3. **Using JMESPath Functions with Exact Output:**
+   - **Field:** `CA10__itemsJson__c` contains `{"items": [{"id": "A1"}, {"id": "B2"}]}`.
+   - **Operation:**
+
+    ```yaml
+    JSON_QUERY_BYTES:
+      arg:
+        JSON_FROM:
+          arg:
+            FIELD:
+              path: CA10__itemsJson__c
+          undeterminedIf:
+            isEmpty: "Items JSON is empty"
+            isInvalid: "Items JSON is invalid"
+      expression: "join(' - ', items[].id)"
+      undeterminedIf:
+        evaluationError: "Error in JMESPath expression"
+        resultTypeMismatch: "Result is not a string"
+    ```
+
+   - **Result:** `"A1 - B2"` (as a `Bytes` type, preserving exact output).
+   - **Explanation:** Uses the `join` function to concatenate `"id"` values with a separator, retaining the exact string as a `Bytes` type.
+
+4. **Handling Empty Results:**
+   - **Field:** `CA10__configJson__c` contains `{"description": ""}`.
+   - **Operation:**
+
+    ```yaml
+    JSON_QUERY_BYTES:
+      arg:
+        JSON_FROM:
+          arg:
+            FIELD:
+              path: CA10__configJson__c
+          undeterminedIf:
+            isEmpty: "Config JSON is empty"
+            isInvalid: "Config JSON is invalid"
+      expression: "description"
+      undeterminedIf:
+        evaluationError: "Error in JMESPath expression"
+        resultTypeMismatch: "Result is not a string"
+        resultIsEmpty: "Description is empty"
+    ```
+
+   - **Result:** Undetermined status with message `"Description is empty"`.
+   - **Explanation:** The empty string result triggers the `resultIsEmpty` condition. Without this, it would return `""` as a `Bytes` value.
 
 ### `JSON_QUERY_BOOLEAN`
 
+```yaml
+JSON_QUERY_BOOLEAN:
+  arg: { arg } # required, Operation<JSON>
+  expression: { expression } # required, string (JMESPath expression)
+  undeterminedIf:
+    evaluationError: { message } # required, string
+    resultTypeMismatch: { message } # required, string
+    resultIsEmpty: { message } # optional, string
+```
+
+#### Description
+
+The `JSON_QUERY_BOOLEAN` operation evaluates a JMESPath expression against a JSON object and returns the result as a boolean value. It enables the extraction of specific boolean data from JSON structures, leveraging the JMESPath query language to navigate and query JSON documents stored in fields or extracts.
+
+#### Parameters
+
+- **`arg` (Operation<[JSON](#json-type)>, required):**
+  - The JSON object against which the JMESPath expression is evaluated.
+  - Typically, sourced using `JSON_FROM` to convert a text field containing JSON data into a JSON object, or directly from an extract providing a JSON type.
+
+- **`expression` (string, required):**
+  - The JMESPath expression that defines what data to extract from the JSON object.
+  - Must result in a boolean value (e.g., `true` or `false`); otherwise, the operation returns an undetermined status with the `resultTypeMismatch` message.
+  - JMESPath supports logical operations, comparisons, and functions that can produce boolean results (e.g., `contains`, `length() > 0`). Refer to the [JMESPath documentation](https://jmespath.org/) for supported syntax and functions.
+
+- **`undeterminedIf` (object, required):**
+  - Specifies conditions under which the operation returns an undetermined status instead of a value.
+
+    - **`evaluationError` (string, required):**
+      - Message returned if the JMESPath expression evaluation fails, such as due to a syntax error.
+
+    - **`resultTypeMismatch` (string, required):**
+      - Message returned if the expression's result is not a boolean (e.g., a string, number, or array).
+
+    - **`resultIsEmpty` (string, optional):**
+      - Message returned if the result is empty (e.g., `null` or an empty array when expecting a boolean). When provided, an empty result triggers an undetermined status with this message. If omitted, an empty result may still return a boolean if valid, or trigger `resultTypeMismatch` if invalid.
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. **Extracting a Boolean Field:**
+   - **Field:** `CA10__configJson__c` contains `{"enabled": true, "name": "test"}`.
+   - **Operation:**
+
+    ```yaml
+    JSON_QUERY_BOOLEAN:
+      arg:
+        JSON_FROM:
+          arg:
+            FIELD:
+              path: CA10__configJson__c
+          undeterminedIf:
+            isEmpty: "Config JSON is empty"
+            isInvalid: "Config JSON is invalid"
+      expression: "enabled"
+      undeterminedIf:
+        evaluationError: "Error in JMESPath expression"
+        resultTypeMismatch: "Result is not a boolean"
+    ```
+
+   - **Result:** `true`
+   - **Explanation:** Extracts the boolean value of the `"enabled"` key from the JSON object.
+
+2. **Checking for Presence of an Element:**
+   - **Field:** `CA10__tagsJson__c` contains `{"tags": ["prod", "secure"]}`.
+   - **Operation:**
+
+    ```yaml
+    JSON_QUERY_BOOLEAN:
+      arg:
+        JSON_FROM:
+          arg:
+            FIELD:
+              path: CA10__tagsJson__c
+          undeterminedIf:
+            isEmpty: "Tags JSON is empty"
+            isInvalid: "Tags JSON is invalid"
+      expression: "contains(tags, 'secure')"
+      undeterminedIf:
+        evaluationError: "Error in JMESPath expression"
+        resultTypeMismatch: "Result is not a boolean"
+    ```
+
+   - **Result:** `true`
+   - **Explanation:** Uses the `contains` function to check if `"secure"` exists in the `"tags"` array, returning a boolean.
+
+3. **Comparing Array Length:**
+   - **Field:** `CA10__rulesJson__c` contains `{"rules": [{"id": 1}, {"id": 2}]}`.
+   - **Operation:**
+
+    ```yaml
+    JSON_QUERY_BOOLEAN:
+      arg:
+        JSON_FROM:
+          arg:
+            FIELD:
+              path: CA10__rulesJson__c
+          undeterminedIf:
+            isEmpty: "Rules JSON is empty"
+            isInvalid: "Rules JSON is invalid"
+      expression: "length(rules) > `1`"
+      undeterminedIf:
+        evaluationError: "Error in JMESPath expression"
+        resultTypeMismatch: "Result is not a boolean"
+    ```
+
+   - **Result:** `true`
+   - **Explanation:** Evaluates if the length of the `"rules"` array is greater than 1, returning a boolean.
+
+4. **Handling Type Mismatch:**
+   - **Field:** `CA10__configJson__c` contains `{"status": "active"}`.
+   - **Operation:**
+
+    ```yaml
+    JSON_QUERY_BOOLEAN:
+      arg:
+        JSON_FROM:
+          arg:
+            FIELD:
+              path: CA10__configJson__c
+          undeterminedIf:
+            isEmpty: "Config JSON is empty"
+            isInvalid: "Config JSON is invalid"
+      expression: "status"
+      undeterminedIf:
+        evaluationError: "Error in JMESPath expression"
+        resultTypeMismatch: "Result is not a boolean"
+    ```
+
+   - **Result:** Undetermined status with message `"Result is not a boolean"`
+   - **Explanation:** The `"status"` field is a string, not a boolean, triggering the `resultTypeMismatch` condition.
+
 ### `JSON_QUERY_NUMBER`
+
+```yaml
+JSON_QUERY_NUMBER:
+  arg: { arg } # required, Operation<JSON>
+  expression: { expression } # required, string (JMESPath expression)
+  undeterminedIf:
+    evaluationError: { message } # required, string
+    resultTypeMismatch: { message } # required, string
+    resultIsEmpty: { message } # optional, string
+```
+
+#### Description
+
+The `JSON_QUERY_NUMBER` operation evaluates a JMESPath expression against a JSON object and returns the result as a number value. It enables the extraction of specific numeric data from JSON structures, leveraging the JMESPath query language to navigate and transform JSON documents stored in fields or extracts.
+
+#### Parameters
+
+- **`arg` (Operation<[JSON](#json-type)>, required):**
+  - The JSON object against which the JMESPath expression is evaluated.
+  - Typically, sourced using `JSON_FROM` to convert a text field containing JSON data into a JSON object, or directly from an extract providing a JSON type.
+
+- **`expression` (string, required):**
+  - The JMESPath expression that defines what data to extract from the JSON object.
+  - Must result in a numeric value (e.g., integer or float); otherwise, the operation returns an undetermined status with the `resultTypeMismatch` message.
+  - JMESPath supports numeric operations, such as `length()` for array sizes or direct extraction of numeric fields. Refer to the [JMESPath documentation](https://jmespath.org/) for supported syntax and functions.
+
+- **`undeterminedIf` (object, required):**
+  - Specifies conditions under which the operation returns an undetermined status instead of a value.
+
+    - **`evaluationError` (string, required):**
+      - Message returned if the JMESPath expression evaluation fails, such as due to a syntax error.
+
+    - **`resultTypeMismatch` (string, required):**
+      - Message returned if the expression's result is not a number (e.g., a string, boolean, or array).
+
+    - **`resultIsEmpty` (string, optional):**
+      - Message returned if the result is empty (e.g., `null` or an empty array when expecting a number). When provided, an empty result triggers an undetermined status with this message. If omitted, an empty result may trigger `resultTypeMismatch` if invalid.
+
+#### Return Type
+
+[Number](#number-type)
+
+#### Examples
+
+1. **Extracting a Numeric Field:**
+   - **Field:** `CA10__metricsJson__c` contains `{"count": 42, "name": "test"}`.
+   - **Operation:**
+
+    ```yaml
+    JSON_QUERY_NUMBER:
+      arg:
+        JSON_FROM:
+          arg:
+            FIELD:
+              path: CA10__metricsJson__c
+          undeterminedIf:
+            isEmpty: "Metrics JSON is empty"
+            isInvalid: "Metrics JSON is invalid"
+      expression: "count"
+      undeterminedIf:
+        evaluationError: "Error in JMESPath expression"
+        resultTypeMismatch: "Result is not a number"
+    ```
+
+   - **Result:** `42`
+   - **Explanation:** Extracts the numeric value of the `"count"` key from the JSON object.
+
+2. **Calculating Array Length:**
+   - **Field:** `CA10__itemsJson__c` contains `{"items": ["a", "b", "c"]}`.
+   - **Operation:**
+
+    ```yaml
+    JSON_QUERY_NUMBER:
+      arg:
+        JSON_FROM:
+          arg:
+            FIELD:
+              path: CA10__itemsJson__c
+          undeterminedIf:
+            isEmpty: "Items JSON is empty"
+            isInvalid: "Items JSON is invalid"
+      expression: "length(items)"
+      undeterminedIf:
+        evaluationError: "Error in JMESPath expression"
+        resultTypeMismatch: "Result is not a number"
+    ```
+
+   - **Result:** `3`
+   - **Explanation:** Uses the `length` function to return the number of elements in the `"items"` array.
+
+3. **Extracting a Nested Numeric Value:**
+   - **Field:** `CA10__statsJson__c` contains `{"stats": {"total": 15.5}}`.
+   - **Operation:**
+
+    ```yaml
+    JSON_QUERY_NUMBER:
+      arg:
+        JSON_FROM:
+          arg:
+            FIELD:
+              path: CA10__statsJson__c
+          undeterminedIf:
+            isEmpty: "Stats JSON is empty"
+            isInvalid: "Stats JSON is invalid"
+      expression: "stats.total"
+      undeterminedIf:
+        evaluationError: "Error in JMESPath expression"
+        resultTypeMismatch: "Result is not a number"
+    ```
+
+   - **Result:** `15.5`
+   - **Explanation:** Accesses the nested `"total"` field within the `"stats"` object, returning a float.
+
+4. **Handling Null or Missing Field:**
+   - **Field:** `CA10__configJson__c` contains `{"items": null}` or `{}`.
+   - **Operation:**
+
+    ```yaml
+    JSON_QUERY_NUMBER:
+      arg:
+        JSON_FROM:
+          arg:
+            FIELD:
+              path: CA10__configJson__c
+          undeterminedIf:
+            isEmpty: "Config JSON is empty"
+            isInvalid: "Config JSON is invalid"
+      expression: "length(items)"
+      undeterminedIf:
+        evaluationError: "Failed to evaluate length: items is null or missing"
+        resultTypeMismatch: "Result is not a number"
+    ```
+
+   - **Result:** Undetermined status with message `"Failed to evaluate length: items is null or missing"`
+   - **Explanation:** When `"items"` is `null` or absent, `length(items)` triggers a `TypeError` in JMESPath, which is caught as an evaluation error rather than an empty result. The `resultIsEmpty` condition isn't triggered here because `0` (from an empty array) is valid, and `null` leads to an error instead.
 
 ### `RELATED_LIST_HAS`
 
+```yaml
+RELATED_LIST_HAS:
+  status: { status } # required, string (enum: "DISAPPEARED", "INAPPLICABLE", "COMPLIANT", "INCOMPLIANT", "UNDETERMINED")
+  relationshipName: { relationshipName } # required, string
+```
+
+#### Description
+
+The `RELATED_LIST_HAS` operation checks if at least one related object in the specified `relationshipName` satisfies the conditions defined in the corresponding `relatedLists` section of the logic file, matching the given `status`. It returns a [boolean](#boolean-type) value: `true` if at least one related object has the specified `status`, and `false` otherwise (including when no related objects exist).
+
+This operation is useful for validating parent objects based on the presence of specific compliance states in related objects, such as security group rules or IAM policy attachments. See the [Relationships Between Objects](#relationships-between-objects) section for details on configuring related lists.
+
+#### Parameters
+
+- **`status` (string, required):**
+  - The compliance status to check for among related objects.
+  - Valid values: `"DISAPPEARED"`, `"INAPPLICABLE"`, `"COMPLIANT"`, `"INCOMPLIANT"`, `"UNDETERMINED"`.
+  - Matches the `status` assigned by the nested logic in the `relatedLists` section for the specified `relationshipName`.
+
+- **`relationshipName` (string, required):**
+  - The name of the relationship to the related objects, as defined in the Cloudaware CMDB schema for the parent `inputType`.
+  - Examples: `CA10__AWS_EC2_Security_Group_Rules__r`, `CA10__AWS_IAM_Policy_User_Links__r`.
+  - Must correspond to a `relationshipName` entry in the `relatedLists` section of the logic file.
+  - Supports chained relationships (e.g., `CA10__parent__r.CA10__child__r`).
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. **Checking for Unrestricted Security Group Rules:**
+   - **Logic Snippet:**
+
+    ```yaml
+    inputType: "CA10__CaAwsSecurityGroup__c"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Security Group has unrestricted rules."
+        remediationMessage: "Restrict rule sources."
+        check:
+          RELATED_LIST_HAS:
+            status: "INCOMPLIANT"
+            relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "No unrestricted rules."
+    relatedLists:
+      - relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
+        conditions:
+          - status: "INCOMPLIANT"
+            currentStateMessage: "Rule allows all IPs."
+            check:
+              IS_EQUAL:
+                left:
+                  EXTRACT: "CA10__sourceIpRange__c"
+                right:
+                  TEXT: "0.0.0.0/0"
+        otherwise:
+          status: "COMPLIANT"
+          currentStateMessage: "Rule is restricted."
+    ```
+
+   - **Result:** `true` if any rule has `CA10__sourceIpRange__c` equal to `"0.0.0.0/0"`, `false` otherwise.
+   - **Explanation:** `RELATED_LIST_HAS` detects `INCOMPLIANT` rules using a type-safe `IS_EQUAL` check on the text field `CA10__sourceIpRange__c`.
+
+2. **Detecting Attached IAM Policies for a User:**
+   - **Logic Snippet:**
+
+    ```yaml
+    inputType: "CA10__CaAwsUser__c"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "User has attached policies."
+        remediationMessage: "Use IAM groups instead."
+        check:
+          RELATED_LIST_HAS:
+            status: "COMPLIANT"
+            relationshipName: "CA10__AWS_IAM_Policy_User_Links__r"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "No attached policies."
+    relatedLists:
+      - relationshipName: "CA10__AWS_IAM_Policy_User_Links__r"
+        conditions: []
+        otherwise:
+          status: "COMPLIANT"
+          currentStateMessage: "This is an attached policy."
+    ```
+
+   - **Result:** `true` if the user has any policy links (counting `COMPLIANT` objects), `false` otherwise (including zero related objects).
+   - **Explanation:** With no conditions, all related objects are `COMPLIANT` by default. `RELATED_LIST_HAS` returns `false` if no related objects exist, ensuring compliance when the count is zero.
+
+3. **Verifying Policy Attachments to Roles:**
+   - **Logic Snippet:**
+
+    ```yaml
+    inputType: "CA10__CaAwsIamPolicy__c"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Policy is attached to a role."
+        remediationMessage: "Detach the policy."
+        check:
+          RELATED_LIST_HAS:
+            status: "INCOMPLIANT"
+            relationshipName: "CA10__AWS_IAM_Role_Policy_Attachments__r"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Policy is not attached."
+    relatedLists:
+      - relationshipName: "CA10__AWS_IAM_Role_Policy_Attachments__r"
+        conditions:
+          - status: "INCOMPLIANT"
+            currentStateMessage: "Attached to a role."
+            check:
+              NOT_EMPTY_LOOKUP: "CA10__role__r"
+        otherwise:
+          status: "COMPLIANT"
+          currentStateMessage: "Not attached."
+    ```
+
+   - **Result:** `true` if the policy is attached to any role, `false` otherwise.
+   - **Explanation:** `RELATED_LIST_HAS` identifies `INCOMPLIANT` attachments based on a non-empty role lookup.
+
 ### `RELATED_LIST_HAS_NO`
 
+```yaml
+RELATED_LIST_HAS_NO:
+  status: { status } # required, string (enum: "DISAPPEARED", "INAPPLICABLE", "COMPLIANT", "INCOMPLIANT", "UNDETERMINED")
+  relationshipName: { relationshipName } # required, string
+```
+
+#### Description
+
+The `RELATED_LIST_HAS_NO` operation checks if no related objects in the specified `relationshipName` satisfy the conditions defined in the corresponding `relatedLists` section of the logic file, matching the given `status`. It returns a [boolean](#boolean-type) value: `true` if no related objects have the specified `status` (including when no related objects exist), and `false` if at least one does.
+
+This operation is ideal for ensuring the absence of specific compliance states in related objects, such as verifying no unrestricted security group rules or no attached policies. See the [Relationships Between Objects](#relationships-between-objects) section for details on configuring related lists.
+
+#### Parameters
+
+- **`status` (string, required):**
+  - The compliance status to check for absence among related objects.
+  - Valid values: `"DISAPPEARED"`, `"INAPPLICABLE"`, `"COMPLIANT"`, `"INCOMPLIANT"`, `"UNDETERMINED"`.
+  - Matches the `status` assigned by the nested logic in the `relatedLists` section for the specified `relationshipName`.
+
+- **`relationshipName` (string, required):**
+  - The name of the relationship to the related objects, as defined in the Cloudaware CMDB schema for the parent `inputType`.
+  - Examples: `CA10__AWS_EC2_Security_Group_Rules__r`, `CA10__AWS_IAM_Policy_User_Links__r`.
+  - Must correspond to a `relationshipName` entry in the `relatedLists` section of the logic file.
+  - Supports chained relationships (e.g., `CA10__parent__r.CA10__child__r`).
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. **Ensuring No Unrestricted Security Group Rules:**
+   - **Logic Snippet:**
+
+    ```yaml
+    inputType: "CA10__CaAwsSecurityGroup__c"
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "No unrestricted rules in Security Group."
+        check:
+          RELATED_LIST_HAS_NO:
+            status: "INCOMPLIANT"
+            relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "Security Group has unrestricted rules."
+      remediationMessage: "Restrict rule sources."
+    relatedLists:
+      - relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
+        conditions:
+          - status: "INCOMPLIANT"
+            currentStateMessage: "Rule allows all IPs."
+            check:
+              IS_EQUAL:
+                left:
+                  EXTRACT: "CA10__sourceIpRange__c"
+                right:
+                  TEXT: "0.0.0.0/0"
+        otherwise:
+          status: "COMPLIANT"
+          currentStateMessage: "Rule is restricted."
+    ```
+
+   - **Result:** `true` if no rules have `CA10__sourceIpRange__c` equal to `"0.0.0.0/0"`, `false` otherwise.
+   - **Explanation:** `RELATED_LIST_HAS_NO` confirms the absence of `INCOMPLIANT` rules, ensuring compliance.
+
+2. **Verifying No Attached IAM Policies for a User:**
+   - **Logic Snippet:**
+
+    ```yaml
+    inputType: "CA10__CaAwsUser__c"
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "No attached policies for user."
+        check:
+          RELATED_LIST_HAS_NO:
+            status: "INCOMPLIANT"
+            relationshipName: "CA10__AWS_IAM_Policy_User_Links__r"
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "User has attached policies."
+      remediationMessage: "Use IAM groups instead."
+    relatedLists:
+      - relationshipName: "CA10__AWS_IAM_Policy_User_Links__r"
+        conditions: []
+        otherwise:
+          status: "INCOMPLIANT"
+          currentStateMessage: "This is an attached policy."
+    ```
+
+   - **Result:** `true` if no policy links are `INCOMPLIANT` (i.e., no links exist), `false` if any do.
+   - **Explanation:** With no conditions, all related objects are `INCOMPLIANT`. `RELATED_LIST_HAS_NO` returns `true` when the list is empty (no `INCOMPLIANT` objects), ensuring compliance.
+
+3. **Confirming No Role Attachments for a Policy:**
+   - **Logic Snippet:**
+
+    ```yaml
+    inputType: "CA10__CaAwsIamPolicy__c"
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "Policy is not attached to any role."
+        check:
+          RELATED_LIST_HAS_NO:
+            status: "INCOMPLIANT"
+            relationshipName: "CA10__AWS_IAM_Role_Policy_Attachments__r"
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "Policy is attached to a role."
+      remediationMessage: "Detach the policy."
+    relatedLists:
+      - relationshipName: "CA10__AWS_IAM_Role_Policy_Attachments__r"
+        conditions:
+          - status: "INCOMPLIANT"
+            currentStateMessage: "Attached to a role."
+            check:
+              NOT_EMPTY_LOOKUP: "CA10__role__r"
+        otherwise:
+          status: "COMPLIANT"
+          currentStateMessage: "Not attached."
+    ```
+
+   - **Result:** `true` if no attachments are `INCOMPLIANT` (no roles linked), `false` otherwise.
+   - **Explanation:** `RELATED_LIST_HAS_NO` verifies no `INCOMPLIANT` role attachments exist, indicating compliance.
+
 ### `RELATED_LIST_COUNT`
+
+```yaml
+RELATED_LIST_COUNT:
+  status: { status } # required, string (enum: "DISAPPEARED", "INAPPLICABLE", "COMPLIANT", "INCOMPLIANT", "UNDETERMINED")
+  relationshipName: { relationshipName } # required, string
+```
+
+#### Description
+
+The `RELATED_LIST_COUNT` operation returns the number of related objects in the specified `relationshipName` that satisfy the conditions defined in the corresponding `relatedLists` section of the logic file, matching the given `status`. It returns a [number](#number-type) value representing this count, which can be compared to thresholds or other numeric values to enforce compliance with limits.
+
+This operation excels at monitoring quotas, such as the maximum number of security group rules or RDS parameters, helping ensure resources stay within provider-defined or organizational limits. See the [Relationships Between Objects](#relationships-between-objects) section for details on configuring related lists.
+
+#### Parameters
+
+- **`status` (string, required):**
+  - The compliance status to count among related objects.
+  - Valid values: `"DISAPPEARED"`, `"INAPPLICABLE"`, `"COMPLIANT"`, `"INCOMPLIANT"`, `"UNDETERMINED"`.
+  - Matches the `status` assigned by the nested logic in the `relatedLists` section for the specified `relationshipName`.
+
+- **`relationshipName` (string, required):**
+  - The name of the relationship to the related objects, as defined in the Cloudaware CMDB schema for the parent `inputType`.
+  - Examples: `CA10__AWS_EC2_Security_Group_Rules__r`, `CA10__AWS_IAM_Policy_User_Links__r`.
+  - Must correspond to a `relationshipName` entry in the `relatedLists` section of the logic file.
+  - Supports chained relationships (e.g., `CA10__parent__r.CA10__child__r`).
+
+#### Return Type
+
+[Number](#number-type)
+
+#### Examples
+
+1. **Monitoring Security Group Rule Limits:**
+   - **Context:** AWS limits security groups to 60 inbound rules by default; this enforces a practical limit of 50.
+   - **Logic Snippet:**
+
+    ```yaml
+    inputType: "CA10__CaAwsSecurityGroup__c"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Security Group exceeds 50 inbound rules."
+        remediationMessage: "Reduce inbound rules to 50 or fewer."
+        check:
+          GREATER_THAN:
+            left:
+              RELATED_LIST_COUNT:
+                status: "COMPLIANT"
+                relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
+            right:
+              NUMBER: 50
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Security Group within rule limit."
+    relatedLists:
+      - relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
+        importExtracts:
+          - file: "/types/CA10__CaAwsSecurityGroupRule2__c/object.extracts.yaml"
+        conditions:
+          - status: "COMPLIANT"
+            currentStateMessage: "Inbound rule exists."
+            check:
+              IS_EQUAL:
+                left:
+                  EXTRACT: "CA10__direction__c"
+                right:
+                  TEXT: "Inbound"
+        otherwise:
+          status: "INAPPLICABLE"
+          currentStateMessage: "Not an inbound rule."
+    ```
+
+   - **Result:** Number of `COMPLIANT` inbound rules. Fails if > 50.
+   - **Explanation:** `RELATED_LIST_COUNT` counts inbound rules, compared to a threshold of 50 to stay under AWS's 60-rule limit with a buffer.
+
+2. **Enforcing IAM User Policy Attachment Limits:**
+   - **Context:** AWS limits IAM users to 10 directly attached managed policies; this sets a cap at 8.
+   - **Logic Snippet:**
+
+    ```yaml
+    inputType: "CA10__CaAwsUser__c"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "User exceeds 8 policy attachments."
+        remediationMessage: "Limit attachments to 8 or use groups."
+        check:
+          GREATER_THAN:
+            left:
+              RELATED_LIST_COUNT:
+                status: "COMPLIANT"
+                relationshipName: "CA10__AWS_IAM_Policy_User_Links__r"
+            right:
+              NUMBER: 8
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "User within policy limit."
+    relatedLists:
+      - relationshipName: "CA10__AWS_IAM_Policy_User_Links__r"
+        conditions: []
+        otherwise:
+          status: "COMPLIANT"
+          currentStateMessage: "Policy is attached."
+    ```
+
+   - **Result:** Number of attached policies (all `COMPLIANT`). Fails if > 8.
+   - **Explanation:** `RELATED_LIST_COUNT` counts policy links, enforcing a custom limit of 8 for safety below AWS's 10.
 
 ### `AWS_POLICY_ALLOWS`
 
@@ -2389,8 +3459,6 @@ See more details in:
 ### `DEBUG`
 
 ### `UNIT_TEST`
-
-### `UNIT_TEST_DATE_TIME`
 
 ### `UNIT_TEST_NULL`
 

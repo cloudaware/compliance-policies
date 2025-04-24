@@ -1,0 +1,14 @@
+---
+name: >
+  [WAF.6] AWS WAF Classic global rules should have at least one condition
+description: |-
+  A WAF global rule can contain multiple conditions. A rule's conditions allow 
+  for traffic inspection and take a defined action (allow, block, or count). 
+  Without any conditions, the traffic passes without inspection. A WAF global 
+  rule with no conditions, but with a name or tag suggesting allow, block, or 
+  count, could lead to the wrong assumption that one of those actions is occurring.
+similar:
+  internal:
+    - dec-c-31b71d89
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/waf-controls.html#waf-6

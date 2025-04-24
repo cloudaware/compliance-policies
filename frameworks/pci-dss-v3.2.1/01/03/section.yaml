@@ -1,8 +1,10 @@
 ---
-name: |-
-  1.3 Prohibit direct public access
-  between the Internet and any system component in the cardholder data environment.
+name: >
+  1.3 Prohibit direct public access between the Internet and any system 
+  component in the cardholder data environment.
 description: ""
 similar:
   internal:
     - dec-c-bc1717aa
+  sections:
+    - /frameworks/pci-dss-v4.0/01/04/01

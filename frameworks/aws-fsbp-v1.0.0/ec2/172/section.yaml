@@ -1,0 +1,11 @@
+name: >
+  [EC2.172] EC2 VPC Block Public Access settings should block internet gateway traffic
+description: |-
+  Configuring the VPC BPA settings for your account in an AWS Region lets you block 
+  resources in VPCs and subnets that you own in that Region from reaching or being 
+  reached from the internet through internet gateways and egress-only internet gateways. 
+  If you need specific VPCs and subnets to be able to reach or be reachable from the internet, 
+  you can exclude them by configuring VPC BPA exclusions.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-172

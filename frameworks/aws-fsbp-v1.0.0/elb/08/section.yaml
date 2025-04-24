@@ -1,0 +1,13 @@
+---
+name: >
+  [ELB.8] Classic Load Balancers with SSL listeners should use 
+  a predefined security policy that has strong AWS Configuration
+description: |-
+  A security policy is a combination of SSL protocols, ciphers, and the Server Order Preference 
+  option. Predefined policies control the ciphers, protocols, and preference orders 
+  to support during SSL negotiations between a client and load balancer.
+similar:
+  internal:
+    - dec-c-dffe8e9e
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-8

@@ -1,0 +1,13 @@
+---
+name: >
+  [ECS.2] ECS services should not have public IP addresses assigned to them automatically
+description: |-
+  A public IP address is an IP address that is reachable from the internet. If you 
+  launch your Amazon ECS instances with a public IP address, then your Amazon ECS instances 
+  are reachable from the internet. Amazon ECS services should not be publicly accessible, 
+  as this may allow unintended access to your container application servers.
+similar:
+  internal:
+    - dec-c-47a3687f
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ecs-controls.html#ecs-2

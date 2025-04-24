@@ -1,0 +1,14 @@
+---
+name: "[CloudFront.6] CloudFront distributions should have WAF enabled"
+description: |-
+  AWS WAF is a web application firewall that helps protect web applications and 
+  APIs from attacks. It allows you to configure a set of rules, called a web 
+  access control list (web ACL), that allow, block, or count web requests based 
+  on customizable web security rules and conditions that you define. Ensure your 
+  CloudFront distribution is associated with an AWS WAF web ACL to help protect 
+  it from malicious attacks.
+similar:
+  internal:
+    - dec-c-04f0e865
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/cloudfront-controls.html#cloudfront-6

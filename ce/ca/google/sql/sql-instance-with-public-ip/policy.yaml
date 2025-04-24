@@ -1,0 +1,15 @@
+---
+names: 
+  full: "Google Cloud SQL Instance has public IP addresses"
+  contextual: "SQL Instance has public IP addresses"
+description: "It is recommended to configure Second Generation Sql instance to use private IPs instead of public IPs."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/06/06
+  - /frameworks/cloudaware/resource-security/public-and-anonymous-access
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudSQL/sql-database-instances-with-public-ips.html"
+      name: "Check for Cloud SQL Database Instances with Public IPs"

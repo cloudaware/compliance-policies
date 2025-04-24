@@ -1,0 +1,13 @@
+---
+name: >
+  [EFS.1] Elastic File System should be configured to encrypt file data 
+  at-rest using AWS KMS
+description: |-
+  For an added layer of security for your sensitive data in Amazon EFS, you should 
+  create encrypted file systems. Amazon EFS supports encryption for file systems at-rest. 
+  You can enable encryption of data at rest when you create an Amazon EFS file system.
+similar:
+  internal:
+    - dec-c-b16cdd1e
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/efs-controls.html#efs-1

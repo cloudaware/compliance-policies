@@ -1,0 +1,16 @@
+---
+names: 
+  full: "Google Cloud SQL Server Instance user connections Database Flag is set to a limiting (other than 0) value"
+  contextual: "SQL Server Instance user connections Database Flag is set to a limiting (other than 0) value"
+description: "It is recommended to check the user connections for a Cloud SQL SQL Server instance \ 
+ to ensure that it is not artificially limiting connections."
+type: COMPLIANCE_POLICY
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/06/03/03
+  - /frameworks/cloudaware/resource-reliability/system-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/CloudSQL/configure-user-connection-flag.html"
+      name: "Configure 'user connections' Flag for SQL Server Database Instances"

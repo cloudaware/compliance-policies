@@ -1,0 +1,14 @@
+---
+name: "[Route53.2] Route 53 public hosted zones should log DNS queries"
+description: |-
+  Logging DNS queries for a Route 53 hosted zone addresses DNS security and 
+  compliance requirements and grants visibility. The logs include information 
+  such as the domain or subdomain that was queried, the date and time of the 
+  query, the DNS record type (for example, A or AAAA), and the DNS response code 
+  (for example, NoError or ServFail). When DNS query logging is enabled, 
+  Route 53 publishes the log files to Amazon CloudWatch Logs.
+similar:
+  internal:
+    - dec-c-2df41479
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/route53-controls.html#route53-2

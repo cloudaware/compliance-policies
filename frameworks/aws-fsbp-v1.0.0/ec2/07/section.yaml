@@ -1,0 +1,10 @@
+---
+name: "[EC2.7] EBS default encryption should be enabled"
+description: |-
+  When encryption is enabled for your account, Amazon EBS volumes and snapshot 
+  copies are encrypted at rest. This adds an additional layer of protection for your data.
+similar:
+  internal:
+    - dec-c-64d56cba
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-7

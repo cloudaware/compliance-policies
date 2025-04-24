@@ -1,0 +1,17 @@
+---
+names: 
+  full: "Google GCE Network DNS Policy Logging is not enabled"
+  contextual: "GCE Network DNS Policy Logging is not enabled"
+description: "Cloud DNS logging records the queries from the name servers within your VPC to Stackdriver. \
+  Logged queries can come from Compute Engine VMs, GKE containers, or other GCP resources provisioned \ 
+  within the VPC. "
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/02/12
+  - /frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/CloudVPC/dns-logging-for-vpcs.html"
+      name: "Enable Cloud DNS Logging for VPC Networks"

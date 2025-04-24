@@ -5,6 +5,7 @@ extracts:
     value: 
       FIELD:
         path: "CA10__logsJson__c"
+        returnType: BYTES
         undeterminedIf:
           isEmpty: "Corrupted Data. Diagnostic Setting Logs JSON cannot be empty."
   - name: "caJsonFrom__logsJson__c"

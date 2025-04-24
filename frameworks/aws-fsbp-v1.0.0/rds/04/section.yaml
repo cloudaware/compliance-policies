@@ -1,0 +1,13 @@
+---
+name: >
+  [RDS.4] RDS cluster snapshots and database snapshots should be 
+  encrypted at rest
+description: |-
+  Encrypting data at rest reduces the risk that an unauthenticated user gets 
+  access to data that is stored on disk. Data in RDS snapshots should be 
+  encrypted at rest for an added layer of security.
+similar:
+  internal:
+    - dec-c-f06ab26d
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-4

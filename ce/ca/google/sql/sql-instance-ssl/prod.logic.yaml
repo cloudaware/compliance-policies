@@ -1,0 +1,20 @@
+---
+
+inputType: "CA10__CaGoogleSqlInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleSqlInstance__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "The SQL Instance requires all incoming connections to use SSL."
+    check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__sslMode__c"
+            right:
+              TEXT: "ENCRYPTED_ONLY"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The SQL Instance does not require incoming connections use SSL."
+  remediationMessage: "Enforce all incoming connections to SQL database instance to use SSL."

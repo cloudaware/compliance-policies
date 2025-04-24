@@ -1,0 +1,13 @@
+---
+name: "[RDS.16] RDS DB clusters should be configured to copy tags to snapshots"
+description: |-
+  Identification and inventory of your IT assets is a crucial aspect of 
+  governance and security. You need to have visibility of all your RDS DB 
+  clusters so that you can assess their security posture and take action on 
+  potential areas of weakness. Snapshots should be tagged in the same way as 
+  their parent RDS database clusters.
+similar:
+  internal:
+    - dec-c-f51747d8
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-16

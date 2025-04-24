@@ -1,0 +1,15 @@
+---
+names: 
+  full: "Google HTTP(S) Load Balancer Logging is not enabled"
+  contextual: "HTTP(S) Load Balancer Logging is not enabled"
+description: "Logging enabled on a HTTPS Load Balancer will show all network traffic and its destination."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/02/16
+  - /frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudLoadBalancing/https-load-balancer-logging-enabled.html"
+      name: "Enable Logging for HTTP(S) Load Balancers"

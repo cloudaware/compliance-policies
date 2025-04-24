@@ -1,0 +1,11 @@
+name: >
+  1.3.3 NSCs are installed between all wireless networks and the CDE, regardless 
+  of whether the wireless network is a CDE.
+description: |-
+  Such that:
+
+  - All wireless traffic from wireless networks into the CDE is denied by default.
+  - Only wireless traffic with an authorized business purpose is allowed into the CDE.
+similar:
+  sections:
+    - /frameworks/pci-dss-v4.0/01/03/03

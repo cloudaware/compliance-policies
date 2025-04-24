@@ -1,0 +1,19 @@
+---
+inputType: "CA10__CaGoogleDnsManagedZone__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleDnsManagedZone__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Managed Zone uses the RSASHA1 algorithm for the Key-Signing Key."
+    remediationMessage: "Change the DNSSEC Configuration for the Managed Zone."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "caJsonFrom__dnssecConfigurationKeySpecs_keySigning_algorithm_value"
+        substring: 
+          TEXT: "rsasha1"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Managed Zone doesn't use the RSASHA1 algorithm for the Key-Signing Key."

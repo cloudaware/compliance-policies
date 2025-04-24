@@ -1,0 +1,9 @@
+name: "[GuardDuty.7] GuardDuty EKS Runtime Monitoring should be enabled"
+description: |-
+  EKS Protection in Amazon GuardDuty provides threat detection coverage to help 
+  you protect Amazon EKS clusters within your AWS environment. EKS Runtime 
+  Monitoring uses operating system-level events to help you detect potential 
+  threats in EKS nodes and containers within your EKS clusters.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/guardduty-controls.html#guardduty-7

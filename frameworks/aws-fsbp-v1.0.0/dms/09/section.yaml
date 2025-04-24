@@ -1,0 +1,15 @@
+---
+name: "[DMS.9] DMS endpoints should use SSL"
+description: |-
+  SSL/TLS connections provide a layer of security by encrypting connections between 
+  DMS replication instances and your database. Using certificates provides 
+  an extra layer of security by validating that the connection is being made to 
+  the expected database. It does so by checking the server certificate that is 
+  automatically installed on all database instances that you provision. By enabling 
+  SSL connection on your DMS endpoints, you protect the confidentiality of the 
+  data during the migration.
+similar:
+  internal:
+    - dec-c-a433d623
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/dms-controls.html#dms-9

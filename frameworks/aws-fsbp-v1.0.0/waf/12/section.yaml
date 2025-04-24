@@ -1,0 +1,13 @@
+---
+name: >
+  [WAF.12] AWS WAF rules should have CloudWatch metrics enabled
+description: |-
+  Configuring CloudWatch metrics on AWS WAF rules and rule groups provides 
+  visibility into traffic flow. You can see which ACL rules are triggered and 
+  which requests are accepted and blocked. This visibility can help you identify 
+  malicious activity on your associated resources.
+similar:
+  internal:
+    - dec-c-5ffc2611
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/waf-controls.html#waf-12

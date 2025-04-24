@@ -4,3 +4,7 @@ description: >
   S3 object-level API operations, such as GetObject, DeleteObject, and PutObject, are
   referred to as data events. By default, CloudTrail trails do not log data events, so it is
   recommended to enable object-level logging for S3 buckets.
+similar:
+  sections:
+    - /frameworks/cis-aws-v5.0.0/03/09
+    - /frameworks/cis-aws-v4.0.0/03/09

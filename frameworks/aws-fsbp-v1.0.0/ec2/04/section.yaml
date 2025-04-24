@@ -1,0 +1,14 @@
+---
+name: "[EC2.4] Stopped EC2 instances should be removed after a specified time period"
+description: |-
+  When an EC2 instance has not run for a significant period of time, it creates 
+  a security risk because the instance is not being actively maintained 
+  (analyzed, patched, updated). If it is later launched, the lack of proper maintenance 
+  could result in unexpected issues in your AWS environment. To safely maintain 
+  an EC2 instance over time in an inactive state, start it periodically for maintenance 
+  and then stop it after maintenance. Ideally, this should be an automated process.
+similar:
+  internal:
+    - dec-c-333cf464
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-4

@@ -1,0 +1,11 @@
+---
+name: "[CloudFront.1] CloudFront distributions should have a default root object configured"
+description: |-
+  A user might sometimes request the distribution's root URL instead of an object 
+  in the distribution. When this happens, specifying a default root object can 
+  help you to avoid exposing the contents of your web distribution.
+similar:
+  internal:
+    - dec-c-5dc91fc4
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/cloudfront-controls.html#cloudfront-1

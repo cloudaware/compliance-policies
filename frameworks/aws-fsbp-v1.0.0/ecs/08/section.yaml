@@ -1,0 +1,12 @@
+---
+name: "[ECS.8] Secrets should not be passed as container environment variables"
+description: |-
+  AWS Systems Manager Parameter Store can help you improve the security posture 
+  of your organization. We recommend using the Parameter Store to store secrets 
+  and credentials instead of directly passing them into your container instances 
+  or hard coding them into your code.
+similar:
+  internal:
+    - dec-c-5d650d86
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ecs-controls.html#ecs-8

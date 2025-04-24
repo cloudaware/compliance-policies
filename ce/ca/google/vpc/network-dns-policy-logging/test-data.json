@@ -1,0 +1,74 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-11-27T20:26:32Z" },
+    "Id": "a4bDo0",
+    "CA10__disappearanceTime__c": "2023-12-22T12:09:30Z",
+    "CA10__dnsPolicy__c": "",
+    "CA10__dnsPolicyName__c": "",
+    "CA10__dnsPolicy__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null,
+      "CA10__loggingStatus__c": null
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "isEmptyLookup('CA10__dnsPolicy__r')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-11-27T20:26:32Z" },
+    "Id": "a4b4P01",
+    "CA10__disappearanceTime__c": null,
+    "CA10__dnsPolicy__c": "",
+    "CA10__dnsPolicyName__c": "",
+    "CA10__dnsPolicy__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null,
+      "CA10__loggingStatus__c": null
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__dnsPolicy__r.CA10__loggingStatus__c') != 'Enable'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-11-27T20:26:32Z" },
+    "Id": "a4bDo33",
+    "CA10__disappearanceTime__c": null,
+    "CA10__dnsPolicy__c": "aNODo011",
+    "CA10__dnsPolicyName__c": "hellowworld",
+    "CA10__dnsPolicy__r": {
+      "Id": "aNODo011",
+      "CA10__disappearanceTime__c": null,
+      "CA10__loggingStatus__c": "Disable"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-11-27T20:26:32Z" },
+    "Id": "a4b4P044",
+    "CA10__disappearanceTime__c": null,
+    "CA10__dnsPolicy__c": "aNO4P022",
+    "CA10__dnsPolicyName__c": "dns-policy",
+    "CA10__dnsPolicy__r": {
+      "Id": "aNO4P022",
+      "CA10__disappearanceTime__c": null,
+      "CA10__loggingStatus__c": "Enable"
+    }
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "101",
+      "conditionText": "CA10__nextRotationTime__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-19T23:57:56Z" },
+    "Id": "aC541",
+    "CA10__disappearanceTime__c": null,
+    "CA10__nextRotationTime__c": null,
+    "CA10__rotationPeriod__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__nextRotationTime__c').withinNextDays(90) && extract('rotationDuration') <= 'P90D'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-19T23:57:56Z" },
+    "Id": "aC542",
+    "CA10__disappearanceTime__c": null,
+    "CA10__nextRotationTime__c": "2024-10-19T23:57:56Z",
+    "CA10__rotationPeriod__c": "2592000s"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-19T23:57:56Z" },
+    "Id": "aC543",
+    "CA10__disappearanceTime__c": null,
+    "CA10__nextRotationTime__c": "2022-03-11T04:24:49Z",
+    "CA10__rotationPeriod__c": "2592000s"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-19T23:57:56Z" },
+    "Id": "aC544",
+    "CA10__disappearanceTime__c": null,
+    "CA10__nextRotationTime__c": "2024-10-19T23:57:56Z",
+    "CA10__rotationPeriod__c": "130600m"
+  }
+]

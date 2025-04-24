@@ -1,0 +1,33 @@
+---
+inputType: "CA10__CaGoogleIamServiceAccount__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleIamServiceAccount__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Only for user-managed service accounts."
+    check:
+      NOT:
+        arg:
+          ENDS_WITH:
+           arg:
+            EXTRACT: CA10__serviceAccountEmail__c
+           suffix: 
+            TEXT: "iam.gserviceaccount.com"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "User-managed service accounts should not have user-managed keys."
+    remediationMessage: "You should delete a user managed Service Account Key."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__Google_IAM_Service_Account_Keys__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "User-managed service accounts haven't user-managed keys."
+relatedLists:
+  - relationshipName: "CA10__Google_IAM_Service_Account_Keys__r"
+    conditions: []
+    otherwise:
+      status: "INCOMPLIANT" 
+      currentStateMessage: "Service Account Key is enabled."

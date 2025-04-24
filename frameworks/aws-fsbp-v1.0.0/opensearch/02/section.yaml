@@ -1,0 +1,13 @@
+---
+name: "[Opensearch.2] OpenSearch domains should not be publicly accessible"
+description: |-
+  OpenSearch domains deployed within a VPC can communicate with VPC resources 
+  over the private AWS network, without the need to traverse the public internet. 
+  This configuration increases the security posture by limiting access to the 
+  data in transit. VPCs provide a number of network controls to secure access 
+  to OpenSearch domains, including network ACL and security groups.
+similar:
+  internal:
+    - dec-c-b4b5da97
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/opensearch-controls.html#opensearch-2

@@ -1,0 +1,10 @@
+---
+name: "[EFS.2] Amazon EFS volumes should be in backup plans"
+description: |-
+  Including EFS file systems in the backup plans helps you to protect your data 
+  from deletion and data loss.
+similar:
+  internal:
+    - dec-c-f6dc3d33
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/efs-controls.html#efs-2

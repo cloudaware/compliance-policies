@@ -1,0 +1,16 @@
+---
+name: "[ELB.9] Classic Load Balancers should have cross-zone load balancing enabled"
+description: |-
+  A load balancer node distributes traffic only across the registered targets in 
+  its Availability Zone. When cross-zone load balancing is disabled, each load balancer 
+  node distributes traffic only across the registered targets in its Availability Zone. 
+  If the number of registered targets is not same across the Availability Zones, 
+  traffic wont be distributed evenly and the instances in one zone may end up over 
+  utilized compared to the instances in another zone. With cross-zone load balancing 
+  enabled, each load balancer node for your Classic Load Balancer distributes requests 
+  evenly across the registered instances in all enabled Availability Zones.
+similar:
+  internal:
+    - dec-c-2d7b2909
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-9

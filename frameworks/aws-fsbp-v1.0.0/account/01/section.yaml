@@ -1,0 +1,11 @@
+---
+name: "[Account.1] Security contact information should be provided for an AWS account"
+description: |-
+  Alternate security contacts allow AWS to contact another person about issues 
+  with your account in case you're unavailable. Notifications can be from AWS 
+  Support, or other AWS service teams about security-related topics associated with your AWS account usage.
+similar:
+  internal:
+    - dec-c-958a365d
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/account-controls.html#account-1

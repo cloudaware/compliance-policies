@@ -1,0 +1,41 @@
+---
+inputType: "CA10__CaGoogleGceInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleGceInstance__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The instance is created by GKE."
+    check:
+      STARTS_WITH:
+        arg:
+          EXTRACT: "Name"
+        prefix:
+          TEXT: 'gke-'
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The instance is configured to use the default service account."
+    remediationMessage: "Update the instance to use a user-managed service account."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__Google_Instance_Service_Account_Links__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Instance is not configured to use the default service account."
+relatedLists:
+  - relationshipName: "CA10__Google_Instance_Service_Account_Links__r"
+    importExtracts:
+      - file: /types/CA10__CaGoogleGceInstanceServiceAccountLink__c/object.extracts.yaml
+    conditions:
+    - status: "INCOMPLIANT"
+      currentStateMessage: "Default Compute Engine service account."
+      check:
+        ENDS_WITH:
+          arg:
+            EXTRACT: "CA10__iamServiceAccountEmail__c"
+          suffix:
+            TEXT: 'compute@developer.gserviceaccount.com'
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "There is no default Compute Engine service account."

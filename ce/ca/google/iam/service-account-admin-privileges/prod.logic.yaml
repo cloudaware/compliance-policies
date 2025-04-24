@@ -1,0 +1,70 @@
+---
+inputType: "CA10__CaGoogleIamServiceAccount__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleIamServiceAccount__c/object.extracts.yaml
+conditions: 
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This recommendation is only applicable to User-Managed user-created service accounts."
+    check:
+## NOT: SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com
+      NOT:
+        arg:
+          AND:
+            args:
+              - ENDS_WITH:
+                  arg:
+                    EXTRACT: CA10__serviceAccountEmail__c
+                  suffix:
+                    TEXT: ".iam.gserviceaccount.com" 
+              - CONTAINS:
+                  arg:
+                    EXTRACT: CA10__serviceAccountEmail__c
+                  substring:
+                    EXTRACT: serviceAccountProjectId
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This Service Account has roles with admin privileges."
+    remediationMessage: "Consider restricting the Service Account."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__Google_IAM_Policy_Bindings__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Service Account has no admin privileges "
+relatedLists:
+  - relationshipName: "CA10__Google_IAM_Policy_Bindings__r"
+    importExtracts:
+      - file: /types/CA10__CaGoogleIamPolicyBinding__c/object.extracts.yaml
+      - file: /types/CA10__CaGoogleIamRole__c/object.extracts.yaml
+    recordTypes:
+      - "caGoogleIamPolicyBindingProject"
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "There is no role with admin privileges"
+        check:
+          IS_EMPTY_LOOKUP: "CA10__iamRole__r"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Role with admin privileges"
+        check:
+           OR:
+             args:
+               - CONTAINS:
+                   arg:
+                     EXTRACT: "CA10__iamRole__r.CA10__roleName__c"
+                   substring:
+                     TEXT: "admin"
+               - IS_EQUAL:
+                   left:
+                     EXTRACT: "CA10__iamRole__r.CA10__roleName__c"
+                   right:
+                     TEXT: "editor"
+               - IS_EQUAL:
+                   left:
+                     EXTRACT: "CA10__iamRole__r.CA10__roleName__c"
+                   right:
+                     TEXT: "owner"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Role without admin privileges"

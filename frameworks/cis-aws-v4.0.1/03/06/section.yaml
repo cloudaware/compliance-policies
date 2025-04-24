@@ -8,3 +8,7 @@ description: >
   all prior backing keys so that decryption of encrypted data can occur transparently. It is
   recommended that CMK key rotation be enabled for symmetric keys. Key rotation
   cannot be enabled for any asymmetric CMK.
+similar:
+  sections:
+    - /frameworks/cis-aws-v5.0.0/03/06
+    - /frameworks/cis-aws-v4.0.0/03/06

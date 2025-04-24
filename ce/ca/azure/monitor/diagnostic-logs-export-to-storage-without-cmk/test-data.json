@@ -29,7 +29,7 @@
         "expectedResult": {
             "status": "INAPPLICABLE",
             "conditionIndex": "199",
-            "conditionText": "RecordType.DeveloperName != 'caDiagnosticSettingOnAzureSubscription'",
+            "conditionText": "not(['caDiagnosticSettingOnAzureSubscription'].contains(RecordType.DeveloperName))",
             "runtimeError": null
         },
         "context": {

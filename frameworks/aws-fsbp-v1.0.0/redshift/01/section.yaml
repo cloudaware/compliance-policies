@@ -1,0 +1,18 @@
+---
+name: "[Redshift.1] Amazon Redshift clusters should prohibit public access"
+description: |-
+  The `PubliclyAccessible` attribute of the Amazon Redshift cluster configuration 
+  indicates whether the cluster is publicly accessible. When the cluster is 
+  configured with `PubliclyAccessible` set to `true`, it is an Internet-facing 
+  instance that has a publicly resolvable DNS name, which resolves to a public 
+  IP address.
+
+  When the cluster is not publicly accessible, it is an internal instance with 
+  a DNS name that resolves to a private IP address. Unless you intend for your 
+  cluster to be publicly accessible, the cluster should not be configured with 
+  `PubliclyAccessible` set to `true`.
+similar:
+  internal:
+    - dec-c-b2f36793
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/redshift-controls.html#redshift-1

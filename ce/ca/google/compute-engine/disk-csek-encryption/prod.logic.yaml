@@ -1,0 +1,22 @@
+---
+inputType: "CA10__CaGoogleGceAttachedDisk__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleGceDisk__c/object.extracts.yaml
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "Ensure that VM disk is referencing an active GCE disk."
+    check:
+      IS_EMPTY_LOOKUP: "CA10__gceDisk__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "Encryption type is set to Customer supplied key."
+    check:
+      NOT_EMPTY:
+        arg:
+          EXTRACT: "CA10__gceDisk__r.CA10__diskEncryptionKeySha256__c"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Encryption type isn't set to Customer supplied key."
+  remediationMessage: "Currently there is no way to update the encryption of an existing disk. \
+    Therefore you should create a new disk with Encryption set to Customer supplied key."

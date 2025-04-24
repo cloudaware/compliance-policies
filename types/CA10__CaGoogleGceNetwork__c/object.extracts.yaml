@@ -6,3 +6,9 @@ extracts:
         path: "Name"
         undeterminedIf:
           isEmpty:  "Name should not be empty"
+  - name: "CA10__autoCreationSubnetworksMode__c"
+    value: 
+      FIELD:
+        path: "CA10__autoCreationSubnetworksMode__c"
+        undeterminedIf:
+          isEmpty:  "Auto creation subnetworks mode should not be empty"

@@ -1,0 +1,52 @@
+---
+
+inputType: "CA10__CaGoogleGceSubnetwork__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleGceSubnetwork__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Flow Logs are enabled and configured correctly."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left: 
+                EXTRACT: "CA10__flowLogs__c"
+              right:
+                TEXT: "Enabled"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__logConfigState__c"
+              right:
+                TEXT: "Enabled"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__logConfigAggregationInterval__c"
+              right:
+                TEXT: "INTERVAL_5_SEC"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__logConfigFlowSampling__c"
+              right:
+                NUMBER: 1.0
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__logConfigMetadata__c"
+              right:
+                TEXT: "INCLUDE_ALL_METADATA"
+          - OR:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: "CA10__logConfigFilterExpr__c"
+                    right:
+                      TEXT: "False"
+                - IS_EMPTY:
+                    arg:
+                      EXTRACT: "CA10__logConfigFilterExpr__c"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Flow Logs aren't enabled or configured correctly."
+  remediationMessage: "Enable flow logs."

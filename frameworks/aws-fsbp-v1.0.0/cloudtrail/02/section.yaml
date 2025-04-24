@@ -1,0 +1,13 @@
+---
+name: "[CloudTrail.2] CloudTrail should have encryption at-rest enabled"
+description: |-
+  For an added layer of security for your sensitive CloudTrail log files, you should use 
+  server-side encryption with AWS KMS keys (SSE-KMS) for your CloudTrail log files 
+  for encryption at rest. Note that by default, the log files delivered by 
+  CloudTrail to your buckets are encrypted by Amazon server-side encryption with 
+  Amazon S3-managed encryption keys (SSE-S3).
+similar:
+  internal:
+    - dec-c-8b9dfb2b
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/cloudtrail-controls.html#cloudtrail-2

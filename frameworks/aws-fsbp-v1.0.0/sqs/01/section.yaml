@@ -1,0 +1,12 @@
+---
+name: "[SQS.1] Amazon SQS queues should be encrypted at rest"
+description: |-
+  Encrypting data at rest reduces the risk of an unauthorized user accessing 
+  data stored on disk. Server-side encryption (SSE) protects the contents of 
+  messages in SQS queues using SQS-managed encryption keys (SSE-SQS) or 
+  AWS KMS keys (SSE-KMS).
+similar:
+  internal:
+    - dec-c-b6060ebd
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/sqs-controls.html#sqs-1

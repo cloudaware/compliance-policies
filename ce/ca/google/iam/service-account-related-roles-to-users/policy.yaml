@@ -1,0 +1,17 @@
+---
+names: 
+  full: "Google User has both Service Account Admin and Service Account User roles assigned"
+  contextual: "User has both Service Account Admin and Service Account User roles assigned"
+description: "It is recommended that the principle of 'Separation of Duties' is enforced while assigning \
+ service-account related roles to users."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/01/08
+  - /frameworks/cloudaware/identity-and-access-governance/rbac-management
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/CloudIAM/enforce-separation-of-duties-for-service-account-roles.html"
+      name: "Enforce Separation of Duties for Service-Account Related Roles"
+ 

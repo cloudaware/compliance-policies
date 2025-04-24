@@ -1,0 +1,12 @@
+name: >
+  8.3.5 If passwords/passphrases are used as authentication factors to meet 
+  Requirement 8.3.1, they are set and reset for each user.
+description: |-
+  As follows:
+  
+  - Set to a unique value for first-time use and upon reset.
+  - Forced to be changed immediately after the first use.
+similar:
+  sections:
+    - /frameworks/pci-dss-v3.2.1/08/02/06
+    - /frameworks/pci-dss-v4.0.1/08/03/05

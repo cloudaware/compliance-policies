@@ -1,8 +1,15 @@
 ---
 name: |-
-  2.2.1 Implement only one primary function per server to prevent functions that require different security levels from co-existing on the same server. (For example, web servers, database servers, and DNS should be implemented on separate servers.)
-  Note: Where virtualization technologies are in use, implement only one primary function per virtual system component.
-description: ""
+  2.2.1 Implement only one primary function per server to prevent functions that 
+  require different security levels from co-existing on the same server.
+description: |-
+  For example, web servers, database servers, and DNS should be implemented on 
+  separate servers.
+
+  Where virtualization technologies are in use, implement only one primary 
+  function per virtual system component.
 similar:
   internal:
     - dec-c-ad77a75e
+  sections:
+    - /frameworks/pci-dss-v4.0/02/02/03

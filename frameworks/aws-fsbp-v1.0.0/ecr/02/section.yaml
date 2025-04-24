@@ -1,0 +1,14 @@
+---
+name: "[ECR.2] ECR private repositories should have tag immutability configured"
+description: |-
+  Amazon ECR Tag Immutability enables customers to rely on the descriptive tags 
+  of an image as a reliable mechanism to track and uniquely identify images. 
+  An immutable tag is static, which means each tag refers to a unique image. 
+  This improves reliability and scalability as the use of a static tag will always 
+  result in the same image being deployed. When configured, tag immutability prevents 
+  the tags from being overridden, which reduces the attack surface.
+similar:
+  internal:
+    - dec-c-f0b1de71
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ecr-controls.html#ecr-2

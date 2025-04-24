@@ -1,0 +1,11 @@
+name: >
+  [Glue.4] AWS Glue Spark jobs should run on supported versions of AWS Glue
+description: |-
+  Running AWS Glue Spark jobs on current versions of AWS Glue can optimize 
+  performance, security, and access to the latest features of AWS Glue. It can 
+  also help safeguard against security vulnerabilities. For example, a new 
+  version might be released to provide security updates, address issues, or 
+  introduce new features.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/glue-controls.html#glue-4

@@ -12,4 +12,4 @@ AWS WAF pricing includes charges for the number of Web ACLs created, the number 
 
 ## Audit
 
-This policy marks a Stage as `INCOMPLIANT` if the `Web ACL ARN` field is empty, indicating that the stage is not associated with a WAF Web ACL.
+This policy marks an *API Gateway Stage* as `INCOMPLIANT` if the `Web ACL ARN` field is **empty**, indicating that the stage is not associated with a WAF Web ACL.

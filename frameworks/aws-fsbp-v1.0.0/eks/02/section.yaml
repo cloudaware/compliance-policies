@@ -1,0 +1,10 @@
+---
+name: "[EKS.2] EKS clusters should run on a supported Kubernetes version"
+description: |-
+  If your application doesn't require a specific version of Kubernetes, we recommend 
+  that you use the latest available Kubernetes version that's supported by EKS for your clusters.
+similar:
+  internal:
+    - dec-c-59205321
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/eks-controls.html#eks-2

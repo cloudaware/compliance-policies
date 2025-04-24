@@ -1,0 +1,12 @@
+---
+name: >
+  [ServiceCatalog.1] Service Catalog portfolios should be shared within 
+  an AWS organization only
+description: |-
+  Portfolio sharing only within Organizations helps ensure that a portfolio 
+  isn't shared with incorrect AWS accounts.
+similar:
+  internal:
+    - dec-c-81696844
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/servicecatalog-controls.html#servicecatalog-1

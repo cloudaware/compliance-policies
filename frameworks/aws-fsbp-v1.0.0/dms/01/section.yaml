@@ -1,0 +1,13 @@
+---
+name: "[DMS.1] Database Migration Service replication instances should not be public"
+description: |-
+  A private replication instance has a private IP address that you cannot access 
+  outside of the replication network. A replication instance should have a private 
+  IP address when the source and target databases are in the same network. The network 
+  must also be connected to the replication instance's VPC using a VPN, AWS Direct Connect, 
+  or VPC peering.
+similar:
+  internal:
+    - dec-c-f359af1a
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/dms-controls.html#dms-1

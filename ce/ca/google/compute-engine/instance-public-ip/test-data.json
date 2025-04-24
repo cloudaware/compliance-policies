@@ -1,0 +1,72 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-02T17:45:22Z" },
+    "Id": "a4Z1",
+    "CA10__disappearanceTime__c": "2024-08-25T08:14:56Z",
+    "Name": "d-amazon",
+    "CA10__labels__c": "",
+    "CA10__Google_GCE_Network_Interfaces__r": [ ]
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('Name').startsWith('gke-')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-02T17:45:22Z" },
+    "Id": "a4Z2G",
+    "CA10__disappearanceTime__c": null,
+    "Name": "gke-camel-default",
+    "CA10__labels__c": "goog-gke-node:",
+    "CA10__Google_GCE_Network_Interfaces__r": [ ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__Google_GCE_Network_Interfaces__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-02T17:45:22Z" },
+    "Id": "a4Z3",
+    "CA10__disappearanceTime__c": null,
+    "Name": "image",
+    "CA10__labels__c": "instance-name: image",
+    "CA10__Google_GCE_Network_Interfaces__r": [
+      {
+        "Id": "a4a0111",
+        "CA10__disappearanceTime__c": null,
+        "CA10__externalIp__c": "35.190.155.4",
+        "CA10__gceInstance__c": "a4Z3"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-02T17:45:22Z" },
+    "Id": "a4Z4",
+    "CA10__disappearanceTime__c": null,
+    "Name": "esxi4",
+    "CA10__labels__c": "",
+    "CA10__Google_GCE_Network_Interfaces__r": [
+      {
+        "Id": "a4a044",
+        "CA10__disappearanceTime__c": null,
+        "CA10__externalIp__c": "",
+        "CA10__gceInstance__c": "a4Z4"
+      }
+    ]
+  }
+]

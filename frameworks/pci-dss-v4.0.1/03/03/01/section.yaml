@@ -1,0 +1,8 @@
+name: >
+  3.3.1 SAD is not retained after authorization, even if encrypted.
+description: >
+  All sensitive authentication data received is rendered unrecoverable upon 
+  completion of the authorization process.
+similar:
+  sections:
+    - /frameworks/pci-dss-v4.0/03/03/01

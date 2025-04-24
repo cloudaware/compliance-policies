@@ -1,0 +1,44 @@
+---
+
+inputType: "CA10__CaGoogleResourceManagerOrganization__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleResourceManagerOrganization__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Essential Contacts is configured for Organization."
+    check:
+      OR:
+        args:
+          - CONTAINS:
+              arg:
+                EXTRACT: "caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail"
+              substring:
+                TEXT: "ALL"
+          - AND:
+              args:
+                - CONTAINS:
+                    arg:
+                      EXTRACT: "caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail"
+                    substring:
+                      TEXT: "LEGAL"
+                - CONTAINS:
+                    arg:
+                      EXTRACT: "caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail"
+                    substring:
+                      TEXT: "SECURITY"
+                - CONTAINS:
+                    arg:
+                      EXTRACT: "caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail"
+                    substring:
+                      TEXT: "SUSPENSION"
+                - CONTAINS:
+                    arg:
+                      EXTRACT: "caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail"
+                    substring:
+                      TEXT: "TECHNICAL"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Essential Contacts is not configured for Organization."
+  remediationMessage: "Add organization Essential Contacts for following notification categories: LEGAL, SECURITY, SUSPENSION, TECHNICAL"

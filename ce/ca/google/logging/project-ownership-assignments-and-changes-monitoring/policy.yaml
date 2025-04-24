@@ -1,0 +1,16 @@
+---
+names: 
+  full: "Google Logging Log Metric Filter and Alerts for Project Ownership Assignments Changes do not exist"
+  contextual: "Log Metric Filter and Alerts for Project Ownership Assignments Changes do not exist"
+description: "In order to prevent unnecessary project ownership assignments to users/service-accounts \
+ and further misuses of projects and resources, all roles/Owner assignments should be monitored. "
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/02/04
+  - /frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudLogging/enable-ownership-assignments-monitoring.html"
+      name: "Enable Project Ownership Assignments Monitoring"

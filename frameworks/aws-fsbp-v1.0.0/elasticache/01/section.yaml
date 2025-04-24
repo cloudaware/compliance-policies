@@ -1,0 +1,15 @@
+---
+name: >
+  [ElastiCache.1] ElastiCache (Redis OSS) clusters should have automatic backups enabled
+description: |-
+  Amazon ElastiCache (Redis OSS) clusters can back up their data. You can use 
+  the backup to restore a cluster or seed a new cluster. The backup consists of 
+  the cluster's metadata, along with all of the data in the cluster. All backups 
+  are written to Amazon Simple Storage Service (Amazon S3), which provides durable storage. 
+  You can restore your data by creating a new Redis cluster and populating 
+  it with data from a backup.
+similar:
+  internal:
+    - dec-c-c5483e86
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/elasticache-controls.html#elasticache-1

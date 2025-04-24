@@ -1,0 +1,20 @@
+---
+names: 
+  full: "Google Project has API Keys"
+  contextual: "Google Project has API Keys"
+description: "API Keys should only be used for services in cases where other \
+ authentication methods are unavailable. Unused keys with their permissions \
+ in tact may still exist within a project. Keys are insecure because they can \ 
+ be viewed publicly, such as from within a browser, or they can be accessed on \
+ a device where the key resides. It is recommended to use standard authentication flow instead."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/01/12
+  - /frameworks/cloudaware/secret-and-certificate-governance/cryptographic-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudAPI/api-key-only-active-services.html"
+      name: "API Keys Should Only Exist for Active Services"
+ 

@@ -1,0 +1,16 @@
+---
+names: 
+  full: "Google IAM Roles related to KMS are not assigned to separate users"
+  contextual: "Roles related to KMS are not assigned to separate users"
+description: "It is recommended that the principle of 'Separation of Duties' is enforced while assigning KMS related roles to users."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/01/11
+  - /frameworks/cloudaware/identity-and-access-governance/rbac-management
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudIAM/enforce-separation-of-duties-for-kms-related-roles.html"
+      name: "Enforce Separation of Duties for KMS-Related Roles"
+ 

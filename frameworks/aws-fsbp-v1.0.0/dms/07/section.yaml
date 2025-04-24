@@ -1,0 +1,27 @@
+---
+name: >
+  [DMS.7] DMS replication tasks for the target database should have logging enabled
+description: |-
+  DMS uses Amazon CloudWatch to log information during the migration process. 
+  Using logging task settings, you can specify which component activities are logged 
+  and how much information is logged. You should specify logging for the following tasks:
+
+  - `TARGET_APPLY`: Data and data definition language (DDL) statements are applied 
+  to the target database.
+
+  - `TARGET_LOAD`: Data is loaded into the target database.
+
+  Logging plays a critical role in DMS replication tasks by enabling monitoring, 
+  troubleshooting, auditing, performance analysis, error detection, and recovery, 
+  as well as historical analysis and reporting. It helps ensure the successful 
+  replication of data between databases while maintaining data integrity and compliance 
+  with regulatory requirements. Logging levels other than `DEFAULT` are rarely needed 
+  for these components during troubleshooting. We recommend keeping the logging 
+  level as `DEFAULT` for these components unless specifically requested to change 
+  it by Support. A minimal logging level of `DEFAULT` ensures that informational 
+  messages, warnings, and error messages are written to the logs.
+similar:
+  internal:
+    - dec-c-ae53597f
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/dms-controls.html#dms-7

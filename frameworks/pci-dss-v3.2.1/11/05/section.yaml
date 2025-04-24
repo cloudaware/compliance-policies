@@ -1,9 +1,20 @@
 ---
-name: |-
-  11.5 Deploy a change-detection mechanism (for example, file-integrity monitoring tools) to alert personnel to unauthorized modification (including changes, additions, and deletions) of critical system files, configuration files, or content files; and configure the software to perform critical file comparisons at least weekly.
+name: >
+  11.5 Deploy a change-detection mechanism to alert personnel to unauthorized 
+  modification of critical system files, configuration files, or content files.
+description: |-
+  Configure the software to perform critical file comparisons at least weekly.
 
-  Note: For change-detection purposes,critical files are usually those that do not regularly change, but the modification of which could indicate a system compromise or risk of compromise. Change-detection mechanisms such as file-integrity monitoring products usually come preconfigured with critical files for the related operating system. Other critical files, such as those for custom applications, must be evaluated and defined by the entity (that is, the merchant or service provider)
-description: ""
+  For change-detection purposes, critical files are usually those that do not 
+  regularly change, but the modification of which could indicate a system 
+  compromise or risk of compromise. Change-detection mechanisms such as 
+  file-integrity monitoring products usually come pre-configured with critical 
+  files for the related operating system. Other critical files, such as those 
+  for custom applications, must be evaluated and defined by the entity (that is, 
+  the merchant or service provider).
 similar:
   internal:
     - dec-c-59bcdf4e
+  sections:
+    - /frameworks/pci-dss-v4.0/11/05/02
+    - /frameworks/aws-fsbp-v1.0.0/config/01

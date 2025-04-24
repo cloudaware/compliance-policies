@@ -1,10 +1,15 @@
 ---
-name: |-
-  9.9.1 Maintain an up-to-date list of devices. The list should include the following:
-  • Make, model of device
-  • Location of device (for example, the address of the site or facility where the device is located)
-  • Device serial number or other method of unique identification.
-description: ""
+name: >
+  9.9.1 Maintain an up-to-date list of devices.
+description: |-
+  The list should include the following:
+
+  - Make, model of device
+  - Location of device (for example, the address of the site or facility where 
+  the device is located)
+  - Device serial number or other method of unique identification.
 similar:
   internal:
     - dec-c-8d06e7cc
+  sections:
+    - /frameworks/pci-dss-v4.0/09/05/01/01

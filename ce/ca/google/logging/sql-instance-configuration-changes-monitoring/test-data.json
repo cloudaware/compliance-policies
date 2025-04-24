@@ -1,0 +1,130 @@
+[
+    {
+      "expectedResult": {
+        "status": "COMPLIANT",
+        "conditionIndex": "199",
+        "conditionText": "CA10__Google_Logging_Log_Metrics__r.has(COMPLIANT)",
+        "runtimeError": null
+      },
+      "context": { "snapshotTime": "2024-12-16T11:04:54Z" },
+      "Id": "aB9P1",
+      "CA10__Google_Logging_Log_Metrics__r": [
+        {
+          "Id": "aAzM1",
+          "CA10__disappearanceTime__c": null,
+          "CA10__filter__c": "protoPayload.methodName=\"cloudsql.instances.update\"",
+          "CA10__project__c": "aB9P1",
+          "CA10__Google_Monitoring_Conditions__r": [
+            {
+              "Id": "aBMC1",
+              "CA10__disappearanceTime__c": null,
+              "CA10__alertPolicy__c": "aBAP1",
+              "CA10__alertPolicyId__c": "projects/shared-logging-976f",
+              "CA10__loggingLogMetric__c": "aAzM1",
+              "CA10__alertPolicy__r": {
+                "Id": "aBAP1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__enabledState__c": "on"
+              }
+            }
+          ]
+        },
+        {
+          "Id": "aAzM2",
+          "CA10__disappearanceTime__c": null,
+          "CA10__filter__c": "(protoPayload.serviceName=\"cloudresourcemanager.googleapis.com\")",
+          "CA10__project__c": "aB9P1",
+          "CA10__Google_Monitoring_Conditions__r": [
+            {
+              "Id": "aBMC2",
+              "CA10__disappearanceTime__c": null,
+              "CA10__alertPolicy__c": "aBAP2",
+              "CA10__alertPolicyId__c": "projects/shared-logging-976f2",
+              "CA10__loggingLogMetric__c": "aAzM2",
+              "CA10__alertPolicy__r": {
+                "Id": "aBAP2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__enabledState__c": "on"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expectedResult": {
+        "status": "INCOMPLIANT",
+        "conditionIndex": "200",
+        "conditionText": "otherwise",
+        "runtimeError": null
+      },
+      "context": { "snapshotTime": "2024-12-16T11:04:54Z" },
+      "Id": "aB9P12",
+      "CA10__Google_Logging_Log_Metrics__r": [
+        {
+          "Id": "aAzM12",
+          "CA10__disappearanceTime__c": null,
+          "CA10__filter__c": "other filter",
+          "CA10__project__c": "aB9P12",
+          "CA10__Google_Monitoring_Conditions__r": [
+            {
+              "Id": "aBMC12",
+              "CA10__disappearanceTime__c": null,
+              "CA10__alertPolicy__c": "aBAP12",
+              "CA10__alertPolicyId__c": "projects/shared-logging-976f3",
+              "CA10__loggingLogMetric__c": "aAzM12",
+              "CA10__alertPolicy__r": {
+                "Id": "aBAP12",
+                "CA10__disappearanceTime__c": null,
+                "CA10__enabledState__c": "on"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expectedResult": {
+        "status": "INCOMPLIANT",
+        "conditionIndex": "200",
+        "conditionText": "otherwise",
+        "runtimeError": null
+      },
+      "context": { "snapshotTime": "2024-12-16T11:04:54Z" },
+      "Id": "aB9P13",
+      "CA10__Google_Logging_Log_Metrics__r": [
+        {
+          "Id": "aAzM13",
+          "CA10__disappearanceTime__c": null,
+          "CA10__filter__c": "protoPayload.methodName=\"cloudsql.instances.update\"",
+          "CA10__project__c": "aB9P13",
+          "CA10__Google_Monitoring_Conditions__r": [
+            {
+              "Id": "aBMC13",
+              "CA10__disappearanceTime__c": null,
+              "CA10__alertPolicy__c": "aBAP13",
+              "CA10__alertPolicyId__c": "projects/shared-logging-976f4",
+              "CA10__loggingLogMetric__c": "aAzM13",
+              "CA10__alertPolicy__r": {
+                "Id": "aBAP13",
+                "CA10__disappearanceTime__c": null,
+                "CA10__enabledState__c": "off"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expectedResult": {
+        "status": "INCOMPLIANT",
+        "conditionIndex": "200",
+        "conditionText": "otherwise",
+        "runtimeError": null
+      },
+      "context": { "snapshotTime": "2024-12-16T11:04:54Z" },
+      "Id": "aB222",
+      "CA10__Google_Logging_Log_Metrics__r": []
+    }
+  ]
+  

@@ -1,0 +1,170 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-15T09:25:27Z"
+        },
+        "Id": "test1",
+        "RecordTypeId": "RecordTypeId1",
+        "CA10__disappearanceTime__c": "2025-04-15T09:25:27Z",
+        "CA10__protocolType__c": "",
+        "RecordType": {
+            "DeveloperName": "restApi",
+            "Id": "RecordTypeId1"
+        },
+        "CA10A1__AWS_API_Gateway_Routes__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "not(['httpApi'].contains(RecordType.DeveloperName))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-15T09:25:27Z"
+        },
+        "Id": "test2",
+        "RecordTypeId": "RecordTypeId1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__protocolType__c": "",
+        "RecordType": {
+            "DeveloperName": "restApi",
+            "Id": "RecordTypeId1"
+        },
+        "CA10A1__AWS_API_Gateway_Routes__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__protocolType__c') == 'HTTP' && CA10A1__AWS_API_Gateway_Routes__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-15T09:25:27Z"
+        },
+        "Id": "test3",
+        "RecordTypeId": "RecordTypeId2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__protocolType__c": "HTTP",
+        "RecordType": {
+            "DeveloperName": "httpApi",
+            "Id": "RecordTypeId2"
+        },
+        "CA10A1__AWS_API_Gateway_Routes__r": [
+            {
+                "Id": "test3_1",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__authorizationType__c": "NONE",
+                "CA10A1__api__c": "test3"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__protocolType__c') == 'WEBSOCKET' && CA10A1__AWS_API_Gateway_Routes__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-15T09:25:27Z"
+        },
+        "Id": "test4",
+        "RecordTypeId": "RecordTypeId3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__protocolType__c": "WEBSOCKET",
+        "RecordType": {
+            "DeveloperName": "httpApi",
+            "Id": "RecordTypeId3"
+        },
+        "CA10A1__AWS_API_Gateway_Routes__r": [
+            {
+                "Id": "test4_1",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__authorizationType__c": "NONE",
+                "CA10A1__api__c": "test4"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-15T09:25:27Z"
+        },
+        "Id": "test5",
+        "RecordTypeId": "RecordTypeId3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__protocolType__c": "WEBSOCKET",
+        "RecordType": {
+            "DeveloperName": "httpApi",
+            "Id": "RecordTypeId3"
+        },
+        "CA10A1__AWS_API_Gateway_Routes__r": [
+            {
+                "Id": "test5_1",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__authorizationType__c": "JWT",
+                "CA10A1__api__c": "test5"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-15T09:25:27Z"
+        },
+        "Id": "test6",
+        "RecordTypeId": "RecordTypeId3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__protocolType__c": "WEBSOCKET",
+        "RecordType": {
+            "DeveloperName": "httpApi",
+            "Id": "RecordTypeId3"
+        },
+        "CA10A1__AWS_API_Gateway_Routes__r": [
+            {
+                "Id": "test6_1",
+                "CA10A1__disappearanceTime__c": "2025-04-15T09:25:27Z",
+                "CA10A1__authorizationType__c": "NONE",
+                "CA10A1__api__c": "test6"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-15T09:25:27Z"
+        },
+        "Id": "test7",
+        "RecordTypeId": "RecordTypeId3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__protocolType__c": "WEBSOCKET",
+        "RecordType": {
+            "DeveloperName": "httpApi",
+            "Id": "RecordTypeId3"
+        },
+        "CA10A1__AWS_API_Gateway_Routes__r": []
+    }
+]

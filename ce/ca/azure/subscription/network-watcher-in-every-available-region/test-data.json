@@ -1,128 +1,101 @@
 [
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "199",
-            "conditionText": "extract('caExtract_availabilityZones_asCollection__c').size() > CA10__Azure_Network_Watchers__r.count(COMPLIANT)",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-28T08:24:16Z"
-        },
-        "Id": "test1",
-        "CA10__availableLocationNames__c": "chinanorth3\nglobal\nchinaeast\nchinaeast2\nchinanorth\nchinanorth2",
-        "CA10__Azure_Network_Watchers__r": [
-            {
-                "Id": "test1_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__provisioningState__c": "Succeeded",
-                "CA10__subscription__c": "test1"
-            }
-
-        ]
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "102",
+      "conditionText": "extract('CA10__availableLocationNames__c').asJson().isInvalid()",
+      "runtimeError": "Unexpected token 'e', \"eastus\neas\"... is not valid JSON"
     },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "199",
-            "conditionText": "extract('caExtract_availabilityZones_asCollection__c').size() > CA10__Azure_Network_Watchers__r.count(COMPLIANT)",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-28T08:24:16Z"
-        },
-        "Id": "test2",
-        "CA10__availableLocationNames__c": "chinanorth3\nglobal\nchinaeast\nchinaeast2\nchinanorth\nchinanorth2",
-        "CA10__Azure_Network_Watchers__r": [
-            {
-                "Id": "test2_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__provisioningState__c": "Failed",
-                "CA10__subscription__c": "test2"
-            },
-            {
-                "Id": "test2_2",
-                "CA10__disappearanceTime__c": "2024-06-28T08:24:16Z",
-                "CA10__provisioningState__c": "Succeeded",
-                "CA10__subscription__c": "test2"
-            },
-            {
-                "Id": "test2_3",
-                "CA10__disappearanceTime__c": "2024-06-28T08:24:16Z",
-                "CA10__provisioningState__c": "Failed",
-                "CA10__subscription__c": "test2"
-            },
-            {
-                "Id": "test2_4",
-                "CA10__disappearanceTime__c": null,
-                "CA10__provisioningState__c": "Failed",
-                "CA10__subscription__c": "test2"
-            },
-            {
-                "Id": "test2_5",
-                "CA10__disappearanceTime__c": null,
-                "CA10__provisioningState__c": "Failed",
-                "CA10__subscription__c": "test2"
-            },
-            {
-                "Id": "test2_6",
-                "CA10__disappearanceTime__c": null,
-                "CA10__provisioningState__c": "Failed",
-                "CA10__subscription__c": "test2"
-            }
-
-        ]
+    "context": { "snapshotTime": "2025-04-24T08:35:17Z" },
+    "Id": "test-1",
+    "CA10__availableLocationNames__c": "eastus\neastus2\nsouthcentralus\nwestus2\nwestus3\naustraliaeast\nsoutheastasia\nnortheurope\nswedencentral",
+    "CA10__Azure_Network_Watchers__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('caJsonFrom_availableLocationNames__c').jsonQueryText('length(values)') > CA10__Azure_Network_Watchers__r.count(COMPLIANT)",
+      "runtimeError": null
     },
-    {
-        "expectedResult": {
-            "status": "COMPLIANT",
-            "conditionIndex": "299",
-            "conditionText": "extract('caExtract_availabilityZones_asCollection__c').size() <= CA10__Azure_Network_Watchers__r.count(COMPLIANT)",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-28T08:24:16Z"
-        },
-        "Id": "test3",
-        "CA10__availableLocationNames__c": "chinanorth3\nglobal\nchinaeast\nchinaeast2\nchinanorth\nchinanorth2",
-        "CA10__Azure_Network_Watchers__r": [
-            {
-                "Id": "test3_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__provisioningState__c": "Succeeded",
-                "CA10__subscription__c": "test3"
-            },
-            {
-                "Id": "test3_2",
-                "CA10__disappearanceTime__c": null,
-                "CA10__provisioningState__c": "Succeeded",
-                "CA10__subscription__c": "test3"
-            },
-            {
-                "Id": "test3_3",
-                "CA10__disappearanceTime__c": null,
-                "CA10__provisioningState__c": "Succeeded",
-                "CA10__subscription__c": "test3"
-            },
-            {
-                "Id": "test3_4",
-                "CA10__disappearanceTime__c": null,
-                "CA10__provisioningState__c": "Succeeded",
-                "CA10__subscription__c": "test3"
-            },
-            {
-                "Id": "test3_5",
-                "CA10__disappearanceTime__c": null,
-                "CA10__provisioningState__c": "Succeeded",
-                "CA10__subscription__c": "test3"
-            },
-            {
-                "Id": "test3_6",
-                "CA10__disappearanceTime__c": null,
-                "CA10__provisioningState__c": "Succeeded",
-                "CA10__subscription__c": "test3"
-            }
-
-        ]
-    }
+    "context": { "snapshotTime": "2025-04-24T08:35:17Z" },
+    "Id": "test-2",
+    "CA10__availableLocationNames__c": "{\"values\":[{\"locationName\":\"westus2\",\"availabilityZoneMapping\":[]},{\"locationName\":\"westus3\",\"availabilityZoneMapping\":[]},{\"locationName\":\"australiaeast\",\"availabilityZoneMapping\":[]}]}",
+    "CA10__Azure_Network_Watchers__r": [
+      {
+        "Id": "a7k0e000000gqJjAAI",
+        "CA10__disappearanceTime__c": null,
+        "CA10__provisioningState__c": "Succeeded",
+        "CA10__subscription__c": "test-2"
+      },
+      {
+        "Id": "a7k7V000001LuvOQAS",
+        "CA10__disappearanceTime__c": null,
+        "CA10__provisioningState__c": "Succeeded",
+        "CA10__subscription__c": "test-2"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('caJsonFrom_availableLocationNames__c').jsonQueryText('length(values)') > CA10__Azure_Network_Watchers__r.count(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-04-24T08:35:17Z" },
+    "Id": "test-3",
+    "CA10__availableLocationNames__c": "{\"values\":[{\"locationName\":\"westus2\",\"availabilityZoneMapping\":[]},{\"locationName\":\"westus3\",\"availabilityZoneMapping\":[]},{\"locationName\":\"australiaeast\",\"availabilityZoneMapping\":[]}]}",
+    "CA10__Azure_Network_Watchers__r": [
+      {
+        "Id": "a7k0e000000gqJjAAI",
+        "CA10__disappearanceTime__c": null,
+        "CA10__provisioningState__c": "Succeeded",
+        "CA10__subscription__c": "test-3"
+      },
+      {
+        "Id": "a7k7V000001LuviQAC",
+        "CA10__disappearanceTime__c": null,
+        "CA10__provisioningState__c": "Failed",
+        "CA10__subscription__c": "test-3"
+      },
+      {
+        "Id": "a7k7V000001LuvsQAC",
+        "CA10__disappearanceTime__c": null,
+        "CA10__provisioningState__c": "Failed",
+        "CA10__subscription__c": "test-3"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('caJsonFrom_availableLocationNames__c').jsonQueryText('length(values)') <= CA10__Azure_Network_Watchers__r.count(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-04-24T08:35:17Z" },
+    "Id": "test-4",
+    "CA10__availableLocationNames__c": "{\"values\":[{\"locationName\":\"westus2\",\"availabilityZoneMapping\":[]},{\"locationName\":\"westus3\",\"availabilityZoneMapping\":[]},{\"locationName\":\"australiaeast\",\"availabilityZoneMapping\":[]}]}",
+    "CA10__Azure_Network_Watchers__r": [
+      {
+        "Id": "a7k0e000000gqJjAAI",
+        "CA10__disappearanceTime__c": null,
+        "CA10__provisioningState__c": "Succeeded",
+        "CA10__subscription__c": "test-4"
+      },
+      {
+        "Id": "a7k7V000001LuvOQAS",
+        "CA10__disappearanceTime__c": null,
+        "CA10__provisioningState__c": "Succeeded",
+        "CA10__subscription__c": "test-4"
+      },
+      {
+        "Id": "a7k7V000001LuvYQAS",
+        "CA10__disappearanceTime__c": null,
+        "CA10__provisioningState__c": "Succeeded",
+        "CA10__subscription__c": "test-4"
+      }
+    ]
+  }
 ]

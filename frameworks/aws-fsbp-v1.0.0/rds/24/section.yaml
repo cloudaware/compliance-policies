@@ -1,0 +1,13 @@
+---
+name: >
+  [RDS.24] RDS Database clusters should use a custom administrator username
+description: |-
+  When creating an Amazon RDS database, you should change the default admin 
+  username to a unique value. Default usernames are public knowledge and should 
+  be changed during RDS database creation. Changing the default usernames 
+  reduces the risk of unintended access.
+similar:
+  internal:
+    - dec-c-942a5c74
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-24

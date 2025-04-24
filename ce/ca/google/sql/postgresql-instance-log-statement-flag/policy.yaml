@@ -1,0 +1,21 @@
+---
+names: 
+  full: "Google Cloud PostgreSQL Instance Log_statement Database Flag is not set appropriately"
+  contextual: "PostgreSQL Instance Log_statement Database Flag is not set appropriately"
+description: "The value of log_statement flag determined the SQL statements that are logged. Valid \ 
+ values are: none, ddl, mod, all. The value ddl logs all data definition statements. The value mod \ 
+ logs all ddl statements, plus data-modifying statements. The statements are logged after a basic \ 
+ parsing is done and statement type is determined, thus this does not logs statements with errors. \ 
+ When using extended query protocol, logging occurs after an Execute message is received and values \ 
+ of the Bind parameters are included. A value of 'ddl' is recommended unless otherwise directed by \ 
+ your organization's logging policy."
+type: COMPLIANCE_POLICY
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/06/02/04
+  - /frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudSQL/configure-log-statement-flag.html"
+      name: "Configure 'log_statement' Flag for PostgreSQL Database Instances"

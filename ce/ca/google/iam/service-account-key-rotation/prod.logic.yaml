@@ -1,0 +1,18 @@
+---
+inputType: "CA10__CaGoogleIamServiceAccountKey__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleIamServiceAccountKey__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Service Account key is older than 90 days."
+    remediationMessage: "It's recommended to rotate Service Account key."
+    check:
+      IS_BEYOND_LAST_DAYS:
+        offsetDays: 90
+        arg:
+          EXTRACT: CA10__validAfter__c
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Service Account key is regularly rotated."

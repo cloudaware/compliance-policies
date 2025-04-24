@@ -4,14 +4,44 @@ extracts:
     value: 
       FIELD:
         path: "CA10__visibility__c"
-        undeterminedIf:
-          isEmpty:  " "
   - name: "CA10__dnssecConfigurationState__c"
     value: 
       FIELD:
         path: "CA10__dnssecConfigurationState__c"
+  - name: "CA10__dnssecConfigurationKeySpecs__c"
+    value: 
+      FIELD:
+        path: "CA10__dnssecConfigurationKeySpecs__c"
+        returnType: BYTES
+  - name: "caJsonFrom__dnssecConfigurationKeySpecs__c"
+    value: 
+      JSON_FROM:
+        arg: 
+          EXTRACT: "CA10__dnssecConfigurationKeySpecs__c"
         undeterminedIf:
-          isEmpty:  " "
+          isInvalid: "JSON is invalid."
+          isEmpty: "JSON is empty."
+  - name: "caJsonFrom__dnssecConfigurationKeySpecs_keySigning_algorithm_value"
+    value: 
+      JSON_QUERY_TEXT:
+        arg:
+          EXTRACT: "caJsonFrom__dnssecConfigurationKeySpecs__c"
+        expression: "to_string([?keyType == 'keySigning'].algorithm)"
+        undeterminedIf:
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return a text."
+          resultIsEmpty: "The JSON query did not return a value."
+  - name: "caJsonFrom__dnssecConfigurationKeySpecs_zoneSigning_algorithm_value"
+    value: 
+      JSON_QUERY_TEXT:
+        arg:
+          EXTRACT: "caJsonFrom__dnssecConfigurationKeySpecs__c"
+        expression: "to_string([?keyType == 'zoneSigning'].algorithm)"
+        undeterminedIf:
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return a text."
+          resultIsEmpty: "The JSON query did not return a value."
+
 
 
 

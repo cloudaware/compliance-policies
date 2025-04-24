@@ -1,0 +1,16 @@
+---
+name: >
+  [RDS.35] RDS DB clusters should have automatic minor version upgrade enabled
+description: |-
+  RDS provides automatic minor version upgrade so that you can keep your 
+  Multi-AZ DB cluster up to date. Minor versions can introduce new software 
+  features, bug fixes, security patches, and performance improvements. 
+  By enabling automatic minor version upgrade on RDS database clusters, 
+  the cluster, along with the instances in the cluster, will receive automatic 
+  updates to the minor version when new versions are available. The updates are 
+  applied automatically during the maintenance window.
+similar:
+  internal:
+    - dec-c-fb10defe
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-35

@@ -1,0 +1,11 @@
+---
+name: "[RDS.11] RDS instances should have automatic backups enabled"
+description: |-
+  Backups help you more quickly recover from a security incident and strengthens 
+  the resilience of your systems. Amazon RDS lets you configure daily full 
+  instance volume snapshots.
+similar:
+  internal:
+    - dec-c-d54e6203
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-11

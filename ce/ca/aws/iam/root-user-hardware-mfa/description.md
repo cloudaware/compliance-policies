@@ -19,8 +19,10 @@ Perform the following to determine if the root user account has a hardware MFA s
     ```
 
     The `AccountMFAEnabled` property is set to `1` will ensure that the root user account has MFA (Virtual or Hardware) Enabled.
+
+    `AccountPasswordPresent` set to `0` indicates that the root console credential has been removed.
     
-    If `AccountMFAEnabled` property is set to `0` the account is not compliant with this recommendation.
+    If `AccountMFAEnabled` property is set to `0` and `AccountPasswordPresent` is set to `1` the account is not compliant with this recommendation.
 
 2. If `AccountMFAEnabled` property is set to `1`, determine root account has Hardware MFA enabled.
 

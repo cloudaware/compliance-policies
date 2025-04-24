@@ -1,0 +1,12 @@
+---
+name: >
+  [Redshift.4] Amazon Redshift clusters should have audit logging enabled
+description: |-
+  Amazon Redshift audit logging provides additional information about 
+  connections and user activities in your cluster. This data can be stored and 
+  secured in Amazon S3 and can be helpful in security audits and investigations.
+similar:
+  internal:
+    - dec-c-c51cd4ab
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/redshift-controls.html#redshift-4

@@ -1,0 +1,15 @@
+---
+names: 
+  full: "Google Cloud SQL Server Instance cross db ownership chaining Database Flag is not set to off"
+  contextual: "SQL Server Instance cross db ownership chaining Database Flag is not set to off"
+description: "It is recommended to set cross db ownership chaining database flag for Cloud SQL SQL Server instance to 'off'."
+type: COMPLIANCE_POLICY
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v3.0.0/06/03/02
+  - /frameworks/cloudaware/resource-reliability/system-configuration
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudSQL/disable-cross-db-ownership-chaining-flag.html"
+      name: "Disable 'Cross DB Ownership Chaining' Flag for SQL Server Database Instances"
