@@ -1,0 +1,12 @@
+---
+names:
+  full: "Azure Managed Disk is not attached to any Virtual Machine"
+  contextual: "Managed Disk is not attached to any Virtual Machine"
+description: >
+  Consider deleting or archiving a managed disk that is not attached to 
+  any virtual machine.
+categories:
+  - "COST"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"

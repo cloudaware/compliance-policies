@@ -1,0 +1,14 @@
+---
+names:
+  full: Azure Network Security Group allows public access to RPC port
+  contextual: Security Group allows public access to RPC port
+description: >
+  Ensure that Azure Network Security Groups do not allow unrestricted public access to 
+  RPC port (135/TCP and 135/UDP). RPC protocol enables inter-process 
+  communication and, if improperly secured, can expose VMs to unauthorized access.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+

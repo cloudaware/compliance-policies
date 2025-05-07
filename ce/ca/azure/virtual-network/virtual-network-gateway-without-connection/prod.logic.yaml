@@ -1,0 +1,31 @@
+---
+inputType: "CA10__CaAzureVirtualNetworkGateway__c"
+testData:
+  - file: test-data.json
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Azure Virtual Network Gateway has at least one connection."
+    check:
+      OR:
+        args:
+          - RELATED_LIST_HAS:
+              status: "COMPLIANT"
+              relationshipName: "CA10__Azure_Virtual_Network_Gateway_Connects__r"
+          - RELATED_LIST_HAS:
+              status: "COMPLIANT"
+              relationshipName: "CA10__Azure_Virtual_Network_Gateway_Connects1__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Azure Virtual Network Gateway has no connections."
+  remediationMessage: "Consider deleting Virtual Network Gateway."
+relatedLists:
+  - relationshipName: "CA10__Azure_Virtual_Network_Gateway_Connects__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Connection exists."
+  - relationshipName: "CA10__Azure_Virtual_Network_Gateway_Connects1__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Connection exists."

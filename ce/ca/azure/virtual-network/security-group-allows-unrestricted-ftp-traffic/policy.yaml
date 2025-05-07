@@ -1,0 +1,14 @@
+---
+names:
+  full: Azure Network Security Group allows public access to FTP ports
+  contextual: Security Group allows public access to FTP ports
+description: >
+  Ensure that Azure Network Security Groups do not allow unrestricted public access to 
+  the FTP traffic (ports 20 and 21), which can expose systems to unauthorized 
+  access and potential attacks.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+

@@ -1,0 +1,14 @@
+---
+names:
+  full: "Azure VM Scale Set Instance allows public access to CIFS port"
+  contextual: "Instance allows public access to CIFS port"
+description: >
+  Ensure that Azure VM Scale Set Instances do not allow unrestricted public access to 
+  the CIFS port 445. Unrestricted access to CIFS from the public internet poses 
+  a significant security risk, potentially exposing file shares and sensitive data 
+  to unauthorized access and ransomware attacks.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

@@ -1,0 +1,34 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__Azure_Virtual_Network_Gateway_Connects__r.has(COMPLIANT) || CA10__Azure_Virtual_Network_Gateway_Connects1__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-04-10T23:53:50Z" },
+    "Id": "test_1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Virtual_Network_Gateway_Connects__r": [
+      {
+        "Id": "test1_1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__virtualNetworkGateway__c": "test_1"
+      }
+    ],
+    "CA10__Azure_Virtual_Network_Gateway_Connects1__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-04-10T23:53:50Z" },
+    "Id": "test_2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Virtual_Network_Gateway_Connects__r": [],
+    "CA10__Azure_Virtual_Network_Gateway_Connects1__r": []
+  }
+]

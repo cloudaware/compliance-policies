@@ -1,0 +1,14 @@
+---
+extracts:
+# Date/time
+  - name: "CA10__timeCreated__c"
+    value: 
+      FIELD:
+        path: "CA10__timeCreated__c"
+# The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+  - name: "CA10__diskSkuName__c"
+    value: 
+      FIELD:
+        path: "CA10__diskSkuName__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. SKU name cannot be empty."

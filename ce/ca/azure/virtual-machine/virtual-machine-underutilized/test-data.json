@@ -1,0 +1,156 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-04-15T14:48:00Z" },
+    "Id": "1",
+    "RecordTypeId": "RecordTypeId",
+    "CA10__disappearanceTime__c": "2023-05-22T10:08:05Z",
+    "CA10__powerState__c": "VM deallocated",
+    "CA10__timeCreated__c": "2023-03-09T11:53:28Z",
+    "CA10__monitorCpuAvg14Day__c": null,
+    "CA10__monitorCpuMax14Day__c": null,
+    "CA10__monitorNetworkInMbSum14Day__c": null,
+    "CA10__monitorNetworkOutMbSum14Day__c": null,
+    "RecordType": {
+      "DeveloperName": "caAzureRMVirtualMachine",
+      "Id": "RecordTypeId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__powerState__c') != 'VM running'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-04-15T14:48:00Z" },
+    "Id": "2",
+    "RecordTypeId": "RecordTypeId",
+    "CA10__disappearanceTime__c": null,
+    "CA10__powerState__c": "VM deallocated",
+    "CA10__timeCreated__c": "2020-10-21T08:03:49Z",
+    "CA10__monitorCpuAvg14Day__c": 10.00,
+    "CA10__monitorCpuMax14Day__c": 20.00,
+    "CA10__monitorNetworkInMbSum14Day__c": 1000.0,
+    "CA10__monitorNetworkOutMbSum14Day__c": 1000.0,
+    "RecordType": {
+      "DeveloperName": "caAzureRMVirtualMachine",
+      "Id": "RecordTypeId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "not(extract('CA10__timeCreated__c').beyondLastDays(14))",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-04-15T14:48:00Z" },
+    "Id": "3",
+    "RecordTypeId": "RecordTypeId",
+    "CA10__disappearanceTime__c": null,
+    "CA10__powerState__c": "VM running",
+    "CA10__timeCreated__c": "2025-04-10T14:46:26Z",
+    "CA10__monitorCpuAvg14Day__c": 3.534,
+    "CA10__monitorCpuMax14Day__c": 92.43,
+    "CA10__monitorNetworkInMbSum14Day__c": 1000.0,
+    "CA10__monitorNetworkOutMbSum14Day__c": 1000.0,
+    "RecordType": {
+      "DeveloperName": "caAzureRMVirtualMachine",
+      "Id": "RecordTypeId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__monitorCpuAvg14Day__c').isEmpty() || extract('CA10__monitorCpuMax14Day__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-04-15T14:48:00Z" },
+    "Id": "4",
+    "RecordTypeId": "RecordTypeId",
+    "CA10__disappearanceTime__c": null,
+    "CA10__powerState__c": "VM running",
+    "CA10__timeCreated__c": "2020-10-21T08:03:49Z",
+    "CA10__monitorCpuAvg14Day__c": null,
+    "CA10__monitorCpuMax14Day__c": null,
+    "CA10__monitorNetworkInMbSum14Day__c": null,
+    "CA10__monitorNetworkOutMbSum14Day__c": null,
+    "RecordType": {
+      "DeveloperName": "caAzureRMVirtualMachine",
+      "Id": "RecordTypeId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "599",
+      "conditionText": "extract('CA10__monitorCpuAvg14Day__c') < number(40.0) && extract('CA10__monitorCpuMax14Day__c') < number(50.0)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-04-15T14:48:00Z" },
+    "Id": "5",
+    "RecordTypeId": "RecordTypeId",
+    "CA10__disappearanceTime__c": null,
+    "CA10__powerState__c": "VM running",
+    "CA10__timeCreated__c": "2021-03-01T12:20:59Z",
+    "CA10__monitorCpuAvg14Day__c": 30.62,
+    "CA10__monitorCpuMax14Day__c": 41.44,
+    "CA10__monitorNetworkInMbSum14Day__c": null,
+    "CA10__monitorNetworkOutMbSum14Day__c": null,
+    "RecordType": {
+      "DeveloperName": "caAzureRMVirtualMachine",
+      "Id": "RecordTypeId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "600",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-04-15T14:48:00Z" },
+    "Id": "6",
+    "RecordTypeId": "RecordTypeId",
+    "CA10__disappearanceTime__c": null,
+    "CA10__powerState__c": "VM running",
+    "CA10__timeCreated__c": "2020-01-03T17:32:05Z",
+    "CA10__monitorCpuAvg14Day__c": 10.886110654679344,
+    "CA10__monitorCpuMax14Day__c": 95.15,
+    "CA10__monitorNetworkInMbSum14Day__c": null,
+    "CA10__monitorNetworkOutMbSum14Day__c": null,
+    "RecordType": {
+      "DeveloperName": "caAzureRMVirtualMachine",
+      "Id": "RecordTypeId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__monitorCpuAvg14Day__c') < number(5.0) && extract('CA10__monitorCpuMax14Day__c') < number(15.0) && extract('CA10__monitorNetworkInMbSum14Day__c') < number(100.0) && extract('CA10__monitorNetworkOutMbSum14Day__c') < number(100.0)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-04-15T14:48:00Z" },
+    "Id": "7",
+    "RecordTypeId": "RecordTypeId",
+    "CA10__disappearanceTime__c": null,
+    "CA10__powerState__c": "VM running",
+    "CA10__timeCreated__c": "2020-01-03T17:32:05Z",
+    "CA10__monitorCpuAvg14Day__c": 1.0,
+    "CA10__monitorCpuMax14Day__c": 5.0,
+    "CA10__monitorNetworkInMbSum14Day__c": 10.0,
+    "CA10__monitorNetworkOutMbSum14Day__c": 10.0,
+    "RecordType": {
+      "DeveloperName": "caAzureRMVirtualMachine",
+      "Id": "RecordTypeId"
+    }
+  }
+]

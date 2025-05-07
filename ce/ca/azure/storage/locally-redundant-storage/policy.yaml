@@ -1,0 +1,14 @@
+---
+names:
+  full: "Azure Storage Account uses Locally Redundant Storage replication option"
+  contextual: "Storage Account uses Locally Redundant Storage replication option"
+description: >
+  Consider switching Storage Account SKU to the recommended zone-redundant storage (ZRS), 
+  geo-redundant storage (GRS), or geo-zone-redundant storage (GZRS).
+  LRS is the lowest-cost redundancy option and offers the least durability 
+  compared to other options.
+categories:
+  - "RELIABILITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"

@@ -1,0 +1,19 @@
+---
+inputType: "CA10__CaAzureSnapshot__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAzureSnapshot__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The snapshot is stored on Premium SSDs Managed Disk storage."
+    remediationMessage: "Consider changing the storage SKU to Standard storage."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "CA10__diskSkuName__c"
+        substring:
+          TEXT: "Premium"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The snapshot is stored on Standard storage."

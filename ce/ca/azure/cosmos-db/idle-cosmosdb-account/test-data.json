@@ -1,0 +1,47 @@
+[
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__capabilities__c').contains('EnableServerless')",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-04-15T14:48:00Z"
+    },
+    "Id": "1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__capabilities__c": "EnableMongo\nDisableRateLimitingResponses\nEnableServerless",
+    "CA10__monitorTotalRequestUnitsSum30Day__c": 179.8095238095238
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__monitorTotalRequestUnitsSum30Day__c') == number(0.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-04-15T14:48:00Z"
+    },
+    "Id": "2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__capabilities__c": "",
+    "CA10__monitorTotalRequestUnitsSum30Day__c": 0
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-04-15T14:48:00Z"
+    },
+    "Id": "3",
+    "CA10__disappearanceTime__c": null,
+    "CA10__capabilities__c": "",
+    "CA10__monitorTotalRequestUnitsSum30Day__c": 44.38095238095238
+  }
+]

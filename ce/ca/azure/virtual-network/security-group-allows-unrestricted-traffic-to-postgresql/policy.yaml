@@ -1,0 +1,14 @@
+---
+names:
+  full: Azure Network Security Group allows public access to PostgreSQL port
+  contextual: Security Group allows public access to PostgreSQL port
+description: >
+  Ensure that Azure Network Security Groups do not allow unrestricted public access to 
+  the PostgreSQL port 5432 and only accessible by authorized IP address 
+  ranges or internal networks.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+

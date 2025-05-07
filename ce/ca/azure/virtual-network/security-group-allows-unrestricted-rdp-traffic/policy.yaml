@@ -1,0 +1,19 @@
+---
+names:
+  full: "Azure Network Security Group allows public access to RDP port"
+  contextual: "Security Group allows public access to RDP port"
+description: >
+  Ensure that Azure Network Security Groups do not allow unrestricted public RDP (port 3389) traffic.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v2.1.0/06/01"
+  - "/frameworks/cis-azure-v3.0.0/07/01"
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+similarPolicies:
+  internal:
+    - dec-x-4c15a09f
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/Network/unrestricted-rdp-access.html
+      name: Check for Unrestricted RDP Access

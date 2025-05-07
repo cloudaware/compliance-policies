@@ -1,0 +1,13 @@
+---
+names:
+  full: "Azure Virtual Machine allows public access to MongoDB ports"
+  contextual: "Virtual Machine allows public access to MongoDB ports"
+description: > 
+  Ensure that Azure Virtual Machines are not exposed to unrestricted public access 
+  on MongoDB ports (27017-27020) and only accessible by authorized IP address 
+  ranges or internal networks.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

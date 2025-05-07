@@ -1,0 +1,38 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__numberOfSites__c') == number(0.0)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-03-27T10:40:33Z" },
+    "Id": "test1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__numberOfSites__c": 0
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__numberOfSites__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-03-27T10:40:33Z" },
+    "Id": "test2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__numberOfSites__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-03-27T10:40:33Z" },
+    "Id": "test3",
+    "CA10__disappearanceTime__c": null,
+    "CA10__numberOfSites__c": 1
+  }
+]

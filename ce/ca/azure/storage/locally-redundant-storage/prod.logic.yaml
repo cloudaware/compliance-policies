@@ -1,0 +1,20 @@
+---
+inputType: "CA10__CaAzureStorageAccount__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAzureStorageAccount__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Storage Account is configured to use Locally Redundant Storage."
+    remediationMessage: "Consider changing redundancy configuration to one of 
+      \ the recommended options (ZRS, GRS, or GZRS)."
+    check:
+      ENDS_WITH:
+        arg:
+          EXTRACT: "CA10__skuName__c"
+        suffix:
+          TEXT: "LRS"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Storage Account is not configured to use LRS."

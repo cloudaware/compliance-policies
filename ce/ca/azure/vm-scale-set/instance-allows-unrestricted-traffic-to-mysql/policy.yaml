@@ -1,0 +1,13 @@
+---
+names:
+  full: "Azure VM Scale Set Instance allows public access to MySQL port"
+  contextual: "Instance allows public access to MySQL port"
+description: >
+  Ensure that Azure VM Scale Set Instances are not exposed to unrestricted public access 
+  on MySQL ports (3306) and only accessible by authorized IP address 
+  ranges or internal networks.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

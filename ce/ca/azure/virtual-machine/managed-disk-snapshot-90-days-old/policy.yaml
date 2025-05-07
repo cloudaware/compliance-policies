@@ -1,0 +1,11 @@
+---
+names:
+  full: "Azure Managed Disk Snapshot is 90 days old or more"
+  contextual: "Managed Disk Snapshot is 90 days old or more"
+description: "Consider deleting or archiving Azure Managed Disk Snapshots that 
+  are 90 days old or more."
+categories:
+  - "COST"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"

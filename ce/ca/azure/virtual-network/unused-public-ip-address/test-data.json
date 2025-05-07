@@ -1,0 +1,44 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-03-26T11:02:25Z"
+    },
+    "Id": "111",
+    "CA10__disappearanceTime__c": "2025-03-17T14:50:31Z",
+    "CA10__associatedResourceId__c": "/subscriptions/la"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__associatedResourceId__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-03-26T11:02:25Z"
+    },
+    "Id": "222",
+    "CA10__disappearanceTime__c": null,
+    "CA10__associatedResourceId__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-03-26T11:02:25Z"
+    },
+    "Id": "333",
+    "CA10__disappearanceTime__c": null,
+    "CA10__associatedResourceId__c": "/subscriptions/la"
+  }
+]

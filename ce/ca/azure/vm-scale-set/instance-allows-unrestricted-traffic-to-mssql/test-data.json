@@ -1,0 +1,266 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-04-20T17:08:07Z" },
+    "Id": "test-0",
+    "CA10__disappearanceTime__c": "2025-04-10T23:15:10Z",
+    "CA10Z1__Azure_VM_Scale_Set_Instance_Network_Ints__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-04-20T17:08:07Z" },
+    "Id": "test-1",
+    "CA10__disappearanceTime__c": null,
+    "CA10Z1__Azure_VM_Scale_Set_Instance_Network_Ints__r": [
+      {
+        "Id": "interface-1",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__vmScaleSetInstance__c": "test-1",
+        "CA10Z1__networkSecurityGroup__c": "group-1",
+        "CA10Z1__networkSecurityGroup__r": {
+          "Id": "group-1",
+          "CA10__Azure_Network_Security_Group_Rules__r": [
+            {
+                "Id": "rule-1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__direction__c": "Outbound",
+                "CA10__access__c": "Allow",
+                "CA10__protocol__c": "*",
+                "CA10__sourceAddressPrefix__c": "*",
+                "CA10__destinationPortRange__c": "77",
+                "CA10__destinationPortFrom__c": 1,
+                "CA10__destinationPortTo__c": 4000,
+                "CA10__networkSecurityGroup__c": "group-1"           
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-04-20T17:08:07Z" },
+    "Id": "test-2",
+    "CA10__disappearanceTime__c": null,
+    "CA10Z1__Azure_VM_Scale_Set_Instance_Network_Ints__r": [
+      {
+        "Id": "interface-2",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__vmScaleSetInstance__c": "test-2",
+        "CA10Z1__networkSecurityGroup__c": "group-2",
+        "CA10Z1__networkSecurityGroup__r": {
+          "Id": "group-2",
+          "CA10__Azure_Network_Security_Group_Rules__r": [
+            {
+                "Id": "rule-2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__direction__c": "Inbound",
+                "CA10__access__c": "Deny",
+                "CA10__protocol__c": "*",
+                "CA10__sourceAddressPrefix__c": "*",
+                "CA10__destinationPortRange__c": "77",
+                "CA10__destinationPortFrom__c": 1,
+                "CA10__destinationPortTo__c": 4000,
+                "CA10__networkSecurityGroup__c": "group-2"        
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-04-20T17:08:07Z" },
+    "Id": "test-3",
+    "CA10__disappearanceTime__c": null,
+    "CA10Z1__Azure_VM_Scale_Set_Instance_Network_Ints__r": [
+      {
+        "Id": "interface-3",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__vmScaleSetInstance__c": "test-3",
+        "CA10Z1__networkSecurityGroup__c": "group-3",
+        "CA10Z1__networkSecurityGroup__r": {
+          "Id": "group-3",
+          "CA10__Azure_Network_Security_Group_Rules__r": [
+            {
+                "Id": "rule-3",
+                "CA10__disappearanceTime__c": null,
+                "CA10__direction__c": "Inbound",
+                "CA10__access__c": "Allow",
+                "CA10__protocol__c": "UDP",
+                "CA10__sourceAddressPrefix__c": "*",
+                "CA10__destinationPortRange__c": "77",
+                "CA10__destinationPortFrom__c": 1,
+                "CA10__destinationPortTo__c": 4000,
+                "CA10__networkSecurityGroup__c": "group-3"           
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-04-20T17:08:07Z" },
+    "Id": "test-4",
+    "CA10__disappearanceTime__c": null,
+    "CA10Z1__Azure_VM_Scale_Set_Instance_Network_Ints__r": [
+      {
+        "Id": "interface-4",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__vmScaleSetInstance__c": "test-4",
+        "CA10Z1__networkSecurityGroup__c": "group-4",
+        "CA10Z1__networkSecurityGroup__r": {
+          "Id": "group-4",
+          "CA10__Azure_Network_Security_Group_Rules__r": [
+            {
+                "Id": "rule-4",
+                "CA10__disappearanceTime__c": null,
+                "CA10__direction__c": "Inbound",
+                "CA10__access__c": "Allow",
+                "CA10__protocol__c": "*",
+                "CA10__sourceAddressPrefix__c": "1.1.1.1",
+                "CA10__destinationPortRange__c": "77",
+                "CA10__destinationPortFrom__c": 1,
+                "CA10__destinationPortTo__c": 4000,
+                "CA10__networkSecurityGroup__c": "group-4"          
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10Z1__Azure_VM_Scale_Set_Instance_Network_Ints__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-04-20T17:08:07Z" },
+    "Id": "test-5",
+    "CA10__disappearanceTime__c": null,
+    "CA10Z1__Azure_VM_Scale_Set_Instance_Network_Ints__r": [
+      {
+        "Id": "interface-5",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__vmScaleSetInstance__c": "test-5",
+        "CA10Z1__networkSecurityGroup__c": "group-5",
+        "CA10Z1__networkSecurityGroup__r": {
+          "Id": "group-5",
+          "CA10__Azure_Network_Security_Group_Rules__r": [
+            {
+                "Id": "rule-5",
+                "CA10__disappearanceTime__c": null,
+                "CA10__direction__c": "Inbound",
+                "CA10__access__c": "Allow",
+                "CA10__protocol__c": "*",
+                "CA10__sourceAddressPrefix__c": "*",
+                "CA10__destinationPortRange__c": "1433",
+                "CA10__destinationPortFrom__c": 1433.0,
+                "CA10__destinationPortTo__c": 1433.0,
+                "CA10__networkSecurityGroup__c": "group-5"        
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10Z1__Azure_VM_Scale_Set_Instance_Network_Ints__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-04-20T17:08:07Z" },
+    "Id": "test-6",
+    "CA10__disappearanceTime__c": null,
+    "CA10Z1__Azure_VM_Scale_Set_Instance_Network_Ints__r": [
+      {
+        "Id": "interface-6",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__vmScaleSetInstance__c": "test-6",
+        "CA10Z1__networkSecurityGroup__c": "group-6",
+        "CA10Z1__networkSecurityGroup__r": {
+          "Id": "group-6",
+          "CA10__Azure_Network_Security_Group_Rules__r": [
+            {
+                "Id": "rule-6",
+                "CA10__disappearanceTime__c": null,
+                "CA10__direction__c": "Inbound",
+                "CA10__access__c": "Allow",
+                "CA10__protocol__c": "*",
+                "CA10__sourceAddressPrefix__c": "*",
+                "CA10__destinationPortRange__c": "77",
+                "CA10__destinationPortFrom__c": 1,
+                "CA10__destinationPortTo__c": 4000,
+                "CA10__networkSecurityGroup__c": "group-6"     
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-04-20T17:08:07Z" },
+    "Id": "test-7",
+    "CA10__disappearanceTime__c": null,
+    "CA10Z1__Azure_VM_Scale_Set_Instance_Network_Ints__r": [
+      {
+        "Id": "interface-7",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__vmScaleSetInstance__c": "test-7",
+        "CA10Z1__networkSecurityGroup__c": "group-7",
+        "CA10Z1__networkSecurityGroup__r": {
+          "Id": "group-7",
+          "CA10__Azure_Network_Security_Group_Rules__r": [
+            {
+                "Id": "rule-7",
+                "CA10__disappearanceTime__c": null,
+                "CA10__direction__c": "Inbound",
+                "CA10__access__c": "Allow",
+                "CA10__protocol__c": "*",
+                "CA10__sourceAddressPrefix__c": "*",
+                "CA10__destinationPortRange__c": "700",
+                "CA10__destinationPortFrom__c": 1700,
+                "CA10__destinationPortTo__c": 7000,
+                "CA10__networkSecurityGroup__c": "group-7"      
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

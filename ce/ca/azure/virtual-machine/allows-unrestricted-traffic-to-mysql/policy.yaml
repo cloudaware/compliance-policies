@@ -1,0 +1,13 @@
+---
+names:
+  full: "Azure Virtual Machine allows public access to MySQL port"
+  contextual: "Virtual Machine allows public access to MySQL port"
+description: >
+  Ensure that Azure Virtual Machines are not exposed to unrestricted public access 
+  on MySQL port (3306) and only accessible by authorized IP address 
+  ranges or internal networks.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

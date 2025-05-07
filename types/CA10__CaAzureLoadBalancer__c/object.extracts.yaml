@@ -1,0 +1,9 @@
+---
+extracts:
+# Values: "Unknown", "Public", "Internal"
+  - name: "CA10__type__c"
+    value: 
+      FIELD:
+        path: "CA10__type__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Type cannot be empty."

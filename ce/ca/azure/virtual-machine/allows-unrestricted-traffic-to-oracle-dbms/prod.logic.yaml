@@ -1,0 +1,201 @@
+---
+inputType: "CA10__CaAzureVirtualMachine__c"
+testData:
+  - file: test-data.json
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Virtual Machine has a Network Interface with a NSG that allows Oracle DBMS access from the Internet."
+    remediationMessage: "Restrict inbound Oracle DBMS access from the Internet."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__Azure_Network_Interfaces__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Virtual Machine doesn't allow Oracle DBMS access from the Internet." 
+relatedLists:
+  - relationshipName: "CA10__Azure_Network_Interfaces__r"
+    importExtracts:
+      - file: "/types/CA10__CaAzureNetworkSecurityGroupRule__c/object.extracts.yaml"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Network Interface with publicly accessible Network Security Group"
+        check:
+          RELATED_LIST_HAS:
+            status: "INCOMPLIANT"
+            relationshipName:  "CA10__networkSecurityGroup__r.CA10__Azure_Network_Security_Group_Rules__r"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Network Interface is not publicly accessible"
+    relatedLists:
+      - relationshipName: "CA10__networkSecurityGroup__r.CA10__Azure_Network_Security_Group_Rules__r"
+        importExtracts:
+          - file: "/types/CA10__CaAzureNetworkSecurityGroupRule__c/object.extracts.yaml"
+        conditions:
+# sort public group rules
+          - status: "INAPPLICABLE"
+            currentStateMessage: "NSG Outbound Rule."
+            check:
+              NOT_EQUAL:
+                left:
+                  EXTRACT: "CA10__direction__c"
+                right:
+                  TEXT: "Inbound"
+          - status: "INAPPLICABLE"
+            currentStateMessage: "NSG Deny Rule."
+            check:
+              NOT_EQUAL:
+                left:
+                  EXTRACT: "CA10__access__c"
+                right:
+                  TEXT: "Allow"
+          - status: "INAPPLICABLE"
+            currentStateMessage: "NSG Rule with the port other than TCP or Any."
+            check:
+              NOT:
+                arg:
+                  OR:
+                    args:
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__protocol__c"
+                          right:
+                            TEXT: "Tcp"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__protocol__c"
+                          right:
+                            TEXT: "*"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__protocol__c"
+                          right:
+                            TEXT: "null"
+          - status: "INAPPLICABLE"
+            currentStateMessage: "NSG Rule source is not any address."
+            check:
+              NOT:
+                arg:
+                  OR:
+                    args:
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__sourceAddressPrefix__c"
+                          right:
+                            TEXT: "Internet"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__sourceAddressPrefix__c"
+                          right:
+                            TEXT: "*"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__sourceAddressPrefix__c"
+                          right:
+                            TEXT: "0.0.0.0"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__sourceAddressPrefix__c"
+                          right:
+                            TEXT: "Any"
+                      - CONTAINS:
+                          arg:
+                            EXTRACT: "CA10__sourceAddressPrefix__c"
+                          substring:
+                            TEXT: "/0"
+          # ports 1521, 1830, 2483 and 2484
+          - status: "INCOMPLIANT"
+            currentStateMessage: "NSG Rule with Oracle DBMS port 1521 with public access from the Internet."
+            remediationMessage: "Restrict access to the Oracle DBMS port"
+            check:
+              OR:
+                args:
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__destinationPortRange__c"
+                      right:
+                          TEXT: "1521"
+                  - AND:
+                      args:
+                        - LESS_THAN_EQUAL:
+                            left:
+                              EXTRACT: "CA10__destinationPortFrom__c"
+                            right:
+                              NUMBER: 1521.0
+                        - GREATER_THAN_EQUAL:
+                              left:
+                                EXTRACT: "CA10__destinationPortTo__c"
+                              right:
+                                NUMBER: 1521.0
+          - status: "INCOMPLIANT"
+            currentStateMessage: "NSG Rule with Oracle DBMS port 1830 with public access from the Internet."
+            remediationMessage: "Restrict access to the Oracle DBMS port"
+            check:
+              OR:
+                args:
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__destinationPortRange__c"
+                      right:
+                          TEXT: "1830"
+                  - AND:
+                      args:
+                        - LESS_THAN_EQUAL:
+                            left:
+                              EXTRACT: "CA10__destinationPortFrom__c"
+                            right:
+                              NUMBER: 1830.0
+                        - GREATER_THAN_EQUAL:
+                              left:
+                                EXTRACT: "CA10__destinationPortTo__c"
+                              right:
+                                NUMBER: 1830.0
+          - status: "INCOMPLIANT"
+            currentStateMessage: "NSG Rule with Oracle DBMS port 2483 with public access from the Internet."
+            remediationMessage: "Restrict access to the Oracle DBMS port"
+            check:
+              OR:
+                args:
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__destinationPortRange__c"
+                      right:
+                          TEXT: "2483"
+                  - AND:
+                      args:
+                        - LESS_THAN_EQUAL:
+                            left:
+                              EXTRACT: "CA10__destinationPortFrom__c"
+                            right:
+                              NUMBER: 2483.0
+                        - GREATER_THAN_EQUAL:
+                              left:
+                                EXTRACT: "CA10__destinationPortTo__c"
+                              right:
+                                NUMBER: 2483.0
+          - status: "INCOMPLIANT"
+            currentStateMessage: "NSG Rule with Oracle DBMS port 2484 with public access from the Internet."
+            remediationMessage: "Restrict access to the Oracle DBMS port"
+            check:
+              OR:
+                args:
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__destinationPortRange__c"
+                      right:
+                          TEXT: "2484"
+                  - AND:
+                      args:
+                        - LESS_THAN_EQUAL:
+                            left:
+                              EXTRACT: "CA10__destinationPortFrom__c"
+                            right:
+                              NUMBER: 2484.0
+                        - GREATER_THAN_EQUAL:
+                              left:
+                                EXTRACT: "CA10__destinationPortTo__c"
+                              right:
+                                NUMBER: 2484.0
+        otherwise:
+          status: "COMPLIANT"
+          currentStateMessage: "NSG rule without public access on Oracle DBMS port"

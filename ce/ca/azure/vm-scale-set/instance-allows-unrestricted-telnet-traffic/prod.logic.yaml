@@ -1,0 +1,132 @@
+---
+inputType: "CA10__CaAzureVmScaleSetInstance__c"
+testData:
+  - file: test-data.json
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Instance has a Network Interface with a NSG with a rule that allows Telnet access from the Internet."
+    remediationMessage: "Restrict inbound Telnet access from the Internet."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10Z1__Azure_VM_Scale_Set_Instance_Network_Ints__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Instance doesn't allow Telnet access from the Internet." 
+relatedLists:
+  - relationshipName: "CA10Z1__Azure_VM_Scale_Set_Instance_Network_Ints__r"
+    importExtracts:
+      - file: "/types/CA10__CaAzureNetworkSecurityGroupRule__c/object.extracts.yaml"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Interface with publicly accessible Network Security Group"
+        check:
+          RELATED_LIST_HAS:
+            status: "INCOMPLIANT"
+            relationshipName:  "CA10Z1__networkSecurityGroup__r.CA10__Azure_Network_Security_Group_Rules__r"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Interface is not publicly accessible"
+    relatedLists:
+      - relationshipName: "CA10Z1__networkSecurityGroup__r.CA10__Azure_Network_Security_Group_Rules__r"
+        importExtracts:
+          - file: "/types/CA10__CaAzureNetworkSecurityGroupRule__c/object.extracts.yaml"
+        conditions:
+# sort public group rules
+          - status: "INAPPLICABLE"
+            currentStateMessage: "NSG Outbound Rule."
+            check:
+              NOT_EQUAL:
+                left:
+                  EXTRACT: "CA10__direction__c"
+                right:
+                  TEXT: "Inbound"
+          - status: "INAPPLICABLE"
+            currentStateMessage: "NSG Deny Rule."
+            check:
+              NOT_EQUAL:
+                left:
+                  EXTRACT: "CA10__access__c"
+                right:
+                  TEXT: "Allow"
+          - status: "INAPPLICABLE"
+            currentStateMessage: "NSG Rule with the port other than TCP or Any."
+            check:
+              NOT:
+                arg:
+                  OR:
+                    args:
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__protocol__c"
+                          right:
+                            TEXT: "Tcp"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__protocol__c"
+                          right:
+                            TEXT: "*"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__protocol__c"
+                          right:
+                            TEXT: "null"
+          - status: "INAPPLICABLE"
+            currentStateMessage: "NSG Rule source is not any address."
+            check:
+              NOT:
+                arg:
+                  OR:
+                    args:
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__sourceAddressPrefix__c"
+                          right:
+                            TEXT: "Internet"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__sourceAddressPrefix__c"
+                          right:
+                            TEXT: "*"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__sourceAddressPrefix__c"
+                          right:
+                            TEXT: "0.0.0.0"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__sourceAddressPrefix__c"
+                          right:
+                            TEXT: "Any"
+                      - CONTAINS:
+                          arg:
+                            EXTRACT: "CA10__sourceAddressPrefix__c"
+                          substring:
+                            TEXT: "/0"
+          - status: "INCOMPLIANT"
+            currentStateMessage: "NSG Rule with Telnet port with public access from the Internet."
+            remediationMessage: "Close Telnet port"
+            check:
+                # PORT 23
+              OR:
+                args:
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__destinationPortRange__c"
+                      right:
+                          TEXT: "23"
+                  - AND:
+                      args:
+                        - LESS_THAN_EQUAL:
+                            left:
+                              EXTRACT: "CA10__destinationPortFrom__c"
+                            right:
+                              NUMBER: 23.0
+                        - GREATER_THAN_EQUAL:
+                              left:
+                                EXTRACT: "CA10__destinationPortTo__c"
+                              right:
+                                NUMBER: 23.0
+        otherwise:
+          status: "COMPLIANT"
+          currentStateMessage: "NSG rule without public access on Telnet port"

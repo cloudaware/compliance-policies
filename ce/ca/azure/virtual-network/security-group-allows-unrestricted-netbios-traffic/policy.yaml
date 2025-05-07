@@ -1,0 +1,13 @@
+---
+names:
+  full: Azure Network Security Group allows public access to NetBIOS ports
+  contextual: Security Group allows public access to NetBIOS ports
+description: >
+  Ensure that Azure Network Security Groups do not allow unrestricted public NetBIOS traffic 
+  (TCP/UDP 137, 138, 139).
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+

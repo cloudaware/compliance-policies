@@ -1,0 +1,14 @@
+---
+names:
+  full: Azure Network Security Group allows public access to MySQL port
+  contextual: Security Group allows public access to MySQL port
+description: >
+  Ensure that Azure Network Security Groups are not exposed to unrestricted public access 
+  on MySQL port (3306) and only accessible by authorized IP address 
+  ranges or internal networks.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+

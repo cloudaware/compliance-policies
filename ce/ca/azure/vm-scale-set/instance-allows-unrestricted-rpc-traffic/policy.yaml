@@ -1,0 +1,13 @@
+---
+names:
+  full: "Azure VM Scale Set Instance allows public access to RPC port"
+  contextual: "Instance allows public access to RPC port"
+description: >
+  Ensure that Azure VM Scale Set Instances do not allow unrestricted public access to 
+  RPC port (135/TCP and 135/UDP). RPC protocol enables inter-process 
+  communication and, if improperly secured, can expose VMs to unauthorized access.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

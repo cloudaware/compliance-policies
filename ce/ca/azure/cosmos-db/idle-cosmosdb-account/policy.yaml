@@ -1,0 +1,13 @@
+---
+names:
+  full: "Azure Cosmos DB Account has zero Total Request Units"
+  contextual: "Account has zero Total Request Units"
+description: >
+  Consider deleting Cosmos DB Account or switching to the serverless option when 
+  the account has no Total Request Units over the past 30 days.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"
+  

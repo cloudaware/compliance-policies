@@ -1,0 +1,71 @@
+---
+inputType: "CA10__CaAzureVirtualMachine__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAzureVirtualMachine__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Only for running VM"
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__powerState__c"
+        right:
+          TEXT: "VM running"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The VM has been running for less than 14 days."
+    check:
+      NOT:
+        arg:
+          IS_BEYOND_LAST_DAYS:
+            offsetDays: 14
+            arg:
+              EXTRACT: "CA10__timeCreated__c"
+  - status: UNDETERMINED
+    currentStateMessage: "There is not enough data in the CMDB to identify if the VM is idle."
+    check:
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorCpuAvg14Day__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorCpuMax14Day__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorNetworkInMbSum14Day__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorNetworkOutMbSum14Day__c"
+  - status: INCOMPLIANT
+    currentStateMessage: "The VM is idle with Average CPU Utilization < 5%,\
+      \ Max CPU Utilization < 15%, and Average Network I/O < 100 MB."
+    remediationMessage: "Consider stopping, terminating, or rightsizing the instance."
+    check:
+      AND:
+        args:
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__monitorCpuAvg14Day__c
+              right:
+                NUMBER: 5.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__monitorCpuMax14Day__c
+              right:
+                NUMBER: 15.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__monitorNetworkInMbSum14Day__c
+              right:
+                NUMBER: 100.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__monitorNetworkOutMbSum14Day__c
+              right:
+                NUMBER: 100.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The VM is not idle."

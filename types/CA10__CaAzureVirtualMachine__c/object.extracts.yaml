@@ -14,4 +14,32 @@ extracts:
   - name: "CA10__uefiSettingsSecureBoot__c"
     value: 
       FIELD:
-        path: "CA10__uefiSettingsSecureBoot__c"              
+        path: "CA10__uefiSettingsSecureBoot__c"   
+# Values: "VM creating", "VM starting",  "VM running", "VM stopping",  "VM stopped", "VM deallocating",  "VM deallocated"
+  - name: "CA10__powerState__c"
+    value: 
+      FIELD:
+        path: "CA10__powerState__c" 
+# Percent
+  - name: "CA10__monitorCpuAvg14Day__c"
+    value: 
+      FIELD:
+        path: "CA10__monitorCpuAvg14Day__c" 
+# Percent
+  - name: "CA10__monitorCpuMax14Day__c"
+    value: 
+      FIELD:
+        path: "CA10__monitorCpuMax14Day__c" 
+  - name: "CA10__monitorNetworkInMbSum14Day__c"
+    value: 
+      FIELD:
+        path: "CA10__monitorNetworkInMbSum14Day__c" 
+  - name: "CA10__monitorNetworkOutMbSum14Day__c"
+    value: 
+      FIELD:
+        path: "CA10__monitorNetworkOutMbSum14Day__c" 
+# Date/time
+  - name: "CA10__timeCreated__c"
+    value:
+      FIELD:
+        path: "CA10__timeCreated__c"

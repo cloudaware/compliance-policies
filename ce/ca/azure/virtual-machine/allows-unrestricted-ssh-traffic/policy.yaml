@@ -1,0 +1,11 @@
+---
+names:
+  full: "Azure Virtual Machine allows public access to SSH port"
+  contextual: "Virtual Machine allows public access to SSH port"
+description: >
+  Ensure that Azure Virtual Machines do not allow unrestricted public SSH (port 22) traffic.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

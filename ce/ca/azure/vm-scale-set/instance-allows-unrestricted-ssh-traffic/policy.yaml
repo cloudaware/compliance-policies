@@ -1,0 +1,11 @@
+---
+names:
+  full: "Azure VM Scale Set Instance allows public access to SSH port"
+  contextual: "Instance allows public access to SSH port"
+description: >
+  Ensure that Azure VM Scale Set Instances do not allow unrestricted public SSH (port 22) traffic.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

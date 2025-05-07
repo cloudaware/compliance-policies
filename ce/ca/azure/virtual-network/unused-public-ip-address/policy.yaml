@@ -1,0 +1,14 @@
+---
+names:
+  full: "Azure Public IP Address is not associated with any resource"
+  contextual: "Public IP Address is not associated with any resource"
+description: >
+  Consider deleting public IP addresses that are not attached to a virtual machine,
+  network interface, internet-facing load balancer, VPN gateway, or application gateway.
+categories:
+  - "SECURITY"
+  - "COST"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

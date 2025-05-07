@@ -1,0 +1,40 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__skuName__c').endsWith('LRS')",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-03-26T11:02:25Z"
+    },
+    "Id": "111",
+    "RecordTypeId": "RecordTypeId",
+    "CA10__disappearanceTime__c": null,
+    "CA10__skuName__c": "Premium_LRS",
+    "RecordType": {
+      "DeveloperName": "caAzureRMStorageAccount",
+      "Id": "RecordTypeId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-03-26T11:02:25Z"
+    },
+    "Id": "222",
+    "RecordTypeId": "RecordTypeId",
+    "CA10__disappearanceTime__c": null,
+    "CA10__skuName__c": "Standard_RAGRS",
+    "RecordType": {
+      "DeveloperName": "caAzureRMStorageAccount",
+      "Id": "RecordTypeId"
+    }
+  }
+]

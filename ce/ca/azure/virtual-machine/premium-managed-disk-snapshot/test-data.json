@@ -1,0 +1,26 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-04-15T14:48:00Z" },
+    "Id": "1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__diskSkuName__c": "Standard_LRS"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__diskSkuName__c').contains('Premium')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-04-15T14:48:00Z" },
+    "Id": "2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__diskSkuName__c": "Premium_LRS"
+  }
+]

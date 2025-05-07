@@ -1,0 +1,14 @@
+---
+names:
+  full: Azure Network Security Group allows public access to MongoDB ports
+  contextual: Security Group allows public access to MongoDB ports
+description: > 
+  Ensure that Azure Network Security Groups are not exposed to unrestricted public access 
+  on MongoDB ports (27017-27020) and only accessible by authorized IP address 
+  ranges or internal networks.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+

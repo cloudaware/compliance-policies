@@ -1,0 +1,17 @@
+---
+names:
+  full: "Azure Virtual Machine is underutilized"
+  contextual: "Virtual Machine is underutilized"
+description: >
+  Identify Azure Virtual Machines that appear to be underutilized 
+  and downsize (resize) them to optimize cloud expenditure. 
+  By default, a Virtual Machine is considered underutilized if their 
+  average CPU utilization is consistently below 40% and maximum CPU utilization 
+  does not spike above 50% over a 14-day period.
+categories:
+  - "COST"
+  - "PERFORMANCE"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-right-sizing"
+  - "/frameworks/cloudaware/resource-performance/workload-efficiency"

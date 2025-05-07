@@ -1,0 +1,12 @@
+---
+names:
+  full: "Azure Managed Disk Snapshot is stored on Premium SSDs Managed Disk storage"
+  contextual: "Managed Disk Snapshot is stored on Premium SSDs Managed Disk storage"
+description: >
+  Ensure Azure Managed Disk snapshots are stored on Standard storage instead of 
+  Premium SSDs Managed Disk storage.
+categories:
+  - "COST"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"

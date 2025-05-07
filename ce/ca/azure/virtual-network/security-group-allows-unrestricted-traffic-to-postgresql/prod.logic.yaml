@@ -1,0 +1,152 @@
+---
+inputType: "CA10__CaAzureNetworkSecurityGroup__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  # This check identifies if the NSG is attached to a VM
+  # if it is then the NSG should be evaluated by the policy on the VM level 
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Network Security Group is evaluated by /ce/ca/azure/virtual-machine/allows-unrestricted-traffic-to-postgresql."
+    check:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__Azure_Network_Interfaces__r"
+        status: "COMPLIANT"
+  # This check identifies if the NSG is attached to a VM Scale Set
+  # if it is then the NSG should be evaluated by the policy on the VM Scale Set level
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Network Security Group is evaluated by /ce/ca/azure/vm-scale-set/instance-allows-unrestricted-traffic-to-postgresql."
+    check:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10Z1__Azure_VM_Scale_Set_Instance_Network_Ints__r"
+        status: "COMPLIANT"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Network Security Group has a rule that allows PostgreSQL access from the Internet."
+    remediationMessage: "Restrict inbound PostgreSQL access from the Internet."
+    check:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__Azure_Network_Security_Group_Rules__r"
+        status: "INCOMPLIANT"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The NSG doesn't allow PostgreSQL access from the Internet." 
+relatedLists:
+  - relationshipName: "CA10__Azure_Network_Security_Group_Rules__r"
+    importExtracts:
+      - file: "/types/CA10__CaAzureNetworkSecurityGroupRule__c/object.extracts.yaml"
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "NSG Deny Rule."
+        check:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__access__c"
+            right:
+              TEXT: "Allow"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "NSG Outbound Rule."
+        check:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__direction__c"
+            right:
+              TEXT: "Inbound"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "NSG Rule with the port other than TCP or Any."
+        check:
+        # returns true when protocol is neither TCP nor *
+          NOT:
+            arg:
+              OR:
+                args:
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__protocol__c"
+                      right:
+                        TEXT: "TCP"
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__protocol__c"
+                      right:
+                        TEXT: "*"
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__protocol__c"
+                      right:
+                        TEXT: "null"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "NSG Rule source is not any address."
+        check:
+        # returns true when source is neither Internet, *, 0.0.0.0, /0, or Any
+          NOT:
+            arg:
+              OR:
+                args:
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__sourceAddressPrefix__c"
+                      right:
+                        TEXT: "Internet"
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__sourceAddressPrefix__c"
+                      right:
+                        TEXT: "*"
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__sourceAddressPrefix__c"
+                      right:
+                        TEXT: "0.0.0.0"
+                  - CONTAINS:
+                      arg:
+                        EXTRACT: "CA10__sourceAddressPrefix__c"
+                      substring:
+                        TEXT: "/0"
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__sourceAddressPrefix__c"
+                      right:
+                        TEXT: "Any"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "NSG Rule with PostgreSQL access from the Internet."
+        remediationMessage: "Consider restricting internet-level access to your Azure resources."
+        check:
+          OR:
+            args:
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10__destinationPortRange__c"
+                  right:
+                    TEXT: "5432"
+              - AND:
+                  args:
+                    - LESS_THAN_EQUAL:
+                        left:
+                          EXTRACT: "CA10__destinationPortFrom__c"
+                        right:
+                          NUMBER: 5432.0
+                    - GREATER_THAN_EQUAL:
+                        left:
+                          EXTRACT: "CA10__destinationPortTo__c"
+                        right:
+                          NUMBER: 5432.0
+    otherwise: 
+      status: "INAPPLICABLE"
+      currentStateMessage: "Unrelated rule."
+  - relationshipName: "CA10__Azure_Network_Interfaces__r"
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "This is a Network Interface with a linked VM."
+        check:
+          NOT_EMPTY_LOOKUP: "CA10__virtualMachine__r" 
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "This is a Network Interface without a linked VM."
+  - relationshipName: "CA10Z1__Azure_VM_Scale_Set_Instance_Network_Ints__r"
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "This is a Network Interface with a linked VM Scale Set Instance."
+        check:
+          NOT_EMPTY_LOOKUP: "CA10Z1__vmScaleSetInstance__r" 
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "This is a Network Interface without a linked VM Scale Set Instance."

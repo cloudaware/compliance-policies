@@ -1,0 +1,12 @@
+---
+names:
+  full: "Azure Virtual Machine allows public access to NetBIOS ports"
+  contextual: "Virtual Machine allows public access to NetBIOS ports"
+description: >
+  Ensure that Azure Virtual Machines do not allow unrestricted public NetBIOS traffic 
+  (TCP/UDP 137, 138, 139).
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

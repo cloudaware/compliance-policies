@@ -1,0 +1,19 @@
+---
+inputType: "CA10__CaAzureManagedDisk__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAzureManagedDisk__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Managed Disk is not attached to a virtual machine."
+    remediationMessage: "Consider deleting or archiving the Managed Disk."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__diskState__c"
+        right:
+          TEXT: "Unattached"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Managed Disk is attached to a virtual machine."

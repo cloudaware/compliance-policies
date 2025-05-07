@@ -1,0 +1,55 @@
+---
+inputType: "CA10__CaAzureVirtualMachine__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAzureVirtualMachine__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Only for running VM"
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__powerState__c"
+        right:
+          TEXT: "VM running"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The VM has been running for less than 14 days."
+    check:
+      NOT:
+        arg:
+          IS_BEYOND_LAST_DAYS:
+            offsetDays: 14
+            arg:
+              EXTRACT: "CA10__timeCreated__c"
+  - status: UNDETERMINED
+    currentStateMessage: "There is not enough data in the CMDB to identify if the VM is overutilized."
+    check:
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorCpuAvg14Day__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorCpuMax14Day__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is overutilized with Average CPU Utilization > 80%\
+      \ and Max CPU Utilization > 95%."
+    remediationMessage: "Consider scaling up the VM or implementing auto scaling."
+    check:
+      AND:
+        args:
+          - GREATER_THAN:
+              left:
+                EXTRACT: "CA10__monitorCpuAvg14Day__c"
+              right:
+                NUMBER: 80.0
+          - GREATER_THAN:
+              left:
+                EXTRACT: "CA10__monitorCpuMax14Day__c"
+              right:
+                NUMBER: 95.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Virtual machine is not overutilized"

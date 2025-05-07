@@ -1,0 +1,13 @@
+---
+names:
+  full: "Azure VM Scale Set Instance allows public access to Telnet port"
+  contextual: "Instance allows public access to Telnet port"
+description: >
+  Ensure Azure VM Scale Set Instances do not allow unrestricted public access to the 
+  Telnet port 23. Telnet is an insecure protocol that transmits data, including 
+  credentials, in plaintext, making it vulnerable to eavesdropping and unauthorized access.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

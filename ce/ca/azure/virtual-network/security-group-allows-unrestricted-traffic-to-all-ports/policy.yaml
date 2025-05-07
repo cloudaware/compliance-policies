@@ -1,0 +1,16 @@
+---
+names:
+  full: Azure Network Security Group allows public access to all ports
+  contextual: Security Group allows public access to all ports
+description: >
+  Identify Azure Network Security Groups that are associated with Network Interfaces 
+  linked to NSGs containing inbound rules that allow unrestricted traffic from 
+  the public internet(0.0.0.0/0, ::/0, Internet, Any, or *) to all destination 
+  ports (*, 0-65535, or unspecified). Restrict access to only the specific 
+  destination port and/or IP address ranges that require connectivity.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+

@@ -1,0 +1,13 @@
+---
+names:
+  full: "Azure VM Scale Set Instance allows public access to DNS port"
+  contextual: "Instance allows public access to DNS port"
+description: >
+  Ensure that Azure VM Scale Set Instances do not allow unrestricted public access to 
+  the DNS port 53. Exposing DNS to the internet from a VM can pose security 
+  risks, such as participation in DNS amplification attacks or unauthorized DNS resolution.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

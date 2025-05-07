@@ -1,0 +1,12 @@
+---
+names:
+  full: "Azure Virtual Network Gateway has no connections"
+  contextual: "Virtual Network Gateway has no connections"
+description: >
+  Consider deleting Network Gateways that do not have any active connections 
+  configured. Unused gateways incur unnecessary costs.
+categories:
+  - "COST"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"

@@ -1,0 +1,12 @@
+---
+names:
+  full: "Azure VM Scale Set Instance allows public access to SMTP port"
+  contextual: "Instance allows public access to SMTP port"
+description: >
+  Ensure Azure VM Scale Set Instances do not allow unrestricted public access to the 
+  SMTP port 25.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

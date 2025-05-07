@@ -1,0 +1,17 @@
+---
+inputType: "CA10__CaAzurePublicIpAddress__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAzurePublicIpAddress__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Public IP address is not attached to any resource."
+    remediationMessage: "Consider removing the IP address."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__associatedResourceId__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Public IP address attached to a resource."

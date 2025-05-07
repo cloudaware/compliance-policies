@@ -1,0 +1,12 @@
+---
+names:
+  full: "Azure App Service Plan has no Apps assigned"
+  contextual: "App Service Plan has no Apps assigned"
+description: "Ensure that Azure App Service Plan has at least one attached Azure App.\
+  \ Consider deleting App Service Plans that are empty and have no applications,\
+  \ sites or jobs associated with them."
+categories:
+  - "COST"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"

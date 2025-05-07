@@ -1,0 +1,134 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-04-15T14:48:00Z"
+    },
+    "Id": "1",
+    "RecordTypeId": "RecordTypeId",
+    "CA10__disappearanceTime__c": "2023-05-22T10:08:05Z",
+    "CA10__powerState__c": "VM deallocated",
+    "CA10__timeCreated__c": "2023-03-09T11:53:28Z",
+    "CA10__monitorCpuAvg14Day__c": null,
+    "CA10__monitorCpuMax14Day__c": null,
+    "RecordType": {
+      "DeveloperName": "caAzureRMVirtualMachine",
+      "Id": "RecordTypeId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__powerState__c') != 'VM running'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-04-15T14:48:00Z"
+    },
+    "Id": "2",
+    "RecordTypeId": "RecordTypeId",
+    "CA10__disappearanceTime__c": null,
+    "CA10__powerState__c": "VM deallocated",
+    "CA10__timeCreated__c": "2020-10-21T08:03:49Z",
+    "CA10__monitorCpuAvg14Day__c": null,
+    "CA10__monitorCpuMax14Day__c": null,
+    "RecordType": {
+      "DeveloperName": "caAzureRMVirtualMachine",
+      "Id": "RecordTypeId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "not(extract('CA10__timeCreated__c').beyondLastDays(14))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-04-15T14:48:00Z"
+    },
+    "Id": "3",
+    "RecordTypeId": "RecordTypeId",
+    "CA10__disappearanceTime__c": null,
+    "CA10__powerState__c": "VM running",
+    "CA10__timeCreated__c": "2025-04-10T14:46:26Z",
+    "CA10__monitorCpuAvg14Day__c": 3.5346799563127655,
+    "CA10__monitorCpuMax14Day__c": 92.43,
+    "RecordType": {
+      "DeveloperName": "caAzureRMVirtualMachine",
+      "Id": "RecordTypeId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__monitorCpuAvg14Day__c').isEmpty() || extract('CA10__monitorCpuMax14Day__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-04-15T14:48:00Z"
+    },
+    "Id": "4",
+    "RecordTypeId": "RecordTypeId",
+    "CA10__disappearanceTime__c": null,
+    "CA10__powerState__c": "VM running",
+    "CA10__timeCreated__c": "2020-10-21T08:03:49Z",
+    "CA10__monitorCpuAvg14Day__c": null,
+    "CA10__monitorCpuMax14Day__c": null,
+    "RecordType": {
+      "DeveloperName": "caAzureRMVirtualMachine",
+      "Id": "RecordTypeId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__monitorCpuAvg14Day__c') > number(80.0) && extract('CA10__monitorCpuMax14Day__c') > number(95.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-04-15T14:48:00Z"
+    },
+    "Id": "5",
+    "RecordTypeId": "RecordTypeId",
+    "CA10__disappearanceTime__c": null,
+    "CA10__powerState__c": "VM running",
+    "CA10__timeCreated__c": "2020-01-03T17:32:05Z",
+    "CA10__monitorCpuAvg14Day__c": 81.88,
+    "CA10__monitorCpuMax14Day__c": 95.15,
+    "RecordType": {
+      "DeveloperName": "caAzureRMVirtualMachine",
+      "Id": "RecordTypeId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "500",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-04-15T14:48:00Z"
+    },
+    "Id": "6",
+    "RecordTypeId": "RecordTypeId",
+    "CA10__disappearanceTime__c": null,
+    "CA10__powerState__c": "VM running",
+    "CA10__timeCreated__c": "2020-01-03T17:32:05Z",
+    "CA10__monitorCpuAvg14Day__c": 10.886110654679344,
+    "CA10__monitorCpuMax14Day__c": 95.15,
+    "RecordType": {
+      "DeveloperName": "caAzureRMVirtualMachine",
+      "Id": "RecordTypeId"
+    }
+  }
+]
