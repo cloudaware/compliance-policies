@@ -1,0 +1,28 @@
+inputType: "CA10A1__CaAwsEksCluster__c"
+importExtracts:
+  - file: "/types/CA10A1__CaAwsEksCluster__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Cluster has no IAM OpenID Connect Provider."
+    remediationMessage: "Consider creating an IAM OIDC provider for the Cluster."
+    check:
+      RELATED_LIST_HAS_NO:
+        status: "COMPLIANT"
+        relationshipName: "CA10A1__AWS_IAM_OpenID_Connect_Providers__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Cluster has an IAM OpenID Connect Provider."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10A1__AWS_IAM_OpenID_Connect_Providers__r"
+otherwise:
+  status: "COMPLIANT" 
+  currentStateMessage: ""
+relatedLists:
+  - relationshipName: "CA10A1__AWS_IAM_OpenID_Connect_Providers__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This is an IAM OpenID Connect Provider."

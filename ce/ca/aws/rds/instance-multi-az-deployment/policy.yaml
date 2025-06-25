@@ -16,8 +16,11 @@ frameworkMappings:
   - "/frameworks/cloudaware/resource-reliability/system-configuration"
   - "/frameworks/aws-fsbp-v1.0.0/rds/05"
 similarPolicies:
-  internal:
-    - dec-x-5b3728e8
+  awsSecurityHub:
+    - name: "[RDS.5] RDS DB instances should be configured with multiple Availability Zones"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-5"
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/RDS/rds-multi-az.html
       name: RDS Multi-AZ
+  internal:
+    - dec-x-5b3728e8

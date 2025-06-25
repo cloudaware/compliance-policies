@@ -16,6 +16,9 @@ frameworkMappings:
   - "/frameworks/cloudaware/resource-reliability/infrastructure-modernization"
   - "/frameworks/aws-fsbp-v1.0.0/rds/13"
 similarPolicies:
+  awsSecurityHub:
+    - name: "[RDS.13] RDS automatic minor version upgrades should be enabled"
+      url: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-13
   internal:
     - dec-x-215302da
   cloudConformity:

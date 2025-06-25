@@ -1,0 +1,14 @@
+names:
+  full: "AWS EKS Cluster has node IAM role with AmazonEKS_CNI_Policy attached"
+  contextual: "Cluster has node IAM role with AmazonEKS_CNI_Policy attached"
+description: >
+  Ensures that the AmazonEKS_CNI_Policy is not attached to the EKS 
+  node's IAM role, promoting least privilege for the Amazon VPC CNI plugin by 
+  utilizing IAM Roles for Service Accounts (IRSA).
+categories:
+  - "SECURITY"
+  - "RELIABILITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/identity-and-access-governance/rbac-management"
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"

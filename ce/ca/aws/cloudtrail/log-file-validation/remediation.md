@@ -1,6 +1,27 @@
 # Remediation
 
-Perform the following to enable log file validation on a given trail:
+Perform one the following to enable log file validation on a given trail:
+
+## Using AWS CloudFormation
+
+- CloudFormation template (YAML):
+
+```yaml
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Enables log file validation on an existing CloudTrail trail.
+
+Parameters:
+  TrailName:
+    Type: String
+    Description: Name of the existing CloudTrail trail
+
+Resources:
+  EnableLogFileValidation:
+    Type: AWS::CloudTrail::Trail
+    Properties:
+      TrailName: !Ref TrailName
+      EnableLogFileValidation: true
+```
 
 ## From Console
 

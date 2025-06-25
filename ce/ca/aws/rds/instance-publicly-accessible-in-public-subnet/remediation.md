@@ -1,5 +1,46 @@
 # Remediation
 
+## Using AWS CloudFormation
+
+- CloudFormation template (YAML):
+
+```yaml
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Disable public accessibility on an existing RDS instance
+
+Parameters:
+  DBInstanceIdentifier:
+    Type: String
+    Description: Identifier of the existing RDS DB instance
+
+Resources:
+  SecureRdsInstance:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBInstanceIdentifier: !Ref DBInstanceIdentifier
+      PubliclyAccessible: false
+```
+
+## From Command Line
+
+1. Run `describe-db-instances` command to list all RDS database names identifiers, available in the selected AWS region:
+
+```sh
+aws rds describe-db-instances --region <region-name> --query 'DBInstances[*].DBInstanceIdentifier'
+```
+
+2. The command output should return each database instance identifier.
+3. Run `modify-db-instance` command to modify the selected RDS instance configuration. Then use the following command to disable the `Publicly Accessible` flag for the selected RDS instances. This command use the apply-immediately flag. If you want to avoid any downtime `--no-apply-immediately` flag can be used:
+
+```sh
+aws rds modify-db-instance --region <region-name> --db-instance-identifier <db-name> --no-publicly-accessible --apply-immediately
+```
+
+4. The command output should reveal the `PubliclyAccessible` configuration under pending values and should get applied at the specified time.
+5. Updating the Internet Gateway Destination via AWS CLI is not currently supported To update information about Internet Gateway use the AWS Console Procedure.
+6. Repeat steps 1 to 5 for each RDS instance provisioned in the current region.
+7. Change the AWS region by using the `--region` filter to repeat the process for other regions.
+
 ## From Console
 
 1. Log in to the AWS management console and navigate to the RDS dashboard at <https://console.aws.amazon.com/rds/>.
@@ -21,23 +62,3 @@
 
 8. Repeat steps 3 to 7 for each RDS instance available in the current region.
 9. Change the AWS region from the navigation bar to repeat the process for other regions.
-
-## From Command Line
-
-1. Run `describe-db-instances` command to list all RDS database names identifiers, available in the selected AWS region:
-
-```sh
-aws rds describe-db-instances --region <region-name> --query 'DBInstances[*].DBInstanceIdentifier'
-```
-
-2. The command output should return each database instance identifier.
-3. Run `modify-db-instance` command to modify the selected RDS instance configuration. Then use the following command to disable the `Publicly Accessible` flag for the selected RDS instances. This command use the apply-immediately flag. If you want to avoid any downtime `--no-apply-immediately` flag can be used:
-
-```sh
-aws rds modify-db-instance --region <region-name> --db-instance-identifier <db-name> --no-publicly-accessible --apply-immediately
-```
-
-4. The command output should reveal the `PubliclyAccessible` configuration under pending values and should get applied at the specified time.
-5. Updating the Internet Gateway Destination via AWS CLI is not currently supported To update information about Internet Gateway use the AWS Console Procedure.
-6. Repeat steps 1 to 5 for each RDS instance provisioned in the current region.
-7. Change the AWS region by using the `--region` filter to repeat the process for other regions.

@@ -15,5 +15,8 @@ extracts:
     value: 
       COLLECTION_FROM:
         separator: "\n"
+        emptyValues: SKIP
+        duplicateValues: SKIP
+        ordering: SORTED
         arg:
           EXTRACT: CA10__availabilityZones__c

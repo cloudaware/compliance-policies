@@ -1,0 +1,223 @@
+---
+inputType: CA10__CaAwsInstance__c
+testData:
+  - file: test-data.json
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: Test-1
+    check:
+      UNIT_TEST:
+        id: Test-1
+        arg:
+          IS_EMPTY:
+            arg:
+              COLLECTION_FROM:
+                separator: ","
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                arg:
+                  TEXT: ""
+  - status: COMPLIANT
+    currentStateMessage: Test-1-Keep-Empty
+    check:
+      UNIT_TEST:
+        id: Test-1-Keep-Empty
+        arg:
+          NOT_EMPTY:
+            arg:
+              COLLECTION_FROM:
+                separator: ","
+                emptyValues: KEEP
+                duplicateValues: SKIP
+                ordering: SORTED
+                arg:
+                  TEXT: ""
+  - status: COMPLIANT
+    currentStateMessage: Test-2
+    check:
+      UNIT_TEST:
+        id: Test-2
+        arg:
+          IS_EQUAL:
+            left:
+              COLLECTION_FROM:
+                separator: ","
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                arg:
+                  TEXT: "a,a"
+            right:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - a
+  - status: COMPLIANT
+    currentStateMessage: Test-2-Keep-Duplicates
+    check:
+      UNIT_TEST:
+        id: Test-2-Keep-Duplicates
+        arg:
+          NOT_EQUAL:
+            left:
+              COLLECTION_FROM:
+                separator: ","
+                emptyValues: SKIP
+                duplicateValues: KEEP
+                ordering: SORTED
+                arg:
+                  TEXT: "a,a"
+            right:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - a
+  - status: COMPLIANT
+    currentStateMessage: Test-3
+    check:
+      UNIT_TEST:
+        id: Test-3
+        arg:
+          IS_EQUAL:
+            left:
+              COLLECTION_FROM:
+                separator: ","
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                arg:
+                  TEXT: "a,b"
+            right:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - a
+                  - b
+  - status: COMPLIANT
+    currentStateMessage: Test-4
+    check:
+      UNIT_TEST:
+        id: Test-4
+        arg:
+          IS_EQUAL:
+            left:
+              COLLECTION_FROM:
+                separator: ","
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                arg:
+                  TEXT: "A\n, a "
+            right:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - a
+  - status: COMPLIANT
+    currentStateMessage: Test-4-Keep-Duplicates
+    check:
+      UNIT_TEST:
+        id: Test-4-Keep-Duplicates
+        arg:
+          IS_EQUAL:
+            left:
+              COLLECTION_FROM:
+                separator: ","
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                arg:
+                  TEXT: "A\n, a "
+            right:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - a
+                  - a
+  - status: COMPLIANT
+    currentStateMessage: Test-5
+    check:
+      UNIT_TEST:
+        id: Test-5
+        arg:
+          IS_EQUAL:
+            left:
+              COLLECTION_FROM:
+                separator: "\n"
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                arg:
+                  TEXT: "\nline1\nline2\nline3\n"
+            right:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - line3
+                  - line2
+                  - line1
+  - status: COMPLIANT
+    currentStateMessage: Test-5-Original-Order
+    check:
+      UNIT_TEST:
+        id: Test-5-Original-Order
+        arg:
+          NOT_EQUAL:
+            left:
+              COLLECTION_FROM:
+                separator: "\n"
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                arg:
+                  TEXT: "\nline1\nline2\nline3\n"
+            right:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: ORIGINAL
+                itemType: TEXT
+                items:
+                  - line3
+                  - line2
+                  - line1
+  - status: COMPLIANT
+    currentStateMessage: Test-6
+    check:
+      UNIT_TEST:
+        id: Test-6
+        arg:
+          COLLECTION_CONTAINS:
+            arg:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - " ABC "
+            search:
+              TEXT: "   abc\n\t"
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: Test Failed
+  remediationMessage: Developer Fix Required

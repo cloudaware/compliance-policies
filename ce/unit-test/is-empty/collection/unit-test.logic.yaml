@@ -12,9 +12,12 @@ conditions:
           NOT_EMPTY:
             arg:
               COLLECTION_FROM:
+                separator: ","
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
                 arg:
                   TEXT: a,b,c
-                separator: ","
   - status: COMPLIANT
     currentStateMessage: Test-2
     check:
@@ -24,9 +27,12 @@ conditions:
           NOT_EMPTY:
             arg:
               COLLECTION_FROM:
+                separator: ","
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
                 arg:
                   TEXT: a
-                separator: ","
   - status: COMPLIANT
     currentStateMessage: Test-3
     check:
@@ -36,9 +42,12 @@ conditions:
           IS_EMPTY:
             arg:
               COLLECTION_FROM:
+                separator: ","
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
                 arg:
                   TEXT: ""
-                separator: ","
   - status: COMPLIANT
     currentStateMessage: Test-4
     check:
@@ -48,9 +57,12 @@ conditions:
           IS_EMPTY:
             arg:
               COLLECTION_FROM:
+                separator: ","
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
                 arg:
                   TEXT: ","
-                separator: ","
   - status: COMPLIANT
     currentStateMessage: Test-5
     check:
@@ -60,7 +72,7 @@ conditions:
           IS_EMPTY:
             arg:
               UNIT_TEST_NULL:
-                returnType: COLLECTION
+                returnType: COLLECTION_TEXT
 otherwise:
   status: INCOMPLIANT
   currentStateMessage: Test Failed

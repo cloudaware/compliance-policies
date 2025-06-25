@@ -3,7 +3,7 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "199",
-      "conditionText": "unitTest(Test-1): 'a,b,c'.asCollection(',').isNotEmpty()",
+      "conditionText": "unitTest(Test-1): 'a,b,c'.asCollection(',').skipEmpty().skipDuplicates().sort().isNotEmpty()",
       "runtimeError": null
     },
     "context": {
@@ -17,7 +17,7 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "299",
-      "conditionText": "unitTest(Test-2): 'a'.asCollection(',').isNotEmpty()",
+      "conditionText": "unitTest(Test-2): 'a'.asCollection(',').skipEmpty().skipDuplicates().sort().isNotEmpty()",
       "runtimeError": null
     },
     "context": {
@@ -31,7 +31,7 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "399",
-      "conditionText": "unitTest(Test-3): ''.asCollection(',').isEmpty()",
+      "conditionText": "unitTest(Test-3): ''.asCollection(',').skipEmpty().skipDuplicates().sort().isEmpty()",
       "runtimeError": null
     },
     "context": {
@@ -45,7 +45,7 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "499",
-      "conditionText": "unitTest(Test-4): ','.asCollection(',').isEmpty()",
+      "conditionText": "unitTest(Test-4): ','.asCollection(',').skipEmpty().skipDuplicates().sort().isEmpty()",
       "runtimeError": null
     },
     "context": {

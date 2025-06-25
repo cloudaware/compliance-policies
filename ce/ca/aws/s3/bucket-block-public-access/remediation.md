@@ -2,6 +2,31 @@
 
 ## If utilizing Block Public Access (bucket settings)
 
+### Using AWS CloudFormation
+
+- CloudFormation template (YAML):
+
+```yaml
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Enables block public access settings on an existing S3 bucket.
+
+Parameters:
+  BucketName:
+    Type: String
+    Description: Name of the existing S3 bucket
+
+Resources:
+  BlockPublicAccess:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        IgnorePublicAcls: true
+        BlockPublicPolicy: true
+        RestrictPublicBuckets: true
+```
+
 ### From Console
 
 1. Login to AWS Management Console and open the Amazon S3 console using <https://console.aws.amazon.com/s3/>.

@@ -16,8 +16,11 @@ frameworkMappings:
   - "/frameworks/cloudaware/identity-and-access-governance/general-access-controls"
   - "/frameworks/aws-fsbp-v1.0.0/iam/01"
 similarPolicies:
-  internal:
-    - dec-x-157aa4b9
+  awsSecurityHub:
+    - name: "[IAM.1] IAM policies should not allow full \"*\" administrative privileges"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/iam-controls.html#iam-1"
   cloudConformity:
     - url: https://trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/IAM/policies-with-full-administrative-privileges.html
       name: IAM Policies With Full Administrative Privileges
+  internal:
+    - dec-x-157aa4b9

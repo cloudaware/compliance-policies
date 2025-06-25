@@ -88,7 +88,7 @@
         },
         "search" : {
           "allOf" : [ {
-            "$ref" : "#/definitions/OpText"
+            "$ref" : "#/definitions/OpCollectable"
           }, {
             "description" : "The element to search for in 'arg'"
           } ]
@@ -107,6 +107,14 @@
       },
       "required" : [ "COLLECTION_CONTAINS" ]
     },
+    "CollectionDuplicateValues" : {
+      "type" : "string",
+      "enum" : [ "KEEP", "SKIP" ]
+    },
+    "CollectionEmptyValues" : {
+      "type" : "string",
+      "enum" : [ "KEEP", "SKIP" ]
+    },
     "CollectionFrom" : {
       "type" : "object",
       "properties" : {
@@ -114,15 +122,36 @@
           "type" : "string",
           "description" : "The separator to use when splitting the string 'arg' to create a collection"
         },
+        "emptyValues" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/CollectionEmptyValues"
+          }, {
+            "description" : "Collection behavior with empty values"
+          } ]
+        },
+        "duplicateValues" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/CollectionDuplicateValues"
+          }, {
+            "description" : "Collection behavior with duplicate values values"
+          } ]
+        },
+        "ordering" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/CollectionOrdering"
+          }, {
+            "description" : "Ordering of the items inside collection"
+          } ]
+        },
         "arg" : {
           "allOf" : [ {
-            "$ref" : "#/definitions/OpText"
+            "$ref" : "#/definitions/OpCollectable"
           }, {
             "description" : "The string that contains a list of elements separated by 'separator'"
           } ]
         }
       },
-      "required" : [ "separator", "arg" ],
+      "required" : [ "separator", "emptyValues", "duplicateValues", "ordering", "arg" ],
       "description" : "Operation that returns a collection from a string 'arg', splitting it by a 'separator' string",
       "additionalProperties" : false
     },
@@ -134,6 +163,10 @@
         }
       },
       "required" : [ "COLLECTION_FROM" ]
+    },
+    "CollectionOrdering" : {
+      "type" : "string",
+      "enum" : [ "ORIGINAL", "SORTED" ]
     },
     "CollectionSize" : {
       "type" : "object",
@@ -284,6 +317,34 @@
     "ConstCollection" : {
       "type" : "object",
       "properties" : {
+        "emptyValues" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/CollectionEmptyValues"
+          }, {
+            "description" : "Collection behavior with empty values"
+          } ]
+        },
+        "duplicateValues" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/CollectionDuplicateValues"
+          }, {
+            "description" : "Collection behavior with duplicate values values"
+          } ]
+        },
+        "ordering" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/CollectionOrdering"
+          }, {
+            "description" : "Ordering of the items inside collection"
+          } ]
+        },
+        "itemType" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/ConstCollectionItemType"
+          }, {
+            "description" : "Which type 'items' should be considered as"
+          } ]
+        },
         "items" : {
           "description" : "A list of items to create a collection from, can not be null",
           "type" : "array",
@@ -292,7 +353,7 @@
           }
         }
       },
-      "required" : [ "items" ],
+      "required" : [ "emptyValues", "duplicateValues", "ordering", "itemType", "items" ],
       "description" : "Operation that creates a collection, can not be null",
       "additionalProperties" : false
     },
@@ -304,6 +365,10 @@
         }
       },
       "required" : [ "COLLECTION" ]
+    },
+    "ConstCollectionItemType" : {
+      "type" : "string",
+      "enum" : [ "TEXT", "BYTES" ]
     },
     "ConstDateTime" : {
       "type" : "object",
@@ -1320,6 +1385,31 @@
         "$ref" : "#/definitions/UnitTestRuntimeErrorWrapper"
       } ]
     },
+    "OpCollectable" : {
+      "oneOf" : [ {
+        "$ref" : "#/definitions/ConstBytes"
+      }, {
+        "$ref" : "#/definitions/ConstText"
+      }, {
+        "$ref" : "#/definitions/DebugWrapper"
+      }, {
+        "$ref" : "#/definitions/ExtractReference"
+      }, {
+        "$ref" : "#/definitions/FieldReferenceWrapper"
+      }, {
+        "$ref" : "#/definitions/JsonQueryBytesWrapper"
+      }, {
+        "$ref" : "#/definitions/JsonQueryTextWrapper"
+      }, {
+        "$ref" : "#/definitions/TagValueBytesWrapper"
+      }, {
+        "$ref" : "#/definitions/TagValueTextWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestNullWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestRuntimeErrorWrapper"
+      } ]
+    },
     "OpCollection" : {
       "oneOf" : [ {
         "$ref" : "#/definitions/CollectionFromWrapper"
@@ -1680,21 +1770,6 @@
       },
       "required" : [ "STARTS_WITH" ]
     },
-    "DurationFromUndeterminedIf" : {
-      "type" : "object",
-      "properties" : {
-        "isEmpty" : {
-          "type" : "string",
-          "description" : "currentStateMessage returned if the supplied value is empty"
-        },
-        "invalidFormat" : {
-          "type" : "string",
-          "description" : "currentStateMessage returned if supplied value can not be parsed into the requested format"
-        }
-      },
-      "required" : [ "invalidFormat" ],
-      "additionalProperties" : false
-    },
     "FieldReferenceUndeterminedIf" : {
       "type" : "object",
       "properties" : {
@@ -1725,6 +1800,21 @@
         }
       },
       "required" : [ "isInvalid" ],
+      "additionalProperties" : false
+    },
+    "DurationFromUndeterminedIf" : {
+      "type" : "object",
+      "properties" : {
+        "isEmpty" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned if the supplied value is empty"
+        },
+        "invalidFormat" : {
+          "type" : "string",
+          "description" : "currentStateMessage returned if supplied value can not be parsed into the requested format"
+        }
+      },
+      "required" : [ "invalidFormat" ],
       "additionalProperties" : false
     },
     "DateTimeFromUndeterminedIf" : {
@@ -1796,7 +1886,7 @@
     },
     "UnitTestReturnType" : {
       "type" : "string",
-      "enum" : [ "TEXT", "BYTES", "NUMBER", "BOOLEAN", "DATE_TIME", "COLLECTION", "JSON", "DURATION" ]
+      "enum" : [ "TEXT", "BYTES", "NUMBER", "BOOLEAN", "DATE_TIME", "COLLECTION_TEXT", "COLLECTION_BYTES", "JSON", "DURATION" ]
     },
     "UnitTestRuntimeError" : {
       "type" : "object",

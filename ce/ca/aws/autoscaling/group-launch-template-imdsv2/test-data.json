@@ -1,0 +1,506 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-06-22T18:49:05Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-06-17T15:05:27Z",
+        "CA10__launchConfigurationName__c": "",
+        "CA10A1__launchTemplateId__c": "launchTemplateId1",
+        "CA10A1__launchTemplate__c": "launchTemplate1",
+        "CA10A1__mixedInstancesLaunchTemplateId__c": "",
+        "CA10A1__mixedInstancesLaunchTemplate__c": "",
+        "CA10A1__launchTemplate__r": {
+            "Id": "launchTemplate1",
+            "CA10A1__disappearanceTime__c": "2025-06-17T17:40:24Z",
+            "CA10A1__latestVersion__c": "latestVersion1",
+            "CA10A1__latestVersionUniqueId__c": "launchTemplateId1",
+            "CA10A1__latestVersion__r": {
+                "Id": "latestVersion1",
+                "CA10A1__disappearanceTime__c": "2025-06-17T17:41:14Z",
+                "CA10A1__metadataHttpEndpoint__c": "",
+                "CA10A1__metadataHttpTokens__c": ""
+            }
+        },
+        "CA10A1__mixedInstancesLaunchTemplate__r": {
+            "Id": null,
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__latestVersion__c": null,
+            "CA10A1__latestVersionUniqueId__c": null,
+            "CA10A1__latestVersion__r": {
+                "Id": null,
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__metadataHttpEndpoint__c": null,
+                "CA10A1__metadataHttpTokens__c": null
+            }
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__launchConfigurationName__c').isNotEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-06-22T18:49:05Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchConfigurationName__c": "launchConfigurationName2",
+        "CA10A1__launchTemplateId__c": "",
+        "CA10A1__launchTemplate__c": "",
+        "CA10A1__mixedInstancesLaunchTemplateId__c": "",
+        "CA10A1__mixedInstancesLaunchTemplate__c": "",
+        "CA10A1__launchTemplate__r": {
+            "Id": null,
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__latestVersion__c": null,
+            "CA10A1__latestVersionUniqueId__c": null,
+            "CA10A1__latestVersion__r": {
+                "Id": null,
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__metadataHttpEndpoint__c": null,
+                "CA10A1__metadataHttpTokens__c": null
+            }
+        },
+        "CA10A1__mixedInstancesLaunchTemplate__r": {
+            "Id": null,
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__latestVersion__c": null,
+            "CA10A1__latestVersionUniqueId__c": null,
+            "CA10A1__latestVersion__r": {
+                "Id": null,
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__metadataHttpEndpoint__c": null,
+                "CA10A1__metadataHttpTokens__c": null
+            }
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10A1__launchTemplateId__c').isNotEmpty() && (isEmptyLookup('CA10A1__launchTemplate__r') || isEmptyLookup('CA10A1__launchTemplate__r.CA10A1__latestVersion__r'))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-06-22T18:49:05Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchConfigurationName__c": "",
+        "CA10A1__launchTemplateId__c": "launchTemplateId3",
+        "CA10A1__launchTemplate__c": "launchTemplate3",
+        "CA10A1__mixedInstancesLaunchTemplateId__c": "",
+        "CA10A1__mixedInstancesLaunchTemplate__c": "",
+        "CA10A1__launchTemplate__r": {
+            "Id": "launchTemplate3",
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__latestVersion__c": "latestVersion3",
+            "CA10A1__latestVersionUniqueId__c": "launchTemplateId3",
+            "CA10A1__latestVersion__r": {
+                "Id": "latestVersion3",
+                "CA10A1__disappearanceTime__c": "2025-06-17T17:41:14Z",
+                "CA10A1__metadataHttpEndpoint__c": "",
+                "CA10A1__metadataHttpTokens__c": ""
+            }
+        },
+        "CA10A1__mixedInstancesLaunchTemplate__r": {
+            "Id": null,
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__latestVersion__c": null,
+            "CA10A1__latestVersionUniqueId__c": null,
+            "CA10A1__latestVersion__r": {
+                "Id": null,
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__metadataHttpEndpoint__c": null,
+                "CA10A1__metadataHttpTokens__c": null
+            }
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10A1__launchTemplateId__c').isNotEmpty() && (isEmptyLookup('CA10A1__launchTemplate__r') || isEmptyLookup('CA10A1__launchTemplate__r.CA10A1__latestVersion__r'))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-06-22T18:49:05Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchConfigurationName__c": "",
+        "CA10A1__launchTemplateId__c": "launchTemplateId4",
+        "CA10A1__launchTemplate__c": "launchTemplate4",
+        "CA10A1__mixedInstancesLaunchTemplateId__c": "",
+        "CA10A1__mixedInstancesLaunchTemplate__c": "",
+        "CA10A1__launchTemplate__r": {
+            "Id": "launchTemplate4",
+            "CA10A1__disappearanceTime__c": "2025-06-17T17:41:14Z",
+            "CA10A1__latestVersion__c": "latestVersion4",
+            "CA10A1__latestVersionUniqueId__c": "launchTemplateId4",
+            "CA10A1__latestVersion__r": {
+                "Id": "latestVersion4",
+                "CA10A1__disappearanceTime__c": "2025-06-17T17:41:14Z",
+                "CA10A1__metadataHttpEndpoint__c": "",
+                "CA10A1__metadataHttpTokens__c": ""
+            }
+        },
+        "CA10A1__mixedInstancesLaunchTemplate__r": {
+            "Id": null,
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__latestVersion__c": null,
+            "CA10A1__latestVersionUniqueId__c": null,
+            "CA10A1__latestVersion__r": {
+                "Id": null,
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__metadataHttpEndpoint__c": null,
+                "CA10A1__metadataHttpTokens__c": null
+            }
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10A1__mixedInstancesLaunchTemplateId__c').isNotEmpty() && (isEmptyLookup('CA10A1__mixedInstancesLaunchTemplate__r') || isEmptyLookup('CA10A1__mixedInstancesLaunchTemplate__r.CA10A1__latestVersion__r'))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-06-22T18:49:05Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchConfigurationName__c": "",
+        "CA10A1__launchTemplateId__c": "",
+        "CA10A1__launchTemplate__c": "",
+        "CA10A1__mixedInstancesLaunchTemplateId__c": "mixedInstancesLaunchTemplateId5",
+        "CA10A1__mixedInstancesLaunchTemplate__c": "mixedInstancesLaunchTemplate5",
+        "CA10A1__launchTemplate__r": {
+            "Id": null,
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__latestVersion__c": null,
+            "CA10A1__latestVersionUniqueId__c": null,
+            "CA10A1__latestVersion__r": {
+                "Id": null,
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__metadataHttpEndpoint__c": null,
+                "CA10A1__metadataHttpTokens__c": null
+            }
+        },
+        "CA10A1__mixedInstancesLaunchTemplate__r": {
+            "Id": "mixedInstancesLaunchTemplate5",
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__latestVersion__c": "latestVersion5",
+            "CA10A1__latestVersionUniqueId__c": "latestVersionUniqueId5",
+            "CA10A1__latestVersion__r": {
+                "Id": "latestVersion5",
+                "CA10A1__disappearanceTime__c": "2025-06-22T18:49:05Z",
+                "CA10A1__metadataHttpEndpoint__c": "",
+                "CA10A1__metadataHttpTokens__c": ""
+            }
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10A1__mixedInstancesLaunchTemplateId__c').isNotEmpty() && (isEmptyLookup('CA10A1__mixedInstancesLaunchTemplate__r') || isEmptyLookup('CA10A1__mixedInstancesLaunchTemplate__r.CA10A1__latestVersion__r'))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-06-22T18:49:05Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchConfigurationName__c": "",
+        "CA10A1__launchTemplateId__c": "",
+        "CA10A1__launchTemplate__c": "",
+        "CA10A1__mixedInstancesLaunchTemplateId__c": "mixedInstancesLaunchTemplateId6",
+        "CA10A1__mixedInstancesLaunchTemplate__c": "mixedInstancesLaunchTemplate6",
+        "CA10A1__launchTemplate__r": {
+            "Id": null,
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__latestVersion__c": null,
+            "CA10A1__latestVersionUniqueId__c": null,
+            "CA10A1__latestVersion__r": {
+                "Id": null,
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__metadataHttpEndpoint__c": null,
+                "CA10A1__metadataHttpTokens__c": null
+            }
+        },
+        "CA10A1__mixedInstancesLaunchTemplate__r": {
+            "Id": "mixedInstancesLaunchTemplate6",
+            "CA10A1__disappearanceTime__c": "2025-06-22T18:49:05Z",
+            "CA10A1__latestVersion__c": "latestVersion6",
+            "CA10A1__latestVersionUniqueId__c": "latestVersionUniqueId6",
+            "CA10A1__latestVersion__r": {
+                "Id": "latestVersion6",
+                "CA10A1__disappearanceTime__c": "2025-06-22T18:49:05Z",
+                "CA10A1__metadataHttpEndpoint__c": "",
+                "CA10A1__metadataHttpTokens__c": ""
+            }
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "extract('CA10A1__launchTemplateId__c').isNotEmpty() && extract('CA10A1__launchTemplate__r.CA10A1__latestVersion__r.CA10A1__metadataHttpEndpoint__c') == 'disabled'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-06-22T18:49:05Z"
+        },
+        "Id": "test7",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchConfigurationName__c": "",
+        "CA10A1__launchTemplateId__c": "launchTemplateId7",
+        "CA10A1__launchTemplate__c": "launchTemplate7",
+        "CA10A1__mixedInstancesLaunchTemplateId__c": "",
+        "CA10A1__mixedInstancesLaunchTemplate__c": "",
+        "CA10A1__launchTemplate__r": {
+            "Id": "launchTemplate7",
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__latestVersion__c": "latestVersion7",
+            "CA10A1__latestVersionUniqueId__c": "launchTemplateId7",
+            "CA10A1__latestVersion__r": {
+                "Id": "latestVersion7",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__metadataHttpEndpoint__c": "disabled",
+                "CA10A1__metadataHttpTokens__c": ""
+            }
+        },
+        "CA10A1__mixedInstancesLaunchTemplate__r": {
+            "Id": null,
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__latestVersion__c": null,
+            "CA10A1__latestVersionUniqueId__c": null,
+            "CA10A1__latestVersion__r": {
+                "Id": null,
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__metadataHttpEndpoint__c": null,
+                "CA10A1__metadataHttpTokens__c": null
+            }
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "599",
+            "conditionText": "extract('CA10A1__mixedInstancesLaunchTemplateId__c').isNotEmpty() && extract('CA10A1__mixedInstancesLaunchTemplate__r.CA10A1__latestVersion__r.CA10A1__metadataHttpEndpoint__c') == 'disabled'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-06-22T18:49:05Z"
+        },
+        "Id": "test8",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchConfigurationName__c": "",
+        "CA10A1__launchTemplateId__c": "",
+        "CA10A1__launchTemplate__c": "",
+        "CA10A1__mixedInstancesLaunchTemplateId__c": "mixedInstancesLaunchTemplateId8",
+        "CA10A1__mixedInstancesLaunchTemplate__c": "mixedInstancesLaunchTemplate8",
+        "CA10A1__launchTemplate__r": {
+            "Id": null,
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__latestVersion__c": null,
+            "CA10A1__latestVersionUniqueId__c": null,
+            "CA10A1__latestVersion__r": {
+                "Id": null,
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__metadataHttpEndpoint__c": null,
+                "CA10A1__metadataHttpTokens__c": null
+            }
+        },
+        "CA10A1__mixedInstancesLaunchTemplate__r": {
+            "Id": "mixedInstancesLaunchTemplate8",
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__latestVersion__c": "latestVersion8",
+            "CA10A1__latestVersionUniqueId__c": "latestVersionUniqueId8",
+            "CA10A1__latestVersion__r": {
+                "Id": "latestVersion8",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__metadataHttpEndpoint__c": "disabled",
+                "CA10A1__metadataHttpTokens__c": ""
+            }
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "699",
+            "conditionText": "extract('CA10A1__launchTemplateId__c').isNotEmpty() && extract('CA10A1__launchTemplate__r.CA10A1__latestVersion__r.CA10A1__metadataHttpTokens__c') == 'required'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-06-22T18:49:05Z"
+        },
+        "Id": "test9",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchConfigurationName__c": "",
+        "CA10A1__launchTemplateId__c": "launchTemplateId9",
+        "CA10A1__launchTemplate__c": "launchTemplate9",
+        "CA10A1__mixedInstancesLaunchTemplateId__c": "",
+        "CA10A1__mixedInstancesLaunchTemplate__c": "",
+        "CA10A1__launchTemplate__r": {
+            "Id": "launchTemplate9",
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__latestVersion__c": "latestVersion9",
+            "CA10A1__latestVersionUniqueId__c": "launchTemplateId9",
+            "CA10A1__latestVersion__r": {
+                "Id": "latestVersion9",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__metadataHttpEndpoint__c": "enabled",
+                "CA10A1__metadataHttpTokens__c": "required"
+            }
+        },
+        "CA10A1__mixedInstancesLaunchTemplate__r": {
+            "Id": null,
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__latestVersion__c": null,
+            "CA10A1__latestVersionUniqueId__c": null,
+            "CA10A1__latestVersion__r": {
+                "Id": null,
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__metadataHttpEndpoint__c": null,
+                "CA10A1__metadataHttpTokens__c": null
+            }
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "799",
+            "conditionText": "extract('CA10A1__mixedInstancesLaunchTemplateId__c').isNotEmpty() && extract('CA10A1__mixedInstancesLaunchTemplate__r.CA10A1__latestVersion__r.CA10A1__metadataHttpTokens__c') == 'required'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-06-22T18:49:05Z"
+        },
+        "Id": "test10",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchConfigurationName__c": "",
+        "CA10A1__launchTemplateId__c": "",
+        "CA10A1__launchTemplate__c": "",
+        "CA10A1__mixedInstancesLaunchTemplateId__c": "mixedInstancesLaunchTemplateId10",
+        "CA10A1__mixedInstancesLaunchTemplate__c": "mixedInstancesLaunchTemplate10",
+        "CA10A1__launchTemplate__r": {
+            "Id": null,
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__latestVersion__c": null,
+            "CA10A1__latestVersionUniqueId__c": null,
+            "CA10A1__latestVersion__r": {
+                "Id": null,
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__metadataHttpEndpoint__c": null,
+                "CA10A1__metadataHttpTokens__c": null
+            }
+        },
+        "CA10A1__mixedInstancesLaunchTemplate__r": {
+            "Id": "mixedInstancesLaunchTemplate10",
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__latestVersion__c": "latestVersion10",
+            "CA10A1__latestVersionUniqueId__c": "latestVersionUniqueId10",
+            "CA10A1__latestVersion__r": {
+                "Id": "latestVersion10",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__metadataHttpEndpoint__c": "",
+                "CA10A1__metadataHttpTokens__c": "required"
+            }
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "800",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-06-22T18:49:05Z"
+        },
+        "Id": "test11",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchConfigurationName__c": "",
+        "CA10A1__launchTemplateId__c": "launchTemplateId11",
+        "CA10A1__launchTemplate__c": "launchTemplate11",
+        "CA10A1__mixedInstancesLaunchTemplateId__c": "",
+        "CA10A1__mixedInstancesLaunchTemplate__c": "",
+        "CA10A1__launchTemplate__r": {
+            "Id": "launchTemplate11",
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__latestVersion__c": "latestVersion11",
+            "CA10A1__latestVersionUniqueId__c": "launchTemplateId11",
+            "CA10A1__latestVersion__r": {
+                "Id": "latestVersion11",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__metadataHttpEndpoint__c": "enabled",
+                "CA10A1__metadataHttpTokens__c": "optional"
+            }
+        },
+        "CA10A1__mixedInstancesLaunchTemplate__r": {
+            "Id": null,
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__latestVersion__c": null,
+            "CA10A1__latestVersionUniqueId__c": null,
+            "CA10A1__latestVersion__r": {
+                "Id": null,
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__metadataHttpEndpoint__c": null,
+                "CA10A1__metadataHttpTokens__c": null
+            }
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "800",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-06-22T18:49:05Z"
+        },
+        "Id": "test12",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchConfigurationName__c": "",
+        "CA10A1__launchTemplateId__c": "",
+        "CA10A1__launchTemplate__c": "",
+        "CA10A1__mixedInstancesLaunchTemplateId__c": "mixedInstancesLaunchTemplateId12",
+        "CA10A1__mixedInstancesLaunchTemplate__c": "mixedInstancesLaunchTemplate12",
+        "CA10A1__launchTemplate__r": {
+            "Id": null,
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__latestVersion__c": null,
+            "CA10A1__latestVersionUniqueId__c": null,
+            "CA10A1__latestVersion__r": {
+                "Id": null,
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__metadataHttpEndpoint__c": null,
+                "CA10A1__metadataHttpTokens__c": null
+            }
+        },
+        "CA10A1__mixedInstancesLaunchTemplate__r": {
+            "Id": "mixedInstancesLaunchTemplate12",
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__latestVersion__c": "latestVersion12",
+            "CA10A1__latestVersionUniqueId__c": "latestVersionUniqueId12",
+            "CA10A1__latestVersion__r": {
+                "Id": "latestVersion12",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__metadataHttpEndpoint__c": "",
+                "CA10A1__metadataHttpTokens__c": ""
+            }
+        }
+    }
+]

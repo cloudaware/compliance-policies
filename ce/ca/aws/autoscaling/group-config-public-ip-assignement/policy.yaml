@@ -1,0 +1,21 @@
+---
+names:
+  full: AWS EC2 Auto Scaling Group behind ELB assigns public IP to instances
+  contextual: Auto Scaling Group behind ELB assigns public IP to instances
+description: >
+  Ensure that EC2 instances launched by Auto Scaling Group launch configuration 
+  and accessible from behind a load balancer are not assigned public IP addresses.
+categories:
+  - "RELIABILITY"
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/aws-fsbp-v1.0.0/auto-scaling/05"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Autoscaling.5] Amazon EC2 instances launched using Auto Scaling group launch configurations should not have Public IP addresses"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/autoscaling-controls.html#autoscaling-5"
+  internal:
+    - dec-x-84342650

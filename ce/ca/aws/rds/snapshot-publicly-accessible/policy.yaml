@@ -12,6 +12,9 @@ frameworkMappings:
   - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
   - "/frameworks/aws-fsbp-v1.0.0/rds/01"
 similarPolicies:
+  awsSecurityHub:
+    - name: "[RDS.1] RDS snapshot should be private"
+      url: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-1
   internal:
     - dec-x-b3342905
   cloudConformity:

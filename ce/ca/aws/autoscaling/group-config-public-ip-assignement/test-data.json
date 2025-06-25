@@ -1,0 +1,227 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-21T08:46:39Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-04-21T05:57:57Z",
+        "CA10__launchConfigurationName__c": "launchConfigurationName",
+        "CA10__launchConfiguration__c": "test1_1",
+        "CA10__launchConfigurationUniqueId__c": "launchConfigurationUniqueId",
+        "CA10__launchConfiguration__r": {
+            "Id": "test1_1",
+            "CA10__disappearanceTime__c": null,
+            "CA10__associatePublicIpAddress__c": true
+        },
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": [
+            {
+                "Id": "test1_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__trafficSourceType__c": "elbv2",
+                "CA10__autoScalingGroup__c": "test1"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r.hasNo(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-21T08:46:39Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchConfigurationName__c": "launchConfigurationName",
+        "CA10__launchConfiguration__c": "test2_1",
+        "CA10__launchConfigurationUniqueId__c": "launchConfigurationUniqueId",
+        "CA10__launchConfiguration__r": {
+            "Id": "test2_1",
+            "CA10__disappearanceTime__c": null,
+            "CA10__associatePublicIpAddress__c": true
+        },
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r.hasNo(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-21T08:46:39Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchConfigurationName__c": "launchConfigurationName",
+        "CA10__launchConfiguration__c": "test3_1",
+        "CA10__launchConfigurationUniqueId__c": "launchConfigurationUniqueId",
+        "CA10__launchConfiguration__r": {
+            "Id": "test3_1",
+            "CA10__disappearanceTime__c": null,
+            "CA10__associatePublicIpAddress__c": true
+        },
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": [
+            {
+                "Id": "test3_2",
+                "CA10__disappearanceTime__c": "2025-04-21T08:46:39Z",
+                "CA10__trafficSourceType__c": "elbv2",
+                "CA10__autoScalingGroup__c": "test3"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__launchConfigurationName__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-21T08:46:39Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchConfigurationName__c": null,
+        "CA10__launchConfiguration__c": null,
+        "CA10__launchConfigurationUniqueId__c": "launchConfigurationUniqueId",
+        "CA10__launchConfiguration__r": {
+            "Id": null,
+            "CA10__disappearanceTime__c": null,
+            "CA10__associatePublicIpAddress__c": null
+        },
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": [
+            {
+                "Id": "test4_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__trafficSourceType__c": "elbv2",
+                "CA10__autoScalingGroup__c": "test4"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "399",
+            "conditionText": "isEmptyLookup('CA10__launchConfiguration__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-21T08:46:39Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchConfigurationName__c": "launchConfigurationName",
+        "CA10__launchConfiguration__c": null,
+        "CA10__launchConfigurationUniqueId__c": "launchConfigurationUniqueId",
+        "CA10__launchConfiguration__r": {
+            "Id": null,
+            "CA10__disappearanceTime__c": null,
+            "CA10__associatePublicIpAddress__c": null
+        },
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": [
+            {
+                "Id": "test5_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__trafficSourceType__c": "elbv2",
+                "CA10__autoScalingGroup__c": "test5"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "399",
+            "conditionText": "isEmptyLookup('CA10__launchConfiguration__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-21T08:46:39Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchConfigurationName__c": "launchConfigurationName",
+        "CA10__launchConfiguration__c": "test6_1",
+        "CA10__launchConfigurationUniqueId__c": "launchConfigurationUniqueId",
+        "CA10__launchConfiguration__r": {
+            "Id": "test6_1",
+            "CA10__disappearanceTime__c": "2025-04-21T08:46:39Z",
+            "CA10__associatePublicIpAddress__c": true
+        },
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": [
+            {
+                "Id": "test6_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__trafficSourceType__c": "elbv2",
+                "CA10__autoScalingGroup__c": "test6"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "extract('CA10__launchConfiguration__r.CA10__associatePublicIpAddress__c') == true",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-21T08:46:39Z"
+        },
+        "Id": "test7",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchConfigurationName__c": "launchConfigurationName",
+        "CA10__launchConfiguration__c": "test7_1",
+        "CA10__launchConfigurationUniqueId__c": "launchConfigurationUniqueId",
+        "CA10__launchConfiguration__r": {
+            "Id": "test7_1",
+            "CA10__disappearanceTime__c": null,
+            "CA10__associatePublicIpAddress__c": true
+        },
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": [
+            {
+                "Id": "test7_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__trafficSourceType__c": "elbv2",
+                "CA10__autoScalingGroup__c": "test7"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "599",
+            "conditionText": "extract('CA10__launchConfiguration__r.CA10__associatePublicIpAddress__c') == false",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-21T08:46:39Z"
+        },
+        "Id": "test8",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchConfigurationName__c": "launchConfigurationName",
+        "CA10__launchConfiguration__c": "test8_1",
+        "CA10__launchConfigurationUniqueId__c": "launchConfigurationUniqueId",
+        "CA10__launchConfiguration__r": {
+            "Id": "test8_1",
+            "CA10__disappearanceTime__c": null,
+            "CA10__associatePublicIpAddress__c": false
+        },
+        "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r": [
+            {
+                "Id": "test8_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__trafficSourceType__c": "elb",
+                "CA10__autoScalingGroup__c": "test8"
+            }
+        ]
+    }
+]

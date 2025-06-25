@@ -14,7 +14,7 @@ conditions:
               COLLECTION_SIZE:
                 arg:
                   UNIT_TEST_NULL:
-                    returnType: COLLECTION
+                    returnType: COLLECTION_TEXT
             right:
               NUMBER: 0
   - status: COMPLIANT
@@ -28,6 +28,10 @@ conditions:
               COLLECTION_SIZE:
                 arg:
                   COLLECTION:
+                    emptyValues: SKIP
+                    duplicateValues: SKIP
+                    ordering: SORTED
+                    itemType: TEXT
                     items: []
             right:
               NUMBER: 0
@@ -42,6 +46,10 @@ conditions:
               COLLECTION_SIZE:
                 arg:
                   COLLECTION:
+                    emptyValues: SKIP
+                    duplicateValues: SKIP
+                    ordering: SORTED
+                    itemType: TEXT
                     items:
                       - a
                       - b
@@ -59,6 +67,10 @@ conditions:
               COLLECTION_SIZE:
                 arg:
                   COLLECTION:
+                    emptyValues: SKIP
+                    duplicateValues: SKIP
+                    ordering: SORTED
+                    itemType: TEXT
                     items:
                       - a
                       - a
@@ -76,6 +88,10 @@ conditions:
               COLLECTION_SIZE:
                 arg:
                   COLLECTION:
+                    emptyValues: SKIP
+                    duplicateValues: SKIP
+                    ordering: SORTED
+                    itemType: TEXT
                     items:
                       - "a"
                       - "A"

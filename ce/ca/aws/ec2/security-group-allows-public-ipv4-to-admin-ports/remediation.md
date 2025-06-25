@@ -1,5 +1,21 @@
 # Remediation
 
+## From AWS CLI
+
+To remove a specific security group rule that allows public (0.0.0.0/0) access to an administrative port, use the following command:
+
+```sh
+aws ec2 revoke-security-group-ingress \
+    --group-id {{sg-id}} \
+    --protocol {{protocol}} \
+    --port {{port/min-max}} \
+    --cidr 0.0.0.0/0
+```
+
+**Note**: You must revoke the entire rule as it was originally defined — that is, exact protocol, full port range, and CIDR block — and if needed, recreate any safe sub-rules after that.
+
+## From Console
+
 Perform the following to implement the prescribed state:
 
 1. Login to the AWS Management Console at <https://console.aws.amazon.com/vpc/home>.

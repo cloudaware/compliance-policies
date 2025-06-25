@@ -1,0 +1,14 @@
+names:
+  full: "AWS EKS Cluster Logging is not enabled for all control plane logs types"
+  contextual: "Cluster Logging is not enabled for all control plane logs types"
+description: >
+  Ensure that EKS cluster control plane logs are enabled and configured to capture 
+  API, audit, authenticator, controller manager, and scheduler activity.
+categories:
+  - "RELIABILITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
+similarPolicies:
+  internal:
+    - "dec-x-8ccccedc"

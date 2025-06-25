@@ -1,0 +1,49 @@
+inputType: "CA10A1__CaAwsEksCluster__c"
+importExtracts:
+  - file: "/types/CA10A1__CaAwsEksCluster__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "EKS cluster control plane logging is not configured for API server logs."
+    check:
+      COLLECTION_CONTAINS:
+        arg: 
+          EXTRACT: "caExtract_logging_asCollection__c"
+        search:
+          TEXT: "api: Disabled"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "EKS cluster control plane logging is not configured for Audit logs."
+    check:
+      COLLECTION_CONTAINS:
+        arg: 
+          EXTRACT: "caExtract_logging_asCollection__c"
+        search:
+          TEXT: "audit: Disabled"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "EKS cluster control plane logging is not configured for Authenticator logs."
+    check:
+      COLLECTION_CONTAINS:
+        arg: 
+          EXTRACT: "caExtract_logging_asCollection__c"
+        search:
+          TEXT: "authenticator: Disabled"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "EKS cluster control plane logging is not configured for Controller manager logs."
+    check:
+      COLLECTION_CONTAINS:
+        arg: 
+          EXTRACT: "caExtract_logging_asCollection__c"
+        search:
+          TEXT: "controllerManager: Disabled"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "EKS cluster control plane logging is not configured for Scheduler logs."
+    check:
+      COLLECTION_CONTAINS:
+        arg: 
+          EXTRACT: "caExtract_logging_asCollection__c"
+        search:
+          TEXT: "scheduler: Disabled"
+otherwise:
+  status: "COMPLIANT" 
+  currentStateMessage: "EKS Cluster logging is configured for all control plane log types."

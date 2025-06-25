@@ -1,0 +1,13 @@
+names:
+  full: "Snowflake User MFA is not enabled"
+  contextual: "MFA is not enabled"
+description: >
+  Ensure that Multi-Factor Authentication (MFA) is enabled for Snowflake
+  Users to provide an additional layer of security. MFA support is provided as 
+  an integrated Snowflake feature, powered by the Duo Security service, which 
+  is managed completely by Snowflake.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/identity-and-access-governance/mfa-implementation"

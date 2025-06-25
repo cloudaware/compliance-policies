@@ -1,0 +1,97 @@
+---
+inputType: "CA10__CaAwsAutoScalingGroup__c"
+importExtracts:
+  - file: "/types/CA10A1__CaAwsEc2LaunchTemplateVersion__c/object.extracts.yaml"
+  - file: "/types/CA10__CaAwsAutoScalingGroup__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"  
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Auto Scaling group uses a launch configuration."
+    remediationMessage: "Consider migrating the Auto Scaling group to launch template."
+    check:
+      NOT_EMPTY:
+        arg:
+          EXTRACT: "CA10__launchConfigurationName__c"
+  - status: "UNDETERMINED"
+    currentStateMessage: "The launch template is not present in the CMDB."
+    check:
+      AND:
+        args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10A1__launchTemplateId__c"
+          - OR:
+              args:
+                - IS_EMPTY_LOOKUP: "CA10A1__launchTemplate__r"
+                - IS_EMPTY_LOOKUP: "CA10A1__launchTemplate__r.CA10A1__latestVersion__r"
+  - status: "UNDETERMINED"
+    currentStateMessage: "The launch template is not present in the CMDB."
+    check:
+      AND:
+        args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10A1__mixedInstancesLaunchTemplateId__c"
+          - OR:
+              args:
+                - IS_EMPTY_LOOKUP: "CA10A1__mixedInstancesLaunchTemplate__r"
+                - IS_EMPTY_LOOKUP: "CA10A1__mixedInstancesLaunchTemplate__r.CA10A1__latestVersion__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Access to the HTTP endpoint of the instance metadata service is disabled."
+    remediationMessage: "Consider enabling access to the instance metadata."
+    check:
+      AND:
+        args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10A1__launchTemplateId__c"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10A1__launchTemplate__r.CA10A1__latestVersion__r.CA10A1__metadataHttpEndpoint__c"
+              right:
+                TEXT: "disabled"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Access to the HTTP endpoint of the instance metadata service is disabled."
+    remediationMessage: "Consider enabling access to the instance metadata."
+    check:
+      AND:
+        args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10A1__mixedInstancesLaunchTemplateId__c"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10A1__mixedInstancesLaunchTemplate__r.CA10A1__latestVersion__r.CA10A1__metadataHttpEndpoint__c"
+              right:
+                TEXT: "disabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "The launch template settings require IMDSv2."
+    check:
+      AND:
+        args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10A1__launchTemplateId__c"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10A1__launchTemplate__r.CA10A1__latestVersion__r.CA10A1__metadataHttpTokens__c"
+              right:
+                TEXT: "required"
+  - status: "COMPLIANT"
+    currentStateMessage: "The launch template settings require IMDSv2."
+    check:
+      AND:
+        args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10A1__mixedInstancesLaunchTemplateId__c"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10A1__mixedInstancesLaunchTemplate__r.CA10A1__latestVersion__r.CA10A1__metadataHttpTokens__c"
+              right:
+                TEXT: "required"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "IMDSv2 is not required when requesting instance metadata."
+  remediationMessage: "Configure the template to only allow IMDSv2 calls."

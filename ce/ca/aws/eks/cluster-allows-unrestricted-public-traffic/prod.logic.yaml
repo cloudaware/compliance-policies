@@ -1,0 +1,25 @@
+inputType: "CA10A1__CaAwsEksCluster__c"
+importExtracts:
+  - file: "/types/CA10A1__CaAwsEksCluster__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Cluster endpoint public access is disabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10A1__endpointPublicAccess__c"
+        right:
+          TEXT: "Disabled"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Cluster endpoint public access allows all IP addresses." 
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "CA10A1__publicAccessCidrs__c"
+        substring:
+          TEXT: "0.0.0.0/0"
+otherwise:
+  status: "COMPLIANT" 
+  currentStateMessage: "Cluster endpoint public access does not allow all IP addresses." 

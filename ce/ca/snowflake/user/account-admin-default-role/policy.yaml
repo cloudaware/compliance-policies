@@ -1,0 +1,11 @@
+names:
+  full: "Snowflake User Default Role is ACCOUNTADMIN"
+  contextual: "Default Role is ACCOUNTADMIN"
+description: >
+  Ensure that the ACCOUNTADMIN role is not set as the Default Role for Snowflake 
+  Users to reduce risk and prevent accidental use of broad administrative privileges.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/identity-and-access-governance/user-account-management"

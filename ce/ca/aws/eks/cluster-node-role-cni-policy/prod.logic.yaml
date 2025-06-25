@@ -1,0 +1,74 @@
+inputType: "CA10A1__CaAwsEksCluster__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsIamRolePolicyAttachment__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+# VPC CNI plugin, as a prerequisite, requires an existing AWS IAM OIDC provider for the cluster.
+# If the OIDC provider does not exist, the cluster is considered INAPPLICABLE since this topic is evaluated in /ce/ca/aws/eks/cluster-oidc-provider policy.
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The VPC CNI plugin requires an existing IAM OpenID Connect (OIDC) provider for the cluster."
+    check:
+      RELATED_LIST_HAS_NO:
+        status: "COMPLIANT"
+        relationshipName: "CA10A1__AWS_IAM_OpenID_Connect_Providers__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The EKS Cluster's node IAM role has the AmazonEKS_CNI_Policy attached."
+    remediationMessage: "Consider configuring a separate IAM role with Amazon EKS CNI policy attached and annotating the aws-node service account with this role."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10A1__AWS_EKS_Cluster_Node_Groups__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "The EKS Cluster's node IAM role does not have the AmazonEKS_CNI_Policy attached"
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10A1__AWS_EKS_Cluster_Node_Groups__r"
+  - status: "UNDETERMINED"
+    currentStateMessage: "Unable to determine the EKS Cluster's Node Groups."
+    check:
+      RELATED_LIST_HAS:
+        status: "UNDETERMINED"
+        relationshipName: "CA10A1__AWS_EKS_Cluster_Node_Groups__r"
+  - status: "DISAPPEARED"
+    currentStateMessage: "The EKS Cluster's Node Groups are deleted in the CMDB."
+    check:
+      RELATED_LIST_HAS:
+        status: "DISAPPEARED"
+        relationshipName: "CA10A1__AWS_EKS_Cluster_Node_Groups__r"
+otherwise:
+  status: "UNDETERMINED" 
+  currentStateMessage: "The EKS Cluster doesn't have any Node Groups in the CMDB."
+relatedLists:
+  - relationshipName: "CA10A1__AWS_IAM_OpenID_Connect_Providers__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This is an IAM OpenID Connect Provider."
+  - relationshipName: "CA10A1__AWS_EKS_Cluster_Node_Groups__r"
+    conditions: 
+      - status: "INCOMPLIANT" 
+        currentStateMessage: "The Node Group's IAM role has the AmazonEKS_CNI_Policy attached."
+        check:
+          RELATED_LIST_HAS:
+            status: "INCOMPLIANT"
+            relationshipName: "CA10A1__nodeRole__r.CA10__AWS_IAM_Role_Policy_Attachments__r"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "The Node Group's IAM role does not have the AmazonEKS_CNI_Policy attached."
+    relatedLists:
+      - relationshipName: "CA10A1__nodeRole__r.CA10__AWS_IAM_Role_Policy_Attachments__r"
+        conditions:
+        #TODO: add an INCOMPLIANT check for exact policy permissions once supported
+          - status: "INCOMPLIANT"
+            currentStateMessage: "The AmazonEKS_CNI_Policy is attached to the node IAM role."
+            check:
+              IS_EQUAL:
+                left:
+                  EXTRACT: "CA10__policyArn__c"
+                right:
+                  TEXT: "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+        otherwise:
+          status: "INAPPLICABLE"
+          currentStateMessage: "Unrelated IAM Policy."

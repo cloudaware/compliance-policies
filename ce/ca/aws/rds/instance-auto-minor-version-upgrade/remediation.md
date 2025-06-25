@@ -2,160 +2,24 @@
 
 ## Remediate AWS RDS Instances
 
-### Using AWS CLoudFormation
-
-- CloudFormation template (JSON):
-
-```json
-{
- "AWSTemplateFormatVersion": "2010-09-09",
- "Description": "Enable Auto Minor Version Upgrade for Database Instances",
- "Parameters": {
-  "DBInstanceName": {
-   "Default": "mysql-database-instance",
-   "Description": "RDS database instance name",
-   "Type": "String",
-   "MinLength": "1",
-   "MaxLength": "63",
-   "AllowedPattern": "^[0-9a-zA-Z-/]*$",
-   "ConstraintDescription": "Must begin with a letter and must not end with a hyphen or contain two consecutive hyphens."
-  },
-  "DBInstanceClass": {
-   "Default": "db.t2.small",
-   "Description": "DB instance class/type",
-   "Type": "String",
-   "ConstraintDescription": "Must provide a valid DB instance type."
-  },
-  "DBAllocatedStorage": {
-   "Default": "20",
-   "Description": "The size of the database (GiB)",
-   "Type": "Number",
-   "MinValue": "20",
-   "MaxValue": "65536",
-   "ConstraintDescription": "Must be between 20 and 65536 GiB."
-  },
-  "DBName": {
-   "Default": "mysqldb",
-   "Description": "Database name",
-   "Type": "String",
-   "MinLength": "1",
-   "MaxLength": "64",
-   "AllowedPattern": "[a-zA-Z][a-zA-Z0-9]*",
-   "ConstraintDescription": "Must begin with a letter and contain only alphanumeric characters."
-  },
-  "DBUsername": {
-   "Description": "Master username for database access",
-   "Type": "String",
-   "MinLength": "1",
-   "MaxLength": "16",
-   "AllowedPattern": "[a-zA-Z][a-zA-Z0-9]*",
-   "ConstraintDescription": "Must begin with a letter and contain only alphanumeric characters."
-  },
-  "DBPassword": {
-   "NoEcho": "true",
-   "Description": "Password for database access",
-   "Type": "String",
-   "MinLength": "8",
-   "MaxLength": "41",
-   "AllowedPattern": "[a-zA-Z0-9]*",
-   "ConstraintDescription": "Must contain only alphanumeric characters."
-  }
- },
- "Resources": {
-  "RDSInstance": {
-   "Type": "AWS::RDS::DBInstance",
-   "Properties": {
-    "DBInstanceIdentifier": {
-     "Ref": "DBInstanceName"
-    },
-    "DBName": {
-     "Ref": "DBName"
-    },
-    "MasterUsername": {
-     "Ref": "DBUsername"
-    },
-    "MasterUserPassword": {
-     "Ref": "DBPassword"
-    },
-    "DBInstanceClass": {
-     "Ref": "DBInstanceClass"
-    },
-    "AllocatedStorage": {
-     "Ref": "DBAllocatedStorage"
-    },
-    "Engine": "MySQL",
-    "EngineVersion": "5.7.36",
-    "AutoMinorVersionUpgrade": true
-   }
-  }
- }
-}
-```
+### Using AWS CloudFormation
 
 - CloudFormation template (YAML):
 
 ```yaml
 AWSTemplateFormatVersion: '2010-09-09'
-  Description: Enable Auto Minor Version Upgrade for Database Instances
-  Parameters:
-    DBInstanceName:
-    Default: mysql-database-instance
-    Description: RDS database instance name
+Description: Enables automatic minor version upgrades for an existing RDS instance.
+
+Parameters:
+  DBInstanceIdentifier:
     Type: String
-    MinLength: '1'
-    MaxLength: '63'
-    AllowedPattern: ^[0-9a-zA-Z-/]*$
-    ConstraintDescription: Must begin with a letter and must not end with a hyphen
-        or contain two consecutive hyphens.
-    DBInstanceClass:
-    Default: db.t2.small
-    Description: DB instance class/type
-    Type: String
-    ConstraintDescription: Must provide a valid DB instance type.
-    DBAllocatedStorage:
-    Default: '20'
-    Description: The size of the database (GiB)
-    Type: Number
-    MinValue: '20'
-    MaxValue: '65536'
-    ConstraintDescription: Must be between 20 and 65536 GiB.
-    DBName:
-    Default: mysqldb
-    Description: Database name
-    Type: String
-    MinLength: '1'
-    MaxLength: '64'
-    AllowedPattern: '[a-zA-Z][a-zA-Z0-9]*'
-    ConstraintDescription: Must begin with a letter and contain only alphanumeric
-        characters.
-    DBUsername:
-    Description: Master username for database access
-    Type: String
-    MinLength: '1'
-    MaxLength: '16'
-    AllowedPattern: '[a-zA-Z][a-zA-Z0-9]*'
-    ConstraintDescription: Must begin with a letter and contain only alphanumeric
-        characters.
-    DBPassword:
-    NoEcho: 'true'
-    Description: Password for database access
-    Type: String
-    MinLength: '8'
-    MaxLength: '41'
-    AllowedPattern: '[a-zA-Z0-9]*'
-    ConstraintDescription: Must contain only alphanumeric characters.
-  Resources:
-    RDSInstance:
+    Description: ID of the existing RDS instance
+
+Resources:
+  AutoMinorUpgradeRDS:
     Type: AWS::RDS::DBInstance
     Properties:
-      DBInstanceIdentifier: !Ref 'DBInstanceName'
-      DBName: !Ref 'DBName'
-      MasterUsername: !Ref 'DBUsername'
-      MasterUserPassword: !Ref 'DBPassword'
-      DBInstanceClass: !Ref 'DBInstanceClass'
-      AllocatedStorage: !Ref 'DBAllocatedStorage'
-      Engine: MySQL
-      EngineVersion: 5.7.36
+      DBInstanceIdentifier: !Ref DBInstanceIdentifier
       AutoMinorVersionUpgrade: true
 ```
 
@@ -199,7 +63,7 @@ resource "aws_db_instance" "rds-database-instance" {
 
 ### From Console
 
-1. Log in to the AWS management console and navigate to the RDS dashboard at https://console.aws.amazon.com/rds/.
+1. Log in to the AWS management console and navigate to the RDS dashboard at <https://console.aws.amazon.com/rds/>.
 2. In the left navigation panel, click `Databases`.
 3. Select the RDS instance that you want to update.
 4. Click on the `Modify` button located at the top right side.

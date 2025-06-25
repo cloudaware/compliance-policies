@@ -1,13 +1,26 @@
 # Remediation
 
-## From Console
+## Using AWS CloudFormation
 
-1. Sign in to the AWS Management Console and navigate to the EC2 dashboard at <https://console.aws.amazon.com/ec2/>.
-2. In the left navigation panel, under the `INSTANCES` section, choose `Instances`.
-3. Select the EC2 instance that you want to examine.
-4. Choose `Actions` > `Instance Settings` > `Modify instance metadata options`.
-5. Ensure `Instance metadata service` is set to `Enable` and set `IMDSv2` to `Required`.
-6. Repeat steps no. 1 – 5 to perform the remediation process for other EC2 Instances in the all applicable AWS region(s).
+- CloudFormation template (YAML):
+
+```yaml
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Enforce IMDSv2 on a specified EC2 instance
+
+Parameters:
+  InstanceId:
+    Type: String
+    Description: EC2 Instance ID to update with IMDSv2 enforcement
+
+Resources:
+  EnforceIMDSv2:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceId: !Ref InstanceId
+      MetadataOptions:
+        HttpTokens: required
+```
 
 ## From Command Line
 
@@ -26,3 +39,12 @@ aws ec2 modify-instance-metadata-options --instance-id <instance-id> --http-toke
 
 4. Repeat steps no. 1 – 3 to perform the remediation process for other EC2 Instances in the same AWS region.
 5. Change the region by updating `--region` and repeat the entire process for other regions.
+
+## From Console
+
+1. Sign in to the AWS Management Console and navigate to the EC2 dashboard at <https://console.aws.amazon.com/ec2/>.
+2. In the left navigation panel, under the `INSTANCES` section, choose `Instances`.
+3. Select the EC2 instance that you want to examine.
+4. Choose `Actions` > `Instance Settings` > `Modify instance metadata options`.
+5. Ensure `Instance metadata service` is set to `Enable` and set `IMDSv2` to `Required`.
+6. Repeat steps no. 1 – 5 to perform the remediation process for other EC2 Instances in the all applicable AWS region(s).

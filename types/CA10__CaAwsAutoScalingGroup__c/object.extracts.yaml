@@ -16,6 +16,9 @@ extracts:
     value: 
       COLLECTION_FROM:
         separator: "\n"
+        emptyValues: SKIP
+        duplicateValues: SKIP
+        ordering: SORTED
         arg:
           EXTRACT: CA10__availabilityZones__c
 # A comma-separated value string of one or more health check types.
@@ -23,4 +26,19 @@ extracts:
   - name: CA10__healthCheckType__c
     value: 
       FIELD:
-        path: CA10__healthCheckType__c          
+        path: CA10__healthCheckType__c     
+# Nullable. Can't have no access, retrieved via autoscaling:DescribeAutoScalingGroups     
+  - name: CA10__launchConfigurationName__c
+    value: 
+      FIELD:
+        path: CA10__launchConfigurationName__c          
+# Nullable. Can't have no access, retrieved via autoscaling:DescribeAutoScalingGroups     
+  - name: CA10A1__launchTemplateId__c
+    value: 
+      FIELD:
+        path: CA10A1__launchTemplateId__c          
+# Nullable. Can't have no access, retrieved via autoscaling:DescribeAutoScalingGroups     
+  - name: CA10A1__mixedInstancesLaunchTemplateId__c
+    value: 
+      FIELD:
+        path: CA10A1__mixedInstancesLaunchTemplateId__c          

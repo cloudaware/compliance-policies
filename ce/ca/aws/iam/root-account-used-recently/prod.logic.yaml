@@ -7,7 +7,7 @@ importExtracts:
   - file: "/types/CA10__CaAwsUser__c/object.extracts.yaml"
 conditions:
   - status: INAPPLICABLE
-    currentStateMessage: "This is not a 'root' user"
+    currentStateMessage: "This is not a root user."
     check:
       NOT_EQUAL:
         left:
@@ -15,8 +15,24 @@ conditions:
         right:
           TEXT: root
   - status: INCOMPLIANT
-    currentStateMessage: "Root user's password has been used during last 30 days"
-    remediationMessage: "Avoid logging in as 'root'"
+    currentStateMessage: "Root user's access key has been used during last 30 days."
+    remediationMessage: "Consider deleting the access key for the root user."
+    check:
+      IS_WITHIN_LAST_DAYS:
+        offsetDays: 30
+        arg:
+          EXTRACT: CA10__credReportAccessKey1LastUsed__c
+  - status: INCOMPLIANT
+    currentStateMessage: "Root user's access key has been used during last 30 days."
+    remediationMessage: "Consider deleting the access key for the root user."
+    check:
+      IS_WITHIN_LAST_DAYS:
+        offsetDays: 30
+        arg:
+          EXTRACT: CA10__credReportAccessKey2LastUsed__c
+  - status: INCOMPLIANT
+    currentStateMessage: "Root user's password has been used during last 30 days."
+    remediationMessage: "Avoid logging in as root."
     check:
       IS_WITHIN_LAST_DAYS:
         offsetDays: 30
@@ -24,4 +40,4 @@ conditions:
           EXTRACT: CA10__credReportPasswordLastUsed__c
 otherwise:
   status: COMPLIANT
-  currentStateMessage: "Password haven't been used during last 30 days"
+  currentStateMessage: "Password haven't been used during last 30 days."

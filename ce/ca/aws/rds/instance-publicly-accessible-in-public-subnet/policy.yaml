@@ -15,10 +15,13 @@ frameworkMappings:
   - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
   - "/frameworks/aws-fsbp-v1.0.0/rds/02"
 similarPolicies:
-  internal:
-    - dec-x-f937c35f
+  awsSecurityHub:
+    - name: "[RDS.2] RDS DB Instances should prohibit public access, as determined by the PubliclyAccessible configuration"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-2"
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/RDS/rds-publicly-accessible.html
       name: RDS Publicly Accessible
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/RDS/instance-not-in-public-subnet.html
       name: RDS Instance Not In Public Subnet
+  internal:
+    - dec-x-f937c35f

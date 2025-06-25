@@ -14,6 +14,10 @@ conditions:
               COLLECTION_CONTAINS:
                 arg:
                   COLLECTION:
+                    emptyValues: SKIP
+                    duplicateValues: SKIP
+                    ordering: SORTED
+                    itemType: TEXT
                     items: []
                 search:
                   TEXT: a
@@ -26,6 +30,10 @@ conditions:
           COLLECTION_CONTAINS:
             arg:
               COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
                 items:
                   - a
             search:
@@ -41,6 +49,10 @@ conditions:
               COLLECTION_CONTAINS:
                 arg:
                   COLLECTION:
+                    emptyValues: SKIP
+                    duplicateValues: SKIP
+                    ordering: SORTED
+                    itemType: TEXT
                     items:
                       - b
                       - c
@@ -57,7 +69,7 @@ conditions:
               COLLECTION_CONTAINS:
                 arg:
                   UNIT_TEST_NULL:
-                    returnType: COLLECTION
+                    returnType: COLLECTION_TEXT
                 search:
                   TEXT: a
   - status: COMPLIANT
@@ -71,6 +83,10 @@ conditions:
               COLLECTION_CONTAINS:
                 arg:
                   COLLECTION:
+                    emptyValues: SKIP
+                    duplicateValues: SKIP
+                    ordering: SORTED
+                    itemType: TEXT
                     items:
                       - a
                 search:
@@ -85,6 +101,10 @@ conditions:
           COLLECTION_CONTAINS:
             arg:
               COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
                 items:
                   - " ABC "
             search:

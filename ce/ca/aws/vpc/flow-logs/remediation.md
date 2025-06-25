@@ -1,6 +1,38 @@
 # Remediation
 
-Perform the following to determine if VPC Flow logs is enabled:
+## Using AWS CloudFormation
+
+- CloudFormation template (YAML):
+
+**Note**: The IAM role used in `DeliverLogsPermissionArn` must exist before deploying this template. 
+
+```yaml
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Enables flow logging for rejected traffic on a specified VPC, publishing to CloudWatch Logs.
+
+Parameters:
+  VPCId:
+    Type: String
+    Description: ID of the existing VPC
+  LogGroupName:
+    Type: String
+    Default: /vpc/flow-logs
+  FlowLogRoleArn:
+    Type: String
+    Description: >
+      ARN of an existing IAM role that grants permission to publish flow logs to CloudWatch Logs.
+
+Resources:
+  VPCFlowLog:
+    Type: AWS::EC2::FlowLog
+    Properties:
+      ResourceId: !Ref VPCId
+      ResourceType: VPC
+      TrafficType: REJECT
+      DeliverLogsPermissionArn: !Ref FlowLogRoleArn
+      LogGroupName: !Ref LogGroupName
+      LogDestinationType: cloud-watch-logs
+```
 
 ## From Console
 

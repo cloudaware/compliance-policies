@@ -1,0 +1,9 @@
+names:
+  full: "Snowflake User password is not rotated every 90 days"
+  contextual: "Password is not rotated every 90 days"
+description: "Ensure that Snowflake User passwords are rotated at regular intervals."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/identity-and-access-governance/credential-lifecycle-management"

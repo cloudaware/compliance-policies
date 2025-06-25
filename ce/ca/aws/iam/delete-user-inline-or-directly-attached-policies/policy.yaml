@@ -17,8 +17,11 @@ frameworkMappings:
   - "/frameworks/cloudaware/identity-and-access-governance/user-account-management"
   - "/frameworks/aws-fsbp-v1.0.0/iam/02"
 similarPolicies:
-  internal:
-    - dec-x-4157c58a
+  awsSecurityHub:
+    - name: "[IAM.2] IAM users should not have IAM policies attached"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/iam-controls.html#iam-2"
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/aws/IAM/receive-permissions-via-groups-only.html
       name: Receive Permissions via IAM Groups Only
+  internal:
+    - dec-x-4157c58a

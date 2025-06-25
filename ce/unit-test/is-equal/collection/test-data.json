@@ -3,7 +3,7 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "199",
-      "conditionText": "unitTest(Test-1): ['a', 'b', 'c'] == ['a', 'b', 'c']",
+      "conditionText": "unitTest(Test-1): ['a', 'b', 'c'].skipEmpty().skipDuplicates().sort() == ['a', 'b', 'c'].skipEmpty().skipDuplicates().sort()",
       "runtimeError": null
     },
     "context": {
@@ -17,7 +17,7 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "299",
-      "conditionText": "unitTest(Test-2): ['a', 'b', 'c'] == ['c', 'a', 'b']",
+      "conditionText": "unitTest(Test-2): ['a', 'b', 'c'].skipEmpty().skipDuplicates().sort() == ['c', 'a', 'b'].skipEmpty().skipDuplicates().sort()",
       "runtimeError": null
     },
     "context": {
@@ -31,7 +31,7 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "399",
-      "conditionText": "unitTest(Test-3): ['a', 'b', 'c'] == ['a', 'a', 'b', 'b', 'c', 'c']",
+      "conditionText": "unitTest(Test-3): ['a', 'b', 'c'].skipEmpty().skipDuplicates().sort() == ['a', 'a', 'b', 'b', 'c', 'c'].skipEmpty().skipDuplicates().sort()",
       "runtimeError": null
     },
     "context": {
@@ -45,7 +45,7 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "499",
-      "conditionText": "unitTest(Test-4): ['a', 'b', 'c'] == ['a ', ' b ', ' c']",
+      "conditionText": "unitTest(Test-4): ['a', 'b', 'c'].skipEmpty().skipDuplicates().sort() == ['a ', ' b ', ' c'].skipEmpty().skipDuplicates().sort()",
       "runtimeError": null
     },
     "context": {
@@ -59,7 +59,7 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "599",
-      "conditionText": "unitTest(Test-5): ['a', 'b', 'c'] == ['A', 'B', 'C']",
+      "conditionText": "unitTest(Test-5): ['a', 'b', 'c'].skipEmpty().skipDuplicates().sort() == ['A', 'B', 'C'].skipEmpty().skipDuplicates().sort()",
       "runtimeError": null
     },
     "context": {
@@ -73,7 +73,7 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "699",
-      "conditionText": "unitTest(Test-6): [] == []",
+      "conditionText": "unitTest(Test-6): [].skipEmpty().skipDuplicates().sort() == [].skipEmpty().skipDuplicates().sort()",
       "runtimeError": null
     },
     "context": {
@@ -101,7 +101,7 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "899",
-      "conditionText": "unitTest(Test-8): [] == null",
+      "conditionText": "unitTest(Test-8): [].skipEmpty().skipDuplicates().sort() == null",
       "runtimeError": null
     },
     "context": {

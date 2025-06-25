@@ -1,0 +1,19 @@
+---
+inputType: "CA10SN__CaSnowflakeUser__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10SN__CaSnowflakeUser__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Default Role for this User is ACCOUNTADMIN."
+    remediationMessage: "Change the Default Role for the User to a less privileged role."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10SN__defaultRoleName__c"
+        right:
+          TEXT: "ACCOUNTADMIN"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Default Role for this User is not ACCOUNTADMIN."

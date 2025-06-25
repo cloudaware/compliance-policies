@@ -47,7 +47,7 @@
     {
         "expectedResult": {
             "status": "INCOMPLIANT",
-            "conditionIndex": "299",
+            "conditionIndex": "499",
             "conditionText": "extract('CA10__credReportPasswordLastUsed__c').withinLastDays(30)",
             "runtimeError": null
         },
@@ -62,7 +62,7 @@
     {
         "expectedResult": {
             "status": "COMPLIANT",
-            "conditionIndex": "300",
+            "conditionIndex": "500",
             "conditionText": "otherwise",
             "runtimeError": null
         },
@@ -88,5 +88,35 @@
         "CA10__disappearanceTime__c": null,
         "CA10__userName__c": "root",
         "CA10__credReportAttributesJson__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__credReportAccessKey1LastUsed__c').withinLastDays(30)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-06T07:21:54Z"
+        },
+        "Id": "test7",
+        "CA10__disappearanceTime__c": null,
+        "CA10__userName__c": "root",
+        "CA10__credReportAttributesJson__c": "{\"password_last_used\":\"2021-11-29T17:56:06Z\",\"access_key_1_last_used_region\":\"N/A\",\"password_enabled\":\"true\",\"access_key_1_last_used_date\":\"2024-11-29T17:56:06Z\",\"access_key_1_last_used_service\":\"N/A\",\"mfa_active\":\"false\",\"access_key_2_last_used_date\":\"N/A\",\"user_creation_time\":\"2021-05-06T14:51:01Z\",\"cert_2_active\":\"false\",\"cert_1_active\":\"false\",\"cert_1_last_rotated\":\"N/A\",\"access_key_2_last_used_service\":\"N/A\",\"access_key_2_active\":\"false\",\"access_key_1_active\":\"false\",\"password_next_rotation\":\"not_supported\",\"access_key_2_last_rotated\":\"N/A\",\"arn\":\"arn:aws:iam::012345678910:root\",\"access_key_1_last_rotated\":\"N/A\",\"access_key_2_last_used_region\":\"N/A\",\"user\":\"root\",\"password_last_changed\":\"2021-05-06T14:55:07Z\",\"cert_2_last_rotated\":\"N/A\"}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__credReportAccessKey2LastUsed__c').withinLastDays(30)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-12-06T07:21:54Z"
+        },
+        "Id": "test8",
+        "CA10__disappearanceTime__c": null,
+        "CA10__userName__c": "root",
+        "CA10__credReportAttributesJson__c": "{\"password_last_used\":\"2021-11-29T17:56:06Z\",\"access_key_1_last_used_region\":\"N/A\",\"password_enabled\":\"true\",\"access_key_1_last_used_date\":\"N/A\",\"access_key_1_last_used_service\":\"N/A\",\"mfa_active\":\"false\",\"access_key_2_last_used_date\":\"2024-11-29T17:56:06Z\",\"user_creation_time\":\"2021-05-06T14:51:01Z\",\"cert_2_active\":\"false\",\"cert_1_active\":\"false\",\"cert_1_last_rotated\":\"N/A\",\"access_key_2_last_used_service\":\"N/A\",\"access_key_2_active\":\"false\",\"access_key_1_active\":\"false\",\"password_next_rotation\":\"not_supported\",\"access_key_2_last_rotated\":\"N/A\",\"arn\":\"arn:aws:iam::012345678910:root\",\"access_key_1_last_rotated\":\"N/A\",\"access_key_2_last_used_region\":\"N/A\",\"user\":\"root\",\"password_last_changed\":\"2021-05-06T14:55:07Z\",\"cert_2_last_rotated\":\"N/A\"}"
     }
 ]

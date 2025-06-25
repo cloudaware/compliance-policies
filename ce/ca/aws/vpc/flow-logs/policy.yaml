@@ -15,8 +15,11 @@ frameworkMappings:
   - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
   - "/frameworks/aws-fsbp-v1.0.0/ec2/06"
 similarPolicies:
-  internal:
-    - dec-x-9c041667
+  awsSecurityHub:
+    - name: "[EC2.6] VPC flow logging should be enabled in all VPCs"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-6"
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/VPC/vpc-flow-logs-enabled.html
       name: VPC Flow Logs Enabled
+  internal:
+    - dec-x-9c041667

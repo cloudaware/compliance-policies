@@ -1,0 +1,15 @@
+names:
+  full: "AWS EKS Cluster allows unrestricted public traffic"
+  contextual: "Cluster allows unrestricted public traffic"
+description: >
+  Ensure that Amazon EKS clusters are configured to restrict public access to their 
+  Kubernetes API server endpoint to specific CIDR blocks. Unrestricted public 
+  access can expose the cluster to unauthorized access and potential attacks.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+similarPolicies:
+  internal:
+    - "dec-x-cffc7d8e"

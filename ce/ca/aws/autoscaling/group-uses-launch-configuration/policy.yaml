@@ -1,0 +1,19 @@
+---
+names:
+  full: AWS EC2 Auto Scaling Group uses Launch Configuration instead of Launch Template
+  contextual: Auto Scaling Group uses Launch Configuration instead of Launch Template
+description: >
+  Ensure Auto Scaling groups use Launch Templates instead of Launch Configurations. 
+  Launch Configurations are no longer fully supported by AWS and do not receive updates for new EC2 features.
+categories:
+  - "RELIABILITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/infrastructure-modernization"
+  - "/frameworks/aws-fsbp-v1.0.0/auto-scaling/09"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[AutoScaling.9] Amazon EC2 Auto Scaling groups should use Amazon EC2 launch templates"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/autoscaling-controls.html#autoscaling-9"
+  internal:
+    - "dec-x-b49c2465"

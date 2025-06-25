@@ -1,0 +1,14 @@
+---
+extracts:
+# Values: Enabled | Disabled. Nullable. NULL value == Enabled
+# Can't have no access, retrieved via ec2:DescribeLaunchTemplateVersions
+  - name: CA10A1__metadataHttpEndpoint__c
+    value: 
+      FIELD:
+        path: CA10A1__metadataHttpEndpoint__c
+# Values: Required | Optional. Nullable. NULL value == Optional
+# Can't have no access, retrieved via ec2:DescribeLaunchTemplateVersions  
+  - name: CA10A1__metadataHttpTokens__c
+    value: 
+      FIELD:
+        path: CA10A1__metadataHttpTokens__c

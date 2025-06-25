@@ -1,0 +1,20 @@
+---
+names:
+  full: AWS EC2 Auto Scaling Group Launch Template is not configured to require IMDSv2
+  contextual: Auto Scaling Group Launch Template is not configured to require IMDSv2
+description: >
+  Ensure that the EC2 Auto Scaling Group uses a Launch Template which is configured 
+  to require IMDSv2 (Instance Metadata Service Version 2). IMDSv2 is a session-oriented 
+  method for accessing instance metadata.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/secure-access"
+  - "/frameworks/aws-fsbp-v1.0.0/auto-scaling/03"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[AutoScaling.3] Auto Scaling group launch configurations should configure EC2 instances to require Instance Metadata Service Version 2 (IMDSv2)"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/autoscaling-controls.html#autoscaling-3"
+  internal:
+    - "dec-x-fe8fe2c6"

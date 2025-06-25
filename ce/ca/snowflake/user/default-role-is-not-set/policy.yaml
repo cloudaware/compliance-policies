@@ -1,0 +1,10 @@
+names:
+  full: "Snowflake User Default Role is not set"
+  contextual: "Default Role is not set"
+description: >
+  Ensure the Default Role is set for Snowflake Users.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/identity-and-access-governance/user-account-management"

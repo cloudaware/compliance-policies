@@ -23,7 +23,7 @@
         "expectedResult": {
             "status": "INAPPLICABLE",
             "conditionIndex": "199",
-            "conditionText": "not(['httpApi'].contains(RecordType.DeveloperName))",
+            "conditionText": "not(['httpApi'].skipEmpty().skipDuplicates().sort().contains(RecordType.DeveloperName))",
             "runtimeError": null
         },
         "context": {

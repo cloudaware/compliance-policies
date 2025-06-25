@@ -1,5 +1,26 @@
 # Remediation
 
+## Using AWS CloudFormation
+
+- CloudFormation template (YAML):
+
+```yaml
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Enables Multi-AZ deployment for an existing RDS instance.
+
+Parameters:
+  DBInstanceIdentifier:
+    Type: String
+    Description: The ID of the existing RDS instance
+
+Resources:
+  MultiAZRDSInstance:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBInstanceIdentifier: !Ref DBInstanceIdentifier
+      MultiAZ: true
+```
+
 ## From Console
 
 1. Login to the AWS Management Console and open the RDS dashboard.

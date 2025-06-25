@@ -1,0 +1,26 @@
+---
+inputType: "CA10SN__CaSnowflakeUser__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10SN__CaSnowflakeUser__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The User does not use password authentication."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10SN__hasPassword__c" 
+        right:
+          TEXT: "true" 
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The password was last set more than 90 days ago."
+    remediationMessage: "Rotate the password."
+    check:
+      IS_BEYOND_LAST_DAYS:
+        arg:
+          EXTRACT: "CA10SN__passwordLastSetTime__c"
+        offsetDays: 90
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The password was last set within the last 90 days."

@@ -1,0 +1,269 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10A1__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-27T04:46:05Z"
+        },
+        "Id": "test1",
+        "CA10A1__disappearanceTime__c": "2025-05-26T09:12:47Z",
+        "CA10A1__AWS_IAM_OpenID_Connect_Providers__r": [
+            {
+                "Id": "test1_1",
+                "CA10A1__disappearanceTime__c": "2025-05-26T08:55:05Z",
+                "CA10A1__eksCluster__c": "test1"
+            }
+        ],
+        "CA10A1__AWS_EKS_Cluster_Node_Groups__r": [
+            {
+                "Id": "test1_2",
+                "CA10A1__disappearanceTime__c": "2025-05-26T09:17:42Z",
+                "CA10A1__cluster__c": "test1",
+                "CA10A1__nodeRole__c": "",
+                "CA10A1__nodeRole__r": {
+                    "Id": null,
+                    "CA10__AWS_IAM_Role_Policy_Attachments__r": []
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "CA10A1__AWS_IAM_OpenID_Connect_Providers__r.hasNo(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-27T04:46:05Z"
+        },
+        "Id": "test2",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__AWS_IAM_OpenID_Connect_Providers__r": [],
+        "CA10A1__AWS_EKS_Cluster_Node_Groups__r": [
+            {
+                "Id": "test2_2",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__cluster__c": "test2",
+                "CA10A1__nodeRole__c": "nodeRole2",
+                "CA10A1__nodeRole__r": {
+                    "Id": "nodeRole2",
+                    "CA10__AWS_IAM_Role_Policy_Attachments__r": [
+                        {
+                            "Id": "test2_3",
+                            "CA10__disappearanceTime__c": null,
+                            "CA10__policyArn__c": "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
+                            "CA10__role__c": "nodeRole2"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10A1__AWS_EKS_Cluster_Node_Groups__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-27T04:46:05Z"
+        },
+        "Id": "test3",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__AWS_IAM_OpenID_Connect_Providers__r": [
+            {
+                "Id": "test3_1",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__eksCluster__c": "test3"
+            }
+        ],
+        "CA10A1__AWS_EKS_Cluster_Node_Groups__r": [
+            {
+                "Id": "test3_2",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__cluster__c": "test3",
+                "CA10A1__nodeRole__c": "nodeRole3",
+                "CA10A1__nodeRole__r": {
+                    "Id": "nodeRole3",
+                    "CA10__AWS_IAM_Role_Policy_Attachments__r": [
+                        {
+                            "Id": "test3_3",
+                            "CA10__disappearanceTime__c": null,
+                            "CA10__policyArn__c": "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+                            "CA10__role__c": "nodeRole3"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "CA10A1__AWS_EKS_Cluster_Node_Groups__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-27T04:46:05Z"
+        },
+        "Id": "test4",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__AWS_IAM_OpenID_Connect_Providers__r": [
+            {
+                "Id": "test4_1",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__eksCluster__c": "test4"
+            }
+        ],
+        "CA10A1__AWS_EKS_Cluster_Node_Groups__r": [
+            {
+                "Id": "test4_2",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__cluster__c": "test4",
+                "CA10A1__nodeRole__c": "",
+                "CA10A1__nodeRole__r": {
+                    "Id": null,
+                    "CA10__AWS_IAM_Role_Policy_Attachments__r": []
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "CA10A1__AWS_EKS_Cluster_Node_Groups__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-27T04:46:05Z"
+        },
+        "Id": "test5",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__AWS_IAM_OpenID_Connect_Providers__r": [
+            {
+                "Id": "test5_1",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__eksCluster__c": "test5"
+            }
+        ],
+        "CA10A1__AWS_EKS_Cluster_Node_Groups__r": [
+            {
+                "Id": "test5_2",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__cluster__c": "test5",
+                "CA10A1__nodeRole__c": "nodeRole5",
+                "CA10A1__nodeRole__r": {
+                    "Id": "nodeRole5",
+                    "CA10__AWS_IAM_Role_Policy_Attachments__r": [
+                        {
+                            "Id": "test5_3",
+                            "CA10__disappearanceTime__c": null,
+                            "CA10__policyArn__c": "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
+                            "CA10__role__c": "nodeRole5"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "600",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-27T04:46:05Z"
+        },
+        "Id": "test6",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__AWS_IAM_OpenID_Connect_Providers__r": [
+            {
+                "Id": "test6_1",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__eksCluster__c": "test6"
+            }
+        ],
+        "CA10A1__AWS_EKS_Cluster_Node_Groups__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "CA10A1__AWS_EKS_Cluster_Node_Groups__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-27T04:46:05Z"
+        },
+        "Id": "test7",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__AWS_IAM_OpenID_Connect_Providers__r": [
+            {
+                "Id": "test7_1",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__eksCluster__c": "test7"
+            }
+        ],
+        "CA10A1__AWS_EKS_Cluster_Node_Groups__r": [
+            {
+                "Id": "test7_2",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__cluster__c": "test7",
+                "CA10A1__nodeRole__c": "nodeRole7",
+                "CA10A1__nodeRole__r": {
+                    "Id": "nodeRole7",
+                    "CA10__AWS_IAM_Role_Policy_Attachments__r": []
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "599",
+            "conditionText": "CA10A1__AWS_EKS_Cluster_Node_Groups__r.has(DISAPPEARED)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-27T04:46:05Z"
+        },
+        "Id": "test8",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__AWS_IAM_OpenID_Connect_Providers__r": [
+            {
+                "Id": "test8_1",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__eksCluster__c": "test8"
+            }
+        ],
+        "CA10A1__AWS_EKS_Cluster_Node_Groups__r": [
+            {
+                "Id": "test8_2",
+                "CA10A1__disappearanceTime__c": "2025-05-27T04:46:05Z",
+                "CA10A1__cluster__c": "test8",
+                "CA10A1__nodeRole__c": "nodeRole8",
+                "CA10A1__nodeRole__r": {
+                    "Id": "nodeRole8",
+                    "CA10__AWS_IAM_Role_Policy_Attachments__r": [
+                        {
+                            "Id": "test8_3",
+                            "CA10__disappearanceTime__c": null,
+                            "CA10__policyArn__c": "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+                            "CA10__role__c": "nodeRole8"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+]

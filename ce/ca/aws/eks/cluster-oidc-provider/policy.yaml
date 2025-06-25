@@ -1,0 +1,14 @@
+names:
+  full: "AWS EKS Cluster IAM OIDC provider is not created"
+  contextual: "Cluster IAM OIDC provider is not created"
+description: >
+  Ensure that AWS EKS clusters have an OpenID Connect (OIDC) provider configured. 
+  This is required to enable IAM Roles for Service Accounts (IRSA), which allows 
+  IAM roles to be securely assigned to Kubernetes service accounts for 
+  fine-grained access to AWS resources.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/identity-and-access-governance/rbac-management"
+  - "/frameworks/cloudaware/resource-security/secure-access"

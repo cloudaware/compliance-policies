@@ -12,12 +12,20 @@ conditions:
           IS_EQUAL:
             left:
               COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
                 items:
                   - a
                   - b
                   - c
             right:
               COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
                 items:
                   - a
                   - b
@@ -31,12 +39,20 @@ conditions:
           IS_EQUAL:
             left:
               COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
                 items:
                   - a
                   - b
                   - c
             right:
               COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
                 items:
                   - c
                   - a
@@ -50,12 +66,20 @@ conditions:
           IS_EQUAL:
             left:
               COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
                 items:
                   - a
                   - b
                   - c
             right:
               COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
                 items:
                   - a
                   - a
@@ -72,12 +96,20 @@ conditions:
           IS_EQUAL:
             left:
               COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
                 items:
                   - a
                   - b
                   - c
             right:
               COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
                 items:
                   - "a "
                   - " b "
@@ -91,12 +123,20 @@ conditions:
           IS_EQUAL:
             left:
               COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
                 items:
                   - a
                   - b
                   - c
             right:
               COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
                 items:
                   - A
                   - B
@@ -110,9 +150,17 @@ conditions:
           IS_EQUAL:
             left:
               COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
                 items: []
             right:
               COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
                 items: []
   - status: COMPLIANT
     currentStateMessage: Test-7
@@ -123,10 +171,10 @@ conditions:
           IS_EQUAL:
             left:
               UNIT_TEST_NULL:
-                returnType: COLLECTION
+                returnType: COLLECTION_TEXT
             right:
               UNIT_TEST_NULL:
-                returnType: COLLECTION
+                returnType: COLLECTION_TEXT
   - status: COMPLIANT
     currentStateMessage: Test-8
     check:
@@ -136,10 +184,14 @@ conditions:
           IS_EQUAL:
             left:
               COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
                 items: []
             right:
               UNIT_TEST_NULL:
-                returnType: COLLECTION
+                returnType: COLLECTION_TEXT
 otherwise:
   status: INCOMPLIANT
   currentStateMessage: Test Failed

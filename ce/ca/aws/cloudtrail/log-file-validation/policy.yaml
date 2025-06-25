@@ -16,8 +16,11 @@ frameworkMappings:
   - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
   - "/frameworks/aws-fsbp-v1.0.0/cloudtrail/04"
 similarPolicies:
-  internal:
-    - dec-x-b1e1a494
+  awsSecurityHub:
+    - name: "[CloudTrail.4] CloudTrail log file validation should be enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/cloudtrail-controls.html#cloudtrail-4"
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/CloudTrail/cloudtrail-log-file-integrity-validation.html
       name: CloudTrail Log File Integrity Validation
+  internal:
+    - dec-x-b1e1a494

@@ -1,0 +1,39 @@
+---
+extracts:
+#Values: Enabled | Disabled. Not Nullable.
+  - name: CA10A1__endpointPublicAccess__c
+    value: 
+      FIELD:
+        path: CA10A1__endpointPublicAccess__c
+        undeterminedIf:
+          noAccessDelegate:
+            path: CA10A1__endpointPublicAccess__c
+            currentStateMessage: "Endpoint Public Access cannot be empty. Possible permission issues with eks:DescribeCluster."
+#LONG_TEXT_AREA with IP addresses divided by \n. Nullable
+  - name: CA10A1__publicAccessCidrs__c
+    value: 
+      FIELD:
+        path: CA10A1__publicAccessCidrs__c
+#Values: array of strings
+      # api: Enabled\n
+      # audit: Enabled\n
+      # authenticator: Enabled\n
+      # controllerManager: Enabled\n
+      # scheduler: Enabled\n
+  - name: CA10A1__logging__c
+    value: 
+      FIELD:
+        path: CA10A1__logging__c
+        undeterminedIf:
+          noAccessDelegate:
+            path: CA10A1__logging__c
+            currentStateMessage: "Cluster Logging cannot be empty. Possible permission issues with eks:DescribeCluster."
+  - name: caExtract_logging_asCollection__c
+    value:
+      COLLECTION_FROM:
+        separator: "\n"
+        emptyValues: SKIP
+        duplicateValues: SKIP
+        ordering: SORTED
+        arg: 
+          EXTRACT: "CA10A1__logging__c"

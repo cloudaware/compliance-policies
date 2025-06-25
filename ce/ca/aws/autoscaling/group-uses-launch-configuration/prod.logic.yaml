@@ -1,0 +1,17 @@
+---
+inputType: "CA10__CaAwsAutoScalingGroup__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsAutoScalingGroup__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"  
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Auto Scaling group uses a launch configuration."
+    remediationMessage: "Consider migrating the Auto Scaling group to launch template."
+    check:
+      NOT_EMPTY:
+        arg:
+          EXTRACT: "CA10__launchConfigurationName__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The AGS does not use a launch configuration."

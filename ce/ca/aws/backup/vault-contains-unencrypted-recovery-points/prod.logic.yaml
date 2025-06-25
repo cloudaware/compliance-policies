@@ -1,0 +1,30 @@
+---
+inputType: "CA10A1__CaAwsBackupBackupVault__c"
+testData:
+  - file: "test-data.json"  
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Backup Vault contains one or more unencrypted Recovery Points."
+    remediationMessage: "Ensure all Recovery Points are encrypted. This might require configuring the source resource's encryption settings."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10A1__AWS_Backup_Recovery_Points__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "All Recovery Points in this Backup Vault are encrypted."
+relatedLists:
+  - relationshipName: "CA10A1__AWS_Backup_Recovery_Points__r"
+    importExtracts:
+      - file: "/types/CA10A1__CaAwsBackupRecoveryPoint__c/object.extracts.yaml"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The Recovery Point is not encrypted with a KMS key."
+        remediationMessage: "Consider encrypting this Recovery Point."
+        check:
+          IS_EMPTY:
+            arg:
+              EXTRACT: "CA10A1__kmsMasterKeyId__c"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "The Recovery Point is encrypted with a KMS." 

@@ -1,0 +1,76 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10A1__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-26T03:04:55Z"
+        },
+        "Id": "test",
+        "CA10A1__disappearanceTime__c": "2025-05-26T03:04:55Z",
+        "CA10A1__AWS_IAM_OpenID_Connect_Providers__r": [
+            {
+                "Id": "test1_1",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__eksCluster__c": "test1"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10A1__AWS_IAM_OpenID_Connect_Providers__r.hasNo(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-26T03:04:55Z"
+        },
+        "Id": "test2",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__AWS_IAM_OpenID_Connect_Providers__r": [
+            {
+                "Id": "test2_1",
+                "CA10A1__disappearanceTime__c": "2025-05-26T03:04:55Z",
+                "CA10A1__eksCluster__c": "test2"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10A1__AWS_IAM_OpenID_Connect_Providers__r.hasNo(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-26T03:04:55Z"
+        },
+        "Id": "test3",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__AWS_IAM_OpenID_Connect_Providers__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10A1__AWS_IAM_OpenID_Connect_Providers__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-26T03:04:55Z"
+        },
+        "Id": "test4",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__AWS_IAM_OpenID_Connect_Providers__r": [
+            {
+                "Id": "test4_1",
+                "CA10A1__disappearanceTime__c": null,
+                "CA10A1__eksCluster__c": "test4"
+            }
+        ]
+    }
+]
