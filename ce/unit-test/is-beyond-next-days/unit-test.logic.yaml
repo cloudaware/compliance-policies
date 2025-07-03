@@ -1,13 +1,14 @@
 ---
 inputType: CA10__CaAwsInstance__c
-testData:
-  - file: test-data.json
 conditions:
   - status: COMPLIANT
     currentStateMessage: "2024-01-05T00:00:00Z"
     check:
       UNIT_TEST:
         id: "2024-01-05T00:00:00Z"
+        expected:
+          text: "unitTest(2024-01-05T00:00:00Z): not('2024-01-05T00:00:00Z'.beyondNextDays(3))"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           NOT:
             arg:
@@ -20,6 +21,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "2024-01-05T23:59:59Z"
+        expected:
+          text: "unitTest(2024-01-05T23:59:59Z): not('2024-01-05T23:59:59Z'.beyondNextDays(3))"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           NOT:
             arg:
@@ -32,6 +36,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "2024-01-06T00:00:00Z"
+        expected:
+          text: "unitTest(2024-01-06T00:00:00Z): not('2024-01-06T00:00:00Z'.beyondNextDays(3))"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           NOT:
             arg:
@@ -44,6 +51,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "2024-01-06T23:59:59Z"
+        expected:
+          text: "unitTest(2024-01-06T23:59:59Z): not('2024-01-06T23:59:59Z'.beyondNextDays(3))"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           NOT:
             arg:
@@ -56,6 +66,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "2024-01-07T00:00:00Z"
+        expected:
+          text: "unitTest(2024-01-07T00:00:00Z): not('2024-01-07T00:00:00Z'.beyondNextDays(3))"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           NOT:
             arg:
@@ -68,6 +81,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "2024-01-07T23:59:59Z"
+        expected:
+          text: "unitTest(2024-01-07T23:59:59Z): not('2024-01-07T23:59:59Z'.beyondNextDays(3))"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           NOT:
             arg:
@@ -80,6 +96,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "2024-01-08T00:00:00Z"
+        expected:
+          text: "unitTest(2024-01-08T00:00:00Z): not('2024-01-08T00:00:00Z'.beyondNextDays(3))"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           NOT:
             arg:
@@ -92,6 +111,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "2024-01-08T23:59:59Z"
+        expected:
+          text: "unitTest(2024-01-08T23:59:59Z): not('2024-01-08T23:59:59Z'.beyondNextDays(3))"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           NOT:
             arg:
@@ -104,6 +126,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "2024-01-09T00:00:00Z"
+        expected:
+          text: "unitTest(2024-01-09T00:00:00Z): not('2024-01-09T00:00:00Z'.beyondNextDays(3))"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           NOT:
             arg:
@@ -116,6 +141,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "2024-01-09T23:59:59Z"
+        expected:
+          text: "unitTest(2024-01-09T23:59:59Z): not('2024-01-09T23:59:59Z'.beyondNextDays(3))"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           NOT:
             arg:
@@ -128,6 +156,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "2024-01-10T00:00:00Z"
+        expected:
+          text: "unitTest(2024-01-10T00:00:00Z): not('2024-01-10T00:00:00Z'.beyondNextDays(3))"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           NOT:
             arg:
@@ -140,6 +171,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "now"
+        expected:
+          text: "unitTest(now): '2024-01-10T18:00:00Z' == '2024-01-10T18:00:00Z'"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           IS_EQUAL:
             left:
@@ -151,6 +185,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "2024-01-10T23:59:59Z"
+        expected:
+          text: "unitTest(2024-01-10T23:59:59Z): not('2024-01-10T23:59:59Z'.beyondNextDays(3))"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           NOT:
             arg:
@@ -163,6 +200,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "2024-01-11T00:00:00Z"
+        expected:
+          text: "unitTest(2024-01-11T00:00:00Z): not('2024-01-11T00:00:00Z'.beyondNextDays(3))"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           NOT:
             arg:
@@ -175,6 +215,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "2024-01-11T23:59:59Z"
+        expected:
+          text: "unitTest(2024-01-11T23:59:59Z): not('2024-01-11T23:59:59Z'.beyondNextDays(3))"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           NOT:
             arg:
@@ -187,6 +230,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "2024-01-12T00:00:00Z"
+        expected:
+          text: "unitTest(2024-01-12T00:00:00Z): not('2024-01-12T00:00:00Z'.beyondNextDays(3))"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           NOT:
             arg:
@@ -199,6 +245,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "2024-01-12T23:59:59Z"
+        expected:
+          text: "unitTest(2024-01-12T23:59:59Z): not('2024-01-12T23:59:59Z'.beyondNextDays(3))"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           NOT:
             arg:
@@ -211,6 +260,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "2024-01-13T00:00:00Z"
+        expected:
+          text: "unitTest(2024-01-13T00:00:00Z): not('2024-01-13T00:00:00Z'.beyondNextDays(3))"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           NOT:
             arg:
@@ -223,6 +275,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "2024-01-13T23:59:59Z"
+        expected:
+          text: "unitTest(2024-01-13T23:59:59Z): not('2024-01-13T23:59:59Z'.beyondNextDays(3))"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           NOT:
             arg:
@@ -235,6 +290,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "2024-01-14T00:00:00Z"
+        expected:
+          text: "unitTest(2024-01-14T00:00:00Z): '2024-01-14T00:00:00Z'.beyondNextDays(3)"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           IS_BEYOND_NEXT_DAYS:
             arg:
@@ -245,6 +303,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "2024-01-14T23:59:59Z"
+        expected:
+          text: "unitTest(2024-01-14T23:59:59Z): '2024-01-14T23:59:59Z'.beyondNextDays(3)"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           IS_BEYOND_NEXT_DAYS:
             arg:
@@ -255,6 +316,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "2024-01-15T00:00:00Z"
+        expected:
+          text: "unitTest(2024-01-15T00:00:00Z): '2024-01-15T00:00:00Z'.beyondNextDays(3)"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           IS_BEYOND_NEXT_DAYS:
             arg:
@@ -265,6 +329,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "2024-01-15T23:59:59Z"
+        expected:
+          text: "unitTest(2024-01-15T23:59:59Z): '2024-01-15T23:59:59Z'.beyondNextDays(3)"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           IS_BEYOND_NEXT_DAYS:
             arg:
@@ -275,6 +342,9 @@ conditions:
     check:
       UNIT_TEST:
         id: "Null-1"
+        expected:
+          text: "unitTest(Null-1): not(null.beyondNextDays(3))"
+        snapshotTime: "2024-01-10T18:00:00Z"
         arg:
           NOT:
             arg:

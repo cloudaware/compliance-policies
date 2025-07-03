@@ -3,5 +3,8 @@ name: 3.1 Ensure That the Default Network Does Not Exist in a Project - Level 2 
 description: "To prevent use of `default` network, a project should not have a `default`\
   \ network."
 similar:
+  sections:
+    - /frameworks/cis-gcp-v2.0.0/03/01
+    - /frameworks/cis-gcp-v1.2.0/03/01
   internal:
     - dec-c-e4d11cac

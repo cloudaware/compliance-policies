@@ -3,5 +3,8 @@ name: 4.9 Ensure That Compute Instances Do Not Have Public IP Addresses - Level 
   (Automated)
 description: Compute instances should not be configured to have external IP addresses.
 similar:
+  sections:
+    - /frameworks/cis-gcp-v2.0.0/04/09
+    - /frameworks/cis-gcp-v1.2.0/04/09
   internal:
     - dec-c-ed83f85f

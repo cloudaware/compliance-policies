@@ -16,12 +16,12 @@ conditions:
               - ENDS_WITH:
                   arg:
                     EXTRACT: CA10__serviceAccountEmail__c
-                  suffix:
+                  search:
                     TEXT: ".iam.gserviceaccount.com" 
               - CONTAINS:
                   arg:
                     EXTRACT: CA10__serviceAccountEmail__c
-                  substring:
+                  search:
                     EXTRACT: serviceAccountProjectId
   - status: "INCOMPLIANT"
     currentStateMessage: "This Service Account has roles with admin privileges."
@@ -53,7 +53,7 @@ relatedLists:
                - CONTAINS:
                    arg:
                      EXTRACT: "CA10__iamRole__r.CA10__roleName__c"
-                   substring:
+                   search:
                      TEXT: "admin"
                - IS_EQUAL:
                    left:

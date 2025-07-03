@@ -20,5 +20,8 @@ description: |-
 
   Granting the owner role to a member (user/Service-Account) will allow that member to modify the Identity and Access Management (IAM) policy. Therefore, grant the owner role only if the member has a legitimate purpose to manage the IAM policy. This is because the project IAM policy contains sensitive access control data. Having a minimal set of users allowed to manage IAM policy will simplify any auditing that may be necessary.
 similar:
+  sections:
+    - /frameworks/cis-gcp-v2.0.0/02/04
+    - /frameworks/cis-gcp-v1.2.0/02/04
   internal:
     - dec-c-5cdbea13

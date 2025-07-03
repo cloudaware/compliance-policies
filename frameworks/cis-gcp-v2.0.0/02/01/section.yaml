@@ -3,5 +3,8 @@ name: 2.1 Ensure That Cloud Audit Logging Is Configured Properly - Level 1 (Auto
 description: "It is recommended that Cloud Audit Logging is configured to track all\
   \ admin activities and read, write access to user data."
 similar:
+  sections:
+    - /frameworks/cis-gcp-v3.0.0/02/01
+    - /frameworks/cis-gcp-v1.3.0/02/01
   internal:
     - dec-c-e1b9ccc6

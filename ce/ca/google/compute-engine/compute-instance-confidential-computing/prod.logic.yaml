@@ -14,7 +14,7 @@ conditions:
           STARTS_WITH:
             arg:
               EXTRACT: "CA10__machineTypeName__c"
-            prefix:
+            search:
               TEXT: "n2d-"
   - status: "COMPLIANT"
     currentStateMessage: "Instance has Confidential Computing enabled."
@@ -22,7 +22,7 @@ conditions:
       CONTAINS:
         arg:
           EXTRACT: "CA10__confidentialComputeStatus__c"
-        substring:
+        search:
           TEXT: "Enabled"
 otherwise:
   status: "INCOMPLIANT"

@@ -12,7 +12,7 @@ conditions:
       CONTAINS:
         arg:
           EXTRACT: "caJsonFrom__metadataJson__block_project_ssh_keys_value"
-        substring:
+        search:
           TEXT: "true"
 otherwise:
   status: "INCOMPLIANT"

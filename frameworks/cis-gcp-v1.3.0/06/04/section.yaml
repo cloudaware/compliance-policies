@@ -4,5 +4,8 @@ name: 6.4 Ensure That the Cloud SQL Database Instance Requires All Incoming Conn
 description: It is recommended to enforce all incoming connections to SQL database
   instance to use SSL.
 similar:
+  sections:
+    - /frameworks/cis-gcp-v2.0.0/06/04
+    - /frameworks/cis-gcp-v1.2.0/06/04
   internal:
     - dec-c-d504c90a

@@ -55,7 +55,7 @@ relatedLists:
               CONTAINS:
                 arg:
                   EXTRACT: "CA10__lifetimeActions__c"
-                substring:
+                search:
                   TEXT: "Rotate"
       - status: "COMPLIANT"
         currentStateMessage: "The Key rotation policy is configured."
@@ -63,7 +63,7 @@ relatedLists:
           CONTAINS:
             arg:
               EXTRACT: "CA10__lifetimeActions__c"
-            substring:
+            search:
               TEXT: "Rotate"
     otherwise:
       status: "UNDETERMINED"

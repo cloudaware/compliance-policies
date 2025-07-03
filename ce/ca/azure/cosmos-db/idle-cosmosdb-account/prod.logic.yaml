@@ -11,7 +11,7 @@ conditions:
       CONTAINS:
         arg:
           EXTRACT: "CA10__capabilities__c"
-        substring:
+        search:
           TEXT: "EnableServerless"
   - status: "INCOMPLIANT"
     currentStateMessage: "The Cosmos DB Account has zero Total Request Units for the 

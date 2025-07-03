@@ -1,0 +1,14 @@
+---
+names:
+  full: AWS Backup Recovery Point is expired and failed to delete
+  contextual: Recovery Point is expired and failed to delete
+description: >
+  Ensures that expired AWS Backup Recovery Points did not fail to delete. 
+  This is indicated by recovery points being past their calculated deletion 
+  date, or having no calculated deletion date. This can lead to unnecessary costs 
+  and data retention issues.
+categories:
+  - "COST"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"

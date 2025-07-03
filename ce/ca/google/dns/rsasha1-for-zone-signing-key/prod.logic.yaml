@@ -13,7 +13,7 @@ conditions:
       CONTAINS:
         arg:
           EXTRACT: "caJsonFrom__dnssecConfigurationKeySpecs_zoneSigning_algorithm_value"
-        substring: 
+        search:
           TEXT: "rsasha1"
 otherwise:
   status: "COMPLIANT"

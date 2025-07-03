@@ -6,5 +6,7 @@ description: |-
 
   This flag is deprecated for all SQL Server versions in CGP. Going forward, you can't set its value to on. However, if you have this flag enabled, we strongly recommend that you either remove the flag from your database or set it to off. For cross-database access, use the [Microsoft tutorial for signing stored procedures with a certificate](https://learn.microsoft.com/en-us/sql/relational-databases/tutorial-signing-stored-procedures-with-a-certificate?view=sql-server-ver16).
 similar:
+  sections:
+    - /frameworks/cis-gcp-v2.0.0/06/03/02
   internal:
     - dec-c-54eef373

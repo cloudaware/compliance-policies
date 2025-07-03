@@ -7,7 +7,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "EKS cluster control plane logging is not configured for API server logs."
     check:
-      COLLECTION_CONTAINS:
+      CONTAINS:
         arg: 
           EXTRACT: "caExtract_logging_asCollection__c"
         search:
@@ -15,7 +15,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "EKS cluster control plane logging is not configured for Audit logs."
     check:
-      COLLECTION_CONTAINS:
+      CONTAINS:
         arg: 
           EXTRACT: "caExtract_logging_asCollection__c"
         search:
@@ -23,7 +23,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "EKS cluster control plane logging is not configured for Authenticator logs."
     check:
-      COLLECTION_CONTAINS:
+      CONTAINS:
         arg: 
           EXTRACT: "caExtract_logging_asCollection__c"
         search:
@@ -31,7 +31,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "EKS cluster control plane logging is not configured for Controller manager logs."
     check:
-      COLLECTION_CONTAINS:
+      CONTAINS:
         arg: 
           EXTRACT: "caExtract_logging_asCollection__c"
         search:
@@ -39,7 +39,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "EKS cluster control plane logging is not configured for Scheduler logs."
     check:
-      COLLECTION_CONTAINS:
+      CONTAINS:
         arg: 
           EXTRACT: "caExtract_logging_asCollection__c"
         search:

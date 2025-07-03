@@ -4,5 +4,8 @@ name: 6.2.3 Ensure That the 'Log_disconnections' Database Flag for Cloud SQL Pos
 description: "Enabling the log_disconnections setting logs the end of each session,\
   \ including the session duration."
 similar:
+  sections:
+    - /frameworks/cis-gcp-v3.0.0/06/02/03
+    - /frameworks/cis-gcp-v1.3.0/06/02/03
   internal:
     - dec-c-fa92d36c

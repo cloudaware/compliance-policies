@@ -4,5 +4,8 @@ name: 5.2 Ensure That Cloud Storage Buckets Have Uniform Bucket-Level Access Ena
 description: It is recommended that uniform bucket-level access is enabled on Cloud
   Storage buckets.
 similar:
+  sections:
+    - /frameworks/cis-gcp-v2.0.0/05/02
+    - /frameworks/cis-gcp-v1.2.0/05/02
   internal:
     - dec-c-345bbae2

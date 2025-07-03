@@ -1,13 +1,13 @@
 ---
 inputType: CA10__CaAwsInstance__c
-testData:
-  - file: test-data.json
 conditions:
   - status: COMPLIANT
     currentStateMessage: Test-1
     check:
       UNIT_TEST:
         id: Test-1
+        expected:
+           text: "unitTest(Test-1): null.size() == number(0.0)"
         arg:
           IS_EQUAL:
             left:
@@ -22,6 +22,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-2
+        expected:
+          text: "unitTest(Test-2): [].skipEmpty().skipDuplicates().sort().size() == number(0.0)"
         arg:
           IS_EQUAL:
             left:
@@ -40,6 +42,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-3
+        expected:
+          text: "unitTest(Test-3): ['a', 'b', 'c'].skipEmpty().skipDuplicates().sort().size() == number(3.0)"
         arg:
           IS_EQUAL:
             left:
@@ -61,6 +65,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-4
+        expected:
+          text: "unitTest(Test-4): ['a', 'a', 'a'].skipEmpty().skipDuplicates().sort().size() == number(1.0)"
         arg:
           IS_EQUAL:
             left:
@@ -82,6 +88,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-5
+        expected:
+          text: "unitTest(Test-5): ['a', 'A', ' A ', '\\ta\\n\\r'].skipEmpty().skipDuplicates().sort().size() == number(1.0)"
         arg:
           IS_EQUAL:
             left:

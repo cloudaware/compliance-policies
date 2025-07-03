@@ -12,7 +12,7 @@ conditions:
       CONTAINS:
         arg:
           EXTRACT: "CA10__diskSkuName__c"
-        substring:
+        search:
           TEXT: "Premium"
 otherwise:
   status: "COMPLIANT"

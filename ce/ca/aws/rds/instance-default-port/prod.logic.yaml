@@ -50,7 +50,7 @@ conditions:
               right: 
                 TEXT: "1521"
           - STARTS_WITH:
-              prefix: 
+              search:
                 TEXT: "oracle-"
               arg:
                 EXTRACT: "CA10__engine__c"
@@ -89,7 +89,7 @@ conditions:
               right: 
                 TEXT: "1433"
           - STARTS_WITH:
-              prefix: 
+              search:
                 TEXT: "sqlserver-"
               arg:
                 EXTRACT: "CA10__engine__c"
@@ -152,14 +152,14 @@ conditions:
           - NOT:
               arg:
                 STARTS_WITH:
-                  prefix: 
+                  search:
                     TEXT: "oracle-"
                   arg:
                     EXTRACT: "CA10__engine__c"
           - NOT:
               arg:
                 STARTS_WITH:
-                  prefix: 
+                  search:
                     TEXT: "sqlserver-"
                   arg:
                     EXTRACT: "CA10__engine__c"

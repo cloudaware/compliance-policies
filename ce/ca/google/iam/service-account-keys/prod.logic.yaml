@@ -13,7 +13,7 @@ conditions:
           ENDS_WITH:
            arg:
             EXTRACT: CA10__serviceAccountEmail__c
-           suffix: 
+           search:
             TEXT: "iam.gserviceaccount.com"
   - status: "INCOMPLIANT"
     currentStateMessage: "User-managed service accounts should not have user-managed keys."

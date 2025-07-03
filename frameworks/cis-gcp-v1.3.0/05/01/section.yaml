@@ -4,5 +4,8 @@ name: 5.1 Ensure That Cloud Storage Bucket Is Not Anonymously or Publicly Access
 description: It is recommended that IAM policy on Cloud Storage bucket does not allows
   anonymous or public access.
 similar:
+  sections:
+    - /frameworks/cis-gcp-v2.0.0/05/01
+    - /frameworks/cis-gcp-v1.2.0/05/01
   internal:
     - dec-c-7cb98f50

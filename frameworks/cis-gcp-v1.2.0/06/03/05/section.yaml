@@ -4,5 +4,7 @@ name: 6.3.5 Ensure 'remote access' database flag for Cloud SQL SQL Server instan
 description: It is recommended to set `remote access` database flag for Cloud SQL
   SQL Server instance to `off`. Will be supported in the near future.
 similar:
+  sections:
+    - /frameworks/cis-gcp-v1.3.0/06/03/05
   internal:
     - dec-c-be54c754

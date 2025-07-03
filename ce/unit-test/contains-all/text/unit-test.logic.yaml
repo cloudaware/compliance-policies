@@ -1,0 +1,362 @@
+---
+inputType: CA10__CaAwsInstance__c
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: Word-1
+    check:
+      UNIT_TEST:
+        id: Word-1
+        expected:
+          text: "unitTest(Word-1): 'abcklmxyz'.containsAll(['abc', 'xyz'].skipEmpty().skipDuplicates().sort())"
+        arg:
+          CONTAINS_ALL:
+            arg:
+              TEXT: "abcklmxyz"
+            search:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - "abc"
+                  - "xyz"
+  - status: COMPLIANT
+    currentStateMessage: Word-2
+    check:
+      UNIT_TEST:
+        id: Word-2
+        expected:
+          text: "unitTest(Word-2): 'abcklmxyz'.containsAll(['abc', 'klm'].skipEmpty().skipDuplicates().sort())"
+        arg:
+          CONTAINS_ALL:
+            arg:
+              TEXT: "abcklmxyz"
+            search:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - "abc"
+                  - "klm"
+  - status: COMPLIANT
+    currentStateMessage: Word-3
+    check:
+      UNIT_TEST:
+        id: Word-3
+        expected:
+          text: "unitTest(Word-3): 'abcklmxyz'.containsAll(['klm', 'xyz'].skipEmpty().skipDuplicates().sort())"
+        arg:
+          CONTAINS_ALL:
+            arg:
+              TEXT: "abcklmxyz"
+            search:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - "klm"
+                  - "xyz"
+  - status: COMPLIANT
+    currentStateMessage: Word-4
+    check:
+      UNIT_TEST:
+        id: Word-4
+        expected:
+          text: "unitTest(Word-4): not('abcklmxyz'.containsAll(['abc', '123'].skipEmpty().skipDuplicates().sort()))"
+        arg:
+          NOT:
+            arg:
+              CONTAINS_ALL:
+                arg:
+                  TEXT: "abcklmxyz"
+                search:
+                  COLLECTION:
+                    emptyValues: SKIP
+                    duplicateValues: SKIP
+                    ordering: SORTED
+                    itemType: TEXT
+                    items:
+                      - "abc"
+                      - "123"
+  - status: COMPLIANT
+    currentStateMessage: Multiple-1
+    check:
+      UNIT_TEST:
+        id: Multiple-1
+        expected:
+          text: "unitTest(Multiple-1): 'abc klm xyz'.containsAll(['abc', 'xyz'].skipEmpty().skipDuplicates().sort())"
+        arg:
+          CONTAINS_ALL:
+            arg:
+              TEXT: "abc klm xyz"
+            search:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - "abc"
+                  - "xyz"
+  - status: COMPLIANT
+    currentStateMessage: Multiple-2
+    check:
+      UNIT_TEST:
+        id: Multiple-2
+        expected:
+          text: "unitTest(Multiple-2): 'abc klm xyz'.containsAll(['abc', 'klm'].skipEmpty().skipDuplicates().sort())"
+        arg:
+          CONTAINS_ALL:
+            arg:
+              TEXT: "abc klm xyz"
+            search:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - "abc"
+                  - "klm"
+  - status: COMPLIANT
+    currentStateMessage: Multiple-3
+    check:
+      UNIT_TEST:
+        id: Multiple-3
+        expected:
+          text: "unitTest(Multiple-3): 'abc klm xyz'.containsAll(['klm', 'xyz'].skipEmpty().skipDuplicates().sort())"
+        arg:
+          CONTAINS_ALL:
+            arg:
+              TEXT: "abc klm xyz"
+            search:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - "klm"
+                  - "xyz"
+  - status: COMPLIANT
+    currentStateMessage: Multiple-4
+    check:
+      UNIT_TEST:
+        id: Multiple-4
+        expected:
+          text: "unitTest(Multiple-4): not('abc klm xyz'.containsAll(['abc', '123'].skipEmpty().skipDuplicates().sort()))"
+        arg:
+          NOT:
+            arg:
+              CONTAINS_ALL:
+                arg:
+                  TEXT: "abc klm xyz"
+                search:
+                  COLLECTION:
+                    emptyValues: SKIP
+                    duplicateValues: SKIP
+                    ordering: SORTED
+                    itemType: TEXT
+                    items:
+                      - "abc"
+                      - "123"
+  - status: COMPLIANT
+    currentStateMessage: Whitespace-1
+    check:
+      UNIT_TEST:
+        id: Whitespace-1
+        expected:
+          text: "unitTest(Whitespace-1): ' aa   bb  cc '.containsAll(['aa bb', 'bb cc'].skipEmpty().skipDuplicates().sort())"
+        arg:
+          CONTAINS_ALL:
+            arg:
+              TEXT: " aa   bb  cc "
+            search:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - "aa bb"
+                  - "bb cc"
+  - status: COMPLIANT
+    currentStateMessage: Whitespace-2
+    check:
+      UNIT_TEST:
+        id: Whitespace-2
+        expected:
+          text: "unitTest(Whitespace-2): 'aa bb cc'.containsAll(['  aa  bb    ', '    bb   cc '].skipEmpty().skipDuplicates().sort())"
+        arg:
+          CONTAINS_ALL:
+            arg:
+              TEXT: "aa bb cc"
+            search:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - "  aa  bb    "
+                  - "    bb   cc "
+  - status: COMPLIANT
+    currentStateMessage: Whitespace-3
+    check:
+      UNIT_TEST:
+        id: Whitespace-3
+        expected:
+          text: "unitTest(Whitespace-3): ''.containsAll(['', ''].keepEmpty().keepDuplicates().sort())"
+        arg:
+          CONTAINS_ALL:
+            arg:
+              TEXT: ""
+            search:
+              COLLECTION:
+                emptyValues: KEEP
+                duplicateValues: KEEP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - ""
+                  - ""
+  - status: COMPLIANT
+    currentStateMessage: Whitespace-4
+    check:
+      UNIT_TEST:
+        id: Whitespace-4
+        expected:
+          text: "unitTest(Whitespace-4): 'a b c'.containsAll(['a\\nb', 'b\\n\\tc'].skipEmpty().skipDuplicates().sort())"
+        arg:
+          CONTAINS_ALL:
+            arg:
+              TEXT: "a b c"
+            search:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - "a\nb"
+                  - "b\n\tc"
+  - status: COMPLIANT
+    currentStateMessage: Case-1
+    check:
+      UNIT_TEST:
+        id: Case-1
+        expected:
+          text: "unitTest(Case-1): 'ABC KLM XYZ'.containsAll(['abc', 'xyz'].skipEmpty().skipDuplicates().sort())"
+        arg:
+          CONTAINS_ALL:
+            arg:
+              TEXT: "ABC KLM XYZ"
+            search:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - "abc"
+                  - "xyz"
+  - status: COMPLIANT
+    currentStateMessage: Null-1
+    check:
+      UNIT_TEST:
+        id: Null-1
+        expected:
+          text: "unitTest(Null-1): not(null.containsAll(null))"
+        arg:
+          NOT:
+            arg:
+              CONTAINS_ALL:
+                arg:
+                  UNIT_TEST_NULL:
+                    returnType: TEXT
+                search:
+                  UNIT_TEST_NULL:
+                    returnType: COLLECTION_TEXT
+  - status: COMPLIANT
+    currentStateMessage: Null-2
+    check:
+      UNIT_TEST:
+        id: Null-2
+        expected:
+          text: "unitTest(Null-2): not(''.containsAll(null))"
+        arg:
+          NOT:
+            arg:
+              CONTAINS_ALL:
+                arg:
+                  TEXT: ""
+                search:
+                  UNIT_TEST_NULL:
+                    returnType: COLLECTION_TEXT
+  - status: COMPLIANT
+    currentStateMessage: Null-3
+    check:
+      UNIT_TEST:
+        id: Null-3
+        expected:
+          text: "unitTest(Null-3): not('abc'.containsAll(null))"
+        arg:
+          NOT:
+            arg:
+              CONTAINS_ALL:
+                arg:
+                  TEXT: "abc"
+                search:
+                  UNIT_TEST_NULL:
+                    returnType: COLLECTION_TEXT
+  - status: COMPLIANT
+    currentStateMessage: Null-4
+    check:
+      UNIT_TEST:
+        id: Null-4
+        expected:
+          text: "unitTest(Null-4): null.containsAll([''].keepEmpty().keepDuplicates().sort())"
+        arg:
+          CONTAINS_ALL:
+            arg:
+              UNIT_TEST_NULL:
+                returnType: TEXT
+            search:
+              COLLECTION:
+                emptyValues: KEEP
+                duplicateValues: KEEP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - ""
+  - status: COMPLIANT
+    currentStateMessage: Null-5
+    check:
+      UNIT_TEST:
+        id: Null-5
+        expected:
+          text: "unitTest(Null-5): not(null.containsAll(['abc'].skipEmpty().skipDuplicates().sort()))"
+        arg:
+          NOT:
+            arg:
+              CONTAINS_ALL:
+                arg:
+                  UNIT_TEST_NULL:
+                    returnType: TEXT
+                search:
+                  COLLECTION:
+                    emptyValues: SKIP
+                    duplicateValues: SKIP
+                    ordering: SORTED
+                    itemType: TEXT
+                    items:
+                      - "abc"
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: Test Failed
+  remediationMessage: Developer Fix Required

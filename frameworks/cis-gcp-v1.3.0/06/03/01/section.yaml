@@ -4,5 +4,8 @@ name: 6.3.1 Ensure 'external scripts enabled' database flag for Cloud SQL SQL Se
 description: It is recommended to set `external scripts enabled` database flag for
   Cloud SQL SQL Server instance to `off`
 similar:
+  sections:
+    - /frameworks/cis-gcp-v2.0.0/06/03/01
+    - /frameworks/cis-gcp-v1.2.0/06/03/01
   internal:
     - dec-c-72c80c30

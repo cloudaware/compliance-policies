@@ -20,7 +20,7 @@ conditions:
           - STARTS_WITH:
               arg:
                 EXTRACT: CA10__domainName__c
-              prefix:
+              search:
                 TEXT: "*"
 otherwise:
   status: "COMPLIANT"

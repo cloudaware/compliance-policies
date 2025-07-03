@@ -4,5 +4,8 @@ name: 2.8 Ensure That the Log Metric Filter and Alerts Exist for VPC Network Rou
 description: It is recommended that a metric filter and alarm be established for Virtual
   Private Cloud (VPC) network route changes.
 similar:
+  sections:
+    - /frameworks/cis-gcp-v2.0.0/02/08
+    - /frameworks/cis-gcp-v1.2.0/02/08
   internal:
     - dec-c-bdd561dd

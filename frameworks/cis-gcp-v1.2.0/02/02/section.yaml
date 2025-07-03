@@ -1,10 +1,11 @@
 ---
-name: 2.2 Ensure that sinks are configured for all log entries - Level 1 (Automated
-  | Roadmapped)
+name: 2.2 Ensure that sinks are configured for all log entries - Level 1 (Automated)
 description: It is recommended to create a sink that will export copies of all the
   log entries. This can help aggregate logs from multiple projects and export them
   to a Security Information and Event Management (SIEM). Will be supported in the
   near future.
 similar:
+  sections:
+    - /frameworks/cis-gcp-v1.3.0/02/02
   internal:
     - dec-c-5e724299

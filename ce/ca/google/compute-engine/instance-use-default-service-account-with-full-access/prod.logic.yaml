@@ -11,7 +11,7 @@ conditions:
       STARTS_WITH:
         arg:
           EXTRACT: "Name"
-        prefix:
+        search:
           TEXT: 'gke-'
   - status: "INCOMPLIANT"
     currentStateMessage: "The instance is configured to use the default service account with full access to all Cloud APIs."
@@ -34,7 +34,7 @@ relatedLists:
         CONTAINS:
           arg:
             EXTRACT: "CA10__scopes__c"
-          substring:
+          search:
             TEXT: 'https://www.googleapis.com/auth/cloud-platform'
     otherwise:
       status: "COMPLIANT"

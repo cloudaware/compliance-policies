@@ -99,7 +99,7 @@ relatedLists:
                   - CONTAINS:
                       arg:
                         EXTRACT: "CA10__sourceAddressPrefix__c"
-                      substring:
+                      search:
                         TEXT: "/0"
                   - IS_EQUAL:
                       left:

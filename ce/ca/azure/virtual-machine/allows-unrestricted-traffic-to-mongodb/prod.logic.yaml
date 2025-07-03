@@ -101,7 +101,7 @@ relatedLists:
                       - CONTAINS:
                           arg:
                             EXTRACT: "CA10__sourceAddressPrefix__c"
-                          substring:
+                          search:
                             TEXT: "/0"
           # PORTS 27017-27020
           - status: "INCOMPLIANT"

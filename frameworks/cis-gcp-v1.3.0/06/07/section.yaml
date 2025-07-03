@@ -4,5 +4,8 @@ name: 6.7 Ensure That Cloud SQL Database Instances Are Configured With Automated
 description: It is recommended to have all SQL database instances set to enable automated
   backups.
 similar:
+  sections:
+    - /frameworks/cis-gcp-v2.0.0/06/07
+    - /frameworks/cis-gcp-v1.2.0/06/07
   internal:
     - dec-c-cd334ccd

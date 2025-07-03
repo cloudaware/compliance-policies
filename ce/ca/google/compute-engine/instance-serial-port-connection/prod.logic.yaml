@@ -13,7 +13,7 @@ conditions:
       CONTAINS:
         arg:
           EXTRACT: "caJsonFrom__metadataJson__serial_port_enable_value"
-        substring:
+        search:
           TEXT: "true"
 otherwise:
   status: "COMPLIANT"

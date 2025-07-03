@@ -21,7 +21,7 @@ conditions:
           CONTAINS:
             arg:
               EXTRACT: "CA10__healthCheckType__c"
-            substring:
+            search:
               TEXT: "ELB"
   - status: "COMPLIANT"
     currentStateMessage: "The ASG uses ELB health check."
@@ -29,7 +29,7 @@ conditions:
       CONTAINS:
         arg:
           EXTRACT: "CA10__healthCheckType__c"
-        substring:
+        search:
           TEXT: "ELB"
 otherwise:
   status: "UNDETERMINED"

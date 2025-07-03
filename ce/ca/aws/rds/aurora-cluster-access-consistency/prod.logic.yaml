@@ -13,7 +13,7 @@ conditions:
           STARTS_WITH:
               arg:
                 EXTRACT: CA10__engine__c
-              prefix:
+              search:
                 TEXT: aurora
   - status: INAPPLICABLE
     currentStateMessage: This AWS RDS Aurora cluster has no related AWS RDS Instances.
@@ -68,7 +68,7 @@ relatedLists:
               STARTS_WITH:
                 arg:
                   EXTRACT: CA10__engine__c
-                prefix:
+                search:
                   TEXT: aurora
       - status: INCOMPLIANT
         currentStateMessage: This AWS RDS Instance is publicly accessible.

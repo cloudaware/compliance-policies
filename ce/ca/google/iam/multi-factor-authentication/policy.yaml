@@ -10,6 +10,10 @@ impossible: true
 frameworkMappings:
   - /frameworks/cis-gcp-v3.0.0/01/02
   - /frameworks/cloudaware/identity-and-access-governance/mfa-implementation
+  - /frameworks/nist-sp-800-53-r4/ia/02
+  - /frameworks/pci-dss-v3.2.1/08/03
+  - /frameworks/iso-iec-27001-2013/09/04/02
+  - /frameworks/iso-iec-27001-2022/08/05
 similarPolicies:
   cloudConformity:
     - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudIAM/enable-mfa-for-user-accounts.html"

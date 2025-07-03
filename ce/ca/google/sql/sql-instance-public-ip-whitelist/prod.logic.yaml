@@ -21,7 +21,7 @@ conditions:
           CONTAINS:
             arg:
               EXTRACT: "caJsonFrom_authorizedNetworksJson_value__c"
-            substring:
+            search:
               TEXT: "0.0.0.0/0"
 otherwise:
   status: "COMPLIANT"

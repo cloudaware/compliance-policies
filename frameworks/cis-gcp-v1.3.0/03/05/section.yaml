@@ -6,5 +6,8 @@ description: |-
 
   DNSSEC algorithm numbers in this registry may be used in CERT RRs. Zone signing (DNSSEC) and transaction security mechanisms (SIG(0) and TSIG) make use of particular subsets of these algorithms. The algorithm used for key signing should be a recommended one and it should be strong.
 similar:
+  sections:
+    - /frameworks/cis-gcp-v2.0.0/03/05
+    - /frameworks/cis-gcp-v1.2.0/03/05
   internal:
     - dec-c-2267bd59

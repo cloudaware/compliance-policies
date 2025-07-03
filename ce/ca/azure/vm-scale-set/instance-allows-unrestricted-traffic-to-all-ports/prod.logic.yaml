@@ -106,7 +106,7 @@ relatedLists:
                       - CONTAINS:
                           arg:
                             EXTRACT: "CA10__sourceAddressPrefix__c"
-                          substring:
+                          search:
                             TEXT: "/0"
 # sort group rules by ports. PORTS : *, -1, 0-65535
           - status: "INCOMPLIANT"

@@ -89,7 +89,7 @@ relatedLists:
               STARTS_WITH:
                 arg:
                   EXTRACT: "CA10__gatewayId__c"
-                prefix:
+                search:
                   TEXT: "igw"
         otherwise:
           status: "COMPLIANT"
@@ -142,7 +142,7 @@ relatedLists:
               STARTS_WITH:
                 arg:
                   EXTRACT: "CA10__gatewayId__c"
-                prefix:
+                search:
                   TEXT: "igw"
         otherwise:
           status: "COMPLIANT"

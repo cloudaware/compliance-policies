@@ -1,174 +1,200 @@
 ---
 inputType: CA10__CaAwsInstance__c
-testData:
-  - file: test-data.json
 conditions:
   - status: COMPLIANT
     currentStateMessage: Word-1
     check:
       UNIT_TEST:
         id: Word-1
+        expected:
+          text: "unitTest(Word-1): not('abcklmxyz'.endsWith('abc'))"
         arg:
           NOT:
             arg:
               ENDS_WITH:
                 arg:
                   TEXT: "abcklmxyz"
-                suffix:
+                search:
                   TEXT: "abc"
   - status: COMPLIANT
     currentStateMessage: Word-2
     check:
       UNIT_TEST:
         id: Word-2
+        expected:
+          text: "unitTest(Word-2): not('abcklmxyz'.endsWith('klm'))"
         arg:
           NOT:
             arg:
               ENDS_WITH:
                 arg:
                   TEXT: "abcklmxyz"
-                suffix:
+                search:
                   TEXT: "klm"
   - status: COMPLIANT
     currentStateMessage: Word-3
     check:
       UNIT_TEST:
         id: Word-3
+        expected:
+          text: "unitTest(Word-3): 'abcklmxyz'.endsWith('xyz')"
         arg:
           ENDS_WITH:
             arg:
               TEXT: "abcklmxyz"
-            suffix:
+            search:
               TEXT: "xyz"
   - status: COMPLIANT
     currentStateMessage: Word-4
     check:
       UNIT_TEST:
         id: Word-4
+        expected:
+          text: "unitTest(Word-4): not('abcklmxyz'.endsWith('123'))"
         arg:
           NOT:
             arg:
               ENDS_WITH:
                 arg:
                   TEXT: "abcklmxyz"
-                suffix:
+                search:
                   TEXT: "123"
   - status: COMPLIANT
     currentStateMessage: Multiple-1
     check:
       UNIT_TEST:
         id: Multiple-1
+        expected:
+          text: "unitTest(Multiple-1): not('abc klm xyz'.endsWith('abc'))"
         arg:
           NOT:
             arg:
               ENDS_WITH:
                 arg:
                   TEXT: "abc klm xyz"
-                suffix:
+                search:
                   TEXT: "abc"
   - status: COMPLIANT
     currentStateMessage: Multiple-2
     check:
       UNIT_TEST:
         id: Multiple-2
+        expected:
+          text: "unitTest(Multiple-2): not('abc klm xyz'.endsWith('klm'))"
         arg:
           NOT:
             arg:
               ENDS_WITH:
                 arg:
                   TEXT: "abc klm xyz"
-                suffix:
+                search:
                   TEXT: "klm"
   - status: COMPLIANT
     currentStateMessage: Multiple-3
     check:
       UNIT_TEST:
         id: Multiple-3
+        expected:
+          text: "unitTest(Multiple-3): 'abc klm xyz'.endsWith('xyz')"
         arg:
           ENDS_WITH:
             arg:
               TEXT: "abc klm xyz"
-            suffix:
+            search:
               TEXT: "xyz"
   - status: COMPLIANT
     currentStateMessage: Multiple-4
     check:
       UNIT_TEST:
         id: Multiple-4
+        expected:
+          text: "unitTest(Multiple-4): not('abc klm xyz'.endsWith('123'))"
         arg:
           NOT:
             arg:
               ENDS_WITH:
                 arg:
                   TEXT: "abc klm xyz"
-                suffix:
+                search:
                   TEXT: "123"
   - status: COMPLIANT
     currentStateMessage: Whitespace-1
     check:
       UNIT_TEST:
         id: Whitespace-1
+        expected:
+          text: "unitTest(Whitespace-1): ' aa   bb  cc '.endsWith('bb cc')"
         arg:
           ENDS_WITH:
             arg:
               TEXT: " aa   bb  cc "
-            suffix:
+            search:
               TEXT: "bb cc"
   - status: COMPLIANT
     currentStateMessage: Whitespace-2
     check:
       UNIT_TEST:
         id: Whitespace-2
+        expected:
+          text: "unitTest(Whitespace-2): 'aa bb cc'.endsWith('  bb    cc ')"
         arg:
           ENDS_WITH:
             arg:
               TEXT: "aa bb cc"
-            suffix:
+            search:
               TEXT: "  bb    cc "
   - status: COMPLIANT
     currentStateMessage: Whitespace-3
     check:
       UNIT_TEST:
         id: Whitespace-3
+        expected:
+          text: "unitTest(Whitespace-3): ''.endsWith('\\n\\r\\t')"
         arg:
           ENDS_WITH:
             arg:
               TEXT: ""
-            suffix:
+            search:
               TEXT: "\n\r\t"
   - status: COMPLIANT
     currentStateMessage: Whitespace-4
     check:
       UNIT_TEST:
         id: Whitespace-4
+        expected:
+          text: "unitTest(Whitespace-4): 'a b c'.endsWith('  a\\n b \\r c \\t')"
         arg:
           ENDS_WITH:
             arg:
               TEXT: "a b c"
-            suffix:
+            search:
               TEXT: "  a\n b \r c \t"
   - status: COMPLIANT
     currentStateMessage: Case-1
     check:
       UNIT_TEST:
         id: Case-1
+        expected:
+          text: "unitTest(Case-1): 'ABC KLM XYZ'.endsWith('xyz')"
         arg:
           ENDS_WITH:
             arg:
               TEXT: "ABC KLM XYZ"
-            suffix:
+            search:
               TEXT: "xyz"
   - status: COMPLIANT
     currentStateMessage: Null-1
     check:
       UNIT_TEST:
         id: Null-1
+        expected:
+          text: "unitTest(Null-1): null.endsWith(null)"
         arg:
           ENDS_WITH:
             arg:
               UNIT_TEST_NULL:
                 returnType: TEXT
-            suffix:
+            search:
               UNIT_TEST_NULL:
                 returnType: TEXT
   - status: COMPLIANT
@@ -176,11 +202,13 @@ conditions:
     check:
       UNIT_TEST:
         id: Null-2
+        expected:
+          text: "unitTest(Null-2): ''.endsWith(null)"
         arg:
           ENDS_WITH:
             arg:
               TEXT: ""
-            suffix:
+            search:
               UNIT_TEST_NULL:
                 returnType: TEXT
   - status: COMPLIANT
@@ -188,11 +216,13 @@ conditions:
     check:
       UNIT_TEST:
         id: Null-3
+        expected:
+          text: "unitTest(Null-3): 'abc'.endsWith(null)"
         arg:
           ENDS_WITH:
             arg:
               TEXT: "abc"
-            suffix:
+            search:
               UNIT_TEST_NULL:
                 returnType: TEXT
   - status: COMPLIANT
@@ -200,18 +230,22 @@ conditions:
     check:
       UNIT_TEST:
         id: Null-4
+        expected:
+          text: "unitTest(Null-4): null.endsWith('')"
         arg:
           ENDS_WITH:
             arg:
               UNIT_TEST_NULL:
                 returnType: TEXT
-            suffix:
+            search:
               TEXT: ""
   - status: COMPLIANT
     currentStateMessage: Null-5
     check:
       UNIT_TEST:
         id: Null-5
+        expected:
+          text: "unitTest(Null-5): not(null.endsWith('abc'))"
         arg:
           NOT:
             arg:
@@ -219,7 +253,7 @@ conditions:
                 arg:
                   UNIT_TEST_NULL:
                     returnType: TEXT
-                suffix:
+                search:
                   TEXT: "abc"
 otherwise:
   status: INCOMPLIANT

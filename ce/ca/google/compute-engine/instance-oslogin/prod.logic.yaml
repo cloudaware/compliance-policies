@@ -12,7 +12,7 @@ conditions:
       STARTS_WITH:
         arg:
           EXTRACT: "Name"
-        prefix:
+        search:
           TEXT: 'gke-'
   - status: "COMPLIANT"
     currentStateMessage: "OS login is enabled for the instance."
@@ -20,7 +20,7 @@ conditions:
       CONTAINS:
         arg:
           EXTRACT: "caJsonFrom__metadataJson__enable_oslogin_value"
-        substring:
+        search:
           TEXT: "true"
 otherwise:
       status: "INCOMPLIANT"

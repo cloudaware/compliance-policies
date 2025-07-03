@@ -15,12 +15,12 @@ conditions:
           - CONTAINS:
               arg:
                 EXTRACT: "CA10__access__c"
-              substring:
+              search:
                 TEXT: "allUsers"
           - CONTAINS:
               arg:
                 EXTRACT: "CA10__access__c"
-              substring:
+              search:
                 TEXT: "allAuthenticatedUsers"
 otherwise:
   status: "COMPLIANT"

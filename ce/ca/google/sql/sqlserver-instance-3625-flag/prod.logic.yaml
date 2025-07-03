@@ -14,7 +14,7 @@ conditions:
           CONTAINS:
             arg:
               EXTRACT: "CA10__databaseVersion__c"
-            substring:
+            search:
               TEXT: "SQLSERVER" 
   - status: "COMPLIANT"
     currentStateMessage: "Database flag 3625 (trace flag) is set to on."

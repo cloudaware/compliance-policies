@@ -14,7 +14,7 @@ conditions:
           CONTAINS:
             arg:
               EXTRACT: "CA10__databaseVersion__c"
-            substring:
+            search:
               TEXT: "SQLSERVER" 
   - status: "COMPLIANT"
     currentStateMessage: "contained database authentication database flag isn't set to on."

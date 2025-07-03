@@ -1,13 +1,13 @@
 ---
 inputType: CA10__CaAwsInstance__c
-testData:
-  - file: test-data.json
 conditions:
   - status: COMPLIANT
     currentStateMessage: Test-1
     check:
       UNIT_TEST:
         id: Test-1
+        expected:
+          text: "unitTest(Test-1): true"
         arg:
           OR:
             args:
@@ -17,6 +17,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-2
+        expected:
+          text: "unitTest(Test-2): not(false)"
         arg:
           NOT:
             arg:
@@ -28,6 +30,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-3
+        expected:
+          text: "unitTest(Test-3): not(false || false)"
         arg:
           NOT:
             arg:
@@ -40,6 +44,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-4
+        expected:
+          text: "unitTest(Test-4): true || false"
         arg:
           OR:
             args:
@@ -50,6 +56,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-5
+        expected:
+          text: "unitTest(Test-5): false || true"
         arg:
           OR:
             args:
@@ -60,6 +68,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-6
+        expected:
+          text: "unitTest(Test-6): true || true"
         arg:
           OR:
             args:
@@ -70,6 +80,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-7
+        expected:
+          text: "unitTest(Test-7): false || false || true"
         arg:
           OR:
             args:
@@ -81,6 +93,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-8
+        expected:
+          text: "unitTest(Test-8): true || error('Short-circuit evaluation: does not compute second argument')"
         arg:
           OR:
             args:
@@ -93,6 +107,11 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-9
+        expected:
+          status: UNDETERMINED
+          subIndex: 1
+          text: "error('Short-circuit evaluation: compute second argument').throw()"
+          runtimeError: "Short-circuit evaluation: compute second argument"
         arg:
           OR:
             args:

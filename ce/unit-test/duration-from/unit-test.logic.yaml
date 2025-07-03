@@ -1,12 +1,14 @@
 ---
 inputType: CA10__CaGoogleCloudKmsCryptoKey__c
-testData:
-  - file: test-data.json
 conditions:
   - status: COMPLIANT
     currentStateMessage: Test-1
     check:
       UNIT_TEST:
+        expected:
+          status: UNDETERMINED
+          subIndex: 1
+          text: "''.isEmpty()"
         id: Test-1
         arg:
           IS_EMPTY:
@@ -23,6 +25,10 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-2
+        expected:
+          status: UNDETERMINED
+          subIndex: 2
+          text: "'123'.checkFormat('GCP')"
         arg:
           IS_EMPTY:
             arg:
@@ -38,6 +44,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-3
+        expected:
+          text: "unitTest(Test-3): '60s'.asDuration() == '1m'.asDuration()"
         arg:
           IS_EQUAL:
             left:
@@ -61,6 +69,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-4
+        expected:
+          text: "unitTest(Test-4): '60m'.asDuration() == '1h'.asDuration()"
         arg:
           IS_EQUAL:
             left:
@@ -84,6 +94,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-5
+        expected:
+          text: "unitTest(Test-5): '24h'.asDuration() == '1d'.asDuration()"
         arg:
           IS_EQUAL:
             left:
@@ -107,6 +119,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-6
+        expected:
+          text: "unitTest(Test-6): '1s'.asDuration() == 'PT1S'"
         arg:
           IS_EQUAL:
             left:
@@ -124,6 +138,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-7
+        expected:
+          text: "unitTest(Test-7): 'P1Y' != 'P365D'"
         arg:
           NOT_EQUAL:
             left:
@@ -135,6 +151,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-8
+        expected:
+          text: "unitTest(Test-8): 'P1Y' == 'P12M'"
         arg:
           IS_EQUAL:
             left:
@@ -146,6 +164,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-9
+        expected:
+          text: "unitTest(Test-9): 'P1M' == 'P30D'"
         arg:
           IS_EQUAL:
             left:

@@ -11,7 +11,7 @@ conditions:
       STARTS_WITH:
         arg:
           EXTRACT: "Name"
-        prefix:
+        search:
           TEXT: 'gke-'
   - status: "INCOMPLIANT"
     currentStateMessage: "The instance is configured to use the default service account."
@@ -34,7 +34,7 @@ relatedLists:
         ENDS_WITH:
           arg:
             EXTRACT: "CA10__iamServiceAccountEmail__c"
-          suffix:
+          search:
             TEXT: 'compute@developer.gserviceaccount.com'
     otherwise:
       status: "COMPLIANT"

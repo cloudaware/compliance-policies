@@ -1,13 +1,13 @@
 ---
 inputType: CA10__CaAwsInstance__c
-testData:
-  - file: test-data.json
 conditions:
   - status: COMPLIANT
     currentStateMessage: "Valid ISO 8601 date and time"
     check:
       UNIT_TEST:
         id: Valid-ISO-8601
+        expected:
+          text: "unitTest(Valid-ISO-8601): '2024-10-27T14:30:00Z'.asDateTime() == '2024-10-27T14:30:00Z'"
         arg:
           IS_EQUAL:
             left:
@@ -24,6 +24,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Valid-Timezone-Offset
+        expected:
+          text: "unitTest(Valid-Timezone-Offset): '2024-10-27T10:00:00-05:00'.asDateTime() == '2024-10-27T15:00:00Z'"
         arg:
           IS_EQUAL:
             left:
@@ -40,6 +42,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Valid-Date-Only
+        expected:
+          text: "unitTest(Valid-Date-Only): '2024-10-27'.asDateTime() == '2024-10-27T00:00:00Z'"
         arg:
           IS_EQUAL:
             left:
@@ -56,6 +60,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Valid-Milliseconds
+        expected:
+          text: "unitTest(Valid-Milliseconds): '2024-10-27T14:30:00.123Z'.asDateTime() == '2024-10-27T14:30:00.123Z'"
         arg:
           IS_EQUAL:
             left:
@@ -72,6 +78,10 @@ conditions:
     check:
       UNIT_TEST:
         id: Null-Value-Empty-String
+        expected:
+          status: UNDETERMINED
+          subIndex: 1
+          text: "''.isEmpty()"
         arg:
           IS_EMPTY:
             arg:
@@ -90,6 +100,10 @@ conditions:
     check:
       UNIT_TEST:
         id: Null-Value-Custom
+        expected:
+          status: UNDETERMINED
+          subIndex: 1
+          text: "'N/A'.isEmpty()"
         arg:
           IS_EMPTY:
             arg:
@@ -108,6 +122,10 @@ conditions:
     check:
       UNIT_TEST:
         id: Null-Value-Null-Input
+        expected:
+          status: UNDETERMINED
+          subIndex: 1
+          text: "null.isEmpty()"
         arg:
           IS_EMPTY:
             arg:
@@ -127,6 +145,10 @@ conditions:
     check:
       UNIT_TEST:
         id: Null-Value-Empty-Whitespace
+        expected:
+          status: UNDETERMINED
+          subIndex: 1
+          text: "'   '.isEmpty()"
         arg:
           IS_EMPTY:
             arg:
@@ -146,6 +168,10 @@ conditions:
     check:
       UNIT_TEST:
         id: Invalid-Format
+        expected:
+          status: UNDETERMINED
+          subIndex: 2
+          text: "'invalid date'.checkIso8601()"
         arg:
           IS_EQUAL:
             left:

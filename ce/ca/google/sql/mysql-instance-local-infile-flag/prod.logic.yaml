@@ -14,7 +14,7 @@ conditions:
           CONTAINS:
             arg:
               EXTRACT: "CA10__databaseVersion__c"
-            substring:
+            search:
               TEXT: "MYSQL" 
   - status: "COMPLIANT"
     currentStateMessage: "local_infile database flag is set to off."

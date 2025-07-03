@@ -3,5 +3,8 @@ name: 4.4 Ensure Oslogin Is Enabled for a Project - Level 1 (Automated)
 description: Enabling OS login binds SSH certificates to IAM users and facilitates
   effective SSH certificate management.
 similar:
+  sections:
+    - /frameworks/cis-gcp-v2.0.0/04/04
+    - /frameworks/cis-gcp-v1.2.0/04/04
   internal:
     - dec-c-8eab7bc3

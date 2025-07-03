@@ -13,7 +13,7 @@ conditions:
       ENDS_WITH:
         arg:
           EXTRACT: "CA10__skuName__c"
-        suffix:
+        search:
           TEXT: "LRS"
 otherwise:
   status: "COMPLIANT"

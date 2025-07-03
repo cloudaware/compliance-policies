@@ -4,5 +4,7 @@ name: 6.5 Ensure That Cloud SQL Database Instances Do Not Implicitly Whitelist A
 description: Database Server should accept connections only from trusted Network(s)/IP(s)
   and restrict access from public IP addresses.
 similar:
+  sections:
+    - /frameworks/cis-gcp-v2.0.0/06/05
   internal:
     - dec-c-a0fd4737

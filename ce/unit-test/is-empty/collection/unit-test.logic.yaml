@@ -1,13 +1,13 @@
 ---
 inputType: CA10__CaAwsInstance__c
-testData:
-  - file: test-data.json
 conditions:
   - status: COMPLIANT
     currentStateMessage: Test-1
     check:
       UNIT_TEST:
         id: Test-1
+        expected:
+          text: "unitTest(Test-1): 'a,b,c'.asCollection(',').skipEmpty().skipDuplicates().sort().isNotEmpty()"
         arg:
           NOT_EMPTY:
             arg:
@@ -23,6 +23,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-2
+        expected:
+          text: "unitTest(Test-2): 'a'.asCollection(',').skipEmpty().skipDuplicates().sort().isNotEmpty()"
         arg:
           NOT_EMPTY:
             arg:
@@ -38,6 +40,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-3
+        expected:
+          text: "unitTest(Test-3): ''.asCollection(',').skipEmpty().skipDuplicates().sort().isEmpty()"
         arg:
           IS_EMPTY:
             arg:
@@ -53,6 +57,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-4
+        expected:
+          text: "unitTest(Test-4): ','.asCollection(',').skipEmpty().skipDuplicates().sort().isEmpty()"
         arg:
           IS_EMPTY:
             arg:
@@ -68,6 +74,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-5
+        expected:
+          text: "unitTest(Test-5): null.isEmpty()"
         arg:
           IS_EMPTY:
             arg:

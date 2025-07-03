@@ -5,5 +5,8 @@ description: "Cloud DNS logging records the queries from the name servers within
   \ VPC to Stackdriver. Logged queries can come from Compute Engine VMs, GKE containers,\
   \ or other GCP resources provisioned within the VPC."
 similar:
+  sections:
+    - /frameworks/cis-gcp-v3.0.0/02/12
+    - /frameworks/cis-gcp-v1.3.0/02/12
   internal:
     - dec-c-d444970b

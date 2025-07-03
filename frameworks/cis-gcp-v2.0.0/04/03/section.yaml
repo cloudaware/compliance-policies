@@ -4,5 +4,8 @@ name: 4.3 Ensure “Block Project-Wide SSH Keys” Is Enabled for VM Instances -
 description: It is recommended to use Instance specific SSH key(s) instead of using
   common/shared project-wide SSH key(s) to access Instances.
 similar:
+  sections:
+    - /frameworks/cis-gcp-v3.0.0/04/03
+    - /frameworks/cis-gcp-v1.3.0/04/03
   internal:
     - dec-c-94dcef4b

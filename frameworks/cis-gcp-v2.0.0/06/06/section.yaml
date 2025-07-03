@@ -4,5 +4,8 @@ name: 6.6 Ensure That Cloud SQL Database Instances Do Not Have Public IPs - Leve
 description: It is recommended to configure Second Generation Sql instance to use
   private IPs instead of public IPs.
 similar:
+  sections:
+    - /frameworks/cis-gcp-v3.0.0/06/06
+    - /frameworks/cis-gcp-v1.3.0/06/06
   internal:
     - dec-c-3be710d3

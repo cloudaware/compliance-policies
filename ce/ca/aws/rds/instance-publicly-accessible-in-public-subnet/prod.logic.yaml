@@ -84,7 +84,7 @@ relatedLists:
                       - STARTS_WITH:
                           arg:
                             EXTRACT: "CA10__gatewayId__c"
-                          prefix:
+                          search:
                             TEXT: "igw"
                       - OR:
                           args:
@@ -146,7 +146,7 @@ relatedLists:
                   - STARTS_WITH:
                       arg:
                         EXTRACT: "CA10__gatewayId__c"
-                      prefix:
+                      search:
                         TEXT: "igw"
                   - OR:
                       args:

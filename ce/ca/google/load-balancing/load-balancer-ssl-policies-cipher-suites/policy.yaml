@@ -16,6 +16,9 @@ impossible: true
 frameworkMappings:
   - /frameworks/cis-gcp-v3.0.0/03/09
   - /frameworks/cloudaware/resource-security/data-encryption
+  - /frameworks/nist-sp-800-53-r4/sc/07
+  - /frameworks/pci-dss-v3.2.1/04/01
+  - /frameworks/iso-iec-27001-2013/14/01/03
 similarPolicies:
   cloudConformity:
     - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudLoadBalancing/weak-cipher-suites-checks.html"

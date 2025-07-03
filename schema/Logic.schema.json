@@ -76,37 +76,6 @@
       },
       "required" : [ "BOOLEAN_FROM" ]
     },
-    "CollectionContains" : {
-      "type" : "object",
-      "properties" : {
-        "arg" : {
-          "allOf" : [ {
-            "$ref" : "#/definitions/OpCollection"
-          }, {
-            "description" : "Collection where to search for element 'search'"
-          } ]
-        },
-        "search" : {
-          "allOf" : [ {
-            "$ref" : "#/definitions/OpCollectable"
-          }, {
-            "description" : "The element to search for in 'arg'"
-          } ]
-        }
-      },
-      "required" : [ "arg", "search" ],
-      "description" : "Operation that searches for a specific element 'search' in a collection 'arg'",
-      "additionalProperties" : false
-    },
-    "CollectionContainsWrapper" : {
-      "type" : "object",
-      "properties" : {
-        "COLLECTION_CONTAINS" : {
-          "$ref" : "#/definitions/CollectionContains"
-        }
-      },
-      "required" : [ "COLLECTION_CONTAINS" ]
-    },
     "CollectionDuplicateValues" : {
       "type" : "string",
       "enum" : [ "KEEP", "SKIP" ]
@@ -660,6 +629,25 @@
       },
       "required" : [ "DURATION_FROM" ]
     },
+    "Expected" : {
+      "type" : "object",
+      "properties" : {
+        "status" : {
+          "$ref" : "#/definitions/Status"
+        },
+        "subIndex" : {
+          "type" : "integer"
+        },
+        "text" : {
+          "type" : "string"
+        },
+        "runtimeError" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "text" ],
+      "additionalProperties" : false
+    },
     "ExtractReference" : {
       "type" : "object",
       "properties" : {
@@ -1178,8 +1166,6 @@
       }, {
         "$ref" : "#/definitions/BooleanFromWrapper"
       }, {
-        "$ref" : "#/definitions/CollectionContainsWrapper"
-      }, {
         "$ref" : "#/definitions/CollectionFromWrapper"
       }, {
         "$ref" : "#/definitions/CollectionSizeWrapper"
@@ -1268,17 +1254,21 @@
       }, {
         "$ref" : "#/definitions/RelatedListAggregateHasNoWrapper"
       }, {
+        "$ref" : "#/definitions/SearchContainsWrapper"
+      }, {
+        "$ref" : "#/definitions/SearchEndsWithWrapper"
+      }, {
+        "$ref" : "#/definitions/SearchManyContainsAllWrapper"
+      }, {
+        "$ref" : "#/definitions/SearchManyContainsAnyWrapper"
+      }, {
+        "$ref" : "#/definitions/SearchStartsWithWrapper"
+      }, {
         "$ref" : "#/definitions/TagExistsWrapper"
       }, {
         "$ref" : "#/definitions/TagValueBytesWrapper"
       }, {
         "$ref" : "#/definitions/TagValueTextWrapper"
-      }, {
-        "$ref" : "#/definitions/TextPatternContainsWrapper"
-      }, {
-        "$ref" : "#/definitions/TextPatternEndsWithWrapper"
-      }, {
-        "$ref" : "#/definitions/TextPatternStartsWithWrapper"
       }, {
         "$ref" : "#/definitions/UnitTestWrapper"
       }, {
@@ -1292,8 +1282,6 @@
         "$ref" : "#/definitions/AwsPolicyAllowsWrapper"
       }, {
         "$ref" : "#/definitions/BooleanFromWrapper"
-      }, {
-        "$ref" : "#/definitions/CollectionContainsWrapper"
       }, {
         "$ref" : "#/definitions/ComparisonGreaterThanWrapper"
       }, {
@@ -1351,13 +1339,17 @@
       }, {
         "$ref" : "#/definitions/RelatedListAggregateHasNoWrapper"
       }, {
+        "$ref" : "#/definitions/SearchContainsWrapper"
+      }, {
+        "$ref" : "#/definitions/SearchEndsWithWrapper"
+      }, {
+        "$ref" : "#/definitions/SearchManyContainsAllWrapper"
+      }, {
+        "$ref" : "#/definitions/SearchManyContainsAnyWrapper"
+      }, {
+        "$ref" : "#/definitions/SearchStartsWithWrapper"
+      }, {
         "$ref" : "#/definitions/TagExistsWrapper"
-      }, {
-        "$ref" : "#/definitions/TextPatternContainsWrapper"
-      }, {
-        "$ref" : "#/definitions/TextPatternEndsWithWrapper"
-      }, {
-        "$ref" : "#/definitions/TextPatternStartsWithWrapper"
       }, {
         "$ref" : "#/definitions/UnitTestWrapper"
       }, {
@@ -1476,6 +1468,37 @@
         "$ref" : "#/definitions/JsonQueryNumberWrapper"
       }, {
         "$ref" : "#/definitions/RelatedListAggregateCountWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestNullWrapper"
+      }, {
+        "$ref" : "#/definitions/UnitTestRuntimeErrorWrapper"
+      } ]
+    },
+    "OpSearchable" : {
+      "oneOf" : [ {
+        "$ref" : "#/definitions/CollectionFromWrapper"
+      }, {
+        "$ref" : "#/definitions/ConstBytes"
+      }, {
+        "$ref" : "#/definitions/ConstCollectionWrapper"
+      }, {
+        "$ref" : "#/definitions/ConstJson"
+      }, {
+        "$ref" : "#/definitions/ConstText"
+      }, {
+        "$ref" : "#/definitions/DebugWrapper"
+      }, {
+        "$ref" : "#/definitions/ExtractReference"
+      }, {
+        "$ref" : "#/definitions/FieldReferenceWrapper"
+      }, {
+        "$ref" : "#/definitions/JsonQueryBytesWrapper"
+      }, {
+        "$ref" : "#/definitions/JsonQueryTextWrapper"
+      }, {
+        "$ref" : "#/definitions/TagValueBytesWrapper"
+      }, {
+        "$ref" : "#/definitions/TagValueTextWrapper"
       }, {
         "$ref" : "#/definitions/UnitTestNullWrapper"
       }, {
@@ -1624,6 +1647,116 @@
       "type" : "string",
       "enum" : [ "AUTO", "BYTES" ]
     },
+    "SearchContains" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "$ref" : "#/definitions/OpSearchable"
+        },
+        "search" : {
+          "$ref" : "#/definitions/OpCollectable"
+        }
+      },
+      "required" : [ "arg", "search" ],
+      "additionalProperties" : false
+    },
+    "SearchContainsWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "CONTAINS" : {
+          "$ref" : "#/definitions/SearchContains"
+        }
+      },
+      "required" : [ "CONTAINS" ]
+    },
+    "SearchEndsWith" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "$ref" : "#/definitions/OpSearchable"
+        },
+        "search" : {
+          "$ref" : "#/definitions/OpCollectable"
+        }
+      },
+      "required" : [ "arg", "search" ],
+      "additionalProperties" : false
+    },
+    "SearchEndsWithWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "ENDS_WITH" : {
+          "$ref" : "#/definitions/SearchEndsWith"
+        }
+      },
+      "required" : [ "ENDS_WITH" ]
+    },
+    "SearchManyContainsAll" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "$ref" : "#/definitions/OpSearchable"
+        },
+        "search" : {
+          "$ref" : "#/definitions/OpCollection"
+        }
+      },
+      "required" : [ "arg", "search" ],
+      "additionalProperties" : false
+    },
+    "SearchManyContainsAllWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "CONTAINS_ALL" : {
+          "$ref" : "#/definitions/SearchManyContainsAll"
+        }
+      },
+      "required" : [ "CONTAINS_ALL" ]
+    },
+    "SearchManyContainsAny" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "$ref" : "#/definitions/OpSearchable"
+        },
+        "search" : {
+          "$ref" : "#/definitions/OpCollection"
+        }
+      },
+      "required" : [ "arg", "search" ],
+      "additionalProperties" : false
+    },
+    "SearchManyContainsAnyWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "CONTAINS_ANY" : {
+          "$ref" : "#/definitions/SearchManyContainsAny"
+        }
+      },
+      "required" : [ "CONTAINS_ANY" ]
+    },
+    "SearchStartsWith" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "$ref" : "#/definitions/OpSearchable"
+        },
+        "search" : {
+          "$ref" : "#/definitions/OpCollectable"
+        }
+      },
+      "required" : [ "arg", "search" ],
+      "additionalProperties" : false
+    },
+    "SearchStartsWithWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "STARTS_WITH" : {
+          "$ref" : "#/definitions/SearchStartsWith"
+        }
+      },
+      "required" : [ "STARTS_WITH" ]
+    },
     "Status" : {
       "type" : "string",
       "enum" : [ "DISAPPEARED", "INAPPLICABLE", "COMPLIANT", "INCOMPLIANT", "UNDETERMINED" ]
@@ -1704,72 +1837,6 @@
       "required" : [ "file" ],
       "additionalProperties" : false
     },
-    "TextPatternContains" : {
-      "type" : "object",
-      "properties" : {
-        "arg" : {
-          "$ref" : "#/definitions/OpText"
-        },
-        "substring" : {
-          "$ref" : "#/definitions/OpText"
-        }
-      },
-      "required" : [ "arg", "substring" ],
-      "additionalProperties" : false
-    },
-    "TextPatternContainsWrapper" : {
-      "type" : "object",
-      "properties" : {
-        "CONTAINS" : {
-          "$ref" : "#/definitions/TextPatternContains"
-        }
-      },
-      "required" : [ "CONTAINS" ]
-    },
-    "TextPatternEndsWith" : {
-      "type" : "object",
-      "properties" : {
-        "arg" : {
-          "$ref" : "#/definitions/OpText"
-        },
-        "suffix" : {
-          "$ref" : "#/definitions/OpText"
-        }
-      },
-      "required" : [ "arg", "suffix" ],
-      "additionalProperties" : false
-    },
-    "TextPatternEndsWithWrapper" : {
-      "type" : "object",
-      "properties" : {
-        "ENDS_WITH" : {
-          "$ref" : "#/definitions/TextPatternEndsWith"
-        }
-      },
-      "required" : [ "ENDS_WITH" ]
-    },
-    "TextPatternStartsWith" : {
-      "type" : "object",
-      "properties" : {
-        "arg" : {
-          "$ref" : "#/definitions/OpText"
-        },
-        "prefix" : {
-          "$ref" : "#/definitions/OpText"
-        }
-      },
-      "required" : [ "arg", "prefix" ],
-      "additionalProperties" : false
-    },
-    "TextPatternStartsWithWrapper" : {
-      "type" : "object",
-      "properties" : {
-        "STARTS_WITH" : {
-          "$ref" : "#/definitions/TextPatternStartsWith"
-        }
-      },
-      "required" : [ "STARTS_WITH" ]
-    },
     "FieldReferenceUndeterminedIf" : {
       "type" : "object",
       "properties" : {
@@ -1847,6 +1914,12 @@
       "type" : "object",
       "properties" : {
         "id" : {
+          "type" : "string"
+        },
+        "expected" : {
+          "$ref" : "#/definitions/Expected"
+        },
+        "snapshotTime" : {
           "type" : "string"
         },
         "arg" : {

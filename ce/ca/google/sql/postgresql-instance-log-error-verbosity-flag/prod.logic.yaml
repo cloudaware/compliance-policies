@@ -14,7 +14,7 @@ conditions:
           CONTAINS:
             arg:
               EXTRACT: "CA10__databaseVersion__c"
-            substring:
+            search:
               TEXT: "POSTGRE" 
   - status: "COMPLIANT"
     currentStateMessage: "log_error_verbosity database flag is set to DEFAULT or stricter."

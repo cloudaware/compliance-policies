@@ -13,6 +13,10 @@ impossible: true
 frameworkMappings:
   - /frameworks/cis-gcp-v3.0.0/06/01/01
   - /frameworks/cloudaware/resource-security/secure-access
+  - /frameworks/nist-sp-800-53-r4/ac/03
+  - /frameworks/pci-dss-v3.2.1/02/01
+  - /frameworks/iso-iec-27001-2013/08/02/03
+  - /frameworks/iso-iec-27001-2022/08/05
 similarPolicies:
   cloudConformity:
     - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/CloudSQL/configure-root-password-for-mysql.html"

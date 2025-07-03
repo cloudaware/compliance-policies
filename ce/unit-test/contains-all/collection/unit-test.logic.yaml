@@ -1,0 +1,159 @@
+---
+inputType: CA10__CaAwsInstance__c
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: Test-1
+    check:
+      UNIT_TEST:
+        id: Test-1
+        expected:
+          text: "unitTest(Test-1): not([].skipEmpty().skipDuplicates().sort().containsAll(['a'].skipEmpty().skipDuplicates().sort()))"
+        arg:
+          NOT:
+            arg:
+              CONTAINS_ALL:
+                arg:
+                  COLLECTION:
+                    emptyValues: SKIP
+                    duplicateValues: SKIP
+                    ordering: SORTED
+                    itemType: TEXT
+                    items: []
+                search:
+                  COLLECTION:
+                    emptyValues: SKIP
+                    duplicateValues: SKIP
+                    ordering: SORTED
+                    itemType: TEXT
+                    items:
+                      - a
+  - status: COMPLIANT
+    currentStateMessage: Test-2
+    check:
+      UNIT_TEST:
+        id: Test-2
+        expected:
+          text: "unitTest(Test-2): ['a'].skipEmpty().skipDuplicates().sort().containsAll(['a', 'a'].skipEmpty().skipDuplicates().sort())"
+        arg:
+          CONTAINS_ALL:
+            arg:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - a
+            search:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - a
+                  - a
+  - status: COMPLIANT
+    currentStateMessage: Test-3
+    check:
+      UNIT_TEST:
+        id: Test-3
+        expected:
+          text: "unitTest(Test-3): not(['a', 'b'].skipEmpty().skipDuplicates().sort().containsAll(['a', 'c'].skipEmpty().skipDuplicates().sort()))"
+        arg:
+          NOT:
+            arg:
+              CONTAINS_ALL:
+                arg:
+                  COLLECTION:
+                    emptyValues: SKIP
+                    duplicateValues: SKIP
+                    ordering: SORTED
+                    itemType: TEXT
+                    items:
+                      - a
+                      - b
+                search:
+                  COLLECTION:
+                    emptyValues: SKIP
+                    duplicateValues: SKIP
+                    ordering: SORTED
+                    itemType: TEXT
+                    items:
+                      - a
+                      - c
+  - status: COMPLIANT
+    currentStateMessage: Test-4
+    check:
+      UNIT_TEST:
+        id: Test-4
+        expected:
+          text: "unitTest(Test-4): not(null.containsAll(['a'].skipEmpty().skipDuplicates().sort()))"
+        arg:
+          NOT:
+            arg:
+              CONTAINS_ALL:
+                arg:
+                  UNIT_TEST_NULL:
+                    returnType: COLLECTION_TEXT
+                search:
+                  COLLECTION:
+                    emptyValues: SKIP
+                    duplicateValues: SKIP
+                    ordering: SORTED
+                    itemType: TEXT
+                    items:
+                      - a
+  - status: COMPLIANT
+    currentStateMessage: Test-5
+    check:
+      UNIT_TEST:
+        id: Test-5
+        expected:
+          text: "unitTest(Test-5): not(['a'].skipEmpty().skipDuplicates().sort().containsAll(null))"
+        arg:
+          NOT:
+            arg:
+              CONTAINS_ALL:
+                arg:
+                  COLLECTION:
+                    emptyValues: SKIP
+                    duplicateValues: SKIP
+                    ordering: SORTED
+                    itemType: TEXT
+                    items:
+                      - a
+                search:
+                  UNIT_TEST_NULL:
+                    returnType: COLLECTION_TEXT
+  - status: COMPLIANT
+    currentStateMessage: Test-6
+    check:
+      UNIT_TEST:
+        id: Test-6
+        expected:
+          text: "unitTest(Test-6): [' ABC ', ' De  f '].skipEmpty().skipDuplicates().sort().containsAll(['abc\\n\\t', 'de f'].skipEmpty().skipDuplicates().sort())"
+        arg:
+          CONTAINS_ALL:
+            arg:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - " ABC "
+                  - " De  f "
+            search:
+              COLLECTION:
+                emptyValues: SKIP
+                duplicateValues: SKIP
+                ordering: SORTED
+                itemType: TEXT
+                items:
+                  - "abc\n\t"
+                  - "de f"
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: Test Failed
+  remediationMessage: Developer Fix Required

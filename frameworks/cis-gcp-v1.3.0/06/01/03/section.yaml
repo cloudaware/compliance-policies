@@ -1,8 +1,11 @@
 ---
-name: 6.1.3 Ensure That the ‘Local_infile’ Database Flag for a Cloud SQL MySQL Instance
-  Is Set to ‘Off’ - Level 1 (Automated)
+name: 6.1.3 Ensure That the 'Local_infile' Database Flag for a Cloud SQL MySQL Instance
+  Is Set to 'Off' - Level 1 (Automated)
 description: It is recommended to set the `local_infile` database flag for a Cloud
   SQL MySQL instance to `off`.
 similar:
+  sections:
+    - /frameworks/cis-gcp-v2.0.0/06/01/03
+    - /frameworks/cis-gcp-v1.2.0/06/01/03
   internal:
     - dec-c-a4f7f70d

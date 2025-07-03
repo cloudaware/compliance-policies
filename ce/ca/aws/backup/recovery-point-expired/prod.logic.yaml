@@ -1,0 +1,33 @@
+---
+inputType: "CA10A1__CaAwsBackupRecoveryPoint__c"
+importExtracts:
+  - file: "/types/CA10A1__CaAwsBackupRecoveryPoint__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"  
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The recovery point is not expired."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10A1__status__c"
+        right:
+          TEXT: "EXPIRED"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The recovery point is expired, but its lifecycle deletion date is not empty indicating failure to delete."
+    remediationMessage: "Manually delete the expired recovery point and investigate why the automated lifecycle rule failed to execute."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10A1__calcLifecycleDeleteAt__c" 
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The recovery point was scheduled for deletion more than 2 days ago but still exists."
+    remediationMessage: "Manually delete the expired recovery point and investigate why the automated lifecycle rule failed to execute."
+    check:
+      IS_BEYOND_LAST_DAYS:
+        arg:
+          EXTRACT: "CA10A1__calcLifecycleDeleteAt__c"
+        offsetDays: 2
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The backup recovery point has not yet reached its deletion date."

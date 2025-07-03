@@ -5,3 +5,14 @@ extracts:
     value: 
       FIELD:
         path: CA10A1__kmsMasterKeyId__c
+# Values: COMPLETED | PARTIAL | DELETING | EXPIRED | AVAILABLE | STOPPED | CREATING
+# Not Nullable. Can't have no access, retrieved via backup:ListRecoveryPointsByBackupVault
+  - name: CA10A1__status__c
+    value: 
+      FIELD:
+        path: CA10A1__status__c
+# Nullable. Can't have no access, retrieved via backup:ListRecoveryPointsByBackupVault
+  - name: CA10A1__calcLifecycleDeleteAt__c
+    value: 
+      FIELD:
+        path: CA10A1__calcLifecycleDeleteAt__c

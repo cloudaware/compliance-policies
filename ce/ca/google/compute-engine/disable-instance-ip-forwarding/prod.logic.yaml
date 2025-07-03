@@ -11,7 +11,7 @@ conditions:
       STARTS_WITH:
         arg:
           EXTRACT: "Name"
-        prefix:
+        search:
           TEXT: 'gke-'
   - status: "INCOMPLIANT"
     currentStateMessage: "IP forwarding is enabled on the instance."

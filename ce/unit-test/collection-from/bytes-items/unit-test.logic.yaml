@@ -1,13 +1,13 @@
 ---
 inputType: CA10__CaAwsInstance__c
-testData:
-  - file: test-data.json
 conditions:
   - status: COMPLIANT
     currentStateMessage: Test-1
     check:
       UNIT_TEST:
         id: Test-1
+        expected:
+          text: "unitTest(Test-1): bytes('').asCollection(',').skipEmpty().skipDuplicates().sort().isEmpty()"
         arg:
           IS_EMPTY:
             arg:
@@ -23,6 +23,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-1-Keep-Empty
+        expected:
+          text: "unitTest(Test-1-Keep-Empty): bytes('').asCollection(',').keepEmpty().skipDuplicates().sort().isNotEmpty()"
         arg:
           NOT_EMPTY:
             arg:
@@ -38,6 +40,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-2
+        expected:
+          text: "unitTest(Test-2): bytes('a,a').asCollection(',').skipEmpty().skipDuplicates().sort() == ['a'].skipEmpty().skipDuplicates().sort()"
         arg:
           IS_EQUAL:
             left:
@@ -61,6 +65,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-2-Keep-Duplicates
+        expected:
+          text: "unitTest(Test-2-Keep-Duplicates): bytes('a,a').asCollection(',').skipEmpty().keepDuplicates().sort() != ['a'].skipEmpty().skipDuplicates().sort()"
         arg:
           NOT_EQUAL:
             left:
@@ -84,6 +90,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-3
+        expected:
+          text: "unitTest(Test-3): bytes('a,b').asCollection(',').skipEmpty().skipDuplicates().sort() == ['a', 'b'].skipEmpty().skipDuplicates().sort()"
         arg:
           IS_EQUAL:
             left:
@@ -108,6 +116,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-4
+        expected:
+          text: "unitTest(Test-4): bytes(' a , a ').asCollection(',').skipEmpty().skipDuplicates().sort() == [' a '].skipEmpty().skipDuplicates().sort()"
         arg:
           IS_EQUAL:
             left:
@@ -131,6 +141,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-4-Keep-Duplicates
+        expected:
+          text: "unitTest(Test-4-Keep-Duplicates): bytes(' a , a ').asCollection(',').skipEmpty().skipDuplicates().sort() == [' a ', ' a '].skipEmpty().skipDuplicates().sort()"
         arg:
           IS_EQUAL:
             left:
@@ -155,6 +167,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-5
+        expected:
+          text: "unitTest(Test-5): bytes('\\nline1\\nline2\\nline3\\n').asCollection('\\n').skipEmpty().skipDuplicates().sort() == ['line3', 'line2', 'line1'].skipEmpty().skipDuplicates().sort()"
         arg:
           IS_EQUAL:
             left:
@@ -180,6 +194,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-5-Original-Order
+        expected:
+          text: "unitTest(Test-5-Original-Order): bytes('\\nline1\\nline2\\nline3\\n').asCollection('\\n').skipEmpty().skipDuplicates().sort() != ['line3', 'line2', 'line1'].skipEmpty().skipDuplicates().originalOrder()"
         arg:
           NOT_EQUAL:
             left:
@@ -205,8 +221,10 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-6
+        expected:
+          text: "unitTest(Test-6): [' ABC '].skipEmpty().skipDuplicates().sort().contains(bytes(' ABC '))"
         arg:
-          COLLECTION_CONTAINS:
+          CONTAINS:
             arg:
               COLLECTION:
                 emptyValues: SKIP

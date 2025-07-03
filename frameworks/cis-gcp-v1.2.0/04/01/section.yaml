@@ -4,5 +4,7 @@ name: 4.1 Ensure that instances are not configured to use the default service ac
 description: It is recommended to configure your instance to not use the default Compute
   Engine service account because it has the Editor role on the project.
 similar:
+  sections:
+    - /frameworks/cis-gcp-v1.3.0/04/01
   internal:
     - dec-c-0658c141

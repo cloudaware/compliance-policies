@@ -10,5 +10,8 @@ description: "BigQuery by default encrypts the data as rest by employing Envelop
   \ Data Sets. If CMEK is used, the CMEK is used to encrypt the data encryption keys\
   \ instead of using google-managed encryption keys."
 similar:
+  sections:
+    - /frameworks/cis-gcp-v3.0.0/07/02
+    - /frameworks/cis-gcp-v1.3.0/07/02
   internal:
     - dec-c-6fe4a58d

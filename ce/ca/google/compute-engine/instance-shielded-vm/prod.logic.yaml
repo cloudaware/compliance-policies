@@ -13,12 +13,12 @@ conditions:
           - CONTAINS:
               arg:
                 EXTRACT: "CA10__shieldedIntegrityMonitoringState__c"
-              substring:
+              search:
                 TEXT: "Enabled"
           - CONTAINS:
               arg:
                 EXTRACT: "CA10__shieldedVtpmState__c"
-              substring:
+              search:
                 TEXT: "Enabled"
 otherwise:
   status: "INCOMPLIANT"

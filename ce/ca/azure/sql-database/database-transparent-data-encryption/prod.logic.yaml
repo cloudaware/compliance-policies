@@ -18,7 +18,7 @@ conditions:
           - CONTAINS:
               arg:
                 EXTRACT: "CA10__kind__c"
-              substring:
+              search:
                 TEXT: "system"
   - status: "INCOMPLIANT"
     currentStateMessage: "SQL Database Transparent Data Encryption is disabled."

@@ -3,5 +3,7 @@ name: 1.4 Ensure that there are only GCP-managed service account keys for each s
   account - Level 1 (Automated)
 description: User managed service accounts should not have user-managed keys.
 similar:
+  sections:
+    - /frameworks/cis-gcp-v1.3.0/01/04
   internal:
     - dec-c-506eef6e

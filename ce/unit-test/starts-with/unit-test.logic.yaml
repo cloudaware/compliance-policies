@@ -12,7 +12,7 @@ conditions:
           STARTS_WITH:
             arg:
               TEXT: "abcklmxyz"
-            prefix:
+            search:
               TEXT: "abc"
   - status: COMPLIANT
     currentStateMessage: Word-2
@@ -25,7 +25,7 @@ conditions:
               STARTS_WITH:
                 arg:
                   TEXT: "abcklmxyz"
-                prefix:
+                search:
                   TEXT: "klm"
   - status: COMPLIANT
     currentStateMessage: Word-3
@@ -38,7 +38,7 @@ conditions:
               STARTS_WITH:
                 arg:
                   TEXT: "abcklmxyz"
-                prefix:
+                search:
                   TEXT: "xyz"
   - status: COMPLIANT
     currentStateMessage: Word-4
@@ -51,7 +51,7 @@ conditions:
               STARTS_WITH:
                 arg:
                   TEXT: "abcklmxyz"
-                prefix:
+                search:
                   TEXT: "123"
   - status: COMPLIANT
     currentStateMessage: Multiple-1
@@ -62,7 +62,7 @@ conditions:
           STARTS_WITH:
             arg:
               TEXT: "abc klm xyz"
-            prefix:
+            search:
               TEXT: "abc"
   - status: COMPLIANT
     currentStateMessage: Multiple-2
@@ -75,7 +75,7 @@ conditions:
               STARTS_WITH:
                 arg:
                   TEXT: "abc klm xyz"
-                prefix:
+                search:
                   TEXT: "klm"
   - status: COMPLIANT
     currentStateMessage: Multiple-3
@@ -88,7 +88,7 @@ conditions:
               STARTS_WITH:
                 arg:
                   TEXT: "abc klm xyz"
-                prefix:
+                search:
                   TEXT: "xyz"
   - status: COMPLIANT
     currentStateMessage: Multiple-4
@@ -101,7 +101,7 @@ conditions:
               STARTS_WITH:
                 arg:
                   TEXT: "abc klm xyz"
-                prefix:
+                search:
                   TEXT: "123"
   - status: COMPLIANT
     currentStateMessage: Whitespace-1
@@ -112,7 +112,7 @@ conditions:
           STARTS_WITH:
             arg:
               TEXT: " aa   bb  cc "
-            prefix:
+            search:
               TEXT: "aa bb"
   - status: COMPLIANT
     currentStateMessage: Whitespace-2
@@ -123,7 +123,7 @@ conditions:
           STARTS_WITH:
             arg:
               TEXT: "aa bb cc"
-            prefix:
+            search:
               TEXT: "  aa    bb "
   - status: COMPLIANT
     currentStateMessage: Whitespace-3
@@ -134,7 +134,7 @@ conditions:
           STARTS_WITH:
             arg:
               TEXT: ""
-            prefix:
+            search:
               TEXT: "\n\r\t"
   - status: COMPLIANT
     currentStateMessage: Whitespace-4
@@ -145,7 +145,7 @@ conditions:
           STARTS_WITH:
             arg:
               TEXT: "a b c"
-            prefix:
+            search:
               TEXT: "  a\n b \r c \t"
   - status: COMPLIANT
     currentStateMessage: Case-1
@@ -156,7 +156,7 @@ conditions:
           STARTS_WITH:
             arg:
               TEXT: "ABC KLM XYZ"
-            prefix:
+            search:
               TEXT: "abc"
   - status: COMPLIANT
     currentStateMessage: Null-1
@@ -168,7 +168,7 @@ conditions:
             arg:
               UNIT_TEST_NULL:
                 returnType: TEXT
-            prefix:
+            search:
               UNIT_TEST_NULL:
                 returnType: TEXT
   - status: COMPLIANT
@@ -180,7 +180,7 @@ conditions:
           STARTS_WITH:
             arg:
               TEXT: ""
-            prefix:
+            search:
               UNIT_TEST_NULL:
                 returnType: TEXT
   - status: COMPLIANT
@@ -192,7 +192,7 @@ conditions:
           STARTS_WITH:
             arg:
               TEXT: "abc"
-            prefix:
+            search:
               UNIT_TEST_NULL:
                 returnType: TEXT
   - status: COMPLIANT
@@ -205,7 +205,7 @@ conditions:
             arg:
               UNIT_TEST_NULL:
                 returnType: TEXT
-            prefix:
+            search:
               TEXT: ""
   - status: COMPLIANT
     currentStateMessage: Null-5
@@ -219,7 +219,7 @@ conditions:
                 arg:
                   UNIT_TEST_NULL:
                     returnType: TEXT
-                prefix:
+                search:
                   TEXT: "abc"
 otherwise:
   status: INCOMPLIANT

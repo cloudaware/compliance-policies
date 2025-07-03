@@ -1,7 +1,5 @@
 ---
 inputType: CA10__CaAwsInstance__c
-testData:
-  - file: test-data.json
 conditions:
   - status: COMPLIANT
     currentStateMessage: Test-1
@@ -12,6 +10,8 @@ conditions:
           AND:
             args:
               - BOOLEAN: true
+        expected:
+          text: "unitTest(Test-1): true"
   - status: COMPLIANT
     currentStateMessage: Test-2
     check:
@@ -23,6 +23,8 @@ conditions:
               AND:
                 args:
                   - BOOLEAN: false
+        expected:
+          text: "unitTest(Test-2): not(false)"
   - status: COMPLIANT
     currentStateMessage: Test-3
     check:
@@ -35,6 +37,8 @@ conditions:
                 args:
                   - BOOLEAN: false
                   - BOOLEAN: false
+        expected:
+          text: "unitTest(Test-3): not(false && false)"
   - status: COMPLIANT
     currentStateMessage: Test-4
     check:
@@ -47,6 +51,8 @@ conditions:
                 args:
                   - BOOLEAN: true
                   - BOOLEAN: false
+        expected:
+          text: "unitTest(Test-4): not(true && false)"
   - status: COMPLIANT
     currentStateMessage: Test-5
     check:
@@ -59,6 +65,8 @@ conditions:
                 args:
                   - BOOLEAN: false
                   - BOOLEAN: true
+        expected:
+          text: "unitTest(Test-5): not(false && true)"
   - status: COMPLIANT
     currentStateMessage: Test-6
     check:
@@ -69,6 +77,8 @@ conditions:
             args:
               - BOOLEAN: true
               - BOOLEAN: true
+        expected:
+          text: "unitTest(Test-6): true && true"
   - status: COMPLIANT
     currentStateMessage: Test-7
     check:
@@ -82,6 +92,8 @@ conditions:
                   - BOOLEAN: true
                   - BOOLEAN: true
                   - BOOLEAN: false
+        expected:
+          text: "unitTest(Test-7): not(true && true && false)"
   - status: COMPLIANT
     currentStateMessage: Test-8
     check:
@@ -96,6 +108,8 @@ conditions:
                   - UNIT_TEST_RUNTIME_ERROR:
                       returnType: BOOLEAN
                       message: "Short-circuit evaluation: does not compute second argument"
+        expected:
+          text: "unitTest(Test-8): not(false && error('Short-circuit evaluation: does not compute second argument'))"
   - status: COMPLIANT
     currentStateMessage: Test-9
     check:
@@ -108,6 +122,11 @@ conditions:
               - UNIT_TEST_RUNTIME_ERROR:
                   returnType: BOOLEAN
                   message: "Short-circuit evaluation: compute second argument"
+        expected:
+          status: UNDETERMINED
+          subIndex: 1
+          text: "error('Short-circuit evaluation: compute second argument').throw()"
+          runtimeError: "Short-circuit evaluation: compute second argument"
 otherwise:
   status: INCOMPLIANT
   currentStateMessage: Test Failed

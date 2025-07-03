@@ -1,13 +1,13 @@
 ---
 inputType: CA10__CaAwsInstance__c
-testData:
-  - file: test-data.json
 conditions:
   - status: COMPLIANT
     currentStateMessage: Test-1
     check:
       UNIT_TEST:
         id: Test-1
+        expected:
+          text: "unitTest(Test-1): {\"name\":\"John\",\"age\":30} == {\"age\":30,\"name\":\"John\"}"
         arg:
           IS_EQUAL:
             left:
@@ -19,6 +19,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-2
+        expected:
+          text: "unitTest(Test-2): {\"names\":[\"John\",\"Jane\"]} != {\"names\":[\"Jane\",\"John\"]}"
         arg:
           NOT_EQUAL:
             left:
@@ -30,6 +32,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-3
+        expected:
+          text: "unitTest(Test-3): {\"age\":30} != {\"age\":\"30\"}"
         arg:
           NOT_EQUAL:
             left:
@@ -41,6 +45,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-4
+        expected:
+          text: "unitTest(Test-4): {\"name\":\"John\",\"age\":null} == {\"name\":\"John\"}"
         arg:
           IS_EQUAL:
             left:
@@ -52,6 +58,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-5
+        expected:
+          text: "unitTest(Test-5): {\"name\":null,\"age\":null} == {}"
         arg:
           IS_EQUAL:
             left:
@@ -63,6 +71,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-6
+        expected:
+          text: "unitTest(Test-6): {} == {}"
         arg:
           IS_EQUAL:
             left:
@@ -74,6 +84,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-7
+        expected:
+          text:  "unitTest(Test-7): {} == null"
         arg:
           IS_EQUAL:
             left:
@@ -86,6 +98,8 @@ conditions:
     check:
       UNIT_TEST:
         id: Test-8
+        expected:
+          text: "unitTest(Test-8): null == null"
         arg:
           IS_EQUAL:
             left:

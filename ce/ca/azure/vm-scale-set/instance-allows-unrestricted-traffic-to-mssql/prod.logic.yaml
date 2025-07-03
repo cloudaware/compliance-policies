@@ -101,7 +101,7 @@ relatedLists:
                       - CONTAINS:
                           arg:
                             EXTRACT: "CA10__sourceAddressPrefix__c"
-                          substring:
+                          search:
                             TEXT: "/0"
           - status: "INCOMPLIANT"
             currentStateMessage: "NSG Rule with MSSQL port with public access from the Internet."

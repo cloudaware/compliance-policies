@@ -14,7 +14,7 @@ conditions:
           CONTAINS:
             arg:
               EXTRACT: "CA10__databaseVersion__c"
-            substring:
+            search:
               TEXT: "POSTGRE" 
   - status: "COMPLIANT"
     currentStateMessage: "log_min_duration_statement database flag is set appropriately."

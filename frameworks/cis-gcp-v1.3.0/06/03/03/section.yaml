@@ -4,5 +4,8 @@ name: 6.3.3 Ensure 'user Connections' Database Flag for Cloud Sql Sql Server Ins
 description: It is recommended to check the `user connections` for a Cloud SQL SQL
   Server instance to ensure that it is not artificially limiting connections.
 similar:
+  sections:
+    - /frameworks/cis-gcp-v2.0.0/06/03/03
+    - /frameworks/cis-gcp-v1.2.0/06/03/03
   internal:
     - dec-c-4afa51c6

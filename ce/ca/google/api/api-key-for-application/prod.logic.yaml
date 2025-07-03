@@ -20,7 +20,7 @@ conditions:
       CONTAINS:
         arg:
           EXTRACT: CA10G1__restrictionsApiTargets__c
-        substring:
+        search:
           TEXT: "service: 'cloudapis.googleapis.com'"          
 otherwise:
   status: "COMPLIANT"

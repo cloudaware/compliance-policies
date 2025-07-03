@@ -1,166 +1,192 @@
 ---
 inputType: CA10__CaAwsInstance__c
-testData:
-  - file: test-data.json
 conditions:
   - status: COMPLIANT
     currentStateMessage: Word-1
     check:
       UNIT_TEST:
         id: Word-1
+        expected:
+          text: "unitTest(Word-1): 'abcklmxyz'.contains('abc')"
         arg:
           CONTAINS:
             arg:
               TEXT: "abcklmxyz"
-            substring:
+            search:
               TEXT: "abc"
   - status: COMPLIANT
     currentStateMessage: Word-2
     check:
       UNIT_TEST:
         id: Word-2
+        expected:
+          text: "unitTest(Word-2): 'abcklmxyz'.contains('klm')"
         arg:
           CONTAINS:
             arg:
               TEXT: "abcklmxyz"
-            substring:
+            search:
               TEXT: "klm"
   - status: COMPLIANT
     currentStateMessage: Word-3
     check:
       UNIT_TEST:
         id: Word-3
+        expected:
+          text: "unitTest(Word-3): 'abcklmxyz'.contains('xyz')"
         arg:
           CONTAINS:
             arg:
               TEXT: "abcklmxyz"
-            substring:
+            search:
               TEXT: "xyz"
   - status: COMPLIANT
     currentStateMessage: Word-4
     check:
       UNIT_TEST:
         id: Word-4
+        expected:
+          text: "unitTest(Word-4): not('abcklmxyz'.contains('123'))"
         arg:
           NOT:
             arg:
               CONTAINS:
                 arg:
                   TEXT: "abcklmxyz"
-                substring:
+                search:
                   TEXT: "123"
   - status: COMPLIANT
     currentStateMessage: Multiple-1
     check:
       UNIT_TEST:
         id: Multiple-1
+        expected:
+          text: "unitTest(Multiple-1): 'abc klm xyz'.contains('abc')"
         arg:
           CONTAINS:
             arg:
               TEXT: "abc klm xyz"
-            substring:
+            search:
               TEXT: "abc"
   - status: COMPLIANT
     currentStateMessage: Multiple-2
     check:
       UNIT_TEST:
         id: Multiple-2
+        expected:
+          text: "unitTest(Multiple-2): 'abc klm xyz'.contains('klm')"
         arg:
           CONTAINS:
             arg:
               TEXT: "abc klm xyz"
-            substring:
+            search:
               TEXT: "klm"
   - status: COMPLIANT
     currentStateMessage: Multiple-3
     check:
       UNIT_TEST:
         id: Multiple-3
+        expected:
+          text: "unitTest(Multiple-3): 'abc klm xyz'.contains('xyz')"
         arg:
           CONTAINS:
             arg:
               TEXT: "abc klm xyz"
-            substring:
+            search:
               TEXT: "xyz"
   - status: COMPLIANT
     currentStateMessage: Multiple-4
     check:
       UNIT_TEST:
         id: Multiple-4
+        expected:
+          text: "unitTest(Multiple-4): not('abc klm xyz'.contains('123'))"
         arg:
           NOT:
             arg:
               CONTAINS:
                 arg:
                   TEXT: "abc klm xyz"
-                substring:
+                search:
                   TEXT: "123"
   - status: COMPLIANT
     currentStateMessage: Whitespace-1
     check:
       UNIT_TEST:
         id: Whitespace-1
+        expected:
+          text: "unitTest(Whitespace-1): ' aa   bb  cc '.contains('aa bb')"
         arg:
           CONTAINS:
             arg:
               TEXT: " aa   bb  cc "
-            substring:
+            search:
               TEXT: "aa bb"
   - status: COMPLIANT
     currentStateMessage: Whitespace-2
     check:
       UNIT_TEST:
         id: Whitespace-2
+        expected:
+          text: "unitTest(Whitespace-2): 'aa bb cc'.contains('  aa    bb ')"
         arg:
           CONTAINS:
             arg:
               TEXT: "aa bb cc"
-            substring:
+            search:
               TEXT: "  aa    bb "
   - status: COMPLIANT
     currentStateMessage: Whitespace-3
     check:
       UNIT_TEST:
         id: Whitespace-3
+        expected:
+          text: "unitTest(Whitespace-3): ''.contains('\\n\\r\\t')"
         arg:
           CONTAINS:
             arg:
               TEXT: ""
-            substring:
+            search:
               TEXT: "\n\r\t"
   - status: COMPLIANT
     currentStateMessage: Whitespace-4
     check:
       UNIT_TEST:
         id: Whitespace-4
+        expected:
+          text: "unitTest(Whitespace-4): 'a b c'.contains('  a\\n b \\r c \\t')"
         arg:
           CONTAINS:
             arg:
               TEXT: "a b c"
-            substring:
+            search:
               TEXT: "  a\n b \r c \t"
   - status: COMPLIANT
     currentStateMessage: Case-1
     check:
       UNIT_TEST:
         id: Case-1
+        expected:
+          text: "unitTest(Case-1): 'ABC KLM XYZ'.contains('klm')"
         arg:
           CONTAINS:
             arg:
               TEXT: "ABC KLM XYZ"
-            substring:
+            search:
               TEXT: "klm"
   - status: COMPLIANT
     currentStateMessage: Null-1
     check:
       UNIT_TEST:
         id: Null-1
+        expected:
+          text: "unitTest(Null-1): null.contains(null)"
         arg:
           CONTAINS:
             arg:
               UNIT_TEST_NULL:
                 returnType: TEXT
-            substring:
+            search:
               UNIT_TEST_NULL:
                 returnType: TEXT
   - status: COMPLIANT
@@ -168,11 +194,13 @@ conditions:
     check:
       UNIT_TEST:
         id: Null-2
+        expected:
+          text: "unitTest(Null-2): ''.contains(null)"
         arg:
           CONTAINS:
             arg:
               TEXT: ""
-            substring:
+            search:
               UNIT_TEST_NULL:
                 returnType: TEXT
   - status: COMPLIANT
@@ -180,11 +208,13 @@ conditions:
     check:
       UNIT_TEST:
         id: Null-3
+        expected:
+          text: "unitTest(Null-3): 'abc'.contains(null)"
         arg:
           CONTAINS:
             arg:
               TEXT: "abc"
-            substring:
+            search:
               UNIT_TEST_NULL:
                 returnType: TEXT
   - status: COMPLIANT
@@ -192,18 +222,22 @@ conditions:
     check:
       UNIT_TEST:
         id: Null-4
+        expected:
+          text: "unitTest(Null-4): null.contains('')"
         arg:
           CONTAINS:
             arg:
               UNIT_TEST_NULL:
                 returnType: TEXT
-            substring:
+            search:
               TEXT: ""
   - status: COMPLIANT
     currentStateMessage: Null-5
     check:
       UNIT_TEST:
         id: Null-5
+        expected:
+          text: "unitTest(Null-5): not(null.contains('abc'))"
         arg:
           NOT:
             arg:
@@ -211,7 +245,7 @@ conditions:
                 arg:
                   UNIT_TEST_NULL:
                     returnType: TEXT
-                substring:
+                search:
                   TEXT: "abc"
 otherwise:
   status: INCOMPLIANT
