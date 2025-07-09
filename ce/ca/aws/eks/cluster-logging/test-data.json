@@ -17,7 +17,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "199",
-            "conditionText": "extract('caExtract_logging_asCollection__c').contains('api: Disabled')",
+            "conditionText": "extract('caExtract_logging_asSet__c').contains('api: Disabled')",
             "runtimeError": null
         },
         "context": {
@@ -31,7 +31,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('caExtract_logging_asCollection__c').contains('audit: Disabled')",
+            "conditionText": "extract('caExtract_logging_asSet__c').contains('audit: Disabled')",
             "runtimeError": null
         },
         "context": {
@@ -45,7 +45,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "399",
-            "conditionText": "extract('caExtract_logging_asCollection__c').contains('authenticator: Disabled')",
+            "conditionText": "extract('caExtract_logging_asSet__c').contains('authenticator: Disabled')",
             "runtimeError": null
         },
         "context": {
@@ -59,7 +59,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "499",
-            "conditionText": "extract('caExtract_logging_asCollection__c').contains('controllerManager: Disabled')",
+            "conditionText": "extract('caExtract_logging_asSet__c').contains('controllerManager: Disabled')",
             "runtimeError": null
         },
         "context": {
@@ -73,7 +73,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "599",
-            "conditionText": "extract('caExtract_logging_asCollection__c').contains('scheduler: Disabled')",
+            "conditionText": "extract('caExtract_logging_asSet__c').contains('scheduler: Disabled')",
             "runtimeError": null
         },
         "context": {

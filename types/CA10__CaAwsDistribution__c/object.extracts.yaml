@@ -1,0 +1,30 @@
+---
+extracts:
+# Nullable
+  - name: "CA10__defaultRootObject__c"
+    value:
+      FIELD:
+        path: CA10__defaultRootObject__c
+        # undeterminedIf:
+        #   noAccessDelegate:
+        #     path: "CA10__defaultRootObject__c"
+        #     currentStateMessage: "Unable to determine Default Root Object. Possible permission issue with cloudfront:GetDistribution."
+# Checkbox
+  - name: "CA10__loggingEnabled__c"
+    value:
+      FIELD:
+        path: "CA10__loggingEnabled__c"
+# Checkbox
+  - name: "CA10__viewerCertificateCloudFrontDefaultCert__c"
+    value:
+      FIELD:
+        path: "CA10__viewerCertificateCloudFrontDefaultCert__c"
+# Values: sni-only | vip | static-ip. Nullable
+  - name: "CA10__viewerCertificateSslSupportMethod__c"
+    value:
+      FIELD:
+        path: "CA10__viewerCertificateSslSupportMethod__c"
+        # undeterminedIf:
+        #   noAccessDelegate:
+        #     path: "CA10__defaultRootObject__c"
+        #     currentStateMessage: "Unable to determine Viewer Certificate SSL Support Method. Possible permission issue with cloudfront:GetDistribution."

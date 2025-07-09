@@ -76,41 +76,16 @@
       },
       "required" : [ "BOOLEAN_FROM" ]
     },
-    "CollectionDuplicateValues" : {
+    "CollectionItemTypeEnum" : {
       "type" : "string",
-      "enum" : [ "KEEP", "SKIP" ]
+      "enum" : [ "TEXT", "BYTES" ]
     },
-    "CollectionEmptyValues" : {
-      "type" : "string",
-      "enum" : [ "KEEP", "SKIP" ]
-    },
-    "CollectionFrom" : {
+    "CollectionListFrom" : {
       "type" : "object",
       "properties" : {
         "separator" : {
           "type" : "string",
-          "description" : "The separator to use when splitting the string 'arg' to create a collection"
-        },
-        "emptyValues" : {
-          "allOf" : [ {
-            "$ref" : "#/definitions/CollectionEmptyValues"
-          }, {
-            "description" : "Collection behavior with empty values"
-          } ]
-        },
-        "duplicateValues" : {
-          "allOf" : [ {
-            "$ref" : "#/definitions/CollectionDuplicateValues"
-          }, {
-            "description" : "Collection behavior with duplicate values values"
-          } ]
-        },
-        "ordering" : {
-          "allOf" : [ {
-            "$ref" : "#/definitions/CollectionOrdering"
-          }, {
-            "description" : "Ordering of the items inside collection"
-          } ]
+          "description" : "The separator to use when splitting the string 'arg' to create a list"
         },
         "arg" : {
           "allOf" : [ {
@@ -120,41 +95,46 @@
           } ]
         }
       },
-      "required" : [ "separator", "emptyValues", "duplicateValues", "ordering", "arg" ],
-      "description" : "Operation that returns a collection from a string 'arg', splitting it by a 'separator' string",
+      "required" : [ "separator", "arg" ],
+      "description" : "Operation that returns a list from a string 'arg', splitting it by a 'separator' string",
       "additionalProperties" : false
     },
-    "CollectionFromWrapper" : {
+    "CollectionListFromWrapper" : {
       "type" : "object",
       "properties" : {
-        "COLLECTION_FROM" : {
-          "$ref" : "#/definitions/CollectionFrom"
+        "LIST_FROM" : {
+          "$ref" : "#/definitions/CollectionListFrom"
         }
       },
-      "required" : [ "COLLECTION_FROM" ]
+      "required" : [ "LIST_FROM" ]
     },
-    "CollectionOrdering" : {
-      "type" : "string",
-      "enum" : [ "ORIGINAL", "SORTED" ]
-    },
-    "CollectionSize" : {
+    "CollectionSetFrom" : {
       "type" : "object",
       "properties" : {
+        "separator" : {
+          "type" : "string",
+          "description" : "The separator to use when splitting the string 'arg' to create a set"
+        },
         "arg" : {
-          "$ref" : "#/definitions/OpCollection"
+          "allOf" : [ {
+            "$ref" : "#/definitions/OpCollectable"
+          }, {
+            "description" : "The string that contains a list of elements separated by 'separator'"
+          } ]
         }
       },
-      "required" : [ "arg" ],
+      "required" : [ "separator", "arg" ],
+      "description" : "Operation that returns a set from a string 'arg', splitting it by a 'separator' string",
       "additionalProperties" : false
     },
-    "CollectionSizeWrapper" : {
+    "CollectionSetFromWrapper" : {
       "type" : "object",
       "properties" : {
-        "COLLECTION_SIZE" : {
-          "$ref" : "#/definitions/CollectionSize"
+        "SET_FROM" : {
+          "$ref" : "#/definitions/CollectionSetFrom"
         }
       },
-      "required" : [ "COLLECTION_SIZE" ]
+      "required" : [ "SET_FROM" ]
     },
     "ComparisonGreaterThan" : {
       "type" : "object",
@@ -283,61 +263,67 @@
       },
       "required" : [ "BYTES" ]
     },
-    "ConstCollection" : {
+    "ConstCollectionList" : {
       "type" : "object",
       "properties" : {
-        "emptyValues" : {
-          "allOf" : [ {
-            "$ref" : "#/definitions/CollectionEmptyValues"
-          }, {
-            "description" : "Collection behavior with empty values"
-          } ]
-        },
-        "duplicateValues" : {
-          "allOf" : [ {
-            "$ref" : "#/definitions/CollectionDuplicateValues"
-          }, {
-            "description" : "Collection behavior with duplicate values values"
-          } ]
-        },
-        "ordering" : {
-          "allOf" : [ {
-            "$ref" : "#/definitions/CollectionOrdering"
-          }, {
-            "description" : "Ordering of the items inside collection"
-          } ]
-        },
         "itemType" : {
           "allOf" : [ {
-            "$ref" : "#/definitions/ConstCollectionItemType"
+            "$ref" : "#/definitions/CollectionItemTypeEnum"
           }, {
             "description" : "Which type 'items' should be considered as"
           } ]
         },
         "items" : {
-          "description" : "A list of items to create a collection from, can not be null",
+          "description" : "A list of items to create a list from, can not be null",
           "type" : "array",
           "items" : {
             "type" : "string"
           }
         }
       },
-      "required" : [ "emptyValues", "duplicateValues", "ordering", "itemType", "items" ],
-      "description" : "Operation that creates a collection, can not be null",
+      "required" : [ "itemType", "items" ],
+      "description" : "Operation that creates a list, can not be null",
       "additionalProperties" : false
     },
-    "ConstCollectionWrapper" : {
+    "ConstCollectionListWrapper" : {
       "type" : "object",
       "properties" : {
-        "COLLECTION" : {
-          "$ref" : "#/definitions/ConstCollection"
+        "LIST" : {
+          "$ref" : "#/definitions/ConstCollectionList"
         }
       },
-      "required" : [ "COLLECTION" ]
+      "required" : [ "LIST" ]
     },
-    "ConstCollectionItemType" : {
-      "type" : "string",
-      "enum" : [ "TEXT", "BYTES" ]
+    "ConstCollectionSet" : {
+      "type" : "object",
+      "properties" : {
+        "itemType" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/CollectionItemTypeEnum"
+          }, {
+            "description" : "Which type 'items' should be considered as"
+          } ]
+        },
+        "items" : {
+          "description" : "A list of items to create a set from, can not be null",
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "required" : [ "itemType", "items" ],
+      "description" : "Operation that creates a set, can not be null",
+      "additionalProperties" : false
+    },
+    "ConstCollectionSetWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "SET" : {
+          "$ref" : "#/definitions/ConstCollectionSet"
+        }
+      },
+      "required" : [ "SET" ]
     },
     "ConstDateTime" : {
       "type" : "object",
@@ -1166,9 +1152,9 @@
       }, {
         "$ref" : "#/definitions/BooleanFromWrapper"
       }, {
-        "$ref" : "#/definitions/CollectionFromWrapper"
+        "$ref" : "#/definitions/CollectionListFromWrapper"
       }, {
-        "$ref" : "#/definitions/CollectionSizeWrapper"
+        "$ref" : "#/definitions/CollectionSetFromWrapper"
       }, {
         "$ref" : "#/definitions/ComparisonGreaterThanWrapper"
       }, {
@@ -1182,7 +1168,9 @@
       }, {
         "$ref" : "#/definitions/ConstBytes"
       }, {
-        "$ref" : "#/definitions/ConstCollectionWrapper"
+        "$ref" : "#/definitions/ConstCollectionListWrapper"
+      }, {
+        "$ref" : "#/definitions/ConstCollectionSetWrapper"
       }, {
         "$ref" : "#/definitions/ConstDateTime"
       }, {
@@ -1263,6 +1251,8 @@
         "$ref" : "#/definitions/SearchManyContainsAnyWrapper"
       }, {
         "$ref" : "#/definitions/SearchStartsWithWrapper"
+      }, {
+        "$ref" : "#/definitions/SizeWrapper"
       }, {
         "$ref" : "#/definitions/TagExistsWrapper"
       }, {
@@ -1404,9 +1394,13 @@
     },
     "OpCollection" : {
       "oneOf" : [ {
-        "$ref" : "#/definitions/CollectionFromWrapper"
+        "$ref" : "#/definitions/CollectionListFromWrapper"
       }, {
-        "$ref" : "#/definitions/ConstCollectionWrapper"
+        "$ref" : "#/definitions/CollectionSetFromWrapper"
+      }, {
+        "$ref" : "#/definitions/ConstCollectionListWrapper"
+      }, {
+        "$ref" : "#/definitions/ConstCollectionSetWrapper"
       }, {
         "$ref" : "#/definitions/ConstJson"
       }, {
@@ -1451,8 +1445,6 @@
     },
     "OpNumeric" : {
       "oneOf" : [ {
-        "$ref" : "#/definitions/CollectionSizeWrapper"
-      }, {
         "$ref" : "#/definitions/ConstDuration"
       }, {
         "$ref" : "#/definitions/ConstNumber"
@@ -1469,6 +1461,8 @@
       }, {
         "$ref" : "#/definitions/RelatedListAggregateCountWrapper"
       }, {
+        "$ref" : "#/definitions/SizeWrapper"
+      }, {
         "$ref" : "#/definitions/UnitTestNullWrapper"
       }, {
         "$ref" : "#/definitions/UnitTestRuntimeErrorWrapper"
@@ -1476,11 +1470,15 @@
     },
     "OpSearchable" : {
       "oneOf" : [ {
-        "$ref" : "#/definitions/CollectionFromWrapper"
+        "$ref" : "#/definitions/CollectionListFromWrapper"
+      }, {
+        "$ref" : "#/definitions/CollectionSetFromWrapper"
       }, {
         "$ref" : "#/definitions/ConstBytes"
       }, {
-        "$ref" : "#/definitions/ConstCollectionWrapper"
+        "$ref" : "#/definitions/ConstCollectionListWrapper"
+      }, {
+        "$ref" : "#/definitions/ConstCollectionSetWrapper"
       }, {
         "$ref" : "#/definitions/ConstJson"
       }, {
@@ -1757,6 +1755,25 @@
       },
       "required" : [ "STARTS_WITH" ]
     },
+    "Size" : {
+      "type" : "object",
+      "properties" : {
+        "arg" : {
+          "$ref" : "#/definitions/OpCollection"
+        }
+      },
+      "required" : [ "arg" ],
+      "additionalProperties" : false
+    },
+    "SizeWrapper" : {
+      "type" : "object",
+      "properties" : {
+        "SIZE" : {
+          "$ref" : "#/definitions/Size"
+        }
+      },
+      "required" : [ "SIZE" ]
+    },
     "Status" : {
       "type" : "string",
       "enum" : [ "DISAPPEARED", "INAPPLICABLE", "COMPLIANT", "INCOMPLIANT", "UNDETERMINED" ]
@@ -1959,7 +1976,7 @@
     },
     "UnitTestReturnType" : {
       "type" : "string",
-      "enum" : [ "TEXT", "BYTES", "NUMBER", "BOOLEAN", "DATE_TIME", "COLLECTION_TEXT", "COLLECTION_BYTES", "JSON", "DURATION" ]
+      "enum" : [ "TEXT", "BYTES", "NUMBER", "BOOLEAN", "DATE_TIME", "SET_OF_TEXT", "SET_OF_BYTES", "LIST_OF_TEXT", "LIST_OF_BYTES", "JSON", "DURATION" ]
     },
     "UnitTestRuntimeError" : {
       "type" : "object",

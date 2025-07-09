@@ -9,7 +9,7 @@ conditions:
     check:
       CONTAINS:
         arg: 
-          EXTRACT: "caExtract_logging_asCollection__c"
+          EXTRACT: "caExtract_logging_asSet__c"
         search:
           TEXT: "api: Disabled"
   - status: "INCOMPLIANT"
@@ -17,7 +17,7 @@ conditions:
     check:
       CONTAINS:
         arg: 
-          EXTRACT: "caExtract_logging_asCollection__c"
+          EXTRACT: "caExtract_logging_asSet__c"
         search:
           TEXT: "audit: Disabled"
   - status: "INCOMPLIANT"
@@ -25,7 +25,7 @@ conditions:
     check:
       CONTAINS:
         arg: 
-          EXTRACT: "caExtract_logging_asCollection__c"
+          EXTRACT: "caExtract_logging_asSet__c"
         search:
           TEXT: "authenticator: Disabled"
   - status: "INCOMPLIANT"
@@ -33,7 +33,7 @@ conditions:
     check:
       CONTAINS:
         arg: 
-          EXTRACT: "caExtract_logging_asCollection__c"
+          EXTRACT: "caExtract_logging_asSet__c"
         search:
           TEXT: "controllerManager: Disabled"
   - status: "INCOMPLIANT"
@@ -41,7 +41,7 @@ conditions:
     check:
       CONTAINS:
         arg: 
-          EXTRACT: "caExtract_logging_asCollection__c"
+          EXTRACT: "caExtract_logging_asSet__c"
         search:
           TEXT: "scheduler: Disabled"
 otherwise:

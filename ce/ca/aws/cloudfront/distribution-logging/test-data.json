@@ -1,0 +1,78 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-10T18:55:17Z"
+        },
+        "Id": "test1",
+        "RecordTypeId": "RecordTypeId1",
+        "CA10__disappearanceTime__c": "2025-05-10T18:55:17Z",
+        "CA10__loggingEnabled__c": false,
+        "RecordType": {
+            "DeveloperName": "caRtmpDistribution",
+            "Id": "RecordTypeId1"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__loggingEnabled__c') == false",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-10T18:55:17Z"
+        },
+        "Id": "test2",
+        "RecordTypeId": "RecordTypeId1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__loggingEnabled__c": false,
+        "RecordType": {
+            "DeveloperName": "caRtmpDistribution",
+            "Id": "RecordTypeId1"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__loggingEnabled__c') == false",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-10T18:55:17Z"
+        },
+        "Id": "test3",
+        "RecordTypeId": "RecordTypeId2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__loggingEnabled__c": false,
+        "RecordType": {
+            "DeveloperName": "caWebDistribution",
+            "Id": "RecordTypeId2"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-10T18:55:17Z"
+        },
+        "Id": "test4",
+        "RecordTypeId": "RecordTypeId2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__loggingEnabled__c": true,
+        "RecordType": {
+            "DeveloperName": "caWebDistribution",
+            "Id": "RecordTypeId2"
+        }
+    }
+]

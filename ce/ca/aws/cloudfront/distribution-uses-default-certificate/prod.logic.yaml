@@ -1,0 +1,21 @@
+---
+inputType: "CA10__CaAwsDistribution__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsDistribution__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"  
+recordTypes:
+  - "caWebDistribution"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The CloudFront Distribution is configured to use the default SSL/TLS certificate."
+    remediationMessage: "Configure the Distribution to use a custom SSL/TLS certificate."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__viewerCertificateCloudFrontDefaultCert__c"
+        right:
+          BOOLEAN: true
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The CloudFront Distribution uses a custom SSL/TLS certificate."

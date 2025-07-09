@@ -1,0 +1,20 @@
+---
+names:
+  full: AWS CloudFront Web Distribution Cache Behaviors allow unencrypted traffic
+  contextual: Web Distribution Cache Behaviors allow unencrypted traffic
+description: >
+  Ensures that CloudFront distribution cache behaviors are configured to enforce 
+  encrypted connections (HTTPS) by redirecting or allowing only HTTPS traffic. 
+  This prevents unencrypted HTTP communication between viewers and CloudFront.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-fsbp-v1.0.0/cloudfront/03"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[CloudFront.3] CloudFront distributions should require encryption in transit"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/cloudfront-controls.html#cloudfront-3"
+  internal:
+    - "dec-x-791dab13"

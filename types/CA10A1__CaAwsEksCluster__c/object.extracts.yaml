@@ -28,12 +28,9 @@ extracts:
           noAccessDelegate:
             path: CA10A1__logging__c
             currentStateMessage: "Cluster Logging cannot be empty. Possible permission issues with eks:DescribeCluster."
-  - name: caExtract_logging_asCollection__c
+  - name: caExtract_logging_asSet__c
     value:
-      COLLECTION_FROM:
+      SET_FROM:
         separator: "\n"
-        emptyValues: SKIP
-        duplicateValues: SKIP
-        ordering: SORTED
-        arg: 
+        arg:
           EXTRACT: "CA10A1__logging__c"

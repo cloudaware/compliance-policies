@@ -1,0 +1,20 @@
+---
+names:
+  full: AWS CloudFront Web Distribution uses outdated SSL protocols with Custom Origins
+  contextual: Web Distribution uses outdated SSL protocols with Custom Origins
+description: >
+  Ensure that AWS CloudFront Web Distributions are configured to use TLSv1.2 or 
+  later SSL/TLS protocols to protect data in transit. Older protocols like SSLv3 
+  and early TLS versions have known vulnerabilities and should be disabled.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-fsbp-v1.0.0/cloudfront/10"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[CloudFront.10] CloudFront distributions should not use deprecated SSL protocols between edge locations and custom origins"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/cloudfront-controls.html#cloudfront-10"
+  internal:
+    - "dec-x-4002ecfe"

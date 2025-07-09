@@ -1,0 +1,217 @@
+---
+inputType: CA10__CaAwsInstance__c
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: From-Null
+    check:
+      UNIT_TEST:
+        id: From-Null
+        expected:
+          text: "unitTest(From-Null): null.asSetOfText(',') == setOfText([])"
+        arg:
+          IS_EQUAL:
+            left:
+              SET_FROM:
+                separator: ","
+                arg:
+                  UNIT_TEST_NULL:
+                    returnType: TEXT
+            right:
+              SET:
+                itemType: TEXT
+                items: []
+  - status: COMPLIANT
+    currentStateMessage: From-Empty
+    check:
+      UNIT_TEST:
+        id: From-Empty
+        expected:
+          text: "unitTest(From-Empty): ''.asSetOfText(',') == setOfText([])"
+        arg:
+          IS_EQUAL:
+            left:
+              SET_FROM:
+                separator: ","
+                arg:
+                   TEXT: ""
+            right:
+              SET:
+                itemType: TEXT
+                items: []
+  - status: COMPLIANT
+    currentStateMessage: From-Whitespace
+    check:
+      UNIT_TEST:
+        id: From-Whitespace
+        expected:
+          text: "unitTest(From-Whitespace): ' '.asSetOfText(',') == setOfText([])"
+        arg:
+          IS_EQUAL:
+            left:
+              SET_FROM:
+                separator: ","
+                arg:
+                  TEXT: " "
+            right:
+              SET:
+                itemType: TEXT
+                items: []
+  - status: COMPLIANT
+    currentStateMessage: Single
+    check:
+      UNIT_TEST:
+        id: Single
+        expected:
+          text: "unitTest(Single): 'a'.asSetOfText(',') == setOfText(['a'])"
+        arg:
+          IS_EQUAL:
+            left:
+              SET_FROM:
+                separator: ","
+                arg:
+                  TEXT: "a"
+            right:
+              SET:
+                itemType: TEXT
+                items:
+                  - "a"
+  - status: COMPLIANT
+    currentStateMessage: Single-Case
+    check:
+      UNIT_TEST:
+        id: Single-Case
+        expected:
+          text: "unitTest(Single-Case): 'A'.asSetOfText(',') == setOfText(['a'])"
+        arg:
+          IS_EQUAL:
+            left:
+              SET_FROM:
+                separator: ","
+                arg:
+                  TEXT: "A"
+            right:
+              SET:
+                itemType: TEXT
+                items:
+                  - "a"
+  - status: COMPLIANT
+    currentStateMessage: Single-Whitespaces
+    check:
+      UNIT_TEST:
+        id: Single-Whitespaces
+        expected:
+          text: "unitTest(Single-Whitespaces): ' a '.asSetOfText(',') == setOfText(['a'])"
+        arg:
+          IS_EQUAL:
+            left:
+              SET_FROM:
+                separator: ","
+                arg:
+                  TEXT: " a "
+            right:
+              SET:
+                itemType: TEXT
+                items:
+                  - "a"
+  - status: COMPLIANT
+    currentStateMessage: Empty-Values
+    check:
+      UNIT_TEST:
+        id: Empty-Values
+        expected:
+          text: "unitTest(Empty-Values): ','.asSetOfText(',') == setOfText([])"
+        arg:
+          IS_EQUAL:
+            left:
+              SET_FROM:
+                separator: ","
+                arg:
+                  TEXT: ","
+            right:
+              SET:
+                itemType: TEXT
+                items: []
+  - status: COMPLIANT
+    currentStateMessage: Duplicate
+    check:
+      UNIT_TEST:
+        id: Duplicate
+        expected:
+          text: "unitTest(Duplicate): 'a,a'.asSetOfText(',') == setOfText(['a'])"
+        arg:
+          IS_EQUAL:
+            left:
+              SET_FROM:
+                separator: ","
+                arg:
+                  TEXT: "a,a"
+            right:
+              SET:
+                itemType: TEXT
+                items:
+                  - "a"
+  - status: COMPLIANT
+    currentStateMessage: Order
+    check:
+      UNIT_TEST:
+        id: Order
+        expected:
+          text: "unitTest(Order): 'a,b'.asSetOfText(',') == setOfText(['b', 'a'])"
+        arg:
+          IS_EQUAL:
+            left:
+              SET_FROM:
+                separator: ","
+                arg:
+                  TEXT: "a,b"
+            right:
+              SET:
+                itemType: TEXT
+                items:
+                  - "b"
+                  - "a"
+  - status: COMPLIANT
+    currentStateMessage: Separator-NewLine
+    check:
+      UNIT_TEST:
+        id: Separator-NewLine
+        expected:
+          text: "unitTest(Separator-NewLine): 'line1\\nline2\\nline3\\n'.asSetOfText('\\n') == setOfText(['line1', 'line2', 'line3'])"
+        arg:
+          IS_EQUAL:
+            left:
+              SET_FROM:
+                separator: "\n"
+                arg:
+                  TEXT: "line1\nline2\nline3\n"
+            right:
+              SET:
+                itemType: TEXT
+                items:
+                  - "line1"
+                  - "line2"
+                  - "line3"
+  - status: COMPLIANT
+    currentStateMessage: Separator-Word
+    check:
+      UNIT_TEST:
+        id: Separator-Word
+        expected:
+          text: "unitTest(Separator-Word): 'banana'.asSetOfText('an') == setOfText(['b', 'a'])"
+        arg:
+          IS_EQUAL:
+            left:
+              SET_FROM:
+                separator: "an"
+                arg:
+                  TEXT: "banana"
+            right:
+              SET:
+                itemType: TEXT
+                items:
+                  - "b"
+                  - "a"
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: Test Failed
+  remediationMessage: Developer Fix Required

@@ -11,12 +11,9 @@ extracts:
         path: CA10__availabilityZones__c
         undeterminedIf:
           isEmpty: Corrupted data. Availability zones should always present
-  - name: caExtract_availabilityZones_asCollection__c
+  - name: caExtract_availabilityZones_asSet__c
     value: 
-      COLLECTION_FROM:
+      SET_FROM:
         separator: "\n"
-        emptyValues: SKIP
-        duplicateValues: SKIP
-        ordering: SORTED
         arg:
           EXTRACT: CA10__availabilityZones__c

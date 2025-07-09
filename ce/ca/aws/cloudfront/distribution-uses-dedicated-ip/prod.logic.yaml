@@ -1,0 +1,29 @@
+---
+inputType: "CA10__CaAwsDistribution__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsDistribution__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"  
+recordTypes:
+  - "caWebDistribution"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The CloudFront Distribution is configured to use the default SSL/TLS certificate."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__viewerCertificateCloudFrontDefaultCert__c"
+        right:
+          BOOLEAN: true
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The CloudFront Distribution is configured to use Dedicated IP address."
+    remediationMessage: "Change the SSL Support Method for the Distribution from Dedicated IP to Server Name Indication (SNI)."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__viewerCertificateSslSupportMethod__c"
+        right:
+          TEXT: "vip"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The CloudFront Distribution is configured to use SNI-only for SSL support."

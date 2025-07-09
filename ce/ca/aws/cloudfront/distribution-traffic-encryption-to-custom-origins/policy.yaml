@@ -1,0 +1,19 @@
+---
+names:
+  full: AWS CloudFront Web Distribution does not encrypt traffic to Custom Origins
+  contextual: Web Distribution does not encrypt traffic to Custom Origins
+description: >
+  Ensure that CloudFront Distributions are configured to use connections over 
+  HTTPS when communicating with custom origins.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-fsbp-v1.0.0/cloudfront/09"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[CloudFront.9] CloudFront distributions should encrypt traffic to custom origins"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/cloudfront-controls.html#cloudfront-9"
+  internal:
+    - "dec-x-3181f359"

@@ -1,0 +1,27 @@
+---
+extracts:
+# Values: http-only | match-viewer | https-only. Nullable. In case it's a Custom Origin, cannot be null. 
+# Can't have no access, retrieved via cloudfront:GetDistribution.
+  - name: "CA10__configProtocolPolicy__c"
+    value:
+      FIELD:
+        path: CA10__configProtocolPolicy__c
+# Not Nullable. Can't have no access, retrieved via cloudfront:GetDistribution.
+  - name: "CA10__domainName__c"
+    value:
+      FIELD:
+        path: CA10__domainName__c
+        undeterminedIf:
+          isEmpty: "Corrupted data. Origin Domain Name cannot be empty."
+# Values: SSLv3 | TLSv1 | TLSv1.1 | TLSv1.2. Nullable. In case it's a Custom Origin, cannot be null. 
+# Can't have no access, retrieved via cloudfront:GetDistribution.
+  - name: "CA10__customOriginConfigOriginSslProtocols__c"
+    value:
+      FIELD:
+        path: CA10__customOriginConfigOriginSslProtocols__c
+  - name: CA10__customOriginConfigOriginSslProtocolsAsCollection__c
+    value:
+      SET_FROM:
+        separator: "\n"
+        arg:
+          EXTRACT: "CA10__customOriginConfigOriginSslProtocols__c"

@@ -1,6 +1,6 @@
 # Description
 
-This policy checks whether an AWS EC2 Auto Scaling Group is configured to use **no longer supported** Launch Configurations. AWS does not release new EC2 features to Launch Configurations and strongly recommends migrating to Launch Templates.
+This policy checks that AWS EC2 Auto Scaling Groups are not configured to use **no longer supported** Launch Configurations. AWS does not release new EC2 features to Launch Configurations and strongly recommends migrating to Launch Templates.
 
 Launch Templates are a newer mechanism for EC2 instance provisioning, providing support for all current and future EC2 features, as well as integrated version control and heterogeneous instance type support.
 

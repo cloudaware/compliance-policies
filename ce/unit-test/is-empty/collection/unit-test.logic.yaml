@@ -7,15 +7,12 @@ conditions:
       UNIT_TEST:
         id: Test-1
         expected:
-          text: "unitTest(Test-1): 'a,b,c'.asCollection(',').skipEmpty().skipDuplicates().sort().isNotEmpty()"
+          text: "unitTest(Test-1): 'a,b,c'.asSetOfText(',').isNotEmpty()"
         arg:
           NOT_EMPTY:
             arg:
-              COLLECTION_FROM:
+              SET_FROM:
                 separator: ","
-                emptyValues: SKIP
-                duplicateValues: SKIP
-                ordering: SORTED
                 arg:
                   TEXT: a,b,c
   - status: COMPLIANT
@@ -24,15 +21,12 @@ conditions:
       UNIT_TEST:
         id: Test-2
         expected:
-          text: "unitTest(Test-2): 'a'.asCollection(',').skipEmpty().skipDuplicates().sort().isNotEmpty()"
+          text: "unitTest(Test-2): 'a'.asSetOfText(',').isNotEmpty()"
         arg:
           NOT_EMPTY:
             arg:
-              COLLECTION_FROM:
+              SET_FROM:
                 separator: ","
-                emptyValues: SKIP
-                duplicateValues: SKIP
-                ordering: SORTED
                 arg:
                   TEXT: a
   - status: COMPLIANT
@@ -41,15 +35,12 @@ conditions:
       UNIT_TEST:
         id: Test-3
         expected:
-          text: "unitTest(Test-3): ''.asCollection(',').skipEmpty().skipDuplicates().sort().isEmpty()"
+          text: "unitTest(Test-3): ''.asSetOfText(',').isEmpty()"
         arg:
           IS_EMPTY:
             arg:
-              COLLECTION_FROM:
+              SET_FROM:
                 separator: ","
-                emptyValues: SKIP
-                duplicateValues: SKIP
-                ordering: SORTED
                 arg:
                   TEXT: ""
   - status: COMPLIANT
@@ -58,15 +49,12 @@ conditions:
       UNIT_TEST:
         id: Test-4
         expected:
-          text: "unitTest(Test-4): ','.asCollection(',').skipEmpty().skipDuplicates().sort().isEmpty()"
+          text: "unitTest(Test-4): ','.asSetOfText(',').isEmpty()"
         arg:
           IS_EMPTY:
             arg:
-              COLLECTION_FROM:
+              SET_FROM:
                 separator: ","
-                emptyValues: SKIP
-                duplicateValues: SKIP
-                ordering: SORTED
                 arg:
                   TEXT: ","
   - status: COMPLIANT
@@ -80,7 +68,7 @@ conditions:
           IS_EMPTY:
             arg:
               UNIT_TEST_NULL:
-                returnType: COLLECTION_TEXT
+                returnType: SET_OF_TEXT
 otherwise:
   status: INCOMPLIANT
   currentStateMessage: Test Failed

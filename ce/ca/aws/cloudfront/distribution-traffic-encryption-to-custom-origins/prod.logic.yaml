@@ -1,0 +1,123 @@
+---
+inputType: "CA10__CaAwsDistribution__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsCacheBehavior2__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"  
+recordTypes:
+  - "caWebDistribution"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Distribution has at least one custom origin that is set to HTTP Only."
+    remediationMessage: "Update the Origin Protocol Policy for the custom origins to HTTPS Only."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__AWS_CloudFront_Origins__r"
+  - status: "UNDETERMINED"
+    currentStateMessage: "The Distribution has at least one custom origin that is set to Match Viewer\
+      \ but the default cache behavior is not present in the CMDB."
+    check:
+      IS_EMPTY_LOOKUP: "CA10__defaultCacheBehavior__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Distribution has at least one custom origin that is set to Match Viewer\
+      \ while Viewers can use both protocols."
+    remediationMessage: "Update the Origin Protocol Policy for the custom origins to HTTPS Only."
+    check:
+      AND:
+        args:
+          - RELATED_LIST_HAS:
+              status: "COMPLIANT"
+              relationshipName: "CA10__AWS_CloudFront_Origins__r"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__defaultCacheBehavior__r.CA10__viewerProtocolPolicy__c"
+              right:
+                TEXT: "allow-all"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Distribution has at least one custom origin that is set to Match Viewer\
+      \ while Viewers can use both protocols."
+    remediationMessage: "Update the Origin Protocol Policy for the custom origins to HTTPS Only."
+    check:
+      AND:
+        args:
+          - RELATED_LIST_HAS:
+              status: "COMPLIANT"
+              relationshipName: "CA10__AWS_CloudFront_Origins__r"
+          - RELATED_LIST_HAS:
+              status: "INCOMPLIANT"
+              relationshipName: "CA10__AWS_CloudFront_Cache_Behaviors__r"
+  - status: "UNDETERMINED"
+    currentStateMessage: "The Distribution doesn't have any Origins in the CMDB."
+    check:
+      AND:
+        args:
+          - RELATED_LIST_HAS_NO:
+              status: "INAPPLICABLE"
+              relationshipName: "CA10__AWS_CloudFront_Origins__r"
+          - RELATED_LIST_HAS_NO:
+              status: "UNDETERMINED"
+              relationshipName: "CA10__AWS_CloudFront_Origins__r"
+          - RELATED_LIST_HAS_NO:
+              status: "COMPLIANT"
+              relationshipName: "CA10__AWS_CloudFront_Origins__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "All custom Origins for this Distribution are configured to use\
+    \ encrypted traffic whenever applicable."
+relatedLists:
+  - relationshipName: "CA10__AWS_CloudFront_Origins__r"
+    importExtracts:
+      - file: "/types/CA10__CaAwsOrigin2__c/object.extracts.yaml"
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This is not a custom origin."
+        check:
+          IS_EMPTY:
+            arg:
+              EXTRACT: "CA10__configProtocolPolicy__c"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This origin is an S3 bucket configured for static website hosting,\
+          \ which does not support HTTPS."
+        check:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__domainName__c"
+            search:
+              TEXT: "s3-website"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The protocol policy for this custom origin is http-only,\
+          \ allowing unencrypted traffic."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__configProtocolPolicy__c"
+            right:
+              TEXT: "http-only"
+      # match-viewer is set to COMPLIANT only to make it easier to distinguish from INCOMPLIANT in the main body of the policy
+      - status: "COMPLIANT"
+        currentStateMessage: "The protocol policy for this custom origin depends on\
+          \ the protocol of the viewer request."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__configProtocolPolicy__c"
+            right:
+              TEXT: "match-viewer"
+    # This is set to UNDETERMINED since COMPLIANT status is already reserved for the purpose above
+    otherwise:
+      status: "UNDETERMINED"
+      currentStateMessage: "The protocol policy for this custom origin enforces encrypted traffic."
+  - relationshipName: "CA10__AWS_CloudFront_Cache_Behaviors__r"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The viewer protocol policy for this cache behavior is set to allow-all."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__viewerProtocolPolicy__c"
+            right:
+              TEXT: "allow-all"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "The viewer protocol policy for this cache behavior encrypts communications."

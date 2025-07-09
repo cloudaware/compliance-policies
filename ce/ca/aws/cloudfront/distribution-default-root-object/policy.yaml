@@ -1,0 +1,19 @@
+---
+names:
+  full: AWS CloudFront Web Distribution Default Root Object is not configured
+  contextual: Web Distribution Default Root Object is not configured
+description: >
+  Ensure that CloudFront Web Distributions have a default root object configured 
+  to serve a specific file (e.g., index.html) when a user requests the root URL of the distribution.
+categories:
+  - "SECURITY"
+type: "BEST_PRACTICE"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/aws-fsbp-v1.0.0/cloudfront/01"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[CloudFront.1] CloudFront distributions should have a default root object configured"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/cloudfront-controls.html#cloudfront-1"
+  internal:
+    - "dec-x-4f944d13"

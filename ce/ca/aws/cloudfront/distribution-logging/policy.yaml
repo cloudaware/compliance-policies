@@ -1,0 +1,19 @@
+---
+names:
+  full: AWS CloudFront Distribution Logging is not enabled
+  contextual: Distribution Logging is not enabled
+description: >
+  Ensure that standard logging is enabled for CloudFront Web Distributions.
+categories:
+  - "SECURITY"
+  - "RELIABILITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/cloudfront/05"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[CloudFront.5] CloudFront distributions should have logging enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/cloudfront-controls.html#cloudfront-5"
+  internal:
+    - "dec-x-a5c2acfe"

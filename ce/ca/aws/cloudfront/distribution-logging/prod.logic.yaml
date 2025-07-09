@@ -1,0 +1,19 @@
+---
+inputType: "CA10__CaAwsDistribution__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsDistribution__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"  
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The CloudFront Distribution standard logging is not enabled."
+    remediationMessage: "Consider enabling standard logging for the CloudFront Distribution."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__loggingEnabled__c"
+        right:
+          BOOLEAN: false
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The CloudFront Distribution standard logging is enabled."

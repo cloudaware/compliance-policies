@@ -11,10 +11,10 @@ conditions:
         arg:
           IS_EQUAL:
             left:
-              COLLECTION_SIZE:
+              SIZE:
                 arg:
                   UNIT_TEST_NULL:
-                    returnType: COLLECTION_TEXT
+                    returnType: SET_OF_TEXT
             right:
               NUMBER: 0
   - status: COMPLIANT
@@ -23,16 +23,13 @@ conditions:
       UNIT_TEST:
         id: Test-2
         expected:
-          text: "unitTest(Test-2): [].skipEmpty().skipDuplicates().sort().size() == number(0.0)"
+          text: "unitTest(Test-2): setOfText([]).size() == number(0.0)"
         arg:
           IS_EQUAL:
             left:
-              COLLECTION_SIZE:
+              SIZE:
                 arg:
-                  COLLECTION:
-                    emptyValues: SKIP
-                    duplicateValues: SKIP
-                    ordering: SORTED
+                  SET:
                     itemType: TEXT
                     items: []
             right:
@@ -43,16 +40,13 @@ conditions:
       UNIT_TEST:
         id: Test-3
         expected:
-          text: "unitTest(Test-3): ['a', 'b', 'c'].skipEmpty().skipDuplicates().sort().size() == number(3.0)"
+          text: "unitTest(Test-3): setOfText(['a', 'b', 'c']).size() == number(3.0)"
         arg:
           IS_EQUAL:
             left:
-              COLLECTION_SIZE:
+              SIZE:
                 arg:
-                  COLLECTION:
-                    emptyValues: SKIP
-                    duplicateValues: SKIP
-                    ordering: SORTED
+                  SET:
                     itemType: TEXT
                     items:
                       - a
@@ -66,16 +60,13 @@ conditions:
       UNIT_TEST:
         id: Test-4
         expected:
-          text: "unitTest(Test-4): ['a', 'a', 'a'].skipEmpty().skipDuplicates().sort().size() == number(1.0)"
+          text: "unitTest(Test-4): setOfText(['a', 'a', 'a']).size() == number(1.0)"
         arg:
           IS_EQUAL:
             left:
-              COLLECTION_SIZE:
+              SIZE:
                 arg:
-                  COLLECTION:
-                    emptyValues: SKIP
-                    duplicateValues: SKIP
-                    ordering: SORTED
+                  SET:
                     itemType: TEXT
                     items:
                       - a
@@ -89,16 +80,13 @@ conditions:
       UNIT_TEST:
         id: Test-5
         expected:
-          text: "unitTest(Test-5): ['a', 'A', ' A ', '\\ta\\n\\r'].skipEmpty().skipDuplicates().sort().size() == number(1.0)"
+          text: "unitTest(Test-5): setOfText(['a', 'A', ' A ', '\\ta\\n\\r']).size() == number(1.0)"
         arg:
           IS_EQUAL:
             left:
-              COLLECTION_SIZE:
+              SIZE:
                 arg:
-                  COLLECTION:
-                    emptyValues: SKIP
-                    duplicateValues: SKIP
-                    ordering: SORTED
+                  SET:
                     itemType: TEXT
                     items:
                       - "a"

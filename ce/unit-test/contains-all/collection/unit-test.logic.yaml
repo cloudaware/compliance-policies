@@ -7,23 +7,17 @@ conditions:
       UNIT_TEST:
         id: Test-1
         expected:
-          text: "unitTest(Test-1): not([].skipEmpty().skipDuplicates().sort().containsAll(['a'].skipEmpty().skipDuplicates().sort()))"
+          text: "unitTest(Test-1): not(setOfText([]).containsAll(setOfText(['a'])))"
         arg:
           NOT:
             arg:
               CONTAINS_ALL:
                 arg:
-                  COLLECTION:
-                    emptyValues: SKIP
-                    duplicateValues: SKIP
-                    ordering: SORTED
+                  SET:
                     itemType: TEXT
                     items: []
                 search:
-                  COLLECTION:
-                    emptyValues: SKIP
-                    duplicateValues: SKIP
-                    ordering: SORTED
+                  SET:
                     itemType: TEXT
                     items:
                       - a
@@ -33,22 +27,16 @@ conditions:
       UNIT_TEST:
         id: Test-2
         expected:
-          text: "unitTest(Test-2): ['a'].skipEmpty().skipDuplicates().sort().containsAll(['a', 'a'].skipEmpty().skipDuplicates().sort())"
+          text: "unitTest(Test-2): setOfText(['a']).containsAll(setOfText(['a', 'a']))"
         arg:
           CONTAINS_ALL:
             arg:
-              COLLECTION:
-                emptyValues: SKIP
-                duplicateValues: SKIP
-                ordering: SORTED
+              SET:
                 itemType: TEXT
                 items:
                   - a
             search:
-              COLLECTION:
-                emptyValues: SKIP
-                duplicateValues: SKIP
-                ordering: SORTED
+              SET:
                 itemType: TEXT
                 items:
                   - a
@@ -59,25 +47,19 @@ conditions:
       UNIT_TEST:
         id: Test-3
         expected:
-          text: "unitTest(Test-3): not(['a', 'b'].skipEmpty().skipDuplicates().sort().containsAll(['a', 'c'].skipEmpty().skipDuplicates().sort()))"
+          text: "unitTest(Test-3): not(setOfText(['a', 'b']).containsAll(setOfText(['a', 'c'])))"
         arg:
           NOT:
             arg:
               CONTAINS_ALL:
                 arg:
-                  COLLECTION:
-                    emptyValues: SKIP
-                    duplicateValues: SKIP
-                    ordering: SORTED
+                  SET:
                     itemType: TEXT
                     items:
                       - a
                       - b
                 search:
-                  COLLECTION:
-                    emptyValues: SKIP
-                    duplicateValues: SKIP
-                    ordering: SORTED
+                  SET:
                     itemType: TEXT
                     items:
                       - a
@@ -88,19 +70,16 @@ conditions:
       UNIT_TEST:
         id: Test-4
         expected:
-          text: "unitTest(Test-4): not(null.containsAll(['a'].skipEmpty().skipDuplicates().sort()))"
+          text: "unitTest(Test-4): not(null.containsAll(setOfText(['a'])))"
         arg:
           NOT:
             arg:
               CONTAINS_ALL:
                 arg:
                   UNIT_TEST_NULL:
-                    returnType: COLLECTION_TEXT
+                    returnType: SET_OF_TEXT
                 search:
-                  COLLECTION:
-                    emptyValues: SKIP
-                    duplicateValues: SKIP
-                    ordering: SORTED
+                  SET:
                     itemType: TEXT
                     items:
                       - a
@@ -110,45 +89,36 @@ conditions:
       UNIT_TEST:
         id: Test-5
         expected:
-          text: "unitTest(Test-5): not(['a'].skipEmpty().skipDuplicates().sort().containsAll(null))"
+          text: "unitTest(Test-5): not(setOfText(['a']).containsAll(null))"
         arg:
           NOT:
             arg:
               CONTAINS_ALL:
                 arg:
-                  COLLECTION:
-                    emptyValues: SKIP
-                    duplicateValues: SKIP
-                    ordering: SORTED
+                  SET:
                     itemType: TEXT
                     items:
                       - a
                 search:
                   UNIT_TEST_NULL:
-                    returnType: COLLECTION_TEXT
+                    returnType: SET_OF_TEXT
   - status: COMPLIANT
     currentStateMessage: Test-6
     check:
       UNIT_TEST:
         id: Test-6
         expected:
-          text: "unitTest(Test-6): [' ABC ', ' De  f '].skipEmpty().skipDuplicates().sort().containsAll(['abc\\n\\t', 'de f'].skipEmpty().skipDuplicates().sort())"
+          text: "unitTest(Test-6): setOfText([' ABC ', ' De  f ']).containsAll(setOfText(['abc\\n\\t', 'de f']))"
         arg:
           CONTAINS_ALL:
             arg:
-              COLLECTION:
-                emptyValues: SKIP
-                duplicateValues: SKIP
-                ordering: SORTED
+              SET:
                 itemType: TEXT
                 items:
                   - " ABC "
                   - " De  f "
             search:
-              COLLECTION:
-                emptyValues: SKIP
-                duplicateValues: SKIP
-                ordering: SORTED
+              SET:
                 itemType: TEXT
                 items:
                   - "abc\n\t"

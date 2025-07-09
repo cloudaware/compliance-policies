@@ -1,0 +1,102 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-03T13:36:35Z"
+        },
+        "Id": "test1",
+        "RecordTypeId": "RecordTypeId1",
+        "CA10__disappearanceTime__c": "2025-07-03T13:36:35Z",
+        "CA10__viewerCertificateCloudFrontDefaultCert__c": false,
+        "CA10__viewerCertificateSslSupportMethod__c": "vip",
+        "RecordType": {
+            "DeveloperName": "caWebDistribution",
+            "Id": "RecordTypeId1"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "not(setOfText(['caWebDistribution']).contains(RecordType.DeveloperName))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-03T13:36:35Z"
+        },
+        "Id": "test2",
+        "RecordTypeId": "RecordTypeId2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__viewerCertificateCloudFrontDefaultCert__c": false,
+        "CA10__viewerCertificateSslSupportMethod__c": "vip",
+        "RecordType": {
+            "DeveloperName": "caRtmpDistribution",
+            "Id": "RecordTypeId2"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__viewerCertificateCloudFrontDefaultCert__c') == true",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-03T13:36:35Z"
+        },
+        "Id": "test3",
+        "RecordTypeId": "RecordTypeId1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__viewerCertificateCloudFrontDefaultCert__c": true,
+        "CA10__viewerCertificateSslSupportMethod__c": "vip",
+        "RecordType": {
+            "DeveloperName": "caWebDistribution",
+            "Id": "RecordTypeId1"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__viewerCertificateSslSupportMethod__c') == 'vip'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-03T13:36:35Z"
+        },
+        "Id": "test4",
+        "RecordTypeId": "RecordTypeId1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__viewerCertificateCloudFrontDefaultCert__c": false,
+        "CA10__viewerCertificateSslSupportMethod__c": "vip",
+        "RecordType": {
+            "DeveloperName": "caWebDistribution",
+            "Id": "RecordTypeId1"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-03T13:36:35Z"
+        },
+        "Id": "test5",
+        "RecordTypeId": "RecordTypeId1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__viewerCertificateCloudFrontDefaultCert__c": false,
+        "CA10__viewerCertificateSslSupportMethod__c": "sni-only",
+        "RecordType": {
+            "DeveloperName": "caWebDistribution",
+            "Id": "RecordTypeId1"
+        }
+    }
+]

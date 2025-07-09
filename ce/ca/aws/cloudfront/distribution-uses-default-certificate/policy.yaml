@@ -1,0 +1,22 @@
+---
+names:
+  full: AWS CloudFront Web Distribution uses default SSL/TLS certificate
+  contextual: Web Distribution uses default SSL/TLS certificate
+description: >
+  Ensure that AWS CloudFront Distributions are configured with a custom SSL/TLS 
+  certificate from AWS Certificate Manager (ACM) or IAM, instead of the default 
+  CloudFront certificate.
+categories:
+  - "SECURITY"
+  - "RELIABILITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/cloudfront/07"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[CloudFront.7] CloudFront distributions should use custom SSL/TLS certificates"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/cloudfront-controls.html#cloudfront-7"
+  internal:
+    - "dec-x-4efd073e"

@@ -1,0 +1,93 @@
+---
+inputType: "CA10__CaAwsDistribution__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsCacheBehavior2__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"  
+recordTypes:
+  - "caWebDistribution"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The distribution has at least one custom origin that uses the deprecated SSL 3.0 protocol."
+    remediationMessage: "Consider updating the Minimum Origin SSL protocol to TLSv1.2 or later."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__AWS_CloudFront_Origins__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The distribution has at least one custom origin that uses the outdated TLS protocols."
+    remediationMessage: "Consider updating the Minimum Origin SSL protocol to TLSv1.2 or later."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__AWS_CloudFront_Origins__r"  
+  - status: "UNDETERMINED"
+    currentStateMessage: "The Distribution doesn't have any origins in the CMDB."
+    check:
+      AND:
+        args:
+          - RELATED_LIST_HAS_NO:
+              status: "INAPPLICABLE"
+              relationshipName: "CA10__AWS_CloudFront_Origins__r"
+          - RELATED_LIST_HAS_NO:
+              status: "UNDETERMINED"
+              relationshipName: "CA10__AWS_CloudFront_Origins__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "All custom origins for this Distribution are configured to use\
+    \ TLSv1.2 or later SSL Protocols (if applicable)."
+relatedLists:
+  - relationshipName: "CA10__AWS_CloudFront_Origins__r"
+    importExtracts:
+      - file: "/types/CA10__CaAwsOrigin2__c/object.extracts.yaml"
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This is not a custom origin."
+        check:
+          IS_EMPTY:
+            arg:
+              EXTRACT: "CA10__configProtocolPolicy__c"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "The protocol policy for this custom origin is http-only."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__configProtocolPolicy__c"
+            right:
+              TEXT: "http-only"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This origin is an S3 bucket configured for static website hosting,\
+          \ which does not support HTTPS."
+        check:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__domainName__c"
+            search:
+              TEXT: "s3-website"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The Distribution allows the deprecated SSL 3.0 protocol."
+        remediationMessage: "Consider using TLSv1.2 or later for HTTPS communication to the Origin."
+        check:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__customOriginConfigOriginSslProtocolsAsCollection__c"
+            search:
+              TEXT: "SSLv3"
+      # This condition is set to COMPLIANT only to make it easier to distinguish from INCOMPLIANT in the main body of the policy
+      - status: "COMPLIANT"
+        currentStateMessage: "The Distribution allows the outdated TLS protocols."
+        remediationMessage: "Consider using TLSv1.2 or later for HTTPS communication to the Origin."
+        check:
+          CONTAINS_ANY:
+            arg:
+              EXTRACT: "CA10__customOriginConfigOriginSslProtocolsAsCollection__c"
+            search:
+              SET:
+                itemType: TEXT
+                items:
+                  - "TLSv1.1"
+                  - "TLSv1"
+    # This is set to UNDETERMINED since COMPLIANT status is already reserved for the purpose above
+    otherwise:
+      status: "UNDETERMINED"
+      currentStateMessage: "The Minimum Origin SSL protocol enforces TLSv1.2 or later."

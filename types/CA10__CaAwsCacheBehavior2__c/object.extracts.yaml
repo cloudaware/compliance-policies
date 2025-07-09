@@ -1,0 +1,9 @@
+---
+extracts:
+# Values: allow-all | https-only | redirect-to-https. Not Nullable. Can't have no access, retrieved via cloudfront:GetDistribution
+  - name: "CA10__viewerProtocolPolicy__c"
+    value:
+      FIELD:
+        path: CA10__viewerProtocolPolicy__c
+        undeterminedIf:
+            isEmpty: "Corrupted data. Viewer Protocol Policy cannot be empty."

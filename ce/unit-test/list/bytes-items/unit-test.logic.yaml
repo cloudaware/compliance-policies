@@ -1,0 +1,418 @@
+---
+inputType: CA10__CaAwsInstance__c
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: Null and Null
+    check:
+      UNIT_TEST:
+        id: Null-And-Null
+        expected:
+          text: "unitTest(Null-And-Null): null == null"
+        arg:
+          IS_EQUAL:
+            left:
+              UNIT_TEST_NULL:
+                returnType: LIST_OF_BYTES
+            right:
+              UNIT_TEST_NULL:
+                returnType: LIST_OF_BYTES
+  - status: COMPLIANT
+    currentStateMessage: Null and Empty
+    check:
+      UNIT_TEST:
+        id: Null-And-Empty
+        expected:
+          text: "unitTest(Null-And-Empty): null == listOfBytes([])"
+        arg:
+          IS_EQUAL:
+            left:
+              UNIT_TEST_NULL:
+                returnType: LIST_OF_BYTES
+            right:
+              LIST:
+                itemType: BYTES
+                items: []
+  - status: COMPLIANT
+    currentStateMessage: Empty and Empty Item
+    check:
+      UNIT_TEST:
+        id: Empty-And-Empty-Item
+        expected:
+          text: "unitTest(Empty-And-Empty-Item): listOfBytes([]) != listOfBytes([''])"
+        arg:
+          NOT_EQUAL:
+            left:
+              LIST:
+                itemType: BYTES
+                items: []
+            right:
+              LIST:
+                itemType: BYTES
+                items:
+                  - ""
+  - status: COMPLIANT
+    currentStateMessage: Empty and Empty Items
+    check:
+      UNIT_TEST:
+        id: Empty-And-Empty-Items
+        expected:
+          text: "unitTest(Empty-And-Empty-Items): listOfBytes([]) != listOfBytes(['', '', ''])"
+        arg:
+          NOT_EQUAL:
+            left:
+              LIST:
+                itemType: BYTES
+                items: []
+            right:
+              LIST:
+                itemType: BYTES
+                items:
+                  - ""
+                  - ""
+                  - ""
+  - status: COMPLIANT
+    currentStateMessage: One Empty and Many Empty
+    check:
+      UNIT_TEST:
+        id: One-Empty-And-Many-Empty
+        expected:
+          text: "unitTest(One-Empty-And-Many-Empty): listOfBytes(['']) != listOfBytes(['', '', ''])"
+        arg:
+          NOT_EQUAL:
+            left:
+              LIST:
+                itemType: BYTES
+                items:
+                  - ""
+            right:
+              LIST:
+                itemType: BYTES
+                items:
+                  - ""
+                  - ""
+                  - ""
+  - status: COMPLIANT
+    currentStateMessage: Same Number Of Empty
+    check:
+      UNIT_TEST:
+        id: Same-Number-Of-Empty
+        expected:
+          text: "unitTest(Same-Number-Of-Empty): listOfBytes(['', '', '']) == listOfBytes(['', '', ''])"
+        arg:
+          IS_EQUAL:
+            left:
+              LIST:
+                itemType: BYTES
+                items:
+                  - ""
+                  - ""
+                  - ""
+            right:
+              LIST:
+                itemType: BYTES
+                items:
+                  - ""
+                  - ""
+                  - ""
+  - status: COMPLIANT
+    currentStateMessage: Empty with Whitespaces
+    check:
+      UNIT_TEST:
+        id: Empty-With-Whitespaces
+        expected:
+          text: "unitTest(Empty-With-Whitespaces): listOfBytes(['']) != listOfBytes(['', '  ', '\\t', '\\n', '\\r', '  \\n\\r\\t  '])"
+        arg:
+          NOT_EQUAL:
+            left:
+              LIST:
+                itemType: BYTES
+                items:
+                  - ""
+            right:
+              LIST:
+                itemType: BYTES
+                items:
+                  - ""
+                  - "  "
+                  - "\t"
+                  - "\n"
+                  - "\r"
+                  - "  \n\r\t  "
+  - status: COMPLIANT
+    currentStateMessage: Empty with Whitespaces Size
+    check:
+      UNIT_TEST:
+        id: Empty-With-Whitespaces-Size
+        expected:
+          text: "unitTest(Empty-With-Whitespaces-Size): listOfBytes(['', '  ', '\\t', '\\n', '\\r', '  \\n\\r\\t  ']).size() == number(6.0)"
+        arg:
+          IS_EQUAL:
+            left:
+              SIZE:
+                arg:
+                  LIST:
+                    itemType: BYTES
+                    items:
+                      - ""
+                      - "  "
+                      - "\t"
+                      - "\n"
+                      - "\r"
+                      - "  \n\r\t  "
+            right:
+              NUMBER: 6
+  - status: COMPLIANT
+    currentStateMessage: Same Number Of Whitespaces
+    check:
+      UNIT_TEST:
+        id: Same-Number-Of-Whitespaces
+        expected:
+          text: "unitTest(Same-Number-Of-Whitespaces): listOfBytes(['', ' ', '  ', '   ', '    ', '     ']) != listOfBytes(['', '  ', '\\t', '\\n', '\\r', '  \\n\\r\\t  '])"
+        arg:
+          NOT_EQUAL:
+            left:
+              LIST:
+                itemType: BYTES
+                items:
+                  - ""
+                  - " "
+                  - "  "
+                  - "   "
+                  - "    "
+                  - "     "
+            right:
+              LIST:
+                itemType: BYTES
+                items:
+                  - ""
+                  - "  "
+                  - "\t"
+                  - "\n"
+                  - "\r"
+                  - "  \n\r\t  "
+  - status: COMPLIANT
+    currentStateMessage: Empty and Non-empty
+    check:
+      UNIT_TEST:
+        id: Empty-And-Non-Empty
+        expected:
+          text: "unitTest(Empty-And-Non-Empty): listOfBytes(['a']) != listOfBytes([' ', 'a'])"
+        arg:
+          NOT_EQUAL:
+            left:
+              LIST:
+                itemType: BYTES
+                items:
+                  - "a"
+            right:
+              LIST:
+                itemType: BYTES
+                items:
+                  - " "
+                  - "a"
+  - status: COMPLIANT
+    currentStateMessage: Empty and Non-empty Size
+    check:
+      UNIT_TEST:
+        id: Empty-And-Non-Empty-Size
+        expected:
+          text: "unitTest(Empty-And-Non-Empty-Size): listOfBytes([' ', 'a']).size() == number(2.0)"
+        arg:
+          IS_EQUAL:
+            left:
+              SIZE:
+                arg:
+                  LIST:
+                    itemType: BYTES
+                    items:
+                      - " "
+                      - "a"
+            right:
+              NUMBER: 2
+  - status: COMPLIANT
+    currentStateMessage: Duplicate Values
+    check:
+      UNIT_TEST:
+        id: Duplicate-Values
+        expected:
+          text: "unitTest(Duplicate-Values): listOfBytes(['a']) != listOfBytes(['a', 'a'])"
+        arg:
+          NOT_EQUAL:
+            left:
+              LIST:
+                itemType: BYTES
+                items:
+                  - "a"
+            right:
+              LIST:
+                itemType: BYTES
+                items:
+                  - "a"
+                  - "a"
+  - status: COMPLIANT
+    currentStateMessage: Duplicate Values Size
+    check:
+      UNIT_TEST:
+        id: Duplicate-Values-Size
+        expected:
+          text: "unitTest(Duplicate-Values-Size): listOfBytes(['a', 'a']).size() == number(2.0)"
+        arg:
+          IS_EQUAL:
+            left:
+              SIZE:
+                arg:
+                  LIST:
+                    itemType: BYTES
+                    items:
+                      - "a"
+                      - "a"
+            right:
+              NUMBER: 2
+  - status: COMPLIANT
+    currentStateMessage: Duplicate Values in Different Case
+    check:
+      UNIT_TEST:
+        id: Duplicate-Values-Different-Case
+        expected:
+          text: "unitTest(Duplicate-Values-Different-Case): listOfBytes(['a', 'a']) != listOfBytes(['A', 'a'])"
+        arg:
+          NOT_EQUAL:
+            left:
+              LIST:
+                itemType: BYTES
+                items:
+                  - "a"
+                  - "a"
+            right:
+              LIST:
+                itemType: BYTES
+                items:
+                  - "A"
+                  - "a"
+  - status: COMPLIANT
+    currentStateMessage: Duplicate Values in Different Case Size
+    check:
+      UNIT_TEST:
+        id: Duplicate-Values-Different-Case-Size
+        expected:
+          text: "unitTest(Duplicate-Values-Different-Case-Size): listOfBytes(['A', 'a']).size() == number(2.0)"
+        arg:
+          IS_EQUAL:
+            left:
+              SIZE:
+                arg:
+                  LIST:
+                    itemType: BYTES
+                    items:
+                      - "A"
+                      - "a"
+            right:
+              NUMBER: 2
+  - status: COMPLIANT
+    currentStateMessage: Duplicate Values with Whitespaces
+    check:
+      UNIT_TEST:
+        id: Duplicate-Values-Whitespace
+        expected:
+          text: "unitTest(Duplicate-Values-Whitespace): listOfBytes(['a', 'a']) != listOfBytes([' a ', 'a'])"
+        arg:
+          NOT_EQUAL:
+            left:
+              LIST:
+                itemType: BYTES
+                items:
+                  - "a"
+                  - "a"
+            right:
+              LIST:
+                itemType: BYTES
+                items:
+                  - " a "
+                  - "a"
+  - status: COMPLIANT
+    currentStateMessage: Duplicate Values with Whitespaces Size
+    check:
+      UNIT_TEST:
+        id: Duplicate-Values-Whitespace-Size
+        expected:
+          text: "unitTest(Duplicate-Values-Whitespace-Size): listOfBytes([' a ', 'a']).size() == number(2.0)"
+        arg:
+          IS_EQUAL:
+            left:
+              SIZE:
+                arg:
+                  LIST:
+                    itemType: BYTES
+                    items:
+                      - " a "
+                      - "a"
+            right:
+              NUMBER: 2
+  - status: COMPLIANT
+    currentStateMessage: Duplicate Values with Whitespaces Inside
+    check:
+      UNIT_TEST:
+        id: Duplicate-Values-Whitespaces-Inside
+        expected:
+          text: "unitTest(Duplicate-Values-Whitespaces-Inside): listOfBytes(['a b', 'a b', 'a b']) != listOfBytes(['a b', 'a   b', 'a\\nb'])"
+        arg:
+          NOT_EQUAL:
+            left:
+              LIST:
+                itemType: BYTES
+                items:
+                  - "a b"
+                  - "a b"
+                  - "a b"
+            right:
+              LIST:
+                itemType: BYTES
+                items:
+                  - "a b"
+                  - "a   b"
+                  - "a\nb"
+  - status: COMPLIANT
+    currentStateMessage: Duplicate Values with Whitespaces Inside Size
+    check:
+      UNIT_TEST:
+        id: Duplicate-Values-Whitespaces-Inside-Size
+        expected:
+          text: "unitTest(Duplicate-Values-Whitespaces-Inside-Size): listOfBytes(['a b', 'a   b', 'a\\nb']).size() == number(3.0)"
+        arg:
+          IS_EQUAL:
+            left:
+              SIZE:
+                arg:
+                  LIST:
+                    itemType: BYTES
+                    items:
+                      - "a b"
+                      - "a   b"
+                      - "a\nb"
+            right:
+              NUMBER: 3
+  - status: COMPLIANT
+    currentStateMessage: Value Order
+    check:
+      UNIT_TEST:
+        id: Value-Order
+        expected:
+          text: "unitTest(Value-Order): listOfBytes(['a', 'b']) != listOfBytes(['b', 'a'])"
+        arg:
+          NOT_EQUAL:
+            left:
+              LIST:
+                itemType: BYTES
+                items:
+                  - "a"
+                  - "b"
+            right:
+              LIST:
+                itemType: BYTES
+                items:
+                  - "b"
+                  - "a"
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: Test Failed
+  remediationMessage: Developer Fix Required

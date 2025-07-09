@@ -1,0 +1,226 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-10T18:55:17Z"
+        },
+        "Id": "test1",
+        "RecordTypeId": "RecordTypeId2",
+        "CA10__disappearanceTime__c": "2025-05-10T18:55:17Z",
+        "CA10__defaultCacheBehavior__c": "defaultCacheBehavior1",
+        "CA10__defaultCacheBehaviorUniqueId__c": "defaultCacheBehaviorUniqueId1",
+        "RecordType": {
+            "DeveloperName": "caWebDistribution",
+            "Id": "RecordTypeId2"
+        },
+        "CA10__defaultCacheBehavior__r": {
+            "Id": "defaultCacheBehavior1",
+            "CA10__disappearanceTime__c": null,
+            "CA10__viewerProtocolPolicy__c": "allow-all"
+        },
+        "CA10__AWS_CloudFront_Cache_Behaviors__r": [
+            {
+                "Id": "defaultCacheBehavior1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__viewerProtocolPolicy__c": "allow-all",
+                "CA10__distribution__c": "test1"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "not(setOfText(['caWebDistribution']).contains(RecordType.DeveloperName))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-10T18:55:17Z"
+        },
+        "Id": "test2",
+        "RecordTypeId": "RecordTypeId1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__defaultCacheBehavior__c": "",
+        "CA10__defaultCacheBehaviorUniqueId__c": "",
+        "RecordType": {
+            "DeveloperName": "caRtmpDistribution",
+            "Id": "RecordTypeId1"
+        },
+        "CA10__defaultCacheBehavior__r": {
+            "Id": null,
+            "CA10__disappearanceTime__c": null,
+            "CA10__viewerProtocolPolicy__c": null
+        },
+        "CA10__AWS_CloudFront_Cache_Behaviors__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "extract('CA10__defaultCacheBehavior__r.CA10__viewerProtocolPolicy__c') == 'allow-all'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-10T18:55:17Z"
+        },
+        "Id": "test3",
+        "RecordTypeId": "RecordTypeId2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__defaultCacheBehavior__c": "defaultCacheBehavior3_1",
+        "CA10__defaultCacheBehaviorUniqueId__c": "defaultCacheBehaviorUniqueId3",
+        "RecordType": {
+            "DeveloperName": "caWebDistribution",
+            "Id": "RecordTypeId2"
+        },
+        "CA10__defaultCacheBehavior__r": {
+            "Id": "defaultCacheBehavior3_1",
+            "CA10__disappearanceTime__c": null,
+            "CA10__viewerProtocolPolicy__c": "allow-all"
+        },
+        "CA10__AWS_CloudFront_Cache_Behaviors__r": [
+            {
+                "Id": "defaultCacheBehavior3_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__viewerProtocolPolicy__c": "allow-all",
+                "CA10__distribution__c": "test3"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "599",
+            "conditionText": "CA10__AWS_CloudFront_Cache_Behaviors__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-10T18:55:17Z"
+        },
+        "Id": "test4",
+        "RecordTypeId": "RecordTypeId2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__defaultCacheBehavior__c": "defaultCacheBehavior4_1",
+        "CA10__defaultCacheBehaviorUniqueId__c": "defaultCacheBehaviorUniqueId4",
+        "RecordType": {
+            "DeveloperName": "caWebDistribution",
+            "Id": "RecordTypeId2"
+        },
+        "CA10__defaultCacheBehavior__r": {
+            "Id": "defaultCacheBehavior4_1",
+            "CA10__disappearanceTime__c": null,
+            "CA10__viewerProtocolPolicy__c": "redirect-to-https"
+        },
+        "CA10__AWS_CloudFront_Cache_Behaviors__r": [
+            {
+                "Id": "defaultCacheBehavior4_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__viewerProtocolPolicy__c": "allow-all",
+                "CA10__distribution__c": "test4"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "600",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-10T18:55:17Z"
+        },
+        "Id": "test5",
+        "RecordTypeId": "RecordTypeId2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__defaultCacheBehavior__c": "defaultCacheBehavior5_1",
+        "CA10__defaultCacheBehaviorUniqueId__c": "defaultCacheBehaviorUniqueId5",
+        "RecordType": {
+            "DeveloperName": "caWebDistribution",
+            "Id": "RecordTypeId2"
+        },
+        "CA10__defaultCacheBehavior__r": {
+            "Id": "defaultCacheBehavior5_1",
+            "CA10__disappearanceTime__c": null,
+            "CA10__viewerProtocolPolicy__c": "redirect-to-https"
+        },
+        "CA10__AWS_CloudFront_Cache_Behaviors__r": [
+            {
+                "Id": "defaultCacheBehavior5_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__viewerProtocolPolicy__c": "redirect-to-https",
+                "CA10__distribution__c": "test5"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "399",
+            "conditionText": "isEmptyLookup('CA10__defaultCacheBehavior__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-10T18:55:17Z"
+        },
+        "Id": "test6",
+        "RecordTypeId": "RecordTypeId2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__defaultCacheBehavior__c": "defaultCacheBehavior6_1",
+        "CA10__defaultCacheBehaviorUniqueId__c": "defaultCacheBehaviorUniqueId6",
+        "RecordType": {
+            "DeveloperName": "caWebDistribution",
+            "Id": "RecordTypeId2"
+        },
+        "CA10__defaultCacheBehavior__r": {
+            "Id": "defaultCacheBehavior6_1",
+            "CA10__disappearanceTime__c": "2025-05-10T18:55:17Z",
+            "CA10__viewerProtocolPolicy__c": "allow-all"
+        },
+        "CA10__AWS_CloudFront_Cache_Behaviors__r": [
+            {
+                "Id": "defaultCacheBehavior6_2",
+                "CA10__disappearanceTime__c": "2025-05-10T18:55:17Z",
+                "CA10__viewerProtocolPolicy__c": "allow-all",
+                "CA10__distribution__c": "test6"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "isEmptyLookup('CA10__defaultCacheBehavior__r') && CA10__AWS_CloudFront_Cache_Behaviors__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-05-10T18:55:17Z"
+        },
+        "Id": "test7",
+        "RecordTypeId": "RecordTypeId2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__defaultCacheBehavior__c": "defaultCacheBehavior7_1",
+        "CA10__defaultCacheBehaviorUniqueId__c": "defaultCacheBehaviorUniqueId7",
+        "RecordType": {
+            "DeveloperName": "caWebDistribution",
+            "Id": "RecordTypeId2"
+        },
+        "CA10__defaultCacheBehavior__r": {
+            "Id": "defaultCacheBehavior7_1",
+            "CA10__disappearanceTime__c": "2025-05-10T18:55:17Z",
+            "CA10__viewerProtocolPolicy__c": "allow-all"
+        },
+        "CA10__AWS_CloudFront_Cache_Behaviors__r": [
+            {
+                "Id": "defaultCacheBehavior7_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__viewerProtocolPolicy__c": "allow-all",
+                "CA10__distribution__c": "test7"
+            }
+        ]
+    }
+]

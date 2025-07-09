@@ -1,0 +1,56 @@
+---
+inputType: "CA10__CaAwsDistribution__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsCacheBehavior2__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"  
+recordTypes:
+  - "caWebDistribution"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "At least one CloudFront Distribution cache behavior allows unencrypted HTTP traffic."
+    remediationMessage: "Modify the Viewer Protocol Policy for all cache behaviors to either Redirect HTTP to HTTPS or HTTPS Only."
+    check:
+      AND:
+        args:
+          - IS_EMPTY_LOOKUP: "CA10__defaultCacheBehavior__r"
+          - RELATED_LIST_HAS:
+              status: "INCOMPLIANT"
+              relationshipName: "CA10__AWS_CloudFront_Cache_Behaviors__r"
+  - status: "UNDETERMINED"
+    currentStateMessage: "The default CloudFront Distribution cache behavior is not present in the CMDB."
+    check:
+      IS_EMPTY_LOOKUP: "CA10__defaultCacheBehavior__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The default CloudFront Distribution cache behavior allows unencrypted HTTP traffic."
+    remediationMessage: "Modify the Viewer Protocol Policy for the default cache behaviors to either Redirect HTTP to HTTPS or HTTPS Only."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__defaultCacheBehavior__r.CA10__viewerProtocolPolicy__c"
+        right:
+          TEXT: "allow-all"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "At least one CloudFront Distribution cache behavior allows unencrypted HTTP traffic."
+    remediationMessage: "Modify the Viewer Protocol Policy for all cache behaviors to either Redirect HTTP to HTTPS or HTTPS Only."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__AWS_CloudFront_Cache_Behaviors__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "All CloudFront Distribution cache behaviors enforce encrypted communications."
+relatedLists:
+  - relationshipName: "CA10__AWS_CloudFront_Cache_Behaviors__r"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The viewer protocol policy for this cache behavior is set to allow-all."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__viewerProtocolPolicy__c"
+            right:
+              TEXT: "allow-all"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "The viewer protocol policy for this cache behavior encrypts communications."

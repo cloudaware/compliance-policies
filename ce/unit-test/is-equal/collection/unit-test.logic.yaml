@@ -7,24 +7,18 @@ conditions:
       UNIT_TEST:
         id: Test-1
         expected:
-          text: "unitTest(Test-1): ['a', 'b', 'c'].skipEmpty().skipDuplicates().sort() == ['a', 'b', 'c'].skipEmpty().skipDuplicates().sort()"
+          text: "unitTest(Test-1): setOfText(['a', 'b', 'c']) == setOfText(['a', 'b', 'c'])"
         arg:
           IS_EQUAL:
             left:
-              COLLECTION:
-                emptyValues: SKIP
-                duplicateValues: SKIP
-                ordering: SORTED
+              SET:
                 itemType: TEXT
                 items:
                   - a
                   - b
                   - c
             right:
-              COLLECTION:
-                emptyValues: SKIP
-                duplicateValues: SKIP
-                ordering: SORTED
+              SET:
                 itemType: TEXT
                 items:
                   - a
@@ -36,24 +30,18 @@ conditions:
       UNIT_TEST:
         id: Test-2
         expected:
-          text: "unitTest(Test-2): ['a', 'b', 'c'].skipEmpty().skipDuplicates().sort() == ['c', 'a', 'b'].skipEmpty().skipDuplicates().sort()"
+          text: "unitTest(Test-2): setOfText(['a', 'b', 'c']) == setOfText(['c', 'a', 'b'])"
         arg:
           IS_EQUAL:
             left:
-              COLLECTION:
-                emptyValues: SKIP
-                duplicateValues: SKIP
-                ordering: SORTED
+              SET:
                 itemType: TEXT
                 items:
                   - a
                   - b
                   - c
             right:
-              COLLECTION:
-                emptyValues: SKIP
-                duplicateValues: SKIP
-                ordering: SORTED
+              SET:
                 itemType: TEXT
                 items:
                   - c
@@ -65,24 +53,18 @@ conditions:
       UNIT_TEST:
         id: Test-3
         expected:
-          text: "unitTest(Test-3): ['a', 'b', 'c'].skipEmpty().skipDuplicates().sort() == ['a', 'a', 'b', 'b', 'c', 'c'].skipEmpty().skipDuplicates().sort()"
+          text: "unitTest(Test-3): setOfText(['a', 'b', 'c']) == setOfText(['a', 'a', 'b', 'b', 'c', 'c'])"
         arg:
           IS_EQUAL:
             left:
-              COLLECTION:
-                emptyValues: SKIP
-                duplicateValues: SKIP
-                ordering: SORTED
+              SET:
                 itemType: TEXT
                 items:
                   - a
                   - b
                   - c
             right:
-              COLLECTION:
-                emptyValues: SKIP
-                duplicateValues: SKIP
-                ordering: SORTED
+              SET:
                 itemType: TEXT
                 items:
                   - a
@@ -97,24 +79,18 @@ conditions:
       UNIT_TEST:
         id: Test-4
         expected:
-          text: "unitTest(Test-4): ['a', 'b', 'c'].skipEmpty().skipDuplicates().sort() == ['a ', ' b ', ' c'].skipEmpty().skipDuplicates().sort()"
+          text: "unitTest(Test-4): setOfText(['a', 'b', 'c']) == setOfText(['a ', ' b ', ' c'])"
         arg:
           IS_EQUAL:
             left:
-              COLLECTION:
-                emptyValues: SKIP
-                duplicateValues: SKIP
-                ordering: SORTED
+              SET:
                 itemType: TEXT
                 items:
                   - a
                   - b
                   - c
             right:
-              COLLECTION:
-                emptyValues: SKIP
-                duplicateValues: SKIP
-                ordering: SORTED
+              SET:
                 itemType: TEXT
                 items:
                   - "a "
@@ -126,24 +102,18 @@ conditions:
       UNIT_TEST:
         id: Test-5
         expected:
-          text: "unitTest(Test-5): ['a', 'b', 'c'].skipEmpty().skipDuplicates().sort() == ['A', 'B', 'C'].skipEmpty().skipDuplicates().sort()"
+          text: "unitTest(Test-5): setOfText(['a', 'b', 'c']) == setOfText(['A', 'B', 'C'])"
         arg:
           IS_EQUAL:
             left:
-              COLLECTION:
-                emptyValues: SKIP
-                duplicateValues: SKIP
-                ordering: SORTED
+              SET:
                 itemType: TEXT
                 items:
                   - a
                   - b
                   - c
             right:
-              COLLECTION:
-                emptyValues: SKIP
-                duplicateValues: SKIP
-                ordering: SORTED
+              SET:
                 itemType: TEXT
                 items:
                   - A
@@ -155,21 +125,15 @@ conditions:
       UNIT_TEST:
         id: Test-6
         expected:
-          text: "unitTest(Test-6): [].skipEmpty().skipDuplicates().sort() == [].skipEmpty().skipDuplicates().sort()"
+          text: "unitTest(Test-6): setOfText([]) == setOfText([])"
         arg:
           IS_EQUAL:
             left:
-              COLLECTION:
-                emptyValues: SKIP
-                duplicateValues: SKIP
-                ordering: SORTED
+              SET:
                 itemType: TEXT
                 items: []
             right:
-              COLLECTION:
-                emptyValues: SKIP
-                duplicateValues: SKIP
-                ordering: SORTED
+              SET:
                 itemType: TEXT
                 items: []
   - status: COMPLIANT
@@ -183,29 +147,26 @@ conditions:
           IS_EQUAL:
             left:
               UNIT_TEST_NULL:
-                returnType: COLLECTION_TEXT
+                returnType: SET_OF_TEXT
             right:
               UNIT_TEST_NULL:
-                returnType: COLLECTION_TEXT
+                returnType: SET_OF_TEXT
   - status: COMPLIANT
     currentStateMessage: Test-8
     check:
       UNIT_TEST:
         id: Test-8
         expected:
-          text: "unitTest(Test-8): [].skipEmpty().skipDuplicates().sort() == null"
+          text: "unitTest(Test-8): setOfText([]) == null"
         arg:
           IS_EQUAL:
             left:
-              COLLECTION:
-                emptyValues: SKIP
-                duplicateValues: SKIP
-                ordering: SORTED
+              SET:
                 itemType: TEXT
                 items: []
             right:
               UNIT_TEST_NULL:
-                returnType: COLLECTION_TEXT
+                returnType: SET_OF_TEXT
 otherwise:
   status: INCOMPLIANT
   currentStateMessage: Test Failed

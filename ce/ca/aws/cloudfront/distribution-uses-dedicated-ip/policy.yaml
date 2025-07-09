@@ -1,0 +1,23 @@
+---
+names:
+  full: AWS CloudFront Web Distribution uses Dedicated IP for SSL
+  contextual: Web Distribution uses Dedicated IP for SSL
+description: >
+  Ensure that AWS CloudFront Distributions are configured to use Server Name Indication (SNI)
+  for serving SSL/TLS-protected content. Using dedicated IP addresses is a legacy 
+  method that incurs additional costs and is generally unnecessary as almost all 
+  modern clients support SNI.
+categories:
+  - "COST"
+  - "RELIABILITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-optimization"
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/cloudfront/08"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[CloudFront.8] CloudFront distributions should use SNI to serve HTTPS requests"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/cloudfront-controls.html#cloudfront-8"
+  internal:
+    - "dec-x-92f3cecf"

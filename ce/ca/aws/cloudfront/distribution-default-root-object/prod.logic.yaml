@@ -1,0 +1,19 @@
+---
+inputType: "CA10__CaAwsDistribution__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsDistribution__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"  
+recordTypes:
+  - "caWebDistribution"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The CloudFront Distribution does not have a Default Root Object configured."
+    remediationMessage: "Consider specifying a default root object to avoid exposing the contents of the Distribution."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__defaultRootObject__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The CloudFront Distribution has a Default Root Object configured."
