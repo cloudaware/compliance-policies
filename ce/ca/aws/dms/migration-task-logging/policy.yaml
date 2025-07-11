@@ -1,0 +1,19 @@
+---
+names:
+  full: AWS DMS Migration Task Logging is not enabled
+  contextual: Migration Task Logging is not enabled
+description: >
+  Ensure that CloudWatch logging is enabled for AWS DMS Replication Tasks.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/dms/07"
+  - "/frameworks/aws-fsbp-v1.0.0/dms/08"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[DMS.7] DMS replication tasks for the target database should have logging enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/dms-controls.html#dms-7"
+    - name: "[DMS.8] DMS replication tasks for the source database should have logging enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/dms-controls.html#dms-8"

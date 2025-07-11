@@ -3,7 +3,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "199",
-            "conditionText": "extract('caJsonQueryText__securityCenterContacts_default_email__c').isEmpty()",
+            "conditionText": "extract('caJsonText__securityCenterContactsDefaultEmail__c').isEmpty()",
             "runtimeError": null
         },
         "context": {
@@ -16,7 +16,7 @@
         "expectedResult": {
             "status": "COMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('caJsonQueryText__securityCenterContacts_default_email__c').isNotEmpty()",
+            "conditionText": "extract('caJsonText__securityCenterContactsDefaultEmail__c').isNotEmpty()",
             "runtimeError": null
         },
         "context": {
@@ -29,7 +29,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "199",
-            "conditionText": "extract('caJsonQueryText__securityCenterContacts_default_email__c').isEmpty()",
+            "conditionText": "extract('caJsonText__securityCenterContactsDefaultEmail__c').isEmpty()",
             "runtimeError": null
         },
         "context": {
@@ -68,7 +68,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "199",
-            "conditionText": "extract('caJsonQueryText__securityCenterContacts_default_email__c').isEmpty()",
+            "conditionText": "extract('caJsonText__securityCenterContactsDefaultEmail__c').isEmpty()",
             "runtimeError": null
         },
         "context": {

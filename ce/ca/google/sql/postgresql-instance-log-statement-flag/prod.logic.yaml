@@ -19,23 +19,16 @@ conditions:
   - status: "COMPLIANT"
     currentStateMessage: "log_statement database flag is set appropriately."
     check:
-      OR:
-        args:
-          - IS_EQUAL:
-              left:
-                EXTRACT: "caExtract_databaseFlags_log_statement_flagValue__c"
-              right:
-                TEXT: "ddl"
-          - IS_EQUAL:
-              left:
-                EXTRACT: "caExtract_databaseFlags_log_statement_flagValue__c"
-              right:
-                TEXT: "mod"
-          - IS_EQUAL:
-              left:
-                EXTRACT: "caExtract_databaseFlags_log_statement_flagValue__c"
-              right:
-                TEXT: "all"
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - "ddl"
+              - "mod"
+              - "all"
+        search:
+          EXTRACT: "caJsonText__databaseFlagsLogStatementFlagValue__c"
 otherwise:
   status: "INCOMPLIANT"
   currentStateMessage: "log_statement database flag isn't set appropriately."

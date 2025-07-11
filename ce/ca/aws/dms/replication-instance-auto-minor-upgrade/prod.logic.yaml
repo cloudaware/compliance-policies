@@ -1,0 +1,17 @@
+---
+inputType: "CA10A1__CaAwsDmsReplicationInstance__c"
+importExtracts:
+  - file: /types/CA10A1__CaAwsDmsReplicationInstance__c/object.extracts.yaml
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The DMS Replication Instance Auto Minor Version Upgrade is not enabled."
+    remediationMessage: "Enable the Auto Minor Version Upgrade feature for this DMS Replication Instance."    
+    check:
+      NOT:
+        arg:
+          EXTRACT: "CA10A1__minorVersionAutomaricUpdate__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The DMS Replication Instance Auto Minor Version Upgrade is enabled."

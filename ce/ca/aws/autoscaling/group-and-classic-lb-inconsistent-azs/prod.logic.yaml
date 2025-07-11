@@ -52,18 +52,18 @@ relatedLists:
         check:
           NOT_EQUAL:
             left:
-              EXTRACT: "CA10__autoScalingGroup__r.caExtract_availabilityZones_asSet__c"
+              EXTRACT: "CA10__autoScalingGroup__r.caSetFrom_availabilityZones__c"
             right:
-              EXTRACT: "CA10__loadBalancer__r.caExtract_availabilityZones_asSet__c"
+              EXTRACT: "CA10__loadBalancer__r.caSetFrom_availabilityZones__c"
       - status: "COMPLIANT"
         currentStateMessage: "The set of Availability Zones configured on the Auto\
           \ Scaling Group matches the set configured on Load Balancer."
         check:
           IS_EQUAL:
             left:
-              EXTRACT: "CA10__autoScalingGroup__r.caExtract_availabilityZones_asSet__c"
+              EXTRACT: "CA10__autoScalingGroup__r.caSetFrom_availabilityZones__c"
             right:
-              EXTRACT: "CA10__loadBalancer__r.caExtract_availabilityZones_asSet__c"
+              EXTRACT: "CA10__loadBalancer__r.caSetFrom_availabilityZones__c"
     otherwise:
       status: "UNDETERMINED"
       currentStateMessage: "Unable to determine the AZs."

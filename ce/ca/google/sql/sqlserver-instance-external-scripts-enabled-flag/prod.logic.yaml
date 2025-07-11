@@ -21,7 +21,7 @@ conditions:
     check:
       IS_EQUAL:
         left:
-          EXTRACT: "caExtract_databaseFlags_external_scripts_enabled_flagValue__c"
+          EXTRACT: "caJsonText__databaseFlagsExternalScriptsEnabledFlagValue__c"
         right:
           TEXT: "off"
 otherwise:

@@ -11,7 +11,7 @@ extracts:
         path: CA10__availabilityZones__c
         undeterminedIf:
           isEmpty: Corrupted data. Availability zones should always present
-  - name: caExtract_availabilityZones_asSet__c
+  - name: caSetFrom_availabilityZones__c
     value: 
       SET_FROM:
         separator: "\n"

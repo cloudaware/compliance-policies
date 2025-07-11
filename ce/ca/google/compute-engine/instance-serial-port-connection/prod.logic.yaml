@@ -12,7 +12,7 @@ conditions:
     check:
       CONTAINS:
         arg:
-          EXTRACT: "caJsonFrom__metadataJson__serial_port_enable_value"
+          EXTRACT: "caJsonText__metadataJsonSerialPortEnableValue"
         search:
           TEXT: "true"
 otherwise:

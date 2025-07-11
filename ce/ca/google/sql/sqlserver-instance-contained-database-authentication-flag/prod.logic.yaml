@@ -23,7 +23,7 @@ conditions:
         arg:
           IS_EQUAL:
             left:
-              EXTRACT: "caExtract_databaseFlags_contained_database_authentication_flagValue__c"
+              EXTRACT: "caJsonText__databaseFlagsContainedDatabaseAuthenticationFlagValue__c"
             right:
               TEXT: "on"
 otherwise:

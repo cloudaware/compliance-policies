@@ -1,0 +1,238 @@
+# Repo-manager Changelog
+
+## 1.5.2
+
+- Fixed `repo-manager soql convert` description.
+
+## 1.5.1
+
+- Added `soql` subcommand with `soql convert` to convert SOQL to BigQuery.
+- Added gemini-cli configuration and context file `agents.md`.
+- The `types import` command now creates `/types/types.json` which contains all types available in the org.
+
+## 1.4.13
+
+- Handled new `UNIT_TEST` parameters correctly.
+- Refactored unit-tests.
+
+## 1.4.12
+
+- Updated to the latest version of metadata for the `types import` command.
+
+## 1.4.11
+
+- Handles type-independent extracts correctly.
+
+## 1.4.10
+
+- Fixed various bugs.
+- Added Search (`Ctrl+F`) functionality.
+
+## 1.4.9
+
+- Improved names for entities in "Navigate to related".
+- Improved test result output.
+- Added "Copy path to clipboard" action.
+
+## 1.4.8
+
+- Fixed `Test All`, `Test Unit-Tests`, and `Test` commands.
+
+## 1.4.7
+
+- Fixed the "Navigate To" action.
+
+## 1.4.6
+
+- Fixed `--watch` for paths that logically exist in the repository but not on the file system.
+
+## 1.4.5
+
+- Fixed links to internal frameworks.
+- Fixed bugs in `repo-manager ui` and added `F5` hotkey to reload the directory.
+
+## 1.4.4
+
+- The `--watch` command is now functional.
+- Refactored tree/graph components.
+- The UI now watches the repository for changes.
+
+## 1.4.2
+
+- The `repo-manager ui` no longer needs to parse the entire repository.
+- General refactoring.
+
+## 1.4.1
+
+- Added the ability to close windows in `repo-manager ui` with the `Escape` key.
+
+## 1.4.0
+
+- Added the `repo-manager ui` command.
+- Implemented proper logging.
+
+## 1.3.4
+
+- Added the `repo-manager policies test unit-tests` command.
+
+## 1.3.3
+
+- The `repo-manager ai context generate` command now creates a `prod-policies.txt` file with all production policies.
+
+## 1.3.2
+
+- Added the `repo-manager ai context generate` command.
+
+## 1.3.1
+
+- Updated to reflect new naming conventions in the Compliance Engine.
+- Updated documentation.
+
+## 1.2.11
+
+- Improved slug generation for main directories.
+- Added a command for manpage generation.
+
+## 1.2.10
+
+- Improved representation of extracts in type documentation.
+
+## 1.2.9
+
+- Improved Markdown generation for included files.
+
+## 1.2.8
+
+- Introduced a new Markdown generation library.
+- Added `slug` for each page.
+
+## 1.2.7
+
+- Updated to be compatible with unit-test changes.
+
+## 1.2.6
+
+- Made updates related to unit-tests.
+
+## 1.2.5
+
+- `SectionInfo` similar sections are now handled from `PolicyInfo`.
+
+## 1.2.4
+
+- The repository can now show test results for policies.
+- Implemented the `repo-manager policies test all` command.
+
+## 1.2.3
+
+- Updated documentation generation.
+- Improved the `policy generate` command.
+- Added MD5 hashes for files.
+
+## 1.2.2
+
+- Improved type import functionality.
+
+## 1.2.1
+
+- Moved extracts from `/extracts` to `/types`.
+
+## 1.1.12
+
+- Changed the command structure.
+
+## 1.1.11
+
+- Renamed the `obsidian` command to `docs`.
+
+## 1.1.10
+
+- Made the repository Docusaurus-friendly.
+
+## 1.1.9
+
+- Improved front-matter generation.
+
+## 1.1.8
+
+- Added more fixes for repositories without an `internal` directory.
+
+## 1.1.6
+
+- Improved handling for partial repositories.
+
+## 1.1.5
+
+- Made the tool tolerant to a missing `internal` directory.
+
+## 1.1.2
+
+- Improved type import.
+- Added an `export` command.
+
+## 1.1.1
+
+- Added type import functionality.
+
+## 1.1.0
+
+- Major refactoring.
+- Added the `repo-manager obsidian generate --watch` command.
+
+## 1.0.14
+
+- Renamed `DESCRIPTION.md`, `REMEDIATION.md`, `INTERNAL.md`, and `TODO.md` to lowercase.
+
+## 1.0.13
+
+- Added the `repo-manager policies test {id}` command.
+
+## 1.0.11
+
+- Added validation for internal `similarPolicies`.
+
+## 1.0.10
+
+- Minor updates to generation.
+- Implemented Vault generation on top of the repository, allowing navigation in IntelliJ IDEA and VS Code.
+
+## 1.0.8
+
+- Implemented new import for internal policies.
+- Improved Obsidian generation.
+
+## 1.0.7
+
+- Simplified paths for policies.
+- Improved sorting.
+
+## 1.0.6
+
+- Added import for internal policies.
+
+## 1.0.5
+
+- Made the `policies generate` command more flexible.
+- Migrated policy naming to `names.full` and `names.contextual`.
+
+## 1.0.4
+
+- Added `names` to all policies.
+- Added flags for `names`.
+
+## 1.0.3
+
+- Cleaned up Vault generation.
+- Added `folder.yaml` to many folders.
+
+## 1.0.2
+
+- Fixed various bugs.
+
+## 1.0.1
+
+- Fixed a bug.
+
+## 1.0.0
+
+- Initial release.

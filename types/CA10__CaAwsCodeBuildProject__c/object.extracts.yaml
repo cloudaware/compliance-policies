@@ -1,0 +1,17 @@
+---
+extracts:
+# Values: CODECOMMIT | CODEPIPELINE | GITHUB | GITLAB | GITLAB_SELF_MANAGED | S3 | BITBUCKET | GITHUB_ENTERPRISE | NO_SOURCE
+# Not Nullable. 
+  - name: CA10__sourceType__c
+    value: 
+      FIELD:
+        path: CA10__sourceType__c
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__sourceType__c"
+            currentStateMessage: "CodeBuild Project Source Type cannot be empty. Possible permissions issue with codebuild:BatchGetBuilds"
+# Nullable.
+  - name: CA10__sourceLocation__c
+    value: 
+      FIELD:
+        path: CA10__sourceLocation__c

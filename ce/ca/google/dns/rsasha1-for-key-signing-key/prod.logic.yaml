@@ -11,7 +11,7 @@ conditions:
     check:
       CONTAINS:
         arg:
-          EXTRACT: "caJsonFrom__dnssecConfigurationKeySpecs_keySigning_algorithm_value"
+          EXTRACT: "caJsonText__dnssecConfigurationKeySpecsKeySigningAlgorithmValue"
         search:
           TEXT: "rsasha1"
 otherwise:

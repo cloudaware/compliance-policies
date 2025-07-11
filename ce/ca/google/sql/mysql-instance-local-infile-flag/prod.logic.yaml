@@ -21,7 +21,7 @@ conditions:
     check:
       IS_EQUAL:
         left:
-          EXTRACT: "caExtract_databaseFlags_local_infile_flagValue__c"
+          EXTRACT: "caJsonText__databaseFlagsLocalInfileFlagValue__c"
         right:
           TEXT: "off"
 otherwise:

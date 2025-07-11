@@ -1,0 +1,20 @@
+---
+names:
+  full: AWS DMS Replication Instance Auto Minor Version Upgrade is not enabled
+  contextual: Replication Instance Auto Minor Version Upgrade is not enabled
+description: >
+  Ensure that AWS DMS Replication Instances have the Auto Minor Version
+  Upgrade feature enabled to automatically receive the latest minor engine upgrades,
+  which include security patches, bug fixes, and new features.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/infrastructure-modernization"
+  - "/frameworks/aws-fsbp-v1.0.0/dms/06"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[DMS.6] DMS replication instances should have automatic minor version upgrade enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/dms-controls.html#dms-6"
+  internal:
+    - "dec-x-0d66ed99"

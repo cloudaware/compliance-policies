@@ -1,0 +1,62 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-08T18:56:31Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-06-24T21:52:49Z",
+        "CA10__sourceType__c": "BITBUCKET",
+        "CA10__sourceLocation__c": "username:password@bitbucket.org/workspace/repository.git"
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__sourceType__c') != 'BITBUCKET'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-08T18:56:31Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__sourceType__c": "sourceType",
+        "CA10__sourceLocation__c": "sourceLocation"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__sourceLocation__c').contains('@')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-08T18:56:31Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__sourceType__c": "BITBUCKET",
+        "CA10__sourceLocation__c": "username:password@bitbucket.org/workspace/repository.git"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "300",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-08T18:56:31Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__sourceType__c": "BITBUCKET",
+        "CA10__sourceLocation__c": "bitbucket.org/workspace/repository.git"
+    }
+]

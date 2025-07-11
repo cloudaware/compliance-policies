@@ -50,7 +50,7 @@ relatedLists:
             left:
               JSON_QUERY_NUMBER:
                 arg:
-                  EXTRACT: "CA10__allowedProtocolsPortsJson__c"
+                  EXTRACT: "caJsonFrom__allowedProtocolsPortsJson__c"
                 expression: "length(ports[?((protocol=='all') || (startPort=='null' && endPort=='null') || (protocol=='tcp' && (startPort=='22' || endPort=='22' || (startPort<'22' && endPort>'22'))))])"
                 undeterminedIf:
                   evaluationError: "The JSON query failed."

@@ -1,0 +1,17 @@
+---
+names:
+  full: AWS Connect Instance flow logs are not enabled
+  contextual: Instance flow logs are not enabled
+description: >
+  Ensure that Amazon Connect Instances have CloudWatch logging enabled to capture contact flow logs.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+  - RELIABILITY
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/connect/02"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Connect.2] Amazon Connect instances should have CloudWatch logging enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/connect-controls.html#connect-2"

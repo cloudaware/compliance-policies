@@ -42,7 +42,7 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "299",
-      "conditionText": "extract('caExtract_databaseFlags_log_error_verbosity_flagValue__c') == 'DEFAULT' || extract('caExtract_databaseFlags_log_error_verbosity_flagValue__c') == 'TERSE' || extract('caExtract_databaseFlags_log_error_verbosity_flagValue__c') == 'VERBOSE'",
+      "conditionText": "setOfText(['DEFAULT', 'TERSE', 'VERBOSE']).contains(extract('caJsonText__databaseFlagsLogErrorVerbosityFlagValue__c'))",
       "runtimeError": null
     },
     "context": { "snapshotTime": "2024-09-05T07:34:25Z" },

@@ -70,7 +70,7 @@ relatedLists:
         check:
           CONTAINS:
             arg:
-              EXTRACT: "CA10__customOriginConfigOriginSslProtocolsAsCollection__c"
+              EXTRACT: "caSetFrom__customOriginConfigOriginSslProtocols__c"
             search:
               TEXT: "SSLv3"
       # This condition is set to COMPLIANT only to make it easier to distinguish from INCOMPLIANT in the main body of the policy
@@ -80,7 +80,7 @@ relatedLists:
         check:
           CONTAINS_ANY:
             arg:
-              EXTRACT: "CA10__customOriginConfigOriginSslProtocolsAsCollection__c"
+              EXTRACT: "caSetFrom__customOriginConfigOriginSslProtocols__c"
             search:
               SET:
                 itemType: TEXT

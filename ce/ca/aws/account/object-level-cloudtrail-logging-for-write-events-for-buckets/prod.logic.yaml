@@ -54,12 +54,12 @@ relatedLists:
                   args:
                     - IS_EQUAL:
                         left:
-                          EXTRACT: "caJsonText__eventSelectorsJson_readWriteType__c"
+                          EXTRACT: "caJsonText__eventSelectorsJsonReadWriteType__c"
                         right:
                           TEXT: "All"
                     - IS_EQUAL:
                         left:
-                          EXTRACT: "caJsonText__eventSelectorsJson_readWriteType__c"
+                          EXTRACT: "caJsonText__eventSelectorsJsonReadWriteType__c"
                         right:
                           TEXT: "WriteOnly"
     otherwise:

@@ -1,0 +1,15 @@
+---
+inputType: "CA10A1__CaAwsDmsReplicationInstance__c"
+importExtracts:
+  - file: /types/CA10A1__CaAwsDmsReplicationInstance__c/object.extracts.yaml
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The DMS Replication Instance is publicly accessible."
+    remediationMessage: "Consider changing the public access setting by deleting your current instance, and then recreating it."    
+    check:
+      EXTRACT: "CA10A1__publiclyAccessible__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The DMS Replication Instance is not publicly accessible."

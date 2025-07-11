@@ -1,0 +1,254 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10A1__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T05:32:43Z"
+        },
+        "Id": "test1",
+        "CA10A1__disappearanceTime__c": "2025-07-10T05:32:43Z",
+        "CA10A1__settingsJson__c": "{\"Logging\":{\"EnableLogging\":true,\"LogComponents\":[{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"TARGET_APPLY\"},{\"Severity\":\"TARGET_LOAD\",\"Id\":\"SOURCE_CAPTURE\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"SOURCE_UNLOAD\"}]}}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "not(extract('caJsonBoolean__settingsJsonEnableLogging__c'))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T05:32:43Z"
+        },
+        "Id": "test2",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__settingsJson__c": "{\"Logging\":{\"EnableLogging\":false,\"LogComponents\":[{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"TARGET_APPLY\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"TARGET_LOAD\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"SOURCE_CAPTURE\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"SOURCE_UNLOAD\"}]}}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('caJsonText__settingsJsonTargetApplySeverity__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T05:32:43Z"
+        },
+        "Id": "test3",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__settingsJson__c": "{\"Logging\":{\"EnableLogging\":true,\"LogComponents\":[{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"TARGET_LOAD\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"SOURCE_CAPTURE\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"SOURCE_UNLOAD\"}]}}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "setOfText(['LOGGER_SEVERITY_INFO', 'LOGGER_SEVERITY_WARNING', 'LOGGER_SEVERITY_ERROR']).contains(extract('caJsonText__settingsJsonTargetApplySeverity__c'))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T05:32:43Z"
+        },
+        "Id": "test4",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__settingsJson__c": "{\"Logging\":{\"EnableLogging\":true,\"LogComponents\":[{\"Severity\":\"LOGGER_SEVERITY_INFO\",\"Id\":\"TARGET_APPLY\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"TARGET_LOAD\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"SOURCE_CAPTURE\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"SOURCE_UNLOAD\"}]}}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "599",
+            "conditionText": "extract('caJsonText__settingsJsonTargetLoadSeverity__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T05:32:43Z"
+        },
+        "Id": "test5",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__settingsJson__c": "{\"Logging\":{\"EnableLogging\":true,\"LogComponents\":[{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"TARGET_APPLY\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"SOURCE_CAPTURE\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"SOURCE_UNLOAD\"}]}}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "699",
+            "conditionText": "setOfText(['LOGGER_SEVERITY_INFO', 'LOGGER_SEVERITY_WARNING', 'LOGGER_SEVERITY_ERROR']).contains(extract('caJsonText__settingsJsonTargetLoadSeverity__c'))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T05:32:43Z"
+        },
+        "Id": "test6",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__settingsJson__c": "{\"Logging\":{\"EnableLogging\":true,\"LogComponents\":[{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"TARGET_APPLY\"},{\"Severity\":\"LOGGER_SEVERITY_INFO\",\"Id\":\"TARGET_LOAD\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"SOURCE_CAPTURE\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"SOURCE_UNLOAD\"}]}}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "799",
+            "conditionText": "extract('caJsonText__settingsJsonSourceCaptureSeverity__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T05:32:43Z"
+        },
+        "Id": "test7",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__settingsJson__c": "{\"Logging\":{\"EnableLogging\":true,\"LogComponents\":[{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"TARGET_APPLY\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"TARGET_LOAD\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"SOURCE_UNLOAD\"}]}}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "899",
+            "conditionText": "setOfText(['LOGGER_SEVERITY_INFO', 'LOGGER_SEVERITY_WARNING', 'LOGGER_SEVERITY_ERROR']).contains(extract('caJsonText__settingsJsonSourceCaptureSeverity__c'))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T05:32:43Z"
+        },
+        "Id": "test8",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__settingsJson__c": "{\"Logging\":{\"EnableLogging\":true,\"LogComponents\":[{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"TARGET_APPLY\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"TARGET_LOAD\"},{\"Severity\":\"LOGGER_SEVERITY_INFO\",\"Id\":\"SOURCE_CAPTURE\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"SOURCE_UNLOAD\"}]}}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "999",
+            "conditionText": "extract('caJsonText__settingsJsonSourceUnloadSeverity__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T05:32:43Z"
+        },
+        "Id": "test9",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__settingsJson__c": "{\"Logging\":{\"EnableLogging\":true,\"LogComponents\":[{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"TARGET_APPLY\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"TARGET_LOAD\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"SOURCE_CAPTURE\"}]}}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "1099",
+            "conditionText": "setOfText(['LOGGER_SEVERITY_INFO', 'LOGGER_SEVERITY_WARNING', 'LOGGER_SEVERITY_ERROR']).contains(extract('caJsonText__settingsJsonSourceUnloadSeverity__c'))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T05:32:43Z"
+        },
+        "Id": "test10",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__settingsJson__c": "{\"Logging\":{\"EnableLogging\":true,\"LogComponents\":[{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"TARGET_APPLY\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"TARGET_LOAD\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"SOURCE_CAPTURE\"},{\"Severity\":\"LOGGER_SEVERITY_INFO\",\"Id\":\"SOURCE_UNLOAD\"}]}}"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "1100",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T05:32:43Z"
+        },
+        "Id": "test11",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__settingsJson__c": "{\"Logging\":{\"EnableLogging\":true,\"LogComponents\":[{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"TARGET_APPLY\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"TARGET_LOAD\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"SOURCE_CAPTURE\"},{\"Severity\":\"LOGGER_SEVERITY_DEFAULT\",\"Id\":\"SOURCE_UNLOAD\"}]}}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('caJsonText__settingsJsonTargetApplySeverity__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T05:32:43Z"
+        },
+        "Id": "test12",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__settingsJson__c": "{\"Logging\":{\"EnableLogging\":true,\"LogComponents\":[]}}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('caJsonText__settingsJsonTargetApplySeverity__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T05:32:43Z"
+        },
+        "Id": "test13",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__settingsJson__c": "{\"Logging\":{\"EnableLogging\":true}}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('caJsonBoolean__settingsJsonEnableLogging__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T05:32:43Z"
+        },
+        "Id": "test14",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__settingsJson__c": "{\"Logging\":{\"Key\":true}}"
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "103",
+            "conditionText": "extract('caJsonFrom__settingsJson__c').jsonQueryText('Logging.EnableLogging').isEvaluationFailed()",
+            "runtimeError": "UNDETERMINED condition:102"
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T05:32:43Z"
+        },
+        "Id": "test15",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__settingsJson__c": "{\"Logging\":{\"EnableLogging\":\"true\"}}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('caJsonBoolean__settingsJsonEnableLogging__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T05:32:43Z"
+        },
+        "Id": "test16",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__settingsJson__c": "{\"Logging\": \"value\"}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('caJsonBoolean__settingsJsonEnableLogging__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T05:32:43Z"
+        },
+        "Id": "test17",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__settingsJson__c": "{}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('caJsonBoolean__settingsJsonEnableLogging__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T05:32:43Z"
+        },
+        "Id": "test18",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__settingsJson__c": null
+    }
+]

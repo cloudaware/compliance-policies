@@ -42,7 +42,7 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "299",
-      "conditionText": "extract('caExtract_databaseFlags_log_min_error_statement_flagValue__c') == 'DEBUG5' || extract('caExtract_databaseFlags_log_min_error_statement_flagValue__c') == 'DEBUG4' || extract('caExtract_databaseFlags_log_min_error_statement_flagValue__c') == 'DEBUG3' || extract('caExtract_databaseFlags_log_min_error_statement_flagValue__c') == 'DEBUG2' || extract('caExtract_databaseFlags_log_min_error_statement_flagValue__c') == 'DEBUG1' || extract('caExtract_databaseFlags_log_min_error_statement_flagValue__c') == 'INFO' || extract('caExtract_databaseFlags_log_min_error_statement_flagValue__c') == 'NOTICE' || extract('caExtract_databaseFlags_log_min_error_statement_flagValue__c') == 'WARNING' || extract('caExtract_databaseFlags_log_min_error_statement_flagValue__c') == 'ERROR'",
+      "conditionText": "setOfText(['DEBUG5', 'DEBUG4', 'DEBUG3', 'DEBUG2', 'DEBUG1', 'INFO', 'NOTICE', 'WARNING', 'ERROR']).contains(extract('caJsonText__databaseFlagsLogMinErrorStatementFlagValue__c'))",
       "runtimeError": null
     },
     "context": { "snapshotTime": "2024-09-05T07:34:25Z" },

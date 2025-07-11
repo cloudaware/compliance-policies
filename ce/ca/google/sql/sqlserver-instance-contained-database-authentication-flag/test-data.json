@@ -42,7 +42,7 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "299",
-      "conditionText": "not(extract('caExtract_databaseFlags_contained_database_authentication_flagValue__c') == 'on')",
+      "conditionText": "not(extract('caJsonText__databaseFlagsContainedDatabaseAuthenticationFlagValue__c') == 'on')",
       "runtimeError": null
     },
     "context": { "snapshotTime": "2024-09-05T07:34:25Z" },

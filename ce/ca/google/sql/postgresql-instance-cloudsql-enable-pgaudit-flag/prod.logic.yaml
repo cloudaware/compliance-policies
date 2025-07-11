@@ -21,7 +21,7 @@ conditions:
     check:
       IS_EQUAL:
         left:
-          EXTRACT: "caExtract_databaseFlags_cloudsql_enable_pgaudit_flagValue__c"
+          EXTRACT: "caJsonText__databaseFlagsCloudsqlEnablePgauditFlagValue__c"
         right:
           TEXT: "on"
 otherwise:

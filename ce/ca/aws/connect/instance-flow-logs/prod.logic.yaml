@@ -1,0 +1,27 @@
+---
+inputType: "CA10A1__CaAwsConnectInstance__c"
+importExtracts:
+  - file: /types/CA10A1__CaAwsConnectInstance__c/object.extracts.yaml
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Connect Instance flow logs are not enabled."
+    remediationMessage: "Consider enabling CloudWatch logging for the Connect Instance to capture contact flow logs."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "caSetFrom__attributes__c"
+        search:
+          TEXT: "CONTACTFLOW_LOGS - false"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Connect Instance flow logs are enabled."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "caSetFrom__attributes__c"
+        search:
+          TEXT: "CONTACTFLOW_LOGS - true"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unable to determine Connect Instance flow logs status."

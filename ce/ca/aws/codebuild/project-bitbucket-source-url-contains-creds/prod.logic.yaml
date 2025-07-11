@@ -1,0 +1,27 @@
+---
+inputType: "CA10__CaAwsCodeBuildProject__c"
+importExtracts:
+  - file: /types/CA10__CaAwsCodeBuildProject__c/object.extracts.yaml
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The source provider is not Bitbucket."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__sourceType__c"
+        right:
+          TEXT: "BITBUCKET"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Bitbucket source repository URL contains credentials."
+    remediationMessage: "The repository URL should not contain credentials and use OAuth for authentication instead."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "CA10__sourceLocation__c"
+        search:
+          TEXT: "@"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Bitbucket source repository URL does not contain sensitive credentials."

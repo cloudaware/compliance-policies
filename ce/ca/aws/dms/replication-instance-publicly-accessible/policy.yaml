@@ -1,0 +1,20 @@
+---
+names:
+  full: AWS DMS Replication Instance is publicly accessible
+  contextual: Replication Instance is publicly accessible
+description: >
+  Ensure that AWS Database Migration Service (DMS) replication instances are not 
+  publicly accessible to minimize security risks such as unauthorized access, 
+  denial-of-service attacks, and data exfiltration.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/aws-fsbp-v1.0.0/dms/01"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[DMS.1] Database Migration Service replication instances should not be public"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/dms-controls.html#dms-1"
+  internal:
+    - "dec-x-e02b5fdd"

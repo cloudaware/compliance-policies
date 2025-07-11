@@ -42,7 +42,7 @@
     "expectedResult": {
       "status": "INCOMPLIANT",
       "conditionIndex": "299",
-      "conditionText": "extract('caJsonFrom_authorizedNetworksJson_value__c').contains('0.0.0.0/0')",
+      "conditionText": "extract('caJsonText__authorizedNetworksJsonValue__c').contains('0.0.0.0/0')",
       "runtimeError": null
     },
     "context": { "snapshotTime": "2025-01-19T19:03:22Z" },

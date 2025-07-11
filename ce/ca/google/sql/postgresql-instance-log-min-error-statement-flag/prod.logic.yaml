@@ -19,53 +19,22 @@ conditions:
   - status: "COMPLIANT"
     currentStateMessage: "log_min_error_statement database flag is set appropriately."
     check:
-      OR:
-        args:
-          - IS_EQUAL:
-              left:
-                EXTRACT: "caExtract_databaseFlags_log_min_error_statement_flagValue__c"
-              right:
-                TEXT: "DEBUG5"
-          - IS_EQUAL:
-              left:
-                EXTRACT: "caExtract_databaseFlags_log_min_error_statement_flagValue__c"
-              right:
-                TEXT: "DEBUG4"
-          - IS_EQUAL:
-              left:
-                EXTRACT: "caExtract_databaseFlags_log_min_error_statement_flagValue__c"
-              right:
-                TEXT: "DEBUG3"
-          - IS_EQUAL:
-              left:
-                EXTRACT: "caExtract_databaseFlags_log_min_error_statement_flagValue__c"
-              right:
-                TEXT: "DEBUG2"
-          - IS_EQUAL:
-              left:
-                EXTRACT: "caExtract_databaseFlags_log_min_error_statement_flagValue__c"
-              right:
-                TEXT: "DEBUG1"
-          - IS_EQUAL:
-              left:
-                EXTRACT: "caExtract_databaseFlags_log_min_error_statement_flagValue__c"
-              right:
-                TEXT: "INFO"
-          - IS_EQUAL:
-              left:
-                EXTRACT: "caExtract_databaseFlags_log_min_error_statement_flagValue__c"
-              right:
-                TEXT: "NOTICE"
-          - IS_EQUAL:
-              left:
-                EXTRACT: "caExtract_databaseFlags_log_min_error_statement_flagValue__c"
-              right:
-                TEXT: "WARNING"
-          - IS_EQUAL:
-              left:
-                EXTRACT: "caExtract_databaseFlags_log_min_error_statement_flagValue__c"
-              right:
-                TEXT: "ERROR"
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - "DEBUG5"
+              - "DEBUG4"
+              - "DEBUG3"
+              - "DEBUG2"
+              - "DEBUG1"
+              - "INFO"
+              - "NOTICE"
+              - "WARNING"
+              - "ERROR"
+        search:
+          EXTRACT: "caJsonText__databaseFlagsLogMinErrorStatementFlagValue__c"
 otherwise:
   status: "INCOMPLIANT"
   currentStateMessage: "log_min_error_statement database flag isn't set appropriately."

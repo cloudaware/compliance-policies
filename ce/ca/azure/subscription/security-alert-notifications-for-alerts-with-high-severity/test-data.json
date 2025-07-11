@@ -3,7 +3,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "199",
-            "conditionText": "extract('caJsonQueryText__securityCenterContacts_default_alert_notifications__c').isEmpty()",
+            "conditionText": "extract('caJsonText__securityCenterContactsDefaultAlertNotifications__c').isEmpty()",
             "runtimeError": null
         },
         "context": {
@@ -16,7 +16,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('caJsonQueryText__securityCenterContacts_default_alert_notifications__c') != 'On'",
+            "conditionText": "extract('caJsonText__securityCenterContactsDefaultAlertNotifications__c') != 'On'",
             "runtimeError": null
         },
         "context": {
@@ -29,7 +29,7 @@
         "expectedResult": {
             "status": "COMPLIANT",
             "conditionIndex": "499",
-            "conditionText": "extract('caJsonQueryText__securityCenterContacts_default_alert_notifications_severity__c') == 'High' && extract('caJsonQueryText__securityCenterContacts_default_alert_notifications__c') == 'On'",
+            "conditionText": "extract('caJsonText__securityCenterContactsDefaultAlertNotificationsSeverity__c') == 'High' && extract('caJsonText__securityCenterContactsDefaultAlertNotifications__c') == 'On'",
             "runtimeError": null
         },
         "context": {
@@ -68,7 +68,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "199",
-            "conditionText": "extract('caJsonQueryText__securityCenterContacts_default_alert_notifications__c').isEmpty()",
+            "conditionText": "extract('caJsonText__securityCenterContactsDefaultAlertNotifications__c').isEmpty()",
             "runtimeError": null
         },
         "context": {
@@ -81,7 +81,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "199",
-            "conditionText": "extract('caJsonQueryText__securityCenterContacts_default_alert_notifications__c').isEmpty()",
+            "conditionText": "extract('caJsonText__securityCenterContactsDefaultAlertNotifications__c').isEmpty()",
             "runtimeError": null
         },
         "context": {
@@ -94,7 +94,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "399",
-            "conditionText": "extract('caJsonQueryText__securityCenterContacts_default_alert_notifications_severity__c') != 'High'",
+            "conditionText": "extract('caJsonText__securityCenterContactsDefaultAlertNotificationsSeverity__c') != 'High'",
             "runtimeError": null
         },
         "context": {

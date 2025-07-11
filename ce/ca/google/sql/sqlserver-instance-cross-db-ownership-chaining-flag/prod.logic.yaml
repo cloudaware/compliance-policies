@@ -21,7 +21,7 @@ conditions:
     check:
       IS_EQUAL:
         left:
-          EXTRACT: "caExtract_databaseFlags_cross_db_ownership_chaining_flagValue__c"
+          EXTRACT: "caJsonText__databaseFlagsCrossDbOwnershipChainingFlagValue__c"
         right:
           TEXT: "off"
 otherwise:

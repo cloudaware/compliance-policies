@@ -37,7 +37,7 @@ extracts:
         undeterminedIf:
           isInvalid: "Provided CloudTrail Event Selector has invalid JSON."
 # Returns TEXT. Values: All, WriteOnly, ReadOnly
-  - name: "caJsonText__eventSelectorsJson_readWriteType__c"
+  - name: "caJsonText__eventSelectorsJsonReadWriteType__c"
     value: 
       JSON_QUERY_TEXT:
         arg: 
@@ -47,7 +47,7 @@ extracts:
           evaluationError: "The JSON text query has failed."
           resultTypeMismatch: "The JSON query did not return a text type."
 # Returns BOOLEAN true or false
-  - name: "caJsonBoolean__eventSelectorsJson_includeManagementEvents__c"
+  - name: "caJsonBoolean__eventSelectorsJsonIncludeManagementEvents__c"
     value: 
       JSON_QUERY_BOOLEAN:
         arg: 

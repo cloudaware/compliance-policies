@@ -42,7 +42,7 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "299",
-      "conditionText": "extract('caExtract_databaseFlags_log_statement_flagValue__c') == 'ddl' || extract('caExtract_databaseFlags_log_statement_flagValue__c') == 'mod' || extract('caExtract_databaseFlags_log_statement_flagValue__c') == 'all'",
+      "conditionText": "setOfText(['ddl', 'mod', 'all']).contains(extract('caJsonText__databaseFlagsLogStatementFlagValue__c'))",
       "runtimeError": null
     },
     "context": { "snapshotTime": "2024-09-05T07:34:25Z" },

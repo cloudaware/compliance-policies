@@ -19,7 +19,7 @@ conditions:
     check:
       CONTAINS:
         arg:
-          EXTRACT: "caJsonFrom__metadataJson__enable_oslogin_value"
+          EXTRACT: "caJsonText__metadataJsonEnableOsloginValue"
         search:
           TEXT: "true"
 otherwise:

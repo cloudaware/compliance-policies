@@ -13,29 +13,29 @@ conditions:
         args:
           - CONTAINS:
               arg:
-                EXTRACT: "caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail"
+                EXTRACT: "caJsonText__essentialContactsConfigurationNotificationCategoryWithEmail"
               search:
                 TEXT: "ALL"
           - AND:
               args:
                 - CONTAINS:
                     arg:
-                      EXTRACT: "caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail"
+                      EXTRACT: "caJsonText__essentialContactsConfigurationNotificationCategoryWithEmail"
                     search:
                       TEXT: "LEGAL"
                 - CONTAINS:
                     arg:
-                      EXTRACT: "caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail"
+                      EXTRACT: "caJsonText__essentialContactsConfigurationNotificationCategoryWithEmail"
                     search:
                       TEXT: "SECURITY"
                 - CONTAINS:
                     arg:
-                      EXTRACT: "caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail"
+                      EXTRACT: "caJsonText__essentialContactsConfigurationNotificationCategoryWithEmail"
                     search:
                       TEXT: "SUSPENSION"
                 - CONTAINS:
                     arg:
-                      EXTRACT: "caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail"
+                      EXTRACT: "caJsonText__essentialContactsConfigurationNotificationCategoryWithEmail"
                     search:
                       TEXT: "TECHNICAL"
 otherwise:

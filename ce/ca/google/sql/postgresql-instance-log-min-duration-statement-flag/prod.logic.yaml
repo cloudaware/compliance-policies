@@ -21,7 +21,7 @@ conditions:
     check:
       IS_EQUAL:
         left:
-          EXTRACT: "caExtract_databaseFlags_log_min_duration_statement_flagValue__c"
+          EXTRACT: "caJsonText__databaseFlagsLogMinDurationStatementFlagValue__c"
         right:
           TEXT: "-1"
 otherwise:

@@ -27,7 +27,7 @@
     "expectedResult": {
       "status": "INCOMPLIANT",
       "conditionIndex": "199",
-      "conditionText": "extract('caJsonFrom__dnssecConfigurationKeySpecs_keySigning_algorithm_value').contains('rsasha1')",
+      "conditionText": "extract('caJsonText__dnssecConfigurationKeySpecsKeySigningAlgorithmValue').contains('rsasha1')",
       "runtimeError": null
     },
     "context": { "snapshotTime": "2025-01-16T06:54:27Z" },

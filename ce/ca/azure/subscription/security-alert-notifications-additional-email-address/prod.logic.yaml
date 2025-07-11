@@ -12,14 +12,14 @@ conditions:
     check:
       IS_EMPTY:
         arg:
-          EXTRACT: "caJsonQueryText__securityCenterContacts_default_email__c"
+          EXTRACT: "caJsonText__securityCenterContactsDefaultEmail__c"
   - status: "COMPLIANT"
     currentStateMessage: "Security contact email address is provided."
 # Extract only for the default contact
     check:
       NOT_EMPTY:
         arg:
-          EXTRACT: "caJsonQueryText__securityCenterContacts_default_email__c"
+          EXTRACT: "caJsonText__securityCenterContactsDefaultEmail__c"
 otherwise:
   status: "UNDETERMINED"
   currentStateMessage: "Unexpected values in the field."

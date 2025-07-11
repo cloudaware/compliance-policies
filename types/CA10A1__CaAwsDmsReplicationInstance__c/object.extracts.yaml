@@ -1,0 +1,12 @@
+---
+extracts:
+# Checkbox. Values: true/false. Can't have no access, retrieved via dms:DescribeReplicationInstances
+  - name: CA10A1__publiclyAccessible__c
+    value: 
+      FIELD:
+        path: CA10A1__publiclyAccessible__c
+# Checkbox. Values: true/false. Can't have no access, retrieved via dms:DescribeReplicationInstances
+  - name: CA10A1__minorVersionAutomaricUpdate__c
+    value: 
+      FIELD:
+        path: CA10A1__minorVersionAutomaricUpdate__c

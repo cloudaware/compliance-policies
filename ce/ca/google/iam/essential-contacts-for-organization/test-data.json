@@ -3,7 +3,7 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "199",
-      "conditionText": "extract('caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail').contains('ALL') || (extract('caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail').contains('LEGAL') && extract('caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail').contains('SECURITY') && extract('caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail').contains('SUSPENSION') && extract('caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail').contains('TECHNICAL'))",
+      "conditionText": "extract('caJsonText__essentialContactsConfigurationNotificationCategoryWithEmail').contains('ALL') || (extract('caJsonText__essentialContactsConfigurationNotificationCategoryWithEmail').contains('LEGAL') && extract('caJsonText__essentialContactsConfigurationNotificationCategoryWithEmail').contains('SECURITY') && extract('caJsonText__essentialContactsConfigurationNotificationCategoryWithEmail').contains('SUSPENSION') && extract('caJsonText__essentialContactsConfigurationNotificationCategoryWithEmail').contains('TECHNICAL'))",
       "runtimeError": null
     },
     "context": { "snapshotTime": "2024-09-23T11:48:39Z" },
@@ -15,7 +15,7 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "199",
-      "conditionText": "extract('caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail').contains('ALL') || (extract('caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail').contains('LEGAL') && extract('caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail').contains('SECURITY') && extract('caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail').contains('SUSPENSION') && extract('caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail').contains('TECHNICAL'))",
+      "conditionText": "extract('caJsonText__essentialContactsConfigurationNotificationCategoryWithEmail').contains('ALL') || (extract('caJsonText__essentialContactsConfigurationNotificationCategoryWithEmail').contains('LEGAL') && extract('caJsonText__essentialContactsConfigurationNotificationCategoryWithEmail').contains('SECURITY') && extract('caJsonText__essentialContactsConfigurationNotificationCategoryWithEmail').contains('SUSPENSION') && extract('caJsonText__essentialContactsConfigurationNotificationCategoryWithEmail').contains('TECHNICAL'))",
       "runtimeError": null
     },
     "context": { "snapshotTime": "2024-09-23T11:48:39Z" },

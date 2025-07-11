@@ -20,7 +20,7 @@ conditions:
     check:
           CONTAINS:
             arg:
-              EXTRACT: "caJsonFrom_authorizedNetworksJson_value__c"
+              EXTRACT: "caJsonText__authorizedNetworksJsonValue__c"
             search:
               TEXT: "0.0.0.0/0"
 otherwise:

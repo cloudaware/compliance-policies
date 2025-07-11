@@ -1,0 +1,60 @@
+---
+extracts:
+# Not Nullable. Can't have no access, retrieved via dms:DescribeReplicationTasks
+  - name: caJsonFrom__settingsJson__c
+    value: 
+      JSON_FROM:
+        arg:
+          FIELD:
+            path: CA10A1__settingsJson__c
+        undeterminedIf:
+          isInvalid: "The Task Settings JSON is invalid."
+# Values: true/false
+  - name: caJsonBoolean__settingsJsonEnableLogging__c
+    value: 
+      JSON_QUERY_BOOLEAN:
+        arg:
+          EXTRACT: "caJsonFrom__settingsJson__c"
+        expression: "Logging.EnableLogging"
+        undeterminedIf:
+          evaluationError: "The JSON query has failed"
+          resultTypeMismatch: "The JSON query did not return boolean type."
+# Values from highest to lowest, the higher levels always include the lower: 
+# LOGGER_SEVERITY_DETAILED_DEBUG | LOGGER_SEVERITY_DEBUG | LOGGER_SEVERITY_DEFAULT 
+# LOGGER_SEVERITY_INFO | LOGGER_SEVERITY_WARNING | LOGGER_SEVERITY_ERROR 
+  - name: caJsonText__settingsJsonTargetApplySeverity__c
+    value: 
+      JSON_QUERY_TEXT:
+        arg:
+          EXTRACT: "caJsonFrom__settingsJson__c"
+        expression: "Logging.LogComponents[?Id==`TARGET_APPLY`].Severity | [0]"
+        undeterminedIf:
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return text type."
+  - name: caJsonText__settingsJsonTargetLoadSeverity__c
+    value: 
+      JSON_QUERY_TEXT:
+        arg:
+          EXTRACT: "caJsonFrom__settingsJson__c"
+        expression: "Logging.LogComponents[?Id==`TARGET_LOAD`].Severity | [0]"
+        undeterminedIf:
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return text type."
+  - name: caJsonText__settingsJsonSourceCaptureSeverity__c
+    value: 
+      JSON_QUERY_TEXT:
+        arg:
+          EXTRACT: "caJsonFrom__settingsJson__c"
+        expression: "Logging.LogComponents[?Id==`SOURCE_CAPTURE`].Severity | [0]"
+        undeterminedIf:
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return text type."
+  - name: caJsonText__settingsJsonSourceUnloadSeverity__c
+    value: 
+      JSON_QUERY_TEXT:
+        arg:
+          EXTRACT: "caJsonFrom__settingsJson__c"
+        expression: "Logging.LogComponents[?Id==`SOURCE_UNLOAD`].Severity | [0]"
+        undeterminedIf:
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return text type."

@@ -12,7 +12,7 @@ extracts:
         path: "CA10__ipv4Enabled__c"
         undeterminedIf:
           isEmpty:  "Ipv4Enabled should not be empty"
-  - name: "caExtract__databaseFlagsJson__c"
+  - name: "caJsonFrom__databaseFlagsJson__c"
     value: 
       JSON_FROM:
         arg:
@@ -22,200 +22,182 @@ extracts:
         undeterminedIf:
           isInvalid: "Database Flags JSON is invalid."
           isEmpty: "Database Flags JSON is empty."
-
-  - name: "caExtract_databaseFlags_skip_show_database_flagValue__c"
+  - name: "caJsonText__databaseFlagsSkipShowDatabaseFlagValue__c"
     value: 
       JSON_QUERY_TEXT:
         arg:
-          EXTRACT: "caExtract__databaseFlagsJson__c"
+          EXTRACT: "caJsonFrom__databaseFlagsJson__c"
         expression: "to_string([?name == 'skip_show_database'].value[] | [0])"
         undeterminedIf:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
-
-  - name: "caExtract_databaseFlags_local_infile_flagValue__c"
+  - name: "caJsonText__databaseFlagsLocalInfileFlagValue__c"
     value: 
       JSON_QUERY_TEXT:
         arg:
-          EXTRACT: "caExtract__databaseFlagsJson__c"
+          EXTRACT: "caJsonFrom__databaseFlagsJson__c"
         expression: "to_string([?name == 'local_infile'].value[] | [0])"
         undeterminedIf:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
-
-  - name: "caExtract_databaseFlags_log_error_verbosity_flagValue__c"
+  - name: "caJsonText__databaseFlagsLogErrorVerbosityFlagValue__c"
     value: 
       JSON_QUERY_TEXT:
         arg:
-          EXTRACT: "caExtract__databaseFlagsJson__c"
+          EXTRACT: "caJsonFrom__databaseFlagsJson__c"
         expression:  "to_string([?name == 'log_error_verbosity'].value[] | [0])"
         undeterminedIf:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
-
-  - name: "caExtract_databaseFlags_log_connections_flagValue__c"
+  - name: "caJsonText__databaseFlagsLogConnectionsFlagValue__c"
     value: 
       JSON_QUERY_TEXT:
         arg:
-          EXTRACT: "caExtract__databaseFlagsJson__c"
+          EXTRACT: "caJsonFrom__databaseFlagsJson__c"
         expression: "to_string([?name == 'log_connections'].value[] | [0])"
         undeterminedIf:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
-
-  - name: "caExtract_databaseFlags_log_disconnections_flagValue__c"
+  - name: "caJsonText__databaseFlagsLogDisconnectionsFlagValue__c"
     value: 
       JSON_QUERY_TEXT:
         arg:
-          EXTRACT: "caExtract__databaseFlagsJson__c"
+          EXTRACT: "caJsonFrom__databaseFlagsJson__c"
         expression:  "to_string([?name == 'log_disconnections'].value[] | [0])"
         undeterminedIf:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
-
-  - name: "caExtract_databaseFlags_log_statement_flagValue__c"
+  - name: "caJsonText__databaseFlagsLogStatementFlagValue__c"
     value: 
       JSON_QUERY_TEXT:
         arg:
-          EXTRACT: "caExtract__databaseFlagsJson__c"
+          EXTRACT: "caJsonFrom__databaseFlagsJson__c"
         expression: "to_string([?name == 'log_statement'].value[] | [0])"
         undeterminedIf:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
-
-  - name: "caExtract_databaseFlags_log_min_messages_flagValue__c"
+  - name: "caJsonText__databaseFlagsLogMinMessagesFlagValue__c"
     value: 
       JSON_QUERY_TEXT:
         arg:
-          EXTRACT: "caExtract__databaseFlagsJson__c"
+          EXTRACT: "caJsonFrom__databaseFlagsJson__c"
         expression: "to_string([?name == 'log_min_messages'].value[] | [0])"
         undeterminedIf:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
-
-  - name: "caExtract_databaseFlags_log_min_error_statement_flagValue__c"
+  - name: "caJsonText__databaseFlagsLogMinErrorStatementFlagValue__c"
     value: 
       JSON_QUERY_TEXT:
         arg:
-          EXTRACT: "caExtract__databaseFlagsJson__c"
+          EXTRACT: "caJsonFrom__databaseFlagsJson__c"
         expression: "to_string([?name == 'log_min_error_statement'].value[] | [0])"
         undeterminedIf:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
-
-  - name: "caExtract_databaseFlags_log_min_duration_statement_flagValue__c"
+  - name: "caJsonText__databaseFlagsLogMinDurationStatementFlagValue__c"
     value: 
       JSON_QUERY_TEXT:
         arg:
-          EXTRACT: "caExtract__databaseFlagsJson__c"
+          EXTRACT: "caJsonFrom__databaseFlagsJson__c"
         expression: "to_string([?name == 'log_min_duration_statement'].value[] | [0])"
         undeterminedIf:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
-
-
-  - name: "caExtract_databaseFlags_cloudsql_enable_pgaudit_flagValue__c"
+  - name: "caJsonText__databaseFlagsCloudsqlEnablePgauditFlagValue__c"
     value: 
       JSON_QUERY_TEXT:
         arg:
-          EXTRACT: "caExtract__databaseFlagsJson__c"
+          EXTRACT: "caJsonFrom__databaseFlagsJson__c"
         expression: "to_string([?name == 'cloudsql.enable_pgaudit'].value[] | [0])"
         undeterminedIf:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
-
-  - name: "caExtract_databaseFlags_external_scripts_enabled_flagValue__c"
+  - name: "caJsonText__databaseFlagsExternalScriptsEnabledFlagValue__c"
     value: 
       JSON_QUERY_TEXT:
         arg:
-          EXTRACT: "caExtract__databaseFlagsJson__c"
+          EXTRACT: "caJsonFrom__databaseFlagsJson__c"
         expression: "to_string([?name == 'external scripts enabled'].value[] | [0])"
         undeterminedIf:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
-
-  - name: "caExtract_databaseFlags_cross_db_ownership_chaining_flagValue__c"
+  - name: "caJsonText__databaseFlagsCrossDbOwnershipChainingFlagValue__c"
     value: 
       JSON_QUERY_TEXT:
         arg:
-          EXTRACT: "caExtract__databaseFlagsJson__c"
+          EXTRACT: "caJsonFrom__databaseFlagsJson__c"
         expression: "to_string([?name == 'cross db ownership chaining'].value[] | [0])"
         undeterminedIf:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
 
-  - name: "caExtract_databaseFlags_user_connections_flagValue__c"
+  - name: "caJsonText__databaseFlagsUserConnectionsFlagValue__c"
     value: 
       JSON_QUERY_TEXT:
         arg:
-          EXTRACT: "caExtract__databaseFlagsJson__c"
+          EXTRACT: "caJsonFrom__databaseFlagsJson__c"
         expression: "to_string([?name == 'user connections'].value[] | [0])"
         undeterminedIf:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
 
-  - name: "caExtract_databaseFlags_user_options_flagValue__c"
+  - name: "caJsonText__databaseFlagsUserOptionsFlagValue__c"
     value: 
       JSON_QUERY_TEXT:
         arg:
-          EXTRACT: "caExtract__databaseFlagsJson__c"
+          EXTRACT: "caJsonFrom__databaseFlagsJson__c"
         expression: "to_string([?name == 'user options'].value[] | [0])"
         undeterminedIf:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
-
-  - name: "caExtract_databaseFlags_remote_access_flagValue__c"
+  - name: "caJsonText__databaseFlagsRemoteAccessFlagValue__c"
     value: 
       JSON_QUERY_TEXT:
         arg:
-          EXTRACT: "caExtract__databaseFlagsJson__c"
+          EXTRACT: "caJsonFrom__databaseFlagsJson__c"
         expression: "to_string([?name == 'remote access'].value[] | [0])"
         undeterminedIf:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
-
-  - name: "caExtract_databaseFlags_3625_flagValue__c"
+  - name: "caJsonText__databaseFlags3625FlagValue__c"
     value: 
       JSON_QUERY_TEXT:
         arg:
-          EXTRACT: "caExtract__databaseFlagsJson__c"
+          EXTRACT: "caJsonFrom__databaseFlagsJson__c"
         expression: "to_string([?name == '3625'].value[] | [0])"
         undeterminedIf:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
-
-  - name: "caExtract_databaseFlags_contained_database_authentication_flagValue__c"
+  - name: "caJsonText__databaseFlagsContainedDatabaseAuthenticationFlagValue__c"
     value: 
       JSON_QUERY_TEXT:
         arg:
-          EXTRACT: "caExtract__databaseFlagsJson__c"
+          EXTRACT: "caJsonFrom__databaseFlagsJson__c"
         expression: "to_string([?name == 'contained database authentication'].value[] | [0])"
         undeterminedIf:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
-
   - name: "CA10__authorizedNetworksJson__c"
     value: 
       FIELD:
         path: "CA10__authorizedNetworksJson__c"
         returnType: BYTES
-  - name: "caJsonFrom_authorizedNetworksJson__c"
+  - name: "caJsonFrom__authorizedNetworksJson__c"
     value: 
       JSON_FROM:
         arg: 
           EXTRACT: "CA10__authorizedNetworksJson__c"
         undeterminedIf:
           isInvalid: "Authorized Networks JSON is invalid."  
-  - name: "caJsonFrom_authorizedNetworksJson_value__c"
+  - name: "caJsonText__authorizedNetworksJsonValue__c"
     value: 
       JSON_QUERY_TEXT:
         arg:
-          EXTRACT: "caJsonFrom_authorizedNetworksJson__c"
+          EXTRACT: "caJsonFrom__authorizedNetworksJson__c"
         expression: "to_string([].value)"
         undeterminedIf:
           evaluationError: "The JSON query was failed."
           resultTypeMismatch: "The JSON query did not return a text."
-
   - name: "CA10__instanceType__c"
     value: 
       FIELD:

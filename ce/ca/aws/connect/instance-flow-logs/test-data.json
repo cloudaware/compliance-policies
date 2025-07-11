@@ -1,0 +1,58 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10A1__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-09T03:22:15Z"
+        },
+        "Id": "test1",
+        "CA10A1__disappearanceTime__c": "2025-07-01T22:28:38Z",
+        "CA10A1__attributes__c": "AUTOMATED_INTERACTION_LOG - false\nAUTO_RESOLVE_BEST_VOICES - true\nBOT_MANAGEMENT - false\nCONTACTFLOW_LOGS - false\nCONTACT_LENS - true\nEARLY_MEDIA - true\nENABLE_BOT_ANALYTICS_AND_TRANSCRIPTS - false\nENHANCED_CHAT_MONITORING - true\nENHANCED_CONTACT_MONITORING - true\nFORECASTING_PLANNING_SCHEDULING - false"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('caSetFrom__attributes__c').contains('CONTACTFLOW_LOGS - false')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-09T03:22:15Z"
+        },
+        "Id": "test2",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__attributes__c": "AUTOMATED_INTERACTION_LOG - false\nAUTO_RESOLVE_BEST_VOICES - true\nBOT_MANAGEMENT - false\nCONTACTFLOW_LOGS - false\nCONTACT_LENS - true\nEARLY_MEDIA - true\nENABLE_BOT_ANALYTICS_AND_TRANSCRIPTS - false\nENHANCED_CHAT_MONITORING - true\nENHANCED_CONTACT_MONITORING - true\nFORECASTING_PLANNING_SCHEDULING - false"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('caSetFrom__attributes__c').contains('CONTACTFLOW_LOGS - true')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-09T03:22:15Z"
+        },
+        "Id": "test3",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__attributes__c": "AUTOMATED_INTERACTION_LOG - true\nAUTO_RESOLVE_BEST_VOICES - true\nBOT_MANAGEMENT - true\nCONTACTFLOW_LOGS - true\nCONTACT_LENS - false\nEARLY_MEDIA - true\nENABLE_BOT_ANALYTICS_AND_TRANSCRIPTS - true\nENHANCED_CHAT_MONITORING - true\nENHANCED_CONTACT_MONITORING - true\nFORECASTING_PLANNING_SCHEDULING - true"
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "300",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-09T03:22:15Z"
+        },
+        "Id": "test4",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__attributes__c": "AUTOMATED_INTERACTION_LOG - true\nAUTO_RESOLVE_BEST_VOICES - true\nBOT_MANAGEMENT - true\nCONTACT_LENS - false\nEARLY_MEDIA - true\nENABLE_BOT_ANALYTICS_AND_TRANSCRIPTS - true\nENHANCED_CHAT_MONITORING - true\nENHANCED_CONTACT_MONITORING - true\nFORECASTING_PLANNING_SCHEDULING - true"
+    }
+]

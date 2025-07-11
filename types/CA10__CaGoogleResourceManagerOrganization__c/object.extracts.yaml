@@ -12,7 +12,7 @@ extracts:
           EXTRACT: "CA10__essentialContactsConfiguration__c"
         undeterminedIf:
           isInvalid: "JSON is invalid"
-  - name: "caJsonFrom__essentialContactsConfiguration__notificationCategory_withEmail"
+  - name: "caJsonText__essentialContactsConfigurationNotificationCategoryWithEmail"
     value: 
       JSON_QUERY_TEXT:
         arg:

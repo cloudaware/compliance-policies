@@ -19,7 +19,7 @@ extracts:
         undeterminedIf:
           isEmpty: "Allowed protocol ports are not populated yet."
 # 22 port variants: tcp: 22 / tcp: 22, 80 / tcp: 1-65535
-  - name: "CA10__allowedProtocolsPortsJson__c"
+  - name: "caJsonFrom__allowedProtocolsPortsJson__c"
     value:
       JSON_FROM:
         arg:
@@ -29,7 +29,7 @@ extracts:
         undeterminedIf:
           isInvalid: "Allowed protocol ports JSON is invalid."
           isEmpty: "Allowed protocol ports JSON is empty."
-  - name: "CA10__deniedProtocolsPortsJson__c"
+  - name: "caJsonFrom__deniedProtocolsPortsJson__c"
     value:
       JSON_FROM:
         arg:

@@ -21,7 +21,7 @@ conditions:
     check:
       IS_EQUAL:
         left:
-          EXTRACT: "caExtract_databaseFlags_skip_show_database_flagValue__c"
+          EXTRACT: "caJsonText__databaseFlagsSkipShowDatabaseFlagValue__c"
         right:
           TEXT: "on"
 otherwise:

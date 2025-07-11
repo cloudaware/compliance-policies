@@ -33,7 +33,7 @@ conditions:
               - "NOTICE"
               - "WARNING"
         search:
-          EXTRACT: "caExtract_databaseFlags_log_min_messages_flagValue__c"
+          EXTRACT: "caJsonText__databaseFlagsLogMinMessagesFlagValue__c"
 otherwise:
   status: "INCOMPLIANT"
   currentStateMessage: "log_min_messages database flag isn't set appropriately."

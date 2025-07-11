@@ -37,6 +37,9 @@ repo-manager [OPTIONS] [COMMAND]
 - [schema](#repo-manager-schema) - Tools to manage schema files in the repository.
 - [sections](#repo-manager-sections) - Tools for working with frameworks and sections.
 - [types](#repo-manager-types) - Tools for working with types form the Salesforce Org.
+- [ai](#repo-manager-ai) - Tools for working with AI and LLMs.
+- [ui](#repo-manager-ui) - Run UI for repo-manager.
+- [soql](#repo-manager-soql) - Tools for working with SOQL queries.
 - [gen-manpage](#repo-manager-gen-manpage) - Generates man pages for all commands in the specified directory.
 
 ## `repo-manager auth`
@@ -303,6 +306,120 @@ repo-manager schema update [OPTIONS]
   - Show this help message and exit.
 - `-V`, `--version`
   - Print version information and exit.
+
+## `repo-manager ai`
+
+Tools for working with AI and LLMs.
+
+```bash
+repo-manager ai [OPTIONS] [COMMAND]
+```
+
+### Options
+
+- `-h`, `--help`
+  - Show this help message and exit.
+- `-V`, `--version`
+  - Print version information and exit.
+
+### Subcommands
+
+- [context](#repo-manager-ai-context) - Tools for to manage context information for LLMs.
+
+## `repo-manager ai context`
+
+Tools for to manage context information for LLMs.
+
+```bash
+repo-manager ai context [OPTIONS] [COMMAND]
+```
+
+### Options
+
+- `-h`, `--help`
+  - Show this help message and exit.
+- `-V`, `--version`
+  - Print version information and exit.
+
+### Subcommands
+
+- [generate](#repo-manager-ai-context-generate) - Generates context information for LLMs.
+
+## `repo-manager ai context generate`
+
+Generates context information for LLMs.
+
+```bash
+repo-manager ai context generate [OPTIONS]
+```
+
+### Options
+
+- `-h`, `--help`
+  - Show this help message and exit.
+- `-o`, `--output-directory`=`PATH`
+  - Path to the output file.
+  - Default: `'export/llm-context'`
+- `-V`, `--version`
+  - Print version information and exit.
+
+## `repo-manager ui`
+
+Run UI for repo-manager.
+
+```bash
+repo-manager ui [OPTIONS]
+```
+
+### Options
+
+- `-h`, `--help`
+  - Show this help message and exit.
+- `-V`, `--version`
+  - Print version information and exit.
+
+## `repo-manager soql`
+
+Tools for working with SOQL queries.
+
+```bash
+repo-manager soql [OPTIONS] [COMMAND]
+```
+
+### Options
+
+- `-h`, `--help`
+  - Show this help message and exit.
+- `-V`, `--version`
+  - Print version information and exit.
+
+### Subcommands
+
+- [convert](#repo-manager-soql-convert) - Import Salesforce SObject types data.
+
+## `repo-manager soql convert`
+
+Converts provided SOQL query into BigQuery query.
+
+```bash
+repo-manager soql convert [OPTIONS] queryText
+```
+
+### Options
+
+- `-h`, `--help`
+  - Show this help message and exit.
+- `-i`, `--input-file`=`<arg0>`
+  - Input file with query to convert
+- `-o`, `--output-file`=`<arg1>`
+  - Output file where to store converted query
+- `-V`, `--version`
+  - Print version information and exit.
+
+### Arguments
+
+- `queryText`
+  - Kind of script to generate:
 
 ## `repo-manager sections`
 

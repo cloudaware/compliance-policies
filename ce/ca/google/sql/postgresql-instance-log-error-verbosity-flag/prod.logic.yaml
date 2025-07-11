@@ -19,23 +19,16 @@ conditions:
   - status: "COMPLIANT"
     currentStateMessage: "log_error_verbosity database flag is set to DEFAULT or stricter."
     check:
-      OR:
-        args:
-          - IS_EQUAL:
-              left:
-                EXTRACT: "caExtract_databaseFlags_log_error_verbosity_flagValue__c"
-              right:
-                TEXT: "DEFAULT"
-          - IS_EQUAL:
-              left:
-                EXTRACT: "caExtract_databaseFlags_log_error_verbosity_flagValue__c"
-              right:
-                TEXT: "TERSE"
-          - IS_EQUAL:
-              left:
-                EXTRACT: "caExtract_databaseFlags_log_error_verbosity_flagValue__c"
-              right:
-                TEXT: "VERBOSE"
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - "DEFAULT"
+              - "TERSE"
+              - "VERBOSE"
+        search:
+          EXTRACT: "caJsonText__databaseFlagsLogErrorVerbosityFlagValue__c"
 otherwise:
   status: "INCOMPLIANT"
   currentStateMessage: "log_error_verbosity database flag isn't set to DEFAULT or stricter."

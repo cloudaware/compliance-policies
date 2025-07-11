@@ -34,12 +34,12 @@ relatedLists:
                     BOOLEAN: true
               - IS_EQUAL:
                   left:
-                    EXTRACT: "caJsonText__eventSelectorsJson_readWriteType__c"
+                    EXTRACT: "caJsonText__eventSelectorsJsonReadWriteType__c"
                   right:
                     TEXT: "All"
               - IS_EQUAL:
                   left:
-                    EXTRACT: "caJsonBoolean__eventSelectorsJson_includeManagementEvents__c"
+                    EXTRACT: "caJsonBoolean__eventSelectorsJsonIncludeManagementEvents__c"
                   right:
                     BOOLEAN: true
     otherwise:

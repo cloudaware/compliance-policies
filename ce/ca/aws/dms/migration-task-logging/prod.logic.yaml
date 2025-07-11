@@ -1,0 +1,108 @@
+---
+inputType: "CA10A1__CaAwsDmsMigrationTask__c"
+importExtracts:
+  - file: /types/CA10A1__CaAwsDmsMigrationTask__c/object.extracts.yaml
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "CloudWatch logging is disabled for the DMS replication task."
+    remediationMessage: "Consider enable CloudWatch logging for this DMS replication task."    
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "caJsonBoolean__settingsJsonEnableLogging__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "CloudWatch logging is disabled for the DMS replication task."
+    remediationMessage: "Consider enable CloudWatch logging for this DMS replication task."    
+    check:
+      NOT:
+        arg:
+          EXTRACT: "caJsonBoolean__settingsJsonEnableLogging__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Logging for the TARGET_APPLY component is not enabled."
+    remediationMessage: "Ensure the TARGET_APPLY log component is enabled with a minimum severity of LOGGER_SEVERITY_DEFAULT."    
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "caJsonText__settingsJsonTargetApplySeverity__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Logging for the TARGET_APPLY component is below the required LOGGER_SEVERITY_DEFAULT level."
+    remediationMessage: "Ensure the TARGET_APPLY log component is enabled with a minimum severity of LOGGER_SEVERITY_DEFAULT."    
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - LOGGER_SEVERITY_INFO
+              - LOGGER_SEVERITY_WARNING
+              - LOGGER_SEVERITY_ERROR
+        search:
+          EXTRACT: "caJsonText__settingsJsonTargetApplySeverity__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Logging for the TARGET_LOAD component is not enabled."
+    remediationMessage: "Ensure the TARGET_LOAD log component is enabled with a minimum severity of LOGGER_SEVERITY_DEFAULT."    
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "caJsonText__settingsJsonTargetLoadSeverity__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Logging for the TARGET_LOAD component is below the required LOGGER_SEVERITY_DEFAULT level."
+    remediationMessage: "Ensure the TARGET_LOAD log component is enabled with a minimum severity of LOGGER_SEVERITY_DEFAULT."    
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - LOGGER_SEVERITY_INFO
+              - LOGGER_SEVERITY_WARNING
+              - LOGGER_SEVERITY_ERROR
+        search:
+          EXTRACT: "caJsonText__settingsJsonTargetLoadSeverity__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Logging for the SOURCE_CAPTURE component is not enabled."
+    remediationMessage: "Ensure the SOURCE_CAPTURE log component is enabled with a minimum severity of LOGGER_SEVERITY_DEFAULT."    
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "caJsonText__settingsJsonSourceCaptureSeverity__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Logging for the SOURCE_CAPTURE component is below the required LOGGER_SEVERITY_DEFAULT level."
+    remediationMessage: "Ensure the SOURCE_CAPTURE log component is enabled with a minimum severity of LOGGER_SEVERITY_DEFAULT."    
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - LOGGER_SEVERITY_INFO
+              - LOGGER_SEVERITY_WARNING
+              - LOGGER_SEVERITY_ERROR
+        search:
+          EXTRACT: "caJsonText__settingsJsonSourceCaptureSeverity__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Logging for the SOURCE_UNLOAD component is not enabled."
+    remediationMessage: "Ensure the SOURCE_UNLOAD log component is enabled with a minimum severity of LOGGER_SEVERITY_DEFAULT."    
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "caJsonText__settingsJsonSourceUnloadSeverity__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Logging for the SOURCE_UNLOAD component is below the required LOGGER_SEVERITY_DEFAULT level."
+    remediationMessage: "Ensure the SOURCE_UNLOAD log component is enabled with a minimum severity of LOGGER_SEVERITY_DEFAULT."    
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - LOGGER_SEVERITY_INFO
+              - LOGGER_SEVERITY_WARNING
+              - LOGGER_SEVERITY_ERROR
+        search:
+          EXTRACT: "caJsonText__settingsJsonSourceUnloadSeverity__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "DMS Migration Task Logging is enabled for all required components with the appropriate severity level."

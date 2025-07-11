@@ -1,0 +1,19 @@
+---
+names:
+  full: AWS CodeBuild Project Bitbucket Source Location URL contains credentials
+  contextual: Project Bitbucket Source Location URL contains credentials
+description: >
+  Ensures that AWS CodeBuild Project Bitbucket source repository URLs do not 
+  contain user credentials.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/secure-access"
+  - "/frameworks/aws-fsbp-v1.0.0/codebuild/01"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[CodeBuild.1] CodeBuild Bitbucket source repository URLs should not contain sensitive credentials"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/codebuild-controls.html#codebuild-1"
+  internal:
+    - dec-x-cc74149f

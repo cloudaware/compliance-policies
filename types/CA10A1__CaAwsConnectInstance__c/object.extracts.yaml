@@ -1,0 +1,22 @@
+---
+extracts:
+# Values in the form of 'ATTRIBUTE - boolean\n': 
+# INBOUND_CALLS | OUTBOUND_CALLS | CONTACTFLOW_LOGS | CONTACT_LENS 
+# AUTO_RESOLVE_BEST_VOICES | USE_CUSTOM_TTS_VOICES | EARLY_MEDIA | MULTI_PARTY_CONFERENCE 
+# HIGH_VOLUME_OUTBOUND | ENHANCED_CONTACT_MONITORING | ENHANCED_CHAT_MONITORING 
+# MULTI_PARTY_CHAT_CONFERENCE
+# Not Nullable. 
+  - name: CA10A1__attributes__c
+    value: 
+      FIELD:
+        path: CA10A1__attributes__c
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10A1__attributes__c"
+            currentStateMessage: "AWS Connect Instance Attributes cannot be empty. Possible permissions issue with connect:ListInstanceAttributes"
+  - name: caSetFrom__attributes__c
+    value: 
+      SET_FROM:
+        separator: "\n"
+        arg:
+          EXTRACT: "CA10A1__attributes__c"

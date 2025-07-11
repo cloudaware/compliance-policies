@@ -53,7 +53,7 @@ extracts:
 # Security Center: Contacts properties.notificationsByRole roles for the default contact
 # notificationsByRoleRoles is a string that contains roles separated by comma
 # Values: AccountAdmin, Contributor, Owner, ServiceAdmin.
-  - name: "caJsonQueryBoolean__securityCenterContacts_default_roles__c"
+  - name: "caJsonText__securityCenterContactsDefaultRoles__c"
     value: 
       JSON_QUERY_TEXT:
         arg: 
@@ -64,7 +64,7 @@ extracts:
           resultTypeMismatch: "The JSON query did not return text type."
 # Security Center: Contacts properties.notificationsByRole state for the default contact
 # Values: On, Off.
-  - name: "caJsonQueryText__securityCenterContacts_default_state__c"
+  - name: "caJsonText__securityCenterContactsDefaultState__c"
     value: 
       JSON_QUERY_TEXT:
         arg: 
@@ -75,7 +75,7 @@ extracts:
           resultTypeMismatch: "The JSON query did not return text type."
 # Security Center: Contacts email for the default contact
 # email is a string that contains values separated by comma
-  - name: "caJsonQueryText__securityCenterContacts_default_email__c"
+  - name: "caJsonText__securityCenterContactsDefaultEmail__c"
     value: 
       JSON_QUERY_TEXT:
         arg: 
@@ -85,7 +85,7 @@ extracts:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
 # Values: On, Off.
-  - name: "caJsonQueryText__securityCenterContacts_default_alert_notifications__c"
+  - name: "caJsonText__securityCenterContactsDefaultAlertNotifications__c"
     value: 
       JSON_QUERY_TEXT:
         arg: 
@@ -95,7 +95,7 @@ extracts:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
 # Values: High, Medium, Low.
-  - name: "caJsonQueryText__securityCenterContacts_default_alert_notifications_severity__c"
+  - name: "caJsonText__securityCenterContactsDefaultAlertNotificationsSeverity__c"
     value: 
       JSON_QUERY_TEXT:
         arg: 
