@@ -1,0 +1,54 @@
+---
+inputType: "CA10A1__CaAwsDmsEndpoint__c"
+importExtracts:
+  - file: /types/CA10A1__CaAwsDmsEndpoint__c/object.extracts.yaml
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Endpoint SSL Mode doesn't apply to this DMS Endpoint engine."
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              SET:
+                itemType: TEXT
+                items:
+                  - "mysql"
+                  - "oracle"
+                  - "postgres"
+                  - "mariadb"
+                  - "aurora"
+                  - "aurora-postgresql"
+                  - "db2"
+                  - "db2-zos"
+                  - "mongodb"
+                  - "sqlserver"
+            search:
+              EXTRACT: "CA10A1__engineName__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The DMS Endpoint connection is not encrypted with SSL."
+    remediationMessage: "Modify the DMS endpoint to set the SSL mode."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10A1__sslMode__c"
+        right:
+          TEXT: "none"
+  - status: "COMPLIANT"
+    currentStateMessage: "The DMS endpoint connection is encrypted with SSL."
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - "require"
+              - "verify-ca"
+              - "verify-full"
+        search:
+          EXTRACT: "CA10A1__sslMode__c"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

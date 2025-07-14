@@ -32,7 +32,7 @@ Key root-level directories include:
 - `/.ca`: Stores `repo-manager` configuration and authorization data
 - `/.docusaurus`: Contains [Docusaurus](https://docusaurus.io/) configuration for generating static documentation
 - `/.obsidian`: Default configuration for [Obsidian](https://obsidian.md/) documentation viewing
-- `/.vscode`: Preconfigured settings for [VSCode](https://code.visualstudio.com/) recommended extensions (see [VSCode Configuration](#vscode-configuration))
+- `/.vscode`: Preconfigured settings for [VSCode](https://code.visualstudio.com/) recommended extensions (see [VSCode Configuration](environment-setup.md#recommended-ide-visual-studio-code)))
 
 > Path Notation Guidelines:
 >
@@ -228,7 +228,7 @@ Test data consists of JSON files (typically named `test-data.json`) used by the 
 These JSON files are typically captured after completing policy logic development to prevent regression errors. The standard workflow involves:
 
 1. Using `repo-manager policies generate CAPTURE_TEST_DATA` to create SQL queries
-2. Executing generated SQL through the "BigQuery Runner" VSCode plugin (see [VSCode Configuration](#vscode-configuration))
+2. Executing generated SQL through the "BigQuery Runner" VSCode plugin (see [VSCode Configuration](environment-setup.md#recommended-ide-visual-studio-code))
 3. Saving query results in JSON format
 
 While manual creation of test data files is possible, we recommend capturing real-world data first and then modifying the JSON to:
@@ -476,50 +476,9 @@ repo-manager docs generate
 
 For CI/CD integration and static site generation, refer to [Private repository](../private-repository.md) documentation.
 
-## VSCode Configuration
+## Environment Setup
 
-Tools for policy development and repository management are IDE-agnostic and can be used with any preferred IDE such as VSCode, JetBrains IDEs (IntelliJ IDEA, WebStorm, PyCharm), etc.
-
-The most common choice is VS Code, and this repository comes pre-configured with recommended extensions for policy development.
-
-The VSCode configuration file is located at `/.vscode/settings.json` in this repository.
-
-The following extensions are recommended for optimal development experience:
-
-### `.yaml` file support
-
-- [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
-  *Pre-configured for schema mapping.* Utilize schema validation and autocompletion (Ctrl+Space) for accurate policy writing.
-
-  To install and verify YAML support:
-
-  1. **Open the Extensions panel** (left sidebar) in VS Code.
-  2. **Search for "YAML" and install** the extension by Red Hat.
-  3. **Verify schema validation:** Open a `policy.yaml` file and ensure schema validation and autocompletion are working (Ctrl/Cmd+Space).
-
-### `.md` file support
-
-- [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
-- [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
-
-### BigQuery integration
-
-- [SQL (BigQuery)](https://marketplace.visualstudio.com/items?itemName=shinichi-takii.sql-bigquery)
-- [BigQuery Runner](https://marketplace.visualstudio.com/items?itemName=minodisk.bigquery-runner)
-  1. Open the Extensions panel
-  2. Search for "BigQuery Runner" and install
-  3. Configure authentication:
-     - Select "Authentication -> Gcloud Credential (Recommended)"
-     - Follow the instructions provided  
-       *Note: Google Cloud CLI installation might take significant time*
-  4. Restart VS Code
-  5. Verify BigQuery Runner functionality in the left panel
-
-### General utilities
-
-- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
-- [Path Autocomplete](https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete)
-  *Pre-configured for repository path suggestions*
+For a detailed guide on setting up your local development environment, please see the [Environment Setup](./environment-setup.md) documentation.
 
 ## Policy Development
 
@@ -530,7 +489,7 @@ Any policy can be executed, and the results retrieved from your local IDE.
 Prerequisites:
 
 - `repo-manager` must have an active authorization profile (see `repo-manager auth`).
-- BigQuery Runner (or an alternative method for executing BigQuery queries) must be installed and configured (see [VSCode Configuration](#vscode-configuration)).
+- BigQuery Runner (or an alternative method for executing BigQuery queries) must be installed and configured (see [VSCode Configuration](environment-setup.md#recommended-ide-visual-studio-code)).
 - The policy's logic file you intend to execute must be syntactically correct.
 
 To compile a policy into a query, execute the following command:

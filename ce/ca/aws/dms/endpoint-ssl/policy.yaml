@@ -1,0 +1,19 @@
+---
+names:
+  full: AWS DMS Endpoint doesn't use SSL
+  contextual: Endpoint doesn't use SSL
+description: >
+  Ensure that AWS DMS Endpoints use Secure Sockets Layer (SSL) to encrypt 
+  connections between the DMS replication instance and your database endpoints.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-fsbp-v1.0.0/dms/09"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[DMS.9] DMS endpoints should use SSL"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/dms-controls.html#dms-9"
+  internal:
+    - "dec-x-a4e03389"

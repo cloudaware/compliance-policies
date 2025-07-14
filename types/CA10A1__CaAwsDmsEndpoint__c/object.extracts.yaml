@@ -1,0 +1,18 @@
+---
+extracts:
+# Values: none | require | verify-ca | verify-full. Not Nullable. Can't have no access, retrieved via dms:DescribeEndpoints
+  - name: CA10A1__sslMode__c
+    value: 
+      FIELD:
+        path: CA10A1__sslMode__c
+# Values: 
+# "mysql", "oracle", "postgres", "mariadb", "aurora", "aurora-postgresql", "redshift", 
+# "redshift-serverless", "s3", "db2", "db2-zos", "azuredb", "sybase", "dynamodb", 
+# "mongodb", "kinesis", "kafka", "elasticsearch", "documentdb", "sqlserver", 
+# "neptune", and "babelfish". 
+# Not Nullable.
+# Can't have no access, retrieved via dms:DescribeEndpoints
+  - name: CA10A1__engineName__c
+    value: 
+      FIELD:
+        path: CA10A1__engineName__c

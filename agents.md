@@ -44,6 +44,10 @@ If user input implies getting data from Cloudaware the best way of doing the fol
 
 ### Composing a base SOQL query
 
+CMDB stores objects that were deleted from the source for some time. Generally, we need to filter out these objects if user does not specify explicitly that he want to include such objects.
+Usually there is a field called `disappearanceTime__c` (with proper package namespace) on the object, or the label is `Deleted from {source}`.
+To query the objects that are not deleted use `CA10__disappearanceTime__c = null` in SOQL, or equivalent in BigQuery SQL.
+
 There are some limitations that you need to consider when creating base SOQL query:
 
 1. Limitations of the SOQL language itself. Not everything is possible in SOQL, it's better to create a basic SOQL query that references all the types/tables and fields and then implement the more complicated logic by modifying the BigQuery query.

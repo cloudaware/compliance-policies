@@ -1,0 +1,62 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10A1__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T21:20:17Z"
+        },
+        "Id": "test1",
+        "CA10A1__disappearanceTime__c": "2025-07-01T18:49:13Z",
+        "CA10A1__engineName__c": "oracle",
+        "CA10A1__sslMode__c": "none"
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "not(setOfText(['mysql', 'oracle', 'postgres', 'mariadb', 'aurora', 'aurora-postgresql', 'db2', 'db2-zos', 'mongodb', 'sqlserver']).contains(extract('CA10A1__engineName__c')))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T21:20:17Z"
+        },
+        "Id": "test2",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__engineName__c": "kafka",
+        "CA10A1__sslMode__c": "none"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10A1__sslMode__c') == 'none'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T21:20:17Z"
+        },
+        "Id": "test3",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__engineName__c": "aurora",
+        "CA10A1__sslMode__c": "none"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "setOfText(['require', 'verify-ca', 'verify-full']).contains(extract('CA10A1__sslMode__c'))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-10T21:20:17Z"
+        },
+        "Id": "test4",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__engineName__c": "aurora-postgresql",
+        "CA10A1__sslMode__c": "require"
+    }
+]
