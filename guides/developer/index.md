@@ -32,7 +32,7 @@ Key root-level directories include:
 - `/.ca`: Stores `repo-manager` configuration and authorization data
 - `/.docusaurus`: Contains [Docusaurus](https://docusaurus.io/) configuration for generating static documentation
 - `/.obsidian`: Default configuration for [Obsidian](https://obsidian.md/) documentation viewing
-- `/.vscode`: Preconfigured settings for [VSCode](https://code.visualstudio.com/) recommended extensions (see [VSCode Configuration](environment-setup.md#recommended-ide-visual-studio-code)))
+- `/.vscode`: Preconfigured settings for [VSCode](https://code.visualstudio.com/) recommended extensions (see [VSCode Configuration](environment-setup/index.md#recommended-ide-visual-studio-code)))
 
 > Path Notation Guidelines:
 >
@@ -228,7 +228,7 @@ Test data consists of JSON files (typically named `test-data.json`) used by the 
 These JSON files are typically captured after completing policy logic development to prevent regression errors. The standard workflow involves:
 
 1. Using `repo-manager policies generate CAPTURE_TEST_DATA` to create SQL queries
-2. Executing generated SQL through the "BigQuery Runner" VSCode plugin (see [VSCode Configuration](environment-setup.md#recommended-ide-visual-studio-code))
+2. Executing generated SQL through the "BigQuery Runner" VSCode plugin (see [VSCode Configuration](environment-setup/index.md#recommended-ide-visual-studio-code))
 3. Saving query results in JSON format
 
 While manual creation of test data files is possible, we recommend capturing real-world data first and then modifying the JSON to:
@@ -478,7 +478,7 @@ For CI/CD integration and static site generation, refer to [Private repository](
 
 ## Environment Setup
 
-For a detailed guide on setting up your local development environment, please see the [Environment Setup](./environment-setup.md) documentation.
+For a detailed guide on setting up your local development environment, please see the [Environment Setup](./environment-setup/index.md) documentation.
 
 ## Policy Development
 
@@ -489,7 +489,7 @@ Any policy can be executed, and the results retrieved from your local IDE.
 Prerequisites:
 
 - `repo-manager` must have an active authorization profile (see `repo-manager auth`).
-- BigQuery Runner (or an alternative method for executing BigQuery queries) must be installed and configured (see [VSCode Configuration](environment-setup.md#recommended-ide-visual-studio-code)).
+- BigQuery Runner (or an alternative method for executing BigQuery queries) must be installed and configured (see [VSCode Configuration](environment-setup/index.md#recommended-ide-visual-studio-code)).
 - The policy's logic file you intend to execute must be syntactically correct.
 
 To compile a policy into a query, execute the following command:

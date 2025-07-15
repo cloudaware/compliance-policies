@@ -1,6 +1,6 @@
 # Remediation
 
-It is recommended to transition from **Launch Configurations** to **Launch Templates** rather than modifying the existing launch configuration. The migration process to launch templates is outlined in [/ce/ca/aws/autoscaling/group-uses-launch-configuration](../group-uses-launch-configuration/).
+It is recommended to transition from **Launch Configurations** to **Launch Templates** rather than modifying the existing launch configuration. The migration process to launch templates is outlined in [/ce/ca/aws/autoscaling/group-uses-launch-configuration](../group-uses-launch-configuration/policy.gen.md).
 
 If immediate migration is not feasible, you may choose to modify the current launch configuration as outlined below.
 
@@ -24,7 +24,7 @@ aws autoscaling create-launch-configuration \
     --launch-configuration-name {{new-launch-configuration-name}} \
     --image-id {{image-id}} \
     --instance-type {{instance-type}} \
-    --associate-public-ip-address true \
+    --associate-public-ip-address true
 ```
 
 ### Update the Auto Scaling Group to Use the New Launch Configuration

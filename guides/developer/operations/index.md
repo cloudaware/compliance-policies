@@ -18,13 +18,15 @@ title: Operations
 | [`BOOLEAN`](#boolean)                                 | Boolean                       |
 | [`NUMBER`](#number)                                   | Number                        |
 | [`DATE_TIME`](#date_time)                             | DateTime                      |
-| [`COLLECTION`](#collection)                           | Collection                    |
-| [`JSON`](#json)                                       | Collection                    |
+| [`LIST`](#list)                                       | List                          |
+| [`SET`](#set)                                         | Set                           |
+| [`JSON`](#json)                                       | Json                          |
 | Type Conversions                                      |                               |
 | [`BOOLEAN_FROM`](#boolean_from)                       | Boolean                       |
 | [`DATE_TIME_FROM`](#date_time_from)                   | DateTime                      |
 | [`DURATION_FROM`](#duration_from)                     | Duration                      |
-| [`COLLECTION_FROM`](#collection_from)                 | Collection                    |
+| [`LIST_FROM`](#list_from)                             | List                          |
+| [`SET_FROM`](#set_from)                               | Set                           |
 | [`JSON_FROM`](#json_from)                             | Json                          |
 | Simple Comparison                                     |                               |
 | [`IS_EMPTY`](#is_empty)                               | Boolean                       |
@@ -35,8 +37,10 @@ title: Operations
 | [`AND`](#and)                                         | Boolean                       |
 | [`OR`](#or)                                           | Boolean                       |
 | [`NOT`](#not)                                         | Boolean                       |
-| Text Comparison                                       |                               |
+| Search                                                |                               |
 | [`CONTAINS`](#contains)                               | Boolean                       |
+| [`CONTAINS_ALL`](#contains_all)                       | Boolean                       |
+| [`CONTAINS_ANY`](#contains_any)                       | Boolean                       |
 | [`STARTS_WITH`](#starts_with)                         | Boolean                       |
 | [`ENDS_WITH`](#ends_with)                             | Boolean                       |
 | Numerical Comparison                                  |                               |
@@ -52,13 +56,16 @@ title: Operations
 | [`IS_WITHIN_LAST_DAYS`](#is_within_last_days)         | Boolean                       |
 | [`IS_WITHIN_NEXT_DAYS`](#is_within_next_days)         | Boolean                       |
 | Collection                                            |                               |
-| [`COLLECTION_SIZE`](#collection_size)                 | Number                        |
-| [`COLLECTION_CONTAINS`](#collection_contains)         | Boolean                       |
+| [`SIZE`](#size)                                       | Number                        |
 | JSON                                                  |                               |
 | [`JSON_QUERY_TEXT`](#json_query_text)                 | Text                          |
 | [`JSON_QUERY_BYTES`](#json_query_bytes)               | Bytes                         |
 | [`JSON_QUERY_BOOLEAN`](#json_query_boolean)           | Boolean                       |
 | [`JSON_QUERY_NUMBER`](#json_query_number)             | Number                        |
+| Tag                                                   |                               |
+| [`TAG_EXISTS`](#tag_exists)                           | Boolean                       |
+| [`TAG_VALUE_TEXT`](#tag_value_text)                   | Text                          |
+| [`TAG_VALUE_BYTES`](#tag_value_bytes)                 | Bytes                         |
 | Related List                                          |                               |
 | [`RELATED_LIST_HAS`](#related_list_has)               | Boolean                       |
 | [`RELATED_LIST_HAS_NO`](#related_list_has_no)         | Boolean                       |
@@ -113,14 +120,14 @@ Here are practical examples demonstrating how the `Text` type behaves in policy 
    - **Field:** `CA10__status__c` contains `"Active\n"`.
    - **Operation:**
 
-     ```yaml
-     IS_EQUAL:
-       left:
-         FIELD:
-           path: CA10__status__c
-       right:
-         TEXT: "active"
-     ```
+    ```yaml
+    IS_EQUAL:
+      left:
+        FIELD:
+          path: CA10__status__c
+      right:
+        TEXT: "active"
+    ```
 
    - **Result:** `true` because `"Active\n"` normalizes to `"active"`, ignoring case and the newline.
 
@@ -128,14 +135,14 @@ Here are practical examples demonstrating how the `Text` type behaves in policy 
    - **Field:** `CA10__name__c` contains `"  John\tDoe  "`.
    - **Operation:**
 
-     ```yaml
-     IS_EQUAL:
-       left:
-         FIELD:
-           path: CA10__name__c
-       right:
-         TEXT: "john doe"
-     ```
+    ```yaml
+    IS_EQUAL:
+      left:
+        FIELD:
+          path: CA10__name__c
+      right:
+        TEXT: "john doe"
+    ```
 
    - **Result:** `true` because leading/trailing spaces and tabs are trimmed, and internal tabs collapse to spaces.
 
@@ -143,14 +150,14 @@ Here are practical examples demonstrating how the `Text` type behaves in policy 
    - **Field:** `CA10__description__c` contains `"Hello   World\n\nTest"`.
    - **Operation:**
 
-     ```yaml
-     CONTAINS:
-       arg:
-         FIELD:
-           path: CA10__description__c
-       substring:
-         TEXT: "hello world test"
-     ```
+    ```yaml
+    CONTAINS:
+      arg:
+        FIELD:
+          path: CA10__description__c
+      substring:
+        TEXT: "hello world test"
+    ```
 
    - **Result:** `true` because multiple spaces and newlines are collapsed into single spaces, normalizing to `"hello world test"`.
 
@@ -158,14 +165,14 @@ Here are practical examples demonstrating how the `Text` type behaves in policy 
    - **Field:** `CA10__config__c` contains `"key=value\r\nsetting=enabled"`.
    - **Operation:**
 
-     ```yaml
-     CONTAINS:
-       arg:
-         FIELD:
-           path: CA10__config__c
-       substring:
-         TEXT: "key=value setting=enabled"
-     ```
+    ```yaml
+    CONTAINS:
+      arg:
+        FIELD:
+          path: CA10__config__c
+      substring:
+        TEXT: "key=value setting=enabled"
+    ```
 
    - **Result:** `true` because `\r\n` is normalized to a single space, aligning the strings for comparison.
 
@@ -181,7 +188,7 @@ To explore or validate the `Text` type's behavior further, check these unit test
 
 - [Unit tests](../../../ce/unit-test/is-empty/text/unit-test.logic.yaml.gen.md) for `IS_EMPTY` operation on Text type
 - [Unit tests](../../../ce/unit-test/is-equal/text/unit-test.logic.yaml.gen.md) for `IS_EQUAL` operation on Text type
-- [Unit tests](../../../ce/unit-test/contains/unit-test.logic.yaml.gen.md) for `CONTAINS` operation on Text type
+- [Unit tests](../../../ce/unit-test/contains/text/unit-test.logic.yaml.gen.md) for `CONTAINS` operation on Text type
 - [Unit tests](../../../ce/unit-test/starts-with/unit-test.logic.yaml.gen.md) for `STARTS_WITH` operation on Text type
 - [Unit tests](../../../ce/unit-test/ends-with/unit-test.logic.yaml.gen.md) for `ENDS_WITH` operation on Text type
 
@@ -213,14 +220,14 @@ Use the `Bytes` type when your policy requires exact string comparisons without 
    - **Field**: `CA10__apiKey__c` contains `"AbCdEf123"`.
    - **Operation**:
 
-     ```yaml
-     IS_EQUAL:
-       left:
-         FIELD:
-           path: CA10__apiKey__c
-       right:
-         BYTES: "AbCdEf123"
-     ```
+    ```yaml
+    IS_EQUAL:
+      left:
+        FIELD:
+          path: CA10__apiKey__c
+      right:
+        BYTES: "AbCdEf123"
+    ```
 
    - **Result:** `true` only if the field matches `"AbCdEf123"` exactly, including case.
 
@@ -228,14 +235,14 @@ Use the `Bytes` type when your policy requires exact string comparisons without 
    - **Field**: `CA10__configString__c` contains `"  indent: 4"`.
    - **Operation**:
 
-     ```yaml
-     STARTS_WITH:
-       arg:
-         FIELD:
-           path: CA10__configString__c
-       prefix:
-         BYTES: "  "
-     ```
+    ```yaml
+    STARTS_WITH:
+      arg:
+        FIELD:
+          path: CA10__configString__c
+      prefix:
+        BYTES: "  "
+    ```
 
    - **Result:** `true` because the string starts with exactly two spaces.
 
@@ -243,14 +250,14 @@ Use the `Bytes` type when your policy requires exact string comparisons without 
    - **Field**: `CA10__encodedData__c` contains `"SGVsbG8="`.
    - **Operation**:
 
-     ```yaml
-     IS_EQUAL:
-       left:
-         FIELD:
-           path: CA10__encodedData__c
-       right:
-         BYTES: "SGVsbG8="
-     ```
+    ```yaml
+    IS_EQUAL:
+      left:
+        FIELD:
+          path: CA10__encodedData__c
+      right:
+        BYTES: "SGVsbG8="
+    ```
 
    - **Result:** `true` if the field matches the base64 string exactly.
 
@@ -329,23 +336,31 @@ Duration type represents a span of time, expressed in days, hours, minutes, and 
 - `null` is considered an empty Duration value.
 - Durations are always positive. Negative durations are not supported.
 
-### Collection Type
+### Collection Types
 
-The Collection Type represents an unordered collection of [Text](#text-type) values. Key features:
+The Compliance Engine provides two types of collections for handling groups of items: **Sets** and **Lists**. Both can contain either [`Text`](#text-type) or [`Bytes`](#bytes-type) items.
 
-- Order of the elements in a collection does not matter.
-- Item type is always [Text](#text-type).
-- No duplicate values allowed. Item comparison is based on [`IS_EQUAL`](#is_equal) operation for [Text](#text-type) type.
-- Items considered empty by [`IS_EMPTY`](#is_empty) operation are not added to collection.
-- `null` and empty collections are considered equal by [`IS_EQUAL`](#is_equal) and empty by the [`IS_EMPTY`](#is_empty) operation.
+#### Set Type
 
-See more details in:
+A `Set` is an **unordered** collection of **unique** items.
 
-- [Unit Tests](../../../ce/unit-test/is-equal/collection/unit-test.logic.yaml.gen.md) for [`IS_EQUAL`](#is_equal) operation on Collection type
-- [Unit Tests](../../../ce/unit-test/is-empty/collection/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on Collection type
-- [Unit Tests](../../../ce/unit-test/collection-size/unit-test.logic.yaml.gen.md) for [`COLLECTION_SIZE`](#collection_size) operation
-- [Unit Tests](../../../ce/unit-test/collection-contains/unit-test.logic.yaml.gen.md) for [`COLLECTION_CONTAINS`](#collection_contains) operation
-- [Unit Tests](../../../ce/unit-test/collection-from/unit-test.logic.yaml.gen.md) for [`COLLECTION_FROM`](#collection_from) operation
+- **Uniqueness:** Duplicate items are automatically removed. For `Text` items, uniqueness is case-insensitive (e.g., `"apple"` and `"Apple"` are the same). For `Bytes` items, it is case-sensitive.
+- **No Order:** The order of items in a set is not guaranteed.
+- **Empty Items:** Empty or whitespace-only strings are ignored and not added to the set.
+- **Null Handling:** A `null` set is considered equal to an empty set.
+
+Use the `SET` and `SET_FROM` operations to work with sets.
+
+#### List Type
+
+A `List` is an **ordered** collection of items that **allows duplicates**.
+
+- **Order:** The order of items is preserved as defined.
+- **Duplicates:** Lists can contain multiple identical items.
+- **Empty Items:** Empty strings are treated as valid items and are included in the list.
+- **Null Handling:** A `null` list is considered equal to an empty list.
+
+Use the `LIST` and `LIST_FROM` operations to work with lists.
 
 ### JSON Type
 
@@ -874,61 +889,122 @@ The `NUMBER` operation creates a constant [number](#number-type) value. This ope
 
 ### `DATE_TIME`
 
-### `COLLECTION`
+### `LIST`
 
 ```yaml
-COLLECTION:
-  - { value1 }
-  - { value2 }
-  # ...
+LIST:
+  itemType: { itemType } # required
+  items: # required
+    - { value1 }
+    - { value2 }
+    # ...
 ```
 
 #### Description
 
-The `COLLECTION` operation creates a constant [collection](#collection-type) value. This operation allows you to define a static list of text strings as a collection directly within your logic.
+The `LIST` operation creates a constant, ordered [list](#list-type) of values. This operation allows you to define a static, ordered list of `Text` or `Bytes` strings directly within your logic. It preserves the order of elements and allows for duplicates.
 
 #### Parameters
 
-- **(list of strings, required):**
-  - Specifies a YAML list of text strings that will form the collection.
-  - Each item in the list is treated as a [text](#text-type) value.
-  - Duplicate values will be automatically removed; the resulting collection will contain only unique items.
-  - Empty strings and strings containing only whitespace will be ignored and not added to the collection.
+- **`itemType` ([`TEXT`](#text-type) | [`BYTES`](#bytes-type), required):**
+  - Specifies the type of items in the list. Valid values are `TEXT` or `BYTES`.
+
+- **`items` (list of strings, required):**
+  - A YAML list of strings that will form the list.
+  - Unlike a `SET`, empty strings and duplicate values are preserved in the list.
 
 #### Return Type
 
-[Collection](#collection-type)
+[List](#list-type)
 
 #### Examples
 
-1. Using a collection with multiple values:
+1. Creating a list with duplicate `Text` items:
 
     ```yaml
-    COLLECTION:
-      - "value1"
-      - "value2"
-      - "value1" # Duplicate, will be removed
-      - "  "     # Whitespace, will be ignored
-      - ""      # Empty string, will be ignored
+    LIST:
+      itemType: TEXT
+      items:
+        - "a"
+        - "b"
+        - "a"
     ```
 
-2. Using an empty collection:
+   This returns a list containing `["a", "b", "a"]`.
+
+2. Creating a list that includes empty strings:
 
     ```yaml
-    COLLECTION: []
+    LIST:
+      itemType: TEXT
+      items:
+        - "a"
+        - ""
+        - "b"
     ```
 
-3. Using a collection in `COLLECTION_CONTAINS` operation:
+   This returns a list containing `["a", "", "b"]`.
+
+### `SET`
+
+```yaml
+SET:
+  itemType: { itemType } # required
+  items: # required
+    - { value1 }
+    - { value2 }
+    # ...
+```
+
+#### Description
+
+The `SET` operation creates a constant, unordered [set](#set-type) of unique values. This operation allows you to define a static set of `Text` or `Bytes` strings directly within your logic. It automatically removes duplicate values and does not preserve order.
+
+#### Parameters
+
+- **`itemType` ([`TEXT`](#text-type) | [`BYTES`](#bytes-type), required):**
+  - Specifies the type of items in the set. Valid values are `TEXT` or `BYTES`.
+
+- **`items` (list of strings, required):**
+  - A YAML list of strings that will form the set.
+  - Duplicate values will be removed. For `TEXT` type, this is case-insensitive.
+  - Empty strings or strings containing only whitespace will be ignored.
+
+#### Return Type
+
+[Set](#set-type)
+
+#### Examples
+
+1. Using a set to define unique approved regions:
 
     ```yaml
-    COLLECTION_CONTAINS:
-      collection:
-        COLLECTION:
-          - "running"
-          - "pending"
-      item:
-        FIELD: 
-          path: CA10__stateName__c
+    SET:
+      itemType: TEXT
+      items:
+        - "us-east-1"
+        - "us-west-2"
+        - "us-east-1" # Duplicate, will be removed
+    ```
+
+   This returns a set containing `"us-east-1"` and `"us-west-2"`.
+
+2. Using a set in a `CONTAINS_ALL` operation:
+
+    ```yaml
+    CONTAINS_ALL:
+      arg:
+        LIST_FROM:
+          arg:
+            FIELD:
+              path: CA10__availabilityZones__c
+          separator: ","
+      search:
+        SET:
+          itemType: TEXT
+          items:
+            - "us-east-1a"
+            - "us-east-1b"
     ```
 
 ### `JSON`
@@ -1125,73 +1201,81 @@ The `DATE_TIME_FROM` operation converts a [text](#text-type) (string) value into
 
 ### `DURATION_FROM`
 
-### `COLLECTION_FROM`
+### `LIST_FROM`
 
 ```yaml
-COLLECTION_FROM:
+LIST_FROM:
   arg: { arg } # required
   separator: { separator } # required
 ```
 
 #### Description
 
-The `COLLECTION_FROM` operation converts a [text](#text-type) (string) value into a [collection](#collection-type) value by splitting the string using a specified separator. This is useful when you have a comma-separated or newline-separated string of values that you need to treat as a collection for operations like [`COLLECTION_CONTAINS`](#collection_contains) or [`COLLECTION_SIZE`](#collection_size).
+The `LIST_FROM` operation converts a `Text` or `Bytes` string into a [list](#list-type) by splitting the string using a specified separator. This is useful when you have a comma-separated or newline-separated string that you need to evaluate as an ordered list where duplicates are significant.
 
 #### Parameters
 
-- **`arg` (Operation<[Text](#text-type)>, required):**
-  - Specifies the [text](#text-type) value that you want to convert to a [collection](#collection-type).
-  - This should be an operation that resolves to a [text](#text-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`JSON_QUERY_TEXT`](#json_query_text), or [`TEXT`](#text).
-  - The string value will be split into a collection based on the `separator`.
-
+- **`arg` (Operation<[Text](#text-type) | [Bytes](#bytes-type)>, required):**
+  - The string value to be split into a list.
+  - This should be an operation that resolves to a `Text` or `Bytes` value.
 - **`separator` (string, required):**
-  - Specifies the separator string that will be used to split the `arg` string into individual items of the collection.
-  - Common separators are commas (`,`), newlines (`\n`), or spaces.
-  - Example: `separator: ","` or `separator: "\n"`
+  - The character or string to use for splitting the `arg` string.
 
 #### Return Type
 
-[Collection](#collection-type)
+[List](#list-type)
 
 #### Examples
 
-1. Creating a collection from a newline-separated string obtained from a field:
+1. Creating a list from a newline-separated string, preserving order and empty elements:
 
     ```yaml
-    COLLECTION_FROM:
+    LIST_FROM:
       arg:
         FIELD:
-          path: CA10__availabilityZones__c # Assume this field contains newline-separated Availability Zones
+          path: CA10__logData__c # Assume field contains "event1\nevent2\n\nevent1"
       separator: "\n"
     ```
 
-    If the `CA10__availabilityZones__c` field contains:
+   This operation will return a list containing `["event1", "event2", "", "event1"]`.
 
-    ```plaintext
-    us-east-1a
-    us-east-1b
-    us-east-1c
-    ```
+### `SET_FROM`
 
-    This operation will return a collection containing: `"us-east-1a"`, `"us-east-1b"`, `"us-east-1c"`.
+```yaml
+SET_FROM:
+  arg: { arg } # required
+  separator: { separator } # required
+```
 
-2. Using `COLLECTION_FROM` with `COLLECTION_CONTAINS` to check if a collection contains a specific item:
+#### Description
+
+The `SET_FROM` operation converts a `Text` or `Bytes` string into a [set](#set-type) by splitting the string using a specified separator. This is useful for creating a collection of unique items from a string, such as a list of tags or availability zones, where order and duplicates do not matter.
+
+#### Parameters
+
+- **`arg` (Operation<[Text](#text-type) | [Bytes](#bytes-type)>, required):**
+  - The string value to be split into a set.
+  - This should be an operation that resolves to a `Text` or `Bytes` value.
+- **`separator` (string, required):**
+  - The character or string to use for splitting the `arg` string.
+
+#### Return Type
+
+[Set](#set-type)
+
+#### Examples
+
+1. Creating a set of unique Availability Zones from a comma-separated string:
 
     ```yaml
-      GREATER_THAN: 
-        left:
-          COLLECTION_SIZE:
-            arg:
-              COLLECTION_FROM:
-                arg:
-                  FIELD:
-                    path: CA10__availabilityZones__c
-                separator: "\n"
-        right: 
-          NUMBER: 1
+    SET_FROM:
+      arg:
+        FIELD:
+          path: CA10__availabilityZones__c # Assume field contains "us-east-1a, us-east-1b, us-east-1a"
+      separator: ","
     ```
 
-    This example checks if the `CA10__availabilityZones__c` field value contains more than 1 unique Availability Zone.
+   This will return a set containing `"us-east-1a"` and `"us-east-1b"`.
 
 ### `JSON_FROM`
 
@@ -1205,15 +1289,14 @@ JSON_FROM:
 
 #### Description
 
-The `JSON_FROM` operation parses a [text](#text-type) (string) value as a JSON and returns a [json](#json-type) value. This operation is crucial for handling JSON payloads that are often retrieved from external systems or APIs. It allows you to convert a string representation of JSON into a structured JSON object that can be further queried and processed using other JSON-specific operations like [`JSON_QUERY_TEXT`](#json_query_text).
+The `JSON_FROM` operation parses a `Bytes` (string) value as a JSON and returns a [json](#json-type) value. This operation is crucial for handling JSON payloads that are often retrieved from external systems or APIs. It allows you to convert a string representation of JSON into a structured JSON object that can be further queried and processed using other JSON-specific operations like [`JSON_QUERY_TEXT`](#json_query_text).
 
 #### Parameters
 
-- **`arg` (Operation<[Text](#text-type)>, required):**
-  - Specifies the [text](#text-type) value that contains a JSON string.
-  - This should be an operation that resolves to a [text](#text-type) value, such as [`FIELD`](#field) or [`EXTRACT`](#extract).
-  - The string value must be a valid JSON document.
-
+- **`arg` (Operation<[Bytes](#bytes-type)>, required):**
+  - Specifies the `Bytes` value that contains a JSON string.
+  - This should be an operation that resolves to a `Bytes` value, such as [`FIELD`](#field) or [`EXTRACT`](#extract).
+  - The string value must be a valid JSON document. Using `Bytes` preserves the exact structure, which is important for parsing.
 - **`undeterminedIf` (object, optional):**
   - Allows you to define conditions under which the `JSON_FROM` operation should return an `UNDETERMINED` status instead of a [json](#json-type) value. This is useful for handling cases where the input string might not be a valid JSON or is empty.
   - Properties:
@@ -1231,42 +1314,19 @@ The `JSON_FROM` operation parses a [text](#text-type) (string) value as a JSON a
 
 #### Examples
 
-1. Parsing a JSON string retrieved from a `FIELD` operation and handling empty input:
+1. Parsing a JSON string retrieved from a `FIELD` operation:
 
     ```yaml
     JSON_FROM:
       arg:
         FIELD:
-          path: CA10__settingsJson__c # Assume this field contains a JSON string, like '{"enabled": true, "maxInstances": 123}'
+          path: CA10__policyDocument__c # This field contains a JSON policy as a string
+          returnType: BYTES
       undeterminedIf:
-        isEmpty: "Settings JSON is empty."
-        isInvalid: "The 'Settings JSON' field does not contain a valid JSON."
+        isInvalid: "The policy document is not valid JSON."
     ```
 
-    This example retrieves a string from the `CA10__settingsJson__c` field and attempts to parse it as JSON. If the field is empty, it returns `UNDETERMINED` with the message "Settings JSON is empty.". If the content is not valid JSON, it returns `UNDETERMINED` with the message "The 'Settings JSON' field does not contain a valid JSON.".
-
-2. Using `JSON_FROM` with `JSON_QUERY_TEXT` to extract a value:
-
-    ```yaml
-    IS_EQUAL:
-      left:
-        JSON_QUERY_TEXT:
-          arg:
-            JSON_FROM:
-              arg:
-                FIELD:
-                  path: CA10__attributesJson__c # Assume this field contains a JSON string '{"name": "example", "value": 123}'
-              undeterminedIf:
-                isInvalid: "Invalid JSON"
-          expression: "name"
-          undeterminedIf:
-            evaluationError: "JSON query evaluation error"
-            resultTypeMismatch: "JSON query result type mismatch"
-      right:
-        TEXT: "example"
-    ```
-
-    This example first uses `JSON_FROM` to parse a JSON string and then uses `JSON_QUERY_TEXT` to extract the value associated with the key `"name"`. It then checks if the extracted text value is equal to `"example"`.
+   This example retrieves a string from `CA10__policyDocument__c`, treats it as `Bytes` to ensure fidelity, and parses it.
 
 ### `IS_EMPTY`
 
@@ -1307,14 +1367,14 @@ The `IS_EMPTY` operation checks if the provided argument `arg` is considered emp
     ```yaml
     IS_EMPTY:
       arg:
-        COLLECTION_FROM:
+        SET_FROM:
           arg:
             FIELD:
               path: CA10__availabilityZones__c
           separator: ","
     ```
 
-    This example checks if the collection created from the comma-separated string in `CA10__availabilityZones__c` field is empty. The result of `true` will be produces for following values of `CA10__availabilityZones__c`: `null`, `""`, `" "`, `" , "`. See [collection type](#collection-type) for more details.
+    This example checks if the collection created from the comma-separated string in `CA10__availabilityZones__c` field is empty. The result of `true` will be produces for following values of `CA10__availabilityZones__c`: `null`, `""`, `" "`, `" , "`. See [set type](#set-type) for more details.
 
 3. Using `IS_EMPTY` in a condition:
 
@@ -1338,7 +1398,7 @@ See more details in:
 - [Unit Tests](../../../ce/unit-test/is-empty/boolean/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on [Boolean](#boolean-type) type
 - [Unit Tests](../../../ce/unit-test/is-empty/number/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on [Number](#number-type) type
 - [Unit Tests](../../../ce/unit-test/is-empty/date-time/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on [DateTime](#datetime-type) type
-- [Unit Tests](../../../ce/unit-test/is-empty/collection/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on [Collection](#collection-type) type
+- [Unit Tests](../../../ce/unit-test/is-empty/set/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](#is_empty) operation on [Set](#set-type) type
 
 ### `NOT_EMPTY`
 
@@ -1407,7 +1467,7 @@ See more details in:
 - [Unit Tests](../../../ce/unit-test/is-empty/boolean/unit-test.logic.yaml.gen.md) for [`NOT_EMPTY`](#not_empty) operation on [Boolean](#boolean-type) type
 - [Unit Tests](../../../ce/unit-test/is-empty/number/unit-test.logic.yaml.gen.md) for [`NOT_EMPTY`](#not_empty) operation on [Number](#number-type) type
 - [Unit Tests](../../../ce/unit-test/is-empty/date-time/unit-test.logic.yaml.gen.md) for [`NOT_EMPTY`](#not_empty) operation on [DateTime](#datetime-type) type
-- [Unit Tests](../../../ce/unit-test/is-empty/collection/unit-test.logic.yaml.gen.md) for [`NOT_EMPTY`](#not_empty) operation on [Collection](#collection-type) type
+- [Unit Tests](../../../ce/unit-test/is-empty/set/unit-test.logic.yaml.gen.md) for [`NOT_EMPTY`](#not_empty) operation on [Set](#set-type) type
 
 ### `IS_EQUAL`
 
@@ -1678,24 +1738,24 @@ Majority of operations come in normal and negated variants (e.g. [`IS_EMPTY`](#i
 ```yaml
 CONTAINS:
   arg: { arg } # required
-  substring: { substring } # required
+  search: { search } # required
 ```
 
 #### Description
 
-The `CONTAINS` operation checks if a [text](#text-type) (string) value specified by the `arg` parameter contains another [text](#text-type) (string) value specified by the `substring` parameter.
-The comparison is case-insensitive and whitespace-normalized, consistent with the [Text Type](#text-type) behavior.
-It returns a [boolean](#boolean-type) value: `true` if the `arg` string contains the `substring`, and `false` otherwise.
+The `CONTAINS` operation checks if a searchable value (`arg`) contains another value (`search`). This operation is versatile and works for both text and collection comparisons.
+
+- When `arg` is `Text` or `Bytes`, it performs a substring search.
+- When `arg` is a `List` or `Set`, it checks for the presence of an element.
+
+The comparison is case-insensitive for `Text` types and case-sensitive for `Bytes` types. It returns `true` if the `arg` contains the `search` value, and `false` otherwise.
 
 #### Parameters
 
-- **`arg` (Operation<[Text](#text-type)>, required):**
-  - Specifies the [text](#text-type) value to be searched within.
-  - This should be an operation that resolves to a [text](#text-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`JSON_QUERY_TEXT`](#json_query_text), etc.
-
-- **`substring` (Operation<[Text](#text-type)>, required):**
-  - Specifies the [text](#text-type) value to search for within the `arg`.
-  - This should be an operation that resolves to a [text](#text-type) value.
+- **`arg` (Operation<[Text](#text-type) | [Bytes](#bytes-type) | [List](#list-type) | [Set](#set-type)>, required):**
+  - The value to be searched within (the haystack).
+- **`search` (Operation<[Text](#text-type) | [Bytes](#bytes-type)>, required):**
+  - The value to search for (the needle).
 
 #### Return Type
 
@@ -1710,30 +1770,105 @@ It returns a [boolean](#boolean-type) value: `true` if the `arg` string contains
       arg:
         FIELD:
           path: CA10__description__c
-      substring:
+      search:
         TEXT: "expired"
     ```
 
-   This example checks if the `CA10__description__c` field value contains the substring `expired`.
-
-2. Using `NOT` with `CONTAINS` to check for the absence of a substring:
+2. Checking if a set of allowed ports contains port `22`:
 
     ```yaml
-    NOT:
+    CONTAINS:
       arg:
-        CONTAINS:
+        SET_FROM:
           arg:
             FIELD:
-              path: CA10__name__c
-          substring:
-            TEXT: "test"
+              path: CA10__allowedPorts__c # e.g., "80,443,22"
+          separator: ","
+      search:
+        TEXT: "22"
     ```
 
-   This example checks if the `CA10__name__c` field value does *not* contain the substring `test`.
+### `CONTAINS_ALL`
 
-See more details in:
+```yaml
+CONTAINS_ALL:
+  arg: { arg } # required
+  search: { search } # required
+```
 
-- [Unit Tests](../../../ce/unit-test/contains/unit-test.logic.yaml.gen.md) for [`CONTAINS`](#contains) operation
+#### Description
+
+The `CONTAINS_ALL` operation checks if a searchable value (`arg`) contains every item from a given collection (`search`). This is useful for ensuring that a set of required values are all present.
+
+- When `arg` is `Text` or `Bytes`, it checks if all substrings from the `search` collection are present.
+- When `arg` is a `List` or `Set`, it checks if all elements from the `search` collection are present.
+
+#### Parameters
+
+- **`arg` (Operation<[Text](#text-type) | [Bytes](#bytes-type) | [List](#list-type) | [Set](#set-type)>, required):**
+  - The value to be searched within (the haystack).
+- **`search` (Operation<[List](#list-type) | [Set](#set-type)>, required):**
+  - A collection of items that must all be found in `arg`.
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. Ensuring a security group name contains both "prod" and "web" tags:
+
+    ```yaml
+    CONTAINS_ALL:
+      arg:
+        FIELD:
+          path: Name
+      search:
+        LIST:
+          itemType: TEXT
+          items: ["prod", "web"]
+    ```
+
+### `CONTAINS_ANY`
+
+```yaml
+CONTAINS_ANY:
+  arg: { arg } # required
+  search: { search } # required
+```
+
+#### Description
+
+The `CONTAINS_ANY` operation checks if a searchable value (`arg`) contains at least one item from a given collection (`search`). This is useful for checking against a list of forbidden or alternative values.
+
+- When `arg` is `Text` or `Bytes`, it checks if any substring from the `search` collection is present.
+- When `arg` is a `List` or `Set`, it checks if any element from the `search` collection is present.
+
+#### Parameters
+
+- **`arg` (Operation<[Text](#text-type) | [Bytes](#bytes-type) | [List](#list-type) | [Set](#set-type)>, required):**
+  - The value to be searched within (the haystack).
+- **`search` (Operation<[List](#list-type) | [Set](#set-type)>, required):**
+  - A collection of items, where at least one must be found in `arg`.
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Examples
+
+1. Checking if an instance type is any of the legacy types:
+
+    ```yaml
+    CONTAINS_ANY:
+      arg:
+        FIELD:
+          path: CA10__instanceType__c
+      search:
+        SET:
+          itemType: TEXT
+          items: ["t1.micro", "m1.small", "m1.medium"]
+    ```
 
 ### `STARTS_WITH`
 
@@ -1754,7 +1889,6 @@ It returns a [boolean](#boolean-type) value: `true` if the `arg` string starts w
 - **`arg` (Operation<[Text](#text-type)>, required):**
   - Specifies the [text](#text-type) value to be checked.
   - This should be an operation that resolves to a [text](#text-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`JSON_QUERY_TEXT`](#json_query_text), etc.
-
 - **`prefix` (Operation<[Text](#text-type)>, required):**
   - Specifies the [text](#text-type) value to check as the starting prefix.
   - This should be an operation that resolves to a [text](#text-type) value.
@@ -1876,7 +2010,7 @@ Both arguments must be of [number](#number-type) type.
 
 - **`left` (Operation<[Number](#number-type)>, required):**
   - Specifies the first argument for comparison.
-  - This should be an operation that resolves to a [number](#number-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`NUMBER`](#number), [`COLLECTION_SIZE`](#collection_size), etc.
+  - This should be an operation that resolves to a [number](#number-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`NUMBER`](#number), [`SIZE`](#size), etc.
 
 - **`right` (Operation<[Number](#number-type)>, required):**
   - Specifies the second argument for comparison.
@@ -1901,14 +2035,14 @@ Both arguments must be of [number](#number-type) type.
 
    This example checks if the value of the `CA10__instanceCount__c` field is greater than the number constant `5`.
 
-2. Using `GREATER_THAN` with `COLLECTION_SIZE`:
+2. Using `GREATER_THAN` with `SIZE`:
 
     ```yaml
     GREATER_THAN:
       left:
-        COLLECTION_SIZE:
+        SIZE:
           arg:
-            COLLECTION_FROM:
+            SET_FROM:
               arg:
                 FIELD:
                   path: CA10__availabilityZones__c
@@ -1940,8 +2074,7 @@ Both arguments must be of [number](#number-type) type.
 
 - **`left` (Operation<[Number](#number-type)>, required):**
   - Specifies the first argument for comparison.
-  - This can be any operation that resolves to a [number](#number-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`NUMBER`](#number), [`COLLECTION_SIZE`](#collection_size), etc.
-
+  - This can be any operation that resolves to a [number](#number-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`NUMBER`](#number), [`SIZE`](#size), etc.
 - **`right` (Operation<[Number](#number-type)>, required):**
   - Specifies the second argument for comparison.
   - **Must be of the same type as the `left` argument.**
@@ -2000,8 +2133,7 @@ Both arguments must be of [number](#number-type) type.
 
 - **`left` (Operation<[Number](#number-type)>, required):**
   - Specifies the first argument for comparison.
-  - This can be any operation that resolves to a [number](#number-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`NUMBER`](#number), [`COLLECTION_SIZE`](#collection_size), etc.
-
+  - This can be any operation that resolves to a [number](#number-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`NUMBER`](#number), [`SIZE`](#size), etc.
 - **`right` (Operation<[Number](#number-type)>, required):**
   - Specifies the second argument for comparison.
   - **Must be of the same type as the `left` argument.**
@@ -2063,8 +2195,7 @@ Both arguments must be of [number](#number-type) type.
 
 - **`left` (Operation<[Number](#number-type)>, required):**
   - Specifies the first argument for comparison.
-  - This can be any operation that resolves to a [number](#number-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`NUMBER`](#number), [`COLLECTION_SIZE`](#collection_size), etc.
-
+  - This can be any operation that resolves to a [number](#number-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), [`NUMBER`](#number), [`SIZE`](#size), etc.
 - **`right` (Operation<[Number](#number-type)>, required):**
   - Specifies the second argument for comparison.
   - **Must be of the same type as the `left` argument.**
@@ -2444,22 +2575,22 @@ See more details in:
 
 - [Unit Tests](../../../ce/unit-test/is-within-next-days/unit-test.logic.yaml.gen.md) for [`IS_WITHIN_NEXT_DAYS`](#is_within_next_days) operation
 
-### `COLLECTION_SIZE`
+### `SIZE`
 
 ```yaml
-COLLECTION_SIZE:
+SIZE:
   arg: { arg } # required
 ```
 
 #### Description
 
-The `COLLECTION_SIZE` operation returns the number of elements in a [collection](#collection-type) value provided as the argument `arg`. It returns a [number](#number-type) representing the size of the collection.
+The `SIZE` operation returns the number of elements in a given collection. It returns a `Number` representing the size of the collection.
 
 #### Parameters
 
-- **`arg` (Operation<[Collection](#collection-type)>, required):**
-  - Specifies the [collection](#collection-type) whose size you want to determine.
-  - This should be an operation that resolves to a [collection](#collection-type) value, such as [`COLLECTION_FROM`](#collection_from), etc.
+- **`arg` (Operation<[List](#list-type) | [Set](#set-type)>, required):**
+  - The collection whose size you want to determine.
+  - This should be an operation that resolves to a `List` or `Set`.
 
 #### Return Type
 
@@ -2467,77 +2598,18 @@ The `COLLECTION_SIZE` operation returns the number of elements in a [collection]
 
 #### Examples
 
-1. Using `COLLECTION_SIZE` in a condition to check if a collection has more than 5 elements:
+1. Checking if a security group has more than 5 rules:
 
     ```yaml
     GREATER_THAN:
       left:
-        COLLECTION_SIZE:
+        SIZE:
           arg:
-            COLLECTION_FROM:
-              arg:
-                FIELD:
-                  path: CA10__availabilityZones__c
-              separator: ","
+            FIELD:
+              path: CA10__securityGroupRules__r # This is a related list
       right:
         NUMBER: 5
     ```
-
-   This condition checks if the collection created from the comma-separated string in `CA10__availabilityZones__c` field has more than 5 elements.
-
-See more details in:
-
-- [Unit Tests](../../../ce/unit-test/collection-size/unit-test.logic.yaml.gen.md) for [`COLLECTION_SIZE`](#collection_size) operation
-
-### `COLLECTION_CONTAINS`
-
-```yaml
-COLLECTION_CONTAINS:
-  arg: { arg } # required
-  search: { search } # required
-```
-
-#### Description
-
-The `COLLECTION_CONTAINS` operation checks if a [collection](#collection-type) value, provided as the `arg` parameter, contains a specific element, provided as the `search` parameter. The element to search for must be a [text](#text-type) value.
-The search is case-insensitive and whitespace-normalized, consistent with the [Text Type](#text-type) behavior.
-It returns a [boolean](#boolean-type) value: `true` if the element is found in the collection, and `false` otherwise.
-
-#### Parameters
-
-- **`arg` (Operation<[Collection](#collection-type)>, required):**
-  - Specifies the [collection](#collection-type) to be searched.
-  - This should be an operation that resolves to a [collection](#collection-type) value, such as [`COLLECTION_FROM`](#collection_from), etc.
-
-- **`search` (Operation<[Text](#text-type)>, required):**
-  - Specifies the [text](#text-type) value to search for within the collection.
-  - This should be an operation that resolves to a [text](#text-type) value, such as [`FIELD`](#field), [`EXTRACT`](#extract), or [`TEXT`](#text).
-
-#### Return Type
-
-[Boolean](#boolean-type)
-
-#### Examples
-
-1. Using `COLLECTION_CONTAINS` with `FIELD` and `COLLECTION_FROM` to check if a collection contains a field value:
-
-    ```yaml
-    COLLECTION_CONTAINS:
-      arg:
-        COLLECTION_FROM:
-          arg:
-            FIELD:
-              path: CA10__availabilityZones__c
-          separator: ","
-      search:
-        TEXT: us-east-1a
-    ```
-
-   This example checks if the collection created from the comma-separated string in `CA10__availabilityZones__c` field contains the element `"us-east-1a"`.
-
-See more details in:
-
-- [Unit Tests](../../../ce/unit-test/collection-contains/unit-test.logic.yaml.gen.md) for [`COLLECTION_CONTAINS`](#collection_contains) operation
 
 ### `JSON_QUERY_TEXT`
 
@@ -3090,6 +3162,116 @@ The `JSON_QUERY_NUMBER` operation evaluates a JMESPath expression against a JSON
 
    - **Result:** Undetermined status with message `"Failed to evaluate length: items is null or missing"`
    - **Explanation:** When `"items"` is `null` or absent, `length(items)` triggers a `TypeError` in JMESPath, which is caught as an evaluation error rather than an empty result. The `resultIsEmpty` condition isn't triggered here because `0` (from an empty array) is valid, and `null` leads to an error instead.
+
+### `TAG_EXISTS`
+
+```yaml
+TAG_EXISTS:
+  name: { name } # required
+  tagsJson: { tagsJson } # optional
+```
+
+#### Description
+
+The `TAG_EXISTS` operation checks if a tag with a specific name exists on a resource.
+
+#### Parameters
+
+- **`name` (Operation<[Text](#text-type) | [Bytes](#bytes-type)>, required):**
+  - The name of the tag to check for. Use `Text` for case-insensitive matching and `Bytes` for case-sensitive matching.
+- **`tagsJson` (string, optional):**
+  - The name of the field containing the tags in JSON format.
+  - Defaults to `CA10__tagsJson__c` if not specified.
+
+#### Return Type
+
+[Boolean](#boolean-type)
+
+#### Example
+
+Checking if a resource has an "Owner" tag (case-insensitive):
+
+```yaml
+TAG_EXISTS:
+  name:
+    TEXT: "Owner"
+```
+
+### `TAG_VALUE_TEXT`
+
+```yaml
+TAG_VALUE_TEXT:
+  name: { name } # required
+  tagsJson: { tagsJson } # optional
+```
+
+#### Description
+
+The `TAG_VALUE_TEXT` operation retrieves the value of a specific tag as a `Text` type (case-insensitive, whitespace-normalized). It returns `null` if the tag does not exist.
+
+#### Parameters
+
+- **`name` (Operation<[Text](#text-type) | [Bytes](#bytes-type)>, required):**
+  - The name of the tag whose value you want to retrieve.
+- **`tagsJson` (string, optional):**
+  - The name of the field containing the tags in JSON format.
+  - Defaults to `CA10__tagsJson__c` if not specified.
+
+#### Return Type
+
+[Text](#text-type)
+
+#### Example
+
+Checking if the value of the "environment" tag is "production":
+
+```yaml
+IS_EQUAL:
+  left:
+    TAG_VALUE_TEXT:
+      name:
+        TEXT: "environment"
+  right:
+    TEXT: "production"
+```
+
+### `TAG_VALUE_BYTES`
+
+```yaml
+TAG_VALUE_BYTES:
+  name: { name } # required
+  tagsJson: { tagsJson } # optional
+```
+
+#### Description
+
+The `TAG_VALUE_BYTES` operation retrieves the value of a specific tag as a `Bytes` type (case-sensitive, exact whitespace). It returns `null` if the tag does not exist. This is useful for tag values where case and exact spacing are important.
+
+#### Parameters
+
+- **`name` (Operation<[Text](#text-type) | [Bytes](#bytes-type)>, required):**
+  - The name of the tag whose value you want to retrieve.
+- **`tagsJson` (string, optional):**
+  - The name of the field containing the tags in JSON format.
+  - Defaults to `CA10__tagsJson__c` if not specified.
+
+#### Return Type
+
+[Bytes](#bytes-type)
+
+#### Example
+
+Checking if a project code tag has the exact value "Prj-Alpha-01":
+
+```yaml
+IS_EQUAL:
+  left:
+    TAG_VALUE_BYTES:
+      name:
+        TEXT: "ProjectCode"
+  right:
+    BYTES: "Prj-Alpha-01"
+```
 
 ### `RELATED_LIST_HAS`
 

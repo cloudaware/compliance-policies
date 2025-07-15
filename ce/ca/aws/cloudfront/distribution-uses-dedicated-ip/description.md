@@ -16,4 +16,4 @@ SNI is supported by all modern browsers and HTTP clients released since 2010. Ol
 
 This policy flags an *AWS CloudFront Web Distribution* as `INCOMPLIANT` if the `Viewer Certificate SSL Support Method` field is set to **vip** indicating that the distribution accepts HTTPS connections from all clients including those that don't support SNI.
 
-The *Distribution* is marked as `INAPPLICABLE` if the `Viewer Certificate CloudFront Default` checkbox is **true** since the SNI extension requires a custom SSL/TLS certificate. Additionally, the custom certificates are discussed in [/ce/ca/aws/cloudfront/distribution-uses-default-certificate](../distribution-uses-default-certificate/).
+The *Distribution* is marked as `INAPPLICABLE` if the `Viewer Certificate CloudFront Default` checkbox is **true** since the SNI extension requires a custom SSL/TLS certificate. Additionally, the custom certificates are discussed in [/ce/ca/aws/cloudfront/distribution-uses-default-certificate](../distribution-uses-default-certificate/policy.gen.md).

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.3
+
+- Type icons now reflect the presence of metadata and references in the repo.
+
 ## 1.5.2
 
 - Fixed `repo-manager soql convert` description.

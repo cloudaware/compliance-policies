@@ -42,21 +42,21 @@ To roll out the new template across all running instances, initiate an Instance 
 
     Example of `config.json`:
 
-```json{
-    "AutoScalingGroupName": "asg-name",
-    "Preferences": {
-      "InstanceWarmup": 60,
-      "MinHealthyPercentage": 50,
-      "AutoRollback": true,
-      "ScaleInProtectedInstances": Ignore,
-      "StandbyInstances": Terminate
+    ```json{
+        "AutoScalingGroupName": "asg-name",
+        "Preferences": {
+          "InstanceWarmup": 60,
+          "MinHealthyPercentage": 50,
+          "AutoRollback": true,
+          "ScaleInProtectedInstances": Ignore,
+          "StandbyInstances": Terminate
+        }
     }
-}
-```
+    ```
 
 2. Start the instance refresh:
 
-```sh
-aws autoscaling start-instance-refresh \
-    --cli-input-json file://{{config.json}}
-```
+    ```sh
+    aws autoscaling start-instance-refresh \
+        --cli-input-json file://{{config.json}}
+    ```
