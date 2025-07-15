@@ -1,4 +1,4 @@
-# Repo-manager Changelog
+# Changelog
 
 ## 1.5.2
 

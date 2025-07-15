@@ -31,6 +31,8 @@ The dev container provides a consistent and reproducible environment with all th
 
 Once you have the prerequisites, open the repository in VS Code, and you will be prompted to "Reopen in Container". This will build the container image and start the dev container.
 
+For more details on running devcontainers, see [Running Devcontainer](running-devcontainer.md).
+
 The dev container includes:
 
 - The latest LTS version of Java.

@@ -20,7 +20,10 @@ const config = {
         defaultLocale: 'en',
         locales: ['en'],
     },
-
+    future: {
+        v4: true,
+        experimental_faster: true
+    },
     presets: [
         [
             'classic',

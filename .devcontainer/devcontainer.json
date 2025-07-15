@@ -1,40 +1,34 @@
 {
-	"name": "Cloudaware Compliance Engine",
-	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-	"features": {
-		"ghcr.io/devcontainers/features/java:1": {
-			"version": "lts"
-		},
-		"ghcr.io/devcontainers/features/git:1": {},
-		"ghcr.io/dhoeric/features/google-cloud-cli:1": {},
-        "ghcr.io/devcontainers/features/node:1": {}
+  "name": "Cloudaware Compliance Engine",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "lts"
     },
-    "postCreateCommand": "echo 'alias repo-manager=\"java -jar ${containerWorkspaceFolder}/repo-manager.jar --repository=${containerWorkspaceFolder}/ \"$@\"\"' >> ~/.bashrc && . ${NVM_DIR}/nvm.sh && npm install -g @google/gemini-cli",
-	"forwardPorts": [],
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"redhat.vscode-yaml",
-				"yzhang.markdown-all-in-one",
-				"DavidAnson.vscode-markdownlint",
-				"shinichi-takii.sql-bigquery",
-				"minodisk.bigquery-runner",
-				"streetsidesoftware.code-spell-checker",
-				"ionutvmi.path-autocomplete"
-			],
-			"settings": {
-				"workbench.startupEditor": "none"
-			},
-            "tasks": [
-                {
-                    "label": "Open Welcome Guide",
-                    "type": "shell",
-                    "command": "code --wait --command vscode.open ${workspaceFolder}/.devcontainer/WELCOME.md",
-                    "runOptions": {
-                        "runOn": "folderOpen"
-                    }
-                }
-            ]
-		}
-	}
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/dhoeric/features/google-cloud-cli:1": {},
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "postCreateCommand": {
+    "gemini": ". ${NVM_DIR}/nvm.sh && npm install -g @google/gemini-cli",
+    "repo-manager": "echo 'alias repo-manager=\"java -jar ${containerWorkspaceFolder}/repo-manager.jar --repository=${containerWorkspaceFolder}/ \"$@\"\"' >> ~/.bashrc",
+    "message": "echo \"printf 'Welcome to Cloudaware Compliance Engine devcontainer\n\nPlease navigate to .devcontainer/welcome.md for instruction on how to finish the setup\n'\" >> ~/.bashrc"
+  },
+  "forwardPorts": [],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "redhat.vscode-yaml",
+        "yzhang.markdown-all-in-one",
+        "DavidAnson.vscode-markdownlint",
+        "shinichi-takii.sql-bigquery",
+        "minodisk.bigquery-runner",
+        "streetsidesoftware.code-spell-checker",
+        "ionutvmi.path-autocomplete"
+      ],
+      "settings": {
+        "workbench.startupEditor": "none"
+      }
+    }
+  }
 }
