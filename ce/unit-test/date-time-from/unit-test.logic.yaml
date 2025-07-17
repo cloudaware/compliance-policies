@@ -96,10 +96,10 @@ conditions:
                   isEmpty: "Input is empty"
                   invalidFormat: "Invalid date format"
   - status: COMPLIANT
-    currentStateMessage: "Null value handling (custom null value)"
+    currentStateMessage: "Null value handling (custom null value) when also setting undeterminedIf.isEmpty"
     check:
       UNIT_TEST:
-        id: Null-Value-Custom
+        id: Null-Value-Custom-With-IsEmpty-Check
         expected:
           status: UNDETERMINED
           subIndex: 1
@@ -116,6 +116,25 @@ conditions:
                   - "Unknown"
                 undeterminedIf:
                   isEmpty: "Input is empty"
+                  invalidFormat: "Invalid date format"
+  - status: COMPLIANT
+    currentStateMessage: "Null value handling (custom null value) without undeterminedIf.isEmpty"
+    check:
+      UNIT_TEST:
+        id: Null-Value-Custom-No-IsEmpty-Check
+        expected:
+          text: "unitTest(Null-Value-Custom-No-IsEmpty-Check): 'N/A'.asDateTime().isEmpty()"
+        arg:
+          IS_EMPTY:
+            arg:
+              DATE_TIME_FROM:
+                arg:
+                  TEXT: "N/A"
+                format: "ISO_8601"
+                nullValues:
+                  - "N/A"
+                  - "Unknown"
+                undeterminedIf:
                   invalidFormat: "Invalid date format"
   - status: COMPLIANT
     currentStateMessage: "Null value handling (null input)"

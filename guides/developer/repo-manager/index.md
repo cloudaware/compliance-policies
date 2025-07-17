@@ -395,7 +395,7 @@ repo-manager soql [OPTIONS] [COMMAND]
 
 ### Subcommands
 
-- [convert](#repo-manager-soql-convert) - Import Salesforce SObject types data.
+- [convert](#repo-manager-soql-convert) - Converts provided SOQL query into BigQuery query.
 
 ## `repo-manager soql convert`
 
@@ -419,7 +419,7 @@ repo-manager soql convert [OPTIONS] queryText
 ### Arguments
 
 - `queryText`
-  - Kind of script to generate:
+  - SOQL query text to convert
 
 ## `repo-manager sections`
 

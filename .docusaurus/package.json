@@ -6,7 +6,6 @@
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
-    "build:debug": "NODE_OPTIONS='--max-old-space-size=20480 --inspect=127.0.0.1:9999' docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -16,8 +15,8 @@
   },
   "dependencies": {
     "@docusaurus/core": "^3.8.1",
-    "@docusaurus/preset-classic": "^3.8.1",
     "@docusaurus/faster": "^3.8.1",
+    "@docusaurus/preset-classic": "^3.8.1",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
     "prism-react-renderer": "^2.3.0",

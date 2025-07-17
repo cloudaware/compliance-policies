@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.5.5
+
+- Fixed missing links for logic files
+
+## 1.5.4
+
+- Improved logic for `repo-manager docs generate` for infos with missing primary descriptors 
+
 ## 1.5.3
 
 - Type icons now reflect the presence of metadata and references in the repo.
