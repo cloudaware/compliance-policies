@@ -11,7 +11,7 @@
   },
   "postCreateCommand": {
     "gemini": ". ${NVM_DIR}/nvm.sh && npm install -g @google/gemini-cli",
-    "repo-manager": "wget https://ce.prod.cloudaware.com/repo-manager/repo-manager.jar -o ~/repo-manager.jar && echo 'alias repo-manager=\"java -jar ~/repo-manager.jar --repository=${containerWorkspaceFolder}/ \"$@\"\"' >> ~/.bashrc",
+    "repo-manager": "wget https://ce.prod.cloudaware.com/repo-manager/repo-manager.jar -O ~/repo-manager.jar && echo 'alias repo-manager=\"java -jar ~/repo-manager.jar --repository=${containerWorkspaceFolder}/ \"$@\"\"' >> ~/.bashrc",
     "message": "echo \"printf 'Welcome to Cloudaware Compliance Engine devcontainer\n\nPlease navigate to .devcontainer/welcome.md for instruction on how to finish the setup\n'\" >> ~/.bashrc"
   },
   "forwardPorts": [],

@@ -56,6 +56,7 @@ The documentation site is built using [Docusaurus](https://docusaurus.io/), a st
 ### Prerequisites
 
 - Ensure [requirements for Docusaurus](https://docusaurus.io/docs/installation#requirements) are satisfied.
+- Ensure `repo-manager` is installed. Guide for [installation](developer/repo-manager/index.md).
 - Ensure you have `repo-manager` authentication configured.
 
 ### Step-by-Step Guide
@@ -125,6 +126,6 @@ The documentation site is built using [Docusaurus](https://docusaurus.io/), a st
 ## Troubleshooting and Additional Resources
 
 - **Docusaurus Documentation**: [https://docusaurus.io/docs](https://docusaurus.io/docs)
-- **Repo Manager Authentication**: Refer to the [dedicated guide](developer/repo-manager/cli.md#repo-manager-auth) in our documentation.
+- **Repo Manager Authentication**: Refer to the [main guide](developer/repo-manager/cli.md#repo-manager-auth) for `repo-manager` tool in our documentation.
 
 For any issues or questions, contact your Technical Account Manager for support.

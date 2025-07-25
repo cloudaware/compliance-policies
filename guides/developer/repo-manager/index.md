@@ -3,7 +3,7 @@ title: repo-manager
 ---
 # repo-manager
 
-`repo-manager` is a tool that helps users manager their Compliance Engine repository, communicate with Cloudaware API, build documentation, etc.
+`repo-manager` is a tool that helps users manage their Compliance Engine repository, communicate with Cloudaware API, build documentation, etc.
 
 Read full [cli reference](cli.md) or execute `repo-manager --help`.
 
@@ -11,15 +11,13 @@ Read full [cli reference](cli.md) or execute `repo-manager --help`.
 
 The only requirement to run `repo-manager` is to have Java 8+ installed. We recommend installing the latest LTE version of Java.
 
-If `java`/`java.exe` executable is not in your `PATH`, use the full path to the executable in all commands listed in this document. 
+If `java`/`java.exe` executable is not in your `PATH`, use the full path to the executable in all commands listed in this document.
 
 ## Installation
 
 The latest version of `repo-manager` is always available via this link <https://ce.prod.cloudaware.com/repo-manager/repo-manager.jar>
 
-`repo-manager` is distributed via a single `jar` file. You can it with `java -jar ${downloadLocation}/repo-manager.jar ${parameters}`. The tool will also create `repo-manager.json` config file the same directory. The tool is fully function straight run after download without any additional configuration.
-
-But with a little bit more configuration you can make `repo-manager` callable with simpler alias from CLI. Depending on the operating system you run:
+`repo-manager` is distributed via a single `jar` file. With a little bit of configuration you can make `repo-manager` callable with a simpler alias from CLI. Depending on the operating system you run:
 
 ### Windows
 
@@ -35,7 +33,7 @@ But with a little bit more configuration you can make `repo-manager` callable wi
 4. Add `C:\Users\{username}\.ca` to PATH with a following PowerShell command:
 
    ```shell
-   [Environment]::SetEnvironmentVariable("PATH", $env:Path + ";" + $env:HOMEDRIVE + $env:HOMEPATH + "\.ca", "User")   
+   [Environment]::SetEnvironmentVariable("PATH", $env:Path + ";" + $env:HOMEDRIVE + $env:HOMEPATH + "\.ca", "User")
    ```
 
 5. Restart your shell
@@ -44,11 +42,8 @@ Now you can run `repo-manager` command in any directory on your machine.
 
 ### Linux
 
-TODO
 
-### MacOS
-
-TODO
+### macOS
 
 ## Configuration files
 

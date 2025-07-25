@@ -22,6 +22,7 @@ If you prefer to use your local installation of VS Code, you will need to instal
 
 - **Git:** For version control.
 - **Java:** Required to run the `repo-manager.jar`.
+- **[`repo-manager`](../repo-manager/index.md):** To manage the repository. 
 - **Google Cloud CLI:** For interacting with Google Cloud services, particularly BigQuery.
 - **Recommended VS Code Extensions:** See the list below.
 
@@ -73,30 +74,7 @@ You are welcome to use other IDEs such as IntelliJ IDEA, WebStorm, or any other 
 
 If you prefer to work from the command line, you can use the following tools:
 
-### Prerequisites
-
-Before you begin, ensure you have the following installed:
-
 - **Git:** For version control.
 - **Java:** Required to run the `repo-manager.jar`.
+- **[`repo-manager`](../repo-manager/index.md):** To manage the repository.
 - **Google Cloud CLI:** For interacting with Google Cloud services, particularly BigQuery.
-
-### Repository Manager (`repo-manager`)
-
-The `repo-manager` is a command-line tool for managing the repository. It is provided as a Java archive (`repo-manager.jar`) in the root of the repository.
-
-You can run it directly from the root of the repository using `java -jar repo-manager.jar` or by using one of the provided helper scripts:
-
-- `./repo-manager` (for Linux and macOS)
-- `repo-manager.bat` (for Windows Command Prompt)
-- `./repo-manager.ps1` (for Windows PowerShell)
-
-These scripts automatically pass the necessary arguments to the Java application.
-
-For convenience, if you are working in an environment with a single repository, you can create an alias in your shell's configuration file (e.g., `.bashrc`, `.zshrc`) to call `repo-manager` from any directory:
-
-```bash
-alias repo-manager='java -jar /path/to/your/repo/repo-manager.jar --repository=/path/to/your/repo "$@"'
-```
-
-Replace `/path/to/your/repo` with the absolute path to the root of this repository.
