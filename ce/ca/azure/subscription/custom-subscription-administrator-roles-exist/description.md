@@ -12,42 +12,7 @@ Subscriptions will need to be handled by Administrators with permissions.
 
 ## Audit
 
-### From Azure Portal
-
-1. From Azure Home select the Portal Menu.
-2. Select `Subscriptions`.
-3. Select a subscription.
-4. Select `Access control (IAM)`.
-5. Select `Roles`.
-6. Click `Type` and select `Custom role` from the drop-down menu.
-7. Select `View` next to a role.
-8. Select `JSON`.
-9. Check for `assignableScopes` set to the subscription, and `actions` set to `*`.
-10. Repeat steps 7-9 for each custom role.
-
-### From Azure CLI
-
-List custom roles:
-
-```sh
-az role definition list --custom-role-only True
-```
-
-Check for entries with `assignableScope` of the `subscription`, and an action of `*`.
-
-### From PowerShell
-
-```ps
-Connect-AzAccount Get-AzRoleDefinition |Where-Object {($_.IsCustom -eq $true) -and ($_.Actions.contains('*'))}
-```
-
-Check the output for `AssignableScopes` value set to the subscription.
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [a451c1ef-c6ca-483d-87ed-f49761e3ffb5](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa451c1ef-c6ca-483d-87ed-f49761e3ffb5) - **Name**: `Audit usage of custom RBAC roles`
+This policy marks an *Azure Subscription* as `INCOMPLIANT` if it has a Custom Role that grants administrative privileges at the subscription level. This is detected by the wildcard ("__*__") action in the role’s `Permissions Json` alongside a __/subscriptions/__ entry in its `Assignable Scopes Json`.
 
 ## Default Value
 

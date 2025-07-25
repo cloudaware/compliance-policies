@@ -1,0 +1,20 @@
+---
+inputType: "CA10__CaAzureStorageAccount__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAzureStorageAccount__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Shared key access for Azure Storage Account is forbidden."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__sharedKeyAccess__c"
+        right:
+          TEXT: "Deny"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The storage account permits requests that are authorized with the Shared Key."
+  remediationMessage: "Disable shared key access for Azure Storage Account."
+  

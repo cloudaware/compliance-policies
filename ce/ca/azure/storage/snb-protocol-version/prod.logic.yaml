@@ -1,0 +1,38 @@
+---
+inputType: "CA10Z1__CaAzureStorageFile__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10Z1__CaAzureStorageFile__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "SMB protocol version is set to 'SMB3.1.1'."
+    check:
+      AND:
+        args:
+          - CONTAINS:
+              arg:
+                EXTRACT: "CA10Z1__protocolSettingsSmbVersions__c"
+              search:
+                TEXT: "SMB3.1.1"
+          - NOT:
+              arg:
+                CONTAINS:
+                  arg:
+                    EXTRACT: "CA10Z1__protocolSettingsSmbVersions__c"
+                  search:
+                    TEXT: "SMB2.1"
+          - NOT:
+              arg:
+                CONTAINS:
+                  arg:
+                    EXTRACT: "CA10Z1__protocolSettingsSmbVersions__c"
+                  search:
+                    TEXT: "SMB3.0"
+# if CA10Z1__protocolSettingsSmbVersions__c is empty,
+# then the default maximum compatibility (that includes all values) is set
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "SMB protocol version is not set to 'SMB3.1.1'."
+  remediationMessage: "Set SMB protocol version to 'SMB3.1.1'."
+  

@@ -1,7 +1,7 @@
 ---
 names:
-  full: Azure Storage Account Allow Blob Anonymous Access is set enabled
-  contextual: Allow Blob Anonymous Access is set enabled
+  full: Azure Storage Account Allow Blob Anonymous Access is enabled
+  contextual: Allow Blob Anonymous Access is enabled
 description: "The Azure Storage setting 'Allow Blob Anonymous Access' (aka 'allowBlobPublicAccess')\
   \ controls whether anonymous access is allowed for blob data in a storage account.\
   \ When this property is set to True, it enables public read access to blob data,\
@@ -10,8 +10,7 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - "/frameworks/cis-azure-v2.1.0/03/17"
-  - "/frameworks/cis-azure-v3.0.0/04/17"
+  - "/frameworks/cis-azure-v4.0.0/10/03/09"
   - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
 similarPolicies:
   internal:

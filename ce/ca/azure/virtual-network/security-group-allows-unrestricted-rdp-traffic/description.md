@@ -1,14 +1,10 @@
 # Description
 
-Ensure that Azure Network Security Groups are not configured to allow unrestricted inbound access to the Remote Desktop Protocol (RDP) port (TCP 3389). RDP is commonly used for remote management and administrative access to Windows systems. Exposing RDP directly to the public internet creates a significant security risk, as it is a frequent target of brute-force attacks and exploitation attempts.
+Network security groups should be periodically evaluated for port misconfigurations. Where RDP is not explicitly required and narrowly configured for resources attached to a network security group, Internet-level access to Azure resources should be restricted or eliminated.
 
 ## Rationale
 
-Restricting RDP access through NSGs substantially reduces the attack surface of Azure Network Security Groups and enhances overall security posture. Public exposure of RDP enables threat actors to attempt unauthorized logins, exploit vulnerabilities, or launch ransomware attacks. Best practices recommend allowing RDP access only through secure methods such as VPNs, jump servers, or Azure Bastion, rather than opening the port directly to the internet.
-
-## Impact
-
-Implementing these restrictions may affect remote administration workflows that currently rely on direct RDP access over the internet. You should plan and implement alternative secure access methods to maintain operational continuity while eliminating unnecessary risk exposure.
+The potential security problem with using RDP over the Internet is that attackers can use various brute force techniques to gain access to Azure Virtual Machines. Once the attackers gain access, they can use a virtual machine as a launch point for compromising other machines on an Azure Virtual Network or even attack networked devices outside of Azure.
 
 ## Audit
 

@@ -29,7 +29,7 @@
         "expectedResult": {
             "status": "COMPLIANT",
             "conditionIndex": "499",
-            "conditionText": "extract('caJsonText__securityCenterContactsDefaultAlertNotificationsSeverity__c') == 'High' && extract('caJsonText__securityCenterContactsDefaultAlertNotifications__c') == 'On'",
+            "conditionText": "setOfText(['High', 'Critical']).contains(extract('caJsonText__securityCenterContactsDefaultAlertNotificationsSeverity__c')) && extract('caJsonText__securityCenterContactsDefaultAlertNotifications__c') == 'On'",
             "runtimeError": null
         },
         "context": {
@@ -94,7 +94,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "399",
-            "conditionText": "extract('caJsonText__securityCenterContactsDefaultAlertNotificationsSeverity__c') != 'High'",
+            "conditionText": "not(setOfText(['High', 'Critical']).contains(extract('caJsonText__securityCenterContactsDefaultAlertNotificationsSeverity__c')))",
             "runtimeError": null
         },
         "context": {

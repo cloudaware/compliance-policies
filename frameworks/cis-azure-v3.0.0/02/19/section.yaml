@@ -2,3 +2,7 @@
 name: "2.19 Ensure that 'Users can create security groups in Azure portals, API or PowerShell' is set to 'No' (Manual)"
 description: |-
   Restrict security group creation to administrators only.
+similar:
+  sections:
+    - /frameworks/cis-azure-v2.1.0/01/18
+    - /frameworks/cis-azure-v4.0.0/06/19

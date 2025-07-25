@@ -1,0 +1,13 @@
+---
+names:
+  full: "Azure Storage File Shares SMB Channel Encryption is not set to AES-256-GCM or higher"
+  contextual: "File Shares SMB Channel Encryption is not set to AES-256-GCM or higher"
+description: "Implement SMB channel encryption with AES-256-GCM for SMB file shares to ensure\ 
+  \ data confidentiality and integrity in transit. This method offers strong protection against\
+  \ eavesdropping and man-in-the-middle attacks, safeguarding sensitive information."
+type: BEST_PRACTICE
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v4.0.0/10/01/03"
+  - "/frameworks/cloudaware/resource-security/data-encryption"

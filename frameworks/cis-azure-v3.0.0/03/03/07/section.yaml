@@ -3,3 +3,7 @@ name: "3.3.7 Ensure that Private Endpoints are Used for Azure Key Vault (Automat
 description: >
   Private endpoints will secure network traffic from Azure Key Vault to the resources requesting 
   secrets and keys.
+similar:
+  sections:
+    - /frameworks/cis-azure-v2.1.0/08/07
+    - /frameworks/cis-azure-v4.0.0/09/03/08

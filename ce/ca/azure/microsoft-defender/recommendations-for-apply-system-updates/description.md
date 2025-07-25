@@ -31,6 +31,8 @@ Alternatively, you can employ your own patch assessment and management tool to p
 
 If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
 
+- **Policy ID**: [f85bf3e0-d513-442e-89c3-1784ad63382b](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailAdaptor.ReactView/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff85bf3e0-d513-442e-89c3-1784ad63382b) - **Name**: `System updates should be installed on your machines (powered by Update Center)`
+
 - **Policy ID**: [bd876905-5b84-4f73-ab2d-2e7a7c4568d9](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbd876905-5b84-4f73-ab2d-2e7a7c4568d9) - **Name**: `[Preview]: Machines should be configured to periodically check for missing system updates`
 
 ## Default Value

@@ -1,0 +1,62 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-22T16:18:44Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-07-02T15:40:18Z",
+        "CA10__status__c": "in-use",
+        "CA10__encrypted__c": true
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__status__c') != 'in-use'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-22T16:18:44Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "available",
+        "CA10__encrypted__c": false
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "not(extract('CA10__encrypted__c'))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-22T16:18:44Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "in-use",
+        "CA10__encrypted__c": false
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__encrypted__c') == true",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-22T16:18:44Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "in-use",
+        "CA10__encrypted__c": true
+    }
+]

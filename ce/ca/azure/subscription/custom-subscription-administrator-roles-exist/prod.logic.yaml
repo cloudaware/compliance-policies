@@ -31,8 +31,8 @@ relatedLists:
         currentStateMessage: "Permissions do not have * actions."
         check:
 # Returns true if permissions' actions have "*" action
-          IS_EQUAL:
-            left:
+          NOT:
+            arg:
               JSON_QUERY_BOOLEAN:
                 arg:
                   JSON_FROM:
@@ -44,8 +44,6 @@ relatedLists:
                 undeterminedIf:
                   evaluationError: "JSON query boolean has failed."
                   resultTypeMismatch: "JSON query did not return boolean type."
-            right:
-              BOOLEAN: false
       - status: "INCOMPLIANT"
         currentStateMessage: "This custom role has owner permissions and subscription scopes."
         remediationMessage: "Consider removing this role."

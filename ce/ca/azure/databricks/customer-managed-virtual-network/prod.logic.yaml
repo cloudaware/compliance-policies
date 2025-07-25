@@ -1,0 +1,24 @@
+---
+inputType: "CA10Z1__CaAzureDatabricksWorkspace__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10Z1__CaAzureDatabricksWorkspace__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Databricks Workspace is not deployed in a customer-managed virtual network."
+    remediationMessage: "Consider deleting the existing Databricks workspace and\
+      \ deploying a new Azure Databricks Workspace in a custom virtual network."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "caJsonText__parametersJsonCustomVirtualNetworkValue__c"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Databricks Workspace is deployed in a customer-managed virtual network."
+    check:
+      NOT_EMPTY:
+        arg:
+          EXTRACT: "caJsonText__parametersJsonCustomVirtualNetworkValue__c"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

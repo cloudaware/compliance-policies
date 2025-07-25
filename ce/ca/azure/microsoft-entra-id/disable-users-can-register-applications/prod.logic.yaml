@@ -38,7 +38,7 @@ relatedLists:
             left:
               EXTRACT: "CA10Z1__defaultPermissionCreateApps__c"
             right:
-              TEXT: "Disabled"
+              TEXT: "Enabled"
       - status: "COMPLIANT"
         currentStateMessage: "The default user role cannot create applications."
         check:
@@ -46,7 +46,7 @@ relatedLists:
             left:
               EXTRACT: "CA10Z1__defaultPermissionCreateApps__c"
             right:
-              TEXT: "Enabled"
+              TEXT: "Disabled"
     otherwise:
       status: "UNDETERMINED"
       currentStateMessage: "Unexpected value in the field."

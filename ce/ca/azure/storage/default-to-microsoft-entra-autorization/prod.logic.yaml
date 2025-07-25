@@ -1,0 +1,19 @@
+---
+inputType: "CA10__CaAzureStorageAccount__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAzureStorageAccount__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Default to Microsoft Entra authorization enabled for Account."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__defaultToOAuthAuthentication__c"
+        right:
+          TEXT: "Yes"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Default to Microsoft Entra authorization is not enabled for Account."
+  remediationMessage: "Enable Default to Microsoft Entra authorization."

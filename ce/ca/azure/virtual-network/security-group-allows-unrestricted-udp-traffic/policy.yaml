@@ -1,0 +1,12 @@
+---
+names:
+  full: "Azure Network Security Group allows public UDP access"
+  contextual: "Security Group allows public UDP access"
+description: >
+  Ensure that Azure Network Security Groups do not allow unrestricted public UDP protocol.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v4.0.0/08/03"
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

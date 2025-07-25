@@ -1,0 +1,26 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__publicNetworkAccess__c') == 'Disabled'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-03T06:52:36Z" },
+    "Id": "a7Z4x000000PJt5EAG",
+    "CA10__disappearanceTime__c": null,
+    "CA10__publicNetworkAccess__c": "Disabled"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-03T06:52:36Z" },
+    "Id": "a7Z4x000000PJkXEAW",
+    "CA10__disappearanceTime__c": null,
+    "CA10__publicNetworkAccess__c": ""
+  }
+]

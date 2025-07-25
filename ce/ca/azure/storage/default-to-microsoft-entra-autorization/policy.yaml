@@ -1,0 +1,12 @@
+---
+names:
+  full: "Azure Storage Account Default To OAuth Authentication is not set to Yes"
+  contextual: "Default To OAuth Authentication is not set to Yes"
+description: "When this property is enabled, the Azure portal authorizes requests to blobs, files,\
+  \ queues, and tables with Microsoft Entra ID by default."
+type: BEST_PRACTICE
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v4.0.0/10/03/03/01"
+  - "/frameworks/cloudaware/resource-security/secure-access"

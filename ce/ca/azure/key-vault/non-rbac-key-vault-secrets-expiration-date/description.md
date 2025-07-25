@@ -12,54 +12,9 @@ Secrets cannot be used beyond their assigned expiry date respectively. Secrets n
 
 ## Audit
 
-### From Azure Portal
+This policy flags an *Azure Key Vault* as `INCOMPLIANT` if any of the related *Azure Key Vault Secret* has an **empty** `Expiration Date`.
 
-1. Go to `Key vaults`.
-2. For each Key vault, click on `Secrets`.
-3. In the main pane, ensure that the status of the secret is `Enabled`.
-4. Set an appropriate `Expiration date` on all secrets.
-
-### From Azure CLI
-
-Get a list of all the key vaults in your Azure environment by running the following command:
-
-```sh
-az keyvault list
-```
-
-For each key vault, ensure that the output of the below command contains ID (id), enabled status as `true` and Expiration date (expires) is not empty or null:
-
-```sh
-az keyvault secret list --vault-name <KEYVALUTNAME> --query '[*].{"kid":kid,"enabled":attributes.enabled,"expires":attributes.expires}'
-```
-
-### From PowerShell
-
-Retrieve a list of Key vaults:
-
-```ps
-Get-AzKeyVault
-```
-
-For each Key vault, run the following command to determine which vaults are configured to use RBAC:
-
-```ps
-Get-AzKeyVault -VaultName <Vault Name>
-```
-
-For each Key vault with the `EnableRbacAuthorizatoin` setting set to `False`, run the following command:
-
-```ps
-Get-AzKeyVaultSecret -VaultName <Vault Name>
-```
-
-Make sure the `Expires` setting is configured with a value as appropriate wherever the `Enabled` setting is set to `True`.
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [98728c90-32c7-4049-8429-847dc0f4fe37](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98728c90-32c7-4049-8429-847dc0f4fe37) - **Name**: 'Key Vault secrets should have an expiration date'
+A *Key Vault* is marked as `INAPPLICABLE` if `RBAC Authorization` is set to **Enabled**.
 
 ## Default Value
 

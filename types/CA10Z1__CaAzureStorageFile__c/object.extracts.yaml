@@ -1,0 +1,31 @@
+---
+extracts:
+# Nullable. Text field. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'
+  - name: "CA10Z1__protocolSettingsSmbChannelEncrypt__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__protocolSettingsSmbChannelEncrypt__c"
+# Nullable, when Null, then the default maximum compatibility is set. 
+# Text field. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
+  - name: "CA10Z1__protocolSettingsSmbVersions__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__protocolSettingsSmbVersions__c"
+# Nullable. Text field.
+  - name: "CA10Z1__shareDeleteRetentionPolicyStatus__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__shareDeleteRetentionPolicyStatus__c"
+# Nullable. Number field.
+  - name: "CA10Z1__shareDeleteRetentionPolicyDays__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__shareDeleteRetentionPolicyDays__c"        
+
+
+
+
+
+        
+
+        

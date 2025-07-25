@@ -22,3 +22,10 @@ extracts:
           EXTRACT: "CA10__conditionJson__c"
         undeterminedIf:
           isInvalid: "Condition JSON is invalid."
+# Not nullable. Can't have no access, retrieved via Microsoft.Insights/ActivityLogAlerts
+  - name: "CA10__scopes__c"
+    value: 
+      FIELD:
+        path: "CA10__scopes__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Scopes cannot be empty."

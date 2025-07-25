@@ -1,6 +1,6 @@
 # Description
 
-Create an activity log alert for the Create or Update Public IP Addresses rule.
+Create an activity log alert for the Create or Update Public IP Addresses event.
 
 ## Rationale
 
@@ -12,35 +12,7 @@ There will be a substantial increase in log size if there are a large number of 
 
 ## Audit
 
-### From Azure Portal
-
-1. Navigate to the `Monitor` blade.
-2. Click on `Alerts`.
-3. In the Alerts window, click on `Alert rules`.
-4. Ensure an alert rule exists where the Condition column contains `Operation name=Microsoft.Network/publicIPAddresses/write`.
-5. Click on the `Alert Name` associated with the previous step.
-6. Ensure the `Condition` panel displays the text `Whenever the Activity Log has an event with Category='Administrative'`, `Operation name='Create or Update Public Ip Address'` and does not filter on `Level`, `Status` or `Caller`.
-7. Ensure the `Actions` panel displays an Action group is assigned to notify the appropriate personnel in your organization.
-
-### From Azure CLI
-
-```sh
-az monitor activity-log alert list --subscription <subscription Id> --query "[].{Name:name,Enabled:enabled,check:condition.allOf,Actions:actions}"
-```
-
-Look for `Microsoft.Network/publicIPAddresses/write` in the output.
-
-### From PowerShell
-
-```ps
-Get-AzActivityLogAlert -SubscriptionId <subscription ID>|where-object {$_.ConditionAllOf.Equal -match "Microsoft.Network/publicIPAddresses/write"}|select-object Location,Name,Enabled,ResourceGroupName,ConditionAllOf
-```
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [1513498c-3091-461a-b321-e9b433218d28](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1513498c-3091-461a-b321-e9b433218d28) - **Name**: `Enable logging by category group for Public IP addresses (microsoft.network/publicipaddresses) to Log Analytics`
+This policy evaluates *Azure Subscriptions* for the presence of an *Azure Activity Log Alert* that captures **Create or Update Public IP Addresses** events. A subscription is marked as `INCOMPLIANT` if it does **not** have an *Activity Log Alert* whose `Condition JSON` filters on the **Microsoft.Network/publicIPAddresses/write** operation.
 
 ## Default Value
 

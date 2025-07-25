@@ -1,0 +1,12 @@
+---
+names:
+  full: Intune logs are not captured and sent to Log Analytics
+  contextual: Intune logs are not captured and sent to Log Analytics
+description: "Ensure that Intune logs are captured and fed into a central log analytics workspace."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v4.0.0/07/01/01/10"
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"

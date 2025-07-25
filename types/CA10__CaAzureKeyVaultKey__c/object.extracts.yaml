@@ -21,3 +21,8 @@ extracts:
         #   noAccessDelegate:
         #     path: "CA10__lifetimeActions__c"
         #     currentStateMessage: "Unable to determine Key Rotation Policy. Possible permission issue with keys/getrotationpolicy"
+# Creation time in UTC.
+  - name: "CA10__created__c"
+    value:
+      FIELD:
+        path: "CA10__created__c"

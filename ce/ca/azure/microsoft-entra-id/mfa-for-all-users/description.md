@@ -1,17 +1,20 @@
 
 # Description
 
-For designated users, they will be prompted to use their multi-factor authentication (MFA) process on logins.
+A Conditional Access policy can be enabled to ensure that users are required to use Multifactor Authentication (MFA) to login.
+
+**Note**: Since 2024, Azure has been rolling out mandatory multifactor authentication. For more information:
+
+- <https://azure.microsoft.com/en-us/blog/announcing-mandatory-multi-factor-authentication-for-azure-sign-in>
+- <https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mandatory-multifactor-authentication>
 
 ## Rationale
 
-Enabling multi-factor authentication is a recommended setting to limit the potential of accounts being compromised and limiting access to authenticated personnel.
+Multifactor authentication is strongly recommended to increase the confidence that a claimed identity can be proven to be the subject of the identity. This results in a stronger authentication chain and reduced likelihood of exploitation.
 
 ## Impact
 
-There is an increased cost, as Conditional Access policies require Microsoft Entra ID P1 or P2. Similarly, this may require additional overhead to maintain if users lose access to their MFA.
-
-**NOTE**: Starting July 2024, Microsoft will begin requiring MFA for All Users - including Break Glass Accounts. By the end of October 2024, this requirement will be enforced. Physical FIDO2 security keys, or a certificate kept on secure removable storage can fulfill this MFA requirement. If opting for a physical device, that device should be kept in a very secure, documented physical location.
+There is an increased cost associated with Conditional Access policies because of the requirement of Microsoft Entra ID P1 or P2 licenses. Additional support overhead may also need to be considered.
 
 ## Audit
 
@@ -24,7 +27,7 @@ There is an increased cost, as Conditional Access policies require Microsoft Ent
 5. Select the policy you wish to audit.
 6. Click the blue text under `Users`.
 7. View under `Include` the corresponding users and groups to whom the policy is applied.
-8. View under `Exclude` to determine which users and groups to whom the policy is not applied.
+8. Under `Exclude` ensure that no users or groups are specified. If there are users or groups specified for exclusion, a very strong justification should exist for each exception, and all excepted account-level objects should be recorded in documentation along with the justification for comparison in future audits.
 
 ## Default Value
 

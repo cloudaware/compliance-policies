@@ -1,0 +1,62 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-21T14:26:56Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-07-21T14:26:56Z",
+        "CA10__nodeType__c": "dax.r5.large",
+        "CA10__serverSideEncryptionStatus__c": "DISABLED"
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__nodeType__c').startsWith('dax.r3.')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-21T14:26:56Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__nodeType__c": "dax.r3.large",
+        "CA10__serverSideEncryptionStatus__c": "DISABLED"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__serverSideEncryptionStatus__c') == 'DISABLED'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-21T14:26:56Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__nodeType__c": "dax.r5.large",
+        "CA10__serverSideEncryptionStatus__c": "DISABLED"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__serverSideEncryptionStatus__c') == 'ENABLED'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-21T14:26:56Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__nodeType__c": "dax.r5.large",
+        "CA10__serverSideEncryptionStatus__c": "ENABLED"
+    }
+]

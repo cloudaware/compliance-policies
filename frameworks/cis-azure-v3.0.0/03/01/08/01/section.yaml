@@ -3,3 +3,7 @@ name: "3.1.8.1 Ensure That Microsoft Defender for Key Vault Is Set To 'On' (Auto
 description: |-
   Turning on Microsoft Defender for Key Vault enables threat detection for Key Vault, providing 
   threat intelligence, anomaly detection, and behavior analytics in the Microsoft Defender for Cloud.
+similar:
+  sections:
+    - /frameworks/cis-azure-v2.1.0/02/01/09
+    - /frameworks/cis-azure-v4.0.0/09/01/08/01

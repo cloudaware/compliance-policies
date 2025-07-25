@@ -12,42 +12,9 @@ Turning on Microsoft Defender for Azure SQL Databases incurs an additional cost 
 
 ## Audit
 
-### From Azure Portal
+This policy flags an *Azure Subscription* as `INCOMPLIANT` if the related `Azure Defender Plan` for **Managed Instance Azure SQL Databases** has its `Pricing Tier` set to **Free**.
 
-1. Go to `Microsoft Defender for Cloud`.
-2. Under `Management`, select `Environment Settings`.
-3. Click on the subscription name.
-4. Select the `Defender plans` blade.
-5. Click `Select types >` in the row for `Databases`.
-6. Ensure the toggle switch next to `Azure SQL Databases` is set to `On`.
-
-### From Azure CLI
-
-Run the following command:
-
-```sh
-az security pricing show -n SqlServers
-```
-
-Ensure `PricingTier` is set to `Standard`.
-
-### From PowerShell
-
-Run the following command:
-
-```ps
-Get-AzSecurityPricing -Name 'SqlServers' | Select-Object Name,PricingTier
-```
-
-Ensure the `PricingTier` is set to `Standard`.
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [7fe3b40f-802b-4cdd-8bd4-fd799c948cc2](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7fe3b40f-802b-4cdd-8bd4-fd799c948cc2) - **Name**: `Azure Defender for Azure SQL Database servers should be enabled`
-
-- **Policy ID**: [abfb7388-5bf4-4ad7-ba99-2cd2f41cebb9](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb7388-5bf4-4ad7-ba99-2cd2f41cebb9) - **Name**: `Azure Defender for SQL should be enabled for unprotected SQL Managed Instances`
+A *Subscription* is also marked as `INCOMPLIANT` if the `Defender Plan` for **Managed Instance Azure SQL Databases** does **not** exist in the CMDB.
 
 ## Default Value
 

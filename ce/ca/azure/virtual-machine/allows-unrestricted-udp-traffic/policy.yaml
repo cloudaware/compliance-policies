@@ -1,0 +1,11 @@
+---
+names:
+  full: "Azure Virtual Machine allows public UDP access"
+  contextual: "Virtual Machine allows public UDP access"
+description: >
+  Ensure that Azure Virtual Machines do not allow unrestricted public UDP protocol.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

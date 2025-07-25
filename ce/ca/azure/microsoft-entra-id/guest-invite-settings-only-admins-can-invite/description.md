@@ -14,20 +14,10 @@ With the option of `Only users assigned to specific admin roles can invite guest
 
 ## Audit
 
-### From Azure Portal
+This policy marks an *Azure Active Directory* as `INCOMPLIANT` if the related *Active Directory Auth Policy* has `Invites From State` set to either:
 
-1. From Azure Home select the Portal Menu.
-2. Select `Microsoft Entra ID`.
-3. Then `External Identities`.
-4. `External collaboration settings`.
-5. Under `Guest invite settings`, for `Guest invite restrictions`, ensure that that `Only users assigned to specific admin roles can invite guest users` is selected.
-
-**Note**: This setting has 4 levels of restriction, which include:
-
-- Anyone in the organization can invite guest users including guests and non-admins (most inclusive).
-- Member users and users assigned to specific admin roles can invite guest users including guests with member permissions.
-- Only users assigned to specific admin roles can invite guest users.
-- No one in the organization can invite guest users including admins (most restrictive).
+- **everyone**, or
+- **adminsGuestInvitersAndAllMembers**.
 
 ## Default Value
 

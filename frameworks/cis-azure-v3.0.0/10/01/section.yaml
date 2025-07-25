@@ -6,3 +6,7 @@ description: >
   Controls (RBAC) hierarchy and, when applied, will place restrictions on the resource for all users. 
   These locks are very useful when there is an important resource in a subscription that users should 
   not be able to delete or change. Locks can help prevent accidental and malicious changes or deletion.
+similar:
+  sections:
+    - /frameworks/cis-azure-v2.1.0/10/01
+    - /frameworks/cis-azure-v4.0.0/07/02

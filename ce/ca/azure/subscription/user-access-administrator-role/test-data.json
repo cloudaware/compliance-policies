@@ -1,0 +1,47 @@
+[
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('Name') != 'User Access Administrator'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-01T17:36:53Z" },
+    "Id": "a001",
+    "CA10__disappearanceTime__c": null,
+    "Name": "Microsoft.Kubernetes connected cluster role",
+    "CA10__Azure_Authorization_Role_Assignments__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__Azure_Authorization_Role_Assignments__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-01T17:36:53Z" },
+    "Id": "a002",
+    "CA10__disappearanceTime__c": null,
+    "Name": "User Access Administrator",
+    "CA10__Azure_Authorization_Role_Assignments__r": [
+      {
+        "Id": "111",
+        "CA10__disappearanceTime__c": null,
+        "CA10__role__c": "a002"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-01T17:36:53Z" },
+    "Id": "a003",
+    "CA10__disappearanceTime__c": null,
+    "Name": "User Access Administrator",
+    "CA10__Azure_Authorization_Role_Assignments__r": []
+  }
+]

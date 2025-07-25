@@ -1,0 +1,53 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-01T17:36:53Z" },
+    "Id": "001",
+    "RecordTypeId": "01236000000601XAAQ",
+    "CA10__disappearanceTime__c": null,
+    "CA10__sharedKeyAccess__c": "",
+    "RecordType": {
+      "DeveloperName": "caAzureRMStorageAccount",
+      "Id": "01236000000601XAAQ"
+    }
+  },
+    {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-01T17:36:53Z" },
+    "Id": "002",
+    "RecordTypeId": "01236000000601XAAQ",
+    "CA10__disappearanceTime__c": null,
+    "CA10__sharedKeyAccess__c": "Allow",
+    "RecordType": {
+      "DeveloperName": "caAzureRMStorageAccount",
+      "Id": "01236000000601XAAQ"
+    }
+  },
+      {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__sharedKeyAccess__c') == 'Deny'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-01T17:36:53Z" },
+    "Id": "003",
+    "RecordTypeId": "01236000000601XAAQ",
+    "CA10__disappearanceTime__c": null,
+    "CA10__sharedKeyAccess__c": "Deny",
+    "RecordType": {
+      "DeveloperName": "caAzureRMStorageAccount",
+      "Id": "01236000000601XAAQ"
+    }
+  }
+]

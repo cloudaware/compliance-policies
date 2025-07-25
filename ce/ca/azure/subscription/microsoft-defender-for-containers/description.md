@@ -1,77 +1,50 @@
 # Description
 
-Turning on Microsoft Defender for Containers enables threat detection for Container Registries including Kubernetes, providing threat intelligence, anomaly detection, and behavior analytics in the Microsoft Defender for Cloud. The following services will be enabled for container instances:
+Microsoft Defender for Containers helps improve, monitor, and maintain the security of containerized assets—including Kubernetes clusters, nodes, workloads, container registries, and images—across multi-cloud and on-premises environments.
 
-- Defender agent in Azure
-- Azure Policy for Kubernetes
-- Agentless discovery for Kubernetes
-- Agentless container vulnerability assessment
+By default, when enabling the plan through the Azure Portal, Microsoft Defender for Containers automatically configures the following components:
+
+- **Agentless scanning for machines**
+- **Defender sensor** for runtime protection
+- **Azure Policy** for enforcing security best practices
+- **K8S API access** for monitoring and threat detection
+- **Registry access** for vulnerability assessment
+
+**Note:** Microsoft Defender for Container Registries ('ContainerRegistry') is deprecated and has been replaced by Microsoft Defender for Containers ('Containers').
 
 ## Rationale
 
-Enabling Microsoft Defender for Container Registries allows for greater defense-in-depth, with threat detection provided by the Microsoft Security Response Center (MSRC).
+Enabling Microsoft Defender for Containers enhances defense-in-depth by providing advanced threat detection, vulnerability assessment, and security monitoring for containerized environments, leveraging insights from the Microsoft Security Response Center (MSRC).
 
 ## Impact
 
-Turning on Microsoft Defender for Containers incurs an additional cost per resource.
+Microsoft Defender for Containers incurs a charge per vCore. Refer to <https://azure.microsoft.com/en-us/pricing/details/defender-for-cloud/> and <https://azure.microsoft.com/en-us/pricing/calculator/> to estimate potential costs.
 
 ## Audit
 
-### From Azure Portal
+This policy flags an *Azure Subscription* as `INCOMPLIANT` if the related `Azure Defender Plan` for **Containers** meets any of the following conditions:
 
-1. Go to `Microsoft Defender for Cloud`.
-2. Under `Management`, select `Environment Settings`.
-3. Click on the subscription name.
-4. Select `Defender plans`.
-5. Ensure the `Status` for `Containers` is set to `On`.
+- The `Pricing Tier` field is set to **Free**
+- The **ContainerRegistriesVulnerabilityAssessments** `Extension` is not **Enabled**
+- The **AgentlessDiscoveryForKubernetes** `Extension` is not **Enabled**
+- The **AgentlessVmScanning** `Extension` is not **Enabled**
+- The **ContainerSensor** `Extension` is not **Enabled**
 
-### From Azure CLI
-
-Ensure the output of the commands below indicates `Standard` pricing.
-
-For legacy Defender for Container Registries instances:
-
-```sh
-az security pricing show --name "ContainerRegistry" --query pricingTier
-```
-
-For new Defender for Containers instances:
-
-```sh
-az security pricing show --name "Containers" --query pricingTier
-```
-
-### From PowerShell
-
-Ensure the output of the commands below indicates `Standard` pricing.
-
-For legacy Defender for Container Registries instances:
-
-```ps
-Get-AzSecurityPricing -Name 'ContainerRegistry' | Select-Object Name,PricingTier
-```
-
-For new Defender for Containers instances:
-
-```ps
-Get-AzSecurityPricing -Name 'Containers' | Select-Object Name,PricingTier
-```
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [1c988dd6-ade4-430f-a608-2a3e5b0a6d38](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c988dd6-ade4-430f-a608-2a3e5b0a6d38) - **Name**: `Microsoft Defender for Containers should be enabled`
+The *Subscription* is also marked as `INCOMPLIANT` if the *Azure Defender Plan* for **Container Registries** has the `Pricing Tier` set to **Free**, or if either the **Containers** or **Container Registries** **Defender Plan** does **not** exist in the CMDB.
 
 ## Default Value
 
-By default, Microsoft Defender for Containers is `off`.
+The Microsoft Defender for Containers plan is disabled by default.
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/security-center/security-center-detection-capabilities>
-2. <https://docs.microsoft.com/en-us/rest/api/securitycenter/pricings/list>
-3. <https://docs.microsoft.com/en-us/rest/api/securitycenter/pricings/update>
-4. <https://docs.microsoft.com/en-us/powershell/module/az.security/get-azsecuritypricing>
-5. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-logging-threat-detection#lt-1-enable-threat-detection-capabilities>
-6. <https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks>
+1. <https://learn.microsoft.com/en-us/cli/azure/security/pricing>
+2. <https://learn.microsoft.com/en-us/powershell/module/az.security/get-azsecuritypricing>
+3. <https://learn.microsoft.com/en-us/powershell/module/az.security/set-azsecuritypricing>
+4. <https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction>
+5. <https://learn.microsoft.com/en-us/azure/defender-for-cloud/tutorial-enable-containers-azure>
+6. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-logging-threat-detection#lt-1-enable-threat-detection-capabilities>
+
+## Additional Information
+
+The Azure Policy 'Microsoft Defender for Containers should be enabled' checks only that the `pricingTier` for `Containers` is set to `Standard`. It does not check the status of the plan's components.

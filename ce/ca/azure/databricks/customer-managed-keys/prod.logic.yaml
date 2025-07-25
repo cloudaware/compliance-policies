@@ -1,0 +1,34 @@
+---
+inputType: "CA10Z1__CaAzureDatabricksWorkspace__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10Z1__CaAzureDatabricksWorkspace__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Databricks Workspace is not encrypted with a customer-managed key."
+    remediationMessage: "Encrypt the Databricks Workspace with a customer-managed key."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10Z1__encryptionManagedDisksKeySource__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Databricks Workspace is encrypted with a Microsoft-managed key."
+    remediationMessage: "Encrypt the Databricks Workspace with a customer-managed key."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__encryptionManagedDisksKeySource__c"
+        right:
+          TEXT: "Microsoft.Keyvault"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Databricks Workspace is encrypted with a customer-managed key."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__encryptionManagedDisksKeySource__c"
+        right:
+          TEXT: "Microsoft.Keyvault"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

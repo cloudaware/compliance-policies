@@ -1,0 +1,34 @@
+inputType: "CA10__CaAwsDaxCluster__c"
+testData:
+ - file: test-data.json
+importExtracts:
+ - file: /types/CA10__CaAwsDaxCluster__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "DAX encryption at rest is not supported for dax.r3.* node types."
+    check:
+      STARTS_WITH:
+        arg:
+          EXTRACT: "CA10__nodeType__c"
+        search:
+          TEXT: "dax.r3."
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The DAX Cluster is not encrypted at rest."
+    remediationMessage: "Consider enabling server-side encryption for the DAX cluster."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__serverSideEncryptionStatus__c"
+        right:
+          TEXT: "DISABLED"
+  - status: "COMPLIANT"
+    currentStateMessage: "The DAX Cluster is encrypted at rest."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__serverSideEncryptionStatus__c"
+        right:
+          TEXT: "ENABLED"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

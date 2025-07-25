@@ -1,0 +1,26 @@
+inputType: "CA10__CaAwsDynamoDbTable__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: /types/CA10__CaAwsDynamoDbTable__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Point-in-Time Recovery is not enabled for this DynamoDB table."
+    remediationMessage: "Consider enabling Point-in-Time Recovery for the DynamoDB table to allow for granular data restoration."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__pointInTimeRecoveryStatus__c"
+        right:
+          TEXT: "DISABLED"
+  - status: "COMPLIANT"
+    currentStateMessage: "Point-in-Time Recovery is enabled for this DynamoDB table."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__pointInTimeRecoveryStatus__c"
+        right:
+          TEXT: "ENABLED"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

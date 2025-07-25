@@ -12,35 +12,9 @@ Turning on Microsoft Defender for Key Vault incurs an additional cost per resour
 
 ## Audit
 
-### From Azure Portal
+This policy flags an *Azure Subscription* as `INCOMPLIANT` if the related `Azure Defender Plan` for **Key Vaults** has its `Pricing Tier` set to **Free**.
 
-1. Go to `Microsoft Defender for Cloud`.
-2. Under `Management`, select `Environment Settings`.
-3. Click on the subscription name.
-4. Select the `Defender plans` blade.
-5. Ensure `Status` is set to `On` for `Key Vault`.
-
-### From Azure CLI
-
-Ensure the output of the below command is `Standard`:
-
-```sh
-az security pricing show -n 'KeyVaults' --query 'PricingTier'
-```
-
-### From PowerShell
-
-```ps
-Get-AzSecurityPricing -Name 'KeyVaults' | Select-Object Name,PricingTier
-```
-
-Ensure output for `PricingTier` is `Standard`.
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [0e6763cc-5078-4e64-889d-ff4d9a839047](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e6763cc-5078-4e64-889d-ff4d9a839047) - **Name**: `Azure Defender for Key Vault should be enabled`
+A *Subscription* is also marked as `INCOMPLIANT` if the `Defender Plan` for **Key Vaults** does **not** exist in the CMDB.
 
 ## Default Value
 

@@ -5,3 +5,7 @@ description: >
   login credentials. An adversary can leverage the access to move laterally and perform actions 
   with the virtual machine's managed identity. Make sure the virtual machine only has necessary 
   permissions, and revoke the admin-level permissions according to the least privileges principal
+similar:
+  sections:
+    - /frameworks/cis-azure-v2.1.0/07/08
+    - /frameworks/cis-azure-v4.0.0/04/01/01

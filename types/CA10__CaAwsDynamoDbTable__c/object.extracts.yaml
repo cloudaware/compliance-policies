@@ -1,0 +1,20 @@
+---
+extracts:
+# Nullable, null is equal to PROVISIONED
+  - name: "CA10__billingMode__c"
+    value:
+      FIELD:
+        path: CA10__billingMode__c
+        # undeterminedIf:
+        #   noAccessDelegate:
+        #     path: "CA10__billingMode__c"
+        #     currentStateMessage: "Unable to determine Table Billing Mode. Possible permission issue with dynamodb:DescribeTable."
+# Values: ENABLED | DISABLED. Not nullable. 
+  - name: "CA10__pointInTimeRecoveryStatus__c"
+    value:
+      FIELD:
+        path: CA10__pointInTimeRecoveryStatus__c
+        # undeterminedIf:
+        #   noAccessDelegate:
+        #     path: "CA10__pointInTimeRecoveryStatus__c"
+        #     currentStateMessage: "Unable to determine Point In Time Recovery Status. Possible permission issue with dynamodb:DescribeTable."

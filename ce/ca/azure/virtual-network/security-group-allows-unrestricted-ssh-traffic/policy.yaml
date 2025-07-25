@@ -8,12 +8,11 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - "/frameworks/cis-azure-v2.1.0/06/01"
-  - "/frameworks/cis-azure-v3.0.0/07/01"
+  - "/frameworks/cis-azure-v4.0.0/08/02"
   - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
 similarPolicies:
   internal:
-    - dec-x-4c15a09f
+    - dec-x-599c86b4
   cloudConformity:
-    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/Network/unrestricted-rdp-access.html
-      name: Check for Unrestricted RDP Access
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/Network/unrestricted-ssh-access.html
+      name: Check for Unrestricted SSH Access

@@ -8,6 +8,7 @@
 4. Click `Defender plans` in the left pane.
 5. Under `Cloud Workload Protection (CWP)`, locate `Server` in the Plan column, set Status to `On`.
 6. Select `Save`.
+7. Repeat steps 1-6 for each subscription requiring remediation.
 
 ## From Azure CLI
 

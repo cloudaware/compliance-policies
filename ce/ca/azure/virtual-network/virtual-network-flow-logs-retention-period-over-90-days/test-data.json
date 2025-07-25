@@ -1,0 +1,128 @@
+[
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10Z1__logStatus__c') != 'Enabled'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-03T06:52:36Z" },
+    "Id": "001",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__logStatus__c": "Disabled",
+    "CA10Z1__virtualNetwork__c": "v001",
+    "CA10Z1__virtualNetworkId__c": "/subscriptions/565c00f0-066e-43b6-9bee-9cf93fe2b312/resourcegroups/domaincontrollers-rg/providers/microsoft.network/virtualNetworks/v001",
+    "CA10Z1__retentionPolicyStatus__c": "Disabled",
+    "CA10Z1__retentionPolicyDays__c": 0,
+    "CA10Z1__virtualNetwork__r": {
+      "Id": "v001",
+      "CA10__disappearanceTime__c": null
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "isEmptyLookup('CA10Z1__virtualNetwork__r')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-03T06:52:36Z" },
+    "Id": "002",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__logStatus__c": "Enabled",
+    "CA10Z1__networkSecurityGroup__c": "g001",
+    "CA10Z1__networkSecurityGroupId__c": "/subscriptions/565c00f0-066e-43b6-9bee-9cf93fe2b312/resourcegroups/domaincontrollers-rg/providers/microsoft.network/networkSecurityGroups/g001",
+    "CA10Z1__retentionPolicyStatus__c": "Disabled",
+    "CA10Z1__retentionPolicyDays__c": 0,
+    "CA10Z1__networkSecurityGroup__r": {
+      "Id": "g001",
+      "CA10__disappearanceTime__c": null
+    },
+    "CA10Z1__virtualNetwork__c": "",
+    "CA10Z1__virtualNetworkId__c": "",
+    "CA10Z1__virtualNetwork__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10Z1__retentionPolicyStatus__c') != 'Enabled'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-03T06:52:36Z" },
+    "Id": "003",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__logStatus__c": "Enabled",
+    "CA10Z1__virtualNetwork__c": "v002",
+    "CA10Z1__virtualNetworkId__c": "/subscriptions/565c00f0-066e-43b6-9bee-9cf93fe2b312/resourcegroups/domaincontrollers-rg/providers/microsoft.network/virtualNetworks/v002",
+    "CA10Z1__retentionPolicyStatus__c": "Disabled",
+    "CA10Z1__retentionPolicyDays__c": 0,
+    "CA10Z1__virtualNetwork__r": {
+      "Id": "v002",
+      "CA10__disappearanceTime__c": null
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "500",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-03T06:52:36Z" },
+    "Id": "004",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__logStatus__c": "Enabled",
+    "CA10Z1__virtualNetwork__c": "v003",
+    "CA10Z1__virtualNetworkId__c": "/subscriptions/603da06c-b6b0-4092-9d96-89617bcf6635/resourcegroups/sitecore-pp-agw/providers/microsoft.network/virtualNetworks/v003",
+    "CA10Z1__retentionPolicyStatus__c": "Enabled",
+    "CA10Z1__retentionPolicyDays__c": 30,
+    "CA10Z1__virtualNetwork__r": {
+      "Id": "v003",
+      "CA10__disappearanceTime__c": null
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10Z1__retentionPolicyDays__c') == number(0.0) || extract('CA10Z1__retentionPolicyDays__c') >= number(90.0)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-03T06:52:36Z" },
+    "Id": "005",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__logStatus__c": "Enabled",
+    "CA10Z1__virtualNetwork__c": "v004",
+    "CA10Z1__virtualNetworkId__c": "/subscriptions/603da06c-b6b0-4092-9d96-89617bcf6635/resourcegroups/sitecore-pp-agw/providers/microsoft.network/virtualNetworks/v004",
+    "CA10Z1__retentionPolicyStatus__c": "Enabled",
+    "CA10Z1__retentionPolicyDays__c": 0,
+    "CA10Z1__virtualNetwork__r": {
+      "Id": "v004",
+      "CA10__disappearanceTime__c": null
+    }
+  },
+    {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10Z1__retentionPolicyDays__c') == number(0.0) || extract('CA10Z1__retentionPolicyDays__c') >= number(90.0)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-03T06:52:36Z" },
+    "Id": "006",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__logStatus__c": "Enabled",
+    "CA10Z1__virtualNetwork__c": "v005",
+    "CA10Z1__virtualNetworkId__c": "/subscriptions/603da06c-b6b0-4092-9d96-89617bcf6635/resourcegroups/sitecore-pp-agw/providers/microsoft.network/virtualNetworks/v005",
+    "CA10Z1__retentionPolicyStatus__c": "Enabled",
+    "CA10Z1__retentionPolicyDays__c": 99,
+    "CA10Z1__virtualNetwork__r": {
+      "Id": "v005",
+      "CA10__disappearanceTime__c": null
+    }
+  }
+]

@@ -26,7 +26,13 @@ If the workspace is deleted by the last day of a free trial period, no charges a
 
 ## Audit
 
-To view Defender EASM workspaces created for your Subscriptions, search for EASM in the Azure Portal using the search box.
+### From Azure Portal
+
+1. Go to `Microsoft Defender EASM`.
+2. Ensure that at least one Microsoft Defender EASM workspace is listed.
+3. Click the name of a workspace.
+4. Ensure the workspace is configured appropriately for your environment and organization.
+5. Repeat steps 3-4 for each workspace.
 
 ## Default Value
 

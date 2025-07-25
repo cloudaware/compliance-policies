@@ -12,30 +12,7 @@ The Azure Bastion service incurs additional costs and requires a specific virtua
 
 ## Audit
 
-### From Azure Portal
-
-1. Click on `Bastions`.
-2. Ensure there is at least one `Bastion` host listed under the `Name` column.
-
-### From Azure CLI
-
-**Note**: The Azure CLI `network bastion` module is in `Preview` as of this writing:
-
-```sh
-az network bastion list --subscription <subscription ID>
-```
-
-Ensure the output of the above command is not empty.
-
-### From PowerShell
-
-Retrieve the `Bastion` host(s) information for a specific `Resource Group`:
-
-```ps
-Get-AzBastion -ResourceGroupName <resource group name>
-```
-
-Ensure the output of the above command is not empty.
+This policy flags an *Azure Subscription* as `INCOMPLIANT` if it does **not** have any related **Azure Bastion Hosts**.
 
 ## Default Value
 

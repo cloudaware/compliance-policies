@@ -16,10 +16,17 @@ Log consumption and processing will incur additional cost.
 
 1. Go to `App Services`.
 
-For each `App Service`:
+    For each `App Service`:
 
 2. Under `Monitoring`, go to `Diagnostic Settings`.
 3. Ensure a diagnostic setting exists that logs `HTTP logs` to a destination aligned to your environment's approach to log consumption (event hub, storage account, etc. dependent on what is consuming the logs such as SIEM or other log aggregation utility).
+
+### From Azure Policy
+
+If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
+
+- **Policy ID**: [91a78b24-f231-4a8a-8da9-02c35b2b6510](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailAdaptor.ReactView/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F91a78b24-f231-4a8a-8da9-02c35b2b6510) - **Name:** 'App Service apps should have resource logs enabled'
+- **Policy ID:** [d639b3af-a535-4bef-8dcf-15078cddf5e2](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailAdaptor.ReactView/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd639b3af-a535-4bef-8dcf-15078cddf5e2) - **Name:** 'App Service app slots should have resource logs enabled'
 
 ## Default Value
 

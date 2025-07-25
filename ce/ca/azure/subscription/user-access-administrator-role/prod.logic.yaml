@@ -1,0 +1,31 @@
+---
+inputType: "CA10__CaAzureAuthorizationRole__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureAuthorizationRole__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The policy applies only to the 'User Access Administrator' role."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "Name"
+        right:
+          TEXT: "User Access Administrator"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "User Access Administrator role is assigned."
+    remediationMessage: "Remove all role assignments."
+    check:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__Azure_Authorization_Role_Assignments__r"
+        status: "INCOMPLIANT"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "User Access Administrator role is not assigned."
+relatedLists:
+  - relationshipName: "CA10__Azure_Authorization_Role_Assignments__r"
+    conditions: []
+    otherwise: 
+      status: "INCOMPLIANT"
+      currentStateMessage: "Authorization Role Assignment exists."

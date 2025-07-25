@@ -1,0 +1,15 @@
+---
+names:
+  full: Azure Databricks Workspace traffic is not encrypted between cluster worker nodes
+  contextual: Workspace traffic is not encrypted between cluster worker nodes
+description: "By default, data exchanged between worker nodes in an Azure Databricks cluster is not\
+  \ encrypted. To ensure that data is encrypted at all times, whether at rest or in transit, you\
+  \ can create an initialization script that configures your clusters to encrypt traffic between\
+  \ worker nodes using AES 256-bit encryption over a TLS 1.3 connection."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v4.0.0/03/01/03"
+  - "/frameworks/cloudaware/resource-security/data-encryption"

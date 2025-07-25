@@ -1,6 +1,33 @@
 # Description
 
-Turning on Microsoft Defender for Servers enables threat detection for Servers, providing threat intelligence, anomaly detection, and behavior analytics in the Microsoft Defender for Cloud.
+The Defender for Servers plan in Microsoft Defender for Cloud reduces security risk by providing actionable recommendations to improve and remediate machine security posture. Defender for Servers also helps to protect machines against real-time security threats and attacks.
+
+Defender for Servers offers two paid plans:
+
+**Plan 1**
+
+The following components are enabled by default:
+• Log Analytics agent (deprecated)
+• Endpoint protection
+
+Plan 1 also offers the following components, disabled by default:
+
+• Vulnerability assessment for machines
+• Guest Configuration agent (preview)
+
+**Plan 2**
+
+The following components are enabled by default:
+
+• Log Analytics agent (deprecated)
+• Vulnerability assessment for machines
+• Endpoint protection
+• Agentless scanning for machines
+
+Plan 2 also offers the following components, disabled by default:
+
+• Guest Configuration agent (preview)
+• File Integrity Monitoring
 
 ## Rationale
 
@@ -17,39 +44,9 @@ Two Defender for Servers plans exist:
 
 ## Audit
 
-### From Azure Portal
+This policy flags an *Azure Subscription* as `INCOMPLIANT` if the related `Azure Defender Plan` for **Virtual Machines** has its `Pricing Tier` set to **Free**.
 
-1. Go to `Microsoft Defender for Cloud`.
-2. Under `Management`, select `Environment Settings`.
-3. Click on the subscription name.
-4. Select `Defender plans` in the left pane.
-5. Under `Cloud Workload Protection (CWP)`, locate `Server` in the Plan column, ensure Status is set to `On`.
-
-### From Azure CLI
-
-Run the following command:
-
-```sh
-az security pricing show -n VirtualMachines --query pricingTier
-```
-
-If the tenant is licensed and enabled, the output should indicate `Standard`.
-
-### From PowerShell
-
-Run the following command:
-
-```ps
-Get-AzSecurityPricing -Name 'VirtualMachines' |Select-Object Name,PricingTier
-```
-
-If the tenant is licensed and enabled, the `PricingTier` parameter will indicate `Standard`.
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [4da35fc9-c9e7-4960-aec9-797fe7d9051d](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4da35fc9-c9e7-4960-aec9-797fe7d9051d) - **Name**: `Azure Defender for servers should be enabled`
+A *Subscription* is also marked as `INCOMPLIANT` if the `Defender Plan` for **Virtual Machines** does **not** exist in the CMDB.
 
 ## Default Value
 

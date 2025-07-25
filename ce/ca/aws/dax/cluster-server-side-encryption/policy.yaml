@@ -1,0 +1,19 @@
+---
+names:
+  full: AWS DAX Cluster Server-Side Encryption is not enabled
+  contextual: Cluster Server-Side Encryption is not enabled
+description: >
+  Ensure that DynamoDB Accelerator (DAX) clusters are encrypted at rest to protect 
+  sensitive data from unauthorized access to the underlying storage.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-fsbp-v1.0.0/dynamodb/03"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[DynamoDB.3] DynamoDB Accelerator (DAX) clusters should be encrypted at rest"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/dynamodb-controls.html#dynamodb-3"
+  internal:
+    - "dec-x-e9e99704"

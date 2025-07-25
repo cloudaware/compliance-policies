@@ -1,0 +1,140 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-21T14:26:56Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-07-21T14:26:56Z",
+        "CA10__billingMode__c": "PAY_PER_REQUEST",
+        "CA10__AWS_App_AutoScaling_Scalable_Targets__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__billingMode__c') == 'PAY_PER_REQUEST'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-21T14:26:56Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__billingMode__c": "PAY_PER_REQUEST",
+        "CA10__AWS_App_AutoScaling_Scalable_Targets__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10__AWS_App_AutoScaling_Scalable_Targets__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-21T14:26:56Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__billingMode__c": "",
+        "CA10__AWS_App_AutoScaling_Scalable_Targets__r": [
+            {
+                "Id": "test3_1",
+                "RecordTypeId": "RecordTypeId",
+                "CA10__disappearanceTime__c": null,
+                "CA10__dynamoDbTable__c": "test3",
+                "RecordType": {
+                    "DeveloperName": "caAwsAppAutoScalingScalableTargetDynamoDb",
+                    "Id": "RecordTypeId"
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10__AWS_App_AutoScaling_Scalable_Targets__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-21T14:26:56Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__billingMode__c": "PROVISIONED",
+        "CA10__AWS_App_AutoScaling_Scalable_Targets__r": [
+            {
+                "Id": "test4_1",
+                "RecordTypeId": "RecordTypeId",
+                "CA10__disappearanceTime__c": null,
+                "CA10__dynamoDbTable__c": "test4",
+                "RecordType": {
+                    "DeveloperName": "caAwsAppAutoScalingScalableTargetDynamoDb",
+                    "Id": "RecordTypeId"
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "300",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-21T14:26:56Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__billingMode__c": "",
+        "CA10__AWS_App_AutoScaling_Scalable_Targets__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "300",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-21T14:26:56Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__billingMode__c": "PROVISIONED",
+        "CA10__AWS_App_AutoScaling_Scalable_Targets__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "300",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-21T14:26:56Z"
+        },
+        "Id": "test7",
+        "CA10__disappearanceTime__c": null,
+        "CA10__billingMode__c": "PROVISIONED",
+        "CA10__AWS_App_AutoScaling_Scalable_Targets__r": [
+            {
+                "Id": "test7_1",
+                "RecordTypeId": "RecordTypeId",
+                "CA10__disappearanceTime__c": "2025-07-21T14:26:56Z",
+                "CA10__dynamoDbTable__c": "test7",
+                "RecordType": {
+                    "DeveloperName": "caAwsAppAutoScalingScalableTargetDynamoDb",
+                    "Id": "RecordTypeId"
+                }
+            }
+        ]
+    }
+]

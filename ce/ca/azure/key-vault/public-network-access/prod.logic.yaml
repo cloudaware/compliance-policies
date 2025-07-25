@@ -1,0 +1,19 @@
+---
+inputType: "CA10__CaAzureKeyVault__c"
+importExtracts:
+  - file: "/types/CA10__CaAzureKeyVault__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Public network access is disabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__publicNetworkAccess__c"
+        right:
+          TEXT: 'Disabled'
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Public network access is not disabled."
+  remediationMessage: "Consider disabling public network access."

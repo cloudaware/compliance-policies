@@ -1,0 +1,19 @@
+---
+name: "9.1.4.1 Ensure That Microsoft Defender for Containers Is Set To 'On' (Automated)"
+description: >
+  Microsoft Defender for Containers helps improve, monitor, and maintain the security of 
+  containerized assets—including Kubernetes clusters, nodes, workloads, container 
+  registries, and images—across multi-cloud and on-premises environments.
+
+  By default, when enabling the plan through the Azure Portal, Microsoft Defender for 
+  Containers automatically configures the following components:
+    • Agentless scanning for machines
+    • Defender sensor for runtime protection
+    • Azure Policy for enforcing security best practices
+    • K8S API access for monitoring and threat detection
+    • Registry access for vulnerability assessment
+
+  Note: Microsoft Defender for Container Registries ('ContainerRegistry') is deprecated and has been replaced by Microsoft Defender for Containers ('Containers').
+similar:
+  sections:
+    - "/frameworks/cis-azure-v3.0.0/03/01/04/01"

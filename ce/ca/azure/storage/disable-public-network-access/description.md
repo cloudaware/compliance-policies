@@ -12,33 +12,7 @@ Access will have to be managed using shared access signatures or via Azure AD RB
 
 ## Audit
 
-### From Azure Portal
-
-1. Go to `Storage Accounts`.
-2. For each storage account, under the `Security + networking` section, click `Networking`.
-3. Ensure the `Public Network Access` setting is set to `Disabled`.
-
-### From Azure CLI
-
-Ensure `publicNetworkAccess` is `Disabled`:
-
-```sh
-az storage account show --name <storage-account> --resource-group <resource-group> --query "{publicNetworkAccess:publicNetworkAccess}"
-```
-
-### From PowerShell
-
-For each Storage Account, ensure `PublicNetworkAccess` is `Disabled`:
-
-```ps
-Get-AzStorageAccount -Name <storage account name> -ResourceGroupName <resource group name> |select PublicNetworkAccess
-```
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [b2982f36-99f2-4db5-8eff-283140c09693](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%b2982f36-99f2-4db5-8eff-283140c09693) - **Name**: `Storage accounts should disable public network access`
+This policy flags an *Azure Storage Account* as `INCOMPLIANT` if its `Public Network Access State` is set to **Enabled**.
 
 ## Default Value
 

@@ -1,0 +1,14 @@
+---
+names:
+  full: Azure Databricks Personal Access Tokens (PATs) are not restricted and expirable
+  contextual: Databricks Personal Access Tokens (PATs) are not restricted and expirable
+description: "Databricks personal access tokens (PATs) provide API-based authentication for users\
+  \ and applications. By default, users can generate API tokens without expiration, leading\
+  \ to potential security risks if tokens are leaked, improperly stored, or not rotated regularly."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v4.0.0/03/01/06"
+  - "/frameworks/cloudaware/resource-security/secure-access"

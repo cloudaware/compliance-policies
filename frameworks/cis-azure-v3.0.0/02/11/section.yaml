@@ -2,3 +2,7 @@
 name: "2.11 Ensure That 'Notify all admins when other admins reset their password?' is set to 'Yes' (Manual)"
 description: |-
   Ensure that all Global Administrators are notified if any other administrator resets their password.
+similar:
+  sections:
+    - /frameworks/cis-azure-v2.1.0/01/09
+    - /frameworks/cis-azure-v4.0.0/06/11

@@ -4,8 +4,10 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "Microsoft Defender for Containers is in Free tier."
-    remediationMessage: "Consider enabling Defender for Containers Standard plan."
+    currentStateMessage: "Microsoft Defender for Containers is not in Standard tier."
+    remediationMessage: "Consider enabling Defender for Containers Standard plan.\
+      \ Ensure that the following Extensions are enabled: ContainerRegistriesVulnerabilityAssessments,\
+      \ AgentlessDiscoveryForKubernetes, AgentlessVmScanning, ContainerSensor."
     check:
       RELATED_LIST_HAS:
         relationshipName: "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r"
@@ -19,7 +21,9 @@ conditions:
 otherwise:
   status: "INCOMPLIANT"
   currentStateMessage: "Microsoft Defender for Containers is not enabled."
-  remediationMessage: "Consider enabling Microsoft Defender for Containers Standard plan."
+  remediationMessage: "Consider enabling Microsoft Defender for Containers Standard plan.\
+      \ Ensure that the following Extensions are enabled: ContainerRegistriesVulnerabilityAssessments,\
+      \ AgentlessDiscoveryForKubernetes, AgentlessVmScanning, ContainerSensor."
 relatedLists:
   - relationshipName: "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r"
     importExtracts:
@@ -42,23 +46,59 @@ relatedLists:
                         EXTRACT: "CA10Z1__name__c"
                       right: 
                         TEXT: "ContainerRegistry"
+      #  Deprecated: ContainerRegistry
       - status: "COMPLIANT"
-        currentStateMessage: "This is a Standard tier."
+        currentStateMessage: "This is a Container Registry Standard tier."
         check:
-          IS_EQUAL:
-            left: 
-              EXTRACT: "CA10Z1__pricingTier__c"
-            right: 
-              TEXT: "Standard"
-      - status: "INCOMPLIANT"
-        currentStateMessage: "This is a Free tier."
-        remediationMessage: "Enable Defender for Containers Standard plan."
+          AND:
+            args:
+              - IS_EQUAL:
+                  left: 
+                    EXTRACT: "CA10Z1__name__c"
+                  right: 
+                    TEXT: "ContainerRegistry"
+              - IS_EQUAL:
+                  left: 
+                    EXTRACT: "CA10Z1__pricingTier__c"
+                  right: 
+                    TEXT: "Standard"
+      # Actual: Containers
+      - status: "COMPLIANT"
+        currentStateMessage: "This is a Containers Standard tier. Extensions are enabled."
         check:
-          IS_EQUAL:
-            left: 
-              EXTRACT: "CA10Z1__pricingTier__c"
-            right: 
-              TEXT: "Free"
+          AND:
+            args:
+              - IS_EQUAL:
+                  left: 
+                    EXTRACT: "CA10Z1__name__c"
+                  right: 
+                    TEXT: "Containers"
+              - IS_EQUAL:
+                  left: 
+                    EXTRACT: "CA10Z1__pricingTier__c"
+                  right: 
+                    TEXT: "Standard"
+              - GREATER_THAN:
+                  left:
+                    EXTRACT: "caJsonNumber__extensionsContainerRegistriesVulnerabilityAssessmentsIsEnabled__c"
+                  right:
+                    NUMBER: 0.0
+              - GREATER_THAN:
+                  left:
+                    EXTRACT: "caJsonNumber__extensionsAgentlessDiscoveryForKubernetesIsEnabled__c"
+                  right:
+                    NUMBER: 0.0
+              - GREATER_THAN:
+                  left:
+                    EXTRACT: "caJsonNumber__extensionsAgentlessVmScanningIsEnabled__c"
+                  right:
+                    NUMBER: 0.0
+              - GREATER_THAN:
+                  left:
+                    EXTRACT: "caJsonNumber__extensionsContainerSensorIsEnabled__c"
+                  right:
+                    NUMBER: 0.0
     otherwise: 
-      status: "UNDETERMINED"
-      currentStateMessage: "Unexpected values in the fields."
+      status: "INCOMPLIANT"
+      currentStateMessage: "This is not a Standard tier."
+      remediationMessage: "Enable Defender for Containers Standard plan."

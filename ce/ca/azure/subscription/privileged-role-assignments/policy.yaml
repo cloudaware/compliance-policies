@@ -1,0 +1,12 @@
+---
+names:
+  full: Azure Privileged Role Assignments are not periodically reviewed
+  contextual: Privileged Role Assignments are not periodically reviewed
+description: "Periodic review of privileged role assignments is performed to ensure that the privileged roles assigned to users are accurate and appropriate."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v4.0.0/06/03/04"
+  - "/frameworks/cloudaware/identity-and-access-governance/rbac-management"

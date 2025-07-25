@@ -76,3 +76,8 @@ Policy should enforce standard SKUs for the following artifacts:
 
 1. <https://azure.microsoft.com/en-us/support/plans>
 2. <https://azure.microsoft.com/en-us/support/plans/response>
+3. <https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-upgrade>
+4. <https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-basic-upgrade-guidance>
+5. <https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-how-to-scale>
+6. <https://learn.microsoft.com/en-us/azure/azure-sql/database/scale-resources>
+7. <https://learn.microsoft.com/en-us/azure/vpn-gateway/gateway-sku-resize>

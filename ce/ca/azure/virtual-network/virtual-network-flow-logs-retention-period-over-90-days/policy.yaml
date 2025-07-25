@@ -1,0 +1,12 @@
+---
+names:
+  full: Azure Virtual Network Flow Logs retention period is less than 90 days
+  contextual: Virtual Network Flow Logs retention period is less than 90 days
+description: Ensure that virtual network flow logs are retained for greater than or equal to 90 days.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+  - RELIABILITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v4.0.0/08/08"
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"

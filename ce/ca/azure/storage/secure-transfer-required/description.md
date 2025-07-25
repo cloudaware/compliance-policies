@@ -8,25 +8,7 @@ The secure transfer option enhances the security of a storage account by only al
 
 ## Audit
 
-### From Azure Portal
-
-1. Go to `Storage Accounts`.
-2. For each storage account, under `Settings`, click `Configuration`.
-3. Ensure that `Secure transfer required` is set to `Enabled`.
-
-### From Azure CLI
-
-Use the below command to ensure the `Secure transfer required` is enabled for all the `Storage Accounts` by ensuring the output contains `true` for each of the `Storage Accounts`:
-
-```sh
-az storage account list --query "[*].[name,enableHttpsTrafficOnly]"
-```
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [404c3081-a854-4457-ae30-26a93ef643f9](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) - **Name**: `Secure transfer to storage accounts should be enabled`
+This policy flags an *Azure Storage Account* as `INCOMPLIANT` if its `Secure Transfer Required` is set to **false**.
 
 ## Default Value
 

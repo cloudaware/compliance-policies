@@ -1,6 +1,9 @@
 # Description
 
-Microsoft Azure provides a Global Banned Password policy that applies to Azure administrative and normal user accounts. This is not applied to user accounts that are synced from an on-premise Active Directory unless Microsoft Entra ID Connect is used and you enable EnforceCloudPasswordPolicyForPasswordSyncedUsers. Please see the list in default values on the specifics of this policy. To further password security, it is recommended to further define a custom banned password policy.
+Microsoft Azure applies a default global banned password list to all user and admin accounts that are created and managed directly in Microsoft Entra ID.
+The Microsoft Entra password policy does not apply to user accounts that are synchronized from an on-premises Active Directory environment, unless Microsoft Entra ID Connect is used and `EnforceCloudPasswordPolicyForPasswordSyncedUsers` is enabled.
+Review the `Default Value` section for more detail on the password policy.
+For increased password security, a custom banned password list is recommended
 
 ## Rationale
 
@@ -47,7 +50,11 @@ The default Azure bad password policy is already applied to your resources which
 ### Characters not allowed
 
 - Unicode characters
-- Password length Passwords require
+
+### Password length
+
+Passwords require:
+
 - A minimum of eight characters
 - A maximum of 256 characters
 
@@ -58,13 +65,19 @@ Passwords require three out of four of the following categories:
 - Uppercase characters
 - Lowercase characters
 - Numbers
-- Symbols Note: Password complexity check isn't required for Education tenants.
+- Symbols
+
+Note: Password complexity check isn't required for Education tenants.
 
 ### Password not recently used
 
 - When a user changes or resets their password, the new password can't be the same as the current or recently used passwords.
 - Password isn't banned by Entra ID Password Protection.
 - The password can't be on the global list of banned passwords for Azure AD Password Protection, or on the customizable list of banned passwords specific to your organization.
+
+### Evaluation
+
+New passwords are evaluated for strength and complexity by validating against the combined list of terms from the global and custom banned password lists. Even if a user's password contains a banned password, the password may be accepted if the overall password is otherwise strong enough.
 
 ## References
 

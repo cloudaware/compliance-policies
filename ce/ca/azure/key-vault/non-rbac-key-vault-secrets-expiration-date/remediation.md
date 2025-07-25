@@ -15,12 +15,12 @@ Update the `Expiration date` for the secret using the below command:
 az keyvault secret set-attributes --name <secretName> --vault-name <vaultName> --expires Y-m-d'T'H:M:S'Z'
 ```
 
-**Note**: To view the expiration date on all secrets in a Key Vault using Microsoft API, the `List Key` permission is required.
+**Note**: To view the expiration date on all secrets in a Key Vault using Microsoft API, the `List` Secret permission is required.
 
 To update the expiration date for the secrets:
 
 1. Go to Key vault, click on `Access policies`.
-2. Click on `Create` and add an access policy with the Update permission (in the Secret Permissions - Secret Management Operations section).
+2. Click on `Create` and add an access policy with the `Update` permission (in the Secret Permissions - Secret Management Operations section).
 
 ## From PowerShell
 

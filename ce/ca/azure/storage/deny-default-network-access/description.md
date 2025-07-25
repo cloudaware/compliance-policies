@@ -12,45 +12,7 @@ All allowed networks will need to be whitelisted on each specific network, creat
 
 ## Audit
 
-### From Azure Console
-
-1. Go to `Storage Accounts`.
-2. For each storage account, under `Security + networking`, click `Networking`.
-3. Click the `Firewalls and virtual networks` heading.
-4. Ensure that `Public network access` is not set to `Enabled from all networks`.
-
-### From Azure CLI
-
-Ensure `defaultAction` is not set to `Allow`:
-
-```sh
-az storage account list --query '[*].networkRuleSet'
-```
-
-### From PowerShell
-
-```ps
-Connect-AzAccount Set-AzContext -Subscription <subscription ID> Get-AzStorageAccountNetworkRuleset -ResourceGroupName <resource group> -Name <storage account name> |Select-Object DefaultAction
-```
-
-### PowerShell Result - Non-Compliant
-
-```
-DefaultAction : Allow
-```
-
-### PowerShell Result - Compliant
-
-```
-DefaultAction : Deny
-```
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [34c877ad-507e-4c82-993e-3452a6e0ad3c](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34c877ad-507e-4c82-993e-3452a6e0ad3c) - **Name**: `Storage accounts should restrict network access`
-- **Policy ID**: [2a1a9cdf-e04d-429a-8416-3bfb72a1b26f](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2a1a9cdf-e04d-429a-8416-3bfb72a1b26f) - **Name**: `Storage accounts should restrict network access using virtual network rules`
+This policy flags an *Azure Storage Account* as `INCOMPLIANT` if its `Network ACLs: Default Action` is **not** set to **Deny**.
 
 ## Default Value
 

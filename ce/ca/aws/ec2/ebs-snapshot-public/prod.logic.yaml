@@ -1,0 +1,32 @@
+inputType: "CA10__CaAwsSnapshot__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: /types/CA10__CaAwsSnapshot__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The EBS snapshot is publicly accessible."
+    remediationMessage: "Consider making the snapshot private or restricting access to specific AWS accounts."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__publicAccessible__c"
+        right:
+          TEXT: "Yes"
+  - status: "COMPLIANT"
+    currentStateMessage: "The EBS snapshot is not publicly accessible."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__publicAccessible__c"
+        right:
+          TEXT: "No"
+  - status: "COMPLIANT"
+    currentStateMessage: "The EBS snapshot is not publicly accessible."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__publicAccessible__c"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

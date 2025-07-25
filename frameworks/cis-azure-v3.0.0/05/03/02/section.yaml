@@ -2,3 +2,6 @@
 name: "5.3.2 Ensure server parameter 'tls_version' is set to 'TLSv1.2' (or higher) for MySQL flexible server (Automated)"
 description: >
   Ensure `tls_version` on `MySQL flexible servers` is set to use TLS version 1.2 or higher.
+similar:
+  sections:
+    - /frameworks/cis-azure-v2.1.0/04/04/02

@@ -1,0 +1,11 @@
+---
+names:
+  full: "Azure VM Scale Set Instance allows public UDP access"
+  contextual: "Instance allows public UDP access"
+description: >
+  Ensure that Azure VM Scale Set Instances do not allow unrestricted public UDP protocol.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

@@ -4,3 +4,7 @@ description: >
   In some cases, Azure Storage sets the minimum TLS version to be version 1.0 by default. 
   TLS 1.0 is a legacy version and has known vulnerabilities. This minimum TLS version can be 
   configured to be later protocols such as TLS 1.2.
+similar:
+  sections:
+    - /frameworks/cis-azure-v2.1.0/03/15
+    - /frameworks/cis-azure-v4.0.0/10/03/07

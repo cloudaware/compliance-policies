@@ -1,0 +1,38 @@
+---
+name: "9.1.3.1 Ensure that Defender for Servers is set to 'On' (Automated)"
+description: |-
+  The Defender for Servers plan in Microsoft Defender for Cloud reduces security risk by 
+  providing actionable recommendations to improve and remediate machine security posture. 
+  Defender for Servers also helps to protect machines against real-time security threats 
+  and attacks.
+
+  Defender for Servers offers two paid plans:
+
+  Plan 1
+
+  The following components are enabled by default:
+  
+    - Log Analytics agent (deprecated)
+    - Endpoint protection
+
+  Plan 1 also offers the following components, disabled by default:
+
+    - Vulnerability assessment for machines
+    - Guest Configuration agent (preview)
+  
+  Plan 2
+
+  The following components are enabled by default:
+  
+    - Log Analytics agent (deprecated)
+    - Vulnerability assessment for machines
+    - Endpoint protection
+    - Agentless scanning for machines
+  
+  Plan 2 also offers the following components, disabled by default:
+
+    - Guest Configuration agent (preview)
+    - File Integrity Monitoring
+similar:
+  sections:
+    - "/frameworks/cis-azure-v3.0.0/03/01/03/01"

@@ -1,0 +1,80 @@
+---
+inputType: "CA10__CaAzureKeyVault__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Key rotation policy is not configured."
+    remediationMessage: "Consider configuring an automated cryptographic key rotation."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__Azure_Key_Vault_Keys__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Key rotation policy is configured."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__Azure_Key_Vault_Keys__r"        
+  - status: "UNDETERMINED"
+    currentStateMessage: "Unexpected values in the field."
+    check:
+      RELATED_LIST_HAS:
+        status: "UNDETERMINED"
+        relationshipName: "CA10__Azure_Key_Vault_Keys__r"        
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Key Vault doesn't have active Keys or Cloudaware\
+    \ has insufficient access to list Keys."
+relatedLists:
+  - relationshipName: "CA10__Azure_Key_Vault_Keys__r"
+    importExtracts:
+    - file: "/types/CA10__CaAzureKeyVaultKey__c/object.extracts.yaml"
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "The Key is not enabled."
+        check:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__enabledStatus__c"
+            right:
+              TEXT: "Enabled"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The Key rotation policy is not configured."
+        remediationMessage: "Consider configuring an automated cryptographic key rotation."
+        check:
+          IS_EMPTY:
+            arg:
+              EXTRACT: "CA10__lifetimeActions__c" 
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The Key rotation policy is not configured."
+        remediationMessage: "Consider configuring an automated cryptographic key rotation."
+        check:
+          NOT:
+            arg:
+              CONTAINS:
+                arg:
+                  EXTRACT: "CA10__lifetimeActions__c"
+                search:
+                  TEXT: "Rotate"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Key rotation is enabled, but this key hasn't been rotated in over two years."
+        remediationMessage: "Update the rotation interval to under two years to align with best practices."
+        check:
+          NOT:
+            arg:
+              IS_WITHIN_LAST_DAYS:
+                offsetDays: 730
+                arg:
+                  EXTRACT: "CA10__created__c"
+      - status: "COMPLIANT"
+        currentStateMessage: "The Key rotation policy is configured."
+        check:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__lifetimeActions__c"
+            search:
+              TEXT: "Rotate"
+    otherwise:
+      status: "UNDETERMINED"
+      currentStateMessage: "Unexpected values in the field."

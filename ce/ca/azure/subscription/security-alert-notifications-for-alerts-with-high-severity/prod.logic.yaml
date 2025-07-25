@@ -24,26 +24,36 @@ conditions:
         right: 
           TEXT: "On"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Security notifications for alerts with High severity is not set."
+    currentStateMessage: "Security notifications for alerts with High or Critical severity is not set."
     remediationMessage: "Consider enabling security notifications for alerts with High severity."
 # Extract only for the default contact
     check:
-      NOT_EQUAL:
-        left:
-          EXTRACT: "caJsonText__securityCenterContactsDefaultAlertNotificationsSeverity__c"
-        right: 
-          TEXT: "High"
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              SET:
+                itemType: TEXT
+                items:
+                  - "High"
+                  - "Critical"
+            search:
+              EXTRACT: "caJsonText__securityCenterContactsDefaultAlertNotificationsSeverity__c"
   - status: "COMPLIANT"
-    currentStateMessage: "Security alerts emailing is not enabled."
+    currentStateMessage: "Security alerts emailing is enabled."
 # Extract only for the default contact
     check:
       AND:
         args:
-          - IS_EQUAL:
-              left:
+          - CONTAINS:
+              arg:
+                SET:
+                  itemType: TEXT
+                  items:
+                    - "High"
+                    - "Critical"
+              search:
                 EXTRACT: "caJsonText__securityCenterContactsDefaultAlertNotificationsSeverity__c"
-              right: 
-                TEXT: "High"
           - IS_EQUAL:
               left:
                 EXTRACT: "caJsonText__securityCenterContactsDefaultAlertNotifications__c"

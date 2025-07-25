@@ -21,3 +21,10 @@ extracts:
         path: "CA10__assignableScopesJson__c"
         undeterminedIf:
             isEmpty: "Corrupted data. Assignable Scopes JSON cannot be empty."
+# Not Nullable. 
+  - name: "Name"
+    value:
+      FIELD:
+        path: "Name"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Role Name cannot be empty."

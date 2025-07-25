@@ -3,3 +3,7 @@ name: "3.3.3 Ensure that the Expiration Date is set for all Secrets in RBAC Key 
 description: >
   Ensure that all Secrets in Role Based Access Control (RBAC) Azure Key Vaults have an expiration 
   date set.
+similar:
+  sections:
+    - /frameworks/cis-azure-v2.1.0/08/03
+    - /frameworks/cis-azure-v4.0.0/09/03/03

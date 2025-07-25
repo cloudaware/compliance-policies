@@ -19,3 +19,8 @@ extracts:
         path: "CA10__softDelete__c"
         undeterminedIf:
           isEmpty: "Corrupted data. Soft Delete function cannot be empty."
+#
+  - name: "CA10__publicNetworkAccess__c"
+    value:
+      FIELD:
+        path: "CA10__publicNetworkAccess__c"

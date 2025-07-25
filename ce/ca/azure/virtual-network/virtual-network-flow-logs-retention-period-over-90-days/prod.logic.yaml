@@ -1,0 +1,47 @@
+---
+inputType: "CA10Z1__CaAzureNetworkWatcherFlowLog__c"
+importExtracts:
+  - file: /types/CA10Z1__CaAzureNetworkWatcherFlowLog__c/object.extracts.yaml
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Flow Log is disabled."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__logStatus__c"
+        right:
+          TEXT: "Enabled"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Only for Virtual network Flow Logs."
+    check:
+      IS_EMPTY_LOOKUP: "CA10Z1__virtualNetwork__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Virtual network Flow Logs retention policy is disabled."
+    remediationMessage: "Consider enabling retention policy for Virtual network Flow Logs."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__retentionPolicyStatus__c"
+        right:
+          TEXT: "Enabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "Virtual network Flow Logs are enabled and the retention period is set to 'greater than or equal to 90 days'."
+    check:
+      OR:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10Z1__retentionPolicyDays__c"
+              right:
+                NUMBER: 0.0
+          - GREATER_THAN_EQUAL:
+              left:
+                EXTRACT: "CA10Z1__retentionPolicyDays__c"
+              right:
+                NUMBER: 90.0
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Virtual network Flow Logs retention period is less than 90 days."
+  remediationMessage: "Consider setting the retention period to 'greater then or equal to 90 days'."

@@ -14,29 +14,7 @@ Additional consideration may be required for exceptional circumstances where ele
 
 ## Audit
 
-### From Azure Portal
-
-1. Go to `Storage Accounts`.
-2. For each storage account, under `Settings`, click `Configuration`.
-3. Ensure `Allow Blob Anonymous Access` is set to `Disabled`.
-
-Repeat these steps for each Storage Account.
-
-### From Azure CLI
-
-For every storage account in scope:
-
-```sh
-az storage account show --name "<yourStorageAccountName>" --query allowBlobPublicAccess
-```
-
-Ensure that every storage account in scope returns `false` for the `allowBlobPublicAccess` setting.
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [4fa4b6c0-31ca-4c0d-b10d-24b96f62a751](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) - **Name**: `[Preview]: Storage account public access should be disallowed`
+This policy flags an *Azure Storage Account* as `INCOMPLIANT` if its `Blob Public Access` is **not** set to **Deny**.
 
 ## Default Value
 

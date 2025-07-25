@@ -1,0 +1,20 @@
+---
+inputType: "CA10__CaAzureStorageAccount__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAzureStorageAccount__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Blob Versioning is enabled for Azure Storage Account."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__blobVersioning__c"
+        right:
+          TEXT: "Enabled"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Blob Versioning is not enabled for Azure Storage Account."
+  remediationMessage: "Enable Blob Versioning for Azure Storage Account."
+  

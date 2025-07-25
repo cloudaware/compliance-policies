@@ -1,0 +1,14 @@
+---
+names:
+  full: Azure Databricks Workspace is not encrypted using customer-managed key (CMK)
+  contextual: Workspace is not encrypted using customer-managed key (CMK)
+description: "Ensure that Azure Databricks Workspaces are encrypted with a customer-managed key.\ 
+  \ By default, data at rest is encrypted using Microsoft-managed keys.\
+  \ Azure Databricks encrypts data in transit using TLS 1.2+ to secure API, workspace,\
+  \ and cluster communications."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v4.0.0/03/01/08"
+  - "/frameworks/cloudaware/resource-security/data-encryption"

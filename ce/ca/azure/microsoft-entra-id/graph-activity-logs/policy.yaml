@@ -1,0 +1,15 @@
+---
+names:
+  full: Microsoft Entra ID Diagnostic Setting does not capture Microsoft Graph activity logs
+  contextual: Diagnostic Setting does not capture Microsoft Graph activity logs
+description: "Ensure that a Microsoft Entra diagnostic setting is configured to send Microsoft Graph\
+  \ activity logs to a suitable destination, such as a Log Analytics workspace, storage account, or\
+  \ event hub. This enables centralized monitoring and analysis of all HTTP requests that the\
+  \ Microsoft Graph service receives and processes for a tenant."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v4.0.0/07/01/01/08"
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"

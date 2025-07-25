@@ -1,0 +1,11 @@
+---
+extracts: 
+# Nullable. 
+  - name: CA10A1__cloudWatchLogGroupArn__c
+    value: 
+      FIELD:
+        path: CA10A1__cloudWatchLogGroupArn__c
+        # undeterminedIf:
+        #   noAccessDelegate:
+        #     path: "CA10A1__cloudWatchLogGroupArn__c"
+        #     currentStateMessage: "Possible permissions issue with datasync:DescribeTask."

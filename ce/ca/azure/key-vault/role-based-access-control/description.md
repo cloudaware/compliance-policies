@@ -14,39 +14,7 @@ Implementation needs to be properly designed from the ground up, as this is a fu
 
 ## Audit
 
-### From Azure Portal
-
-1. From Azure Home open the Portal Menu in the top left corner.
-2. Select Key Vaults.
-3. Select a Key Vault to audit.
-4. Select Access configuration.
-5. Ensure the Permission Model radio button is set to `Azure role-based access control`.
-
-### From Azure CLI
-
-Run the following command for each Key Vault in each Resource Group:
-
-```sh
-az keyvault show --resource-group <RESOURCE GROUP NAME> --name <KEY VAULT NAME>
-```
-
-Ensure the `enableRbacAuthorization` setting is set to `true` within the output of the above command.
-
-### From PowerShell
-
-Run the following PowerShell command:
-
-```ps
-Get-AzKeyVault -Vaultname <KEY VAULT NAME> -ResourceGroupName <RESOURCE GROUP NAME>
-```
-
-Ensure the `Enabled For RBAC Authorization` setting is set to `True`
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [12d4fa5e-1f9f-4c21-97a9-b99b3c6611b5](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12d4fa5e-1f9f-4c21-97a9-b99b3c6611b5) - **Name**: `[Preview]: Azure Key Vault should use RBAC permission model`
+This policy flags an *Azure Key Vault* as `INCOMPLIANT` if `RBAC Authorization` is set to **Disabled**.
 
 ## Default Value
 

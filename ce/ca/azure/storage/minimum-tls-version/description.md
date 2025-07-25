@@ -12,43 +12,7 @@ When set to TLS 1.2 all requests must leverage this version of the protocol. App
 
 ## Audit
 
-### From Azure Console
-
-1. Go to `Storage Accounts`.
-2. For each storage account, under `Settings`, click `Configuration`.
-3. Ensure that the `Minimum TLS version` is set to `Version 1.2`.
-
-### From Azure CLI
-
-Get a list of all storage accounts and their resource groups:
-
-```sh
-az storage account list | jq '.[] | {name, resourceGroup}'
-```
-
-Then query the `minimumTLSVersion` field:
-
-```sh
-az storage account show \ 
-    --name <storage-account> \ 
-    --resource-group <resource-group> \ 
-    --query minimumTlsVersion \ 
-    --output tsv
-```
-
-### From Azure PowerShell
-
-To get the minimum TLS version, run the following command:
-
-```ps
-(Get-AzStorageAccount -Name <STORAGEACCOUNTNAME> -ResourceGroupName <RESOURCEGROUPNAME>).MinimumTlsVersion
-```
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [fe83a0eb-a853-422d-aac2-1bffd182c5d0](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffe83a0eb-a853-422d-aac2-1bffd182c5d0) - **Name**: `Storage accounts should have the specified minimum TLS version`
+This policy flags an *Azure Storage Account* as `INCOMPLIANT` if its `Minimum TLS Version` is **not** set to **TLS1_2**.
 
 ## Default Value
 

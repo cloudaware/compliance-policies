@@ -1,0 +1,8 @@
+---
+name: "6.6 Ensure that account 'Lockout threshold' is less than or equal to '10' (Manual)"
+description: >
+  The account lockout threshold determines how many failed login attempts are permitted prior to 
+  placing the account in a locked-out state and initiating a variable lockout duration.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v3.0.0/02/06"

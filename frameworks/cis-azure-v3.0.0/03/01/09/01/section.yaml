@@ -3,3 +3,7 @@ name: "3.1.9.1 Ensure That Microsoft Defender for Resource Manager Is Set To 'On
 description: |-
   Microsoft Defender for Resource Manager scans incoming administrative requests to change your 
   infrastructure from both CLI and the Azure portal.
+similar:
+  sections:
+    - /frameworks/cis-azure-v2.1.0/02/01/11
+    - /frameworks/cis-azure-v4.0.0/09/01/09/01

@@ -1,0 +1,10 @@
+---
+name: "6.2.5 Ensure that multifactor authentication is required for risky sign-ins (Manual)"
+description: >
+  Entra ID tracks the behavior of sign-in events. If the Entra ID domain is licensed with P2, 
+  the sign-in behavior can be used as a detection mechanism for additional scrutiny during 
+  the sign-in event. If this policy is set up, then Risky Sign-in events will prompt users to use 
+  multi-factor authentication (MFA) tokens on login for additional verification.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v3.0.0/02/02/06"

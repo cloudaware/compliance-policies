@@ -1,0 +1,13 @@
+---
+names:
+  full: "Azure Storage Account Blob Service Versioning is not enabled"
+  contextual: "Blob Service Versioning is not enabled"
+description: "Enabling blob versioning allows for the automatic retention of previous\
+  \ versions of objects. With blob versioning enabled, earlier versions of a blob are\
+  \ accessible for data recovery in the event of modifications or deletions."
+type: BEST_PRACTICE
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v4.0.0/10/02/02"
+  - "/frameworks/cloudaware/resource-security/data-protection-and-recovery"

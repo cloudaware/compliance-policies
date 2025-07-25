@@ -1,0 +1,23 @@
+---
+names:
+  full: AWS DynamoDB Provisioned Table Auto Scaling is not configured
+  contextual: Provisioned Table Auto Scaling is not configured
+description: >
+  Ensure that Amazon DynamoDB tables are configured to automatically scale read 
+  and write capacity to meet demand. This can be achieved by using On-Demand 
+  capacity mode or by configuring Auto Scaling for provisioned throughput. This 
+  helps maintain performance during traffic spikes and can optimize costs during 
+  periods of low activity.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-optimization"
+  - "/frameworks/cloudaware/resource-performance/workload-efficiency"
+  - "/frameworks/aws-fsbp-v1.0.0/dynamodb/01"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[DynamoDB.1] DynamoDB tables should automatically scale capacity with demand"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/dynamodb-controls.html#dynamodb-1"
+  internal:
+    - "dec-x-17b4855f"

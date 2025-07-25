@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0
+
+- `repo-manager` auto-update feature added.
+
+## 1.5.6
+
+- Dropping requirement to use `javaw.exe` for `ui` subcommand on Windows 
+
 ## 1.5.5
 
 - Fixed missing links for logic files

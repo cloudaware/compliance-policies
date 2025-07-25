@@ -1,0 +1,40 @@
+---
+inputType: "CA10Z1__CaAzureStorageFile__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10Z1__CaAzureStorageFile__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The soft delete configuration for Azure Files is not enabled."
+    remediationMessage: "Consider enabling soft delete for Azure Files."
+    check:
+      OR:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10Z1__shareDeleteRetentionPolicyStatus__c"
+              right:
+                TEXT: "Disabled"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10Z1__shareDeleteRetentionPolicyStatus__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10Z1__shareDeleteRetentionPolicyDays__c"
+  - status: "COMPLIANT"
+    currentStateMessage: "The soft delete for Azure Files is enabled."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10Z1__shareDeleteRetentionPolicyStatus__c"
+              right:
+                TEXT: "Enabled"
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10Z1__shareDeleteRetentionPolicyDays__c"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

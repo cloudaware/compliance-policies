@@ -3,3 +3,7 @@ name: "6.1.4 Ensure that logging for Azure Key Vault is 'Enabled' (Automated)"
 description: >
   Enable AuditEvent logging for key vault instances to ensure interactions with key vaults are 
   logged and available.
+similar:
+  sections:
+    - /frameworks/cis-azure-v2.1.0/05/01/04
+    - /frameworks/cis-azure-v4.0.0/07/01/01/04

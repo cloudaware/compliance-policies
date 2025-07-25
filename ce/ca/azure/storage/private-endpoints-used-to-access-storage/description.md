@@ -8,41 +8,13 @@ Securing traffic between services through encryption protects the data from easy
 
 ## Impact
 
-A Private Endpoint costs approximately US$7.30 per month. If an Azure Virtual Network is not implemented correctly, this may result in the loss of critical network traffic.
+If an Azure Virtual Network is not implemented correctly, this may result in the loss of critical network traffic.
+
+Private endpoints are charged per hour of use. Refer to <https://azure.microsoft.com/en-us/pricing/details/private-link/> and <https://azure.microsoft.com/en-us/pricing/calculator/> to estimate potential costs.
 
 ## Audit
 
-### From Azure Portal
-
-1. Open the `Storage Accounts` blade.
-2. For each listed Storage Account, perform the following check.
-3. Under the Security + networking heading, click on `Networking`.
-4. Click on the `Private Endpoint Connections` tab at the top of the networking window.
-5. Ensure that for each VNet that the Storage Account must be accessed from, a unique Private Endpoint is deployed and the Connection State for each Private Endpoint is `Approved`.
-
-Repeat the procedure for each Storage Account.
-
-### From PowerShell
-
-```ps
-$storageAccount = Get-AzStorageAccount -ResourceGroup '<ResourceGroupName>' -Name '<storageaccountname>' Get-AzPrivateEndpoint -ResourceGroup '<ResourceGroupName>'|Where-Object {$_.PrivateLinkServiceConnectionsText -match $storageAccount.id}
-```
-
-If the results of the second command returns information, the Storage Account is using a Private Endpoint and complies with this Benchmark, otherwise if the results of the second command are empty, the Storage Account generates a finding.
-
-### From Azure CLI
-
-```sh
-az storage account show --name '<storage account name>' --query "privateEndpointConnections[0].id"
-```
-
-If the above command returns data, the Storage Account complies with this Benchmark, otherwise if the results are empty, the Storage Account generates a finding.
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [6edd7eda-6dd8-40f7-810d-67160c639cd9](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6edd7eda-6dd8-40f7-810d-67160c639cd9) - **Name**: `Storage accounts should use private link`
+This policy flags an *Azure Storage Account* as `INCOMPLIANT` if the related *Azure Private Endpoint Connection* for **Storage Account** is either **not** linked to an existing *Private Endpoint* or its `Service Connection Status` is **not** set to **Approved**.
 
 ## Default Value
 
@@ -61,3 +33,5 @@ By default, Private Endpoints are not created for Storage Accounts.
 ## Additional Information
 
 A NAT gateway is the recommended solution for outbound internet access.
+
+This recommendation is based on the Common Reference Recommendation `Ensure Private Endpoints are used to access {service}`, from the `Common Reference Recommendations > Networking > Private Endpoints` section.

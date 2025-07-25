@@ -1,0 +1,16 @@
+---
+names:
+  full: Azure Databricks Unity Catalog is not configured
+  contextual: Databricks Unity Catalog is not configured
+description: "Unity Catalog is a centralized governance model for managing and securing data in\
+  \ Azure Databricks. It provides fine-grained access control to databases, tables, and\
+  \ views using Microsoft Entra ID identities. Unity Catalog also enhances data lineage,\
+  \ audit logging, and compliance monitoring, making it a critical component for security\
+  \ and governance."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v4.0.0/03/01/05"
+  - "/frameworks/cloudaware/resource-security/data-protection-and-recovery"

@@ -1,0 +1,30 @@
+inputType: "CA10__CaAwsDynamoDbTable__c"
+testData:
+ - file: test-data.json
+importExtracts:
+ - file: /types/CA10__CaAwsDynamoDbTable__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The DynamoDB Table uses On-Demand capacity mode, which scales automatically."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__billingMode__c"
+        right:
+          TEXT: "PAY_PER_REQUEST"
+  - status: "COMPLIANT"
+    currentStateMessage: "The DynamoDB Table uses Provisioned capacity mode with Auto Scaling enabled."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__AWS_App_AutoScaling_Scalable_Targets__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The DynamoDB Table uses Provisioned capacity mode without Auto Scaling configured."
+  remediationMessage: "Enable DynamoDB Auto Scaling for the Table or switch to On-Demand capacity mode."
+relatedLists:
+  - relationshipName: "CA10__AWS_App_AutoScaling_Scalable_Targets__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "An Auto Scaling configuration exists for this table."

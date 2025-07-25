@@ -1,0 +1,16 @@
+---
+name: "6.8 Ensure that a 'Custom banned password list' is set to 'Enforce' (Manual)"
+description: >
+  Microsoft Azure applies a default global banned password list to all user and admin accounts that are 
+  created and managed directly in Microsoft Entra ID.
+
+  The Microsoft Entra password policy does not apply to user accounts that are synchronized from 
+  an on-premises Active Directory environment, unless Microsoft Entra ID Connect is used and 
+  EnforceCloudPasswordPolicyForPasswordSyncedUsers is enabled.
+  
+  Review the Default Value section for more detail on the password policy.
+  
+  For increased password security, a custom banned password list is recommended
+similar:
+  sections:
+    - "/frameworks/cis-azure-v3.0.0/02/08"

@@ -1,14 +1,10 @@
 # Description
 
-Ensure that Azure Network Security Groups are not configured to allow unrestricted inbound access to the Secure Shell (SSH) port (TCP 22). SSH is widely used for remote management of Linux-based systems. Leaving SSH ports open to the public internet increases the risk of brute-force attacks, credential theft, and unauthorized system access.
+Network security groups should be periodically evaluated for port misconfigurations. Where certain ports and protocols may be exposed to the Internet, they should be evaluated for necessity and restricted wherever they are not explicitly required.
 
 ## Rationale
 
-Restricting SSH access through NSGs is a critical step in reducing the attack surface of Azure Network Security Groups (VMs). Public exposure of SSH enables malicious actors to attempt automated attacks, exploit misconfigurations, or leverage stolen credentials. Access to SSH should be limited to trusted IP ranges or secured through bastion hosts or private connectivity methods.
-
-## Impact
-
-Blocking public access to SSH may disrupt workflows that involve direct internet-based remote management. It is important to transition to secure access alternatives, such as VPN tunnels or Azure Bastion, to maintain administrative capabilities without exposing sensitive management ports to external threats.
+The potential security problem with using SSH over the Internet is that attackers can use various brute force techniques to gain access to Azure Virtual Machines. Once the attackers gain access, they can use a virtual machine as a launch point for compromising other machines on the Azure Virtual Network or even attack networked devices outside of Azure.
 
 ## Audit
 

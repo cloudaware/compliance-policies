@@ -1,7 +1,7 @@
 ---
 names:
-  full: Microsoft Entra ID Tenant Creation is set to Yes
-  contextual: Tenant Creation is set to Yes
+  full: Microsoft Entra ID Default User Role can create tenants
+  contextual: Default User Role can create tenants
 description: It is recommended to only allow an administrator to create new tenants.
   This prevent users from creating new Microsoft Entra ID or Azure AD B2C tenants
   and ensures that only authorized users are able to do so.
@@ -9,6 +9,5 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - "/frameworks/cis-azure-v2.1.0/01/03"
-  - "/frameworks/cis-azure-v3.0.0/02/03"
+  - "/frameworks/cis-azure-v4.0.0/06/04"
   - "/frameworks/cloudaware/identity-and-access-governance/general-access-controls"

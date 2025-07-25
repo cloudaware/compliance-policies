@@ -12,38 +12,7 @@ Incorrect or poorly-timed changing of network configuration could result in serv
 
 ## Audit
 
-### From Azure Portal
-
-1. From Azure Home open the Portal Menu in the top left.
-2. Select Key Vaults.
-3. Select a Key Vault to audit.
-4. Select `Networking` in the left column.
-5. Select `Private endpoint connections` from the top row.
-6. View if there is an endpoint attached.
-
-### From Azure CLI
-
-Run the following command within a subscription for each Key Vault you wish to audit:
-
-```sh
-az keyvault show --name <keyVaultName>
-```
-
-Ensure that `privateEndpointConnections` is not null.
-
-### From Powershell
-
-Run the following command within a subscription for each Key Vault you wish to audit:
-
-```ps
-Get-AzPrivateEndpointConnection -PrivateLinkResourceId '/subscriptions/<subscriptionNumber>/resourceGroups/<resourceGroup>/providers/Microsoft.KeyVault/vaults/<keyVaultName>/'
-```
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [a6abeaec-4d90-4a02-805f-6b26c4d3fbe9](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6abeaec-4d90-4a02-805f-6b26c4d3fbe9) - **Name**: `Azure Key Vaults should use private link`
+This policy flags an *Azure Key Vault* as `INCOMPLIANT` if the related *Azure Private Endpoint Connection* for **Key Vault** is either **not** linked to an existing *Private Endpoint* or its `Service Connection Status` is **not** set to **Approved**.
 
 ## Default Value
 

@@ -24,43 +24,7 @@ Once purge-protection and soft-delete are enabled for a Key Vault, the action is
 
 ## Audit
 
-### From Azure Portal
-
-1. Go to `Key Vaults`.
-2. For each Key Vault.
-3. Click `Properties`.
-4. Ensure the `Enable purge protection (enforce a mandatory retention period for deleted vaults and vault objects)` is selected for Purge protection option on this key vault.
-
-### From Azure CLI
-
-1. List all Resources of type Key Vaults:
-
-```sh
-az resource list --query "[?type=='Microsoft.KeyVault/vaults']"
-```
-
-2. For Every Key Vault ID ensure check parameters `enablePurgeProtection` is set to `true`:
-
-```sh
-
-az resource show --id /subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/<resourceGroupName>/providers/Microsoft.KeyVault /vaults/<keyVaultName>
-```
-
-### From PowerShell
-
-Get all Key Vaults:
-
-```ps
-Get-AzKeyVault
-```
-
-For each Key Vault run the following command:
-
-```ps
-Get-AzKeyVault -VaultName <Vault Name>
-```
-
-Examine the results of the above command for the `EnablePurgeProtection` setting. Make sure `enablePurgeProtection` is set to `True`.
+This policy flags an *Azure Key Vault* as `INCOMPLIANT` if `Soft Delete` is set to **Disabled** or `Purge Protection` is **not** set to **Enabled**.
 
 ## Default Value
 

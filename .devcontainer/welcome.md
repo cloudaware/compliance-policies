@@ -20,7 +20,7 @@ Set up your `repo-manager` authentication profile:
 repo-manager auth add --name="{name}" --token="{token}"
 ```
 
-For full reference for `repo-manager auth` command see [documnetation](../guides/developer/repo-manager/index.md#repo-manager-auth)
+For full reference for `repo-manager auth` command see [documnetation](../guides/developer/repo-manager/cli.md#repo-manager-auth)
 
 ### 2. Google Cloud CLI Authentication
 

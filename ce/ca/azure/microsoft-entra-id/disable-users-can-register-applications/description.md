@@ -12,21 +12,8 @@ Enforcing this setting will create additional requests for approval that will ne
 
 ## Audit
 
-### From Azure Portal
+This policy marks an *Azure Active Directory* as `INCOMPLIANT` if the related *Active Directory Auth Policy* has `Default Permission: Create Apps` set to **Enabled**. This field corresponds to the `Users can register applications` setting in the Microsoft Entra admin center’s **User settings** when enabled (set to **Yes**).
 
-1. From Azure Home select the Portal Menu.
-2. Select `Microsoft Entra ID`.
-3. Under `Manage`, select `Users`.
-4. Under `Manage`, select `User settings`.
-5. Ensure that `Users can register applications` is set to `No`.
-
-### From PowerShell
-
-```ps
-(Get-MgPolicyAuthorizationPolicy).DefaultUserRolePermissions | Format-List AllowedToCreateApps
-```
-
-Command should return the value of `False`.
 
 ## Default Value
 

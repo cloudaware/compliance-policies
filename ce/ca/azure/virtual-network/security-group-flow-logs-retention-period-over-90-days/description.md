@@ -2,6 +2,11 @@
 
 Network Security Group Flow Logs should be enabled and the retention period set to greater than or equal to 90 days.
 
+**Retirement Notice**
+On September 30, 2027, network security group (NSG) flow logs will be retired. Starting June 30, 2025, it will no longer be possible to create new NSG flow logs. Azure recommends migrating to virtual network flow logs.
+Review <https://azure.microsoft.com/en-gb/updates?id=Azure-NSG-flow-logs-Retirement> for more information.
+For virtual network flow logs, consider applying the recommendation `Ensure that virtual network flow log retention days is set to greater than or equal to 90` in this section.
+
 ## Rationale
 
 Flow logs enable capturing information about IP traffic flowing in and out of network security groups. Logs can be used to check for anomalies and give insight into suspected breaches.
@@ -12,27 +17,11 @@ This will keep IP traffic logs for longer than 90 days. As a level 2, first dete
 
 ## Audit
 
-### From Azure Portal
+This policy marks an *Azure Network Security Group* as `INCOMPLIANT` if any of the following conditions are met:
 
-1. Go to `Network Watcher`.
-2. Select `NSG flow logs` blade in the Logs section.
-3. Select each Network Security Group from the list.
-4. Ensure `Status` is set to `On`.
-5. Ensure `Retention (days)` setting `greater than 90 days`.
-
-### From Azure CLI
-
-```sh
-az network watcher flow-log show --resource-group <resourceGroup> --nsg <NameorID of the NetworkSecurityGroup> --query 'retentionPolicy'
-```
-
-Ensure that `enabled` is set to `true` and `days` is set to `greater then or equal to 90`.
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [5e1cd26a-5090-4fdb-9d6a-84a90335e22d](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5e1cd26a-5090-4fdb-9d6a-84a90335e22d) - **Name**: `Configure network security groups to use specific workspace, storage account and flowlog retention policy for traffic analytics`
+- `Flow Logs Enabled` is set to **false**.
+- `Flow Logs Retention Policy Enabled` is set to **false**.
+- `Flow Logs Retention Policy Days` is configured to fewer than **90** days.
 
 ## Default Value
 

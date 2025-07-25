@@ -8,37 +8,7 @@ Monitoring for create policy assignment events gives insight into changes done i
 
 ## Audit
 
-### From Azure Portal
-
-1. Navigate to the `Monitor` blade.
-2. Click on `Alerts`.
-3. In the Alerts window, click on `Alert rules`.
-4. Ensure an alert rule exists where the Condition column contains `Operation name=Microsoft.Authorization/policyAssignments/write`.
-5. Click on the Alert `Name` associated with the previous step.
-6. Ensure the `Condition` panel displays the text`Whenever the Activity Log has an event with Category='Administrative'`, `Operation name='Create policy assignment'` and does not filter on `Level`, `Status` or `Caller`.
-7. Ensure the `Actions` panel displays an Action group is assigned to notify the appropriate personnel in your organization.
-
-### From Azure CLI
-
-```sh
-az monitor activity-log alert list --subscription <subscription ID> --query "[].{Name:name,Enabled:enabled,check:condition.allOf,Actions:actions}"
-```
-
-Look for `Microsoft.Authorization/policyAssignments/write` in the output. If it's missing, generate a finding.
-
-### From PowerShell
-
-```ps
-Get-AzActivityLogAlert -SubscriptionId <subscription ID>|where-object {$_.ConditionAllOf.Equal -match "Microsoft.Authorization/policyAssignments/write"}|select-object Location,Name,Enabled,ResourceGroupName,ConditionAllOf
-```
-
-If the output is empty, an `alert rule` for `Create Policy Assignments` is not configured.
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [c5447c04-a4d7-4ba8-a263-c9ee321a6858](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5447c04-a4d7-4ba8-a263-c9ee321a6858) - **Name**: `An activity log alert should exist for specific Policy operations`
+This policy evaluates *Azure Subscriptions* for the presence of an *Azure Activity Log Alert* that captures **Create Policy Assignment** events. A subscription is marked as `INCOMPLIANT` if it does **not** have an *Activity Log Alert* whose `Condition JSON` filters on the **Microsoft.Authorization/policyAssignments/write** operation.
 
 ## Default Value
 

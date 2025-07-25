@@ -1,6 +1,6 @@
 # Description
 
-Verify identities without MFA that can log in to a privileged virtual machine using separate login credentials. An adversary can leverage the access to move laterally and perform actions with the virtual machine's managed identity. Make sure the virtual machine only has necessary permissions, and revoke the admin-level permissions according to the least privileges principal
+Verify identities without MFA that can log in to a privileged virtual machine using separate login credentials. An adversary can leverage the access to move laterally and perform actions with the virtual machine's managed identity. Make sure the virtual machine only has necessary permissions, and revoke the admin-level permissions according to the principle of least privilege.
 
 ## Rationale
 
@@ -20,11 +20,22 @@ Ensure that identities that are provisioned to a virtual machine utilizes an RBA
 
 1. Log in to the Azure portal.
 2. Select the `Subscription`, then click on `Access control (IAM)`.
-3. Select `Role Assignments` from the top menu and apply filters on `Assignment type` as `Privileged administrator roles` and `Type` as `Virtual Machines`.
-4. Verify the list of privileged managed identities attached to any virtual machine.
-5. If there are privileged managed identities from the above list, then check the list of users without MFA by navigating to `Azure AD`.
-6. In the left navigation pane select `Users` from `Manage`.
-7. Click on `Per-User MFA` from the top menu options and for each user with `MULTI-FACTOR AUTH STATUS` as `Disabled` follow the below-mentioned steps:
-    - Select the `Subscription`, then click on `Access control (IAM)`.
-    - Select `Check access` and click on `User, group, or service principal`.
-    - Enter the user name or email and verify there are no role assignments on the user that provides access like `Virtual Machine Administrator Login` or `Virtual Machine User Login`. Make sure this follows the least privileges principal.
+3. Click `Role : All` and click `All` to display the drop-down menu.
+4. Type `Virtual Machine Administrator Login` and select `Virtual Machine Administrator Login`.
+5. Review the list of identities that have been assigned the `Virtual Machine Administrator Login` role.
+6. Go to `Microsoft Entra ID`.
+7. For `Per-user MFA`:
+
+    a. Under `Manage`, click `Users`.
+
+    b. Click `Per-user MFA`.
+
+    c. Ensure that none of the identities assigned the `Virtual Machine Administrator Login` role from step 4 have `Status` set to `disabled`.
+
+8. For `Conditional Access`:
+
+    a. Under `Manage`, click `Security`.
+
+    b. Under `Protect`, click `Conditional Access`.
+
+    c. Ensure that none of the identities assigned the `Virtual Machine Administrator Login` role from step 4 are exempt from a Conditional Access policy requiring MFA for all users.

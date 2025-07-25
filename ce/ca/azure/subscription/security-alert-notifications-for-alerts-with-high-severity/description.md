@@ -6,24 +6,13 @@ Enables emailing security alerts to the subscription owner or other designated s
 
 Enabling security alert emails ensures that security alert emails are received from Microsoft. This ensures that the right people are aware of any potential security issues and are able to mitigate the risk.
 
+## Impact
+
+Enabling security alert emails can cause alert fatigue, increasing the risk of missing important alerts. Select an appropriate severity level to manage notifications. Azure aims to reduce alert fatigue by limiting the daily email volume per severity level. Learn more: <https://learn.microsoft.com/en-us/azure/defender-for-cloud/configure-email-notifications#email-frequency>.
+
 ## Audit
 
-### From Azure Portal
-
-1. From Azure Home select the Portal Menu.
-2. Select `Microsoft Defender for Cloud`.
-3. Under `Management`, select `Environment Settings`.
-4. Click on the appropriate Management Group, Subscription, or Workspace.
-5. Click on `Email notifications`.
-6. Ensure that the `Notify about alerts with the following severity (or higher)` setting is checked and set to `High`.
-
-### From Azure CLI
-
-Ensure the output of below command is set to `True`, enter your Subscription ID at the $0 between /subscriptions/<$0>/providers:
-
-```sh
-az account get-access-token --query "{subscription:subscription,accessToken:accessToken}" --out tsv | xargs -L1 bash -c 'curl -X GET -H "Authorization: Bearer $1" -H "Content-Type: application/json" https://management.azure.com/subscriptions/$0/providers/Microsoft.Security/securityContacts?api-version=2020-01-01-preview' | jq '.|.[] | select(.name=="default")'|jq '.properties.alertNotifications'
-```
+This policy flags an *Azure Subscription* as `INCOMPLIANT` if the `Security Center: Contacts` configuration does **not** include a **default** contact where `alertNotifications` is set to **On** and `alertNotificationsMinimalSeverity` is set to **High** or **Critical**.
 
 ### From Azure Policy
 

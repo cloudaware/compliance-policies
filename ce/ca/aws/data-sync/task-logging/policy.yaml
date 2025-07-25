@@ -1,0 +1,17 @@
+---
+names:
+  full: AWS Data Sync Task logging is not enabled
+  contextual: Task logging is not enabled
+description: >
+  Ensure that AWS DataSync task logging is enabled to capture detailed information 
+  about task executions, data transfers, and potential errors in Amazon CloudWatch Logs.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/datasync/01"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[DataSync.1] DataSync tasks should have logging enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/datasync-controls.html#datasync-1"

@@ -8,5 +8,6 @@
 4. Under `Manage`, select `Authentication Methods`.
 5. Under `Manage`, select `Password Protection`.
 6. Set the `Enforce custom list` option to `Yes`.
-7. Click in the `Custom banned password list` text box to add a string.
-8. Click `Save`.
+7. Click in the `Custom banned password list` text box.
+8. Add a list of words, one per line, to prevent users from using in passwords.
+9. Click `Save`.

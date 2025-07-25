@@ -12,36 +12,9 @@ Turning on Microsoft Defender for Open-source relational databases incurs an add
 
 ## Audit
 
-### From Azure Portal
+This policy flags an *Azure Subscription* as `INCOMPLIANT` if the related `Azure Defender Plan` for **Open Source Relational Databases** has its `Pricing Tier` set to **Free**.
 
-1. Go to `Microsoft Defender for Cloud`.
-2. Under `Management`, select `Environment Settings`.
-3. Click on the subscription name.
-4. Select the `Defender plans` blade.
-5. Click `Select types >` in the row for `Databases`.
-6. Ensure the toggle switch next to `Open-source relational databases` is set to `On`.
-
-### From Azure CLI
-
-Run the following command:
-
-```sh
-az security pricing show -n OpenSourceRelationalDatabases --query pricingTier
-```
-
-### From PowerShell
-
-```ps
-Get-AzSecurityPricing | Where-Object {$_.Name -eq 'OpenSourceRelationalDatabases'} | Select-Object Name, PricingTier
-```
-
-Ensure output for Name `PricingTier` is `OpenSourceRelationalDatabases Standard`.
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [0a9fbe0d-c5c4-4da8-87d8-f4fd77338835](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a9fbe0d-c5c4-4da8-87d8-f4fd77338835) - **Name**: `Azure Defender for open-source relational databases should be enabled`
+A *Subscription* is also marked as `INCOMPLIANT` if the `Defender Plan` for **Open Source Relational Databases** does **not** exist in the CMDB.
 
 ## Default Value
 

@@ -8,22 +8,7 @@ Enabling security alert emails to subscription owners ensures that they receive 
 
 ## Audit
 
-### From Azure Portal
-
-1. From Azure Home select the Portal Menu.
-2. Select `Microsoft Defender for Cloud`.
-3. Under `Management`, select `Environment Settings`.
-4. Click on the appropriate Management Group, Subscription, or Workspace.
-5. Click on `Email notifications`.
-6. Ensure that `All users with the following roles` is set to `Owner`.
-
-### From Azure CLI
-
-Ensure the command below returns state of `On` and that `Owner` appears in roles:
-
-```sh
-az account get-access-token --query "{subscription:subscription,accessToken:accessToken}" --out tsv | xargs -L1 bash -c 'curl -X GET -H "Authorization: Bearer $1" -H "Content-Type: application/json" https://management.azure.com/subscriptions/$0/providers/Microsoft.Security/securityContacts?api-version=2020-01-01-preview'| jq '.[] | select(.name=="default").properties.notificationsByRole'
-```
+This policy flags an *Azure Subscription* as `INCOMPLIANT` if the `Security Center: Contacts` configuration does **not** include a **default** contact where `notificationsByRoleRoles` contains the **Owner** role and `notificationsByRoleState` is set to **On**.
 
 ## Default Value
 

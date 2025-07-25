@@ -1,0 +1,6 @@
+---
+name: "3.1.2 Ensure that network security groups are configured for Databricks subnets (Manual)"
+description: >
+  Network Security Groups (NSGs) should be implemented to control inbound and outbound traffic to 
+  Azure Databricks subnets, ensuring only authorized communication. NSGs should be configured 
+  with deny rules to block unwanted traffic and restrict communication to essential sources only.

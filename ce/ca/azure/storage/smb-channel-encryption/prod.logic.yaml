@@ -1,0 +1,38 @@
+---
+inputType: "CA10Z1__CaAzureStorageFile__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10Z1__CaAzureStorageFile__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "SMB channel encryption is set to AES-256-GCM."
+    check:
+      AND:
+        args:
+          - CONTAINS:
+              arg:
+                EXTRACT: "CA10Z1__protocolSettingsSmbChannelEncrypt__c"
+              search:
+                TEXT: "AES-256-GCM"
+          - NOT:
+              arg:
+                CONTAINS:
+                  arg:
+                    EXTRACT: "CA10Z1__protocolSettingsSmbChannelEncrypt__c"
+                  search:
+                    TEXT: "AES-128-CCM"
+          - NOT:
+              arg:
+                CONTAINS:
+                  arg:
+                    EXTRACT: "CA10Z1__protocolSettingsSmbChannelEncrypt__c"
+                  search:
+                    TEXT: "AES-128-GCM"
+# if CA10Z1__protocolSettingsSmbChannelEncrypt__c is empty, 
+# then the default maximum compatibility (that includes all values) is set
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "SMB channel encryption is not set to AES-256-GCM."
+  remediationMessage: "Set SMB channel encryption to AES-256-GCM."
+  

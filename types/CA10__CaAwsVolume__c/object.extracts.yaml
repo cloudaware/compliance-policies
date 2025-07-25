@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../schema/Extracts.schema.json
+---
+extracts:
+# Values: creating | available | in-use | deleting | deleted | error. Not nullable. Can't have no access, retrieved via ec2:DescribeVolumes 
+  - name: CA10__status__c
+    value:
+      FIELD: 
+        path: CA10__status__c
+# Checkbox
+  - name: CA10__encrypted__c
+    value:
+      FIELD: 
+        path: CA10__encrypted__c

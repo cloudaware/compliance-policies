@@ -7,20 +7,21 @@
 1. From Azure Home open the portal menu in the top left, and select `Microsoft Entra ID`.
 2. Scroll down in the menu on the left, and select `Security`.
 3. Select on the left side `Conditional Access`.
-4. Click the `+ New policy` button.
-5. Provide a name for the policy.
-6. Under `Assignments`, select `Users or workload identities` then:
+4. Select `Policies`.
+5. Click the `+ New policy` button, then:
+6. Provide a name for the policy.
+7. Under `Assignments`, select `Users` then:
     - Under `Include`, select `All users`.
     - Under `Exclude`, check Users and groups and only select emergency access accounts and service accounts (**NOTE**: Service accounts are excluded here because service accounts are non-interactive and cannot complete MFA).
-7. Under `Assignments`, select `Cloud apps or actions` then:
+8. Under `Assignments`, select `Target resources` then:
     - Under `Include`, select `All cloud apps`.
     - Leave `Exclude` blank unless you have a well defined exception.
-8. Under `Conditions`, select `Locations` then:
+9. Under `Conditions`, select `Locations` then:
     - Select `Include`, then add entries for locations for those that should be **blocked**.
     - Select `Exclude`, then add entries for those that should be allowed (**IMPORTANT**: Ensure that all Trusted Locations are in the `Exclude` list.).
-9. Under `Access Controls`, select `Grant` and Confirm that `Block Access` is selected.
-10. Set `Enable policy` to `Report-only`.
-11. Click `Create`.
+10. Under `Access Controls`, select `Grant` select `Block Access`.
+11. Set `Enable policy` to `Report-only`.
+12. Click `Create`.
 
 Allow some time to pass to ensure the sign-in logs capture relevant conditional access events. These events will need to be reviewed to determine if additional considerations are necessary for your organization (e.g. legitimate locations are being blocked and investigation is needed for exception).
 

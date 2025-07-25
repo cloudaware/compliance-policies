@@ -1,0 +1,18 @@
+---
+names:
+  full: Azure Key Vault Public Network Access when using Private Endpoint is enabled
+  contextual: Public Network Access is enabled
+description: >
+  When a Private Endpoint is configured on a Key Vault, traffic from resources 
+  within the same subnet routes through the Vault's private IP. However, the 
+  public endpoint (mykeyvault.vault.azure.net) remains accessible unless Public 
+  network access is explicitly set to Disabled. Disabling public network access 
+  removes the public DNS entry, ensuring all traffic is routed through the private 
+  endpoint (mykeyvault.vault.privatelink.azure.net), thereby reducing exposure 
+  to the public internet.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v4.0.0/09/03/07"
+  - "/frameworks/cloudaware/resource-security/secure-access"

@@ -1,0 +1,13 @@
+---
+names:
+  full: "Azure Storage Account Shared Key Access is not disabled"
+  contextual: "Shared Key Access is not disabled"
+description: "Every secure request to an Azure Storage account must be authorized.\
+  \ By default, requests can be authorized with either Microsoft Entra credentials\
+  \ or by using the account access key for Shared Key authorization."
+type: BEST_PRACTICE
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v4.0.0/10/03/01/03"
+  - "/frameworks/cloudaware/resource-security/secure-access"

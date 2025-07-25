@@ -1,0 +1,18 @@
+---
+names:
+  full: Azure Databricks users and groups are not synced from Microsoft Entra ID
+  contextual: Databricks users and groups are not synced from Microsoft Entra ID
+description: "To ensure centralized identity and access management, users and groups from\
+  \ Microsoft Entra ID should be synchronized with Azure Databricks. This is achieved\
+  \ through SCIM provisioning, which automates the creation, update, and deactivation of\
+  \ users and groups in Databricks based on Entra ID assignments. Enabling this\
+  \ integration ensures that access controls in Databricks remain consistent with corporate\
+  \ identity governance policies, reducing the risk of orphaned accounts, stale permissions,\
+  \ and unauthorized access."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v4.0.0/03/01/04"
+  - "/frameworks/cloudaware/resource-security/secure-access"

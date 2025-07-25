@@ -1,0 +1,50 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10Z1__encryptionManagedDisksKeySource__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-10T21:40:21Z" },
+    "Id": "001",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__encryptionManagedDisksKeySource__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10Z1__encryptionManagedDisksKeySource__c') != 'Microsoft.Keyvault'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-10T21:40:21Z" },
+    "Id": "002",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__encryptionManagedDisksKeySource__c": "anykey"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10Z1__encryptionManagedDisksKeySource__c') == 'Microsoft.Keyvault'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-10T21:40:21Z" },
+    "Id": "003",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__encryptionManagedDisksKeySource__c": "Microsoft.Keyvault"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10Z1__encryptionManagedDisksKeySource__c') == 'Microsoft.Keyvault'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-10T21:40:21Z" },
+    "Id": "004",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__encryptionManagedDisksKeySource__c": "microsoft.keyvault"
+  }
+]

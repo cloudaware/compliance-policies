@@ -1,0 +1,12 @@
+---
+extracts:
+# Not nullable. Can't have no access, retrieved via dax:DescribeClusters
+  - name: "CA10__nodeType__c"
+    value:
+      FIELD:
+        path: CA10__nodeType__c
+# Values: ENABLED | DISABLED. Not nullable. Can't have no access, retrieved via dax:DescribeClusters
+  - name: "CA10__serverSideEncryptionStatus__c"
+    value:
+      FIELD:
+        path: CA10__serverSideEncryptionStatus__c

@@ -12,21 +12,7 @@ Enforcing this setting will ensure that only authorized users are able to create
 
 ## Audit
 
-### From Azure Portal
-
-1. From Azure Home select the Portal Menu.
-2. Select `Microsoft Entra ID`.
-3. Under `Manage`, select `Users`.
-4. Under `Manage`, select `User settings`.
-5. Ensure that `Restrict non-admin users from creating tenants` is set to `Yes`.
-
-### From PowerShell
-
-```ps
-Import-Module Microsoft.Graph.Identity.SignIns Connect-MgGraph -Scopes 'Policy.ReadWrite.Authorization' Get-MgPolicyAuthorizationPolicy | Select-Object -ExpandProperty DefaultUserRolePermissions | Format-List
-```
-
-Review the `DefaultUserRolePermissions` section of the output. Ensure that `AllowedToCreateTenants` is not `True`.
+This policy marks an *Azure Active Directory* as `INCOMPLIANT` if the related *Active Directory Auth Policy* has `Default Permission: Create Tenants` set to **Enabled**. This field corresponds to the `Restrict non-admin users from creating tenants` setting in the Microsoft Entra admin center’s **User settings** when enabled (set to **Yes**).
 
 ## References
 

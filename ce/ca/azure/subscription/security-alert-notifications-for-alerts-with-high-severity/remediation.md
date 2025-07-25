@@ -9,6 +9,7 @@
 5. Click on `Email notifications`.
 6. Under `Notification types`, check the check box next to `Notify about alerts with the following severity (or higher)` and select `High` from the drop down menu.
 7. Click `Save`.
+8. Repeat steps 1-7 for each Subscription requiring remediation.
 
 ## From Azure CLI
 

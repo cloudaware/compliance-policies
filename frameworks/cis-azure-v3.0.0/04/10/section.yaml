@@ -8,3 +8,7 @@ description: |-
   It is recommended that both Azure Containers with attached Blob Storage and standalone containers 
   with Blob Storage be made recoverable by enabling the **soft delete** configuration. This is to save 
   and recover data when blobs or blob snapshots are deleted.
+similar:
+  sections:
+    - /frameworks/cis-azure-v2.1.0/03/11
+    - /frameworks/cis-azure-v4.0.0/10/03/06

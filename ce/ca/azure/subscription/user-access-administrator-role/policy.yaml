@@ -1,0 +1,15 @@
+---
+names:
+  full: Azure User Access Administrator Role has assignments
+  contextual: Use of the 'User Access Administrator' role is not restricted
+description: "The User Access Administrator role grants the ability to view all resources and manage\
+  \ access assignments at any subscription or management group level within the tenant.\
+  \ Due to its broad privileges, this role should be assigned only for the\
+  \ duration of the necessary changes at the root scope and then removed immediately.\
+  \ For ongoing operations, define and use custom roles that grant only the minimum permissions required."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v4.0.0/06/03/03"
+  - "/frameworks/cloudaware/identity-and-access-governance/rbac-management"

@@ -17,6 +17,7 @@
                 "CA10__disappearanceTime__c": null,
                 "CA10__enabledStatus__c": "Enabled",
                 "CA10__lifetimeActions__c": "",
+                "CA10__created__c": "2024-03-27T14:50:58Z",
                 "CA10__keyVault__c": "test1"
             }
         ]
@@ -39,6 +40,7 @@
                 "CA10__disappearanceTime__c": null,
                 "CA10__enabledStatus__c": "Enabled",
                 "CA10__lifetimeActions__c": "",
+                "CA10__created__c": "2024-03-27T14:50:58Z",
                 "CA10__keyVault__c": "test2"
             }
         ]
@@ -61,6 +63,7 @@
                 "CA10__disappearanceTime__c": null,
                 "CA10__enabledStatus__c": "Enabled",
                 "CA10__lifetimeActions__c": "{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"NOTIFY\"}}",
+                "CA10__created__c": "2024-03-27T14:50:58Z",
                 "CA10__keyVault__c": "test3"
             }
         ]
@@ -83,6 +86,7 @@
                 "CA10__disappearanceTime__c": null,
                 "CA10__enabledStatus__c": "Enabled",
                 "CA10__lifetimeActions__c": "{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"ROTATE\"}}",
+                "CA10__created__c": "2024-03-27T14:50:58Z",
                 "CA10__keyVault__c": "test4"
             }
         ]
@@ -105,6 +109,7 @@
                 "CA10__disappearanceTime__c": null,
                 "CA10__enabledStatus__c": "Enabled",
                 "CA10__lifetimeActions__c": "{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"ROTATE\"}}\n{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"NOTIFY\"}}",
+                "CA10__created__c": "2024-03-27T14:50:58Z",
                 "CA10__keyVault__c": "test5"
             }
         ]
@@ -141,6 +146,7 @@
                 "CA10__disappearanceTime__c": "2024-11-12T19:14:41Z",
                 "CA10__enabledStatus__c": "Enabled",
                 "CA10__lifetimeActions__c": "{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"ROTATE\"}}",
+                "CA10__created__c": "2024-03-27T14:50:58Z",
                 "CA10__keyVault__c": "test7"
             }
         ]
@@ -163,7 +169,31 @@
                 "CA10__disappearanceTime__c": null,
                 "CA10__enabledStatus__c": "Disabled",
                 "CA10__lifetimeActions__c": "{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"ROTATE\"}}",
+                "CA10__created__c": "2024-03-27T14:50:58Z",
                 "CA10__keyVault__c": "test8"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__Azure_Key_Vault_Keys__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-12T19:14:41Z"
+        },
+        "Id": "test9",
+        "CA10__disappearanceTime__c": null,
+        "CA10__Azure_Key_Vault_Keys__r": [
+            {
+                "Id": "test9_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__enabledStatus__c": "Enabled",
+                "CA10__lifetimeActions__c": "{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"ROTATE\"}}\n{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"NOTIFY\"}}",
+                "CA10__created__c": "2022-11-02T19:14:41Z",
+                "CA10__keyVault__c": "test9"
             }
         ]
     }

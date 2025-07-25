@@ -12,36 +12,9 @@ Enabling Microsoft Defender for Azure Cosmos DB requires enabling Microsoft Defe
 
 ## Audit
 
-### From Azure Portal
+This policy flags an *Azure Subscription* as `INCOMPLIANT` if the related `Azure Defender Plan` for **Cosmos DBs** has its `Pricing Tier` set to **Free**.
 
-1. Go to `Microsoft Defender for Cloud`.
-2. Under `Management`, select `Environment Settings`.
-3. Click on the subscription name.
-4. Select the `Defender plans` blade.
-5. On the `Database` row click on `Select types >`.
-6. Ensure the toggle switch next to `Azure Cosmos DB` is set to `On`.
-
-### From Azure CLI
-
-Ensure the output of the below command is `Standard`:
-
-```sh
-az security pricing show -n CosmosDbs --query pricingTier
-```
-
-### From PowerShell
-
-```ps
-Get-AzSecurityPricing -Name 'CosmosDbs' | Select-Object Name,PricingTier
-```
-
-Ensure output of `PricingTier` is `Standard`.
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [adbe85b5-83e6-4350-ab58-bf3a4f736e5e](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fadbe85b5-83e6-4350-ab58-bf3a4f736e5e) - **Name**: `Microsoft Defender for Azure Cosmos DB should be enabled`
+A *Subscription* is also marked as `INCOMPLIANT` if the `Defender Plan` for **Cosmos DBs** does **not** exist in the CMDB.
 
 ## Default Value
 

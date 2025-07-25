@@ -8,28 +8,7 @@ Microsoft Defender for Cloud emails the Subscription Owner to notify them about 
 
 ## Audit
 
-### From Azure Portal
-
-1. From Azure Home select the Portal Menu.
-2. Select `Microsoft Defender for Cloud`.
-3. Under `Management`, select `Environment Settings`.
-4. Click on the appropriate Management Group, Subscription, or Workspace.
-5. Click on `Email notifications`.
-6. Ensure that a valid security contact email address is listed in the `Additional email addresses` field.
-
-### From Azure CLI
-
-Ensure the output of the below command is set not empty and is set with appropriate email ids:
-
-```sh
-az account get-access-token --query "{subscription:subscription,accessToken:accessToken}" --out tsv | xargs -L1 bash -c 'curl -X GET -H "Authorization: Bearer $1" -H "Content-Type: application/json" https://management.azure.com/subscriptions/$0/providers/Microsoft.Security/securityContacts?api-version=2020-01-01-preview' | jq '.|.[] | select(.name=="default")'|jq '.properties.emails'
-```
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [4f4f78b8-e367-4b10-a341-d9a4ad5cf1c7](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f4f78b8-e367-4b10-a341-d9a4ad5cf1c7) - **Name**: `Subscriptions should have a contact email address for security issues`
+This policy flags an *Azure Subscription* as `INCOMPLIANT` if the `Security Center: Contacts` configuration does **not** include a **default** contact with a configured `security contact email`.
 
 ## Default Value
 

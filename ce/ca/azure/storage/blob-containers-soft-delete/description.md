@@ -14,27 +14,7 @@ Additional storage costs may be incurred as snapshots are retained.
 
 ## Audit
 
-### From Azure Portal
-
-1. Go to `Storage Accounts`.
-2. For each Storage Account, under `Data management`, go to `Data protection`.
-3. Ensure that `Enable soft delete for blobs` is checked.
-4. Ensure that `Enable soft delete for containers` is checked.
-5. Ensure that the retention period for both is a sufficient length for your organization.
-
-### From Azure CLI
-
-Blob Storage: Ensure that the output of the below command contains enabled status as true and days is not empty or null:
-
-```sh
-az storage blob service-properties delete-policy show --account-name <StorageAccountName> --account-key <accountkey>
-```
-
-Azure Containers: Make certain that the --enable-container-delete-retention is `true`:
-
-```sh
-az storage account blob-service-properties show --account-name <StorageAccountName> --resource-group <resourceGroup>
-```
+This policy flags an *Azure Storage Account* as `INCOMPLIANT` if either the `Blob Retention Policy State` or the `Container Retention Policy State` is not set to **Enabled**, or if the corresponding `Retention Policy Days` values are **empty**.
 
 ## Default Value
 

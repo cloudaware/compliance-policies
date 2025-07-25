@@ -2,3 +2,7 @@
 name: "2.10 Ensure that 'Notify users on password resets?' is set to 'Yes' (Manual)"
 description: |-
   Ensure that users are notified on their primary and alternate emails on password resets.
+similar:
+  sections:
+    - /frameworks/cis-azure-v2.1.0/01/08
+    - /frameworks/cis-azure-v4.0.0/06/10

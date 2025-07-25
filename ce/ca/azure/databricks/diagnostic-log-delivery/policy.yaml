@@ -1,0 +1,19 @@
+---
+names:
+  full: Azure Databricks Diagnostic Log Delivery is not configured
+  contextual: Databricks Diagnostic Log Delivery is not configured
+description: |-
+  Azure Databricks Diagnostic Logging provides insights into system operations, 
+  user activities, and security events within a Databricks workspace. Enabling 
+  diagnostic logs helps organizations:
+  
+  - Detect security threats by logging access, job executions, and cluster activities.
+  - Ensure compliance with industry regulations such as SOC 2, HIPAA, and GDPR.
+  - Monitor operational performance and troubleshoot issues proactively.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v4.0.0/03/01/07"
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"

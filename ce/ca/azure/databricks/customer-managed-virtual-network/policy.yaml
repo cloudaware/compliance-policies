@@ -1,0 +1,16 @@
+---
+names:
+  full: Azure Databricks Workspace is not deployed in a customer-managed virtual network (VNet)
+  contextual: Workspace is not deployed in a customer-managed virtual network (VNet)
+description: >
+  Deploy Azure Databricks Workspaces using customer-managed Virtual Network 
+  injection so that compute clusters and control-plane components reside securely 
+  within your organization's network perimeter. The default Databricks-managed 
+  VNet offers only limited control over network security policies, firewall 
+  configurations and routing.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v4.0.0/03/01/01"
+  - "/frameworks/cloudaware/resource-security/threat-protection"

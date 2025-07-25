@@ -16,34 +16,7 @@ This creates authentication credentials for services that need access to storage
 
 ## Audit
 
-### From Azure Portal
-
-1. Go to `Storage Accounts`.
-2. For each storage account, under Security + networking, click `Networking`.
-3. Click on the `Firewalls and virtual networks` heading.
-4. Under `Exceptions`, ensure that `Allow Azure services on the trusted services list to access this storage account` is checked.
-
-### From Azure CLI
-
-Ensure `bypass` contains `AzureServices`:
-
-```sh
-az storage account list --query '[*].networkRuleSet'
-```
-
-### From PowerShell
-
-```ps
-Connect-AzAccount Set-AzContext -Subscription <subscription ID> Get-AzStorageAccountNetworkRuleset -ResourceGroupName <resource group> -Name <storage account name> |Select-Object Bypass
-```
-
-If the response from the above command is `None`, the storage account configuration is out of compliance with this check. If the response is `AzureServices`, the storage account configuration is in compliance with this check.
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [c9d007d0-c057-4772-b18c-01e546713bcd](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9d007d0-c057-4772-b18c-01e546713bcd) - **Name**: `Storage accounts should allow access from trusted Microsoft services`
+This policy flags an *Azure Storage Account* as `INCOMPLIANT` if its `Network ACLs: Bypass` does **not** contain **AzureServices**.
 
 ## Default Value
 

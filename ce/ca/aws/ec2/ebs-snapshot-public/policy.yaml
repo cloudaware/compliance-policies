@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS EBS Snapshot is publicly accessible"
+  contextual: "EBS Snapshot is publicly accessible"
+description: >
+  Ensure that Amazon EBS snapshots are not publicly accessible to prevent 
+  unauthorized access to data. Snapshots should be shared only with specific, 
+  trusted AWS accounts.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/aws-fsbp-v1.0.0/ec2/01"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[EC2.1] Amazon EBS snapshots should not be publicly restorable"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-1"

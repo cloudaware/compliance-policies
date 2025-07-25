@@ -2,3 +2,7 @@
 name: "3.3.2 Ensure that the Expiration Date is set for all Keys in Non-RBAC Key Vaults. (Automated)"
 description: >
   Ensure that all Keys in Non Role Based Access Control (RBAC) Azure Key Vaults have an expiration date set.
+similar:
+  sections:
+    - /frameworks/cis-azure-v2.1.0/08/02
+    - /frameworks/cis-azure-v4.0.0/09/03/02

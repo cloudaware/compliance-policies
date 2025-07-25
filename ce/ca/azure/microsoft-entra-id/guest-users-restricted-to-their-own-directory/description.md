@@ -27,35 +27,10 @@ Service without current support might have compatibility issues with the new gue
 
 ## Audit
 
-### From Azure Portal
+This policy marks an *Azure Active Directory* as `INCOMPLIANT` if the related *Active Directory Auth Policy* has `Guest User Role ID` set to either:
 
-1. From Azure Home select the Portal Menu.
-2. Select `Microsoft Entra ID`.
-3. Then `External Identities`.
-4. Select `External collaboration settings`.
-5. Under `Guest user access`, ensure that `Guest user access restrictions` is set to `Guest user access is restricted to properties and memberships of their own directory objects`.
-
-### From PowerShell
-
-1. Enter the following:
-
-```ps
-Get-AzureADMSAuthorizationPolicy
-```
-
-Which will give a result like:
-
-```
-Id : authorizationPolicy 
-OdataType : 
-Description : Used to manage authorization related settings across the company. 
-DisplayName : Authorization Policy 
-EnabledPreviewFeatures : {} 
-GuestUserRoleId : 10dae51f-b6af-4016-8d66-8c2a99b929b3 
-PermissionGrantPolicyIdsAssignedToDefaultUserRole : {user-default-legacy}
-```
-
-If the `GuestUserRoleID` property does not equal `2af84b1e-32c8-42b7-82bc-daa82404023b` then it is not set to most restrictive.
+- **a0b1b346-4d3e-4e8b-98f8-753987be4970** (User), or
+- **10dae51f-b6af-4016-8d66-8c2a99b929b3** (Guest User).
 
 ## Default Value
 

@@ -12,44 +12,7 @@ There are additional costs per transaction to run and store network data. For hi
 
 ## Audit
 
-### From Azure Portal
-
-1. Use the Search bar to search for and click on the `Network Watcher` service.
-2. From the Overview menu item, review each Network Watcher listed, and ensure that a network watcher is listed for each region in use by the subscription.
-
-### From Azure CLI
-
-```sh
-az network watcher list --query "[].{Location:location,State:provisioningState}" -o table
-```
-
-This will list all network watchers and their provisioning state.
-
-Ensure `provisioningState` is `Succeeded` for each network watcher.
-
-```sh
-az account list-locations --query "[?metadata.regionType=='Physical'].{Name:name,DisplayName:regionalDisplayName}" -o table
-```
-
-This will list all physical regions that exist in the subscription.
-
-Compare this list to the previous one to ensure that for each region, a network watcher exists with `provisioningState` set to `Succeeded`.
-
-### From PowerShell
-
-Get a list of Network Watchers:
-
-```ps
-Get-AzNetworkWatcher
-```
-
-Make sure each watcher is set with the `ProvisioningState` setting set to `Succeeded` and all `Locations` are set with a watcher.
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [b6e2945c-0b7b-40f5-9233-7a5323b5cdc6](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb6e2945c-0b7b-40f5-9233-7a5323b5cdc6) - **Name**: `Network Watcher should be enabled`
+This policy marks an *Azure Subscription* as `INCOMPLIANT` if the number of `Available Locations` is not equal to the total number of enabled *Azure Network Watchers* in that subscription.
 
 ## Default Value
 

@@ -1,0 +1,7 @@
+---
+name: "6.3.3 Ensure that use of the 'User Access Administrator' role is restricted (Automated)"
+description: >
+  The User Access Administrator role grants the ability to view all resources and manage access assignments 
+  at any subscription or management group level within the tenant. Due to its high privilege level, this role 
+  assignment should be removed immediately after completing the necessary changes at the root scope 
+  to minimize security risks.

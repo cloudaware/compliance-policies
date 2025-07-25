@@ -3,3 +3,7 @@ name: "2.25 Ensure That 'Subscription leaving Microsoft Entra tenant' and 'Subsc
 description: |-
   Users who are set as subscription owners are able to make administrative changes to the 
   subscriptions and move them into and out of Microsoft Entra ID.
+similar:
+  sections:
+    - /frameworks/cis-azure-v2.1.0/01/24
+    - /frameworks/cis-azure-v4.0.0/06/25

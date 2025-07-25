@@ -2,3 +2,7 @@
 name: "2.3 Ensure that 'Restrict non-admin users from creating tenants' is set to 'Yes' (Automated)"
 description: |-
   Require administrators or appropriately delegated users to create new tenants.
+similar:
+  sections:
+    - /frameworks/cis-azure-v2.1.0/01/03
+    - /frameworks/cis-azure-v4.0.0/06/04

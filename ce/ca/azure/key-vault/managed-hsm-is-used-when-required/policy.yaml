@@ -1,0 +1,13 @@
+---
+names:
+  full: "Azure Key Vault Managed HSM is not used whenever required"
+  contextual: "Key Vault Managed HSM is used"
+description: "Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant cloud\
+  \ service that safeguards cryptographic keys using FIPS 140-2 Level 3 validated HSMs."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v4.0.0/09/03/10"
+  - "/frameworks/cloudaware/resource-security/secure-access"

@@ -12,47 +12,7 @@ Configuring the storage account with the activity log export container to use CM
 
 ## Audit
 
-### From Azure Portal
-
-1. Go to `Monitor`.
-2. Select `Activity log`.
-3. Select `Export Activity Logs`.
-4. Select a `Subscription`.
-5. Note the name of the `Storage Account` for the diagnostic setting.
-6. Navigate to `Storage accounts`.
-7. Click on the storage account name noted in Step 5.
-8. Under `Security + networking`, click `Encryption`.
-9. Ensure `Customer-managed keys` is selected and a key is set.
-
-### From Azure CLI
-
-1. Get storage account id configured with log profile:
-
-```sh
-az monitor diagnostic-settings subscription list --subscription <subscription id> --query 'value[*].storageAccountId'
-```
-
-2. Ensure the storage account is encrypted with CMK:
-
-```sh
-az storage account list --query "[?name=='<Storage Account Name>']"
-```
-
-In command output ensure `keySource` is set to `Microsoft.Keyvault` and `keyVaultProperties` is not set to `null`.
-
-### From PowerShell
-
-```ps
-Get-AzStorageAccount -ResourceGroupName <resource group name> -Name <storage account name>|select-object -ExpandProperty encryption|format-list
-```
-
-Ensure the value of `KeyVaultProperties` is not `null` or empty, and ensure `KeySource` is not set to `Microsoft.Storage`.
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [fbb99e8e-e444-4da0-9ff1-75c92f5a85b2](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbb99e8e-e444-4da0-9ff1-75c92f5a85b2) - **Name**: `Storage account containing the container with activity logs must be encrypted with BYOK`
+This policy flags an *Azure Subscription Diagnostic Setting* as `INCOMPLIANT` if the associated `Storage Account`, the logs being sent to, is not encrypted by a customer-managed key. This is detected when the `Encryption Key Source` field is not set to **Microsoft.Keyvault**, indicating that the storage account relies on a Microsoft‑managed key.
 
 ## Default Value
 

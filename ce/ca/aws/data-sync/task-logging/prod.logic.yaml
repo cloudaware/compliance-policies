@@ -1,0 +1,22 @@
+---
+inputType: "CA10A1__CaAwsDataSyncTask__c"
+importExtracts:
+  - file: /types/CA10A1__CaAwsDataSyncTask__c/object.extracts.yaml
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "DataSync Task logging is not enabled."
+    remediationMessage: "Consider configuring a CloudWatch Log Group for the DataSync Task."
+    check:
+      IS_EMPTY: 
+        arg:
+          EXTRACT: "CA10A1__cloudWatchLogGroupArn__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "DataSync Task logging has been deleted or does not exist in the CMDB."
+    remediationMessage: "Confirm that CloudWatch Log Group for the DataSync Task is configured."
+    check:
+      IS_EMPTY_LOOKUP: "CA10A1__cloudWatchLogGroup__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "DataSync Task logging is enabled."

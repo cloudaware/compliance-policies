@@ -10,38 +10,7 @@ A diagnostic setting controls how the diagnostic log is exported. Capturing the 
 
 ## Audit
 
-### From Azure Portal
-
-1. Go to `Azure Monitor`.
-2. Click `Activity log`.
-3. Click on `Export Activity Logs`.
-4. Select the appropriate `Subscription`.
-5. Click Edit setting next to a diagnostic setting.
-6. Ensure that the following categories are checked: `Administrative`, `Alert`, `Policy`, and `Security`.
-
-### From Azure CLI
-
-Ensure the categories `Administrative`, `Alert`, `Policy`, and `Security` set to: `enabled: true`:
-
-```sh
-az monitor diagnostic-settings subscription list --subscription <subscription ID>
-```
-
-## From Powershell
-
-Ensure the categories `Administrative`, `Alert`, `Policy`, and `Security` are set to `Enabled:True`:
-
-```ps
-Get-AzSubscriptionDiagnosticSetting -Subscription <subscriptionID>
-```
-
-## From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-- **Policy ID**: [3b980d31-7904-4bb7-8575-5665739a8052](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3b980d31-7904-4bb7-8575-5665739a8052) - **Name**: `An activity log alert should exist for specific Security operations`
-- **Policy ID**: [b954148f-4c11-4c38-8221-be76711e194a](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb954148f-4c11-4c38-8221-be76711e194a) - **Name**: `An activity log alert should exist for specific Administrative operations`
-- **Policy ID**: [c5447c04-a4d7-4ba8-a263-c9ee321a6858](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5447c04-a4d7-4ba8-a263-c9ee321a6858) - **Name**: `An activity log alert should exist for specific Policy operations`
+This policy flags an *Azure Subscription Diagnostic Setting* as `INCOMPLIANT` if the `Logs JSON` does not capture one of the following categories: **Administrative**, **Alert**, **Policy**, **Security**.
 
 ## Default Value
 

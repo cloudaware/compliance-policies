@@ -1,0 +1,41 @@
+# Description
+
+Unity Catalog is a centralized governance model for managing and securing data in Azure Databricks. It provides fine-grained access control to databases, tables, and views using Microsoft Entra ID identities. Unity Catalog also enhances data lineage, audit logging, and compliance monitoring, making it a critical component for security and governance.
+
+## Rationale
+
+- Enforces centralized access control policies and reduces data security risks.
+- Enables identity-based authentication via Microsoft Entra ID.
+- Improves compliance with industry regulations (e.g. GDPR, HIPAA, SOC 2) by providing audit logs and access visibility.
+- Prevents unauthorized data access through table-, row-, and column-level security (RLS & CLS).
+
+## Impact
+
+- Improperly configured permissions may lead to data exfiltration or unauthorized access.
+- Unity Catalog requires structured governance policies to be effective and prevent overly permissive access.
+
+## Audit
+
+**Method 1:** Verify unity catalog deployment:
+
+1. As an Azure Databricks account admin, log into the account console.
+2. Click Workspaces.
+3. Find your workspace and check the Metastore column. If a metastore name is present, your workspace is attached to a Unity Catalog metastore and therefore enabled for Unity Catalog.
+
+**Method 2:** Run a SQL query to confirm Unity Catalog enablement
+
+Run the following SQL query in the SQL query editor or a notebook that is attached to a Unity Catalog-enabled compute resource. No admin role is required.
+
+*SELECT CURRENT_METASTORE();*
+
+If the query returns a metastore ID like the following, then your workspace is attached to a Unity Catalog metastore and therefore enabled for Unity Catalog.
+
+## Default Value
+
+New workspaces have Unity Catalog enabled by default. Existing workspaces may require manual enablement.
+
+## References
+
+1. <https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/>
+2. <https://learn.microsoft.com/en-us/azure/databricks/admin/users-groups/>
+3. <https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/enable-workspaces>

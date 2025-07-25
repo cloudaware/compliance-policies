@@ -12,24 +12,7 @@ Because Application Insights relies on a Log Analytics Workspace, an organizatio
 
 ## Audit
 
-### From Azure Portal
-
-1. Navigate to `Application Insights`.
-2. Ensure an `Application Insights` service is configured and exists.
-
-### From Azure CLI
-
-```sh
-az monitor app-insights component show --query "[].{ID:appId, Name:name, Tenant:tenantId, Location:location, Provisioning_State:provisioningState}"
-```
-
-Ensure the above command produces output, otherwise `Application Insights` has not been configured.
-
-## From PowerShell
-
-```ps
-Get-AzApplicationInsights|select location,name,appid,provisioningState,tenantid
-```
+This policy marks an *Azure Subscription* as `INCOMPLIANT` if it does **not** have related *Azure Application Insights Components* configured.
 
 ## Default Value
 
