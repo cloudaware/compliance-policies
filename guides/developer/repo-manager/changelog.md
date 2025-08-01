@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1
+
+- `docs generate` fix for flags on Types
+
 ## 2.0.0
 
 - `repo-manager` auto-update feature added.

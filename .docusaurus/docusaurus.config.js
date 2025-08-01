@@ -7,7 +7,7 @@ const config = {
     title: 'Cloudaware Compliance Policies',
     favicon: 'img/favicon.ico',
     url: 'https://ce.prod.cloudaware.com',
-    baseUrl: '/',
+    baseUrl: process.env.BASE_URL ? process.env.BASE_URL : '/',
     organizationName: 'cloudaware',
     projectName: 'compliance-policies',
     onBrokenLinks: 'warn',
