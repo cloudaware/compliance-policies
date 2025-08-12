@@ -27,4 +27,4 @@ We recommend using [Devpod](https://devpod.sh/) for running devcontainers locall
 
 Follow the [installation instructions](https://devpod.sh/docs/getting-started/install), and then create a workspace from your local repository or directly from a Git repository.
 
-**Note for Windows users**: We do not recommend using [Docker Desktop for Windows](https://docs.docker.com/desktop/install/windows-install/) due to its poor disk I/O performance with workspaces located on the Windows filesystem. Instead, we recommend installing `docker` and the `devpod` CLI directly into WSL2 and using workspaces located within the WSL filesystem.
+**Note for Windows users**: We do not recommend using [Docker Desktop for Windows](https://docs.docker.com/desktop/install/windows-install/) due to its poor disk I/O performance with workspaces located on the Windows filesystem. Instead, we recommend installing `docker` and the `devpod` CLI directly into WSL2 and using workspaces located within the WSL filesystem. See "Performance across OS file systems" here <https://learn.microsoft.com/en-us/windows/wsl/compare-versions#comparing-features> 

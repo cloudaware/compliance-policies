@@ -54,4 +54,4 @@ The `IS_BEYOND_NEXT_DAYS` operation checks if a [`DateTime`](../type-system/inde
 
 See more details in:
 
-- [Unit Tests](../../../ce/unit-test/is-beyond-next-days/unit-test.logic.yaml.gen.md)
+- [Unit Tests](../../../ce/unit-test/is-beyond-next-days/unit-test.logic.yaml.md)

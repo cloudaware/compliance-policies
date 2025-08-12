@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.1.0
+
+- `repo-manager docs generate` now generates `*.yaml.md`/`*.json.md` files instead of `*.yaml.gen.md`/`*.json.gen.md`
+- `.gitignore` refactored and updated to match
+- Obsidian vault config generation removed
+- `repo-manager cleanup` added - this command removes generated and imported files from the repo
+- `repo-manager docs cleanup` update - this command removes only generated files and keeps imported
+- Minor documentation changes
+
 ## 2.0.1
 
 - `docs generate` fix for flags on Types

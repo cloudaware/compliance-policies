@@ -33,6 +33,7 @@ If user input implies getting data from Cloudaware the best way of doing the fol
 3. Convert SOQL query into BigQuery query using `repo-manager`
 4. Modify BigQuery query to retrieve the data user wants
 5. Execute the final query by running proper `gcloud` commands
+6. Document everything you've performed for the user request
 
 ### Finding an object in CMDB
 
@@ -74,3 +75,7 @@ To create a base query, you need to:
 
 Call proper `glcoud` or `bq` command yourself to execute the final query, user's environment should have it properly configured, instead of providing query as a parameter, provide it as a file, for example `export/instance-count/final-query.bqsql`.
 Redirect the output into the file called `result` in the same directory. Use proper extension for the data type you requested
+
+### Documenting performed steps
+
+After you achieve the result, compose a Markdown document in the same folder, for example `export/instance-count/description.md` and explain all the actions you did for the user. Make sure to include all executed commands as code blocks, so the user can follow your steps and execute the steps himself if needed.

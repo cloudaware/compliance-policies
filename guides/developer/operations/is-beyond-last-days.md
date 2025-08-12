@@ -55,4 +55,4 @@ The `IS_BEYOND_LAST_DAYS` operation checks if a [`DateTime`](../type-system/inde
 
 See more details in:
 
-- [Unit Tests](../../../ce/unit-test/is-beyond-last-days/unit-test.logic.yaml.gen.md)
+- [Unit Tests](../../../ce/unit-test/is-beyond-last-days/unit-test.logic.yaml.md)

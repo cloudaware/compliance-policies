@@ -22,8 +22,8 @@ Based on the user's request, the AI agent can access further documentation withi
 By exploring the repository, the AI agent can utilize:
 
 - Information about [all available types](../types/all.gen.md) to select the correct one based on user queries.
-- Detailed type descriptions, including available fields (e.g., [AWS EC2 Instance](../types/CA10__CaAwsInstance__c/type.gen.md)).
-- Available Compliance Engine policies, located in the [`/ce`](../ce/folder.gen.md) directory.
+- Detailed type descriptions, including available fields (e.g., [AWS EC2 Instance](../types/CA10__CaAwsInstance__c/type.json.md)).
+- Available Compliance Engine policies, located in the [`/ce`](../ce/folder.yaml.md) directory.
 
 The system also relies on the AI's built-in knowledge of:
 
@@ -43,7 +43,7 @@ The following are tested use cases that demonstrate the AI agent's ability to un
 **AI Agent's Process:**
 
 1. Determines the correct object type and its API name: `CA10__CaAwsInstance__c`.
-2. Inspects available fields in either [`type.json`](../types/CA10__CaAwsInstance__c/type.json) or the [generated documentation](../types/CA10__CaAwsInstance__c/type.gen.md).
+2. Inspects available fields in either [`type.json`](../types/CA10__CaAwsInstance__c/type.json) or the [generated documentation](../types/CA10__CaAwsInstance__c/type.json.md).
 3. Concludes that `CA10__stateName__c` must be `running`.
 4. Filters out deleted objects by ensuring `CA10__disappearanceTime__c` is null.
 5. Constructs a SOQL query.

@@ -81,5 +81,5 @@ The behavior of `SET_FROM` is critically dependent on the type of the input `arg
 
 ## Relevant Unit Tests
 
-- Unit tests for `SET_FROM` with `Text` items can be found here: [/ce/unit-test/set-from/text-items/unit-test.logic.yaml](../../../ce/unit-test/set-from/text-items/unit-test.logic.yaml.gen.md).
-- Unit tests for `SET_FROM` with `Bytes` items can be found here: [/ce/unit-test/set-from/bytes-items/unit-test.logic.yaml](../../../ce/unit-test/set-from/bytes-items/unit-test.logic.yaml.gen.md).
+- Unit tests for `SET_FROM` with `Text` items can be found here: [/ce/unit-test/set-from/text-items/unit-test.logic.yaml](../../../ce/unit-test/set-from/text-items/unit-test.logic.yaml.md).
+- Unit tests for `SET_FROM` with `Bytes` items can be found here: [/ce/unit-test/set-from/bytes-items/unit-test.logic.yaml](../../../ce/unit-test/set-from/bytes-items/unit-test.logic.yaml.md).

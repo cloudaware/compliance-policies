@@ -1,6 +1,6 @@
 # Remediation
 
-It is recommended to transition from **Launch Configurations** to **Launch Templates** rather than modifying the existing launch configuration. The migration process to launch templates is outlined in [/ce/ca/aws/autoscaling/group-uses-launch-configuration](../group-uses-launch-configuration/policy.gen.md).
+It is recommended to transition from **Launch Configurations** to **Launch Templates** rather than modifying the existing launch configuration. The migration process to launch templates is outlined in [/ce/ca/aws/autoscaling/group-uses-launch-configuration](../group-uses-launch-configuration/policy.yaml.md).
 
 If immediate migration is not feasible, you may choose to modify the current launch configuration as outlined below.
 

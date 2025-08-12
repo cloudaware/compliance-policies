@@ -63,9 +63,9 @@ The `IS_EMPTY` operation checks if the provided argument `arg` is considered emp
 
 See more details in:
 
-- [Unit Tests](../../../ce/unit-test/is-empty/text/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](is-empty.md) operation on [`Text`](../type-system/index.md#text-type) type
-- [Unit Tests](../../../ce/unit-test/is-empty/bytes/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](is-empty.md) operation on [`Bytes`](../type-system/index.md#bytes-type) type
-- [Unit Tests](../../../ce/unit-test/is-empty/boolean/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](is-empty.md) operation on [`Boolean`](../type-system/index.md#boolean-type) type
-- [Unit Tests](../../../ce/unit-test/is-empty/number/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](is-empty.md) operation on [`Number`](../type-system/index.md#number-type) type
-- [Unit Tests](../../../ce/unit-test/is-empty/date-time/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](is-empty.md) operation on [`DateTime`](../type-system/index.md#datetime-type) type
-- [Unit Tests](../../../ce/unit-test/is-empty/set/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](is-empty.md) operation on [`Set`](../type-system/index.md#set-type) type
+- [Unit Tests](../../../ce/unit-test/is-empty/text/unit-test.logic.yaml.md) for [`IS_EMPTY`](is-empty.md) operation on [`Text`](../type-system/index.md#text-type) type
+- [Unit Tests](../../../ce/unit-test/is-empty/bytes/unit-test.logic.yaml.md) for [`IS_EMPTY`](is-empty.md) operation on [`Bytes`](../type-system/index.md#bytes-type) type
+- [Unit Tests](../../../ce/unit-test/is-empty/boolean/unit-test.logic.yaml.md) for [`IS_EMPTY`](is-empty.md) operation on [`Boolean`](../type-system/index.md#boolean-type) type
+- [Unit Tests](../../../ce/unit-test/is-empty/number/unit-test.logic.yaml.md) for [`IS_EMPTY`](is-empty.md) operation on [`Number`](../type-system/index.md#number-type) type
+- [Unit Tests](../../../ce/unit-test/is-empty/date-time/unit-test.logic.yaml.md) for [`IS_EMPTY`](is-empty.md) operation on [`DateTime`](../type-system/index.md#datetime-type) type
+- [Unit Tests](../../../ce/unit-test/is-empty/set/unit-test.logic.yaml.md) for [`IS_EMPTY`](is-empty.md) operation on [`Set`](../type-system/index.md#set-type) type

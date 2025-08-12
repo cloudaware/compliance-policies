@@ -6,7 +6,7 @@
 # It doesn't matter if versioning is enabled because remediation will enable it anyway
 inputType: "CA10__CaAwsBucket__c"
 testData:
-  - file: "test.data.json"
+  - file: "test-data.json"
 importExtracts:
   - file: "/types/CA10__CaAwsBucket__c/object.extracts.yaml"
 conditions:

@@ -42,8 +42,11 @@ Now you can run `repo-manager` command in any directory on your machine.
 
 ### Linux
 
+TODO
 
 ### macOS
+
+TODO
 
 ## Configuration files
 

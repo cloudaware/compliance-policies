@@ -56,4 +56,4 @@ Both arguments must be of [`Number`](../type-system/index.md#number-type) type.
 
 See more details in:
 
-- [Unit Tests](../../../ce/unit-test/less-than-equal/unit-test.logic.yaml.gen.md)
+- [Unit Tests](../../../ce/unit-test/less-than-equal/unit-test.logic.yaml.md)

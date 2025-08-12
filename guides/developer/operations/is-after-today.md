@@ -47,4 +47,4 @@ The `IS_AFTER_TODAY` operation checks if a [`DateTime`](../type-system/index.md#
 
 See more details in:
 
-- [Unit Tests](../../../ce/unit-test/is-after-today/unit-test.logic.yaml.gen.md)
+- [Unit Tests](../../../ce/unit-test/is-after-today/unit-test.logic.yaml.md)

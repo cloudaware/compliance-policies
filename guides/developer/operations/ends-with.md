@@ -75,4 +75,4 @@ The comparison is case-insensitive for `Text` types and case-sensitive for `Byte
 
 For more detailed examples and to validate the behavior of the `ENDS_WITH` operation, you can refer to the official unit tests:
 
-- [Unit tests for ENDS_WITH](../../../ce/unit-test/ends-with/unit-test.logic.yaml.gen.md)
+- [Unit tests for ENDS_WITH](../../../ce/unit-test/ends-with/unit-test.logic.yaml.md)

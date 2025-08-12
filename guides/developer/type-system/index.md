@@ -101,11 +101,11 @@ Here are practical examples demonstrating how the `Text` type behaves in policy 
 
 To explore or validate the `Text` type's behavior further, check these unit tests:
 
-- [Unit tests](../../../ce/unit-test/is-empty/text/unit-test.logic.yaml.gen.md) for `IS_EMPTY` operation on Text type
-- [Unit tests](../../../ce/unit-test/is-equal/text/unit-test.logic.yaml.gen.md) for `IS_EQUAL` operation on Text type
-- [Unit tests](../../../ce/unit-test/contains/text/unit-test.logic.yaml.gen.md) for `CONTAINS` operation on Text type
-- [Unit tests](../../../ce/unit-test/starts-with/unit-test.logic.yaml.gen.md) for `STARTS_WITH` operation on Text type
-- [Unit tests](../../../ce/unit-test/ends-with/unit-test.logic.yaml.gen.md) for `ENDS_WITH` operation on Text type
+- [Unit tests](../../../ce/unit-test/is-empty/text/unit-test.logic.yaml.md) for `IS_EMPTY` operation on Text type
+- [Unit tests](../../../ce/unit-test/is-equal/text/unit-test.logic.yaml.md) for `IS_EQUAL` operation on Text type
+- [Unit tests](../../../ce/unit-test/contains/text/unit-test.logic.yaml.md) for `CONTAINS` operation on Text type
+- [Unit tests](../../../ce/unit-test/starts-with/unit-test.logic.yaml.md) for `STARTS_WITH` operation on Text type
+- [Unit tests](../../../ce/unit-test/ends-with/unit-test.logic.yaml.md) for `ENDS_WITH` operation on Text type
 
 ## Bytes Type
 
@@ -183,8 +183,8 @@ Use the `Bytes` type when your policy requires exact string comparisons without 
 
 To explore or validate the `Bytes` type's behavior further, check these unit tests:
 
-- [Unit tests](../../../ce/unit-test/is-equal/bytes/unit-test.logic.yaml.gen.md) for [`IS_EQUAL`](../operations/is-equal.md) operation on Bytes type
-- [Unit tests](../../../ce/unit-test/is-empty/bytes/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](../operations/is-empty.md) operation on Bytes type
+- [Unit tests](../../../ce/unit-test/is-equal/bytes/unit-test.logic.yaml.md) for [`IS_EQUAL`](../operations/is-equal.md) operation on Bytes type
+- [Unit tests](../../../ce/unit-test/is-empty/bytes/unit-test.logic.yaml.md) for [`IS_EMPTY`](../operations/is-empty.md) operation on Bytes type
 
 ## Boolean Type
 
@@ -194,10 +194,10 @@ You can not create `null` constants from [`BOOLEAN`](../operations/boolean.md) o
 Return value of [`FIELD`](../operations/field.md) for Checkbox fields also does not return `null`.
 
 However `null` can be returned by operations like [`JSON_QUERY_BOOLEAN`](../operations/json-query-boolean.md). And operation [`IS_EMPTY`](../operations/is-empty.md) will return `true` only on `null` value.
-See [unit tests](../../../ce/unit-test/is-empty/boolean/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](../operations/is-empty.md).
+See [unit tests](../../../ce/unit-test/is-empty/boolean/unit-test.logic.yaml.md) for [`IS_EMPTY`](../operations/is-empty.md).
 
 [`IS_EQUAL`](../operations/is-equal.md) operation also considers `null` as a distinct value, which is not equal neither to `true` nor to `false`.
-See [unit tests](../../../ce/unit-test/is-equal/boolean/unit-test.logic.yaml.gen.md) for [`IS_EQUAL`](../operations/is-equal.md).
+See [unit tests](../../../ce/unit-test/is-equal/boolean/unit-test.logic.yaml.md) for [`IS_EQUAL`](../operations/is-equal.md).
 
 ## Number Type
 
@@ -212,12 +212,12 @@ Number type represents numeric values, including integers and decimal numbers. K
 
 See more details in:
 
-- [Unit Tests](../../../ce/unit-test/is-equal/number/unit-test.logic.yaml.gen.md) for [`IS_EQUAL`](../operations/is-equal.md) operation on Number type
-- [Unit Tests](../../../ce/unit-test/is-empty/number/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](../operations/is-empty.md) operation on Number type
-- [Unit Tests](../../../ce/unit-test/greater-than/unit-test.logic.yaml.gen.md) for [`GREATER_THAN`](../operations/greater-than.md)
-- [Unit Tests](../../../ce/unit-test/greater-than-equal/unit-test.logic.yaml.gen.md) for [`GREATER_THAN_EQUAL`](../operations/greater-than-equal.md)
-- [Unit Tests](../../../ce/unit-test/less-than/unit-test.logic.yaml.gen.md) for [`LESS_THAN`](../operations/less-than.md)
-- [Unit Tests](../../../ce/unit-test/less-than-equal/unit-test.logic.yaml.gen.md) for [`LESS_THAN_EQUAL`](../operations/less-than-equal.md)
+- [Unit Tests](../../../ce/unit-test/is-equal/number/unit-test.logic.yaml.md) for [`IS_EQUAL`](../operations/is-equal.md) operation on Number type
+- [Unit Tests](../../../ce/unit-test/is-empty/number/unit-test.logic.yaml.md) for [`IS_EMPTY`](../operations/is-empty.md) operation on Number type
+- [Unit Tests](../../../ce/unit-test/greater-than/unit-test.logic.yaml.md) for [`GREATER_THAN`](../operations/greater-than.md)
+- [Unit Tests](../../../ce/unit-test/greater-than-equal/unit-test.logic.yaml.md) for [`GREATER_THAN_EQUAL`](../operations/greater-than-equal.md)
+- [Unit Tests](../../../ce/unit-test/less-than/unit-test.logic.yaml.md) for [`LESS_THAN`](../operations/less-than.md)
+- [Unit Tests](../../../ce/unit-test/less-than-equal/unit-test.logic.yaml.md) for [`LESS_THAN_EQUAL`](../operations/less-than-equal.md)
 
 ## DateTime Type
 
@@ -231,14 +231,14 @@ DateTime type represents a specific point in time, combining both date and time 
 
 See more details in:
 
-- [Unit Tests](../../../ce/unit-test/is-equal/date-time/unit-test.logic.yaml.gen.md) for [`IS_EQUAL`](../operations/is-equal.md) operation on DateTime type
-- [Unit Tests](../../../ce/unit-test/is-empty/date-time/unit-test.logic.yaml.gen.md) for [`IS_EMPTY`](../operations/is-empty.md) operation on DateTime type
-- [Unit Tests](../../../ce/unit-test/is-after-today/unit-test.logic.yaml.gen.md) for [`IS_AFTER_TODAY`](../operations/is-after-today.md)
-- [Unit Tests](../../../ce/unit-test/is-before-today/unit-test.logic.yaml.gen.md) for [`IS_BEFORE_TODAY`](../operations/is-before-today.md)
-- [Unit Tests](../../../ce/unit-test/is-beyond-last-days/unit-test.logic.yaml.gen.md) for [`IS_BEYOND_LAST_DAYS`](../operations/is-beyond-last-days.md)
-- [Unit Tests](../../../ce/unit-test/is-beyond-next-days/unit-test.logic.yaml.gen.md) for [`IS_BEYOND_NEXT_DAYS`](../operations/is-beyond-next-days.md)
-- [Unit Tests](../../../ce/unit-test/is-within-last-days/unit-test.logic.yaml.gen.md) for [`IS_WITHIN_LAST_DAYS`](../operations/is-within-last-days.md)
-- [Unit Tests](../../../ce/unit-test/is-within-next-days/unit-test.logic.yaml.gen.md) for [`IS_WITHIN_NEXT_DAYS`](../operations/is-within-next-days.md)
+- [Unit Tests](../../../ce/unit-test/is-equal/date-time/unit-test.logic.yaml.md) for [`IS_EQUAL`](../operations/is-equal.md) operation on DateTime type
+- [Unit Tests](../../../ce/unit-test/is-empty/date-time/unit-test.logic.yaml.md) for [`IS_EMPTY`](../operations/is-empty.md) operation on DateTime type
+- [Unit Tests](../../../ce/unit-test/is-after-today/unit-test.logic.yaml.md) for [`IS_AFTER_TODAY`](../operations/is-after-today.md)
+- [Unit Tests](../../../ce/unit-test/is-before-today/unit-test.logic.yaml.md) for [`IS_BEFORE_TODAY`](../operations/is-before-today.md)
+- [Unit Tests](../../../ce/unit-test/is-beyond-last-days/unit-test.logic.yaml.md) for [`IS_BEYOND_LAST_DAYS`](../operations/is-beyond-last-days.md)
+- [Unit Tests](../../../ce/unit-test/is-beyond-next-days/unit-test.logic.yaml.md) for [`IS_BEYOND_NEXT_DAYS`](../operations/is-beyond-next-days.md)
+- [Unit Tests](../../../ce/unit-test/is-within-last-days/unit-test.logic.yaml.md) for [`IS_WITHIN_LAST_DAYS`](../operations/is-within-last-days.md)
+- [Unit Tests](../../../ce/unit-test/is-within-next-days/unit-test.logic.yaml.md) for [`IS_WITHIN_NEXT_DAYS`](../operations/is-within-next-days.md)
 
 ## Duration Type
 

@@ -166,8 +166,6 @@ repo-manager docs [OPTIONS] [COMMAND]
 
 - `-h`, `--help`
   - Show this help message and exit.
-- `-v`, `--vault`=`PATH`
-  - Path to the Obsidian vault.
 - `-V`, `--version`
   - Print version information and exit.
 
@@ -186,8 +184,6 @@ repo-manager docs cleanup [OPTIONS]
 
 ### Options
 
-- `-c`, `--include-config`
-  - Also delete the `.obsidian` directory, removing Obsidian configuration files.
 - `-h`, `--help`
   - Show this help message and exit.
 - `-V`, `--version`

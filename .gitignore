@@ -1,27 +1,42 @@
-vscode-extension/source/out
-vscode-extension/source/dist
-vscode-extension/source/node_modules
-vscode-extension/source/.vscode-test/
+# repo-manager
+## local in-repo configuration
 /.ca
-/.obsidian
+## logs
+repo-manager.log*
+# Ignoring directory for export data
+/export
+# Ignoring generated markdown for entities in the repo
 /lists
+/lists/*
+/ce/**/folder.yaml.md
+/ce/**/policy.yaml.md
+/ce/**/*.logic.yaml.md
+/ce/**/test-data*.json.md
+/frameworks/**/section.yaml.md
+/types/**/type.json.md
+/**/*.extracts.yaml.md
+# Other generated and temporary files and folders
+**/.generated
+*.gen.md
+#
 /types/types.json
 /types/**/type.json
-/export
-repo-manager.log*
-*.gen.md
 *.test-results.yaml
+# Tools and utilities
+## VSCode: Ignoring everyting except pre-configured settings.json
 **/.vscode/**
 !.vscode/settings.json
+## IntelliJ IDEA: Ignoring everyting except schema mapping for repo entities
 **/.idea/**
 !.idea/jsonSchemas.xml
-**/.generated-bq
-**/.generated
-**/target/**
 *.iml
-/.docusaurus/.docusaurus/
-/.docusaurus/node_modules/
-/.docusaurus/build/
+## devcontainer: some devcointaner runners create temporary files - we ignore them, committing only devcontainer.json and welcome.md
 /.devcontainer/**
 !/.devcontainer/devcontainer.json
 !/.devcontainer/welcome.md
+## Obsidian
+/.obsidian
+## Docusaurus: Ignoring directories used to build static site
+/.docusaurus/.docusaurus/
+/.docusaurus/node_modules/
+/.docusaurus/build/

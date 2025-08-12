@@ -69,10 +69,10 @@ const config = {
                                 return (
                                     doc.fileName.toLowerCase() === 'index' ||
                                     doc.fileName.toLowerCase() === 'index.gen' ||
-                                    doc.fileName.toLowerCase() === 'folder.gen' ||
-                                    doc.fileName.toLowerCase() === 'policy.gen' ||
-                                    doc.fileName.toLowerCase() === 'section.gen' ||
-                                    doc.fileName.toLowerCase() === 'type.gen' ||
+                                    doc.fileName.toLowerCase() === 'folder.yaml' ||
+                                    doc.fileName.toLowerCase() === 'policy.yaml' ||
+                                    doc.fileName.toLowerCase() === 'section.yaml' ||
+                                    doc.fileName.toLowerCase() === 'type.json' ||
                                     defaultCategoryIndexMatcher(doc)
                                 );
                             },

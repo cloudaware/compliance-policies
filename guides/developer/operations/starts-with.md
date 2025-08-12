@@ -76,4 +76,4 @@ It returns a `true` if the condition is met, and `false` otherwise.
 
 For more detailed examples and to validate the behavior of the `STARTS_WITH` operation, you can refer to the official unit tests:
 
-- [Unit tests for STARTS_WITH](../../../ce/unit-test/starts-with/unit-test.logic.yaml.gen.md)
+- [Unit tests for STARTS_WITH](../../../ce/unit-test/starts-with/unit-test.logic.yaml.md)
