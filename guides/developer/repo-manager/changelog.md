@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.2.1
+
+- `repo-manager policies test --format=JUNIT` test time reporting fix
+
+## 2.2.0
+
+- Better generation error handling
+- Updated to the latest API version
+
 ## 2.1.1
 
 - `repo-manager policies test` now supports `--format=JUNIT` and `--output-dir` to generate JUnit and Maven Surefire compatible test results
