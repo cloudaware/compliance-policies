@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.1
+
+- `repo-manager policies test` now supports `--format=JUNIT` and `--output-dir` to generate JUnit and Maven Surefire compatible test results
+
 ## 2.1.0
 
 - `repo-manager docs generate` now generates `*.yaml.md`/`*.json.md` files instead of `*.yaml.gen.md`/`*.json.gen.md`
