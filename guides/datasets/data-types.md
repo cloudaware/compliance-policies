@@ -1,5 +1,3 @@
-Of course. Here is the revised version of the file with the focus shifted to the Cloudaware CMDB.
-
 # Data Types
 
 This document outlines the specialized data types that provide a conceptual layer on top of the standard BigQuery types used in Cloudaware's datasets. While all CMDB data is stored using native BigQuery types like `STRING`, `TIMESTAMP`, and `NUMERIC`, Cloudaware interprets this information using a more specific type system. For example, a column stored as a `STRING` in a BigQuery table is often treated as a "Salesforce ID" within the Cloudaware platform, indicating its role as a unique record identifier. Understanding these conceptual types is essential for correctly interpreting CMDB data and building effective custom queries.
