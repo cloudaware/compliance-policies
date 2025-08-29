@@ -1,0 +1,15 @@
+---
+names:
+  full: AWS EC2 Instance with an auto-assigned public IP address is in a default subnet
+  contextual: Instance with an auto-assigned public IP address is in a default subnet
+description: >
+  EC2 instances launched into a default subnet are automatically assigned both 
+  public and private IPv4 addresses, which may result in unintended public exposure.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+  - RELIABILITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/ec2/09"

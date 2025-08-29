@@ -10,7 +10,7 @@ RELATED_LIST_HAS_NO:
 
 The `RELATED_LIST_HAS_NO` operation checks if no related objects in the specified `relationshipName` satisfy the conditions defined in the corresponding `relatedLists` section of the logic file, matching the given `status`. It returns a [`Boolean`](../type-system/index.md#boolean-type) value: `true` if no related objects have the specified `status` (including when no related objects exist), and `false` if at least one does.
 
-This operation is ideal for ensuring the absence of specific compliance states in related objects, such as verifying no unrestricted security group rules or no attached policies. See the [Object Relationships](../object-ralationships/index.md) section for details on configuring related lists.
+This operation is ideal for ensuring the absence of specific compliance states in related objects, such as verifying no unrestricted security group rules or no attached policies. See the [Object Relationships](../object-relationships/index.md) section for details on configuring related lists.
 
 ## Parameters
 

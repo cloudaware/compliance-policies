@@ -6,7 +6,7 @@ IS_EMPTY_LOOKUP: { lookupPath }
 
 ## Description
 
-The `IS_EMPTY_LOOKUP` operation specifically checks whether a lookup field, or a chain of lookups, resolves to an empty value. This operation is designed to address scenarios described in the [Object Relationships](../object-ralationships/index.md) documentation, where a `FIELD` operation might return `null` not just because the field is empty, but also because a lookup in the path is broken or incomplete.
+The `IS_EMPTY_LOOKUP` operation specifically checks whether a lookup field, or a chain of lookups, resolves to an empty value. This operation is designed to address scenarios described in the [Object Relationships](../object-relationships/index.md) documentation, where a `FIELD` operation might return `null` not just because the field is empty, but also because a lookup in the path is broken or incomplete.
 
 `IS_EMPTY_LOOKUP` helps distinguish between a truly empty field and a `null` value resulting from a broken lookup chain. It returns `true` if the lookup path leads to a null or empty object at any point, indicating an incomplete or broken relationship. It returns `false` if the lookup path is fully resolved and the final field is not empty (or if the final field itself is null, which is not considered an empty lookup).
 

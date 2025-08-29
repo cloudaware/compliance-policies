@@ -7,10 +7,11 @@ This development container is pre-configured with all the tools you need to work
 - **repo-manager:** The `repo-manager` CLI tool is available. You can run it directly from the root of the repository using `./repo-manager` (or `repo-manager.bat` on Windows, `./repo-manager.ps1` on PowerShell).
 - **Google Cloud CLI:** The `gcloud` command is available for interacting with Google Cloud services.
 - **Gemini CLI:** The `gemini` command is available for interacting with the Gemini API.
+- **Qwen Code CLI:** The `qwen` command is available for AI-assisted development.
 
 ## Authentication Setup
 
-To fully utilize the tools in this environment, you will need to set up authentication for `repo-manager`, `gcloud`, and `gemini`.
+To fully utilize the tools in this environment, you will need to set up authentication for `repo-manager`, `gcloud`, and `gemini` or `qwen`.
 
 ### 1. repo-manager Authentication
 
@@ -44,5 +45,9 @@ gemini
 ```
 
 This will force the Gemini CLI to authenticate without opening a browser, providing a URL and a code for you to complete the login manually.
+
+### 4. Qwen Code CLI Authentication
+
+The Qwen Code CLI will prompt you to set up authorization the first time you run a `qwen` command. Follow the instructions in the terminal.
 
 Feel free to explore the repository and start developing!

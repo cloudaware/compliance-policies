@@ -13,7 +13,7 @@ This documentation is structured to help you quickly find the information you ne
 Before diving into specific operations, it is highly recommended to understand the two core concepts that underpin all policy logic:
 
 - **[The Type System](../type-system/index.md):** The Compliance Engine uses a specialized set of data types (`Text`, `Bytes`, `Number`, `Set`, etc.). Understanding their unique behaviors—especially how they handle comparisons, case sensitivity, and empty values—is essential for writing accurate policies.
-- **[Object Relationships](../object-ralationships/index.md):** Policies often need to evaluate data from related resources (e.g., checking the rules of a security group attached to an instance). This guide explains how to navigate these connections using lookup fields and related lists.
+- **[Object Relationships](../object-relationships/index.md):** Policies often need to evaluate data from related resources (e.g., checking the rules of a security group attached to an instance). This guide explains how to navigate these connections using lookup fields and related lists.
 
 ## Operations Quick Reference
 

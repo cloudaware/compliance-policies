@@ -10,7 +10,7 @@ RELATED_LIST_HAS:
 
 The `RELATED_LIST_HAS` operation checks if at least one related object in the specified `relationshipName` satisfies the conditions defined in the corresponding `relatedLists` section of the logic file, matching the given `status`. It returns a [`Boolean`](../type-system/index.md#boolean-type) value: `true` if at least one related object has the specified `status`, and `false` otherwise (including when no related objects exist).
 
-This operation is useful for validating parent objects based on the presence of specific compliance states in related objects, such as security group rules or IAM policy attachments. See the [Object Relationships](../object-ralationships/index.md) section for details on configuring related lists.
+This operation is useful for validating parent objects based on the presence of specific compliance states in related objects, such as security group rules or IAM policy attachments. See the [Object Relationships](../object-relationships/index.md) section for details on configuring related lists.
 
 ## Parameters
 

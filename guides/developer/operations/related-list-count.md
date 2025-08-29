@@ -10,7 +10,7 @@ RELATED_LIST_COUNT:
 
 The `RELATED_LIST_COUNT` operation returns the number of related objects in the specified `relationshipName` that satisfy the conditions defined in the corresponding `relatedLists` section of the logic file, matching the given `status`. It returns a [`Number`](../type-system/index.md#number-type) value representing this count, which can be compared to thresholds or other numeric values to enforce compliance with limits.
 
-This operation excels at monitoring quotas, such as the maximum number of security group rules or RDS parameters, helping ensure resources stay within provider-defined or organizational limits. See the [Object Relationships](../object-ralationships/index.md) section for details on configuring related lists.
+This operation excels at monitoring quotas, such as the maximum number of security group rules or RDS parameters, helping ensure resources stay within provider-defined or organizational limits. See the [Object Relationships](../object-relationships/index.md) section for details on configuring related lists.
 
 ## Parameters
 

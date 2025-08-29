@@ -1,0 +1,80 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-08-29T11:12:55Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-08-20T01:28:23Z",
+        "CA10__isDefault__c": false,
+        "CA10__networkAclAssociations__r": [
+            {
+                "Id": "test1_1",
+                "CA10__disappearanceTime__c": "2025-08-20T01:28:23Z",
+                "CA10__networkAcl__c": "test1"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__isDefault__c') == true",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-08-29T11:12:55Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__isDefault__c": true,
+        "CA10__networkAclAssociations__r": [
+            {
+                "Id": "test2_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__networkAcl__c": "test2"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10__networkAclAssociations__r.hasNo(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-08-29T11:12:55Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__isDefault__c": false,
+        "CA10__networkAclAssociations__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "300",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-08-29T11:12:55Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__isDefault__c": false,
+        "CA10__networkAclAssociations__r": [
+            {
+                "Id": "test4_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__networkAcl__c": "test4"
+            }
+        ]
+    }
+]

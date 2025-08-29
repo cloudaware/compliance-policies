@@ -1,0 +1,17 @@
+---
+extracts:
+# Not Nullable. Can't have no access, retrieved via ec2:DescribeVpcEndpoints
+  - name: CA10__endpointServiceId__c
+    value:
+      FIELD: 
+        path: CA10__endpointServiceId__c
+        undeterminedIf:
+          isEmpty: "Corrupted data. Endpoint Service ID cannot be empty." 
+# Values: PendingAcceptance | Pending | Available | Deleting | Deleted | Rejected | Failed | Expired | Partial
+# Not Nullable. Can't have no access, retrieved via ec2:DescribeVpcEndpoints
+  - name: CA10__state__c
+    value:
+      FIELD: 
+        path: CA10__state__c
+        undeterminedIf:
+          isEmpty: "Corrupted data. Endpoint state cannot be empty." 

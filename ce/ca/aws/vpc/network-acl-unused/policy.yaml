@@ -1,0 +1,18 @@
+---
+names:
+  full: AWS VPC Network ACL is unused
+  contextual: Network ACL is unused
+description: >
+  Network NACLs that are not associated with any subnets are considered unused. 
+  While unused NACLs do not incur direct costs, they can represent a security 
+  risk if they contain misconfigured rules and are later associated with a subnet. 
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/ec2/16"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[EC2.16] Unused Network Access Control Lists should be removed"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-16"

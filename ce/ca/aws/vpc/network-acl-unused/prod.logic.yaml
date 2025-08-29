@@ -1,0 +1,30 @@
+inputType: "CA10__CaAwsNetworkAcl__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsNetworkAcl__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is a default Network ACL and cannot be deleted."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__isDefault__c"
+        right:
+          BOOLEAN: true
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This Network ACL is not associated with any subnets and is considered unused."
+    remediationMessage: "Consider deleting the unused Network ACL."
+    check:
+      RELATED_LIST_HAS_NO:
+        relationshipName: "CA10__networkAclAssociations__r"
+        status: "COMPLIANT"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "This Network ACL is associated with at least one subnet."
+relatedLists:
+  - relationshipName: "CA10__networkAclAssociations__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This is a subnet association."

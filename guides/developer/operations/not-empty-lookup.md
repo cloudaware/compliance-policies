@@ -6,7 +6,7 @@ NOT_EMPTY_LOOKUP: { lookupPath }
 
 ## Description
 
-The `NOT_EMPTY_LOOKUP` operation is the inverse of [`IS_EMPTY_LOOKUP`](is-empty-lookup.md). It checks whether a lookup field, or a chain of lookups, is fully populated with objects. This operation is also designed to address scenarios described in the [Object Relationships](../object-ralationships/index.md) documentation, focusing on ensuring that a lookup path successfully resolves to a non-empty object.
+The `NOT_EMPTY_LOOKUP` operation is the inverse of [`IS_EMPTY_LOOKUP`](is-empty-lookup.md). It checks whether a lookup field, or a chain of lookups, is fully populated with objects. This operation is also designed to address scenarios described in the [Object Relationships](../object-relationships/index.md) documentation, focusing on ensuring that a lookup path successfully resolves to a non-empty object.
 
 `NOT_EMPTY_LOOKUP` returns `true` if the entire lookup path is successfully resolved and leads to a non-empty object. It returns `false` if any part of the lookup path is broken, incomplete, or resolves to a null or empty object.
 

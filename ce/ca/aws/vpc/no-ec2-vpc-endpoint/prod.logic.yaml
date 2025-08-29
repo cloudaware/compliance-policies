@@ -1,0 +1,48 @@
+inputType: "CA10__CaAwsVpc__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This VPC doesn't have any EC2 Instances."
+    check:
+      RELATED_LIST_HAS_NO:
+        status: "COMPLIANT"
+        relationshipName: "CA10__AWS_EC2_Instances__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "The VPC has an active VPC Endpoint for the EC2 service."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__AWS_VPC_Endpoints__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The VPC does not have an active VPC Endpoint for the EC2 service."
+  remediationMessage: "Consider creating a VPC Endpoint for the Amazon EC2 service to ensure that traffic between your VPC and EC2 does not leave the Amazon network."
+relatedLists:
+  - relationshipName: "CA10__AWS_EC2_Instances__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This is an EC2 Instance."
+  - relationshipName: "CA10__AWS_VPC_Endpoints__r"
+    importExtracts:
+      - file: /types/CA10__CaAwsVpcEndpoint__c/object.extracts.yaml
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "This is an active VPC Endpoint for the EC2 service."
+        check:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10__endpointServiceId__c"
+                  right:
+                    TEXT: "ec2"
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10__state__c"
+                  right:
+                    TEXT: "available"
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "This is not an active VPC Endpoint for the EC2 service."

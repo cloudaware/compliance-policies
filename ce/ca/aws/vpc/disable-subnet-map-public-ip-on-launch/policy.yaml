@@ -1,0 +1,17 @@
+---
+names:
+  full: AWS VPC Subnet Map Public IP On Launch is enabled
+  contextual: Subnet Map Public IP On Launch is enabled
+description: >
+  Ensure that AWS VPC Subnets are not configured to automatically assign 
+  public IP addresses to EC2 Instances launched within them.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/aws-fsbp-v1.0.0/ec2/15"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[EC2.15] Amazon EC2 subnets should not automatically assign public IP addresses"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-15"

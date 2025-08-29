@@ -1,0 +1,135 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-08-28T09:23:53Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-08-19T22:13:08Z",
+        "CA10__AWS_EC2_Instances__r": [],
+        "CA10__AWS_VPC_Endpoints__r": [
+            {
+                "Id": "test1_1",
+                "CA10__disappearanceTime__c": "2025-08-19T22:34:31Z",
+                "CA10__endpointServiceId__c": "dynamodb",
+                "CA10__state__c": "available",
+                "CA10__vpc__c": "test1"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_EC2_Instances__r.hasNo(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-08-28T09:23:53Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_EC2_Instances__r": [],
+        "CA10__AWS_VPC_Endpoints__r": [
+            {
+                "Id": "test2_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__endpointServiceId__c": "ec2",
+                "CA10__state__c": "available",
+                "CA10__vpc__c": "test2"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10__AWS_VPC_Endpoints__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-08-28T09:23:53Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_EC2_Instances__r": [
+            {
+                "Id": "test3_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__vpc__c": "test3"
+            }
+        ],
+        "CA10__AWS_VPC_Endpoints__r": [
+            {
+                "Id": "test3_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__endpointServiceId__c": "ec2",
+                "CA10__state__c": "available",
+                "CA10__vpc__c": "test3"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "300",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-08-28T09:23:53Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_EC2_Instances__r": [
+            {
+                "Id": "test4_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__vpc__c": "test4"
+            }
+        ],
+        "CA10__AWS_VPC_Endpoints__r": [
+            {
+                "Id": "test4_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__endpointServiceId__c": "s3",
+                "CA10__state__c": "available",
+                "CA10__vpc__c": "test4"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "300",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-08-28T09:23:53Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__AWS_EC2_Instances__r": [
+            {
+                "Id": "test5_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__vpc__c": "test5"
+            }
+        ],
+        "CA10__AWS_VPC_Endpoints__r": [
+            {
+                "Id": "test5_2",
+                "CA10__disappearanceTime__c": "2025-08-28T09:23:53Z",
+                "CA10__endpointServiceId__c": "s3",
+                "CA10__state__c": "available",
+                "CA10__vpc__c": "test5"
+            }
+        ]
+    }
+]

@@ -1,0 +1,53 @@
+inputType: "CA10__CaAwsInstance__c"
+importExtracts:
+  - file: /types/CA10__CaAwsInstance__c/object.extracts.yaml
+  - file: /types/CA10__CaAwsSubnet__c/object.extracts.yaml
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "The instance does not have a public IP address."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__publicIpAddress__c"
+  - status: "COMPLIANT"
+    currentStateMessage: "The instance has an Elastic IP address."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__AWS_EC2_Elastic_IPs__r"
+  - status: "UNDETERMINED"
+    currentStateMessage: "Cannot determine if the instance is in a default subnet because subnet information is missing."
+    check:
+      IS_EMPTY_LOOKUP: "CA10__vpcSubnet__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "Instance has a public IP address and is located in a custom subnet."
+    check:
+      IS_EQUAL:
+        left:
+          FIELD:
+            path: "CA10__vpcSubnet__r.CA10__defaultForAz__c"
+        right:
+          BOOLEAN: false
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The instance has an auto-assigned public IP address and is located in a default subnet."
+    remediationMessage: "Consider moving the instance to a custom subnet intended\
+      \ for public resources or removing its public IP address if internet access is not required."
+    check:
+      IS_EQUAL:
+        left:
+          FIELD:
+            path: "CA10__vpcSubnet__r.CA10__mapPublicIpOnLaunch__c"
+        right:
+          BOOLEAN: true
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The instance has an auto-assigned public IP address but\
+    \ the Auto-assign Public IPv4 Address subnet attribute is disabled."
+relatedLists:
+  - relationshipName: "CA10__AWS_EC2_Elastic_IPs__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This is an Elastic IP address."

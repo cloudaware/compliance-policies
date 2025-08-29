@@ -1,0 +1,12 @@
+---
+extracts:
+# Checkbox. Can't have no access, retrieved via ec2:DescribeSubnets
+  - name: CA10__defaultForAz__c
+    value: 
+      FIELD:
+        path: CA10__defaultForAz__c
+# Checkbox. Can't have no access, retrieved via ec2:DescribeSubnets
+  - name: CA10__mapPublicIpOnLaunch__c
+    value: 
+      FIELD:
+        path: CA10__mapPublicIpOnLaunch__c

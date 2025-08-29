@@ -1,0 +1,17 @@
+---
+names:
+  full: AWS VPC is not configured with a VPC Endpoint for Amazon EC2 service
+  contextual: VPC is not configured with a VPC Endpoint for Amazon EC2 service
+description: >
+  Ensures that Amazon VPCs have a VPC Endpoint configured for the EC2 service to 
+  establish private connection between your VPC and an AWS service using a network interface.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/secure-access"
+  - "/frameworks/aws-fsbp-v1.0.0/ec2/10"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[EC2.10] Amazon EC2 should be configured to use VPC endpoints that are created for the Amazon EC2 service"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-10"
