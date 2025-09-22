@@ -17,15 +17,17 @@
 1. Using a text editor, Remove Role which contains roles/*Admin or roles/*admin or matched roles/editor or matches 'roles/owner`. Add a role to the bindings array that defines the group members and the role for those members.
 
     For example, to grant the role roles/appengine.appViewer to the ServiceAccount which is roles/editor, you would change the example shown below as follows:
-
-        {
+         
+    ```json
+    {
         "bindings": [
             { "members": [ "serviceAccount:our-project-123@appspot.gserviceaccount.com", ], "role": "roles/appengine.appViewer" },
             { "members": [ "user:email1@gmail.com" ], "role": "roles/owner" },
             { "members": [ "serviceAccount:our-project-123@appspot.gserviceaccount.com", "serviceAccount:123456789012-compute@developer.gserviceaccount.com" ], "role": "roles/editor" }
             ],
         "etag": "BwUjMhCsNvY="
-        }
+    }
+    ```
 
 2. Update the project's IAM policy:
 

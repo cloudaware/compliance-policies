@@ -1,0 +1,44 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10A1__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-08-31T15:18:03Z"
+        },
+        "Id": "test1",
+        "CA10A1__disappearanceTime__c": "2025-08-31T15:18:03Z",
+        "CA10A1__autoAcceptSharedAttachments__c": "enable"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10A1__autoAcceptSharedAttachments__c') == 'enable'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-08-31T15:18:03Z"
+        },
+        "Id": "test2",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__autoAcceptSharedAttachments__c": "enable"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10A1__autoAcceptSharedAttachments__c') == 'disable'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-08-31T15:18:03Z"
+        },
+        "Id": "test3",
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__autoAcceptSharedAttachments__c": "disable"
+    }
+]

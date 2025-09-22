@@ -1,0 +1,62 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-01T17:22:51Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-09-01T15:42:54Z",
+        "CA10__stateName__c": "terminated",
+        "CA10__virtualizationType__c": "hvm"
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__stateName__c') != 'running'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-01T17:22:51Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__stateName__c": "stopped",
+        "CA10__virtualizationType__c": "hvm"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "300",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-01T17:22:51Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__stateName__c": "running",
+        "CA10__virtualizationType__c": "hvm"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__virtualizationType__c') == 'paravirtual'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-01T17:22:51Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__stateName__c": "running",
+        "CA10__virtualizationType__c": "paravirtual"
+    }
+]

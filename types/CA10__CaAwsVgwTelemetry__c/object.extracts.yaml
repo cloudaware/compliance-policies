@@ -1,0 +1,9 @@
+---
+extracts:
+# Values: UP | DOWN. Not Nullable. Can't have no access, retrieved via ec2:DescribeVpnConnections
+  - name: CA10__status__c
+    value:
+      FIELD: 
+        path: CA10__status__c
+        undeterminedIf:
+          isEmpty: "Corrupted data. Gateway Telemetry Status cannot be empty." 

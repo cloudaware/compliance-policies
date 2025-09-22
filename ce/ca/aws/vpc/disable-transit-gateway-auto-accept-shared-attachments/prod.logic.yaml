@@ -1,0 +1,27 @@
+inputType: "CA10A1__CaAwsVpcTransitGateway__c"
+testData:
+  - file: "./test-data.json"
+importExtracts:
+  - file: /types/CA10A1__CaAwsVpcTransitGateway__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Transit Gateway is configured to automatically accept shared attachments."
+    remediationMessage: "Disable the Auto Accept Shared Attachments feature for\
+      \ the Transit Gateway to ensure all cross-account connections are manually reviewed."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10A1__autoAcceptSharedAttachments__c"
+        right:
+          TEXT: "enable"
+  - status: "COMPLIANT"
+    currentStateMessage: "Transit Gateway requires manual approval for shared attachments."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10A1__autoAcceptSharedAttachments__c"
+        right:
+          TEXT: "disable"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

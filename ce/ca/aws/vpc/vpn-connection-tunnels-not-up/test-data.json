@@ -1,0 +1,238 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-08-31T15:18:03Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-08-31T15:18:03Z",
+        "CA10__state__c": "available",
+        "CA10__vgwTelemetries__r": [
+            {
+                "Id": "test1_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__status__c": "UP",
+                "CA10__vpnConnection__c": "test1"
+            },
+            {
+                "Id": "test1_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__status__c": "UP",
+                "CA10__vpnConnection__c": "test1"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "CA10__vgwTelemetries__r.count(COMPLIANT) == number(1.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-08-31T15:18:03Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__state__c": "available",
+        "CA10__vgwTelemetries__r": [
+            {
+                "Id": "test2_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__status__c": "DOWN",
+                "CA10__vpnConnection__c": "test2"
+            },
+            {
+                "Id": "test2_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__status__c": "UP",
+                "CA10__vpnConnection__c": "test2"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "CA10__vgwTelemetries__r.count(COMPLIANT) == number(0.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-08-31T15:18:03Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__state__c": "available",
+        "CA10__vgwTelemetries__r": [
+            {
+                "Id": "test3_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__status__c": "DOWN",
+                "CA10__vpnConnection__c": "test3"
+            },
+            {
+                "Id": "test3_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__status__c": "DOWN",
+                "CA10_vpnConnection__c": "test3"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__state__c') != 'available'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-08-31T15:18:03Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__state__c": "deleted",
+        "CA10__vgwTelemetries__r": [
+            {
+                "Id": "test4_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__status__c": "UP",
+                "CA10__vpnConnection__c": "test4"
+            },
+            {
+                "Id": "test4_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__status__c": "UP",
+                "CA10__vpnConnection__c": "test4"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "CA10__vgwTelemetries__r.count(COMPLIANT) == number(1.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-08-31T15:18:03Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__state__c": "available",
+        "CA10__vgwTelemetries__r": [
+            {
+                "Id": "test5_1",
+                "CA10__disappearanceTime__c": "2025-08-31T15:18:03Z",
+                "CA10__status__c": "UP",
+                "CA10__vpnConnection__c": "test5"
+            },
+            {
+                "Id": "test5_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__status__c": "UP",
+                "CA10__vpnConnection__c": "test5"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10__vgwTelemetries__r.count(COMPLIANT) >= number(2.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-08-31T15:18:03Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__state__c": "available",
+        "CA10__vgwTelemetries__r": [
+            {
+                "Id": "test6_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__status__c": "UP",
+                "CA10__vpnConnection__c": "test6"
+            },
+            {
+                "Id": "test6_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__status__c": "UP",
+                "CA10__vpnConnection__c": "test6"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10__vgwTelemetries__r.count(COMPLIANT) >= number(2.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-08-31T15:18:03Z"
+        },
+        "Id": "test7",
+        "CA10__disappearanceTime__c": null,
+        "CA10__state__c": "available",
+        "CA10__vgwTelemetries__r": [
+            {
+                "Id": "test7_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__status__c": "UP",
+                "CA10__vpnConnection__c": "test7"
+            },
+            {
+                "Id": "test7_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__status__c": "UP",
+                "CA10__vpnConnection__c": "test7"
+            },
+            {
+                "Id": "test7_3",
+                "CA10__disappearanceTime__c": null,
+                "CA10__status__c": "UP",
+                "CA10__vpnConnection__c": "test7"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10__vgwTelemetries__r.count(COMPLIANT) >= number(2.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-08-31T15:18:03Z"
+        },
+        "Id": "test8",
+        "CA10__disappearanceTime__c": null,
+        "CA10__state__c": "available",
+        "CA10__vgwTelemetries__r": [
+            {
+                "Id": "test8_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__status__c": "DOWN",
+                "CA10__vpnConnection__c": "test8"
+            },
+            {
+                "Id": "test8_2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__status__c": "UP",
+                "CA10__vpnConnection__c": "test8"
+            },
+            {
+                "Id": "test8_3",
+                "CA10__disappearanceTime__c": null,
+                "CA10__status__c": "UP",
+                "CA10__vpnConnection__c": "test8"
+            }
+        ]
+    }
+]

@@ -30,16 +30,18 @@ Therefore interactive serial console support should be disabled.
 
 or `key` and `value` properties from below command's json response are equal to `serial-port-enable` and `0` or `false` respectively.
 
+```json
+{ 
+    "metadata": { 
+        "items": [ 
             { 
-                "metadata": { 
-                    "items": [ 
-                        { 
-                            "key": "serial-port-enable", 
-                            "value": "0" 
-                        } 
-                    ] 
-                } 
-            }
+                "key": "serial-port-enable", 
+                "value": "0" 
+            } 
+        ] 
+    } 
+}
+```
 
 ## Prevention
 

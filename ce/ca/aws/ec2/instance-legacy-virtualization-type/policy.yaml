@@ -1,0 +1,16 @@
+---
+names:
+  full: AWS EC2 Instance uses paravirtual Virtualization Type
+  contextual: Instance uses paravirtual Virtualization Type
+description: >
+  Ensure that Amazon EC2 instances are using Hardware Virtual Machine (HVM) 
+  virtualization instead of the legacy paravirtual (PV) type to take advantage 
+  of enhanced performance and access to the latest AWS features and instance types.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+  - "PERFORMANCE"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/infrastructure-modernization"
+  - "/frameworks/cloudaware/resource-performance/workload-efficiency"
+  - "/frameworks/aws-fsbp-v1.0.0/ec2/24"

@@ -32,16 +32,17 @@ This recommendation is only applicable to `User-Managed user-created` service ac
 `SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com`. Note that some Google-managed, Google-created service accounts have the same naming format, and should be excluded (e.g., `appsdev-apps-dev-script-auth@system.gserviceaccount.com` which needs the Owner role).
 
 Sample Json output:
-
-     {
-       "bindings": [ 
-                  { "members": [ "serviceAccount:our-project-123@appspot.gserviceaccount.com", ], "role": "roles/appengine.appAdmin" }, 
-                  { "members": [ "user:email1@gmail.com" ], "role": "roles/owner" }, 
-                  { "members": [ "serviceAccount:our-project-123@appspot.gserviceaccount.com", "serviceAccount:123456789012-compute@developer.gserviceaccount.com" ], "role": "roles/editor" } 
-                  ], 
-      "etag": "BwUjMhCsNvY=", 
-      "version": 1 
-      }
+```json
+{
+    "bindings": [ 
+        { "members": [ "serviceAccount:our-project-123@appspot.gserviceaccount.com", ], "role": "roles/appengine.appAdmin" }, 
+        { "members": [ "user:email1@gmail.com" ], "role": "roles/owner" }, 
+        { "members": [ "serviceAccount:our-project-123@appspot.gserviceaccount.com", "serviceAccount:123456789012-compute@developer.gserviceaccount.com" ], "role": "roles/editor" } 
+    ], 
+    "etag": "BwUjMhCsNvY=", 
+    "version": 1 
+}
+```
 
 ## Default Value
 

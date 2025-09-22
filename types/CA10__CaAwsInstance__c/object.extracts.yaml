@@ -64,3 +64,10 @@ extracts:
     value: 
       FIELD:
         path: "CA10__sumTwoWeekNetworkInMb__c"      
+# Values: paravirtual | hvm. Not nullable. Can't have no access, retrieved via ec2:DescribeInstances
+  - name: "CA10__virtualizationType__c"
+    value: 
+      FIELD:
+        path: "CA10__virtualizationType__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. EC2 Instances Virtualization Type cannot be empty."

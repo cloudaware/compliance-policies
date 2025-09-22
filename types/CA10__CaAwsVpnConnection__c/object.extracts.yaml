@@ -1,0 +1,9 @@
+---
+extracts:
+# Values: pending | available | deleting | deleted. Not Nullable. Can't have no access, retrieved via ec2:DescribeVpnConnections
+  - name: CA10__state__c
+    value:
+      FIELD: 
+        path: CA10__state__c
+        undeterminedIf:
+          isEmpty: "Corrupted data. VPN Connection State cannot be empty." 

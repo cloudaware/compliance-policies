@@ -1,0 +1,18 @@
+---
+names:
+  full: AWS VPC Transit Gateway Auto Accept Shared Attachments is enabled
+  contextual: Transit Gateway Auto Accept Shared Attachments is enabled
+description: >
+  Ensure that VPC Transit Gateways are not configured to automatically accept 
+  shared attachments. Disabling this feature ensures that all cross-account 
+  attachment requests are manually reviewed and approved.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/secure-access"
+  - "/frameworks/aws-fsbp-v1.0.0/ec2/23"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[EC2.23] Amazon EC2 Transit Gateways should not automatically accept VPC attachment requests"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-23"

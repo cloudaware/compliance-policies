@@ -1,0 +1,9 @@
+---
+extracts:
+# Values: enable | disable. Not nullable. Can't have no access, retrieved via ec2:DescribeTransitGateways
+  - name: CA10A1__autoAcceptSharedAttachments__c
+    value:
+      FIELD: 
+        path: CA10A1__autoAcceptSharedAttachments__c
+        undeterminedIf:
+          isEmpty: Possibly corrupted data. Transit Gateway Auto Accept Shared Attachment should not be empty.

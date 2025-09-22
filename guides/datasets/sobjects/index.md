@@ -73,8 +73,8 @@ SELECT
     instance.CA10__instanceId__c,
     output.remediationMessage
 FROM `YOU_EXPORT_PROJECT.sobjects.CA10__CaAwsInstance__c` AS instance
-         JOIN (
-    SELECT policyId, runTime, objectId, status, remediationMessage
+JOIN (
+    SELECT policyId, runTime, object.id as objectId, status, remediationMessage
     FROM `YOU_EXPORT_PROJECT.ce.PolicyOutput`
     WHERE runTime > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 3 DAY) -- partition elimination
 ) AS output ON instance.Id = output.objectId

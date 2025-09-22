@@ -29,7 +29,7 @@ You can find available fields for any given [type](../developer/index.md#type) b
 A **Salesforce ID** is a unique 18-character, case-insensitive identifier automatically assigned to every record in the Cloudaware CMDB. It functions as the primary key for each object.
 
 - **Example**: `00190000000vpc1AAR`
-- **Usage**: This ID is the primary key for all records and is used to uniquely identify individual resources and establish relationships between them across all Cloudaware datasets. For example, it is used in the `objectId` and `masterId` fields within the [`ce.PolicyOutput` table](ce/PolicyOutput.md) to link compliance findings back to specific CMDB records.
+- **Usage**: This ID is the primary key for all records and is used to uniquely identify individual resources and establish relationships between them across all Cloudaware datasets. For example, it is used in the `object.id` and `object.master.id` fields within the [`ce.PolicyOutput` table](ce/PolicyOutput.md) to link compliance findings back to specific CMDB records.
 
 See the [Object Relationships guide](../developer/object-relationships/index.md) for more context on how Salesforce IDs are used.
 
@@ -38,7 +38,7 @@ See the [Object Relationships guide](../developer/object-relationships/index.md)
 An **External ID** is the native identifier of a resource as it exists in the source cloud provider (e.g., AWS, Azure, GCP). This is often a more human-readable ID than the internal Salesforce ID.
 
 - **Example**: An AWS EC2 instance ID like `i-0123456789abcdef0` or a VPC ID `vpc-01234567`.
-- **Usage**: It provides a direct, human-readable reference to the resource in its native environment, making it useful for cross-referencing CMDB data with the source cloud console. This ID is present in various datasets, including in fields like `externalId` in the [`ce.PolicyOutput` table](ce/PolicyOutput.md).
+- **Usage**: It provides a direct, human-readable reference to the resource in its native environment, making it useful for cross-referencing CMDB data with the source cloud console. This ID is present in various datasets, including in fields like `object.externalId` in the [`ce.PolicyOutput` table](ce/PolicyOutput.md).
 
 ## Policy ID
 

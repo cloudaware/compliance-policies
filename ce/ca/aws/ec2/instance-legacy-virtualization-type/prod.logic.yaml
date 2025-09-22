@@ -1,0 +1,26 @@
+inputType: "CA10__CaAwsInstance__c"
+testData:
+  - file: 'test-data.json'
+importExtracts:
+  - file: "/types/CA10__CaAwsInstance__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The instance is not in a running state."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__stateName__c"
+        right:
+          TEXT: "running"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The instance is using the legacy paravirtual (PV) virtualization type."
+    remediationMessage: "Migrate the instance to a Hardware Virtual Machine (HVM) AMI."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__virtualizationType__c"
+        right:
+          TEXT: "paravirtual"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The instance is using the recommended HVM virtualization type."

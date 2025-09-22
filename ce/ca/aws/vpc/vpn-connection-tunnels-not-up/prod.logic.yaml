@@ -1,0 +1,66 @@
+---
+inputType: "CA10__CaAwsVpnConnection__c"
+testData:
+  - file: "./test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsVpnConnection__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The VPN Connection is not available."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__state__c"
+        right:
+          TEXT: "available"
+  - status: "COMPLIANT"
+    currentStateMessage: "Both VPN Connection tunnels are in the UP state."
+    check:
+      GREATER_THAN_EQUAL:
+        left:
+          RELATED_LIST_COUNT:
+            status: "COMPLIANT"
+            relationshipName: "CA10__vgwTelemetries__r"
+        right:
+          NUMBER: 2
+  - status: "INCOMPLIANT"
+    currentStateMessage: "One VPN Connection tunnel is not in the UP state."
+    remediationMessage: "This is often caused by a misconfiguration on the customer gateway device."
+    check:
+      IS_EQUAL:
+        left:
+          RELATED_LIST_COUNT:
+            status: "COMPLIANT"
+            relationshipName: "CA10__vgwTelemetries__r"
+        right:
+          NUMBER: 1
+  - status: "INCOMPLIANT"
+    currentStateMessage: "None of the VPN Connection tunnels are in the UP state."
+    remediationMessage: "This is often caused by a misconfiguration on the customer gateway device."
+    check:
+      IS_EQUAL:
+        left:
+          RELATED_LIST_COUNT:
+            status: "COMPLIANT"
+            relationshipName: "CA10__vgwTelemetries__r"
+        right:
+          NUMBER: 0
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."
+relatedLists:
+  - relationshipName: "CA10__vgwTelemetries__r"
+    importExtracts:
+      - file: "/types/CA10__CaAwsVgwTelemetry__c/object.extracts.yaml"
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "The tunnel is UP."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__status__c"
+            right:
+              TEXT: "UP"
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "The tunnel is DOWN."

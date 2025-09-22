@@ -1,0 +1,19 @@
+---
+names:
+  full: AWS VPC VPN Connection does not have both Tunnels up
+  contextual: VPN Connection does not have both Tunnels up
+description: >
+  Ensure both tunnels for an AWS Site-to-Site VPN Connection are in the UP state. 
+  AWS provides two tunnels for each VPN connection to ensure high availability 
+  and redundancy. If one tunnel is down, the VPN connection becomes a single point 
+  of failure, risking connectivity loss during maintenance or an unexpected failure of the active tunnel.
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/ec2/20"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[EC2.20] Both VPN tunnels for an AWS Site-to-Site VPN connection should be up"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-20"

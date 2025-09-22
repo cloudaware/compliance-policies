@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.3.0
+
+- Refactored `repo-manager docs generate` classes
+- Improvements to generated documents
+- Replaced internal entity graph implementation with a faster one
+- `repo-manager docs generate` now supports
+  - `--threads=N` to  for faster generation
+  - `--format=MD/MDX` to generate `.mdx` or `.md` for supported entities
+  - `--renderer=NONE/CLOUDAWRE/DOCUSAURUS` to generate renderer-specific `.md` or `.mdx` files
+
 ## 2.2.1
 
 - `repo-manager policies test --format=JUNIT` test time reporting fix

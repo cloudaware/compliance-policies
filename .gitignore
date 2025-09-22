@@ -9,16 +9,26 @@ repo-manager.log*
 # Ignoring generated markdown for entities in the repo
 /lists
 /lists/*
+/flags
+/flags/*
 /ce/**/folder.yaml.md
+/ce/**/folder.yaml.mdx
 /ce/**/policy.yaml.md
+/ce/**/policy.yaml.mdx
 /ce/**/*.logic.yaml.md
+/ce/**/*.logic.yaml.mdx
 /ce/**/test-data*.json.md
+/ce/**/test-data*.json.mdx
 /frameworks/**/section.yaml.md
+/frameworks/**/section.yaml.mdx
 /types/**/type.json.md
+/types/**/type.json.mdx
 /**/*.extracts.yaml.md
+/**/*.extracts.yaml.mdx
 # Other generated and temporary files and folders
 **/.generated
 *.gen.md
+*.gen.mdx
 #
 /types/types.json
 /types/**/type.json

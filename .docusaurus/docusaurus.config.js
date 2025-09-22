@@ -10,8 +10,8 @@ const config = {
     baseUrl: process.env.BASE_URL ? process.env.BASE_URL : '/',
     organizationName: 'cloudaware',
     projectName: 'compliance-policies',
-    onBrokenLinks: 'warn',
-    onBrokenMarkdownLinks: 'warn',
+    onBrokenLinks: 'ignore',
+    onBrokenMarkdownLinks: 'ignore',
     markdown: {
         format: 'detect'
     },
@@ -34,7 +34,7 @@ const config = {
                     path: '..',
                     exclude: [
                         ".*",
-                        "exports",
+                        "export",
                         "internal"
                     ],
                     sidebarPath: './sidebars.js',
@@ -48,16 +48,28 @@ const config = {
                                                     isCategoryIndex,
                                                 }) {
                         let defaultCategoryIndexMatcher = isCategoryIndex;
-                        let caNotExpandable = [];
-                        // docs is a plain list of all docs that sidebar discovered
-                        docs.forEach(doc => {
-                            if (doc.id === 'types/index.gen'
-                                || doc.id === 'frameworks/index.gen'
-                                || (doc.frontMatter && doc.frontMatter.tags && doc.frontMatter.tags.indexOf("policy") > -1)
-                            ) {
-                                return caNotExpandable.push(doc.id);
+                        // removing not needed docs from the sidebar
+                        docs = docs.filter(
+                            doc => !(
+                                (doc.id.startsWith("frameworks") && doc.id !== 'frameworks/index.gen') // everything in /frameworks except the framework list
+                                || (doc.id.startsWith("types") && doc.id !== 'types/index.gen') // everything in /types except the type list
+                            )
+                        );
+                        // setting the correct sidebar positions manually
+                        for (const doc of docs) {
+                            if (doc.id === 'index.gen') {
+                                doc.sidebarPosition = 1;
+                            } else if (doc.id === 'ce/folder.yaml') {
+                                doc.sidebarPosition = 2;
+                            } else if (doc.id === 'frameworks/index.gen') {
+                                doc.sidebarPosition = 3;
+                            } else if (doc.id === 'lists/index.gen') {
+                                doc.sidebarPosition = 4;
+                            } else if (doc.id === 'types/index.gen') {
+                                doc.sidebarPosition = 5;
                             }
-                        })
+                        }
+
                         const items = defaultSidebarItemsGenerator({
                             defaultSidebarItemsGenerator,
                             numberPrefixParser,
@@ -77,21 +89,7 @@ const config = {
                                 );
                             },
                         });
-                        let items1 = [];
-                        let items2 = [];
-                        for (let item of items) {
-                            if (item.link && caNotExpandable.indexOf(item.link.id) > -1) {
-                                item.className = 'ca-not-expandable';
-                            }
-                            if (item.type === 'doc') {
-                                items1.push(item);
-                            // } else if (item.link && item.link.id.startsWith("guides")) {
-                            //     // excluding guides
-                            } else {
-                                items2.push(item);
-                            }
-                        }
-                        return items1.concat(items2);;
+                        return items;
                     },
                 },
                 blog: false,
