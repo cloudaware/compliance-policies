@@ -3,46 +3,46 @@
         "expectedResult": {
             "status": "DISAPPEARED",
             "conditionIndex": "99",
-            "conditionText": "isDisappeared(CA10SN__disappearanceTime__c)",
+            "conditionText": "isDisappeared(CA10SN2__disappearanceTime__c)",
             "runtimeError": null
         },
         "context": {
             "snapshotTime": "2024-11-20T20:12:30Z"
         },
         "Id": "test1",
-        "CA10SN__disappearanceTime__c": "2024-11-20T17:14:43Z",
-        "CA10SN__hasPassword__c": "true",
-        "CA10SN__passwordLastSetTime__c": "2024-10-20T17:14:43Z"
+        "CA10SN2__disappearanceTime__c": "2024-11-20T17:14:43Z",
+        "CA10SN2__hasPassword__c": "true",
+        "CA10SN2__passwordLastSetTime__c": "2024-10-20T17:14:43Z"
     },
     {
         "expectedResult": {
             "status": "INAPPLICABLE",
             "conditionIndex": "199",
-            "conditionText": "extract('CA10SN__hasPassword__c') != 'true'",
+            "conditionText": "extract('CA10SN2__hasPassword__c') != 'true'",
             "runtimeError": null
         },
         "context": {
             "snapshotTime": "2024-11-20T20:12:30Z"
         },
         "Id": "test2",
-        "CA10SN__disappearanceTime__c": null,
-        "CA10SN__hasPassword__c": "false",
-        "CA10SN__passwordLastSetTime__c": "2024-10-20T17:14:43Z"
+        "CA10SN2__disappearanceTime__c": null,
+        "CA10SN2__hasPassword__c": "false",
+        "CA10SN2__passwordLastSetTime__c": "2024-10-20T17:14:43Z"
     },
     {
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('CA10SN__passwordLastSetTime__c').beyondLastDays(90)",
+            "conditionText": "extract('CA10SN2__passwordLastSetTime__c').beyondLastDays(90)",
             "runtimeError": null
         },
         "context": {
             "snapshotTime": "2024-11-20T20:12:30Z"
         },
         "Id": "test3",
-        "CA10SN__disappearanceTime__c": null,
-        "CA10SN__hasPassword__c": "true",
-        "CA10SN__passwordLastSetTime__c": "2023-10-20T17:14:43Z"
+        "CA10SN2__disappearanceTime__c": null,
+        "CA10SN2__hasPassword__c": "true",
+        "CA10SN2__passwordLastSetTime__c": "2023-10-20T17:14:43Z"
     },
     {
         "expectedResult": {
@@ -55,8 +55,8 @@
             "snapshotTime": "2024-11-20T20:12:30Z"
         },
         "Id": "test4",
-        "CA10SN__disappearanceTime__c": null,
-        "CA10SN__hasPassword__c": "true",
-        "CA10SN__passwordLastSetTime__c": "2024-10-20T17:14:43Z"
+        "CA10SN2__disappearanceTime__c": null,
+        "CA10SN2__hasPassword__c": "true",
+        "CA10SN2__passwordLastSetTime__c": "2024-10-20T17:14:43Z"
     }
 ]

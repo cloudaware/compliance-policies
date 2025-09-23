@@ -3,29 +3,29 @@
         "expectedResult": {
             "status": "DISAPPEARED",
             "conditionIndex": "99",
-            "conditionText": "isDisappeared(CA10SN__disappearanceTime__c)",
+            "conditionText": "isDisappeared(CA10SN2__disappearanceTime__c)",
             "runtimeError": null
         },
         "context": {
             "snapshotTime": "2024-11-20T20:12:30Z"
         },
         "Id": "test1",
-        "CA10SN__disappearanceTime__c": "2024-11-20T17:14:43Z",
-        "CA10SN__defaultRoleName__c": "ACCOUNTADMIN"
+        "CA10SN2__disappearanceTime__c": "2024-11-20T17:14:43Z",
+        "CA10SN2__defaultRoleName__c": "ACCOUNTADMIN"
     },
     {
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "199",
-            "conditionText": "extract('CA10SN__defaultRoleName__c') == 'ACCOUNTADMIN'",
+            "conditionText": "extract('CA10SN2__defaultRoleName__c') == 'ACCOUNTADMIN'",
             "runtimeError": null
         },
         "context": {
             "snapshotTime": "2024-11-20T20:12:30Z"
         },
         "Id": "test3",
-        "CA10SN__disappearanceTime__c": null,
-        "CA10SN__defaultRoleName__c": "ACCOUNTADMIN"
+        "CA10SN2__disappearanceTime__c": null,
+        "CA10SN2__defaultRoleName__c": "ACCOUNTADMIN"
     },
     {
         "expectedResult": {
@@ -38,7 +38,7 @@
             "snapshotTime": "2024-11-20T20:12:30Z"
         },
         "Id": "test4",
-        "CA10SN__disappearanceTime__c": null,
-        "CA10SN__defaultRoleName__c": "SECURITYADMIN"
+        "CA10SN2__disappearanceTime__c": null,
+        "CA10SN2__defaultRoleName__c": "SECURITYADMIN"
     }
 ]

@@ -1,9 +1,9 @@
 ---
-inputType: "CA10SN__CaSnowflakeUser__c"
+inputType: "CA10SN2__CaSnowflakeUser__c"
 testData:
   - file: "test-data.json"
 importExtracts:
-  - file: "/types/CA10SN__CaSnowflakeUser__c/object.extracts.yaml"
+  - file: "/types/CA10SN2__CaSnowflakeUser__c/object.extracts.yaml"
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The Default Role is not set for the Snowflake User."
@@ -11,7 +11,7 @@ conditions:
     check:
       IS_EMPTY:
         arg:
-          EXTRACT: "CA10SN__defaultRoleName__c" 
+          EXTRACT: "CA10SN2__defaultRoleName__c" 
 otherwise:
   status: "COMPLIANT"
   currentStateMessage: "The Default Role is set for the Snowflake User."

@@ -1,16 +1,16 @@
 ---
-inputType: "CA10SN__CaSnowflakeUser__c"
+inputType: "CA10SN2__CaSnowflakeUser__c"
 testData:
   - file: "test-data.json"
 importExtracts:
-  - file: "/types/CA10SN__CaSnowflakeUser__c/object.extracts.yaml"
+  - file: "/types/CA10SN2__CaSnowflakeUser__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
     currentStateMessage: "The User does not use password authentication."
     check:
       NOT_EQUAL:
         left:
-          EXTRACT: "CA10SN__hasPassword__c" 
+          EXTRACT: "CA10SN2__hasPassword__c" 
         right:
           TEXT: "true" 
   - status: "INCOMPLIANT"
@@ -19,7 +19,7 @@ conditions:
     check:
       IS_BEYOND_LAST_DAYS:
         arg:
-          EXTRACT: "CA10SN__passwordLastSetTime__c"
+          EXTRACT: "CA10SN2__passwordLastSetTime__c"
         offsetDays: 90
 otherwise:
   status: "COMPLIANT"
