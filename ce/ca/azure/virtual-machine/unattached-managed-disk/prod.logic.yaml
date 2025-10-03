@@ -5,15 +5,44 @@ testData:
 importExtracts:
   - file: /types/CA10__CaAzureManagedDisk__c/object.extracts.yaml
 conditions:
-  - status: "INCOMPLIANT"
-    currentStateMessage: "The Managed Disk is not attached to a virtual machine."
-    remediationMessage: "Consider deleting or archiving the Managed Disk."
+  - status: "COMPLIANT"
+    currentStateMessage: "The Managed Disk is not in Unattached state."
     check:
-      IS_EQUAL:
+      NOT_EQUAL:
         left:
           EXTRACT: "CA10__diskState__c"
         right:
           TEXT: "Unattached"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Managed Disk was created less than 30 days ago."
+    check:
+      IS_WITHIN_LAST_DAYS:
+        offsetDays: 30
+        arg:
+          EXTRACT: "CA10__timeCreated__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Managed Disk was created more than 30 days ago and\
+      \ hasn't been attached to a virtual machine."
+    remediationMessage: "Consider deleting or archiving the Managed Disk."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__lastOwnershipUpdateTime__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Managed Disk has been in Unattached state for more than 30 days."
+    remediationMessage: "Consider deleting or archiving the Managed Disk."
+    check:
+      IS_BEYOND_LAST_DAYS:
+        offsetDays: 30
+        arg:
+          EXTRACT: "CA10__lastOwnershipUpdateTime__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Managed Disk has been detached within the last 30 days."
+    check:
+      IS_WITHIN_LAST_DAYS:
+        offsetDays: 30
+        arg:
+          EXTRACT: "CA10__lastOwnershipUpdateTime__c"
 otherwise:
-  status: "COMPLIANT"
-  currentStateMessage: "The Managed Disk is attached to a virtual machine."
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

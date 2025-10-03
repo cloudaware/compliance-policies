@@ -1,0 +1,15 @@
+---
+names:
+  full: "Google GCE IP Address is unused"
+  contextual: "GCE IP Address is unused"
+description: >
+  Ensure that all static IP addresses in your Google Cloud Platform project are 
+  associated with a running resource. Unused external static IP addresses can incur unnecessary costs 
+  and may pose a security risk if they are inadvertently attached to a resource in the future.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

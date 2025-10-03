@@ -1,44 +1,98 @@
 [
-  {
-    "expectedResult": {
-      "status": "DISAPPEARED",
-      "conditionIndex": "99",
-      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
-      "runtimeError": null
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-19T05:39:52Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-09-13T23:33:10Z",
+        "CA10__diskState__c": "Reserved",
+        "CA10__timeCreated__c": "2022-04-07T14:38:11Z",
+        "CA10__lastOwnershipUpdateTime__c": "2025-09-13T22:37:22Z"
     },
-    "context": {
-      "snapshotTime": "2025-03-27T10:40:33Z"
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__diskState__c') != 'Unattached'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-19T05:39:52Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__diskState__c": "Reserved",
+        "CA10__timeCreated__c": "2021-11-03T19:24:30Z",
+        "CA10__lastOwnershipUpdateTime__c": "2025-02-07T16:38:42Z"
     },
-    "Id": "test1",
-    "CA10__disappearanceTime__c": "2025-03-20T18:36:16Z",
-    "CA10__diskState__c": "Attached"
-  },
-  {
-    "expectedResult": {
-      "status": "INCOMPLIANT",
-      "conditionIndex": "199",
-      "conditionText": "extract('CA10__diskState__c') == 'Unattached'",
-      "runtimeError": null
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__timeCreated__c').withinLastDays(30)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-19T05:39:52Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__diskState__c": "Unattached",
+        "CA10__timeCreated__c": "2025-09-10T05:39:52Z",
+        "CA10__lastOwnershipUpdateTime__c": "2025-09-11T05:39:52Z"
     },
-    "context": {
-      "snapshotTime": "2025-03-27T10:40:33Z"
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__lastOwnershipUpdateTime__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-19T05:39:52Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__diskState__c": "Unattached",
+        "CA10__timeCreated__c": "2024-09-10T05:39:52Z",
+        "CA10__lastOwnershipUpdateTime__c": null
     },
-    "Id": "test2",
-    "CA10__disappearanceTime__c": null,
-    "CA10__diskState__c": "Unattached"
-  },
-  {
-    "expectedResult": {
-      "status": "COMPLIANT",
-      "conditionIndex": "200",
-      "conditionText": "otherwise",
-      "runtimeError": null
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "extract('CA10__lastOwnershipUpdateTime__c').beyondLastDays(30)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-19T05:39:52Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__diskState__c": "Unattached",
+        "CA10__timeCreated__c": "2021-06-28T21:08:22Z",
+        "CA10__lastOwnershipUpdateTime__c": "2024-04-18T19:18:40Z"
     },
-    "context": {
-      "snapshotTime": "2025-03-27T10:40:33Z"
-    },
-    "Id": "test3",
-    "CA10__disappearanceTime__c": null,
-    "CA10__diskState__c": "Attached"
-  }
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "599",
+            "conditionText": "extract('CA10__lastOwnershipUpdateTime__c').withinLastDays(30)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-19T05:39:52Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__diskState__c": "Unattached",
+        "CA10__timeCreated__c": "2024-05-09T22:01:17Z",
+        "CA10__lastOwnershipUpdateTime__c": "2025-09-08T20:46:59Z"
+    }
 ]

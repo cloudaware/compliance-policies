@@ -1,0 +1,50 @@
+---
+inputType: "CA10__CaAwsCacheCluster__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsCacheCluster__c/object.extracts.yaml"
+testData:
+  - file: 'test-data.json'
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The policy only applicable to Memcached Clusters."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__engine__c"
+        right:
+          TEXT: "memcached"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The cluster is not available."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "available"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The cluster has been created for less than 30 days."
+    check:
+      NOT:
+        arg:
+          IS_BEYOND_LAST_DAYS:
+            offsetDays: 30
+            arg:
+              EXTRACT: "CA10__createTime__c"
+  - status: UNDETERMINED
+    currentStateMessage: "There is not enough data in the CMDB to identify if the cluster is underutilized."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__cpuUtilizationAvg30d__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The cluster is underutilized with Average CPU Utilization < 40%"
+    remediationMessage: "Consider rightsizing, consolidating or terminating the instance."
+    check:
+      LESS_THAN:
+        left:
+          EXTRACT: CA10__cpuUtilizationAvg30d__c
+        right:
+          NUMBER: 40.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: 'The cluster is not underutilized.'

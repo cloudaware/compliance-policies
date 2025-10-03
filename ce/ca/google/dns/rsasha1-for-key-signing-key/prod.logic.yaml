@@ -1,10 +1,26 @@
 ---
 inputType: "CA10__CaGoogleDnsManagedZone__c"
 testData:
-  - file: test-data.json
+  - file: "test-data.json"
 importExtracts:
-  - file: /types/CA10__CaGoogleDnsManagedZone__c/object.extracts.yaml
+  - file: "/types/CA10__CaGoogleDnsManagedZone__c/object.extracts.yaml"
 conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Only applicable to public DNS Managed Zones."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__visibility__c"
+        right:
+          TEXT: "public"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "DNSSEC is not enabled for the public DNS Managed Zone."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__dnssecConfigurationState__c"
+        right:
+          TEXT: "on"
   - status: "INCOMPLIANT"
     currentStateMessage: "The Managed Zone uses the RSASHA1 algorithm for the Key-Signing Key."
     remediationMessage: "Change the DNSSEC Configuration for the Managed Zone."
@@ -16,4 +32,4 @@ conditions:
           TEXT: "rsasha1"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Managed Zone doesn't use the RSASHA1 algorithm for the Key-Signing Key."
+  currentStateMessage: "The public Managed Zone doesn't use the RSASHA1 algorithm for the Key-Signing Key."

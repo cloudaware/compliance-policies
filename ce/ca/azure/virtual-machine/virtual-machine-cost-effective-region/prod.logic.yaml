@@ -1,0 +1,261 @@
+---
+inputType: "CA10__CaAzureVirtualMachine__c"
+importExtracts:
+  - file: "/types/CA10__CaAzureVirtualMachine__c/object.extracts.yaml"
+testData:
+  - file: 'test-data.json'
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The VM is not running."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__powerState__c"
+        right:
+          TEXT: "VM running"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in westus which is more expensive than westus3 or westus2."
+    remediationMessage: "Consider migrating the VM to westus3 or westus2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "westus"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in westcentralus which is more expensive than westus3 or westus2."
+    remediationMessage: "Consider migrating the VM to westus3 or westus2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "westcentralus"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in southcentralus which is more expensive than northcentralus, westus3 or westus2."
+    remediationMessage: "Consider migrating the VM to northcentralus, westus3 or westus2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "southcentralus"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in centralus which is more expensive than northcentralus, westus3 or westus2."
+    remediationMessage: "Consider migrating the VM to northcentralus, westus3 or westus2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "centralus"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in canadaeast which is more expensive than eastus or eastus2."
+    remediationMessage: "Consider migrating the VM to eastus or eastus2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "canadaeast"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in canadacentral which is more expensive than eastus or eastus2."
+    remediationMessage: "Consider migrating the VM to eastus or eastus2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "canadacentral"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in ukwest which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Consider migrating the VM to eu-west-1, eu-north-1, or eu-south-2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "ukwest"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in uksouth which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Consider migrating the VM to eu-west-1, eu-north-1, or eu-south-2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "uksouth"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in francecentral which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Consider migrating the VM to eu-west-1, eu-north-1, or eu-south-2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "francecentral"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in francesouth which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Consider migrating the VM to eu-west-1, eu-north-1, or eu-south-2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "francesouth"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in westeurope which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Consider migrating the VM to swedencentral or northeurope."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "westeurope"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in germanywestcentral which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Consider migrating the VM to swedencentral or northeurope."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "germanywestcentral"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in germanynorth which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Consider migrating the VM to swedencentral or northeurope."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "germanynorth"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in switzerlandnorth which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Consider migrating the VM to swedencentral or northeurope."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "switzerlandnorth"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in switzerlandwest which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Consider migrating the VM to swedencentral or northeurope."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "switzerlandwest"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in italynorth which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Consider migrating the VM to swedencentral or northeurope."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "italynorth"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in polandcentral which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Consider migrating the VM to swedencentral or northeurope."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "polandcentral"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in norwayeast which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Consider migrating the VM to swedencentral or northeurope."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "norwayeast"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in norwaywest which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Consider migrating the VM to swedencentral or northeurope."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "norwaywest"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in swedensouth which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Consider migrating the VM to swedencentral or northeurope."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "swedensouth"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in spaincentral which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Consider migrating the VM to swedencentral or northeurope."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "spaincentral"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in southindia which is more expensive than centralindia."
+    remediationMessage: "Consider migrating the VM to centralindia."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "southindia"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in westindia which is more expensive than centralindia."
+    remediationMessage: "Consider migrating the VM to centralindia."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "westindia"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in australiasoutheast which is more expensive than australiacentral, australiacentral2 or australiaeast."
+    remediationMessage: "Consider migrating the VM to australiacentral, australiacentral2 or australiaeast."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "australiasoutheast"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in japaneast which is more expensive than koreasouth."
+    remediationMessage: "Consider migrating the VM to koreasouth."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "japaneast"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in japanwest which is more expensive than koreasouth."
+    remediationMessage: "Consider migrating the VM to koreasouth."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "japanwest"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The VM is running in koreacentral which is more expensive than koreasouth."
+    remediationMessage: "Consider migrating the VM to koreasouth."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "koreacentral"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The VM is located in a cost-effective region."

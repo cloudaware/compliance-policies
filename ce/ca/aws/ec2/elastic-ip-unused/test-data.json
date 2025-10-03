@@ -1,0 +1,26 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__associationId__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-01T16:12:36Z" },
+    "Id": "001",
+    "CA10__disappearanceTime__c": null,
+    "CA10__associationId__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-01T16:12:36Z" },
+    "Id": "002",
+    "CA10__disappearanceTime__c": null,
+    "CA10__associationId__c": "associationId"
+  }
+]

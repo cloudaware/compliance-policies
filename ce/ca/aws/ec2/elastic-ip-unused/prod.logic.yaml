@@ -1,0 +1,17 @@
+---
+inputType: "CA10__CaAwsElasticIp__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsElasticIp__c/object.extracts.yaml"
+testData:
+  - file: 'test-data.json'
+conditions:
+  - status: INCOMPLIANT
+    currentStateMessage: "The Elastic IP address is not associated with any EC2 instance or network interface."
+    remediationMessage: "Consider releasing the unused Elastic IP address."    
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: CA10__associationId__c
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Elastic Ip is used."

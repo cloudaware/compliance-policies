@@ -10,3 +10,18 @@ extracts:
         #   noAccessDelegate:
         #     path: "CA10__publicAccessible__c"
         #     currentStateMessage: "Unable to determined Public Access. Possible Permissions issues with ec2:DescribeSnapshotAttribute."
+# Not Nullable. Can't have no access retrieved via ec2:DescribeSnapshots.
+  - name: "CA10__startTime__c"
+    value:
+      FIELD:
+        path: "CA10__startTime__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Snapshot Start Time cannot be empty."
+# Values: pending | completed | error | recoverable | recovering 
+# Not Nullable. Can't have no access retrieved via ec2:DescribeSnapshots.
+  - name: "CA10__state__c"
+    value:
+      FIELD:
+        path: "CA10__state__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Snapshot Start Time cannot be empty."

@@ -1,0 +1,17 @@
+---
+inputType: "CA10__CaAwsEcrRepository__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsEcrRepository__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The ECR repository does not have a lifecycle policy configured."
+    remediationMessage: "Create a lifecycle policy to automatically manage container images."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__lifecyclePolicyText__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The ECR repository has a lifecycle policy configured."

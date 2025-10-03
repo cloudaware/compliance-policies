@@ -1,0 +1,15 @@
+---
+names:
+  full: Google GCE Instance is underutilized
+  contextual: Instance is underutilized
+description: "GCE Instances are considered underutilized if their average 
+  CPU utilization is consistently below 40% and maximum CPU 
+  utilization does not spike above 50% over a 14-day period. These instances 
+  might be oversized for their workload."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+  - "PERFORMANCE"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-right-sizing"
+  - "/frameworks/cloudaware/resource-performance/workload-efficiency"

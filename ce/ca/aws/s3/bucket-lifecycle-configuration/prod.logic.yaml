@@ -32,11 +32,11 @@ conditions:
     check:
       NOT:
         arg:
-          EXTRACT: "caJsonQueryBoolean__lifecycleRulesJson_status_enabled__c"
+          EXTRACT: "caJsonBoolean__lifecycleRulesJsonStatusEnabled__c"
   - status: "COMPLIANT"
     currentStateMessage: "The bucket Lifecycle configuration is enabled."
     check:
-      EXTRACT: "caJsonQueryBoolean__lifecycleRulesJson_status_enabled__c"
+      EXTRACT: "caJsonBoolean__lifecycleRulesJsonStatusEnabled__c"
 otherwise:
   status: "UNDETERMINED"
   currentStateMessage: "Unexpected values in the fields."

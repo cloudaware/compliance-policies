@@ -1,0 +1,14 @@
+---
+names:
+  full: "Azure PostgreSQL Server is Idle"
+  contextual: "Server is idle"
+description: >
+  Identify idle Azure PostgreSQL Servers to optimize costs and improve efficiency. 
+  Servers are considered idle if their average CPU is below 5% and I/O utilization is 0% over a 30-day period.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+  - "PERFORMANCE"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"
+  - "/frameworks/cloudaware/resource-performance/workload-efficiency"  

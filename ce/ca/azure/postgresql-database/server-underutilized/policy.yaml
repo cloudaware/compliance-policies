@@ -1,0 +1,15 @@
+---
+names:
+  full: Azure PostgreSQL Server is underutilized
+  contextual: Server is underutilized
+description: >
+  Identify underutilized Azure PostgreSQL Servers to optimize costs and improve efficiency. 
+  Servers are considered underutilized if their average CPU and I/O utilization are 
+  consistently below 20% and memory is below 40% over a 30-day period.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+  - "PERFORMANCE"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-right-sizing"
+  - "/frameworks/cloudaware/resource-performance/workload-efficiency"  

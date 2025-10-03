@@ -1,0 +1,21 @@
+---
+names:
+  full: "AWS ECR Repository Lifecycle Policy is not configured"
+  contextual: "Repository Lifecycle Policy is not configured"
+description: >
+  Ensure that Amazon ECR repositories have a lifecycle policy configured to 
+  automatically manage and clean up unused container images, which helps reduce 
+  storage costs and maintain repository hygiene.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-optimization"
+  - "/frameworks/aws-fsbp-v1.0.0/ecr/03"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ECR.3] ECR repositories should have at least one lifecycle policy configured"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/ecr-controls.html#ecr-3"
+  internal:
+    - "dec-x-9a0607d9"

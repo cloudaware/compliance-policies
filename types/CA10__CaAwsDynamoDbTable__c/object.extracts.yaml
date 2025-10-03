@@ -18,3 +18,15 @@ extracts:
         #   noAccessDelegate:
         #     path: "CA10__pointInTimeRecoveryStatus__c"
         #     currentStateMessage: "Unable to determine Point In Time Recovery Status. Possible permission issue with dynamodb:DescribeTable."
+# Nullable.
+  - name: "CA10__regionName2__c"
+    value:
+      FIELD:
+        path: "CA10__regionName2__c"
+# Values: CREATING | UPDATING | DELETING | ACTIVE | INACCESSIBLE_ENCRYPTION_CREDENTIALS | 
+# ARCHIVING | ARCHIVED | REPLICATION_NOT_AUTHORIZED
+# Not nullable. Possible permission issue with dynamodb:DescribeTable.
+  - name: "CA10__tableStatus__c"
+    value:
+      FIELD:
+        path: "CA10__tableStatus__c"

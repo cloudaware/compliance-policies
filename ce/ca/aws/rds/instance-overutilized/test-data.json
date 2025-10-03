@@ -1,0 +1,86 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-26T09:58:29Z" },
+    "Id": "001",
+    "CA10__disappearanceTime__c": "2025-09-25T08:10:08Z",
+    "CA10__status__c": "deleting",
+    "CA10__createTime__c": "2020-02-04T07:42:39Z",
+    "CA10__averageCpuOneMonth__c": 4.887843966930509
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__status__c') != 'available'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-26T09:58:29Z" },
+    "Id": "002",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "upgrading",
+    "CA10__createTime__c": "2020-10-23T02:12:49Z",
+    "CA10__averageCpuOneMonth__c": 31.360004047631566
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "not(extract('CA10__createTime__c').beyondLastDays(30))",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-26T09:58:29Z" },
+    "Id": "003",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__createTime__c": "2025-09-23T13:59:29Z",
+    "CA10__averageCpuOneMonth__c": 16.5114094188521
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__averageCpuOneMonth__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-26T09:58:29Z" },
+    "Id": "004",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__createTime__c": "2017-02-10T11:14:06Z",
+    "CA10__averageCpuOneMonth__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "not(extract('CA10__averageCpuOneMonth__c') < number(90.0))",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-26T09:58:29Z" },
+    "Id": "005",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__createTime__c": "2017-02-10T11:14:06Z",
+    "CA10__averageCpuOneMonth__c": 95.9032259406938214
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "500",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-26T09:58:29Z" },
+    "Id": "006",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__createTime__c": "2017-02-10T11:14:06Z",
+    "CA10__averageCpuOneMonth__c": 5.9032259406938214
+  }
+]

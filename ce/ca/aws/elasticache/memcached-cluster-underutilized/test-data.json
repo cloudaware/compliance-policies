@@ -1,0 +1,104 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-07-30T08:52:21Z"
+    },
+    "Id": "001",
+    "CA10__disappearanceTime__c": "2025-07-24T18:40:10Z",
+    "CA10__engine__c": "memcached",
+    "CA10__status__c": "available",
+    "CA10__createTime__c": "2025-07-24T16:53:38Z",
+    "CA10__cpuUtilizationAvg30d__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__status__c') != 'available'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-07-30T08:52:21Z"
+    },
+    "Id": "002",
+    "CA10__disappearanceTime__c": null,
+    "CA10__engine__c": "memcached",
+    "CA10__status__c": "stopped",
+    "CA10__createTime__c": "2025-07-15T10:39:29Z",
+    "CA10__cpuUtilizationAvg30d__c": 2.0
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "399",
+      "conditionText": "not(extract('CA10__createTime__c').beyondLastDays(30))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-07-30T08:52:21Z"
+    },
+    "Id": "003",
+    "CA10__disappearanceTime__c": null,
+    "CA10__engine__c": "memcached",
+    "CA10__status__c": "available",
+    "CA10__createTime__c": "2025-07-15T10:39:29Z",
+    "CA10__cpuUtilizationAvg30d__c": 2.0
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "599",
+      "conditionText": "extract('CA10__cpuUtilizationAvg30d__c') < number(40.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-07-30T08:52:21Z"
+    },
+    "Id": "004",
+    "CA10__disappearanceTime__c": null,
+    "CA10__engine__c": "memcached",
+    "CA10__status__c": "available",
+    "CA10__createTime__c": "2020-09-08T10:16:24Z",
+    "CA10__cpuUtilizationAvg30d__c": 1.0
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "600",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-07-30T08:52:21Z"
+    },
+    "Id": "005",
+    "CA10__disappearanceTime__c": null,
+    "CA10__engine__c": "memcached",
+    "CA10__status__c": "available",
+    "CA10__createTime__c": "2024-07-18T21:01:25Z",
+    "CA10__cpuUtilizationAvg30d__c": 40.0
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__engine__c') != 'memcached'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-07-30T08:52:21Z"
+    },
+    "Id": "006",
+    "CA10__disappearanceTime__c": null,
+    "CA10__engine__c": "redis",
+    "CA10__status__c": "stopped",
+    "CA10__createTime__c": "2025-07-15T10:39:29Z",
+    "CA10__cpuUtilizationAvg30d__c": 2.0
+  }
+]

@@ -1,0 +1,15 @@
+---
+names:
+  full: Azure SQL Database is underutilized
+  contextual: Database is underutilized
+description: "Identify Azure SQL Databases that are underutilized to optimize costs\
+  \ and improve efficiency. Instances are considered underutilized if their\
+  \ average DTU, CPU utilization is consistently below 20%, or App Memory utilization\
+  \ is below 40%, and storage utilization is below 10% over a 30-day period."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+  - "PERFORMANCE"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-right-sizing"
+  - "/frameworks/cloudaware/resource-performance/workload-efficiency"

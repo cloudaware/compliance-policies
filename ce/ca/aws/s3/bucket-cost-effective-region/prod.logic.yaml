@@ -1,0 +1,82 @@
+---
+inputType: "CA10__CaAwsBucket__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsBucket__c/object.extracts.yaml"
+testData:
+  - file: 'test-data.json'
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The bucket is running in us-west-1 which is more expensive than us-west-2."
+    remediationMessage: "Consider migrating the bucket to us-west-2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "us-west-1"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The bucket is running in ca-west-1 which is more expensive than us-west-2."
+    remediationMessage: "Consider migrating the bucket to us-west-2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "ca-west-1"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The bucket is running in ca-central-1 which is more expensive than us-east-2."
+    remediationMessage: "Consider migrating the bucket to us-east-2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "ca-central-1"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The bucket is running in eu-central-1 which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Consider migrating the bucket to eu-west-1, eu-north-1, or eu-south-2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "eu-central-1"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The bucket is running in eu-west-2 which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Consider migrating the bucket to eu-west-1, eu-north-1, or eu-south-2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "eu-west-2"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The bucket is running in eu-south-1 which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Consider migrating the bucket to eu-west-1, eu-north-1, or eu-south-2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "eu-south-1"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The bucket is running in eu-west-3 which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Consider migrating the bucket to eu-west-1, eu-north-1, or eu-south-2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "eu-west-3"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The bucket is running in eu-central-2 which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Consider migrating the bucket to eu-west-1, eu-north-1, or eu-south-2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "eu-central-2"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The EC2 bucket is located in a cost-effective region."

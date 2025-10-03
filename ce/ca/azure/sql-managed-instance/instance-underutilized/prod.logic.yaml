@@ -1,0 +1,54 @@
+---
+inputType: "CA10Z1__CaAzureSqlManagedInstance__c"
+importExtracts:
+  - file: "/types/CA10Z1__CaAzureSqlManagedInstance__c/object.extracts.yaml"
+testData:
+  - file: 'test-data.json'
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The instance is not ready."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__state__c"
+        right:
+          TEXT: "Ready"
+  - status: UNDETERMINED
+    currentStateMessage: "There is not enough data in the CMDB to identify if the instance is underutilized."
+    check:
+      OR:  
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10Z1__monitorCpuPercentAvg30Day__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10Z1__monitorIoWrittenMbAvg30Day__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10Z1__monitorIoReadMbAvg30Day__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The instance is underutilized with Average CPU Utilization < 20%, Average \
+      \ Disk Read/Write IO < 50 MB."
+    remediationMessage: "Consider rightsizing, consolidating or terminating the instance."
+    check:
+      AND:
+        args:
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10Z1__monitorCpuPercentAvg30Day__c"
+              right:
+                NUMBER: 20.0
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10Z1__monitorIoWrittenMbAvg30Day__c"
+              right:
+                NUMBER: 50.0
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10Z1__monitorIoReadMbAvg30Day__c"
+              right:
+                NUMBER: 50.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The instance is not underutilized."

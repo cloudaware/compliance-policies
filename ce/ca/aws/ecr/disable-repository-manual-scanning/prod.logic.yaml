@@ -1,0 +1,29 @@
+---
+inputType: "CA10__CaAwsEcrRepository__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10A1__CaAwsEcrRegistry__c/object.extracts.yaml
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "The Repository's registry is not present in the CMDB."
+    check:
+      IS_EMPTY_LOOKUP: "CA10A1__registry__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The ECR Registry scanning is configured for manual scans."
+    remediationMessage: "Configure the Registry scanning to use Scan On Push or Continuous Scanning."
+    check:
+      IS_EQUAL:
+        left:
+          JSON_QUERY_NUMBER:
+            arg:  
+              EXTRACT: "CA10A1__registry__r.caJsonFrom__scanningConfigurationRulesJson__c"
+            expression: "length(rules)"
+            undeterminedIf:
+              evaluationError: "Json query number has filed." 
+              resultTypeMismatch: "Json query number did not return a number type." 
+        right:
+          NUMBER: 0.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Registry is configured for automated vulnerability scanning."

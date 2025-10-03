@@ -1,0 +1,12 @@
+---
+extracts:
+# Values: RESERVING | RESERVED | IN_USE. Not nullable. Can't have no access, retrieved via compute.addresses.list
+  - name: "CA10__status__c"
+    value: 
+      FIELD:
+        path: "CA10__status__c"
+# Values: EXTERNAL | INTERNAL. Nullable (which is equal to EXTERNAL). Can't have no access, retrieved via compute.addresses.list
+  - name: "CA10__addressType__c"
+    value: 
+      FIELD:
+        path: "CA10__addressType__c"

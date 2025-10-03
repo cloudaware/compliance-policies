@@ -2,7 +2,17 @@
 inputType: "CA10__CaAzureVirtualNetworkGateway__c"
 testData:
   - file: test-data.json
+importExtracts:
+  - file: "/types/CA10__CaAzureVirtualNetworkGateway__c/object.extracts.yaml"
 conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Virtual Network Gateway hasn't been successfully provisioned."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__provisioningState__c"
+        right:
+          TEXT: "Failed"
   - status: "COMPLIANT"
     currentStateMessage: "Azure Virtual Network Gateway has at least one connection."
     check:

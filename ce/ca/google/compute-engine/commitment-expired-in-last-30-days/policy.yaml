@@ -1,0 +1,11 @@
+---
+names:
+  full: "Google GCE Commitment expired in the last 30 days"
+  contextual: "Commitment expired in the last 30 days"
+description: "This policy identifies Google GCE Commitments that have expired\
+  \ within the last 30 days to alert teams of potential unplanned increases in cloud spending and verify that the expirations were intentional."
+categories:
+  - "COST"
+type: "BEST_PRACTICE"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"

@@ -1,0 +1,244 @@
+---
+inputType: "CA10__CaAzureStorageAccount__c"
+importExtracts:
+  - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
+testData:
+  - file: 'test-data.json'
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in westus which is more expensive than westus3 or westus2."
+    remediationMessage: "Consider migrating the Account to westus3 or westus2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "westus"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in northcentralus which is more expensive than centralus or eastus2."
+    remediationMessage: "Consider migrating the Account to centralus or eastus2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "northcentralus"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in southcentralus which is more expensive than westus3 or westus2."
+    remediationMessage: "Consider migrating the Account to westus3 or westus2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "southcentralus"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in canadaeast which is more expensive than eastus2."
+    remediationMessage: "Consider migrating the Account to eastus2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "canadaeast"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in canadacentral which is more expensive than eastus2."
+    remediationMessage: "Consider migrating the Account to eastus2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "canadacentral"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in eastus which is more expensive than eastus2."
+    remediationMessage: "Consider migrating the Account to eastus2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "eastus"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in ukwest which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Consider migrating the Account to eu-west-1, eu-north-1, or eu-south-2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "ukwest"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in uksouth which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Consider migrating the Account to eu-west-1, eu-north-1, or eu-south-2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "uksouth"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in francecentral which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Consider migrating the Account to eu-west-1, eu-north-1, or eu-south-2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "francecentral"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in francesouth which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Consider migrating the Account to eu-west-1, eu-north-1, or eu-south-2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "francesouth"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in westeurope which is more expensive than swedencentral or swedensouth."
+    remediationMessage: "Consider migrating the Account to swedencentral or swedensouth."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "westeurope"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in northeurope which is more expensive than swedencentral or swedensouth."
+    remediationMessage: "Consider migrating the Account to swedencentral or swedensouth."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "northeurope"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in germanywestcentral which is more expensive than swedencentral or swedensouth."
+    remediationMessage: "Consider migrating the Account to swedencentral or swedensouth."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "germanywestcentral"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in germanynorth which is more expensive than swedencentral or swedensouth."
+    remediationMessage: "Consider migrating the Account to swedencentral or swedensouth."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "germanynorth"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in switzerlandnorth which is more expensive than swedencentral or swedensouth."
+    remediationMessage: "Consider migrating the Account to swedencentral or swedensouth."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "switzerlandnorth"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in switzerlandwest which is more expensive than swedencentral or swedensouth."
+    remediationMessage: "Consider migrating the Account to swedencentral or swedensouth."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "switzerlandwest"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in italynorth which is more expensive than swedencentral or swedensouth."
+    remediationMessage: "Consider migrating the Account to swedencentral or swedensouth."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "italynorth"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in polandcentral which is more expensive than swedencentral or swedensouth."
+    remediationMessage: "Consider migrating the Account to swedencentral or swedensouth."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "polandcentral"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in norwayeast which is more expensive than swedencentral or swedensouth."
+    remediationMessage: "Consider migrating the Account to swedencentral or swedensouth."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "norwayeast"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in norwaywest which is more expensive than swedencentral or swedensouth."
+    remediationMessage: "Consider migrating the Account to swedencentral or swedensouth."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "norwaywest"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in spaincentral which is more expensive than swedencentral or swedensouth."
+    remediationMessage: "Consider migrating the Account to swedencentral or swedensouth."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "spaincentral"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in southindia which is more expensive than centralindia."
+    remediationMessage: "Consider migrating the Account to centralindia."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "southindia"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in westindia which is more expensive than centralindia."
+    remediationMessage: "Consider migrating the Account to centralindia."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "westindia"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in australiasoutheast which is more expensive than australiaeast."
+    remediationMessage: "Consider migrating the Account to australiaeast."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "australiasoutheast"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in australiacentral2 which is more expensive than australiaeast."
+    remediationMessage: "Consider migrating the Account to australiaeast."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "australiacentral2"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Account is running in koreasouth which is more expensive than japaneast, japanwest or koreacentral."
+    remediationMessage: "Consider migrating the Account to japaneast, japanwest or koreacentral."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__locationName__c
+        right:
+          TEXT: "koreasouth"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Account is located in a cost-effective region."

@@ -1,0 +1,11 @@
+---
+names:
+  full: "Google GCE Snapshot is 90 days old or more"
+  contextual: "Snapshot is 90 days old or more"
+description: "Consider deleting or archiving Google GCE Snapshots that 
+  are 90 days old or more."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"

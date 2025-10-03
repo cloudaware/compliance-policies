@@ -34,3 +34,38 @@ extracts:
     value: 
       FIELD:
         path: CA10__multiAz__c
+# Nullable. Values: available, backing-up, creating ...
+  - name: "CA10__status__c"
+    value:
+      FIELD:
+        path: "CA10__status__c"
+# Nullable.
+  - name: "CA10__createTime__c"
+    value:
+      FIELD:
+        path: "CA10__createTime__c"
+# Nullable.
+  - name: "CA10__averageCpuOneMonth__c"
+    value:
+      FIELD:
+        path: "CA10__averageCpuOneMonth__c"
+# Nullable.
+  - name: "CA10__regionName__c"
+    value:
+      FIELD:
+        path: "CA10__regionName__c"
+# Nullable.
+  - name: "CA10__diskReadIopsAvg30d__c"
+    value:
+      FIELD:
+        path: "CA10__diskReadIopsAvg30d__c"
+# Nullable.
+  - name: "CA10__diskWriteIopsAvg30d__c"
+    value:
+      FIELD:
+        path: "CA10__diskWriteIopsAvg30d__c"
+# Nullable.
+  - name: "CA10__databaseConnectionsAvg30d__c"
+    value:
+      FIELD:
+        path: "CA10__databaseConnectionsAvg30d__c"

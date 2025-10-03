@@ -24,3 +24,48 @@ extracts:
             path: "CA10__dataEncryption__c"
             currentStateMessage: "Unable to determine Transparent Data Encryption. Possible permission issue with Microsoft.Sql/servers/databases/transparentDataEncryption/read."
           isEmpty: "SQL Database Transparent Data Encryption is not populated yet."
+# Not nullable 
+  - name: "CA10__satus__c"
+    value: 
+      FIELD:
+        path: "CA10__satus__c"
+# Nullable 
+  - name: "CA10__monitorCpuPercentAvg30Day__c"
+    value: 
+      FIELD:
+        path: "CA10__monitorCpuPercentAvg30Day__c"
+# Nullable 
+  - name: "CA10__monitorStoragePercentMax30Day__c"
+    value: 
+      FIELD:
+        path: "CA10__monitorStoragePercentMax30Day__c"
+# Nullable 
+  - name: "CA10__monitorDtuConsumptionPercentAvg30Day__c"
+    value: 
+      FIELD:
+        path: "CA10__monitorDtuConsumptionPercentAvg30Day__c"
+# Nullable 
+  - name: "CA10__monitorAppMemoryPercentAvg30Day__c"
+    value: 
+      FIELD:
+        path: "CA10__monitorAppMemoryPercentAvg30Day__c"
+# Not Nullable 
+  - name: "CA10__creationDate__c"
+    value: 
+      FIELD:
+        path: "CA10__creationDate__c"
+# Nullable 
+  - name: "CA10__pausedDate__c"
+    value: 
+      FIELD:
+        path: "CA10__pausedDate__c"
+# Not Nullable 
+  - name: "CA10__skuName__c"
+    value: 
+      FIELD:
+        path: "CA10__skuName__c"
+# Text. Not Nullable 
+  - name: "CA10__locationName__c"
+    value: 
+      FIELD:
+        path: "CA10__locationName__c"

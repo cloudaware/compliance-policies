@@ -1,0 +1,101 @@
+---
+inputType: "CA10__CaAwsVolume__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsVolume__c/object.extracts.yaml"
+testData:
+  - file: 'test-data.json'
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The EBS volume is in a transient or error state."
+    check:
+      AND: 
+        args:
+          - NOT_EQUAL:
+              left:
+                EXTRACT: "CA10__status__c"
+              right:
+                TEXT: "available"
+          - NOT_EQUAL:
+              left:
+                EXTRACT: "CA10__status__c"
+              right:
+                TEXT: "in-use"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The EBS volume has been created less than 30 days ago."
+    check:
+      IS_WITHIN_LAST_DAYS:
+        offsetDays: 30
+        arg:
+          EXTRACT: "CA10__createTime__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The EBS volume is unattached and has no I/O metrics for the past 30 days."
+    remediationMessage: "Consider creating a final snapshot of the volume for archival purposes and then deleting it."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__status__c"
+              right:
+                TEXT: "available"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__readOpsSum30d__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__writeOpsSum30d__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The volume is attached for less than 30 days."
+    check:
+      AND:
+        args:
+        - NOT_EMPTY:
+            arg:
+              EXTRACT: "CA10__attachmentAttachTime__c"
+        - IS_WITHIN_LAST_DAYS:
+            offsetDays: 30
+            arg:
+              EXTRACT: "CA10__attachmentAttachTime__c"
+  - status: INCOMPLIANT
+    currentStateMessage: "The EBS volume is attached but has no read and write operations for the past 30 days."
+    remediationMessage: "The volume is attached to an instance that has been stopped for over 30 days.\
+      \ Consider detaching it, creating a snapshot for archival, and then deleting the volume."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__status__c"
+              right:
+                TEXT: "in-use"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__readOpsSum30d__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__writeOpsSum30d__c"
+  - status: INCOMPLIANT
+    currentStateMessage: "The EBS volume is attached but has had zero read and write operations for the past 30 days."
+    remediationMessage: "Investigate why the volume is attached but unused.\
+      \ Consider detaching it, creating a snapshot for archival, and then deleting the volume."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__status__c"
+              right:
+                TEXT: "in-use"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__readOpsSum30d__c"
+              right:
+                NUMBER: 0.0
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__writeOpsSum30d__c"
+              right:
+                NUMBER: 0.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The EBS volume is not idle."

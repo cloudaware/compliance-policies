@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.3.2
+
+- Replaced `&nbsp;` with \u3000 for SectionTree and Folder tree for better readability in plain text
+
+## 2.3.1
+
+- Added `repo-manager policies import-stats` to import stats about latest policy runs
+- Added StatBar and StatBlock components to display stats in generated documentation
+
 ## 2.3.0
 
 - Refactored `repo-manager docs generate` classes

@@ -1,0 +1,154 @@
+---
+inputType: "CA10__CaGoogleGceInstance__c"
+importExtracts:
+  - file: "/types/CA10__CaGoogleGceInstance__c/object.extracts.yaml"
+testData:
+  - file: 'test-data.json'
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Instance is running in us-west2 which is more expensive than us-west1."
+    remediationMessage: "Consider migrating the Instance to us-west1."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "us-west2"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Instance is running in us-west3 which is more expensive than us-west1."
+    remediationMessage: "Consider migrating the Instance to us-west1."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "us-west3"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Instance is running in us-west4 which is more expensive than us-west1."
+    remediationMessage: "Consider migrating the Instance to us-west1."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "us-west4"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Instance is running in us-south1 which is more expensive than us-east1, us-east5 or us-central1."
+    remediationMessage: "Consider migrating the Instance to us-east1, us-east5 or us-central1."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "us-south1"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Instance is running in northamerica-northeast1 which is more expensive than us-east1, us-east5 or us-central1."
+    remediationMessage: "Consider migrating the Instance to us-east1, us-east5 or us-central1."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "northamerica-northeast1"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Instance is running in northamerica-northeast2 which is more expensive than us-east1, us-east5 or us-central1."
+    remediationMessage: "Consider migrating the Instance to us-east1, us-east5 or us-central1."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "northamerica-northeast2"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Instance is running in europe-north1 which is more expensive than europe-north2 or europe-west4."
+    remediationMessage: "Consider migrating the Instance to europe-north2 or europe-west4."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "europe-north1"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Instance is running in europe-southwest1 which is more expensive than europe-north2 or europe-west4."
+    remediationMessage: "Consider migrating the Instance to europe-north2 or europe-west4."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "europe-southwest1"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Instance is running in europe-west1 which is more expensive than europe-north2 or europe-west4."
+    remediationMessage: "Consider migrating the Instance to europe-north2 or europe-west4."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "europe-west1"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Instance is running in europe-west12 which is more expensive than europe-north2 or europe-west4."
+    remediationMessage: "Consider migrating the Instance to europe-north2 or europe-west4."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "europe-west12"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Instance is running in europe-west2 which is more expensive than europe-north2 or europe-west4."
+    remediationMessage: "Consider migrating the Instance to europe-north2 or europe-west4."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "europe-west2"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Instance is running in europe-west3 which is more expensive than europe-north2 or europe-west4."
+    remediationMessage: "Consider migrating the Instance to europe-north2 or europe-west4."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "europe-west3"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Instance is running in europe-west6 which is more expensive than europe-north2 or europe-west4."
+    remediationMessage: "Consider migrating the Instance to europe-north2 or europe-west4."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "europe-west6"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Instance is running in europe-west8 which is more expensive than europe-north2 or europe-west4."
+    remediationMessage: "Consider migrating the Instance to europe-north2 or europe-west4."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "europe-west8"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Instance is running in europe-west9 which is more expensive than europe-north2 or europe-west4."
+    remediationMessage: "Consider migrating the Instance to europe-north2 or europe-west4."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "europe-west9"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Instance is running in australia-southeast2 which is more expensive than australia-southeast1."
+    remediationMessage: "Consider migrating the Instance to australia-southeast1."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__regionName__c
+        right:
+          TEXT: "australia-southeast2"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Instance is located in a cost-effective region."

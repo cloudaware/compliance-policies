@@ -1,0 +1,130 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-09-10T17:26:32Z"
+    },
+    "Id": "001",
+    "CA10__disappearanceTime__c": "2025-09-04T19:13:10Z",
+    "CA10__intelligentTieringStorageGb__c": null,
+    "CA10__lifecycleRulesJson__c": "[{\"id\":\"id\",\"status\":\"Enabled\"}]",
+    "CA10__intelligentTieringConfigurationsJson__c": "[]"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__intelligentTieringStorageGb__c').isEmpty() && extract('caJsonFrom__lifecycleRulesJson__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-09-10T17:26:32Z"
+    },
+    "Id": "002",
+    "CA10__disappearanceTime__c": null,
+    "CA10__intelligentTieringStorageGb__c": null,
+    "CA10__lifecycleRulesJson__c": "",
+    "CA10__intelligentTieringConfigurationsJson__c": "[]"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__intelligentTieringStorageGb__c').isEmpty() && extract('caJsonFrom__lifecycleRulesJson__c').jsonQueryText('length([?status==\\'Enabled\\'].transitions[] | [?storageClassAsString==\\'INTELLIGENT_TIERING\\'])') == number(0.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-09-10T17:26:32Z"
+    },
+    "Id": "003",
+    "CA10__disappearanceTime__c": null,
+    "CA10__intelligentTieringStorageGb__c": null,
+    "CA10__lifecycleRulesJson__c": "[{\"id\":\"id\",\"status\":\"Enabled\"}]",
+    "CA10__intelligentTieringConfigurationsJson__c": "[]"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('caJsonFrom__intelligentTieringConfigurationsJson__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-09-10T17:26:32Z"
+    },
+    "Id": "004",
+    "CA10__disappearanceTime__c": null,
+    "CA10__intelligentTieringStorageGb__c": 10,
+    "CA10__lifecycleRulesJson__c": "[{\"id\":\"id\",\"status\":\"Enabled\"}]",
+    "CA10__intelligentTieringConfigurationsJson__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('caJsonFrom__intelligentTieringConfigurationsJson__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-09-10T17:26:32Z"
+    },
+    "Id": "005",
+    "CA10__disappearanceTime__c": null,
+    "CA10__intelligentTieringStorageGb__c": null,
+    "CA10__lifecycleRulesJson__c": "[{\"id\":\"id\",\"status\":\"Enabled\",\"transitions\":[{\"storageClass\":\"IntelligentTiering\",\"storageClassAsString\":\"INTELLIGENT_TIERING\",\"days\":90}]}]",
+    "CA10__intelligentTieringConfigurationsJson__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "extract('caJsonFrom__intelligentTieringConfigurationsJson__c').jsonQueryText('length(@)') == number(0.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-09-10T17:26:32Z"
+    },
+    "Id": "006",
+    "CA10__disappearanceTime__c": null,
+    "CA10__intelligentTieringStorageGb__c": null,
+    "CA10__lifecycleRulesJson__c": "[{\"id\":\"id\",\"status\":\"Enabled\",\"transitions\":[{\"storageClass\":\"IntelligentTiering\",\"storageClassAsString\":\"INTELLIGENT_TIERING\",\"days\":90}]}]",
+    "CA10__intelligentTieringConfigurationsJson__c": "[]"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "599",
+      "conditionText": "extract('caJsonFrom__intelligentTieringConfigurationsJson__c').jsonQueryText('length([?status==\\'Enabled\\'])') == number(0.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-09-10T17:26:32Z"
+    },
+    "Id": "007",
+    "CA10__disappearanceTime__c": null,
+    "CA10__intelligentTieringStorageGb__c": null,
+    "CA10__lifecycleRulesJson__c": "[{\"id\":\"id\",\"status\":\"Enabled\",\"transitions\":[{\"storageClass\":\"IntelligentTiering\",\"storageClassAsString\":\"INTELLIGENT_TIERING\",\"days\":90}]}]",
+    "CA10__intelligentTieringConfigurationsJson__c": "[{\"id\":\"intelligent-tiering\",\"status\":\"Disabled\",\"tiering\":[{\"days\":90,\"accessTier\":\"ARCHIVE_ACCESS\"},{\"days\":180,\"accessTier\":\"DEEP_ARCHIVE_ACCESS\"}]}]"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "600",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-09-10T17:26:32Z"
+    },
+    "Id": "008",
+    "CA10__disappearanceTime__c": null,
+    "CA10__intelligentTieringStorageGb__c": 10,
+    "CA10__lifecycleRulesJson__c": "[{\"id\":\"id\",\"status\":\"Enabled\"}]",
+    "CA10__intelligentTieringConfigurationsJson__c": "[{\"id\":\"intelligent-tiering\",\"status\":\"Enabled\",\"tiering\":[{\"days\":90,\"accessTier\":\"ARCHIVE_ACCESS\"},{\"days\":180,\"accessTier\":\"DEEP_ARCHIVE_ACCESS\"}]}]"
+  }
+]

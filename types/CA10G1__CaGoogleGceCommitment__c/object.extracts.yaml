@@ -1,0 +1,12 @@
+---
+extracts:
+# Values: NOT_YET_ACTIVE | ACTIVE | EXPIRED. Not nullable. Can't have no access, retrieved via compute.regionCommitments.aggregatedList
+  - name: "CA10G1__status__c"
+    value: 
+      FIELD:
+        path: "CA10G1__status__c"
+# Not nullable. Can't have no access, retrieved via compute.regionCommitments.aggregatedList
+  - name: "CA10G1__endTimestamp__c"
+    value: 
+      FIELD:
+        path: "CA10G1__endTimestamp__c"

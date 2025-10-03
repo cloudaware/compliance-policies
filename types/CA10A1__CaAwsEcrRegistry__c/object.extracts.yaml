@@ -1,0 +1,18 @@
+---
+extracts:
+# Not nullable.
+  - name: "CA10A1__scanningConfigurationRulesJson__c"
+    value: 
+      FIELD:
+        path: "CA10A1__scanningConfigurationRulesJson__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10A1__scanningConfigurationRulesJson__c"
+            currentStateMessage: "Unable to determine Scanning Configuration. Possible permission issue with ecr:GetRegistryScanningConfiguration"
+  - name: "caJsonFrom__scanningConfigurationRulesJson__c"
+    value:
+      JSON_FROM:
+        arg:
+          EXTRACT: "CA10A1__scanningConfigurationRulesJson__c"
+        undeterminedIf:
+          isInvalid: "The Scanning Configuration Rules Json is invalid."

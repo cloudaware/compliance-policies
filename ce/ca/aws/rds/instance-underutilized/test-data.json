@@ -1,0 +1,70 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-01T16:12:36Z" },
+    "Id": "001",
+    "CA10__disappearanceTime__c": "2025-08-25T14:02:49Z",
+    "CA10__status__c": "deleting",
+    "CA10__createTime__c": "2025-08-25T10:59:52Z",
+    "CA10__averageCpuOneMonth__c": null,
+    "CA10__diskReadIopsAvg30d__c": null,
+    "CA10__diskWriteIopsAvg30d__c": null,
+    "CA10__databaseConnectionsAvg30d__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__averageCpuOneMonth__c') < number(5.0) && extract('CA10__databaseConnectionsAvg30d__c') <= number(0.0)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-01T16:12:36Z" },
+    "Id": "002",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__createTime__c": "2024-04-10T04:15:12Z",
+    "CA10__averageCpuOneMonth__c": 2.4573031498234372,
+    "CA10__diskReadIopsAvg30d__c": 0.2817579761562502,
+    "CA10__diskWriteIopsAvg30d__c": 0.4548981638459529,
+    "CA10__databaseConnectionsAvg30d__c": 0
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "599",
+      "conditionText": "extract('CA10__averageCpuOneMonth__c') < number(20.0) && extract('CA10__diskReadIopsAvg30d__c') < number(50.0) && extract('CA10__diskWriteIopsAvg30d__c') < number(50.0)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-01T16:12:36Z" },
+    "Id": "003",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__createTime__c": "2019-12-10T16:43:15Z",
+    "CA10__averageCpuOneMonth__c": 2.890441464841376,
+    "CA10__diskReadIopsAvg30d__c": 0.2796087458878112,
+    "CA10__diskWriteIopsAvg30d__c": 0.7272239716244633,
+    "CA10__databaseConnectionsAvg30d__c": 0.000462962962962963
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "600",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-01T16:12:36Z" },
+    "Id": "004",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__createTime__c": "2019-12-10T16:43:15Z",
+    "CA10__averageCpuOneMonth__c": 25.890441464841376,
+    "CA10__diskReadIopsAvg30d__c": 0.2796087458878112,
+    "CA10__diskWriteIopsAvg30d__c": 0.7272239716244633,
+    "CA10__databaseConnectionsAvg30d__c": 0.000462962962962963
+  }
+]

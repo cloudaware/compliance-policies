@@ -1,0 +1,27 @@
+---
+extracts:
+# Not nullable 
+  - name: "CA10Z1__state__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__state__c"
+# Nullable 
+  - name: "CA10Z1__monitorCpuPercentAvg30Day__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__monitorCpuPercentAvg30Day__c"
+# Nullable 
+  - name: "CA10Z1__monitorIoWrittenMbAvg30Day__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__monitorIoWrittenMbAvg30Day__c"
+# Nullable 
+  - name: "CA10Z1__monitorIoReadMbAvg30Day__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__monitorIoReadMbAvg30Day__c"
+# Text 
+  - name: "CA10Z1__locationName__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__locationName__c"

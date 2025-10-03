@@ -1,0 +1,192 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-26T09:58:29Z" },
+    "Id": "001",
+    "CA10__disappearanceTime__c": "2025-09-26T00:12:00Z",
+    "CA10__status__c": "in-use",
+    "CA10__createTime__c": "2025-09-26T00:02:39Z",
+    "CA10__attachmentAttachTime__c": "2025-09-26T00:02:39Z",
+    "CA10__volumeType__c": "standard",
+    "CA10__readOpsSum30d__c": null,
+    "CA10__writeOpsSum30d__c": null,
+    "CA10__iops__c": null,
+    "CA10__sumIopsOneMonth__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__status__c') != 'in-use'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-26T09:58:29Z" },
+    "Id": "002",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "error",
+    "CA10__createTime__c": "2015-12-02T19:55:58Z",
+    "CA10__attachmentAttachTime__c": null,
+    "CA10__volumeType__c": "gp2",
+    "CA10__readOpsSum30d__c": null,
+    "CA10__writeOpsSum30d__c": null,
+    "CA10__iops__c": 180,
+    "CA10__sumIopsOneMonth__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__createTime__c').withinLastDays(30)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-26T09:58:29Z" },
+    "Id": "003",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "in-use",
+    "CA10__createTime__c": "2025-09-26T08:29:02Z",
+    "CA10__attachmentAttachTime__c": "2025-09-26T08:29:02Z",
+    "CA10__volumeType__c": "gp3",
+    "CA10__readOpsSum30d__c": null,
+    "CA10__writeOpsSum30d__c": null,
+    "CA10__iops__c": 3000,
+    "CA10__sumIopsOneMonth__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__attachmentAttachTime__c').isNotEmpty() && extract('CA10__attachmentAttachTime__c').withinLastDays(30)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-26T09:58:29Z" },
+    "Id": "004",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "in-use",
+    "CA10__createTime__c": "2019-09-18T15:48:09Z",
+    "CA10__attachmentAttachTime__c": "2025-08-28T12:37:13Z",
+    "CA10__volumeType__c": "gp2",
+    "CA10__readOpsSum30d__c": 9526986,
+    "CA10__writeOpsSum30d__c": 13737041,
+    "CA10__iops__c": 150,
+    "CA10__sumIopsOneMonth__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "499",
+      "conditionText": "not(setOfText(['gp3', 'io1', 'io2']).contains(extract('CA10__volumeType__c')))",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-26T09:58:29Z" },
+    "Id": "005",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "in-use",
+    "CA10__createTime__c": "2020-10-08T12:34:21Z",
+    "CA10__attachmentAttachTime__c": null,
+    "CA10__volumeType__c": "gp2",
+    "CA10__readOpsSum30d__c": null,
+    "CA10__writeOpsSum30d__c": null,
+    "CA10__iops__c": 120,
+    "CA10__sumIopsOneMonth__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "599",
+      "conditionText": "(extract('CA10__readOpsSum30d__c').isEmpty() && extract('CA10__writeOpsSum30d__c').isEmpty()) || (extract('CA10__readOpsSum30d__c') == number(0.0) && extract('CA10__writeOpsSum30d__c') == number(0.0))",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-26T09:58:29Z" },
+    "Id": "006",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "in-use",
+    "CA10__createTime__c": "2020-01-28T11:55:01Z",
+    "CA10__attachmentAttachTime__c": null,
+    "CA10__volumeType__c": "gp3",
+    "CA10__readOpsSum30d__c": null,
+    "CA10__writeOpsSum30d__c": null,
+    "CA10__iops__c": 3000,
+    "CA10__sumIopsOneMonth__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "699",
+      "conditionText": "extract('CA10__volumeType__c') == 'gp3' && extract('CA10__iops__c') > number(3000.0) && extract('CA10__readOpsSum30d__c') < number(1.944E9) && extract('CA10__writeOpsSum30d__c') < number(1.944E9)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-26T09:58:29Z" },
+    "Id": "007",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "in-use",
+    "CA10__createTime__c": "2021-02-15T12:37:18Z",
+    "CA10__attachmentAttachTime__c": "2021-02-15T12:38:35Z",
+    "CA10__volumeType__c": "gp3",
+    "CA10__readOpsSum30d__c": 67365640,
+    "CA10__writeOpsSum30d__c": 6558745,
+    "CA10__iops__c": 3456,
+    "CA10__sumIopsOneMonth__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "799",
+      "conditionText": "extract('CA10__volumeType__c') == 'gp3'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-26T09:58:29Z" },
+    "Id": "008",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "in-use",
+    "CA10__createTime__c": "2020-12-15T09:21:03Z",
+    "CA10__attachmentAttachTime__c": "2020-12-15T09:21:03Z",
+    "CA10__volumeType__c": "gp3",
+    "CA10__readOpsSum30d__c": 15114936,
+    "CA10__writeOpsSum30d__c": 8372773,
+    "CA10__iops__c": 3000,
+    "CA10__sumIopsOneMonth__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "899",
+      "conditionText": "extract('CA10__sumIopsOneMonth__c') < number(6.48E7)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-26T09:58:29Z" },
+    "Id": "009",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "in-use",
+    "CA10__createTime__c": "2020-12-15T09:21:03Z",
+    "CA10__attachmentAttachTime__c": "2020-12-15T09:21:03Z",
+    "CA10__volumeType__c": "io1",
+    "CA10__readOpsSum30d__c": 15114936,
+    "CA10__writeOpsSum30d__c": 8372773,
+    "CA10__iops__c": 3000,
+    "CA10__sumIopsOneMonth__c": 23487709
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "900",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-26T09:58:29Z" },
+    "Id": "010",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "in-use",
+    "CA10__createTime__c": "2020-12-15T09:21:03Z",
+    "CA10__attachmentAttachTime__c": "2020-12-15T09:21:03Z",
+    "CA10__volumeType__c": "io1",
+    "CA10__readOpsSum30d__c": 100000000,
+    "CA10__writeOpsSum30d__c": 50000000,
+    "CA10__iops__c": 3000,
+    "CA10__sumIopsOneMonth__c": 150000000
+  }
+]

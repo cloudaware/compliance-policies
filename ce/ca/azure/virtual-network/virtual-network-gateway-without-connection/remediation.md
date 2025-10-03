@@ -4,7 +4,7 @@
 
 If a Virtual Network Gateway is confirmed to have no active connections and is not required for current or future network configurations, it should be deleted to prevent ongoing charges and reduce infrastructure complexity.
 
-### Azure CLI
+### **Azure CLI**
 
 ```sh
 az network vnet-gateway delete \
@@ -12,7 +12,7 @@ az network vnet-gateway delete \
     --resource-group {{resource-group-name}}
 ```
 
-### PowerShell
+### **PowerShell**
 
 ```ps
 Remove-AzVirtualNetworkGateway `

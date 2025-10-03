@@ -1,0 +1,15 @@
+---
+names:
+  full: Azure SQL Elastic Pool is underutilized
+  contextual: Elastic Pool is underutilized
+description: >
+  Identifies Azure SQL Elastic Pools that are underutilized to optimize costs. 
+  An elastic pool is considered underutilized if its average DTU/CPU consumption 
+  is below 20% and its storage utilization is below 10% over the last 30 days.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+  - "PERFORMANCE"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-right-sizing"
+  - "/frameworks/cloudaware/resource-performance/workload-efficiency"

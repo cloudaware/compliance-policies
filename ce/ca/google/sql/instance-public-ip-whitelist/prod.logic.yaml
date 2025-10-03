@@ -1,0 +1,28 @@
+---
+
+inputType: "CA10__CaGoogleSqlInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleSqlInstance__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Authorized networks apply only to instances with public IPs"
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__ipv4Enabled__c"
+        right:
+          BOOLEAN: true
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Cloud SQL Database Instance implicitly whitelists all public IP addresses."
+    remediationMessage: "Update the authorized network list."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "caJsonText__authorizedNetworksJsonValue__c"
+        search:
+          TEXT: "0.0.0.0/0"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Cloud SQL Instance is not open to the public internet."

@@ -1,0 +1,13 @@
+---
+names:
+  full: "Azure Reservation expires in the next 60 days"
+  contextual: "Reservation expires in the next 60 days"
+description: "Ensure that expiring Azure Reservations are tracked renewed or\
+  \ addressed beforehand to avoid service disruptions or loss of discounts.\
+  \ Proactive renewal maintains cost efficiency and ensures resources remain\
+  \ covered by reservations."
+categories:
+  - "COST"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-optimization"

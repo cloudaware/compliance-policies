@@ -1,0 +1,16 @@
+---
+names:
+  full: Azure SQL Managed Instance is underutilized
+  contextual: Managed Instance is underutilized
+description: >
+  Identify underutilized Azure SQL Managed Instances to optimize costs by downscaling 
+  instances with low utilization. Instances are considered underutilized 
+  if their average CPU utilization is below 20%, and average disk I/O is below 
+  50 MB over a 30-day period.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+  - "PERFORMANCE"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-right-sizing"
+  - "/frameworks/cloudaware/resource-performance/workload-efficiency"

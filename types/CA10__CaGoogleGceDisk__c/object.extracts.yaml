@@ -4,3 +4,18 @@ extracts:
     value: 
       FIELD:
         path: "CA10__diskEncryptionKeySha256__c"
+# Not nullable. Can't have no access, retrieved via compute.disks.aggregatedList
+  - name: "CA10__creationDate__c"
+    value: 
+      FIELD:
+        path: "CA10__creationDate__c"
+# Nullable. Can't have no access, retrieved via compute.disks.aggregatedList
+  - name: "CA10__lastAttach__c"
+    value: 
+      FIELD:
+        path: "CA10__lastAttach__c"
+# Nullable. Can't have no access, retrieved via compute.disks.aggregatedList
+  - name: "CA10__lastDetach__c"
+    value: 
+      FIELD:
+        path: "CA10__lastDetach__c"

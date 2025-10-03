@@ -1,0 +1,44 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-02T06:11:18Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-09-29T18:15:00Z",
+        "CA10__lifecyclePolicyText__c": "{\"rules\":[{\"rulePriority\":1,\"description\":\"description\",\"selection\":{\"tagStatus\":\"untagged\",\"countType\":\"sinceImagePushed\",\"countUnit\":\"days\",\"countNumber\":30},\"action\":{\"type\":\"expire\"}}]}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__lifecyclePolicyText__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-02T06:11:18Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__lifecyclePolicyText__c": ""
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-02T06:11:18Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__lifecyclePolicyText__c": "{\"rules\":[{\"rulePriority\":1,\"description\":\"description\",\"selection\":{\"tagStatus\":\"untagged\",\"countType\":\"sinceImagePushed\",\"countUnit\":\"days\",\"countNumber\":30},\"action\":{\"type\":\"expire\"}}]}"
+    }
+]

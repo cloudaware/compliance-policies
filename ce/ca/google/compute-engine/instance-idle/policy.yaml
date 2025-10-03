@@ -1,0 +1,16 @@
+---
+names:
+  full: Google GCE Instance is idle
+  contextual: Instance is idle
+description: >
+  Identify idle GCE Instances to optimize costs by stopping, 
+  terminating, or downscaling instances with low utilization. Instances are 
+  considered idle if their average CPU utilization is below 5%, maximum CPU 
+  utilization is below 15%, and average network I/O is below 100 MB over a 14-day period.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "PERFORMANCE"
+  - "COST"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"
+  - "/frameworks/cloudaware/resource-performance/workload-efficiency"

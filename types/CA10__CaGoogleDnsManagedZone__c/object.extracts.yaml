@@ -4,10 +4,14 @@ extracts:
     value: 
       FIELD:
         path: "CA10__visibility__c"
+# Values: on | off | transfer. Nullable, null == off. Can't have no access, retrieved via dns.managedZones.list
+# Only applicable to CA10__visibility__c == public
   - name: "CA10__dnssecConfigurationState__c"
     value: 
       FIELD:
         path: "CA10__dnssecConfigurationState__c"
+# Nullable. Can't have no access, retrieved via dns.managedZones.list
+# Only applicable to CA10__visibility__c == public
   - name: "CA10__dnssecConfigurationKeySpecs__c"
     value: 
       FIELD:
@@ -20,7 +24,6 @@ extracts:
           EXTRACT: "CA10__dnssecConfigurationKeySpecs__c"
         undeterminedIf:
           isInvalid: "JSON is invalid."
-          isEmpty: "JSON is empty."
   - name: "caJsonText__dnssecConfigurationKeySpecsKeySigningAlgorithmValue"
     value: 
       JSON_QUERY_TEXT:

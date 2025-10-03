@@ -1,0 +1,8 @@
+---
+name: 3.1.1 Ensure S3 Bucket Policy is set to deny HTTP requests (Automated)
+description: >
+  At the Amazon S3 bucket level, you can configure permissions through a bucket policy,
+  making the objects accessible only through HTTPS.
+similar:
+  sections:
+    - /frameworks/cis-aws-v5.0.0/02/01/01

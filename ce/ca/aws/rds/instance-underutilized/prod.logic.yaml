@@ -1,0 +1,81 @@
+---
+inputType: "CA10__CaAwsDbInstance__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsDbInstance__c/object.extracts.yaml"
+testData:
+  - file: 'test-data.json'
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The instance is not available."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "available"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The instance has been created less than 30 days ago."
+    check:
+      NOT:
+        arg:
+          IS_BEYOND_LAST_DAYS:
+            offsetDays: 30
+            arg:
+              EXTRACT: "CA10__createTime__c"
+  - status: UNDETERMINED
+    currentStateMessage: "There is not enough data in the CMDB to identify if the instance is underutilized."
+    check:
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__averageCpuOneMonth__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__diskReadIopsAvg30d__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__diskWriteIopsAvg30d__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__databaseConnectionsAvg30d__c"
+  - status: INAPPLICABLE
+    currentStateMessage: "The instance is idle and considered by the 'AWS RDS Instance is idle' policy."
+    check:
+      AND:
+        args:
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__averageCpuOneMonth__c"
+              right:
+                NUMBER: 5.0
+          - LESS_THAN_EQUAL:
+              left:
+                EXTRACT: "CA10__databaseConnectionsAvg30d__c"
+              right:
+                NUMBER: 0.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The instance is underutilized with Average CPU Utilization < 20%, Average \
+      \ Disk Read IOPS < 50, Average Disk Write IOPS < 50."
+    remediationMessage: "Consider rightsizing, consolidating or terminating the instance."
+    check:
+      AND:
+        args:
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__averageCpuOneMonth__c"
+              right:
+                NUMBER: 20.0
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__diskReadIopsAvg30d__c"
+              right:
+                NUMBER: 50.0
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__diskWriteIopsAvg30d__c"
+              right:
+                NUMBER: 50.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The instance is not underutilized."

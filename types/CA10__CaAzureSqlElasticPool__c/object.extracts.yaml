@@ -1,0 +1,27 @@
+---
+extracts:
+# Not Nullable.
+  - name: "CA10__state__c"
+    value: 
+      FIELD:
+        path: "CA10__state__c"
+# Nullable.
+  - name: "CA10__monitorCpuPercentAvg30Day__c"
+    value: 
+      FIELD:
+        path: "CA10__monitorCpuPercentAvg30Day__c"
+# Nullable.
+  - name: "CA10__monitorDtuConsumptionPercentAvg30Day__c"
+    value: 
+      FIELD:
+        path: "CA10__monitorDtuConsumptionPercentAvg30Day__c"
+#  Nullable.
+  - name: "CA10__monitorStoragePercentAvg30Day__c"
+    value: 
+      FIELD:
+        path: "CA10__monitorStoragePercentAvg30Day__c"
+# Not Nullable.
+  - name: "CA10__creationDate__c"
+    value: 
+      FIELD:
+        path: "CA10__creationDate__c"

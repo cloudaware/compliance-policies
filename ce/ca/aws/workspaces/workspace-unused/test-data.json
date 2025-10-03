@@ -1,0 +1,77 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-30T23:23:21Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-09-30T23:23:21Z",
+        "CA10__state__c": "ERROR",
+        "CA10__lastKnownUserConnectionTimestamp__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__state__c') != 'AVAILABLE' && extract('CA10__state__c') != 'STOPPED'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-30T23:23:21Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__state__c": "ERROR",
+        "CA10__lastKnownUserConnectionTimestamp__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__lastKnownUserConnectionTimestamp__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-30T23:23:21Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__state__c": "STOPPED",
+        "CA10__lastKnownUserConnectionTimestamp__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__lastKnownUserConnectionTimestamp__c').beyondLastDays(30)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-30T23:23:21Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__state__c": "AVAILABLE",
+        "CA10__lastKnownUserConnectionTimestamp__c": "2025-07-17T19:03:50Z"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-30T23:23:21Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__state__c": "STOPPED",
+        "CA10__lastKnownUserConnectionTimestamp__c": "2025-09-22T14:07:34Z"
+    }
+]

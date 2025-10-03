@@ -1,0 +1,10 @@
+---
+name: 6.1.2 Ensure CIFS access is restricted to trusted networks to prevent unauthorized access (Automated)
+description: >
+  Common Internet File System (CIFS) is a network file-sharing protocol that allows
+  systems to share files over a network. However, unrestricted CIFS access can expose
+  your data to unauthorized users, leading to potential security risks. It is important to
+  restrict CIFS access to only trusted networks and users to prevent unauthorized access and data breaches.
+similar:
+  sections:
+    - /frameworks/cis-aws-v5.0.0/05/01/02

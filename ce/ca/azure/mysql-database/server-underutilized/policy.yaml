@@ -1,0 +1,15 @@
+---
+names:
+  full: Azure MySQL Server is underutilized
+  contextual: Server is underutilized
+description: >
+  Identify underutilized Azure MySQL Servers to optimize costs and improve efficiency. 
+  Servers are considered underutilized if their average CPU and I/O utilization are 
+  consistently below 20% and memory below is 40% over a 30-day period.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+  - "PERFORMANCE"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-right-sizing"
+  - "/frameworks/cloudaware/resource-performance/workload-efficiency"  

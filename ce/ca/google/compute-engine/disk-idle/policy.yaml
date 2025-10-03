@@ -1,0 +1,11 @@
+---
+names:
+  full: Google GCE Disk is idle
+  contextual: Disk is idle
+description: "Identify persistent GCE Disks that haven't been attached to a GCE\
+  \ Instance for more than 30 days"
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"

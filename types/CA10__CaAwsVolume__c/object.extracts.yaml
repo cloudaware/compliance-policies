@@ -11,3 +11,43 @@ extracts:
     value:
       FIELD: 
         path: CA10__encrypted__c
+# Date/Time. Nullable
+  - name: CA10__attachmentAttachTime__c
+    value:
+      FIELD:
+        path: CA10__attachmentAttachTime__c
+# Number. Nullable
+  - name: CA10__throughputPercentMax30d__c
+    value:
+      FIELD:
+        path: CA10__throughputPercentMax30d__c
+# Number. Nullable
+  - name: CA10__readOpsSum30d__c
+    value:
+      FIELD:
+        path: CA10__readOpsSum30d__c
+# Number. Nullable
+  - name: CA10__writeOpsSum30d__c
+    value:
+      FIELD:
+        path: CA10__writeOpsSum30d__c
+# Date/Time. Can't have no access, retrieved via ec2:DescribeVolumes
+  - name: CA10__createTime__c
+    value:
+      FIELD:
+        path: CA10__createTime__c
+# Number. Nullable
+  - name: CA10__iops__c
+    value:
+      FIELD:
+        path: CA10__iops__c
+# Number. Nullable
+  - name: CA10__sumIopsOneMonth__c
+    value:
+      FIELD:
+        path: CA10__sumIopsOneMonth__c
+# Text.
+  - name: CA10__volumeType__c
+    value:
+      FIELD:
+        path: CA10__volumeType__c

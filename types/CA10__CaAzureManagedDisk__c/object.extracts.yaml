@@ -40,4 +40,14 @@ extracts:
     value: 
       FIELD:
         path: "CA10__dataAccessAuthMode__c"
+# Not Nullable. Can't have no access, retrieved via Microsoft.Compute/disks
+  - name: "CA10__timeCreated__c"
+    value: 
+      FIELD:
+        path: "CA10__timeCreated__c"
+# Nullable. Can't have no access, retrieved via Microsoft.Compute/disks
+  - name: "CA10__lastOwnershipUpdateTime__c"
+    value: 
+      FIELD:
+        path: "CA10__lastOwnershipUpdateTime__c"
         

@@ -1,0 +1,82 @@
+[
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__status__c') != 'available'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-01T16:12:36Z" },
+    "Id": "001",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "paused",
+    "CA10__createTime__c": "2020-10-22T09:44:18Z",
+    "CA10__cpuUtilizationAvg30d__c": null,
+    "CA10__diskReadIopsAvg30d__c": null,
+    "CA10__diskWriteIopsAvg30d__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "not(extract('CA10__createTime__c').beyondLastDays(30))",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-01T16:12:36Z" },
+    "Id": "002",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__createTime__c": "2025-08-31T16:12:36Z",
+    "CA10__cpuUtilizationAvg30d__c": null,
+    "CA10__diskReadIopsAvg30d__c": null,
+    "CA10__diskWriteIopsAvg30d__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__cpuUtilizationAvg30d__c').isEmpty() || extract('CA10__diskReadIopsAvg30d__c').isEmpty() || extract('CA10__diskWriteIopsAvg30d__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-01T16:12:36Z" },
+    "Id": "003",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__createTime__c": "2020-10-22T09:44:18Z",
+    "CA10__cpuUtilizationAvg30d__c": null,
+    "CA10__diskReadIopsAvg30d__c": null,
+    "CA10__diskWriteIopsAvg30d__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__cpuUtilizationAvg30d__c') < number(20.0) && extract('CA10__diskReadIopsAvg30d__c') < number(50.0) && extract('CA10__diskWriteIopsAvg30d__c') < number(50.0)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-01T16:12:36Z" },
+    "Id": "004",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__createTime__c": "2020-10-22T09:44:18Z",
+    "CA10__cpuUtilizationAvg30d__c": 10,
+    "CA10__diskReadIopsAvg30d__c": 10,
+    "CA10__diskWriteIopsAvg30d__c": 10
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "500",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-01T16:12:36Z" },
+    "Id": "005",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__createTime__c": "2020-10-22T09:44:18Z",
+    "CA10__cpuUtilizationAvg30d__c": 50,
+    "CA10__diskReadIopsAvg30d__c": 10,
+    "CA10__diskWriteIopsAvg30d__c": 10
+  }
+]

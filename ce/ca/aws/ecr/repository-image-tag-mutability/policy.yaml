@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS ECR Repository Image Tag Mutability is set to Mutable"
+  contextual: "Repository Image Tag Mutability is set to Mutable"
+description: >
+  Ensure that AWS ECR Repositories are configured with image tag immutability.
+  Setting tags to immutable prevents image tags from being overwritten.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/ecr/02"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ECR.2] ECR private repositories should have tag immutability configured"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/ecr-controls.html#ecr-2"
+  internal:
+    - "dec-x-767cce1f"

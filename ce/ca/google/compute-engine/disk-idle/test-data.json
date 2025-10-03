@@ -1,0 +1,173 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-21T23:29:57Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-09-12T15:57:37Z",
+        "CA10__creationDate__c": "2025-09-12T05:15:44Z",
+        "CA10__lastAttach__c": "2025-09-12T05:15:45Z",
+        "CA10__lastDetach__c": null,
+        "CA10__Google_GCE_Attached_Disks__r": [
+            {
+                "Id": "test1_1",
+                "CA10__disappearanceTime__c": "2025-09-12T15:50:23Z",
+                "CA10__type__c": "PERSISTENT",
+                "CA10__gceDisk__c": "test1"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__creationDate__c').withinLastDays(30)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-21T23:29:57Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__creationDate__c": "2025-08-25T18:14:56Z",
+        "CA10__lastAttach__c": "2025-08-25T18:14:57Z",
+        "CA10__lastDetach__c": null,
+        "CA10__Google_GCE_Attached_Disks__r": [
+            {
+                "Id": "test2_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__type__c": "PERSISTENT",
+                "CA10__gceDisk__c": "test2"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__lastAttach__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-21T23:29:57Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__creationDate__c": "2024-08-25T18:14:56Z",
+        "CA10__lastAttach__c": null,
+        "CA10__lastDetach__c": null,
+        "CA10__Google_GCE_Attached_Disks__r": [
+            {
+                "Id": "test3_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__type__c": "PERSISTENT",
+                "CA10__gceDisk__c": "test3"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "399",
+            "conditionText": "CA10__Google_GCE_Attached_Disks__r.has(INAPPLICABLE)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-21T23:29:57Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__creationDate__c": "2024-08-25T18:14:56Z",
+        "CA10__lastAttach__c": "2024-08-25T18:14:56Z",
+        "CA10__lastDetach__c": null,
+        "CA10__Google_GCE_Attached_Disks__r": [
+            {
+                "Id": "test4_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__type__c": "SCRATCH",
+                "CA10__gceDisk__c": "test4"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "CA10__Google_GCE_Attached_Disks__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-21T23:29:57Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__creationDate__c": "2024-03-23T00:01:51Z",
+        "CA10__lastAttach__c": "2024-03-23T00:13:09Z",
+        "CA10__lastDetach__c": null,
+        "CA10__Google_GCE_Attached_Disks__r": [
+            {
+                "Id": "test5_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__type__c": "PERSISTENT",
+                "CA10__gceDisk__c": "test5"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "599",
+            "conditionText": "extract('CA10__lastDetach__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-21T23:29:57Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__creationDate__c": "2024-03-23T00:01:51Z",
+        "CA10__lastAttach__c": "2024-03-23T00:13:09Z",
+        "CA10__lastDetach__c": null,
+        "CA10__Google_GCE_Attached_Disks__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "699",
+            "conditionText": "extract('CA10__lastDetach__c').withinLastDays(30)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-21T23:29:57Z"
+        },
+        "Id": "test7",
+        "CA10__disappearanceTime__c": null,
+        "CA10__creationDate__c": "2025-03-17T13:03:10Z",
+        "CA10__lastAttach__c": "2025-09-19T07:57:10Z",
+        "CA10__lastDetach__c": "2025-09-19T07:57:20Z",
+        "CA10__Google_GCE_Attached_Disks__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "799",
+            "conditionText": "extract('CA10__lastDetach__c').beyondLastDays(30)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-21T23:29:57Z"
+        },
+        "Id": "test8",
+        "CA10__disappearanceTime__c": null,
+        "CA10__creationDate__c": "2025-06-25T19:42:49Z",
+        "CA10__lastAttach__c": "2025-06-25T19:42:54Z",
+        "CA10__lastDetach__c": "2025-06-25T19:57:27Z",
+        "CA10__Google_GCE_Attached_Disks__r": []
+    }
+]

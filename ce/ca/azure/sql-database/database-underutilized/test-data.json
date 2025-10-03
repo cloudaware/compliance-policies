@@ -1,0 +1,266 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-15T09:48:55Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-09-12T23:10:53Z",
+        "CA10__skuName__c": "ElasticPool",
+        "CA10__satus__c": "Online",
+        "CA10__kind__c": "vcore",
+        "CA10__creationDate__c": "2023-04-04T07:54:57Z",
+        "CA10__pausedDate__c": null,
+        "CA10__monitorCpuPercentAvg30Day__c": null,
+        "CA10__monitorStoragePercentMax30Day__c": 0,
+        "CA10__monitorDtuConsumptionPercentAvg30Day__c": 0,
+        "CA10__monitorAppMemoryPercentAvg30Day__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__kind__c').contains('system')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-15T09:48:55Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__skuName__c": "System",
+        "CA10__satus__c": "Online",
+        "CA10__kind__c": "vcore,system",
+        "CA10__creationDate__c": "2019-02-20T09:20:28Z",
+        "CA10__pausedDate__c": null,
+        "CA10__monitorCpuPercentAvg30Day__c": null,
+        "CA10__monitorStoragePercentMax30Day__c": null,
+        "CA10__monitorDtuConsumptionPercentAvg30Day__c": null,
+        "CA10__monitorAppMemoryPercentAvg30Day__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "499",
+            "conditionText": "extract('CA10__satus__c') != 'Online'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-15T09:48:55Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__skuName__c": "GP_S_Gen5",
+        "CA10__satus__c": "Paused",
+        "CA10__kind__c": "vcore",
+        "CA10__creationDate__c": "2020-05-26T23:17:04Z",
+        "CA10__pausedDate__c": "2025-08-05T04:32:40Z",
+        "CA10__monitorCpuPercentAvg30Day__c": null,
+        "CA10__monitorStoragePercentMax30Day__c": null,
+        "CA10__monitorDtuConsumptionPercentAvg30Day__c": null,
+        "CA10__monitorAppMemoryPercentAvg30Day__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "599",
+            "conditionText": "extract('CA10__creationDate__c').withinLastDays(30)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-15T09:48:55Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__skuName__c": "Basic",
+        "CA10__satus__c": "Online",
+        "CA10__kind__c": "vcore",
+        "CA10__creationDate__c": "2025-08-19T03:48:33Z",
+        "CA10__pausedDate__c": null,
+        "CA10__monitorCpuPercentAvg30Day__c": null,
+        "CA10__monitorStoragePercentMax30Day__c": 1,
+        "CA10__monitorDtuConsumptionPercentAvg30Day__c": 1,
+        "CA10__monitorAppMemoryPercentAvg30Day__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "699",
+            "conditionText": "extract('CA10__pausedDate__c').withinLastDays(30)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-15T09:48:55Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__skuName__c": "GP_S_Gen5",
+        "CA10__satus__c": "Online",
+        "CA10__kind__c": "vcore",
+        "CA10__creationDate__c": "2019-07-19T17:20:08Z",
+        "CA10__pausedDate__c": "2025-09-05T10:48:45Z",
+        "CA10__monitorCpuPercentAvg30Day__c": 0,
+        "CA10__monitorStoragePercentMax30Day__c": 0,
+        "CA10__monitorDtuConsumptionPercentAvg30Day__c": null,
+        "CA10__monitorAppMemoryPercentAvg30Day__c": 1
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "799",
+            "conditionText": "extract('CA10__monitorCpuPercentAvg30Day__c').isEmpty() || extract('CA10__monitorStoragePercentMax30Day__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-15T09:48:55Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__skuName__c": "Basic",
+        "CA10__satus__c": "Online",
+        "CA10__kind__c": "vcore",
+        "CA10__creationDate__c": "2019-12-12T02:20:52Z",
+        "CA10__pausedDate__c": null,
+        "CA10__monitorCpuPercentAvg30Day__c": null,
+        "CA10__monitorStoragePercentMax30Day__c": 81,
+        "CA10__monitorDtuConsumptionPercentAvg30Day__c": 1,
+        "CA10__monitorAppMemoryPercentAvg30Day__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "899",
+            "conditionText": "extract('CA10__monitorDtuConsumptionPercentAvg30Day__c').isNotEmpty() && extract('CA10__monitorDtuConsumptionPercentAvg30Day__c') < number(20.0) && extract('CA10__monitorStoragePercentMax30Day__c') < number(10.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-15T09:48:55Z"
+        },
+        "Id": "test7",
+        "CA10__disappearanceTime__c": null,
+        "CA10__skuName__c": "Basic",
+        "CA10__satus__c": "Online",
+        "CA10__kind__c": "vcore",
+        "CA10__creationDate__c": "2021-10-20T14:33:20Z",
+        "CA10__pausedDate__c": null,
+        "CA10__monitorCpuPercentAvg30Day__c": 0,
+        "CA10__monitorStoragePercentMax30Day__c": 2,
+        "CA10__monitorDtuConsumptionPercentAvg30Day__c": 1,
+        "CA10__monitorAppMemoryPercentAvg30Day__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "999",
+            "conditionText": "extract('CA10__monitorAppMemoryPercentAvg30Day__c').isNotEmpty() && extract('CA10__monitorAppMemoryPercentAvg30Day__c') < number(40.0) && extract('CA10__monitorCpuPercentAvg30Day__c') < number(20.0) && extract('CA10__monitorStoragePercentMax30Day__c') < number(10.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-15T09:48:55Z"
+        },
+        "Id": "test8",
+        "CA10__disappearanceTime__c": null,
+        "CA10__skuName__c": "GP_S_Gen5",
+        "CA10__satus__c": "Online",
+        "CA10__kind__c": "vcore",
+        "CA10__creationDate__c": "2025-07-22T09:30:54Z",
+        "CA10__pausedDate__c": null,
+        "CA10__monitorCpuPercentAvg30Day__c": 0,
+        "CA10__monitorStoragePercentMax30Day__c": 0,
+        "CA10__monitorDtuConsumptionPercentAvg30Day__c": null,
+        "CA10__monitorAppMemoryPercentAvg30Day__c": 1
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "1099",
+            "conditionText": "extract('CA10__monitorDtuConsumptionPercentAvg30Day__c').isEmpty() && extract('CA10__monitorAppMemoryPercentAvg30Day__c').isEmpty() && extract('CA10__monitorCpuPercentAvg30Day__c') < number(20.0) && extract('CA10__monitorStoragePercentMax30Day__c') < number(10.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-15T09:48:55Z"
+        },
+        "Id": "test9",
+        "CA10__disappearanceTime__c": null,
+        "CA10__skuName__c": "BC_Gen5",
+        "CA10__satus__c": "Online",
+        "CA10__kind__c": "vcore",
+        "CA10__creationDate__c": "2018-11-06T18:38:09Z",
+        "CA10__pausedDate__c": null,
+        "CA10__monitorCpuPercentAvg30Day__c": 1,
+        "CA10__monitorStoragePercentMax30Day__c": 4,
+        "CA10__monitorDtuConsumptionPercentAvg30Day__c": null,
+        "CA10__monitorAppMemoryPercentAvg30Day__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "1100",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-15T09:48:55Z"
+        },
+        "Id": "test10",
+        "CA10__disappearanceTime__c": null,
+        "CA10__skuName__c": "BC_Gen5",
+        "CA10__satus__c": "Online",
+        "CA10__kind__c": "vcore",
+        "CA10__creationDate__c": "2020-08-28T17:02:43Z",
+        "CA10__pausedDate__c": null,
+        "CA10__monitorCpuPercentAvg30Day__c": 1,
+        "CA10__monitorStoragePercentMax30Day__c": 50,
+        "CA10__monitorDtuConsumptionPercentAvg30Day__c": 50,
+        "CA10__monitorAppMemoryPercentAvg30Day__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__skuName__c') == 'ElasticPool'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-15T09:48:55Z"
+        },
+        "Id": "test11",
+        "CA10__disappearanceTime__c": null,
+        "CA10__skuName__c": "ElasticPool",
+        "CA10__satus__c": "Online",
+        "CA10__kind__c": "vcore",
+        "CA10__creationDate__c": "2023-04-04T07:54:57Z",
+        "CA10__pausedDate__c": null,
+        "CA10__monitorCpuPercentAvg30Day__c": null,
+        "CA10__monitorStoragePercentMax30Day__c": 0,
+        "CA10__monitorDtuConsumptionPercentAvg30Day__c": 0,
+        "CA10__monitorAppMemoryPercentAvg30Day__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__kind__c').contains('serverless')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-15T09:48:55Z"
+        },
+        "Id": "test12",
+        "CA10__disappearanceTime__c": null,
+        "CA10__skuName__c": "BC_Gen5",
+        "CA10__kind__c": "serverless",
+        "CA10__satus__c": "Online",
+        "CA10__creationDate__c": "2023-04-04T07:54:57Z",
+        "CA10__pausedDate__c": null,
+        "CA10__monitorCpuPercentAvg30Day__c": null,
+        "CA10__monitorStoragePercentMax30Day__c": 0,
+        "CA10__monitorDtuConsumptionPercentAvg30Day__c": 0,
+        "CA10__monitorAppMemoryPercentAvg30Day__c": null
+    }
+]

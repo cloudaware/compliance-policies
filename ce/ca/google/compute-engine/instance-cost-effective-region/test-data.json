@@ -1,0 +1,38 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-25T05:52:33Z" },
+    "Id": "001",
+    "CA10__disappearanceTime__c": "2023-07-23T00:27:03Z",
+    "CA10__regionName__c": "us-east1"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "899",
+      "conditionText": "extract('CA10__regionName__c') == 'europe-southwest1'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-25T05:52:33Z" },
+    "Id": "002",
+    "CA10__disappearanceTime__c": null,
+    "CA10__regionName__c": "europe-southwest1"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "1700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-25T05:52:33Z" },
+    "Id": "003",
+    "CA10__disappearanceTime__c": null,
+    "CA10__regionName__c": "us-east1"
+  }
+]

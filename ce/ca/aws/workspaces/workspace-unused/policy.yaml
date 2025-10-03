@@ -1,0 +1,13 @@
+---
+names:
+  full: "AWS WorkSpace is unused"
+  contextual: "WorkSpace is unused"
+description: >
+  This policy identifies AWS WorkSpaces that have not been used for an extended 
+  period. A WorkSpace is considered unused if it is running and there has been 
+  no user connections for the last 30 days.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"

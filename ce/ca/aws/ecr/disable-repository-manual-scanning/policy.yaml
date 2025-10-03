@@ -1,0 +1,21 @@
+---
+names:
+  full: "AWS ECR Repository Manual Scanning is enabled"
+  contextual: "Repository Manual Scanning is enabled"
+description: >
+  AWS ECR Repository can be configured to automatically scan container images for
+  software vulnerabilities. It is recommended to enable Scan On Push or Enhanced 
+  Scanning to ensure vulnerabilities are identified as soon as an image is pushed 
+  to the registry, rather than relying on manual scans.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+  - "/frameworks/aws-fsbp-v1.0.0/ecr/01"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ECR.1] ECR private repositories should have image scanning configured"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/ecr-controls.html#ecr-1"
+  internal:
+    - "dec-x-7f041b04"

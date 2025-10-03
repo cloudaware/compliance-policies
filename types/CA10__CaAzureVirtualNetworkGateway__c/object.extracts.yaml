@@ -1,0 +1,8 @@
+---
+extracts:
+# Values: Succeeded | Updating | Deleting | Failed. Not nullable. 
+# Can't have no access, retrieved via Microsoft.Network/virtualNetworkGateways
+  - name: "CA10__provisioningState__c"
+    value: 
+      FIELD:
+        path: "CA10__provisioningState__c"

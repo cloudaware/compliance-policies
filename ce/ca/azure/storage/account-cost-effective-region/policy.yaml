@@ -1,0 +1,11 @@
+---
+names:
+  full: "Azure Storage Account is located in a less cost-effective region"
+  contextual: "Storage Account is located in a less cost-effective region"
+description: "This policy flags Storage Accounts that are running in Azure regions\
+  \ with higher pricing and could potentially be migrated to more cost-effective regions."
+type: "BEST_PRACTICE"
+categories:
+  - "COST"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-optimization"

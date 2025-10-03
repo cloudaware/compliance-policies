@@ -1,0 +1,21 @@
+---
+extracts:
+# Nullable.
+  - name: CA10__lastKnownUserConnectionTimestamp__c
+    value:
+      FIELD: 
+        path: CA10__lastKnownUserConnectionTimestamp__c
+# Not nullable. Can't have no access, retrieved via workspaces:DescribeWorkspaces
+  - name: CA10__state__c
+    value:
+      FIELD: 
+        path: CA10__state__c
+        undeterminedIf:
+          isEmpty: "Corrupted data. Workspace state cannot be empty."
+# Values: AUTO_STOP | ALWAYS_ON | MANUAL. Not nullable. Can't have no access, retrieved via workspaces:DescribeWorkspaces
+  - name: CA10__runningMode__c
+    value:
+      FIELD: 
+        path: CA10__runningMode__c
+        undeterminedIf:
+          isEmpty: "Corrupted data. Workspace Running Mode cannot be empty."

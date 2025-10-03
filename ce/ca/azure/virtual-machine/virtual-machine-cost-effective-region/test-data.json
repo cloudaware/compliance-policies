@@ -1,0 +1,92 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-24T02:10:07Z" },
+    "Id": "001",
+    "RecordTypeId": "RecordTypeId1",
+    "CA10__disappearanceTime__c": "2025-09-15T05:48:52Z",
+    "CA10__powerState__c": "VM deallocated",
+    "CA10__locationName__c": "westeurope",
+    "RecordType": {
+      "DeveloperName": "caAzureRMVirtualMachine",
+      "Id": "RecordTypeId1"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__powerState__c') != 'VM running'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-24T02:10:07Z" },
+    "Id": "002",
+    "RecordTypeId": "RecordTypeId1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__powerState__c": "VM deallocated",
+    "CA10__locationName__c": "eastus",
+    "RecordType": {
+      "DeveloperName": "caAzureRMVirtualMachine",
+      "Id": "RecordTypeId1"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "1299",
+      "conditionText": "extract('CA10__locationName__c') == 'westeurope'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-24T02:10:07Z" },
+    "Id": "003",
+    "RecordTypeId": "RecordTypeId1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__powerState__c": "VM running",
+    "CA10__locationName__c": "westeurope",
+    "RecordType": {
+      "DeveloperName": "caAzureRMVirtualMachine",
+      "Id": "RecordTypeId1"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "2699",
+      "conditionText": "extract('CA10__locationName__c') == 'japaneast'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-24T02:10:07Z" },
+    "Id": "004",
+    "RecordTypeId": "RecordTypeId1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__powerState__c": "VM running",
+    "CA10__locationName__c": "japaneast",
+    "RecordType": {
+      "DeveloperName": "caAzureRMVirtualMachine",
+      "Id": "RecordTypeId1"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "2900",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-24T02:10:07Z" },
+    "Id": "005",
+    "RecordTypeId": "RecordTypeId1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__powerState__c": "VM running",
+    "CA10__locationName__c": "eastus",
+    "RecordType": {
+      "DeveloperName": "caAzureRMVirtualMachine",
+      "Id": "RecordTypeId1"
+    }
+  }
+]

@@ -1,0 +1,74 @@
+---
+inputType: "CA10__CaAzureSqlElasticPool__c"
+importExtracts:
+  - file: "/types/CA10__CaAzureSqlElasticPool__c/object.extracts.yaml"
+testData:
+  - file: 'test-data.json'
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Elastic Pool is not ready."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__state__c"
+        right:
+          TEXT: "Ready"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Elastic Pool was created in the last 30 days."
+    check:
+      IS_WITHIN_LAST_DAYS:
+        offsetDays: 30
+        arg:
+          EXTRACT: "CA10__creationDate__c"
+  - status: "UNDETERMINED"
+    currentStateMessage: "There is not enough data in the CMDB to identify if the Elastic Pool is underutilized."
+    check:  
+      AND:  
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorCpuPercentAvg30Day__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorStoragePercentAvg30Day__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Elastic Pool DTU consumption is less than 20% and storage utilization is less than 10%."
+    remediationMessage: "Consider rightsizing the Elastic Pool."
+    check:
+      AND:
+        args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorDtuConsumptionPercentAvg30Day__c"
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__monitorDtuConsumptionPercentAvg30Day__c"
+              right:
+                NUMBER: 20.0
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__monitorStoragePercentAvg30Day__c"
+              right:
+                NUMBER: 10.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Elastic Pool CPU is less than 20% and storage utilization is less than 10%."
+    remediationMessage: "Consider rightsizing the Elastic Pool."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorDtuConsumptionPercentAvg30Day__c"
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__monitorCpuPercentAvg30Day__c"
+              right:
+                NUMBER: 20.0
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__monitorStoragePercentAvg30Day__c"
+              right:
+                NUMBER: 10.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Elastic Pool is not underutilized."

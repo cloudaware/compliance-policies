@@ -80,7 +80,7 @@ extracts:
         undeterminedIf:
           isInvalid: "S3 Bucket Lifecycle Rules JSON is invalid."
 # Returns BOOLEAN true if number of enabled lifecycle rules more than 0 otherwise returns false
-  - name: "caJsonQueryBoolean__lifecycleRulesJson_status_enabled__c"
+  - name: "caJsonBoolean__lifecycleRulesJsonStatusEnabled__c"
     value: 
       JSON_QUERY_BOOLEAN:
         arg: 
@@ -138,3 +138,26 @@ extracts:
           EXTRACT: "CA10__policyDocument__c"
         undeterminedIf:
           isInvalid: "S3 Bucket Policy Document JSON is invalid."
+# Nullable.
+  - name: "CA10__intelligentTieringConfigurationsJson__c"
+    value: 
+      FIELD:
+        path: "CA10__intelligentTieringConfigurationsJson__c"
+        returnType: BYTES
+  - name: "caJsonFrom__intelligentTieringConfigurationsJson__c"
+    value: 
+      JSON_FROM:
+        arg: 
+          EXTRACT: "CA10__intelligentTieringConfigurationsJson__c"
+        undeterminedIf:
+          isInvalid: "S3 Bucket Policy Document JSON is invalid."
+# Nullable.
+  - name: "CA10__regionName__c"
+    value:
+      FIELD:
+        path: "CA10__regionName__c"
+# Nullable.
+  - name: "CA10__intelligentTieringStorageGb__c"
+    value:
+      FIELD:
+        path: "CA10__intelligentTieringStorageGb__c"

@@ -1,0 +1,12 @@
+---
+names:
+  full: "AWS EBS Volume is underutilized"
+  contextual: "EBS Volume is underutilized"
+description: "Identifies provisioned IOPS EBS Volumes (gp3, io1, io2) with low read/write activity over the last 30 days"
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+  - "PERFORMANCE"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-optimization"
+  - "/frameworks/cloudaware/resource-performance/workload-efficiency"  

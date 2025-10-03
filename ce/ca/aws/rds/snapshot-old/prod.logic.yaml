@@ -1,0 +1,26 @@
+---
+inputType: CA10__CaAwsDbSnapshot__c
+importExtracts:
+  - file: "/types/CA10__CaAwsDbSnapshot__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The snapshot is not in the available state."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "available"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "RDS Snapshot is 90 days old or more."
+    remediationMessage: "Consider deleting or archiving the snapshot."
+    check:
+      IS_BEYOND_LAST_DAYS:
+        offsetDays: 90
+        arg:
+          EXTRACT: "CA10__snapshotCreateTime__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "RDS snapshot is less than 90 days old."

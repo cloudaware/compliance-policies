@@ -35,7 +35,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "399",
-            "conditionText": "not(extract('caJsonQueryBoolean__lifecycleRulesJson_status_enabled__c'))",
+            "conditionText": "not(extract('caJsonBoolean__lifecycleRulesJsonStatusEnabled__c'))",
             "runtimeError": null
         },
         "context": {
@@ -51,7 +51,7 @@
         "expectedResult": {
             "status": "COMPLIANT",
             "conditionIndex": "499",
-            "conditionText": "extract('caJsonQueryBoolean__lifecycleRulesJson_status_enabled__c')",
+            "conditionText": "extract('caJsonBoolean__lifecycleRulesJsonStatusEnabled__c')",
             "runtimeError": null
         },
         "context": {

@@ -30,3 +30,17 @@ extracts:
           EXTRACT: "CA10__attributesJson__c"
         undeterminedIf:
           isInvalid: "Snapshot attributes JSON is invalid"
+# Not Nullable.
+  - name: "CA10__snapshotCreateTime__c"
+    value:
+      FIELD:
+        path: "CA10__snapshotCreateTime__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Snapshot Create Time cannot be empty."
+# Not nullable. Can't have no access retrieved via rds:DescribeDBSnapshots
+  - name: "CA10__status__c"
+    value:
+      FIELD:
+        path: "CA10__status__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Snapshot Status cannot be empty."

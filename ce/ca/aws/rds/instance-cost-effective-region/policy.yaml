@@ -1,0 +1,11 @@
+---
+names:
+  full: AWS RDS Instance is located in a less cost-effective region
+  contextual: Instance is located in a less cost-effective region
+description: "This policy flags RDS Instances that are running in AWS regions with higher pricing\
+  \ and could potentially be migrated to more cost-effective regions."
+type: BEST_PRACTICE
+categories:
+  - COST
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-optimization"

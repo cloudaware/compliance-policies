@@ -1,0 +1,16 @@
+---
+names:
+  full: Google Cloud SQL Instance is idle
+  contextual: Instance is idle
+description: >
+  Identify idle Google Cloud SQL Instances to optimize costs by stopping,
+  terminating, or downscaling instances with low utilization. Instances are
+  considered idle if their average CPU utilization is below 5% and they have an
+  average of zero connections over a 30-day period.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+  - "PERFORMANCE"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"
+  - "/frameworks/cloudaware/resource-performance/workload-efficiency"

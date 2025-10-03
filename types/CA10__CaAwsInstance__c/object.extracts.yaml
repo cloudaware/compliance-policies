@@ -63,7 +63,12 @@ extracts:
   - name: "CA10__sumTwoWeekNetworkInMb__c"
     value: 
       FIELD:
-        path: "CA10__sumTwoWeekNetworkInMb__c"      
+        path: "CA10__sumTwoWeekNetworkInMb__c" 
+# Nullable.
+  - name: "CA10__regionName__c"
+    value:
+      FIELD:
+        path: "CA10__regionName__c"
 # Values: paravirtual | hvm. Not nullable. Can't have no access, retrieved via ec2:DescribeInstances
   - name: "CA10__virtualizationType__c"
     value: 

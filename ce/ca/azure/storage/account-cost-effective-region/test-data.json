@@ -1,0 +1,53 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-25T05:52:33Z" },
+    "Id": "001",
+    "RecordTypeId": "testTipe1",
+    "CA10__disappearanceTime__c": "2025-09-15T05:58:55Z",
+    "CA10__locationName__c": "westeurope",
+    "RecordType": {
+      "DeveloperName": "tStorageAccount",
+      "Id": "testTipe1"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__locationName__c') == 'westus'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-25T05:52:33Z" },
+    "Id": "002",
+    "RecordTypeId": "testTipe1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__locationName__c": "westus",
+    "RecordType": {
+      "DeveloperName": "tStorageAccount",
+      "Id": "testTipe1"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "2700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-25T05:52:33Z" },
+    "Id": "003",
+    "RecordTypeId": "testTipe1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__locationName__c": "westus2",
+    "RecordType": {
+      "DeveloperName": "tStorageAccount",
+      "Id": "testTipe1"
+    }
+  }
+]

@@ -77,3 +77,36 @@ extracts:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return a text."
           resultIsEmpty: "The JSON query did not return a value."
+# Nullable
+  - name: "CA10__averageCpuTwoWeeks__c"
+    value: 
+      FIELD:
+        path: "CA10__averageCpuTwoWeeks__c"
+# Nullable
+  - name: "CA10__maxCpuTwoWeeks__c"
+    value: 
+      FIELD:
+        path: "CA10__maxCpuTwoWeeks__c"
+# Nullable
+  - name: "CA10__sumTwoWeekNetworkInMb__c"
+    value: 
+      FIELD:
+        path: "CA10__sumTwoWeekNetworkInMb__c"
+# Nullable
+  - name: "CA10__sumTwoWeekNetworkOutMb__c"
+    value: 
+      FIELD:
+        path: "CA10__sumTwoWeekNetworkOutMb__c"
+  - name: "CA10__status__c"
+    value: 
+      FIELD:
+        path: "CA10__status__c"
+  - name: "CA10__creationDate__c"
+    value: 
+      FIELD:
+        path: "CA10__creationDate__c"
+# Text
+  - name: "CA10__regionName__c"
+    value: 
+      FIELD:
+        path: "CA10__regionName__c"

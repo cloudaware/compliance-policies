@@ -29,10 +29,11 @@ repo-manager.log*
 **/.generated
 *.gen.md
 *.gen.mdx
-#
+# Files imported into the repo, that can be re-imported at any time
 /types/types.json
 /types/**/type.json
 *.test-results.yaml
+/policy-stats.json
 # Tools and utilities
 ## VSCode: Ignoring everyting except pre-configured settings.json
 **/.vscode/**

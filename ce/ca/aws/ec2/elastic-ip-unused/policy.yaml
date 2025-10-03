@@ -1,0 +1,12 @@
+---
+names:
+  full: AWS EC2 Elastic IP is unused
+  contextual: Elastic IP is unused
+description: >
+  Identify and release unused Elastic IP addresses to avoid unnecessary charges. 
+  Elastic IPs that are allocated but not associated with a running resource incur costs.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"

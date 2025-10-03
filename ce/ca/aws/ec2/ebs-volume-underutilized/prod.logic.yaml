@@ -1,0 +1,128 @@
+---
+inputType: "CA10__CaAwsVolume__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsVolume__c/object.extracts.yaml"
+testData:
+  - file: 'test-data.json'
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The EBS volume is not in-use."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "in-use"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The EBS volume has been created less than 30 days ago."
+    check:
+      IS_WITHIN_LAST_DAYS:
+        offsetDays: 30
+        arg:
+          EXTRACT: "CA10__createTime__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The volume is attached for less than 30 days."
+    check:
+      AND:
+        args:
+        - NOT_EMPTY:
+            arg:
+              EXTRACT: "CA10__attachmentAttachTime__c"
+        - IS_WITHIN_LAST_DAYS:
+            offsetDays: 30
+            arg:
+              EXTRACT: "CA10__attachmentAttachTime__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This policy checks only gp3, io1 and io2 volume types."
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              SET:
+                itemType: TEXT
+                items:
+                  - "gp3"
+                  - "io1"
+                  - "io2"
+            search:
+              EXTRACT: "CA10__volumeType__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The EBS volume is idle and considered by the 'AWS EBS volume is idle' policy."
+    check:
+      OR:
+        args:
+          - AND:
+              args:
+                - IS_EMPTY:
+                    arg:
+                      EXTRACT: "CA10__readOpsSum30d__c"
+                - IS_EMPTY:
+                    arg:
+                      EXTRACT: "CA10__writeOpsSum30d__c"
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: "CA10__readOpsSum30d__c"
+                    right:
+                      NUMBER: 0.0
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: "CA10__writeOpsSum30d__c"
+                    right:
+                      NUMBER: 0.0
+# The gp3 volume has provisioned IOPS above the free baseline performance of 3,000 provisioned IOPS
+# Max operations per month for 3,000 IOPS is 7,776,000,000 (3,000 * 86,400 * 30); 1,944,000,000 is a 1/4 of that value.
+# The volume is a good candidate to be downsized to the 3,000 IOPS baseline
+  - status: INCOMPLIANT 
+    currentStateMessage: "The EBS Volume's read and write operations for the past\
+      \ 30 days are less than the set threshold of 1,944,000,000 operations per month."
+    remediationMessage: "Investigate the possibility to downsize the volume."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__volumeType__c"
+              right:
+                TEXT: "gp3"
+          - GREATER_THAN:
+              left:
+                EXTRACT: "CA10__iops__c"
+              right:
+                NUMBER: 3000.0
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__readOpsSum30d__c"
+              right:
+                NUMBER: 1944000000.0
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__writeOpsSum30d__c"
+              right:
+                NUMBER: 1944000000.0
+  - status: "COMPLIANT"
+    currentStateMessage: "The gp3 EBS Volume is not underutilized."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__volumeType__c"
+        right:
+          TEXT: "gp3"
+# The io1 or io2 volume's minimum provisioned IOPS is 100 IOPS
+# Max operations per month for 100 IOPS IOPS is 259,200,000 (100 * 86,400 * 30); 64,800,000 is a 1/4 of that value.
+# The volume is a good candidate to be downsized.
+  - status: INCOMPLIANT # io1, io2
+    currentStateMessage: "The EBS Volume's sum of read and write operations for the past\
+      \ 30 days are less than the set threshold of 64,800,000 operations per month."
+    remediationMessage: "Investigate the possibility to downsize the volume."
+    check:
+      LESS_THAN:
+        left:
+          EXTRACT: "CA10__sumIopsOneMonth__c"
+        right:
+          NUMBER: 64800000.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The EBS volume is not underutilized."

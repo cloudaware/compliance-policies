@@ -1,0 +1,10 @@
+---
+name: 3.2.1 Ensure that encryption-at-rest is enabled for RDS instances (Automated)
+description: >
+  Amazon RDS encrypted DB instances use the industry-standard AES-256 encryption
+  algorithm to encrypt your data on the server that hosts your Amazon RDS DB instances.
+  After your data is encrypted, Amazon RDS handles the authentication of access and the
+  decryption of your data transparently, with minimal impact on performance.
+similar:
+  sections:
+    - /frameworks/cis-aws-v5.0.0/02/02/01

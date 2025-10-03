@@ -1,0 +1,33 @@
+---
+inputType: "CA10Z1__CaAzureReservation__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10Z1__CaAzureReservation__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Reservation is not successfully provisioned."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__provisioningState__c"
+        right: 
+          TEXT: "Succeeded"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Reservation expiry date is empty."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10Z1__expiryDate__c"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Reservation is not expiring."
+    check:
+      IS_BEYOND_NEXT_DAYS:
+        offsetDays: 60
+        arg:
+          EXTRACT: "CA10Z1__expiryDate__c"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The Reservation expires in 60 days or less."
+  remediationMessage: "Consider renewing the reservation to maintain discounts and avoid paying on-demand prices."
+

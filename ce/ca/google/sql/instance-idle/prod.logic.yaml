@@ -1,0 +1,55 @@
+---
+inputType: "CA10__CaGoogleSqlInstance__c"
+importExtracts:
+  - file: "/types/CA10__CaGoogleSqlInstance__c/object.extracts.yaml"
+testData:
+  - file: 'test-data.json'
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Instance is not running."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__state__c"
+        right:
+          TEXT: "RUNNABLE"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The instance has been created less than 30 days ago."
+    check:
+      NOT:
+        arg:
+          IS_BEYOND_LAST_DAYS:
+            offsetDays: 30
+            arg:
+              EXTRACT: "CA10__createTime__c"
+  - status: "UNDETERMINED"
+    currentStateMessage: "There is not enough data in the CMDB to identify if the instance is idle."
+    check:
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__cpuUtilizationAvg30Day__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__cloudSqlConnectionsAvg30Day__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The instance is idle with Average CPU Utilization < 5% and\
+      \ zero Average Connections."
+    remediationMessage: "Consider stopping, terminating, or rightsizing the instance."
+    check:
+      AND:
+        args:
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__cpuUtilizationAvg30Day__c
+              right:
+                NUMBER: 5.0
+          - LESS_THAN_EQUAL:
+              left:
+                EXTRACT: CA10__cloudSqlConnectionsAvg30Day__c
+              right:
+                NUMBER: 0.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The instance is not idle."

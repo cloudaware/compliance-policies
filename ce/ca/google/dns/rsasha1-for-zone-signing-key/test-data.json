@@ -9,30 +9,64 @@
     "context": { "snapshotTime": "2025-01-16T06:54:27Z" },
     "Id": "111",
     "CA10__disappearanceTime__c": "2025-01-14T19:40:37Z",
+    "CA10__visibility__c": "public",
+    "CA10__dnssecConfigurationState__c": "on",
     "CA10__dnssecConfigurationKeySpecs__c": ""
   },
   {
     "expectedResult": {
-      "status": "INCOMPLIANT",
-      "conditionIndex": "199",
-      "conditionText": "extract('caJsonText__dnssecConfigurationKeySpecsZoneSigningAlgorithmValue').contains('rsasha1')",
+      "status": "COMPLIANT",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
       "runtimeError": null
     },
     "context": { "snapshotTime": "2025-01-16T06:54:27Z" },
     "Id": "112",
     "CA10__disappearanceTime__c": null,
-    "CA10__dnssecConfigurationKeySpecs__c": "[{\"algorithm\":\"rsasha256\",\"keyLength\":2048,\"keyType\":\"keySigning\",\"kind\":\"dns#dnsKeySpec\"},{\"algorithm\":\"rsasha1\",\"keyLength\":1024,\"keyType\":\"zoneSigning\",\"kind\":\"dns#dnsKeySpec\"}]"
+    "CA10__visibility__c": "public",
+    "CA10__dnssecConfigurationState__c": "on",
+    "CA10__dnssecConfigurationKeySpecs__c": "[{\"algorithm\":\"rsasha256\",\"keyLength\":2048,\"keyType\":\"keySigning\",\"kind\":\"dns#dnsKeySpec\"},{\"algorithm\":\"rsasha256\",\"keyLength\":1024,\"keyType\":\"zoneSigning\",\"kind\":\"dns#dnsKeySpec\"}]"
   },
   {
     "expectedResult": {
-      "status": "COMPLIANT",
-      "conditionIndex": "200",
-      "conditionText": "otherwise",
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('caJsonText__dnssecConfigurationKeySpecsZoneSigningAlgorithmValue').contains('rsasha1')",
       "runtimeError": null
     },
     "context": { "snapshotTime": "2025-01-16T06:54:27Z" },
     "Id": "113",
     "CA10__disappearanceTime__c": null,
-    "CA10__dnssecConfigurationKeySpecs__c": "[{\"algorithm\":\"rsasha256\",\"keyLength\":2048,\"keyType\":\"keySigning\",\"kind\":\"dns#dnsKeySpec\"},{\"algorithm\":\"rsasha256\",\"keyLength\":1024,\"keyType\":\"zoneSigning\",\"kind\":\"dns#dnsKeySpec\"}]"
+    "CA10__visibility__c": "public",
+    "CA10__dnssecConfigurationState__c": "on",
+    "CA10__dnssecConfigurationKeySpecs__c": "[{\"algorithm\":\"rsasha256\",\"keyLength\":2048,\"keyType\":\"keySigning\",\"kind\":\"dns#dnsKeySpec\"},{\"algorithm\":\"rsasha1\",\"keyLength\":1024,\"keyType\":\"zoneSigning\",\"kind\":\"dns#dnsKeySpec\"}]"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__visibility__c') != 'public'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-01-16T06:54:27Z" },
+    "Id": "114",
+    "CA10__disappearanceTime__c": null,
+    "CA10__visibility__c": "private",
+    "CA10__dnssecConfigurationState__c": "on",
+    "CA10__dnssecConfigurationKeySpecs__c": "[{\"algorithm\":\"rsasha1\",\"keyLength\":2048,\"keyType\":\"keySigning\",\"kind\":\"dns#dnsKeySpec\"},{\"algorithm\":\"rsasha256\",\"keyLength\":1024,\"keyType\":\"zoneSigning\",\"kind\":\"dns#dnsKeySpec\"}]"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__dnssecConfigurationState__c') != 'on'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-01-16T06:54:27Z" },
+    "Id": "115",
+    "CA10__disappearanceTime__c": null,
+    "CA10__visibility__c": "public",
+    "CA10__dnssecConfigurationState__c": "off",
+    "CA10__dnssecConfigurationKeySpecs__c": "[{\"algorithm\":\"rsasha1\",\"keyLength\":2048,\"keyType\":\"keySigning\",\"kind\":\"dns#dnsKeySpec\"},{\"algorithm\":\"rsasha256\",\"keyLength\":1024,\"keyType\":\"zoneSigning\",\"kind\":\"dns#dnsKeySpec\"}]"
   }
 ]

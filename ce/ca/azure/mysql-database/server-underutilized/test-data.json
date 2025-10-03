@@ -1,0 +1,104 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10Z1__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-17T01:22:29Z"
+        },
+        "Id": "001",
+        "CA10Z1__disappearanceTime__c": "2025-09-17T01:22:29Z",
+        "CA10Z1__state__c": "Ready",
+        "CA10Z1__monitorCpuPercentAvg30Day__c": 10,
+        "CA10Z1__monitorMemoryPercentAvg30Day__c": 10,
+        "CA10Z1__monitorIoConsumptionPercentAvg30Day__c": 10
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10Z1__state__c') != 'Ready'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-17T01:22:29Z"
+        },
+        "Id": "002",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__state__c": "Error",
+        "CA10Z1__monitorCpuPercentAvg30Day__c": 10,
+        "CA10Z1__monitorMemoryPercentAvg30Day__c": 10,
+        "CA10Z1__monitorIoConsumptionPercentAvg30Day__c": 10
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10Z1__monitorCpuPercentAvg30Day__c').isEmpty() || extract('CA10Z1__monitorMemoryPercentAvg30Day__c').isEmpty() || extract('CA10Z1__monitorIoConsumptionPercentAvg30Day__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-17T01:22:29Z"
+        },
+        "Id": "003",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__state__c": "Ready",
+        "CA10Z1__monitorCpuPercentAvg30Day__c": null,
+        "CA10Z1__monitorMemoryPercentAvg30Day__c": null,
+        "CA10Z1__monitorIoConsumptionPercentAvg30Day__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10Z1__monitorCpuPercentAvg30Day__c') < number(20.0) && extract('CA10Z1__monitorMemoryPercentAvg30Day__c') < number(40.0) && extract('CA10Z1__monitorIoConsumptionPercentAvg30Day__c') < number(20.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-17T01:22:29Z"
+        },
+        "Id": "004",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__state__c": "Ready",
+        "CA10Z1__monitorCpuPercentAvg30Day__c": 10,
+        "CA10Z1__monitorMemoryPercentAvg30Day__c": 10,
+        "CA10Z1__monitorIoConsumptionPercentAvg30Day__c": 10
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-17T01:22:29Z"
+        },
+        "Id": "005",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__state__c": "Ready",
+        "CA10Z1__monitorCpuPercentAvg30Day__c": 20,
+        "CA10Z1__monitorMemoryPercentAvg30Day__c": 40,
+        "CA10Z1__monitorIoConsumptionPercentAvg30Day__c": 20
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-17T01:22:29Z"
+        },
+        "Id": "006",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__state__c": "Ready",
+        "CA10Z1__monitorCpuPercentAvg30Day__c": 50,
+        "CA10Z1__monitorMemoryPercentAvg30Day__c": 50,
+        "CA10Z1__monitorIoConsumptionPercentAvg30Day__c": 50
+    }
+]

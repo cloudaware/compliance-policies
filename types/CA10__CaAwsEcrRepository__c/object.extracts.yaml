@@ -1,0 +1,15 @@
+---
+extracts:
+# Values: MUTABLE | IMMUTABLE | IMMUTABLE_WITH_EXCLUSION | MUTABLE_WITH_EXCLUSION
+# Not nullable. Can't have no access, retrieved via ecr:DescribeRepositories
+  - name: "CA10__imageTagMutability__c"
+    value:
+      FIELD:
+        path: "CA10__imageTagMutability__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Image Tag Mutability cannot be empty."
+# Nullable. 
+  - name: "CA10__lifecyclePolicyText__c"
+    value:
+      FIELD:
+        path: "CA10__lifecyclePolicyText__c"

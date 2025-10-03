@@ -1,0 +1,29 @@
+---
+extracts:
+# Values: available, creating, deleted, deleting, incompatible-network, modifying, 
+# rebooting cluster nodes, restore-failed, snapshotting
+# Not nullable. Can't have no access, retrieved via elasticache:DescribeCacheClusters
+  - name: "CA10__status__c"
+    value:
+      FIELD:
+        path: "CA10__status__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Status cannot be empty." 
+# Values: memcached | redis. Not nullable. Can't have no access, retrieved via elasticache:DescribeCacheClusters
+  - name: "CA10__engine__c"
+    value:
+      FIELD:
+        path: "CA10__engine__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Engine cannot be empty."
+# Date/Time
+  - name: "CA10__createTime__c"
+    value:
+      FIELD:
+        path: "CA10__createTime__c"
+# Percent
+  - name: "CA10__cpuUtilizationAvg30d__c"
+    value:
+      FIELD:
+        path: "CA10__cpuUtilizationAvg30d__c"
+        

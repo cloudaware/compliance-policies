@@ -1,0 +1,63 @@
+---
+inputType: "CA10__CaAwsRedshiftCluster__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsRedshiftCluster__c/object.extracts.yaml"
+testData:
+  - file: 'test-data.json'
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The cluster is not available."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "available"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The cluster has been created less than 30 days ago."
+    check:
+      NOT:
+        arg:
+          IS_BEYOND_LAST_DAYS:
+            offsetDays: 30
+            arg:
+              EXTRACT: "CA10__createTime__c"
+  - status: UNDETERMINED
+    currentStateMessage: "There is not enough data in the CMDB to identify if the cluster is underutilized."
+    check:
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__cpuUtilizationAvg30d__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__diskReadIopsAvg30d__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__diskWriteIopsAvg30d__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The cluster is underutilized with Average CPU Utilization < 20%, Average \
+      \ Disk I/O < 50 IOPS."
+    remediationMessage: "Consider rightsizing the cluster."
+    check:
+      AND:
+        args:
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__cpuUtilizationAvg30d__c"
+              right:
+                NUMBER: 20.0
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__diskReadIopsAvg30d__c"
+              right:
+                NUMBER: 50.0
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__diskWriteIopsAvg30d__c"
+              right:
+                NUMBER: 50.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: 'The cluster is not underutilized.'

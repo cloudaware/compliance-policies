@@ -1,0 +1,15 @@
+---
+names:
+  full: "Google Cloud SQL Instance is underutilized"
+  contextual: "Instance is underutilized"
+description: "This policy checks Cloud SQL Instances that appear to be underutilized\
+  \ and downsize (resize) them to optimize cloud expenditure. By default, a SQL\
+  \ Instance is considered underutilized if its average CPU utilization is below 20%,\
+  \ Memory utilization is below 40%, and Disk I/O < 50 IOPS over a 30-day period."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+  - "PERFORMANCE"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-right-sizing"
+  - "/frameworks/cloudaware/resource-performance/workload-efficiency"

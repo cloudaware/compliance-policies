@@ -1,0 +1,69 @@
+---
+inputType: "CA10__CaGoogleGceInstance__c"
+importExtracts:
+  - file: "/types/CA10__CaGoogleGceInstance__c/object.extracts.yaml"
+testData:
+  - file: 'test-data.json'
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Instance is not running."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "RUNNING"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The instance has been running for less than 14 days."
+    check:
+      IS_WITHIN_LAST_DAYS:
+        offsetDays: 14
+        arg:
+          EXTRACT: "CA10__creationDate__c"
+  - status: "UNDETERMINED"
+    currentStateMessage: "There is not enough data in the CMDB to identify if the instance is idle."
+    check:
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__averageCpuTwoWeeks__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__maxCpuTwoWeeks__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__sumTwoWeekNetworkInMb__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__sumTwoWeekNetworkOutMb__c"
+  - status: INCOMPLIANT
+    currentStateMessage: "The instance is idle with Average CPU Utilization < 5%,\
+      \ Max CPU Utilization < 15%, and Average Network I/O < 100 MB."
+    remediationMessage: "Consider stopping, terminating, or rightsizing the instance."
+    check:
+      AND:
+        args:
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__averageCpuTwoWeeks__c
+              right:
+                NUMBER: 5.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__maxCpuTwoWeeks__c
+              right:
+                NUMBER: 15.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__sumTwoWeekNetworkInMb__c
+              right:
+                NUMBER: 100.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__sumTwoWeekNetworkOutMb__c
+              right:
+                NUMBER: 100.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The instance is not idle."

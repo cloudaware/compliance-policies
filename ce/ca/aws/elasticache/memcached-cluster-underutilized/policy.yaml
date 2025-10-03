@@ -1,0 +1,13 @@
+---
+names:
+  full: AWS ElastiCache Memcached Cluster is underutilized
+  contextual: Memcached Cluster is underutilized
+description: "Memcached Clusters are considered underutilized if their average \
+  \ CPU utilization is consistently below 40% over a 30-day period. \
+  \ These clusters might be oversized for their workload."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-right-sizing"
+  - "/frameworks/cloudaware/resource-performance/workload-efficiency"

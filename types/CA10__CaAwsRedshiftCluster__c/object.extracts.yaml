@@ -1,0 +1,27 @@
+---
+extracts:
+# Nullable. Values: available, modifying, creating ...
+  - name: "CA10__status__c"
+    value:
+      FIELD:
+        path: "CA10__status__c"
+# Nullable.
+  - name: "CA10__createTime__c"
+    value:
+      FIELD:
+        path: "CA10__createTime__c"
+# Nullable.
+  - name: "CA10__cpuUtilizationAvg30d__c"
+    value:
+      FIELD:
+        path: "CA10__cpuUtilizationAvg30d__c"
+# Nullable.
+  - name: "CA10__diskReadIopsAvg30d__c"
+    value:
+      FIELD:
+        path: "CA10__diskReadIopsAvg30d__c"
+# Nullable.
+  - name: "CA10__diskWriteIopsAvg30d__c"
+    value:
+      FIELD:
+        path: "CA10__diskWriteIopsAvg30d__c"

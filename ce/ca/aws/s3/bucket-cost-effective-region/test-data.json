@@ -1,0 +1,142 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-07-27T15:55:37Z"
+    },
+    "Id": "001",
+    "CA10__disappearanceTime__c": "2025-07-24T00:19:37Z",
+    "CA10__regionName__c": "us-east-1"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__regionName__c') == 'us-west-1'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-07-27T15:55:37Z"
+    },
+    "Id": "002",
+    "CA10__disappearanceTime__c": null,
+    "CA10__regionName__c": "us-west-1"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__regionName__c') == 'ca-west-1'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-07-27T15:55:37Z"
+    },
+    "Id": "003",
+    "CA10__disappearanceTime__c": null,
+    "CA10__regionName__c": "ca-west-1"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__regionName__c') == 'ca-central-1'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-07-27T15:55:37Z"
+    },
+    "Id": "006",
+    "CA10__disappearanceTime__c": null,
+    "CA10__regionName__c": "ca-central-1"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__regionName__c') == 'eu-central-1'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-07-27T15:55:37Z"
+    },
+    "Id": "007",
+    "CA10__disappearanceTime__c": null,
+    "CA10__regionName__c": "eu-central-1"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "900",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-07-27T15:55:37Z"
+    },
+    "Id": "008",
+    "CA10__disappearanceTime__c": null,
+    "CA10__regionName__c": "us-east-1"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "599",
+      "conditionText": "extract('CA10__regionName__c') == 'eu-west-2'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-07-27T15:55:37Z"
+    },
+    "Id": "010",
+    "CA10__disappearanceTime__c": null,
+    "CA10__regionName__c": "eu-west-2"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "699",
+      "conditionText": "extract('CA10__regionName__c') == 'eu-south-1'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-07-27T15:55:37Z"
+    },
+    "Id": "011",
+    "CA10__disappearanceTime__c": null,
+    "CA10__regionName__c": "eu-south-1"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "799",
+      "conditionText": "extract('CA10__regionName__c') == 'eu-west-3'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-07-27T15:55:37Z"
+    },
+    "Id": "012",
+    "CA10__disappearanceTime__c": null,
+    "CA10__regionName__c": "eu-west-3"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "899",
+      "conditionText": "extract('CA10__regionName__c') == 'eu-central-2'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-07-27T15:55:37Z"
+    },
+    "Id": "013",
+    "CA10__disappearanceTime__c": null,
+    "CA10__regionName__c": "eu-central-2"
+  }
+]

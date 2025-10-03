@@ -1,0 +1,45 @@
+---
+inputType: "CA10Z1__CaAzurePostgreSqlServer__c"
+importExtracts:
+  - file: "/types/CA10Z1__CaAzurePostgreSqlServer__c/object.extracts.yaml"
+testData:
+  - file: 'test-data.json'
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The server is not ready."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__state__c"
+        right:
+          TEXT: "Ready"
+  - status: UNDETERMINED
+    currentStateMessage: "There is not enough data in the CMDB to identify if the server is idle."
+    check:
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10Z1__monitorCpuPercentAvg30Day__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10Z1__monitorIoConsumptionPercentAvg30Day__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The server is idle with Average CPU < 5%, and IO = 0%."
+    remediationMessage: "Consider stopping, terminating, or rightsizing the server."
+    check:
+      AND:
+        args:
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10Z1__monitorCpuPercentAvg30Day__c"
+              right:
+                NUMBER: 5.0
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10Z1__monitorIoConsumptionPercentAvg30Day__c"
+              right:
+                NUMBER: 0.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The server is not idle."

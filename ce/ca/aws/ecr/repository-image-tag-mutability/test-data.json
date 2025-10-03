@@ -1,0 +1,44 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-01T13:35:59Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-09-29T18:15:00Z",
+        "CA10__imageTagMutability__c": "IMMUTABLE"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__imageTagMutability__c') == 'MUTABLE'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-01T13:35:59Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__imageTagMutability__c": "MUTABLE"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "setOfText(['IMMUTABLE', 'IMMUTABLE_WITH_EXCLUSION', 'MUTABLE_WITH_EXCLUSION']).contains(extract('CA10__imageTagMutability__c'))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-01T13:35:59Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__imageTagMutability__c": "IMMUTABLE"
+    }
+]

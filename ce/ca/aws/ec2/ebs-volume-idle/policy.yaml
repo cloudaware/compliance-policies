@@ -1,0 +1,11 @@
+---
+names:
+  full: AWS EBS Volume is idle
+  contextual: EBS Volume is idle
+description: "This policy flags AWS EBS Volumes that are either unattached for\ 
+  \ more than 30 days or attached but show no read/write operations for the past 30 days."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"

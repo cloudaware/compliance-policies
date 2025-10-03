@@ -1,0 +1,32 @@
+---
+inputType: "CA10__CaAwsEcrRepository__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsEcrRepository__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Image tag mutability is set to MUTABLE, allowing image tags to be overwritten."
+    remediationMessage: "Consider setting image tag mutability to IMMUTABLE to prevent overwriting image tags."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__imageTagMutability__c"
+        right:
+          TEXT: "MUTABLE"
+  - status: "COMPLIANT"
+    currentStateMessage: "Image tag mutability is set to have immutable tags."
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: "TEXT"
+            items:
+              - "IMMUTABLE"
+              - "IMMUTABLE_WITH_EXCLUSION"
+              - "MUTABLE_WITH_EXCLUSION"
+        search:
+          EXTRACT: "CA10__imageTagMutability__c"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

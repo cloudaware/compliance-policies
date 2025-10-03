@@ -1,0 +1,54 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-28T16:54:52Z" },
+    "Id": "001",
+    "CA10__disappearanceTime__c": "2025-07-19T06:32:28Z",
+    "CA10__status__c": "available",
+    "CA10__snapshotCreateTime__c": "2025-07-10T06:09:43Z"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__snapshotCreateTime__c').beyondLastDays(90)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-28T16:54:52Z" },
+    "Id": "002",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__snapshotCreateTime__c": "2024-05-28T02:26:58Z"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-28T16:54:52Z" },
+    "Id": "003",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__snapshotCreateTime__c": "2025-07-01T06:09:37Z"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__status__c') != 'available'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-07-28T16:54:52Z" },
+    "Id": "004",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "error",
+    "CA10__snapshotCreateTime__c": "2024-05-28T02:26:58Z"
+  }
+]

@@ -1,0 +1,13 @@
+---
+names:
+  full: "AWS S3 Bucket with Intelligent-Tiering is missing Archive configurations"
+  contextual: "Bucket with Intelligent-Tiering is missing Archive configurations"
+description: "Ensure that S3 buckets with Intelligent-Tiering enabled are configured\
+  \ to automatically move objects to the optional Archive Access and Deep Archive\
+  \ Access tiers to maximize storage cost savings."
+type: "COMPLIANCE_POLICY"
+categories:
+  - COST
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-optimization"
+  

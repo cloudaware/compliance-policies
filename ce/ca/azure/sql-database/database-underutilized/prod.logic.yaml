@@ -1,0 +1,135 @@
+---
+inputType: "CA10__CaAzureSqlDatabase__c"
+importExtracts:
+  - file: "/types/CA10__CaAzureSqlDatabase__c/object.extracts.yaml"
+testData:
+  - file: 'test-data.json'
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This database belongs to an Elastic Pool."
+    check:
+      IS_EQUAL:
+        left: 
+          EXTRACT: "CA10__skuName__c"
+        right:
+          TEXT: "ElasticPool"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is a serverless database."
+    check:
+      CONTAINS:
+        arg: 
+          EXTRACT: "CA10__kind__c"
+        search:
+          TEXT: "serverless"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is a master database."
+    check:
+      CONTAINS:
+        arg: 
+          EXTRACT: "CA10__kind__c"
+        search:
+          TEXT: "system"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The database is not online."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__satus__c"
+        right:
+          TEXT: "Online"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The database was created in the last 30 days."
+    check:
+      IS_WITHIN_LAST_DAYS:
+        offsetDays: 30
+        arg:
+          EXTRACT: "CA10__creationDate__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The database was paused in the last 30 days."
+    check:
+      IS_WITHIN_LAST_DAYS:
+        offsetDays: 30
+        arg:
+          EXTRACT: "CA10__pausedDate__c"
+  - status: "UNDETERMINED"
+    currentStateMessage: "There is not enough data in the CMDB to identify if the\
+      \ database is underutilized."
+    check:  
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorCpuPercentAvg30Day__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorStoragePercentMax30Day__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The database DTU consumption is less than 20% and storage\
+      \ utilization is less than 10%."
+    remediationMessage: "Consider rightsizing the database."
+    check:
+      AND:
+        args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorDtuConsumptionPercentAvg30Day__c"
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__monitorDtuConsumptionPercentAvg30Day__c"
+              right:
+                NUMBER: 20.0
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__monitorStoragePercentMax30Day__c"
+              right:
+                NUMBER: 10.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The database CPU utilization is less than 20%, App Memory\
+      \ utilization < 40%, and storage utilization is less than 10%."
+    remediationMessage: "Consider rightsizing the database."
+    check:
+      AND:
+        args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorAppMemoryPercentAvg30Day__c"
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__monitorAppMemoryPercentAvg30Day__c"
+              right:
+                NUMBER: 40.0
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__monitorCpuPercentAvg30Day__c"
+              right:
+                NUMBER: 20.0
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__monitorStoragePercentMax30Day__c"
+              right:
+                NUMBER: 10.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The database CPU is less than 20% and storage utilization is less than 10%."
+    remediationMessage: "Consider rightsizing the database."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorDtuConsumptionPercentAvg30Day__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorAppMemoryPercentAvg30Day__c"
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__monitorCpuPercentAvg30Day__c"
+              right:
+                NUMBER: 20.0
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__monitorStoragePercentMax30Day__c"
+              right:
+                NUMBER: 10.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The database is not underutilized."

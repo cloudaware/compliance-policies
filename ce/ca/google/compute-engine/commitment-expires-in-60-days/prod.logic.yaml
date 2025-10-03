@@ -1,0 +1,26 @@
+---
+inputType: "CA10G1__CaGoogleGceCommitment__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10G1__CaGoogleGceCommitment__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The commitment is not active."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10G1__status__c"
+        right: 
+          TEXT: "ACTIVE"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The commitment expires in 60 days or less."
+    remediationMessage: "Consider renewing the expiring commitment to maintain cost savings."
+    check:
+      IS_WITHIN_NEXT_DAYS:
+        offsetDays: 60
+        arg:
+          EXTRACT: CA10G1__endTimestamp__c
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The commitment is not expiring within the next 60 days."

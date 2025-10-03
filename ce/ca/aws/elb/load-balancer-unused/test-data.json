@@ -1,0 +1,139 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-09-10T17:26:32Z"
+    },
+    "Id": "001",
+    "RecordTypeId": "RecordTypeId1",
+    "CA10__disappearanceTime__c": "2025-09-01T08:53:31Z",
+    "RecordType": {
+      "DeveloperName": "caAwsLoadBalancerApplication",
+      "Id": "RecordTypeId1"
+    },
+    "CA10__AWS_EC2_Load_Balancer_Listeners__r": [
+      {
+        "Id": "001_1",
+        "RecordTypeId": "RecordTypeId2",
+        "CA10__disappearanceTime__c": "2025-09-01T09:08:27Z",
+        "CA10__loadBalancer__c": "001",
+        "RecordType": {
+          "DeveloperName": "caAwsLoadBalancerListenerApplication",
+          "Id": "RecordTypeId2"
+        }
+      }
+    ],
+    "CA10__instanceLinks__r": [
+      {
+        "Id": "001_2",
+        "RecordTypeId": "RecordTypeId3",
+        "CA10__disappearanceTime__c": "2025-09-01T11:20:43Z",
+        "CA10__state__c": "unhealthy",
+        "CA10__loadBalancer__c": "001",
+        "RecordType": {
+          "DeveloperName": "caAwsLoadBalancerInstanceLinkApplication",
+          "Id": "RecordTypeId3"
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__AWS_EC2_Load_Balancer_Listeners__r.hasNo(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-09-10T17:26:32Z"
+    },
+    "Id": "002",
+    "RecordTypeId": "RecordTypeId1",
+    "CA10__disappearanceTime__c": null,
+    "RecordType": {
+      "DeveloperName": "caAwsLoadBalancerApplication",
+      "Id": "RecordTypeId1"
+    },
+    "CA10__AWS_EC2_Load_Balancer_Listeners__r": [],
+    "CA10__instanceLinks__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__instanceLinks__r.hasNo(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-09-10T17:26:32Z"
+    },
+    "Id": "003",
+    "RecordTypeId": "RecordTypeId1",
+    "CA10__disappearanceTime__c": null,
+    "RecordType": {
+      "DeveloperName": "caAwsLoadBalancerApplication",
+      "Id": "RecordTypeId1"
+    },
+    "CA10__AWS_EC2_Load_Balancer_Listeners__r": [
+      {
+        "Id": "003_1",
+        "RecordTypeId": "RecordTypeId2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__loadBalancer__c": "003",
+        "RecordType": {
+          "DeveloperName": "caAwsLoadBalancerListenerApplication",
+          "Id": "RecordTypeId2"
+        }
+      }
+    ],
+    "CA10__instanceLinks__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-09-10T17:26:32Z"
+    },
+    "Id": "004",
+    "RecordTypeId": "RecordTypeId1",
+    "CA10__disappearanceTime__c": null,
+    "RecordType": {
+      "DeveloperName": "caAwsLoadBalancerApplication",
+      "Id": "RecordTypeId1"
+    },
+    "CA10__AWS_EC2_Load_Balancer_Listeners__r": [
+      {
+        "Id": "004_1",
+        "RecordTypeId": "RecordTypeId2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__loadBalancer__c": "004",
+        "RecordType": {
+          "DeveloperName": "caAwsLoadBalancerListenerApplication",
+          "Id": "RecordTypeId2"
+        }
+      }
+    ],
+    "CA10__instanceLinks__r": [
+      {
+        "Id": "004_2",
+        "RecordTypeId": "RecordTypeId3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__state__c": "healthy",
+        "CA10__loadBalancer__c": "004",
+        "RecordType": {
+          "DeveloperName": "caAwsLoadBalancerInstanceLinkApplication",
+          "Id": "RecordTypeId3"
+        }
+      }
+    ]
+  }
+]

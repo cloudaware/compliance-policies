@@ -1,0 +1,14 @@
+---
+names:
+  full: "AWS ELB Load Balancer is unused"
+  contextual: "Load Balancer is unused"
+description: "Ensure that AWS Elastic Load Balancers are actively serving traffic.\
+  \ A load balancer is considered unused if it has no listeners configured or\
+  \ no healthy instances or targets registered. Unused load balancers can incur\
+  \ costs without providing any benefit and may represent a misconfiguration in\
+  \ the environment."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"
