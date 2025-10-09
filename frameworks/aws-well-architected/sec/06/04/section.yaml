@@ -1,0 +1,62 @@
+
+---
+name: "SEC06-BP04 Validate software integrity"
+description: |-
+  Use cryptographic verification to validate the integrity of software artifacts (including 
+  images) your workload uses. Cryptographically sign your software as a safeguard against 
+  unauthorized changes run within your compute environments.
+
+  **Desired outcome**
+
+  All artifacts are obtained from trusted sources. Vendor website certificates are 
+  validated. Downloaded artifacts are cryptographically verified by their signatures. 
+  Your own software is cryptographically signed and verified by your computing environments.
+
+  **Common anti-patterns**
+
+  - Trusting reputable vendor websites to obtain software artifacts, but ignoring certificate 
+    expiration notices. Proceeding with downloads without confirming certificates are valid.
+  - Validating vendor website certificates, but not cryptographically verifying downloaded 
+    artifacts from these websites.
+  - Relying solely on digests or hashes to validate software integrity. Hashes establish 
+    that artifacts have not been modified from the original version, but do not validate 
+    their source.
+  - Not signing your own software, code, or libraries, even when only used in your own 
+    deployments. 
+
+  **Benefits of establishing this best practice**
+
+  Validating the integrity of artifacts that your workload depends on helps prevent 
+  malware from entering your compute environments. Signing your software helps safeguard 
+  against unauthorized running in your compute environments. Secure your software supply 
+  chain by signing and verifying code.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Operating system images, container images, and code artifacts are often distributed with 
+  integrity checks available, such as through a digest or hash. These allow clients to 
+  verify integrity by computing their own hash of the payload and validating it is the same 
+  as the one published. While these checks help verify that the payload has not been tampered 
+  with, they do not validate the payload came from the original source (its provenance). 
+  Verifying provenance requires a certificate that a trusted authority issues to digitally 
+  sign the artifact.
+
+  If you are using a downloaded software or artifacts in your workload, check if the 
+  provider provides a public key for digital signature verification. Here are some examples 
+  of how AWS provides a public key and verification instructions for software we publish:
+
+  - EC2 Image Builder: Verify the signature of the AWSTOE installation download
+  - AWS Systems Manager: Verifying the signature of SSM Agent
+  - Amazon CloudWatch: Verifying the signature of the CloudWatch agent package
+
+  Incorporate digital signature verification into the processes you use for obtaining and 
+  hardening images, as discussed in SEC06-BP02 Provision compute from hardened images.
+
+  You can use AWS Signer to help manage the verification of signatures, as well as your 
+  own code-signing lifecycle for your own software and artifacts. Both AWS Lambda and 
+  Amazon Elastic Container Registry provide integrations with Signer to verify the signatures 
+  of your code and images. Using the examples in the Resources section, you can incorporate 
+  Signer into your continuous integration and delivery (CI/CD) pipelines to automate 
+  verification of signatures and the signing of your own code and images.

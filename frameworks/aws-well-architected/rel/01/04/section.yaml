@@ -1,0 +1,85 @@
+---
+name: "REL01-BP04 Monitor and manage quotas"
+description: |-
+  Evaluate your potential usage and increase your quotas appropriately, allowing for
+  planned growth in usage.
+
+  **Desired outcome**
+
+  Active and automated systems that manage and monitor have been deployed.
+  These operations solutions ensure that quota usage thresholds are nearing
+  being reached.
+  These would be proactively remediated by requested quota changes.
+
+  **Common anti-patterns**
+
+  - Not configuring monitoring to check for service quota thresholds.
+  - Not configuring monitoring for hard limits, even though those values cannot be
+    changed.
+  - Assuming that amount of time required to request and secure a soft quota change
+    is immediate or a short period.
+  - Configuring alarms for when service quotas are being approached, but having no
+    process on how to respond to an alert.
+  - Only configuring alarms for services supported by AWS Service Quotas and not
+    monitoring other AWS services.
+  - Not considering quota management for multiple Region resiliency designs, like
+    active/active, active/passive – hot, active/passive - cold, and active/passive -
+    pilot light approaches.
+  - Not assessing quota differences between Regions.
+  - Not assessing the needs in every Region for a specific quota increase request.
+  - Not leveraging templates for multi-Region quota management.
+
+  **Benefits of establishing this best practice**
+
+  Automatic tracking of the AWS Service Quotas and monitoring your usage against
+  those quotas will allow you to see when you are approaching a quota limit.
+  You can also use this monitoring data to help limit any degradations due to
+  quota exhaustion.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  For supported services, you can monitor your quotas by configuring various
+  different services that can assess and then send alerts or alarms. This can aid
+  in monitoring usage and can alert you to approaching quotas. These alarms can be
+  invoked from AWS Config, Lambda functions, Amazon CloudWatch, or from AWS Trusted
+  Advisor. You can also use metric filters on CloudWatch Logs to search and extract
+  patterns in logs to determine if usage is approaching quota thresholds.
+
+  ### Implementation steps
+
+  **For monitoring:**
+
+  1. Capture current resource consumption (for example, buckets or instances). Use
+     service API operations, such as the Amazon EC2 DescribeInstances API, to
+     collect current resource consumption.
+  2. Capture your current quotas that are essential and applicable to the services
+     using:
+      - AWS Service Quotas
+      - AWS Trusted Advisor
+      - AWS documentation
+      - AWS service-specific pages
+      - AWS Command Line Interface (AWS CLI)
+      - AWS Cloud Development Kit (AWS CDK)
+  3. Use AWS Service Quotas, an AWS service that helps you manage your quotas for
+     over 250 AWS services from one location.
+  4. Use Trusted Advisor service limits to monitor your current service limits at
+     various thresholds.
+  5. Use the service quota history (console or AWS CLI) to check on regional
+     increases.
+  6. Compare service quota changes in each Region and each account to create
+     equivalency, if required.
+
+  **For management:**
+
+  1. Automated: Set up an AWS Config custom rule to scan service quotas across
+     Regions and compare for differences.
+  2. Automated: Set up a scheduled Lambda function to scan service quotas across
+     Regions and compare for differences.
+  3. Manual: Scan services quota through AWS CLI, API, or AWS Console to scan
+     service quotas across Regions and compare for differences. Report the
+     differences.
+  4. If differences in quotas are identified between Regions, request a quota
+     change, if required.
+  5. Review the result of all requests.

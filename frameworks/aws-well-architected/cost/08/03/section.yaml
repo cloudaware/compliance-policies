@@ -1,0 +1,58 @@
+---
+name: "COST08-BP03 Implement services to reduce data transfer costs"
+description: |-
+  Implement services to reduce data transfer. For example, use edge locations or content 
+  delivery networks (CDN) to deliver content to end users, build caching layers in 
+  front of your application servers or databases, and use dedicated network connections 
+  instead of VPN for connectivity to the cloud.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  There are various AWS services that can help you to optimize your network data 
+  transfer usage. Depending on your workload components, type, and cloud architecture, 
+  these services can assist you in compression, caching, and sharing and distribution 
+  of your traffic on the cloud.
+
+  - Amazon CloudFront is a global content delivery network that delivers data with 
+    low latency and high transfer speeds. It caches data at edge locations across the 
+    world, which reduces the load on your resources. By using CloudFront, you can 
+    reduce the administrative effort in delivering content to large numbers of users 
+    globally with minimum latency. The security savings bundle can help you to save up 
+    to 30% on your CloudFront usage if you plan to grow your usage over time.
+
+  - AWS Direct Connect allows you to establish a dedicated network connection to AWS. 
+    This can reduce network costs, increase bandwidth, and provide a more consistent 
+    network experience than internet-based connections.
+
+  - AWS VPN allows you to establish a secure and private connection between your 
+    private network and the AWS global network. It is ideal for small offices or 
+    business partners because it provides simplified connectivity, and it is a fully 
+    managed and elastic service.
+
+  - VPC Endpoints allow connectivity between AWS services over private networking and 
+    can be used to reduce public data transfer and NAT gateway costs. Gateway VPC 
+    endpoints have no hourly charges, and support Amazon S3 and Amazon DynamoDB. 
+    Interface VPC endpoints are provided by AWS PrivateLink and have an hourly fee and 
+    per-GB usage cost.
+
+  - NAT gateways provide built-in scaling and management for reducing costs as opposed 
+    to a standalone NAT instance. Place NAT gateways in the same Availability Zones as 
+    high traffic instances and consider using VPC endpoints for the instances that need 
+    to access Amazon DynamoDB or Amazon S3 to reduce the data transfer and processing 
+    costs.
+
+  - Use AWS Snow Family devices which have computing resources to collect and process 
+    data at the edge. AWS Snow Family devices (Snowball Edge, Snowball Edge and 
+    Snowmobile) allow you to move petabytes of data to the AWS Cloud cost effectively 
+    and offline.
+
+  ### Implementation steps
+
+  - Implement services: Select applicable AWS network services based on your service 
+     workload type using the data transfer modeling and reviewing VPC Flow Logs. Look 
+     at where the largest costs and highest volume flows are. Review the AWS services 
+     and assess whether there is a service that reduces or removes the transfer, 
+     specifically networking and content delivery. Also look for caching services where 
+     there is repeated access to data or large amounts of data.

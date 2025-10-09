@@ -1,0 +1,48 @@
+---
+name: "REL13-BP03 Test disaster recovery implementation to validate the implementation"
+description: |-
+  Regularly test failover to your recovery site to verify that it operates properly 
+  and that RTO and RPO are met.
+
+  **Common anti-patterns:**
+
+  - Never exercise failovers in production.
+
+  **Benefits of establishing this best practice:** Regularly testing your disaster 
+  recovery plan verifies that it will work when it needs to, and that your team 
+  knows how to perform the strategy.
+
+  **Level of risk exposed if this best practice is not established:** High
+
+  ## Implementation guidance
+
+  A pattern to avoid is developing recovery paths that are rarely exercised. For 
+  example, you might have a secondary data store that is used for read-only queries. 
+  When you write to a data store and the primary fails, you might want to fail over 
+  to the secondary data store. If you don’t frequently test this failover, you might 
+  find that your assumptions about the capabilities of the secondary data store are 
+  incorrect. The capacity of the secondary, which might have been sufficient when you 
+  last tested, might no longer be able to tolerate the load under this scenario. Our 
+  experience has shown that the only error recovery that works is the path you test 
+  frequently. This is why having a small number of recovery paths is best. You can 
+  establish recovery patterns and regularly test them. If you have a complex or 
+  critical recovery path, you still need to regularly exercise that failure in 
+  production to convince yourself that the recovery path works. In the example we 
+  just discussed, you should fail over to the standby regularly, regardless of need.
+
+  ### Implementation steps
+
+  1. Engineer your workloads for recovery. Regularly test your recovery paths. 
+  Recovery-oriented computing identifies the characteristics in systems that enhance 
+  recovery: isolation and redundancy, system-wide ability to roll back changes, 
+  ability to monitor and determine health, ability to provide diagnostics, automated 
+  recovery, modular design, and ability to restart. Exercise the recovery path to 
+  verify that you can accomplish the recovery in the specified time to the specified 
+  state. Use your runbooks during this recovery to document problems and find 
+  solutions for them before the next test.
+
+  2. For Amazon EC2-based workloads, use AWS Elastic Disaster Recovery to implement and 
+  launch drill instances for your DR strategy. AWS Elastic Disaster Recovery provides 
+  the ability to efficiently run drills, which helps you prepare for a failover 
+  event. You can also frequently launch your instances using Elastic Disaster 
+  Recovery for test and drill purposes without redirecting the traffic.

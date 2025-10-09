@@ -1,0 +1,80 @@
+---
+name: "REL01-BP03 Accommodate fixed service quotas and constraints through architecture"
+description: |-
+  Be aware of unchangeable service quotas, service constraints, and physical
+  resource limits. Design architectures for applications and services to prevent
+  these limits from impacting reliability.
+
+  Examples include network bandwidth, serverless function invocation payload size,
+  throttle burst rate for of an API gateway, and concurrent user connections to a
+  database.
+
+  **Desired outcome**
+
+  The application or service performs as expected under normal and high traffic
+  conditions.
+  They have been designed to work within the limitations for that resource’s
+  fixed constraints or service quotas.
+
+  **Common anti-patterns**
+
+  - Choosing a design that uses a resource of a service, unaware that there are
+    design constraints that will cause this design to fail as you scale.
+  - Performing benchmarking that is unrealistic and will reach service fixed
+    quotas during the testing. For example, running tests at a burst limit but for
+    an extended amount of time.
+  - Choosing a design that cannot scale or be modified if fixed service quotas are
+    to be exceeded. For example, an SQS payload size of 256KB.
+  - Observability has not been designed and implemented to monitor and alert on
+    thresholds for service quotas that might be at risk during high traffic events.
+
+  **Benefits of establishing this best practice**
+
+  Verifying that the application will run under all projected services load
+  levels without disruption or degradation.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Unlike soft service quotas or resources that be replaced with higher capacity
+  units, AWS services’ fixed quotas cannot be changed. This means that all these
+  type of AWS services must be evaluated for potential hard capacity limits when
+  used in an application design.
+
+  Hard limits are shown in the Service Quotas console. If the columns shows
+  ADJUSTABLE = No, the service has a hard limit. Hard limits are also shown in some
+  resources configuration pages. For example, Lambda has specific hard limits that
+  cannot be adjusted.
+
+  As an example, when designing a python application to run in a Lambda function,
+  the application should be evaluated to determine if there is any chance of Lambda
+  running longer than 15 minutes. If the code may run more than this service quota
+  limit, alternate technologies or designs must be considered. If this limit is
+  reached after production deployment, the application will suffer degradation and
+  disruption until it can be remediated. Unlike soft quotas, there is no method to
+  change to these limits even under emergency Severity 1 events.
+
+  Once the application has been deployed to a testing environment, strategies
+  should be used to find if any hard limits can be reached. Stress testing, load
+  testing, and chaos testing should be part of the introduction test plan.
+
+  ### Implementation steps
+
+  1. Review the complete list of AWS services that could be used in the application
+     design phase.
+  2. Review the soft quota limits and hard quota limits for all these services.
+     Not all limits are shown in the Service Quotas console. Some services describe
+     these limits in alternate locations.
+  3. As you design your application, review your workload’s business and technology
+     drivers, such as business outcomes, use case, dependent systems, availability
+     targets, and disaster recovery objects. Let your business and technology
+     drivers guide the process to identify the distributed system that is right for
+     your workload.
+  4. Analyze service load across Regions and accounts. Many hard limits are regionally
+     based for services. However, some limits are account based.
+  5. Analyze resilience architectures for resource usage during a zonal failure
+     and Regional failure. In the progression of multi-Region designs using
+     active/active, active/passive – hot, active/passive - cold, and active/passive - pilot
+     light approaches, these failure cases will cause higher usage. This
+     creates a potential use case for hitting hard limits.

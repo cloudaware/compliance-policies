@@ -1,0 +1,63 @@
+---
+name: "SUS05-BP01 Use the minimum amount of hardware to meet your needs"
+description: |-
+  Use the minimum amount of hardware for your workload to efficiently meet your 
+  business needs.
+
+  **Common anti-patterns**
+
+  - You do not monitor resource utilization.
+  - You have resources with a low utilization level in your architecture.
+  - You do not review the utilization of static hardware to determine if it should 
+    be resized.
+  - You do not set hardware utilization goals for your compute infrastructure based 
+    on business KPIs.
+
+  **Benefits of establishing this best practice**
+
+  Rightsizing your cloud resources helps to reduce a workload’s environmental 
+  impact, save money, and maintain performance benchmarks.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Optimally select the total number of hardware required for your workload to 
+  improve its overall efficiency. The AWS Cloud provides the flexibility to expand 
+  or reduce the number of resources dynamically through a variety of mechanisms, 
+  such as AWS Auto Scaling, and meet changes in demand. It also provides APIs and 
+  SDKs that allow resources to be modified with minimal effort. Use these 
+  capabilities to make frequent changes to your workload implementations. 
+  Additionally, use rightsizing guidelines from AWS tools to efficiently operate 
+  your cloud resource and meet your business needs.
+
+  ### Implementation steps
+
+  1. Choose the instances type: Choose the right instances type to best fit your 
+  needs.
+
+  2. Scale: Use small increments to scale variable workloads.
+
+  3. Use multiple compute purchase options: Balance instance flexibility, 
+  scalability, and cost savings with multiple compute purchase options.
+
+      - **Amazon EC2 On-Demand Instances** are best suited for new, stateful, and 
+        spiky workloads which can’t be instance type, location, or time flexible.
+      - **Amazon EC2 Spot Instances** are a great way to supplement the other 
+        options for applications that are fault tolerant and flexible.
+      - **Leverage Compute Savings Plans** for steady state workloads that allow 
+        flexibility if your needs (like AZ, Region, instance families, or instance 
+        types) change.
+
+  4. Use instance and Availability Zone diversity: Maximize application availability 
+  and take advantage of excess capacity by diversifying your instances and 
+  Availability Zones.
+
+  5. Rightsize instances: Use the rightsizing recommendations from AWS tools to 
+  make adjustments on your workload.
+
+      - Use rightsizing recommendations in AWS Cost Explorer or AWS Compute 
+        Optimizer to identify rightsizing opportunities.
+
+  6. Negotiate service-level agreements (SLAs): Negotiate SLAs that permit 
+  temporarily reducing capacity while automation deploys replacement resources.

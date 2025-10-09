@@ -1,0 +1,64 @@
+---
+name: "SUS04-BP06 Use shared file systems or storage to access common data"
+description: |-
+  Adopt shared file systems or storage to avoid data duplication and allow for 
+  more efficient infrastructure for your workload.
+
+  **Common anti-patterns**
+
+  - You provision storage for each individual client.
+  - You do not detach data volume from inactive clients.
+  - You do not provide access to storage across platforms and systems.
+
+  **Benefits of establishing this best practice**
+
+  Using shared file systems or storage allows for sharing data to one or more 
+  consumers without having to copy the data. This helps to reduce the storage 
+  resources required for the workload.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  If you have multiple users or applications accessing the same datasets, using 
+  shared storage technology is crucial to use efficient infrastructure for your 
+  workload. Shared storage technology provides a central location to store and 
+  manage datasets and avoid data duplication. It also enforces consistency of the 
+  data across different systems. Moreover, shared storage technology allows for 
+  more efficient use of compute power, as multiple compute resources can access 
+  and process data at the same time in parallel.
+
+  Fetch data from these shared storage services only as needed and detach unused 
+  volumes to free up resources.
+
+  ### Implementation steps
+
+  1. Use shared storage: Migrate data to shared storage when the data has multiple 
+  consumers. Here are some examples of shared storage technology on AWS:
+
+      - **Amazon EBS Multi-Attach**  
+        Amazon EBS Multi-Attach allows you to attach a single Provisioned IOPS SSD 
+        (io1 or io2) volume to multiple instances that are in the same Availability 
+        Zone.
+
+      - **Amazon EFS**  
+        See When to Choose Amazon EFS.
+
+      - **Amazon FSx**  
+        See Choosing an Amazon FSx File System.
+
+      - **Amazon S3**  
+        Applications that do not require a file system structure and are designed to 
+        work with object storage can use Amazon S3 as a massively scalable, durable, 
+        low-cost object storage solution.
+
+  2. Fetch data as needed: Copy data to or fetch data from shared file systems only 
+  as needed. As an example, you can create an Amazon FSx for Lustre file system 
+  backed by Amazon S3 and only load the subset of data required for processing 
+  jobs to Amazon FSx.
+
+  3. Delete unneeded data: Delete data as appropriate for your usage patterns as 
+  outlined in SUS04-BP03 Use policies to manage the lifecycle of your datasets.
+
+  4. Detach inactive clients: Detach volumes from clients that are not actively 
+  using them.

@@ -1,0 +1,64 @@
+---
+name: "SUS04-BP05 Remove unneeded or redundant data"
+description: |-
+  Remove unneeded or redundant data to minimize the storage resources required to 
+  store your datasets.
+
+  **Common anti-patterns:**
+
+  - You duplicate data that can be easily obtained or recreated.
+  - You back up all data without considering its criticality.
+  - You only delete data irregularly, on operational events, or not at all.
+  - You store data redundantly irrespective of the storage service's durability.
+  - You turn on Amazon S3 versioning without any business justification.
+
+  **Benefits of establishing this best practice:** Removing unneeded data reduces 
+  the storage size required for your workload and the workload environmental impact.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  When you remove unneeded and redundant datasets, you can reduce storage cost and 
+  environmental footprint. This practice may also make computing more efficient, 
+  as compute resources only process important data instead of unneeded data. 
+  Automate the deletion of unneeded data. Use technologies that deduplicate data 
+  at the file and block level. Use service features for native data replication and 
+  redundancy.
+
+  ### Implementation steps
+
+  1. Evaluate public datasets: Evaluate if you can avoid storing data by using 
+     existing publicly available datasets in AWS Data Exchange and Open Data on AWS.
+
+  2. De-deplicate data: Use mechanisms that can deduplicate data at the block and 
+     object level. Here are some examples of how to deduplicate data on AWS:
+
+      | Storage service | Deduplication mechanism |
+      | --------------- | ----------------------- |
+      | Amazon S3 | Use AWS Lake Formation FindMatches to find matching records across a dataset (including ones without identifiers) by using the new FindMatches ML Transform. |
+      | Amazon FSx | Use data deduplication on Amazon FSx for Windows. |
+      | Amazon Elastic Block Store snapshots | Snapshots are incremental backups, which means that only the blocks on the device that have changed after your most recent snapshot are saved.|
+
+  3. Use lifecycle policies: Use lifecycle policies to automate unneeded data 
+     deletion. Use native service features like Amazon DynamoDB Time To Live, 
+     Amazon S3 Lifecycle, or Amazon CloudWatch log retention for deletion.
+
+  4. Use data virtualization: Use data virtualization capabilities on AWS to 
+     maintain data at its source and avoid data duplication.
+
+  5. Use incremental backup: Use backup technology that can make incremental backups.
+
+  6. Use native durability: Leverage the durability of Amazon S3 and replication 
+     of Amazon EBS to meet your durability goals instead of self-managed 
+     technologies (such as a redundant array of independent disks (RAID)).
+
+  7. Use efficient logging: Centralize log and trace data, deduplicate identical 
+     log entries, and establish mechanisms to tune verbosity when needed.
+
+  8. Use efficient caching: Pre-populate caches only where justified.
+
+  9. Establish cache monitoring and automation to resize the cache accordingly.
+
+  10. Remove old version assets: Remove out-of-date deployments and assets from 
+     object stores and edge caches when pushing new versions of your workload.

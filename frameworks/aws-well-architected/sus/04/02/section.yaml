@@ -1,0 +1,88 @@
+---
+name: "SUS04-BP02 Use technologies that support data access and storage patterns"
+description: |-
+  Use storage technologies that best support how your data is accessed and stored 
+  to minimize the resources provisioned while supporting your workload.
+
+  **Common anti-patterns:**
+
+  - You assume that all workloads have similar data storage and access patterns.
+  - You only use one tier of storage, assuming all workloads fit within that tier.
+  - You assume that data access patterns will stay consistent over time.
+
+  **Benefits of establishing this best practice:** Selecting and optimizing your 
+  storage technologies based on data access and storage patterns will help you reduce 
+  the required cloud resources to meet your business needs and improve the overall 
+  efficiency of cloud workload.
+
+  **Level of risk exposed if this best practice is not established:** Low
+
+  ## Implementation guidance
+
+  Select the storage solution that aligns best to your access patterns, or consider 
+  changing your access patterns to align with the storage solution to maximize 
+  performance efficiency.
+
+  ### Implementation steps
+
+  1. **Evaluate data and access characteristics:** Evaluate your data characteristics 
+     and access pattern to collect the key characteristics of your storage needs. 
+     Key characteristics to consider include:
+
+      - **Data type:** structured, semi-structured, unstructured
+      - **Data growth:** bounded, unbounded
+      - **Data durability:** persistent, ephemeral, transient
+      - **Access patterns:** reads or writes, frequency, spiky, or consistent
+
+  2. **Choose the right storage technology:** Migrate data to the appropriate storage 
+     technology that supports your data characteristics and access pattern. Here are 
+     some examples of AWS storage technologies and their key characteristics:
+
+      - **Object storage:** Amazon S3  
+        An object storage service with unlimited scalability, high availability, and 
+        multiple options for accessibility. Transferring and accessing objects in and 
+        out of Amazon S3 can use a service, such as Transfer Acceleration or Access 
+        Points, to support your location, security needs, and access patterns.
+
+      - **Archiving storage:** Amazon Glacier  
+        Storage class of Amazon S3 built for data-archiving.
+
+      - **Shared file system:** Amazon Elastic File System (Amazon EFS)  
+        Mountable file system that can be accessed by multiple types of compute 
+        solutions. Amazon EFS automatically grows and shrinks storage and is 
+        performance-optimized to deliver consistent low latencies.
+
+      - **Shared file system:** Amazon FSx  
+        Built on the latest AWS compute solutions to support four commonly used file 
+        systems: NetApp ONTAP, OpenZFS, Windows File Server, and Lustre. Amazon FSx 
+        latency, throughput, and IOPS vary per file system and should be considered 
+        when selecting the right file system for your workload needs.
+
+      - **Block storage:** Amazon Elastic Block Store (Amazon EBS)  
+        Scalable, high-performance block-storage service designed for Amazon EC2. 
+        Amazon EBS includes SSD-backed storage for transactional, IOPS-intensive 
+        workloads and HDD-backed storage for throughput-intensive workloads.
+
+      - **Relational database:** Amazon Aurora, Amazon RDS, Amazon Redshift  
+        Designed to support ACID transactions and maintain referential integrity and 
+        strong data consistency. Many traditional applications, ERP, CRM, and ecommerce 
+        systems use relational databases to store their data.
+
+      - **Key-value database:** Amazon DynamoDB  
+        Optimized for common access patterns, typically to store and retrieve large 
+        volumes of data. High-traffic web apps, ecommerce systems, and gaming 
+        applications are typical use-cases for key-value databases.
+
+  3. **Automate storage allocation:** For storage systems that are a fixed size, such 
+     as Amazon EBS or Amazon FSx, monitor the available storage space and automate 
+     storage allocation on reaching a threshold. You can leverage Amazon CloudWatch 
+     to collect and analyze different metrics for Amazon EBS and Amazon FSx.
+
+  4. **Choose the right storage class:** Choose the appropriate storage class for your data.
+
+      - Amazon S3 storage classes can be configured at the object level. A single 
+        bucket can contain objects stored across all of the storage classes.
+      - You can use Amazon S3 Lifecycle policies to automatically transition objects 
+        between storage classes or remove data without any application changes. In 
+        general, you have to make a trade-off between resource efficiency, access 
+        latency, and reliability when considering these storage mechanisms.

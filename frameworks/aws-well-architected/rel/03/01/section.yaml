@@ -1,0 +1,88 @@
+---
+name: "REL03-BP01 Choose how to segment your workload"
+description: |-
+  Workload segmentation is important when determining the resilience requirements 
+  of your application. Monolithic architecture should be avoided whenever possible. 
+  Instead, carefully consider which application components can be broken out into 
+  microservices. Depending on your application requirements, this may end up being 
+  a combination of a service-oriented architecture (SOA) with microservices where 
+  possible. Workloads that are capable of statelessness are more capable of being 
+  deployed as microservices.
+
+  **Desired outcome**
+
+  Workloads should be supportable, scalable, and as loosely coupled as possible.
+
+  When making choices about how to segment your workload, balance the benefits 
+  against the complexities. What is right for a new product racing to first 
+  launch is different than what a workload built to scale from the start needs. 
+  When refactoring an existing monolith, you will need to consider how well the 
+  application will support a decomposition towards statelessness.
+  Breaking services into smaller pieces allows small, well-defined teams to 
+  develop and manage them. However, smaller services can introduce complexities 
+  which include possible increased latency, more complex debugging, and 
+  increased operational burden.
+
+  **Common anti-patterns**
+
+  - The microservice Death Star is a situation in which the atomic components 
+    become so highly interdependent that a failure of one results in a much larger 
+    failure, making the components as rigid and fragile as a monolith.
+
+  **Benefits of establishing this practice**
+
+  - More specific segments lead to greater agility, organizational flexibility, and 
+    scalability.
+  - Reduced impact of service interruptions.
+  - Application components may have different availability requirements, which can 
+    be supported by a more atomic segmentation.
+  - Well-defined responsibilities for teams supporting the workload.
+
+  **Level of risk exposed if this best practice is not established:** High
+
+  ## Implementation guidance
+
+  Choose your architecture type based on how you will segment your workload. Choose 
+  an SOA or microservices architecture (or in some rare cases, a monolithic 
+  architecture). Even if you choose to start with a monolith architecture, you must 
+  ensure that it’s modular and can ultimately evolve to SOA or microservices as 
+  your product scales with user adoption. SOA and microservices offer respectively 
+  smaller segmentation, which is preferred as a modern scalable and reliable 
+  architecture, but there are trade-offs to consider, especially when deploying a 
+  microservice architecture.
+
+  One primary trade-off is that you now have a distributed compute architecture that 
+  can make it harder to achieve user latency requirements and there is additional 
+  complexity in the debugging and tracing of user interactions. You can use AWS 
+  X-Ray to assist you in solving this problem. Another effect to consider is 
+  increased operational complexity as you increase the number of applications that 
+  you are managing, which requires the deployment of multiple independency 
+  components.
+
+  ### Implementation guidance
+  
+  - Determine the appropriate architecture to refactor or build your application. 
+    SOA and microservices offer respectively smaller segmentation, which is 
+    preferred as a modern scalable and reliable architecture. SOA can be a good 
+    compromise for achieving smaller segmentation while avoiding some of the 
+    complexities of microservices.
+  - If your workload is amenable to it, and your organization can support it, you 
+    should use a microservices architecture to achieve the best agility and 
+    reliability.
+  - Consider following the Strangler Fig pattern to refactor a monolith into smaller 
+    components. This involves gradually replacing specific application components 
+    with new applications and services. AWS Migration Hub Refactor Spaces acts as 
+    the starting point for incremental refactoring.
+  - Implementing microservices may require a service discovery mechanism to allow 
+    these distributed services to communicate with each other. AWS App Mesh can be 
+    used with service-oriented architectures to provide reliable discovery and 
+    access of services. AWS Cloud Map can also be used for dynamic, DNS-based 
+    service discovery.
+  - If you’re migrating from a monolith to SOA, Amazon MQ can help bridge the gap 
+    as a service bus when redesigning legacy applications in the cloud.
+  - For existing monoliths with a single, shared database, choose how to reorganize 
+    the data into smaller segments. This could be by business unit, access pattern, 
+    or data structure. At this point in the refactoring process, you should choose 
+    to move forward with a relational or non-relational (NoSQL) type of database. 
+
+  **Level of effort for the implementation plan:** High

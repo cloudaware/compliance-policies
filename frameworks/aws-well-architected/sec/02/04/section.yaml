@@ -1,0 +1,128 @@
+---
+name: "SEC02-BP04 Rely on a centralized identity provider"
+description: |-
+  For workforce identities (employees and contractors), rely on an identity provider that
+  allows you to manage identities in a centralized place. This makes it easier to manage
+  access across multiple applications and systems, because you are creating, assigning,
+  managing, revoking, and auditing access from a single location.
+
+  **Desired outcome:** 
+
+  You have a centralized identity provider where you centrally manage workforce users,
+  authentication policies (such as requiring multi-factor authentication (MFA)), and
+  authorization to systems and applications (such as assigning access based on a user's
+  group membership or attributes). Your workforce users sign in to the central identity
+  provider and federate (single sign-on) to internal and external applications, removing
+  the need for users to remember multiple credentials. Your identity provider is integrated
+  with your human resources (HR) systems so that personnel changes are automatically
+  synchronized to your identity provider. For example, if someone leaves your organization,
+  you can automatically revoke access to federated applications and systems (including AWS).
+  You have enabled detailed audit logging in your identity provider and are monitoring
+  these logs for unusual user behavior.
+
+  **Common anti-patterns**
+
+  - You do not use federation and single-sign on. Your workforce users create separate user
+  accounts and credentials in multiple applications and systems.
+  - You have not automated the lifecycle of identities for workforce users, such as by
+  integrating your identity provider with your HR systems. When a user leaves your
+  organization or changes roles, you follow a manual process to delete or update their
+  records in multiple applications and systems.
+
+  **Benefits of establishing this best practice**
+
+  By using a centralized identity provider, you have a single place to manage workforce
+  user identities and policies, the ability to assign access to applications to users and
+  groups, and the ability to monitor user sign-in activity. By integrating with your human
+  resources (HR) systems, when a user changes roles, these changes are synchronized to
+  the identity provider and automatically updates their assigned applications and
+  permissions. When a user leaves your organization, their identity is automatically
+  disabled in the identity provider, revoking their access to federated applications and
+  systems.
+
+  **Level of risk exposed if this best practice is not established:** High
+
+  ## Implementation guidance
+
+  **Guidance for workforce users accessing AWS**
+  Workforce users like employees and contractors in your organization may require access
+  to AWS using the AWS Management Console or AWS Command Line Interface (AWS CLI) to
+  perform their job functions. You can grant AWS access to your workforce users by
+  federating from your centralized identity provider to AWS at two levels: direct
+  federation to each AWS account or federating to multiple accounts in your AWS
+  organization.
+
+  To federate your workforce users directly with each AWS account, you can use a
+  centralized identity provider to federate to AWS Identity and Access Management in
+  that account. The flexibility of IAM allows you to enable a separate SAML 2.0 or an
+  Open ID Connect (OIDC) Identity Provider for each AWS account and use federated user
+  attributes for access control. Your workforce users will use their web browser to sign
+  in to the identity provider by providing their credentials (such as passwords and MFA
+  token codes). The identity provider issues a SAML assertion to their browser that is
+  submitted to the AWS Management Console sign in URL to allow the user to single
+  sign-on to the AWS Management Console by assuming an IAM Role. Your users can also
+  obtain temporary AWS API credentials for use in the AWS CLI or AWS SDKs from AWS STS
+  by assuming the IAM role using a SAML assertion from the identity provider.
+
+  To federate your workforce users with multiple accounts in your AWS organization, you
+  can use AWS IAM Identity Center to centrally manage access for your workforce users
+  to AWS accounts and applications. You enable Identity Center for your organization and
+  configure your identity source. IAM Identity Center provides a default identity source
+  directory which you can use to manage your users and groups. Alternatively, you can
+  choose an external identity source by connecting to your external identity provider
+  using SAML 2.0 and automatically provisioning users and groups using SCIM, or
+  connecting to your Microsoft AD Directory using AWS Directory Service. Once an
+  identity source is configured, you can assign access to users and groups to AWS
+  accounts by defining least-privilege policies in your permission sets. Your workforce
+  users can authenticate through your central identity provider to sign in to the AWS
+  access portal and single-sign on to the AWS accounts and cloud applications assigned
+  to them. Your users can configure the AWS CLI v2 to authenticate with Identity Center
+  and get credentials to run AWS CLI commands. Identity Center also allows single-sign
+  on access to AWS applications such as Amazon SageMaker AI Studio and AWS IoT Sitewise
+  Monitor portals.
+
+  After you follow the preceding guidance, your workforce users will no longer need to
+  use IAM users and groups for normal operations when managing workloads on AWS.
+  Instead, your users and groups are managed outside of AWS and users are able to access
+  AWS resources as a federated identity. Federated identities use the groups defined by
+  your centralized identity provider. You should identify and remove IAM groups, IAM
+  users, and long-lived user credentials (passwords and access keys) that are no longer
+  needed in your AWS accounts. You can find unused credentials using IAM credential
+  reports, delete the corresponding IAM users and delete IAM groups. You can apply a
+  Service Control Policy (SCP) to your organization that helps prevent the creation of
+  new IAM users and groups, enforcing that access to AWS is via federated identities.
+
+  **Guidance for users of your applications**
+
+  You can manage the identities of users of your applications, such as a mobile app,
+  using Amazon Cognito as your centralized identity provider. Amazon Cognito enables
+  authentication, authorization, and user management for your web and mobile apps. Amazon
+  Cognito provides an identity store that scales to millions of users, supports social and
+  enterprise identity federation, and offers advanced security features to help protect
+  your users and business. You can integrate your custom web or mobile application with
+  Amazon Cognito to add user authentication and access control to your applications in
+  minutes. Built on open identity standards such as SAML and Open ID Connect (OIDC),
+  Amazon Cognito supports various compliance regulations and integrates with frontend and
+  backend development resources.
+
+  ### Implementation steps
+
+  **Steps for workforce users accessing AWS**
+
+  1. Federate your workforce users to AWS using a centralized identity provider using
+  one of the following approaches:
+
+      - Use IAM Identity Center to enable single sign-on to multiple AWS accounts in your
+      AWS organization by federating with your identity provider.
+      - Use IAM to connect your identity provider directly to each AWS account, enabling
+      federated fine-grained access.
+
+  2. Identify and remove IAM users and groups that are replaced by federated identities.
+
+  **Steps for users of your applications**
+
+  1. Use Amazon Cognito as a centralized identity provider towards your applications.
+  2. Integrate your custom applications with Amazon Cognito using OpenID Connect and OAuth.
+  You can develop your custom applications using the Amplify libraries that provide
+  simple interfaces to integrate with a variety of AWS services, such as Amazon Cognito
+  for authentication.

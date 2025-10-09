@@ -1,0 +1,107 @@
+---
+name: "REL03-BP03 Provide service contracts per API"
+description: |-
+  Service contracts are documented agreements between API producers and consumers 
+  defined in a machine-readable API definition. A contract versioning strategy 
+  allows consumers to continue using the existing API and migrate their 
+  applications to a newer API when they are ready. Producer deployment can happen 
+  any time as long as the contract is followed. Service teams can use the 
+  technology stack of their choice to satisfy the API contract.
+
+  **Desired outcome**
+
+  Applications built with service-oriented or microservice architectures are able 
+  to operate independently while having integrated runtime dependency.
+  Changes deployed to an API consumer or producer do not interrupt the stability 
+  of the overall system when both sides follow a common API contract.
+  Components that communicate over service APIs can perform independent functional 
+  releases, upgrades to runtime dependencies, or fail over to a disaster recovery 
+  (DR) site with little or no impact to each other.
+  Discrete services are able to independently scale, absorbing resource demand 
+  without requiring other services to scale in unison.
+
+  **Common anti-patterns**
+
+  - Creating service APIs without strongly typed schemas. This results in APIs that 
+    cannot be used to generate API bindings and payloads that can’t be 
+    programmatically validated.
+  - Not adopting a versioning strategy, which forces API consumers to update and 
+    release or fail when service contracts evolve.
+  - Error messages that leak details of the underlying service implementation rather 
+    than describe integration failures in the domain context and language.
+  - Not using API contracts to develop test cases and mock API implementations to 
+    allow for independent testing of service components.
+
+  **Benefits of establishing this best practice**
+
+  Distributed systems composed of components that communicate over API service 
+  contracts can improve reliability.
+  Developers can catch potential issues early in the development process with type 
+  checking during compilation to verify that requests and responses follow the API 
+  contract and required fields are present.
+  API contracts provide a clear self-documenting interface for APIs and provide 
+  better interoperability between different systems and programming languages.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Once you have identified business domains and determined your workload 
+  segmentation, you can develop your service APIs. First, define machine-readable 
+  service contracts for APIs, and then implement an API versioning strategy. When 
+  you are ready to integrate services over common protocols like REST, GraphQL, or 
+  asynchronous events, you can incorporate AWS services into your architecture to 
+  integrate your components with strongly-typed API contracts.
+
+  ### AWS services for service API contracts
+
+  Incorporate AWS services including Amazon API Gateway, AWS AppSync, and Amazon 
+  EventBridge into your architecture to use API service contracts in your 
+  application. Amazon API Gateway helps you integrate directly with native AWS 
+  services and other web services. API Gateway supports the OpenAPI specification 
+  and versioning. AWS AppSync is a managed GraphQL endpoint you configure by 
+  defining a GraphQL schema to define a service interface for queries, mutations, 
+  and subscriptions. Amazon EventBridge uses event schemas to define events and 
+  generate code bindings for your events.
+
+  ### Implementation steps
+
+  1. First, define a contract for your API. A contract will express the capabilities 
+     of an API as well as define strongly typed data objects and fields for the API 
+     input and output.
+  2. When you configure APIs in API Gateway, you can import and export OpenAPI 
+     Specifications for your endpoints.
+
+      - Importing an OpenAPI definition simplifies the creation of your API and can be 
+        integrated with AWS infrastructure as code tools like the AWS Serverless 
+        Application Model and AWS Cloud Development Kit (AWS CDK).
+      - Exporting an API definition simplifies integrating with API testing tools and 
+        provides service consumers an integration specification.
+
+  5. You can define and manage GraphQL APIs with AWS AppSync by defining a GraphQL 
+     schema file to generate your contract interface and simplify interaction with 
+     complex REST models, multiple database tables, or legacy services.
+  6. AWS Amplify projects that are integrated with AWS AppSync generate strongly 
+     typed JavaScript query files for use in your application as well as an AWS 
+     AppSync GraphQL client library for Amazon DynamoDB tables.
+  7. When you consume service events from Amazon EventBridge, events adhere to 
+     schemas that already exist in the schema registry or that you define with the 
+     OpenAPI Spec. With a schema defined in the registry, you can also generate 
+     client bindings from the schema contract to integrate your code with events.
+  8. Extending or versioning your API. Extending an API is a simpler option when 
+     adding fields that can be configured with optional fields or default values 
+     for required fields.
+
+      - JSON-based contracts for protocols like REST and GraphQL can be a good fit 
+        for contract extension.
+      - XML-based contracts for protocols like SOAP should be tested with service 
+        consumers to determine the feasibility of contract extension.
+        
+  9. When versioning an API, consider implementing proxy versioning where a facade 
+    is used to support versions so that logic can be maintained in a single 
+    codebase.
+
+      - With API Gateway, you can use request and response mappings to simplify 
+        absorbing contract changes by establishing a facade to provide default values 
+        for new fields or to strip removed fields from a request or response. With 
+        this approach, the underlying service can maintain a single codebase.

@@ -1,0 +1,47 @@
+---
+name: "OPS11-BP05 Define drivers for improvement"
+description: |-
+  Identify drivers for improvement to help you evaluate and prioritize opportunities based
+  on data and feedback loops. Explore improvement opportunities in your systems and
+  processes, and automate where appropriate.
+
+  **Desired outcome**
+
+  - You track data from across your environment.
+  - You correlate events and activities to business outcomes.
+  - You can compare and contrast between environments and systems.
+  - You maintain a detailed activity history of your deployments and outcomes.
+  - You collect data to support your security posture.
+
+  **Common anti-patterns**
+
+  - You collect data from across your environment but do not correlate events and activities.
+  - You collect detailed data from across your estate, and it drives high Amazon CloudWatch
+  and AWS CloudTrail activity and cost. However, you do not use this data meaningfully.
+  - You do not account for business outcomes when defining drivers for improvement.
+  - You do not measure the effects of new features.
+
+  **Benefits of establishing this best practice**
+
+  - You minimize the impact of event-based motivations or emotional investment by
+  determining criteria for improvement.
+  - You respond to business events, not just technical ones.
+  - You measure your environment to identify areas of improvement.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  - Understand drivers for improvement: You should only make changes to a system when a 
+  desired outcome is supported.
+
+  - Desired capabilities: Evaluate desired features and capabilities when evaluating
+  opportunities for improvement.
+
+  - Unacceptable issues: Evaluate unacceptable issues, bugs, and vulnerabilities when
+  evaluating opportunities for improvement. Track rightsizing options, and seek
+  optimization opportunities.
+
+  - Compliance requirements: Evaluate updates and changes required to maintain compliance
+  with regulation, policy, or to remain under support from a third party, when reviewing
+  opportunities for improvement.

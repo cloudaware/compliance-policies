@@ -1,0 +1,81 @@
+---
+name: "REL02-BP03 Ensure IP subnet allocation accounts for expansion and availability"
+description: |-
+  Amazon VPC IP address ranges must be large enough to accommodate workload
+  requirements, including factoring in future expansion and allocation of IP
+  addresses to subnets across Availability Zones. This includes load balancers,
+  EC2 instances, and container-based applications.
+
+  When you plan your network topology, the first step is to define the IP address
+  space itself. Private IP address ranges (following RFC 1918 guidelines) should be
+  allocated for each VPC. Accommodate the following requirements as part of this
+  process:
+
+  - Allow IP address space for more than one VPC per Region.
+  - Within a VPC, allow space for multiple subnets so that you can cover multiple
+    Availability Zones.
+  - Consider leaving unused CIDR block space within a VPC for future expansion.
+  - Ensure that there is IP address space to meet the needs of any transient fleets
+    of Amazon EC2 instances that you might use, such as Spot Fleets for machine
+    learning, Amazon EMR clusters, or Amazon Redshift clusters. Similar consideration
+    should be given to Kubernetes clusters, such as Amazon Elastic Kubernetes
+    Service (Amazon EKS), as each Kubernetes pod is assigned a routable address from
+    the VPC CIDR block by default.
+  - Note that the first four IP addresses and the last IP address in each subnet CIDR
+    block are reserved and not available for your use.
+  - Note that the initial VPC CIDR block allocated to your VPC cannot be changed or
+    deleted, but you can add additional non-overlapping CIDR blocks to the VPC. Subnet
+    IPv4 CIDRs cannot be changed, however IPv6 CIDRs can.
+  - The largest possible VPC CIDR block is a /16, and the smallest is a /28.
+  - Consider other connected networks (VPC, on-premises, or other cloud providers) and
+    ensure non-overlapping IP address space. For more information, see REL02-BP05
+    Enforce non-overlapping private IP address ranges in all private address spaces
+    where they are connected.
+
+  **Desired outcome**
+
+  A scalable IP subnet can help you accomodate for future growth and avoid
+  unnecessary waste.
+
+  **Common anti-patterns**
+
+  - Failing to consider future growth, resulting in CIDR blocks that are too small
+    and requiring reconfiguration, potentially causing downtime.
+  - Incorrectly estimating how many IP addresses an elastic load balancer can use.
+  - Deploying many high traffic load balancers into the same subnets.
+  - Using automated scaling mechanisms whilst failing to monitor IP address
+    consumption.
+  - Defining excessively large CIDR ranges well beyond future growth expectations,
+    which can lead to difficulty peering with other networks with overlapping
+    address ranges.
+
+  **Benefits of establishing this best practice**
+
+  This ensures that you can accommodate the growth of your workloads and continue
+  to provide availability as you scale up.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Plan your network to accommodate for growth, regulatory compliance, and
+  integration with others. Growth can be underestimated, regulatory compliance can
+  change, and acquisitions or private network connections can be difficult to
+  implement without proper planning.
+
+  - Select relevant AWS accounts and Regions based on your service requirements,
+    latency, regulatory, and disaster recovery (DR) requirements.
+  - Identify your needs for regional VPC deployments.
+  - Identify the size of the VPCs.
+      - Determine if you are going to deploy multi-VPC connectivity.
+          - What Is a Transit Gateway?
+          - Single Region Multi-VPC Connectivity
+      - Determine if you need segregated networking for regulatory requirements.
+      - Make VPCs with appropriately-sized CIDR blocks to accommodate your current and
+        future needs.
+          - If you have unknown growth projections, you may wish to err on the side of larger
+            CIDR blocks to reduce the potential for future reconfiguration.
+      - Consider using IPv6 addressing for subnets as part of a dual-stack VPC. IPv6 is
+        well suited to being used in private subnets containing fleets of ephemeral
+        instances or containers that would otherwise require large numbers of IPv4
+        addresses.

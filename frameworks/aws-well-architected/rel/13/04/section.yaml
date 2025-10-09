@@ -1,0 +1,79 @@
+---
+name: "REL13-BP04 Manage configuration drift at the DR site or Region"
+description: |-
+  To perform a successful disaster recovery (DR) procedure, your workload must be 
+  able to resume normal operations in a timely manner with no relevant loss of 
+  functionality or data once the DR environment has been brought online. To achieve 
+  this goal, it's essential to maintain consistent infrastructure, data, and 
+  configurations between your DR environment and the primary environment.
+
+  **Desired outcome:** Your disaster recovery site's configuration and data are in 
+  parity with the primary site, which facilitates rapid and complete recovery when 
+  needed.
+
+  **Common anti-patterns:**
+
+  - You fail to update recovery locations when changes are made to the primary 
+    locations, which results in outdated configurations that could hinder recovery 
+    efforts.
+  - You do not consider potential limitations such as service differences between 
+    primary and recovery locations, which can lead to unexpected failures during 
+    failover.
+  - You rely on manual processes to update and synchronize the DR environment, 
+    which increases the risk of human error and inconsistency.
+  - You fail to detect configuration drift, which leads to a false sense of DR site 
+    readiness prior to an incident.
+
+  **Benefits of establishing this best practice:** Consistency between the DR 
+  environment and the primary environment significantly improves the likelihood of 
+  a successful recovery after an incident and reduces the risk of a failed recovery 
+  procedure.
+
+  **Level of risk exposed if this best practice is not established:** High
+
+  ## Implementation guidance
+
+  A comprehensive approach to configuration management and failover readiness can 
+  help you verify that the DR site is consistently updated and prepared to take 
+  over in the event of a primary site failure.
+
+  To achieve consistency between your primary and disaster recovery (DR) 
+  environments, validate that your delivery pipelines distribute applications to 
+  both your primary and DR sites. Roll out changes to the DR sites after an 
+  appropriate evaluation period (also known as staggered deployments) to detect 
+  problems at the primary site and halt the deployment before they spread. Implement 
+  monitoring to detect configuration drift, and track changes and compliance across 
+  your environments. Perform automated remediation in the DR site to keep it fully 
+  consistent and ready to take over in the event of an incident.
+
+  ### Implementation steps
+
+  - Validate that the DR region contains the AWS services and features required for 
+    a successful execution of your DR plan.
+  - Use infrastructure as code (IaC). Keep your production infrastructure and 
+    application configuration templates accurate, and regularly apply them to your 
+    disaster recovery environment. AWS CloudFormation can detect drift between what 
+    your CloudFormation templates specify and what is actually deployed.
+  - Configure CI/CD pipelines to deploy applications and infrastructure updates to 
+    all environments, including primary and DR sites. CI/CD solutions such as AWS 
+    CodePipeline can automate the deployment process, which reduces the risk of 
+    configuration drift.
+  - Stagger deployments between the primary and DR environments. This approach 
+    allows updates to be initially deployed and tested in the primary environment, 
+    which isolates issues in the primary site before they are propagated to the DR 
+    site. This approach prevents defects from being simultaneously pushed to 
+    production and the DR site at the same time and maintains the integrity of the 
+    DR environment.
+  - Continually monitor resource configurations in both primary and DR environments. 
+    Solutions such as AWS Config can help to enforce configuration compliance and 
+    detect drift, which helps maintain the consistent configurations across 
+    environments.
+  - Implement alerting mechanisms to track and notify upon any configuration drift 
+    or data replication interruption or lag.
+  - Automate the remediation of detected configuration drift.
+  - Schedule regular audits and compliance checks to verify ongoing alignment 
+    between primary and DR configurations. Periodic reviews help you maintain 
+    compliance with defined rules and identify any discrepancies that need to be 
+    addressed.
+  - Check for mismatches in AWS provisioned capacity, service quotas, throttle 
+    limits, and configuration and version discrepancies.

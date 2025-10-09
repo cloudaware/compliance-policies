@@ -1,0 +1,52 @@
+---
+inputType: "CA10__CaAwsAccount__c"
+testData:
+ - file: "test-data.json"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "GuardDuty is enabled for all active regions."
+    check:
+      IS_EQUAL:
+        left:
+          RELATED_LIST_COUNT:
+            status: "COMPLIANT"
+            relationshipName: "CA10__AWS_GuardDuty_Detectors__r"
+        right:
+          RELATED_LIST_COUNT:
+            status: "COMPLIANT"
+            relationshipName: "CA10__AWS_Account_Regions__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "GuardDuty is not enabled for all active regions."
+  remediationMessage: "Consider enabling GuardDuty in each active region to ensure full threat detection coverage."
+relatedLists:
+  - relationshipName: "CA10__AWS_GuardDuty_Detectors__r"
+    importExtracts:
+      - file: /types/CA10__CaAwsGuardDutyDetector__c/object.extracts.yaml
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "Active AWS GuardDuty Detector."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__status__c"
+            right:
+              TEXT: "ENABLED"
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "This GuardDuty detector is not active."
+  - relationshipName: "CA10__AWS_Account_Regions__r"
+    importExtracts:
+      - file: /types/CA10__CaAwsAccountRegion__c/object.extracts.yaml
+    conditions:
+    - status: "COMPLIANT"
+      currentStateMessage: "Active AWS Account Region."
+      check:
+        NOT_EQUAL:
+          left:
+            EXTRACT: "CA10__status__c"
+          right:
+            TEXT: "not-opted-in"
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "This AWS Account Region is not active."

@@ -1,0 +1,17 @@
+---
+names:
+  full: "AWS GuardDuty Detector EKS Audit Log Monitoring is not enabled"
+  contextual: "Detector EKS Audit Log Monitoring is not enabled"
+description: >
+  Ensure that AWS GuardDuty EKS Audit Log Monitoring is enabled to monitor Kubernetes 
+  audit logs for potential threats and suspicious activities within your EKS clusters.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/guardduty/05"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[GuardDuty.5] GuardDuty EKS Audit Log Monitoring should be enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/guardduty-controls.html#guardduty-5"

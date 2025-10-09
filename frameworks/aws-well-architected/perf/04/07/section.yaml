@@ -1,0 +1,101 @@
+---
+name: "PERF04-BP07 Optimize network configuration based on metrics"
+description: |-
+  Use collected and analyzed data to make informed decisions about optimizing your 
+  network configuration.
+
+  **Common anti-patterns**
+
+  - You assume that all performance-related issues are application-related.
+  - You only test your network performance from a location close to where you have 
+    deployed the workload.
+  - You use default configurations for all network services.
+  - You overprovision the network resource to provide sufficient capacity.
+
+  **Benefits of establishing this best practice**
+
+  Collecting necessary metrics of your AWS network and implementing network 
+  monitoring tools allows you to understand network performance and optimize network 
+  configurations.
+
+  **Level of risk exposed if this best practice is not established:** Low
+
+  ## Implementation guidance
+
+  Monitoring traffic to and from VPCs, subnets, or network interfaces is crucial to 
+  understand how to utilize AWS network resources and optimize network 
+  configurations. By using the following AWS networking tools, you can further 
+  inspect information about the traffic usage, network access and logs.
+
+  ### Implementation steps
+
+  1. Identify the key performance metrics such as latency or packet loss to collect. AWS 
+  provides several tools that can help you to collect these metrics. By using the 
+  following tools, you can further inspect information about the traffic usage, 
+  network access, and logs:
+
+      - Amazon VPC IP Address Manager  
+        Use IPAM to plan, track, and monitor IP addresses for your AWS and on-premises 
+        workloads. This is a best practice to optimize IP address usage and allocation.
+
+      - VPC Flow Logs  
+        Use VPC Flow Logs to capture detailed information about traffic to and from 
+        network interfaces in your VPCs. With VPC Flow Logs, you can diagnose overly 
+        restrictive or permissive security group rules and determine the direction of 
+        the traffic to and from the network interfaces.
+
+      - AWS Transit Gateway Flow Logs  
+        Use AWS Transit Gateway Flow Logs to capture information about the IP traffic 
+        going to and from your transit gateways.
+
+      - DNS query logging  
+        Log information about public or private DNS queries Route 53 receives. With DNS 
+        logs, you can optimize DNS configurations by understanding the domain or 
+        subdomain that was requested or Route 53 EDGE locations that responded to DNS 
+        queries.
+
+      - Reachability Analyzer  
+        Reachability Analyzer helps you analyze and debug network reachability. 
+        Reachability Analyzer is a configuration analysis tool that allows you to perform 
+        connectivity testing between a source resource and a destination resource in 
+        your VPCs. This tool helps you verify that your network configuration matches 
+        your intended connectivity.
+
+      - Network Access Analyzer  
+        Network Access Analyzer helps you understand network access to your resources. 
+        You can use Network Access Analyzer to specify your network access requirements 
+        and identify potential network paths that do not meet your specified 
+        requirements. By optimizing your corresponding network configuration, you can 
+        understand and verify the state of your network and demonstrate if your network 
+        on AWS meets your compliance requirements.
+
+      - Amazon CloudWatch  
+        Use Amazon CloudWatch and turn on the appropriate metrics for network options. 
+        Make sure to choose the right network metric for your workload. For example, you 
+        can turn on metrics for VPC Network Address Usage, VPC NAT Gateway, AWS Transit 
+        Gateway, VPN tunnel, AWS Network Firewall, Elastic Load Balancing, and AWS Direct 
+        Connect. Continually monitoring metrics is a good practice to observe and 
+        understand your network status and usage, which helps you optimize network 
+        configuration based on your observations.
+
+      - AWS Network Manager  
+        Using AWS Network Manager, you can monitor the real-time and historical 
+        performance of the AWS Global Network for operational and planning purposes. 
+        Network Manager provides aggregate network latency between AWS Regions and 
+        Availability Zones and within each Availability Zone, allowing you to better 
+        understand how your application performance relates to the performance of the 
+        underlying AWS network.
+
+      - Amazon CloudWatch RUM  
+        Use Amazon CloudWatch RUM to collect the metrics that give you the insights that 
+        help you identify, understand, and improve user experience.
+
+  2. Identify top talkers and application traffic patterns using VPC and AWS Transit 
+  Gateway Flow Logs.
+
+  3. Assess and optimize your current network architecture including VPCs, subnets, 
+  and routing. As an example, you can evaluate how different VPC peering or AWS 
+  Transit Gateway can help you improve the networking in your architecture.
+
+  4. Assess the routing paths in your network to verify that the shortest path between 
+  destinations is always used. Network Access Analyzer can help you do this.

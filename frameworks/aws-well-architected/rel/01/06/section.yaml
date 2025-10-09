@@ -1,0 +1,86 @@
+---
+name: "REL01-BP06 Ensure that a sufficient gap exists between the current quotas\
+  \ and the maximum usage to accommodate failover"
+description: |-
+  This article explains how to maintain space between the resource quota and your
+  usage, and how it can benefit your organization. After you finish using a
+  resource, the usage quota may continue to account for that resource. This can
+  result in a failing or inaccessible resource. Prevent resource failure by
+  verifying that your quotas cover the overlap of inaccessible resources and their
+  replacements. Consider cases like network failure, Availability Zone failure, or
+  Region failures when calculating this gap.
+
+  **Desired outcome**
+
+  Small or large failures in resources or resource accessibility can be covered
+  within the current service thresholds.
+  Zone failures, network failures, or even Regional failures have been considered
+  in the resource planning.
+
+  **Common anti-patterns**
+
+  - Setting service quotas based on current needs without accounting for failover
+    scenarios.
+  - Not considering the principals of static stability when calculating the peak
+    quota for a service.
+  - Not considering the potential of inaccessible resources in calculating total
+    quota needed for each Region.
+  - Not considering AWS service fault isolation boundaries for some services and
+    their potential abnormal usage patterns.
+
+  **Benefits of establishing this best practice**
+
+  When service disruption events impact application availability, use the cloud
+  to implement strategies to recover from these events.
+  An example strategy is creating additional resources to replace inaccessible
+  resources to accommodate failover conditions without exhausting your service
+  limit.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  When evaluating a quota limit, consider failover cases that might occur due to
+  some degradation. Consider the following failover cases:
+
+  - A disrupted or inaccessible VPC.
+  - An inaccessible subnet.
+  - A degraded Availability Zone that impacts resource accessibility.
+  - Networking routes or ingress and egress points are blocked or changed.
+  - A degraded Region that impacts resource accessibility.
+  - A subset of resources affected by a failure in a Region or an Availability Zone.
+
+  The decision to failover is unique for each situation, as the business impact can
+  vary. Address resource capacity planning in the failover location and the
+  resources’ quotas before deciding to failover an application or service.
+
+  Consider higher than normal peaks of activity when reviewing quotas for each
+  service. These peaks might be related to resources that are inaccessible due to
+  networking or permissions, but are still active. Unterminated active resources
+  count against the service quota limit.
+
+  ### Implementation steps
+
+  1. Maintain space between your service quota and your maximum usage to accommodate
+     for a failover or loss of accessibility.
+  2. Determine your service quotas. Account for typical deployment patterns,
+     availability requirements, and consumption growth.
+  3. Request quota increases if necessary. Anticipate a wait time for the quota
+     increase request.
+  4. Determine your reliability requirements (also known as your number of nines).
+  5. Understand potential fault scenarios such as loss of a component, an
+     Availability Zone, or a Region.
+  6. Establish your deployment methodology (examples include canary, blue/green,
+     red/black, and rolling).
+  7. Include an appropriate buffer to the current quota limit. An example buffer
+     could be 15%.
+  8. Include calculations for static stability (Zonal and Regional) where
+     appropriate.
+  9. Plan consumption growth and monitor your consumption trends.
+  10. Consider the static stability impact for your most critical workloads. Assess
+      resources conforming to a statically stable system in all Regions and
+      Availability Zones.
+  11. Consider using On-Demand Capacity Reservations to schedule capacity ahead of
+      any failover. This is a useful strategy to implement for critical business
+      schedules to reduce potential risks of obtaining the correct quantity and type
+      of resources during failover.

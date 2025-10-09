@@ -1,0 +1,86 @@
+---
+name: "SEC07-BP04 Define scalable data lifecycle management"
+description: |-
+  Understand your data lifecycle requirements as they relate to your different 
+  levels of data classification and handling.  This can include how data is handled 
+  when it first enters your environment, how data is transformed, and the rules for 
+  its destruction. Consider factors such as retention periods, access, auditing, 
+  and tracking provenance.
+
+  **Desired outcome**
+
+  You classify data as close as possible to the point and time of ingestion. When 
+  data classification requires masking, tokenization, or other processes that 
+  reduce sensitivity level, you perform these actions as close as possible to 
+  point and time of ingestion.
+
+  You delete data in accordance with your policy when it is no longer appropriate 
+  to keep, based on its classification.
+
+  **Common anti-patterns**
+
+  - Implementing a one-size-fits-all approach to data lifecycle management, without 
+    considering varying sensitivity levels and access requirements.
+  - Considering lifecycle management only from the perspective of either data that 
+    is usable, or data that is backed up, but not both.
+  - Assuming that data that has entered your workload is valid, without establishing 
+    its value or provenance.
+  - Relying on data durability as a substitute for data backups and protection.
+  - Retaining data beyond its usefulness and required retention period.
+
+  **Benefits of establishing this best practice**
+
+  A well-defined and scalable data lifecycle management strategy helps maintain 
+  regulatory compliance, improves data security, optimizes storage costs, and 
+  enables efficient data access and sharing while maintaining appropriate controls.
+
+  **Level of risk exposed if this best practice is not established:** High
+
+  ## Implementation guidance
+
+  Data within a workload is often dynamic.  The form it takes when entering your 
+  workload environment can be different from when it is stored or used in business 
+  logic, reporting, analytics, or machine learning.  In addition, the value of 
+  data can change over time. Some data is temporal in nature and loses value as 
+  it gets older.  Consider how these changes to your data impact evaluation under 
+  your data classification scheme and associated controls.  Where possible, use 
+  an automated lifecycle mechanism, such as Amazon S3 lifecycle policies and the 
+  Amazon Data Lifecycle Manager, to configure your data retention, archiving, and 
+  expiration processes. For data stored in DynamoDB, you can use the Time To Live 
+  (TTL) feature to define a per-item expiration timestamp.
+
+  Distinguish between data that is available for use, and data that is stored as 
+  a backup.  Consider using AWS Backup to automate the backup of data across AWS 
+  services.  Amazon EBS snapshots provide a way to copy an EBS volume and store 
+  it using S3 features, including lifecycle, data protection, and access to 
+  protection mechanisms. Two of these mechanisms are S3 Object Lock and AWS Backup 
+  Vault Lock, which can provide you with additional security and control over your 
+  backups. Manage clear separation of duties and access for backups. Isolate 
+  backups at the account level to maintain separation from the affected environment 
+  during an event.
+
+  Another aspect of lifecycle management is recording the history of data as it 
+  progresses through your workload, called data provenance tracking. This can give 
+  confidence that you know where the data came from, any transformations performed, 
+  what owner or process made those changes, and when.  Having this history helps 
+  with troubleshooting issues and investigations during potential security events.  
+  For example, you can log metadata about transformations in an Amazon DynamoDB 
+  table.  Within a data lake, you can keep copies of transformed data in different 
+  S3 buckets for each data pipeline stage. Store schema and timestamp information 
+  in an AWS Glue Data Catalog.  Regardless of your solution, consider the 
+  requirements of your end users to determine the appropriate tooling you need to 
+  report on your data provenance.  This will help you determine how to best track 
+  your provenance.
+
+  ### Implementation steps
+
+  1. Analyze the workload's data types, sensitivity levels, and access requirements 
+     to classify the data and define appropriate lifecycle management strategies.
+  2. Design and implement data retention policies and automated destruction 
+     processes that align with legal, regulatory, and organizational requirements.
+  3. Establish processes and automation for continuous monitoring, auditing, and 
+     adjustment of data lifecycle management strategies, controls, and policies as 
+     workload requirements and regulations evolve.
+     
+      - Detect resources that do not have automated lifecycle management turned on with 
+        AWS Config.

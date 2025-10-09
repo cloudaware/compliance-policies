@@ -1,0 +1,80 @@
+---
+name: "REL02-BP04 Prefer hub-and-spoke topologies over many-to-many mesh"
+description: |-
+  When connecting multiple private networks, such as Virtual Private Clouds (VPCs)
+  and on-premises networks, opt for a hub-and-spoke topology over a meshed one.
+  Unlike meshed topologies, where each network connects directly to the others and
+  increases the complexity and management overhead, the hub-and-spoke architecture
+  centralizes connections through a single hub. This centralization simplifies the
+  network structure and enhances its operability, scalability, and control.
+
+  AWS Transit Gateway is a managed, scalable, and highly-available service designed
+  for construction of hub-and-spoke networks on AWS. It serves as the central hub
+  of your network that provides network segmentation, centralized routing, and the
+  simplified connection to both cloud and on-premises environments.
+
+  **Desired outcome**
+
+  - You have connected your Virtual Private Clouds (VPCs) and on-premises networks
+    through a central hub.
+  - You configure your peering connections through the hub, which acts as a highly
+    scalable cloud router.
+  - Routing is simplified because you do not have to work with complex peering
+    relationships.
+  - Traffic between networks is encrypted, and you have the ability to isolate
+    networks.
+
+  **Common anti-patterns**
+
+  - You build complex network peering rules.
+  - You provide routes between networks that should not communicate with one another
+    (for example, separate workloads that have no interdependencies).
+  - There is ineffective governance of the hub instance.
+
+  **Benefits of establishing this best practice**
+
+  As the number of connected networks increases, management and expansion of
+  meshed connectivity becomes increasingly challenging.
+  A mesh architecture introduces additional challenges, such as additional
+  infrastructure components, configuration requirements, and deployment
+  considerations.
+  The mesh also introduces additional overhead to manage and monitor the data
+  plane and control plane components.
+  A hub-and-spoke model establishes centralized traffic routing across multiple
+  networks, simplifying management and monitoring of the data plane and control
+  plane components.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Create a Network Services account if one does not exist. Place the hub in the
+  organization's Network Services account for central management by network
+  engineers.
+
+  The hub acts as a virtual router for traffic flowing between your VPCs and
+  on-premises networks, reducing network complexity and simplifying troubleshooting.
+
+  Consider your network design, including the VPCs, AWS Direct Connect, and
+  Site-to-Site VPN connections you want to interconnect.
+
+  Use a separate subnet for each Transit Gateway VPC attachment. Use small CIDRs
+  (for example /28) for flexibility in compute resources.
+
+  Create one network ACL and associate it with all hub subnets. Keep the ACL open
+  for both inbound and outbound traffic.
+
+  Design routing tables to provide routes only between networks that should
+  communicate. Omit routes for networks that should remain isolated.
+
+  ### Implementation steps
+
+  1. Plan your network: Determine which networks to connect and verify that CIDR
+     ranges do not overlap.
+  2. Create an AWS Transit Gateway and attach your VPCs.
+  3. If needed, create VPN connections or Direct Connect gateways, and associate
+     them with the Transit Gateway.
+  4. Configure Transit Gateway route tables to define how traffic is routed between
+     the connected VPCs and other connections.
+  5. Use Amazon CloudWatch to monitor performance and adjust configurations as
+     necessary for optimization and cost efficiency.

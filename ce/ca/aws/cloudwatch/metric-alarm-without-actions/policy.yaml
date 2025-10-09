@@ -1,0 +1,25 @@
+---
+names:
+  full: "AWS CloudWatch Metric Alarm does not have any actions configured"
+  contextual: "Metric Alarm does not have any actions configured"
+description: "Ensure that Amazon CloudWatch alarms are configured with at least\
+  \ one action for the ALARM, INSUFFICIENT_DATA, or OK states. Actions are essential\
+  \ for notifying personnel or triggering automated responses when an alarm changes\
+  \ state, ensuring that operational or security events are not missed."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring/alerting-and-notification"
+  - "/frameworks/aws-well-architected/ops/04/05"
+  - "/frameworks/aws-well-architected/rel/11/06"
+  - "/frameworks/nist-sp-800-53-r5/au/06/01"
+  - "/frameworks/nist-sp-800-53-r5/au/06/05"
+  - "/frameworks/nist-sp-800-53-r5/ca/07"  
+  - "/frameworks/nist-sp-800-53-r5/si/04/12"  
+  - "/frameworks/nist-sp-800-53-r5/si/02"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[CloudWatch.17] CloudWatch alarm actions should be activated"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html#cloudwatch-17"

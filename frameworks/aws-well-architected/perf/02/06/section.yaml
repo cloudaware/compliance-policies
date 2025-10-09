@@ -1,0 +1,49 @@
+---
+name: "PERF02-BP06 Use optimized hardware-based compute accelerators"
+description: |-
+  Use hardware accelerators to perform certain functions more efficiently than 
+  CPU-based alternatives.
+
+  **Common anti-patterns:**
+
+  - In your workload, you haven't benchmarked a general-purpose instance against a 
+    purpose-built instance that can deliver higher performance and lower cost.
+  - You are using hardware-based compute accelerators for tasks that can be more 
+    efficient using CPU-based alternatives.
+  - You are not monitoring GPU usage.
+
+  **Benefits of establishing this best practice:** By using hardware-based 
+  accelerators, such as graphics processing units (GPUs) and field programmable gate 
+  arrays (FPGAs), you can perform certain processing functions more efficiently.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Accelerated computing instances provide access to hardware-based compute 
+  accelerators such as GPUs and FPGAs. These hardware accelerators perform certain 
+  functions like graphic processing or data pattern matching more efficiently than 
+  CPU-based alternatives. Many accelerated workloads, such as rendering, 
+  transcoding, and machine learning, are highly variable in terms of resource usage. 
+  Only run this hardware for the time needed, and decommission them with automation 
+  when not required to improve overall performance efficiency.
+
+  ### Implementation steps
+
+  - Identify which accelerated computing instances can address your requirements.
+  - For machine learning workloads, take advantage of purpose-built hardware that 
+    is specific to your workload, such as AWS Trainium, AWS Inferentia, and Amazon 
+    EC2 DL1. AWS Inferentia instances, such as Inf2 instances, offer up to 50% 
+    better performance/watt over comparable Amazon EC2 instances.
+  - Collect usage metrics for your accelerated computing instances. For example, 
+    use CloudWatch agent to collect metrics such as `utilization_gpu` and 
+    `utilization_memory` for your GPUs, as shown in Collect NVIDIA GPU metrics with 
+    Amazon CloudWatch.
+  - Optimize the code, network operations, and settings of hardware accelerators to 
+    ensure the underlying hardware is fully utilized.
+  - Optimize GPU settings.
+  - GPU Monitoring and Optimization in the Deep Learning AMI.
+  - Optimizing I/O for GPU performance tuning of deep learning training in Amazon 
+    SageMaker AI.
+  - Use the latest high-performance libraries and GPU drivers.
+  - Use automation to release GPU instances when not in use.

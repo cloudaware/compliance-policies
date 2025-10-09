@@ -1,0 +1,61 @@
+---
+name: "REL02-BP05 Enforce non-overlapping private IP address ranges in all private\
+  \ address spaces where they are connected"
+description: |-
+  The IP address ranges of each of your VPCs must not overlap when peered, 
+  connected via Transit Gateway, or connected over VPN. Avoid IP address 
+  conflicts between a VPC and on-premises environments or with other cloud 
+  providers that you use. You must also have a way to allocate private IP 
+  address ranges when needed. An IP address management (IPAM) system can help 
+  with automating this.
+
+  **Desired outcome**
+
+  - No IP address range conflicts between VPCs, on-premises environments, or 
+    other cloud providers.
+  - Proper IP address management allows for easier scaling of network 
+    infrastructure to accommodate growth and changes in network requirements.
+
+  **Common anti-patterns**
+
+  - Using the same IP range in your VPC as you have on premises, in your 
+    corporate network, or other cloud providers.
+  - Not tracking IP ranges of VPCs used to deploy your workloads.
+  - Relying on manual IP address management processes, such as spreadsheets.
+  - Over- or under-sizing CIDR blocks, which results in IP address waste or 
+    insufficient address space for your workload.
+
+  **Benefits of establishing this best practice**
+
+  Active planning of your network will ensure that you do not have multiple 
+  occurrences of the same IP address in interconnected networks. This 
+  prevents routing problems from occurring in parts of the workload that are 
+  using the different applications.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Make use of an IPAM, such as the Amazon VPC IP Address Manager, to monitor 
+  and manage your CIDR use. Several IPAMs are also available from the AWS 
+  Marketplace. Evaluate your potential usage on AWS, add CIDR ranges to 
+  existing VPCs, and create VPCs to allow planned growth in usage.
+
+  ### Implementation steps
+
+  1. Capture current CIDR consumption (for example, VPCs and subnets).
+
+      1. Use service API operations to collect current CIDR consumption.
+      2. Use the Amazon VPC IP Address Manager to discover resources.
+
+  2. Capture your current subnet usage.
+
+      1. Use service API operations to collect subnets per VPC in each Region.
+      2. Use the Amazon VPC IP Address Manager to discover resources.
+      
+  3. Record the current usage.
+  4. Determine if you created any overlapping IP ranges.
+  5. Calculate the spare capacity.
+  6. Identify overlapping IP ranges. You can either migrate to a new range of 
+     addresses or consider using techniques like private NAT Gateway or AWS 
+     PrivateLink if you need to connect the overlapping ranges.

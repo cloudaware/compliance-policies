@@ -1,0 +1,49 @@
+---
+name: "SUS04-BP08 Back up data only when difficult to recreate"
+description: |-
+  Avoid backing up data that has no business value to minimize storage resources 
+  requirements for your workload.
+
+  **Common anti-patterns**
+
+  - You do not have a backup strategy for your data.
+  - You back up data that can be easily recreated.
+
+  **Benefits of establishing this best practice**
+
+  Avoiding back-up of non-critical data reduces the required storage resources 
+  for the workload and lowers its environmental impact.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Avoiding the back up of unnecessary data can help lower cost and reduce the 
+  storage resources used by the workload. Only back up data that has business 
+  value or is needed to satisfy compliance requirements. Examine backup policies 
+  and exclude ephemeral storage that doesn’t provide value in a recovery scenario.
+
+  ### Implementation steps
+
+  1. Classify data: Implement data classification policy as outlined in SUS04-BP01 
+  Implement a data classification policy.
+
+  2. Design a backup strategy: Use the criticality of your data classification and 
+  design backup strategy based on your recovery time objective (RTO) and recovery 
+  point objective (RPO). Avoid backing up non-critical data.
+
+      - Exclude data that can be easily recreated.
+      - Exclude ephemeral data from your backups.
+      - Exclude local copies of data, unless the time required to restore that data 
+        from a common location exceeds your service-level agreements (SLAs).
+
+  3. Use automated backup: Use an automated solution or managed service to back up 
+  business-critical data.
+
+      - **AWS Backup** is a fully-managed service that makes it easy to 
+        centralize and automate data protection across AWS services, in the cloud, 
+        and on premises. For hands-on guidance on how to create automated backups 
+        using AWS Backup, see Well-Architected Labs - Testing Backup and Restore of 
+        Data.
+
+      - Automate backups and optimize backup costs for Amazon EFS using AWS Backup.

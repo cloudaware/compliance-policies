@@ -1,0 +1,66 @@
+---
+name: "OPS03-BP05 Experimentation is encouraged"
+description: |-
+  Experimentation is a catalyst for turning new ideas into products and features. 
+  It accelerates learning and keeps team members interested and engaged. Team 
+  members are encouraged to experiment often to drive innovation. Even when an 
+  undesired result occurs, there is value in knowing what not to do. Team members 
+  are not punished for successful experiments with undesired results.
+
+  **Desired outcome**
+
+  - Your organization encourages experimentation to foster innovation.
+  - Experiments are used as an opportunity to learn.
+
+  **Common anti-patterns**
+
+  - You want to run an A/B test but there is no mechanism to run the experiment. 
+  You deploy a UI change without the ability to test it, resulting in a negative 
+  customer experience.
+  - Your company only has a stage and production environment. There is no sandbox 
+  environment to experiment with new features or products, so experiments must be 
+  conducted in the production environment.
+
+  **Benefits of establishing this best practice**
+
+  - Experimentation drives innovation.
+  - You can react faster to feedback from users through experimentation.
+  - Your organization develops a culture of learning.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Experiments should be run in a safe manner. Leverage multiple environments to 
+  experiment without jeopardizing production resources. Use A/B testing and feature 
+  flags to test experiments. Provide team members the ability to conduct experiments 
+  in a sandbox environment.
+
+  ### Customer example
+
+  AnyCompany Retail encourages experimentation. Team members can use 20% of their 
+  work week to experiment or learn new technologies. They have a sandbox 
+  environment where they can innovate. A/B testing is used for new features to 
+  validate them with real user feedback.
+
+  ### Implementation steps
+
+  1. Work with leadership across your organization to support experimentation. 
+  Encourage team members to experiment safely.
+  2. Provide your team members with an environment where they can safely experiment. 
+  They must have access to an environment that is like production.
+
+      1. Use a separate AWS account to create a sandbox environment. AWS Control 
+      Tower can be used to provision these accounts.
+
+  3. Use feature flags and A/B testing to experiment safely and gather user feedback.
+
+      1. AWS AppConfig Feature Flags provides the ability to create feature flags.
+      2. You can use AWS Lambda versions to deploy a new version of a function 
+      for beta testing.  5. Ensure experiments are logged, results are analyzed, 
+      and learnings are shared with the team to promote a culture of learning.
+
+  **Level of effort for the implementation plan:** High. Providing a sandbox 
+  environment and safe mechanisms for experimentation may require significant 
+  investment. Application code may need modification to support feature flags 
+  or A/B testing.

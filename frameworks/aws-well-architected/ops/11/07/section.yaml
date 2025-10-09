@@ -1,0 +1,47 @@
+---
+name: "OPS11-BP07 Perform operations metrics reviews"
+description: |-
+  Regularly perform retrospective analysis of operations metrics with cross-team participants
+  from different areas of the business. Use these reviews to identify opportunities for
+  improvement, potential courses of action, and to share lessons learned. Look for
+  opportunities to improve in all of your environments (for example, development, test,
+  and production).
+
+  **Desired outcome**
+
+  - You frequently review business-affecting metrics.
+  - You detect and review anomalies through your observability capabilities.
+  - You use data to support business outcomes and goals.
+
+  **Common anti-patterns**
+
+  - Your maintenance window interrupts a significant retail promotion. The business remains
+  unaware that there is a standard maintenance window that could be delayed if there are
+  other business impacting events.
+  - You suffered an extended outage because you commonly use an outdated library in your
+  organization. You have since migrated to a supported library. The other teams in your
+  organization do not know that they are at risk.
+  - You do not regularly review attainment of customer SLAs. You are trending to not meet
+  your customer SLAs. There are financial penalties related to not meeting your customer
+  SLAs.
+
+  **Benefits of establishing this best practice**
+
+  - When you meet regularly to review operations metrics, events, and incidents, you
+  maintain common understanding across teams.
+  - Your team meets routinely to review metrics and incidents, which positions you to take
+  action on risks and recognize customer SLAs.
+  - You share lessons learned, which provides data for prioritization and targeted
+  improvements for business outcomes.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  - Regularly perform retrospective analysis of operations metrics with cross-team participants
+  from different areas of the business.
+
+  - Engage stakeholders, including the business, development, and operations teams, to validate
+  your findings from immediate feedback and retrospective analysis and share lessons learned.
+
+  - Use their insights to identify opportunities for improvement and potential courses of action.

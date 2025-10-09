@@ -1,0 +1,106 @@
+---
+name: "OPS10-BP01 Use a process for event, incident, and problem management"
+description: |-
+  The ability to efficiently manage events, incidents, and problems is key to maintaining
+  workload health and performance. Establishing and following well-defined processes for
+  each ensures swift, effective handling of operational challenges.
+
+  **Desired outcome**
+
+  - The organization effectively manages operational events, incidents, and problems
+    through documented and centrally stored processes.
+  - Processes are updated regularly to reflect changes, ensuring streamlined handling,
+    high service reliability, and workload performance.
+
+  **Common anti-patterns**
+
+  - Reactive response to events rather than proactive monitoring.
+  - Inconsistent handling of different types of events or incidents.
+  - Failure to analyze incidents for root causes to prevent recurrence.
+
+  **Benefits of establishing this best practice**
+
+  - Streamlined and standardized response processes.
+  - Reduced impact of incidents on services and customers.
+  - Faster issue resolution.
+  - Continuous improvement in operational processes.
+
+  **Level of risk exposed if this best practice is not established:** High
+
+  ## Implementation guidance
+
+  Implementing this best practice involves tracking events, responding to incidents, and
+  managing problems. Processes should be documented, shared, and frequently updated.
+
+  ### Understanding events, incidents, and problems
+
+  - **Events:** Observations of an action, occurrence, or change of state, planned or
+    unplanned, internal or external.
+  - **Incidents:** Events requiring a response due to unplanned interruptions or service
+    degradations.
+  - **Problems:** Root causes of one or more incidents, identified to prevent recurrence.
+
+  ### Implementation steps
+
+  #### Events
+
+  1. **Monitor events:**
+
+    - Utilize observability tools to track application and workload activities.
+    - Record user and service actions with AWS CloudTrail.
+    - Respond to operational changes in real time via Amazon EventBridge.
+    - Continuously assess resource configuration changes using AWS Config.
+
+  2. **Create processes:**
+
+    - Define thresholds for normal and abnormal activities.
+    - Establish criteria for escalating an event to an incident.
+    - Review monitoring and response processes regularly, adjusting thresholds and alerting mechanisms.
+
+  #### Incidents
+
+  1. **Respond to incidents:**
+
+    - Use observability insights to quickly identify and resolve incidents.
+    - Aggregate and manage incidents with AWS Systems Manager Ops Center.
+    - Analyze and troubleshoot using Amazon CloudWatch and AWS X-Ray.
+    - Leverage AWS Managed Services (AMS) or Enterprise Support features like Incident Detection and Response.
+
+  2. **Incident management process:**
+
+    - Define clear roles, communication protocols, and steps for resolution.
+    - Integrate with chat tools (e.g., Amazon Q Developer) for coordination.
+    - Categorize incidents by severity with predefined response plans.
+
+  3. **Learn and improve:**
+
+    - Conduct post-incident reviews and root cause analysis.
+    - Update response plans and share lessons learned across teams.
+    - Enterprise Support customers may use Incident Management Workshops to test and refine processes.
+
+  #### Problems
+
+  1. **Identify problems:**
+
+    - Analyze incident data to detect recurring patterns.
+    - Use AWS CloudTrail and CloudWatch to uncover systemic issues.
+    - Engage cross-functional teams for diverse perspectives on root causes.
+
+  2. **Problem management process:**
+
+    - Focus on long-term solutions rather than quick fixes.
+    - Apply root cause analysis techniques.
+    - Update operational procedures and infrastructure to prevent recurrence.
+
+  3. **Continue to improve:**
+
+    - Promote a culture of learning and proactive problem identification.
+    - Regularly revise problem management processes to align with evolving business and technology needs.
+    - Share insights and best practices organization-wide.
+
+  4. **Engage AWS Support:**
+
+    - Leverage AWS Trusted Advisor for proactive guidance.
+    - Enterprise Support customers can access specialized programs like AWS Countdown for critical events.
+
+  **Level of effort for the implementation plan:** Medium

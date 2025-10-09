@@ -1,0 +1,65 @@
+---
+name: "PERF02-BP01 Select the best compute options for your workload"
+description: |-
+  Selecting the most appropriate compute option for your workload allows you to 
+  improve performance, reduce unnecessary infrastructure costs, and lower the 
+  operational efforts required to maintain your workload.
+
+  **Common anti-patterns:**
+
+  - You use the same compute option that was used on premises.
+  - You lack awareness of the cloud compute options, features, and solutions, and 
+    how those solutions might improve your compute performance.
+  - You over-provision an existing compute option to meet scaling or performance 
+    requirements when an alternative compute option would align to your workload 
+    characteristics more precisely.
+
+  **Benefits of establishing this best practice:** By identifying the compute 
+  requirements and evaluating against the options available, you can make your 
+  workload more resource efficient.
+
+  **Level of risk exposed if this best practice is not established:** High
+
+  ## Implementation guidance
+
+  To optimize your cloud workloads for performance efficiency, it is important to 
+  select the most appropriate compute options for your use case and performance 
+  requirements. AWS provides a variety of compute options that cater to different 
+  workloads in the cloud. For instance, you can use Amazon EC2 to launch and manage 
+  virtual servers, AWS Lambda to run code without having to provision or manage 
+  servers, Amazon ECS or Amazon EKS to run and manage containers, or AWS Batch to 
+  process large volumes of data in parallel. Based on your scale and compute needs, 
+  you should choose and configure the optimal compute solution for your situation. 
+  You can also consider using multiple types of compute solutions in a single 
+  workload, as each one has its own advantages and drawbacks.
+
+  The following steps guide you through selecting the right compute options to match 
+  your workload characteristics and performance requirements.
+
+  ### Implementation steps
+
+  - Understand your workload compute requirements. Key requirements to consider 
+    include processing needs, traffic patterns, data access patterns, scaling needs, 
+    and latency requirements.
+  - Learn about different AWS compute services for your workload. For more 
+    information, see PERF01-BP01 Learn about and understand available cloud services 
+    and features. Here are some key AWS compute options, their characteristics, and 
+    common use cases:
+
+    | AWS service | Key characteristics | Common use cases |
+    |-------------|-------------------|----------------|
+    | Amazon Elastic Compute Cloud (Amazon EC2) | Has dedicated option for hardware, license requirements, large selection of different instance families, processor types and compute accelerators | Lift and shift migrations, monolithic application, hybrid environments, enterprise applications |
+    | Amazon Elastic Container Service (Amazon ECS), Amazon Elastic Kubernetes Service (Amazon EKS) | Easy deployment, consistent environments, scalable | Microservices, hybrid environments |
+    | AWS Lambda | Serverless compute service that runs code in response to events and automatically manages the underlying compute resources | Microservices, event-driven applications |
+    | AWS Batch | Efficiently and dynamically provisions Amazon ECS, Amazon EKS, and AWS Fargate compute resources, with an option to use On-Demand or Spot Instances based on your job requirements | HPC, train ML models |
+    | Amazon Lightsail | Preconfigured Linux and Windows application for running small workloads | Simple web applications, custom website |
+
+  - Evaluate cost (like hourly charge or data transfer) and management overhead (like 
+    patching and scaling) associated to each compute option.
+  - Perform experiments and benchmarking in a non-production environment to identify 
+    which compute option can best address your workload requirements.
+  - Once you have experimented and identified your new compute solution, plan your 
+    migration and validate your performance metrics.
+  - Use AWS monitoring tools like Amazon CloudWatch and optimization services like 
+    AWS Compute Optimizer to continually optimize your compute resources based on 
+    real-world usage patterns.

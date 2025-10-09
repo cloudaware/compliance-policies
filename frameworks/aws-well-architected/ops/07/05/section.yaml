@@ -1,0 +1,55 @@
+---
+name: "OPS07-BP05 Make informed decisions to deploy systems and changes"
+description: |-
+  Have processes in place for successful and unsuccessful changes to your workload.
+  A pre-mortem is an exercise where a team simulates a failure to develop mitigation
+  strategies. Use pre-mortems to anticipate failure and create procedures where
+  appropriate. Evaluate the benefits and risks of deploying changes to your workload.
+  Verify that all changes comply with governance.
+
+  **Desired outcome**
+
+  - You make informed decisions when deploying changes to your workload.
+  - Changes comply with governance.
+
+  **Common anti-patterns**
+
+  - Deploying a change to our workload without a process to handle a failed deployment.
+  - Making changes to your production environment that are out of compliance with
+    governance requirements.
+  - Deploying a new version of your workload without establishing a baseline for
+    resource utilization.
+
+  **Benefits of establishing this best practice**
+
+  - You are prepared for unsuccessful changes to your workload.
+  - Changes to your workload are compliant with governance policies.
+
+  **Level of risk exposed if this best practice is not established:** Low
+
+  ## Implementation guidance
+
+  Use pre-mortems to develop processes for unsuccessful changes. Document your
+  processes for unsuccessful changes. Ensure that all changes comply with governance.
+  Evaluate the benefits and risks to deploying changes to your workload.
+
+  **Customer example**
+
+  AnyCompany Retail regularly conducts pre-mortems to validate their processes for
+  unsuccessful changes. They document their processes in a shared Wiki and update
+  it frequently. All changes comply with governance requirements.
+
+  ### Implementation steps
+
+  1. Make informed decisions when deploying changes to your workload. Establish
+     and review criteria for a successful deployment. Develop scenarios or criteria
+     that would initiate a rollback of a change. Weigh the benefits of deploying
+     changes against the risks of an unsuccessful change.
+  2. Verify that all changes comply with governance policies.
+  3. Use pre-mortems to plan for unsuccessful changes and document mitigation
+     strategies. Run a table-top exercise to model an unsuccessful change and
+     validate roll-back procedures.
+
+  **Level of effort for the implementation plan:** Moderate. Implementing a practice
+  of pre-mortems requires coordination and effort from stakeholders across your
+  organization.

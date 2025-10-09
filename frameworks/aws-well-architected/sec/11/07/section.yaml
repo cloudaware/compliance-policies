@@ -1,0 +1,68 @@
+---
+name: "SEC11-BP07 Regularly assess security properties of the pipelines"
+description: |-
+  Apply the principles of the Well-Architected Security Pillar to your pipelines, with
+  particular attention to the separation of permissions. Regularly assess the security
+  properties of your pipeline infrastructure. Effectively managing the security of the
+  pipelines allows you to deliver the security of the software that passes through the
+  pipelines.
+
+  **Desired outcome**
+
+  The pipelines you use to build and deploy your software follow the same recommended
+  practices as any other workload in your environment. The tests that you implement in
+  your pipelines are not editable by the teams who use them. You give the pipelines
+  only the permissions needed for the deployments they are doing using temporary
+  credentials. You implement safeguards to prevent pipelines from deploying to the
+  wrong environments. You configure your pipelines to emit state so that the integrity
+  of your build environments can be validated.
+
+  **Common anti-patterns**
+
+  - Security tests that can be bypassed by builders.
+  - Overly broad permissions for deployment pipelines.
+  - Pipelines not being configured to validate inputs.
+  - Not regularly reviewing the permissions associated with your CI/CD infrastructure.
+  - Use of long-term or hardcoded credentials.
+
+  **Benefits of establishing this best practice**
+
+  - Greater confidence in the integrity of the software that is built and deployed
+    through the pipelines.
+  - Ability to stop a deployment when there is suspicious activity.
+
+  **Level of risk exposed if this best practice is not established:** High
+
+  ## Implementation guidance
+
+  Your deployment pipelines are a critical component of your software development
+  lifecycle and should follow the same security principles and practices as any other
+  workload in your environment. This includes implementing proper access controls,
+  validating inputs, and regularly reviewing and auditing the permissions associated
+  with your CI/CD infrastructure.
+
+  Verify that the teams responsible for building and deploying applications do not
+  have the ability to edit or bypass the security tests and checks implemented in your
+  pipelines. This separation of concerns helps maintain the integrity of your build and
+  deployment processes.
+
+  As a starting point, consider employing the AWS Deployment Pipelines Reference
+  Architecture. This reference architecture provides a secure and scalable foundation
+  for building your CI/CD pipelines on AWS.
+
+  Additionally, you can use services like AWS Identity and Access Management (IAM)
+  Access Analyzer to generate least-privilege IAM policies for both your pipeline
+  permissions and as a step in your pipeline to verify workload permissions. This helps
+  verify that your pipelines and workloads have only the necessary permissions required
+  for their specific functions, which reduces the risk of unauthorized access or
+  actions.
+
+  ### Implementation steps
+
+  1. Start with the AWS Deployment Pipelines Reference Architecture.
+  2. Consider using AWS IAM Access Analyzer to programmatically generate least
+     privilege IAM policies for the pipelines.
+  3. Integrate your pipelines with monitoring and alerting so that you are notified of
+     unexpected or abnormal activity. For AWS managed services, Amazon EventBridge
+     allows you to route data to targets such as AWS Lambda or Amazon Simple Notification
+     Service (Amazon SNS).

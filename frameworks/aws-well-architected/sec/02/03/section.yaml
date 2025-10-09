@@ -1,0 +1,136 @@
+---
+name: "SEC02-BP03 Store and use secrets securely"
+description: |-
+  A workload requires an automated capability to prove its identity to
+  databases, resources, and third-party services. This is accomplished using
+  secret access credentials, such as API access keys, passwords, and OAuth
+  tokens. Using a purpose-built service to store, manage, and rotate these
+  credentials helps reduce the likelihood that those credentials become
+  compromised.
+
+  **Desired outcome**
+
+  Implementing a mechanism for securely managing application credentials that
+  achieves the following goals:
+
+  - Identifying what secrets are required for the workload.
+  - Reducing the number of long-term credentials required by replacing them
+    with short-term credentials when possible.
+  - Establishing secure storage and automated rotation of remaining long-term
+    credentials.
+  - Auditing access to secrets that exist in the workload.
+  - Continual monitoring to verify that no secrets are embedded in source code
+    during the development process.
+  - Reduce the likelihood of credentials being inadvertently disclosed.
+
+  **Common anti-patterns**
+
+  - Not rotating credentials.
+  - Storing long-term credentials in source code or configuration files.
+  - Storing credentials at rest unencrypted.
+
+  **Benefits of establishing this best practice**
+
+  - Secrets are stored encrypted at rest and in transit.
+  - Access to credentials is gated through an API (think of it as a credential
+    vending machine).
+  - Access to a credential (both read and write) is audited and logged.
+  - Separation of concerns: credential rotation is performed by a separate
+    component, which can be segregated from the rest of the architecture.
+  - Secrets are automatically distributed on-demand to software components and
+    rotation occurs in a central location.
+  - Access to credentials can be controlled in a fine-grained manner.
+
+  **Level of risk exposed if this best practice is not established:** High
+
+  ## Implementation guidance
+
+  In the past, credentials used to authenticate to databases, third-party APIs,
+  tokens, and other secrets might have been embedded in source code or in
+  environment files. AWS provides several mechanisms to store these credentials
+  securely, automatically rotate them, and audit their usage.
+
+  The best way to approach secrets management is to follow the guidance of
+  remove, replace, and rotate. The most secure credential is one that you do not
+  have to store, manage, or handle. There might be credentials that are no longer
+  necessary to the functioning of the workload that can be safely removed.
+
+  For credentials that are still required for the proper functioning of the
+  workload, there might be an opportunity to replace a long-term credential with
+  a temporary or short-term credential. For example, instead of hard-coding an
+  AWS secret access key, consider replacing that long-term credential with a
+  temporary credential using IAM roles.
+
+  Some long-lived secrets might not be able to be removed or replaced. These
+  secrets can be stored in a service such as AWS Secrets Manager, where they can
+  be centrally stored, managed, and rotated on a regular basis.
+
+  A common anti-pattern is embedding IAM access keys inside source code,
+  configuration files, or mobile apps. When an IAM access key is required to
+  communicate with an AWS service, use temporary (short-term) security
+  credentials. These short-term credentials can be provided through IAM roles
+  for EC2 instances, execution roles for Lambda functions, Cognito IAM roles for
+  mobile user access, and IoT Core policies for IoT devices. When interfacing
+  with third parties, prefer delegating access to an IAM role with the necessary
+  access to your account's resources rather than configuring an IAM user and
+  sending the third party the secret access key for that user.
+
+  There are many cases where the workload requires the storage of secrets
+  necessary to interoperate with other services and resources. AWS Secrets
+  Manager is purpose-built to securely manage these credentials, as well as the
+  storage, use, and rotation of API tokens, passwords, and other credentials.
+
+  AWS Secrets Manager provides five key capabilities to ensure the secure
+  storage and handling of sensitive credentials: encryption at rest, encryption
+  in transit, comprehensive auditing, fine-grained access control, and
+  extensible credential rotation. Other secret management services from AWS
+  Partners or locally developed solutions that provide similar capabilities and
+  assurances are also acceptable.
+
+  When you retrieve a secret, you can use the Secrets Manager client-side
+  caching components to cache it for future use. Retrieving a cached secret is
+  faster than retrieving it from Secrets Manager. Additionally, because there is
+  a cost for calling Secrets Manager APIs, using a cache can reduce your costs.
+  For all of the ways you can retrieve secrets, see Get secrets.
+
+  ### Implementation steps
+
+  1. Identify code paths containing hard-coded credentials using automated tools
+    such as Amazon CodeGuru.
+
+      - Use Amazon CodeGuru to scan your code repositories. Once the review is
+        complete, filter on Type=Secrets in CodeGuru to find problematic lines of
+        code.
+
+  2. Identify credentials that can be removed or replaced.
+
+      1. Identify credentials no longer needed and mark for removal.
+      2. For AWS Secret Keys that are embedded in source code, replace them with IAM
+        roles associated with the necessary resources. If part of your workload is
+        outside AWS but requires IAM credentials to access AWS resources, consider
+        IAM Roles Anywhere or AWS Systems Manager Hybrid Activations.
+
+  3. For other third-party, long-lived secrets that require the use of the rotate
+    strategy, integrate Secrets Manager into your code to retrieve third-party
+    secrets at runtime.
+
+      1. The CodeGuru console can automatically create a secret in Secrets Manager
+        using the discovered credentials.
+      2. Integrate secret retrieval from Secrets Manager into your application code.
+
+          - Serverless Lambda functions can use a language-agnostic Lambda extension.
+          - For EC2 instances or containers, AWS provides example client-side code for
+            retrieving secrets from Secrets Manager in several popular programming
+            languages.
+
+  4. Periodically review your code base and re-scan to verify no new secrets have
+    been added to the code.
+
+      - Consider using a tool such as git-secrets to prevent committing new secrets
+        to your source code repository.
+        
+  5. Monitor Secrets Manager activity for indications of unexpected usage,
+    inappropriate secret access, or attempts to delete secrets.
+  6. Reduce human exposure to credentials. Restrict access to read, write, and
+    modify credentials to an IAM role dedicated for this purpose, and only
+    provide access to assume the role to a small subset of operational users.

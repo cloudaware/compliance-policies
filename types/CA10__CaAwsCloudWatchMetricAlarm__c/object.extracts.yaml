@@ -1,0 +1,22 @@
+---
+extracts:
+# Checkbox. Can't have no access, retrieved via cloudwatch:DescribeAlarms
+  - name: "CA10__actionsEnabled__c"
+    value: 
+      FIELD:
+        path: "CA10__actionsEnabled__c"
+# Nullable. Can't have no access, retrieved via cloudwatch:DescribeAlarms
+  - name: "CA10__alarmActions__c"
+    value: 
+      FIELD:
+        path: "CA10__alarmActions__c"
+# Nullable. Can't have no access, retrieved via cloudwatch:DescribeAlarms
+  - name: "CA10__insufficientDataActions__c"
+    value: 
+      FIELD:
+        path: "CA10__insufficientDataActions__c"
+# Nullable. Can't have no access, retrieved via cloudwatch:DescribeAlarms
+  - name: "CA10__okActions__c"
+    value: 
+      FIELD:
+        path: "CA10__okActions__c"

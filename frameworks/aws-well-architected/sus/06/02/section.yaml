@@ -1,0 +1,58 @@
+---
+name: "SUS06-BP02 Adopt methods that can rapidly introduce sustainability improvements"
+description: |-
+  Adopt methods and processes to validate potential improvements, minimize testing 
+  costs, and deliver small improvements.
+
+  **Common anti-patterns**
+
+  - Reviewing your application for sustainability is a task done only once at the 
+    beginning of a project.
+  - Your workload has become stale, as the release process is too cumbersome to 
+    introduce minor changes for resource efficiency.
+  - You do not have mechanisms to improve your workload for sustainability.
+
+  **Benefits of establishing this best practice**
+
+  By establishing a process to introduce and track sustainability improvements, you 
+  will be able to continually adopt new features and capabilities, remove issues, 
+  and improve workload efficiency.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Test and validate potential sustainability improvements before deploying them to 
+  production. Account for the cost of testing when calculating potential future 
+  benefit of an improvement. Develop low cost testing methods to deliver small 
+  improvements.
+
+  ### Implementation steps
+
+  1. Understand and communicate your organizational sustainability goals: 
+  Understand your organizational sustainability goals, such carbon reduction or 
+  water stewardship. Translate these goals into sustainability requirements for 
+  your cloud workloads. Communicate these requirements to key stakeholders.
+
+  2. Add sustainability requirements to your backlog: Add requirements for 
+  sustainability improvement to your development backlog.
+
+  3. Iterate and improve: Use an iterative improvement process to identify, 
+  evaluate, prioritize, test, and deploy these improvements.
+
+  4. Test using minimum viable product (MVP): Develop and test potential improvements 
+  using the minimum viable representative components to reduce the cost and 
+  environmental impact of testing.
+
+  5. Streamline the process: Continually improve and streamline your development 
+  processes. As an example, automate your software delivery process using 
+  continuous integration and delivery (CI/CD) pipelines to test and deploy 
+  potential improvements to reduce the level of effort and limit errors caused by 
+  manual processes.
+
+  6. Training and awareness: Run training programs for your team members to educate 
+  them about sustainability and how their activities impact your organizational 
+  sustainability goals.
+
+  7. Assess and adjust: Continually assess the impact of improvements and make 
+  adjustments as needed.

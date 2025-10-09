@@ -1,0 +1,63 @@
+---
+name: "OPS06-BP03 Employ safe deployment strategies"
+description: |-
+  Safe production roll-outs control the flow of beneficial changes with an aim to minimize any perceived 
+  impact for customers from those changes. The safety controls provide inspection mechanisms to validate 
+  desired outcomes and limit the scope of impact from any defects introduced by the changes or from 
+  deployment failures. Safe roll-outs may include strategies such as feature-flags, one-box, rolling (canary 
+  releases), immutable, traffic splitting, and blue/green deployments.
+
+  **Desired outcome:** Your organization uses a continuous integration continuous delivery (CI/CD) system 
+  that provides capabilities for automating safe rollouts. Teams are required to use appropriate safe 
+  roll-out strategies.
+
+  **Common anti-patterns:**
+
+  1. You deploy an unsuccessful change to all of production all at once. As a result, all customers are 
+     impacted simultaneously.
+  2. A defect introduced in a simultaneous deployment to all systems requires an emergency release. 
+     Correcting it for all customers takes several days.
+  3. Managing production release requires planning and participation of several teams. This puts constraints 
+     on your ability to frequently update features for your customers.
+  4. You perform a mutable deployment by modifying your existing systems. After discovering that the change 
+     was unsuccessful, you are forced to modify the systems again to restore the old version, extending your 
+     time to recovery.
+
+  **Benefits of establishing this best practice:** Automated deployments balance speed of roll-outs against 
+  delivering beneficial changes consistently to customers. Limiting impact prevents costly deployment 
+  failures and maximizes teams ability to efficiently respond to failures.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Continuous-delivery failures can lead to reduced service availability and bad customer experiences. To 
+  maximize the rate of successful deployments, implement safety controls in the end-to-end release process 
+  to minimize deployment errors, with a goal of achieving zero deployment failures.
+
+  **Customer example**
+
+  AnyCompany Retail is on a mission to achieve minimal to zero downtime deployments, meaning that there's 
+  no perceivable impact to its users during deployments. To accomplish this, the company has established 
+  deployment patterns (see the following workflow diagram), such as rolling and blue/green deployments. All 
+  teams adopt one or more of these patterns in their CI/CD pipeline.
+
+  ### Implementation steps
+
+  1. Use an approval workflow to initiate the sequence of production roll-out steps upon promotion to 
+     production.
+  2. Use an automated deployment system such as AWS CodeDeploy. AWS CodeDeploy deployment options include 
+     in-place deployments for EC2/On-Premises and blue/green deployments for EC2/On-Premises, AWS Lambda, 
+     and Amazon ECS (see the preceding workflow diagram).
+
+      - Where applicable, integrate AWS CodeDeploy with other AWS services or integrate AWS CodeDeploy with 
+        partner products and services.
+        
+  3. Use blue/green deployments for databases such as Amazon Aurora and Amazon RDS.
+  4. Monitor deployments using Amazon CloudWatch, AWS CloudTrail, and Amazon Simple Notification Service 
+     (Amazon SNS) event notifications.
+  5. Perform post-deployment automated testing including functional, security, regression, integration, and 
+     any load tests.
+  6. Troubleshoot deployment issues.
+
+  **Level of effort for the implementation plan:** Medium

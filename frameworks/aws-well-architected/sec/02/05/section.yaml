@@ -1,0 +1,79 @@
+---
+name: "SEC02-BP05 Audit and rotate credentials periodically"
+description: |-
+  Audit and rotate credentials periodically to limit how long the credentials can 
+  be used to access your resources. Long-term credentials create many risks, and 
+  these risks can be reduced by rotating long-term credentials regularly.
+
+  **Desired outcome**
+
+  Implement credential rotation to help reduce the risks associated with long-term 
+  credential usage. Regularly audit and remediate non-compliance with credential 
+  rotation policies.
+
+  **Common anti-patterns**
+
+  - Not auditing credential use.
+  - Using long-term credentials unnecessarily.
+  - Using long-term credentials and not rotating them regularly.
+
+  **Level of risk exposed if this best practice is not established:** High
+
+  ## Implementation guidance
+
+  When you cannot rely on temporary credentials and require long-term credentials, 
+  audit credentials to verify that defined controls like multi-factor authentication 
+  (MFA) are enforced, rotated regularly, and have the appropriate access level.
+
+  Periodic validation, preferably through an automated tool, is necessary to verify 
+  that the correct controls are enforced. For human identities, you should require 
+  users to change their passwords periodically and retire access keys in favor of 
+  temporary credentials. As you move from AWS Identity and Access Management (IAM) 
+  users to centralized identities, you can generate a credential report to audit your 
+  users.
+
+  We also recommend that you enforce and monitor MFA in your identity provider. You 
+  can set up AWS Config Rules, or use AWS Security Hub Security Standards, to monitor 
+  if users have configured MFA. Consider using IAM Roles Anywhere to provide 
+  temporary credentials for machine identities. In situations when using IAM roles 
+  and temporary credentials is not possible, frequent auditing and rotating access 
+  keys is necessary.
+
+  ### Implementation steps
+
+  1. Regularly audit credentials: Auditing the identities that are configured in your 
+     identity provider and IAM helps verify that only authorized identities have 
+     access to your workload. Such identities can include, but are not limited to, 
+     IAM users, AWS IAM Identity Center users, Active Directory users, or users in a 
+     different upstream identity provider. For example, remove people that leave the 
+     organization, and remove cross-account roles that are no longer required. Have 
+     a process in place to periodically audit permissions to the services accessed 
+     by an IAM entity. This helps you identify the policies you need to modify to 
+     remove any unused permissions. Use credential reports and AWS Identity and Access 
+     Management Access Analyzer to audit IAM credentials and permissions. You can use 
+     Amazon CloudWatch to set up alarms for specific API calls called within your AWS 
+     environment. Amazon GuardDuty can also alert you to unexpected activity, which 
+     might indicate overly permissive access or unintended access to IAM credentials.
+
+  2. Rotate credentials regularly: When you are unable to use temporary credentials, 
+     rotate long-term IAM access keys regularly (maximum every 90 days). If an access 
+     key is unintentionally disclosed without your knowledge, this limits how long the 
+     credentials can be used to access your resources.
+
+  3. Review IAM permissions: To improve the security of your AWS account, regularly 
+     review and monitor each of your IAM policies. Verify that policies adhere to the 
+     principle of least privilege.
+
+  4. Consider automating IAM resource creation and updates: IAM Identity Center 
+     automates many IAM tasks, such as role and policy management. Alternatively, AWS 
+     CloudFormation can be used to automate the deployment of IAM resources, including 
+     roles and policies, to reduce the chance of human error because the templates can 
+     be verified and version controlled.
+
+  5. Use IAM Roles Anywhere to replace IAM users for machine identities: IAM Roles 
+     Anywhere allows you to use roles in areas that you traditionally could not, such 
+     as on-premise servers. IAM Roles Anywhere uses a trusted X.509 certificate to 
+     authenticate to AWS and receive temporary credentials. Using IAM Roles Anywhere 
+     avoids the need to rotate these credentials, as long-term credentials are no 
+     longer stored in your on-premises environment. Please note that you will need to 
+     monitor and rotate the X.509 certificate as it approaches expiration.

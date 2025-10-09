@@ -1,0 +1,117 @@
+---
+name: "SEC04-BP02 Capture logs, findings, and metrics in standardized locations"
+description: |-
+  Security teams rely on logs and findings to analyze events that may indicate unauthorized 
+  activity or unintentional changes. To streamline this analysis, capture security logs 
+  and findings in standardized locations. This makes data points of interest available 
+  for correlation and can simplify tool integrations.
+
+  **Desired outcome**
+
+   You have a standardized approach to collect, analyze, and visualize log data, 
+   findings, and metrics.
+   Security teams can efficiently correlate, analyze, and visualize security data 
+   across disparate systems to discover potential security events and identify anomalies.
+   Security information and event management (SIEM) systems or other mechanisms are 
+   integrated to query and analyze log data for timely responses, tracking, and 
+   escalation of security events.
+
+  **Common anti-patterns**
+
+  - Teams independently own and manage logging and metrics collection that is inconsistent 
+    with the organization's logging strategy.
+  - Teams don't have adequate access controls to restrict visibility and alteration of the 
+    data collected.
+  - Teams don't govern their security logs, findings, and metrics as part of their data 
+    classification policy.
+  - Teams neglect data sovereignty and localization requirements when configuring data 
+    collections.
+
+  **Benefits of establishing this best practice**
+
+   A standardized logging solution to collect and query log data and events improves 
+   insights derived from the information they contain.
+   Configuring an automated lifecycle for the collected log data can reduce the costs 
+   incurred by log storage.
+   You can build fine-grained access control for the collected log information according 
+   to the sensitivity of the data and access patterns needed by your teams.
+   You can integrate tooling to correlate, visualize, and derive insights from the data.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Growth in AWS usage within an organization results in a growing number of distributed 
+  workloads and environments. As each of these workloads and environments generate data 
+  about the activity within them, capturing and storing this data locally presents a 
+  challenge for security operations. Security teams use tools such as SIEM systems to 
+  collect data from distributed sources and undergo correlation, analysis, and response 
+  workflows. This requires managing a complex set of permissions for accessing the various 
+  data sources and additional overhead in operating the extraction, transformation, and 
+  loading (ETL) processes.
+
+  To overcome these challenges, consider aggregating all relevant sources of security log 
+  data into a Log Archive account as described in *Organizing Your AWS Environment Using 
+  Multiple Accounts*. This includes all security-related data from your workload and logs 
+  that AWS services generate, such as AWS CloudTrail, AWS WAF, Elastic Load Balancing, 
+  and Amazon Route 53. There are several benefits to capturing this data in standardized 
+  locations in a separate AWS account with proper cross-account permissions. This practice 
+  helps prevent log tampering within compromised workloads and environments, provides a 
+  single integration point for additional tools, and offers a more simplified model for 
+  configuring data retention and lifecycle. Evaluate the impacts of data sovereignty, 
+  compliance scopes, and other regulations to determine if multiple security data 
+  storage locations and retention periods are required.
+
+  To ease capturing and standardizing logs and findings, evaluate Amazon Security Lake in 
+  your Log Archive account. You can configure Security Lake to automatically ingest data 
+  from common sources such as CloudTrail, Route 53, Amazon EKS, and VPC Flow Logs. You 
+  can also configure AWS Security Hub as a data source into Security Lake, allowing you 
+  to correlate findings from other AWS services, such as Amazon GuardDuty and Amazon 
+  Inspector, with your log data. You can also use third-party data source integrations, 
+  or configure custom data sources. All integrations standardize your data into the Open 
+  Cybersecurity Schema Framework (OCSF) format, and are stored in Amazon S3 buckets as 
+  Parquet files, eliminating the need for ETL processing.
+
+  Storing security data in standardized locations provides advanced analytics capabilities. 
+  AWS recommends you deploy tools for security analytics that operate in an AWS environment 
+  into a Security Tooling account that is separate from your Log Archive account. This 
+  approach allows you to implement controls at depth to protect the integrity and availability 
+  of the logs and log management process, distinct from the tools that access them. Consider 
+  using services, such as Amazon Athena, to run on-demand queries that correlate multiple 
+  data sources. You can also integrate visualization tools, such as QuickSight. AI-powered 
+  solutions are becoming increasingly available and can perform functions such as translating 
+  findings into human-readable summaries and natural language interaction. These solutions 
+  are often more readily integrated by having a standardized data storage location for querying.
+
+  ### Implementation steps
+
+  1. **Create the Log Archive and Security Tooling accounts**
+
+     - Using AWS Organizations, create the Log Archive and Security Tooling accounts under 
+       a security organizational unit. If you are using AWS Control Tower to manage your 
+       organization, the Log Archive and Security Tooling accounts are created for you 
+       automatically. Configure roles and permissions for accessing and administering these 
+       accounts as required.
+
+  2. **Configure your standardized security data locations**
+
+     - Determine your strategy for creating standardized security data locations. You can 
+       achieve this through options like common data lake architecture approaches, third-party 
+       data products, or Amazon Security Lake. AWS recommends that you capture security data 
+       from AWS Regions that are opted-in for your accounts, even when not actively in use.
+
+  3. **Configure data source publication to your standardized locations**
+
+     - Identify the sources for your security data and configure them to publish into your 
+       standardized locations. Evaluate options to automatically export data in the desired 
+       format as opposed to those where ETL processes need to be developed. With Amazon 
+       Security Lake, you can collect data from supported AWS sources and integrated third-party 
+       systems.
+
+  4. **Configure tools to access your standardized locations**
+
+     - Configure tools such as Amazon Athena, QuickSight, or third-party solutions to have 
+       the access required to your standardized locations. Configure these tools to operate 
+       out of the Security Tooling account with cross-account read access to the Log Archive 
+       account where applicable. Create subscribers in Amazon Security Lake to provide these 
+       tools access to your data.

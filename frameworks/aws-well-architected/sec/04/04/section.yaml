@@ -1,0 +1,104 @@
+---
+name: "SEC04-BP04 Initiate remediation for non-compliant resources"
+description: |-
+  Your detective controls may alert on resources that are out of compliance with your 
+  configuration requirements. You can initiate programmatically-defined remediations, 
+  either manually or automatically, to fix these resources and help minimize potential 
+  impacts. When you define remediations programmatically, you can take prompt and 
+  consistent action.
+
+  While automation can enhance security operations, you should implement and manage 
+  automation carefully.  Place appropriate oversight and control mechanisms to verify 
+  that automated responses are effective, accurate, and aligned with organizational 
+  policies and risk appetite.
+
+  **Desired outcome**
+
+  You define resource configuration standards along with the steps to remediate when 
+  resources are detected to be non-compliant. Where possible, you've defined 
+  remediations programmatically so they can be initiated either manually or through 
+  automation. Detection systems are in place to identify non-compliant resources and 
+  publish alerts into centralized tools that are monitored by your security personnel. 
+  These tools support running your programmatic remediations, either manually or 
+  automatically. Automatic remediations have appropriate oversight and control 
+  mechanisms in place to govern their use.
+
+  **Common anti-patterns**
+
+  - You implement automation, but fail to thoroughly test and validate remediation 
+    actions. This can result in unintended consequences, such as disrupting legitimate 
+    business operations or causing system instability.
+  - You improve response times and procedures through automation, but without proper 
+    monitoring and mechanisms that allow human intervention and judgment when needed.
+  - You rely solely on remediations, rather than having remediations as one part of a 
+    broader incident response and recovery program.
+
+  **Benefits of establishing this best practice**
+
+  Automatic remediations can respond to misconfigurations faster than manual 
+  processes, which helps you minimize potential business impacts and reduce the 
+  window of opportunity for unintended uses. When you define remediations 
+  programmatically, they are applied consistently, which reduces the risk of human 
+  error. Automation also can handle a larger volume of alerts simultaneously, which 
+  is particularly important in environments operating at large scale.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  As described in SEC01-BP03 Identify and validate control objectives, services such 
+  as AWS Config and AWS Security Hub can help you monitor the configuration of 
+  resources in your accounts for adherence to your requirements. When non-compliant 
+  resources are detected, services such as AWS Security Hub, can help with routing 
+  alerts appropriately and remediation. These solutions provide a central place for 
+  your security investigators to monitor for issues and take corrective action.
+
+  While some non-compliant resource situations are unique and require human judgment 
+  to remediate, other situations have a standard response that you can define 
+  programmatically. For example, a standard response to a misconfigured VPC security 
+  group could be to remove the disallowed rules and notify the owner. Responses can 
+  be defined in AWS Lambda functions, AWS Systems Manager Automation documents, or 
+  through other code environments you prefer. Make sure the environment is able to 
+  authenticate to AWS using an IAM role with the least amount of permission needed to 
+  take corrective action.
+
+  Once you define the desired remediation, you can then determine your preferred means 
+  for initiating it. AWS Config can initiate remediations for you. If you are using 
+  Security Hub, you can do this through custom actions, which publishes the finding 
+  information to Amazon EventBridge. An EventBridge rule can then initiate your 
+  remediation. You can configure remediations through Security Hub to run either 
+  automatically or manually.
+
+  For programmatic remediation, we recommend that you have comprehensive logs and 
+  audits for the actions taken, as well as their outcomes. Review and analyze these 
+  logs to assess the effectiveness of the automated processes, and identify areas of 
+  improvement. Capture logs in Amazon CloudWatch Logs and remediation outcomes as 
+  finding notes in Security Hub.
+
+  As a starting point, consider Automated Security Response on AWS, which has pre-built 
+  remediations for resolving common security misconfigurations.
+
+  ### Implementation steps
+
+  1. Analyze and prioritize alerts.
+
+      - Consolidate security alerts from various AWS services into Security Hub for 
+        centralized visibility, prioritization, and remediation.
+
+  2. Develop remediations.
+
+      - Use services such as Systems Manager and AWS Lambda to run programmatic 
+        remediations.
+
+  3. Configure how remediations are initiated.
+
+      - Using Systems Manager, define custom actions that publish findings to 
+        EventBridge. Configure these actions to be initiated manually or automatically.
+      - You can also use Amazon Simple Notification Service (SNS) to send notifications 
+        and alerts to relevant stakeholders (like security team or incident response 
+        teams) for manual intervention or escalation, if required.
+
+  4. Review and analyze remediation logs for effectiveness and improvement.
+  
+      - Send log output to CloudWatch Logs. Capture outcomes as finding notes in 
+        Security Hub.

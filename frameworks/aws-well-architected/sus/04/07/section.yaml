@@ -1,0 +1,59 @@
+---
+name: "SUS04-BP07 Minimize data movement across networks"
+description: |-
+  Use shared file systems or object storage to access common data and minimize 
+  the total networking resources required to support data movement for your 
+  workload.
+
+  **Common anti-patterns**
+
+  - You store all data in the same AWS Region independent of where the data users 
+    are.
+  - You do not optimize data size and format before moving it over the network.
+
+  **Benefits of establishing this best practice**
+
+  Optimizing data movement across the network reduces the total networking 
+  resources required for the workload and lowers its environmental impact.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Moving data around your organization requires compute, networking, and storage 
+  resources. Use techniques to minimize data movement and improve the overall 
+  efficiency of your workload.
+
+  ### Implementation steps
+
+  1. Use proximity: Consider proximity to the data or users as a decision factor 
+  when selecting a Region for your workload.
+
+  2. Partition services: Partition Regionally-consumed services so that their 
+  Region-specific data is stored within the Region where it is consumed.
+
+  3. Use efficient file formats: Use efficient file formats (such as Parquet or 
+  ORC) and compress data before you move it over the network.
+
+  4. Minimize data movement: Don't move unused data. Some examples that can help 
+  you avoid moving unused data:
+
+      - Reduce API responses to only relevant data.
+      - Aggregate data where detailed (record-level information is not required).
+      - See Well-Architected Lab - Optimize Data Pattern Using Amazon Redshift Data 
+        Sharing.
+      - Consider Cross-account data sharing in AWS Lake Formation.
+
+  5. Use edge services: Use services that can help you run code closer to users 
+  of your workload.
+
+      - **Lambda@Edge**  
+        Use for compute-heavy operations that are run when objects are not in the 
+        cache.
+
+      - **CloudFront Functions**  
+        Use for simple use cases such as HTTP(s) request/response manipulations 
+        that can be initiated by short-lived functions.
+
+      - **AWS IoT Greengrass**  
+        Run local compute, messaging, and data caching for connected devices.

@@ -1,0 +1,50 @@
+---
+name: "SUS04-BP04 Use elasticity and automation to expand block storage or file system"
+description: |-
+  Use elasticity and automation to expand block storage or file system as data 
+  grows to minimize the total provisioned storage.
+
+  **Common anti-patterns:**
+
+  - You procure large block storage or file system for future need.
+  - You overprovision the input and output operations per second (IOPS) of your 
+    file system.
+  - You do not monitor the utilization of your data volumes.
+
+  **Benefits of establishing this best practice:** Minimizing over-provisioning 
+  for storage system reduces the idle resources and improves the overall efficiency 
+  of your workload.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Create block storage and file systems with size allocation, throughput, and 
+  latency that are appropriate for your workload. Use elasticity and automation 
+  to expand block storage or file system as data grows without having to 
+  over-provision these storage services.
+
+  ### Implementation steps
+
+  1. For fixed size storage like Amazon EBS, verify that you are monitoring the 
+     amount of storage used versus the overall storage size and create automation, 
+     if possible, to increase the storage size when reaching a threshold.
+
+  2. Use elastic volumes and managed block data services to automate allocation 
+     of additional storage as your persistent data grows. As an example, you can 
+     use Amazon EBS Elastic Volumes to change volume size, volume type, or adjust 
+     the performance of your Amazon EBS volumes.
+
+  3. Choose the right storage class, performance mode, and throughput mode for your 
+     file system to address your business need, not exceeding that.
+
+  4. Set target levels of utilization for your data volumes, and resize volumes 
+     outside of expected ranges.
+
+  5. Right size read-only volumes to fit the data.
+
+  6. Migrate data to object stores to avoid provisioning the excess capacity from 
+     fixed volume sizes on block storage.
+
+  7. Regularly review elastic volumes and file systems to terminate idle volumes 
+     and shrink over-provisioned resources to fit the current data size.

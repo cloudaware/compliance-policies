@@ -1,0 +1,53 @@
+---
+name: "SUS06-BP05 Use managed device farms for testing"
+description: |-
+  Use managed device farms to efficiently test a new feature on a representative 
+  set of hardware.
+
+  **Common anti-patterns**
+
+  - You manually test and deploy your application on individual physical devices.
+  - You do not use app testing service to test and interact with your apps (for 
+    example, Android, iOS, and web apps) on real, physical devices.
+
+  **Benefits of establishing this best practice**
+
+  Using managed device farms for testing cloud-enabled applications provides a 
+  number of benefits:
+
+  - They include more efficient features to test application on wide range of 
+    devices.
+  - They eliminate the need for in-house infrastructure for testing.
+  - They offer diverse device types, including older and less popular hardware, 
+    which eliminates the need for unnecessary device upgrades.
+
+  **Level of risk exposed if this best practice is not established:** Low
+
+  ## Implementation guidance
+
+  Using managed device farms can help you to streamline the testing process for new 
+  features on a representative set of hardware. Managed device farms offer diverse 
+  device types including older, less popular hardware, and avoid customer 
+  sustainability impact from unnecessary device upgrades.
+
+  ### Implementation steps
+
+  1. Define testing requirements: Define your testing requirements and plan (like 
+  test type, operating systems, and test schedule).
+
+      - You can use Amazon CloudWatch RUM to collect and analyze client-side data 
+        and shape your testing plan.
+
+  2. Select a managed device farm: Select a managed device farm that can support 
+  your testing requirements. For example, you can use AWS Device Farm to test and 
+  understand the impact of your changes on a representative set of hardware.
+
+  3. Use automation: Use automation and continuous integration/continuous 
+  deployment (CI/CD) to schedule and run your tests.
+
+      - Integrating AWS Device Farm with your CI/CD pipeline to run cross-browser 
+        Selenium tests.
+      - Building and testing iOS and iPadOS apps with AWS DevOps and mobile services.
+
+  4. Review and adjust: Continually review your testing results and make necessary 
+  improvements.

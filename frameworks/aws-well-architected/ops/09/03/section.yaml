@@ -1,0 +1,56 @@
+---
+name: "OPS05-BP03 Use configuration management systems"
+description: |-
+  Setting aside dedicated time and resources for reviewing the state of operations ensures
+  that serving the day-to-day line of business remains a priority. Pull together operations
+  leaders and stakeholders to regularly review metrics, reaffirm or modify goals and
+  objectives, and prioritize improvements.
+
+  **Desired outcome**
+
+  - Operations leaders and staff regularly meet to review metrics over a given reporting
+    period. Challenges are communicated, wins are celebrated, and lessons learned are
+    shared.
+  - Stakeholders and business leaders are regularly briefed on the state of operations
+    and solicited for input regarding goals, KPIs, and future initiatives. Tradeoffs
+    between service delivery, operations, and maintenance are discussed and placed into
+    context.
+
+  **Common anti-patterns**
+
+  - A new product is launched, but the Tier 1 and Tier 2 operations teams are not
+    adequately trained to support or given additional staff. Metrics that show the decrease
+    in ticket resolution times and increase in incident volumes are not seen by leaders.
+    Action is taken weeks later when subscription numbers start to fall as discontent users
+    move off the platform.
+  - A manual process for performing maintenance on a workload has been in place for a long
+    time. While a desire to automate has been present, this was a low priority given the
+    low importance of the system. Over time however, the system has grown in importance
+    and now these manual processes consume a majority of operations' time. No resources
+    are scheduled for providing increased tooling to operations, leading to staff burnout
+    as workloads increase. Leadership becomes aware once it's reported that staff are
+    leaving for other competitors.
+
+  **Benefits of establishing this best practice**
+
+  - Ensures operations receives the same attention and resources as service delivery and
+    new offerings.
+  - Provides early visibility into risks before they impact business outcomes.
+  - Operations teams gain insights into impending business changes and initiatives,
+    enabling proactive efforts.
+  - Leadership gains visibility into operational metrics, improving prioritization and
+    allocation of resources.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  1. Dedicate time to review operations metrics between stakeholders and operations teams.
+     Review report data in the context of the organization's goals and objectives to
+     determine if they are being met.
+  2. Identify sources of ambiguity where goals are unclear or where conflicts exist
+     between requested outcomes and actual deliverables.
+  3. Determine where time, people, and tools can aid operations outcomes. Map these to
+     KPIs and define targets for success.
+  4. Revisit reviews regularly to ensure operations is sufficiently resourced to support
+     the line of business.

@@ -1,0 +1,57 @@
+---
+name: "SUS03-BP05 Use software patterns and architectures that best support data access and storage patterns"
+description: |-
+  Understand how data is used within your workload, consumed by your users, 
+  transferred, and stored. Use software patterns and architectures that best 
+  support data access and storage to minimize the compute, networking, and storage 
+  resources required to support the workload.
+
+  **Common anti-patterns:**
+
+  - You assume that all workloads have similar data storage and access patterns.
+  - You only use one tier of storage, assuming all workloads fit within that tier.
+  - You assume that data access patterns will stay consistent over time.
+  - Your architecture supports a potential high data access burst, which results 
+    in the resources remaining idle most of the time.
+
+  **Benefits of establishing this best practice:** Selecting and optimizing your 
+  architecture based on data access and storage patterns will help decrease 
+  development complexity and increase overall utilization. Understanding when to 
+  use global tables, data partitioning, and caching will help you decrease 
+  operational overhead and scale based on your workload needs.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  To improve long-term workload sustainability, use architecture patterns that 
+  support data access and storage characteristics for your workload. These patterns 
+  help you efficiently retrieve and process data. For example, you can use modern 
+  data architecture on AWS with purpose-built services optimized for your unique 
+  analytics use cases. These architecture patterns allow for efficient data 
+  processing and reduce the resource usage.
+
+  ### Implementation steps
+
+  1. **Understand data characteristics:** Analyze your data characteristics and 
+     access patterns to identify the correct configuration for your cloud resources. 
+     Key characteristics to consider include:
+
+      - **Data type:** structured, semi-structured, unstructured
+      - **Data growth:** bounded, unbounded
+      - **Data durability:** persistent, ephemeral, transient
+      - **Access patterns:** reads or writes, update frequency, spiky, or consistent
+
+  2. **Use optimal architecture patterns:** Use architecture patterns that best 
+     support data access and storage patterns.
+
+  3. **Use purpose-built services:** Use technologies that are fit-for-purpose.
+
+      - Use technologies that work natively with compressed data.
+      - Use purpose-built analytics services for data processing in your 
+        architecture.
+      - Use the database engine that best supports your dominant query pattern. 
+        Manage your database indexes for efficient querying.
+
+  4. **Minimize data transfer:** Select network protocols that reduce the amount 
+     of network capacity consumed in your architecture.

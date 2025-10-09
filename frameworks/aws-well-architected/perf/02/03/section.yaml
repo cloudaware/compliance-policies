@@ -1,0 +1,69 @@
+---
+name: "PERF02-BP03 Collect compute-related metrics"
+description: |-
+  Record and track compute-related metrics to better understand how your compute 
+  resources are performing and improve their performance and their utilization.
+
+  **Common anti-patterns:**
+
+  - You only use manual log file searching for metrics.
+  - You only use the default metrics recorded by your monitoring software.
+  - You only review metrics when there is an issue.
+
+  **Benefits of establishing this best practice:** Collecting performance-related 
+  metrics will help you align application performance with business requirements to 
+  ensure that you are meeting your workload needs. It can also help you continually 
+  improve the resource performance and utilization in your workload.
+
+  **Level of risk exposed if this best practice is not established:** High
+
+  ## Implementation guidance
+
+  Cloud workloads can generate large volumes of data such as metrics, logs, and 
+  events. In the AWS Cloud, collecting metrics is a crucial step to improve 
+  security, cost efficiency, performance, and sustainability. AWS provides a wide 
+  range of performance-related metrics using monitoring services such as Amazon 
+  CloudWatch to provide you with valuable insights. Metrics such as CPU utilization, 
+  memory utilization, disk I/O, and network inbound and outbound can provide insight 
+  into utilization levels or performance bottlenecks. Use these metrics as part of a 
+  data-driven approach to actively tune and optimize your workload's resources. In an 
+  ideal case, you should collect all metrics related to your compute resources in a 
+  single platform with retention policies implemented to support cost and operational 
+  goals.
+
+  ### Implementation steps
+
+  - Identify which performance-related metrics are relevant to your workload. You 
+    should collect metrics around resource utilization and the way your cloud 
+    workload is operating (like response time and throughput).
+
+  - Default metrics examples:
+      - Amazon EC2 default metrics
+      - Amazon ECS default metrics
+      - Amazon EKS default metrics
+      - Lambda default metrics
+      - Amazon EC2 memory and disk metrics
+
+  - Choose and set up the right logging and monitoring solution for your workload:
+      - AWS native Observability
+      - AWS Distro for OpenTelemetry
+      - Amazon Managed Service for Prometheus
+
+  - Define the required filter and aggregation for the metrics based on your workload 
+    requirements.
+      - Quantify custom application metrics with Amazon CloudWatch Logs and metric filters.
+      - Collect custom metrics with Amazon CloudWatch strategic tagging.
+      
+  - Configure data retention policies for your metrics to match your security and 
+    operational goals:
+      - Default data retention for CloudWatch metrics
+      - Default data retention for CloudWatch Logs
+
+  - If required, create alarms and notifications for your metrics to help you 
+    proactively respond to performance-related issues:
+      - Create alarms for custom metrics using Amazon CloudWatch anomaly detection
+      - Create metrics and alarms for specific web pages with Amazon CloudWatch RUM
+
+  - Use automation to deploy your metric and log aggregation agents:
+      - AWS Systems Manager automation
+      - OpenTelemetry Collector

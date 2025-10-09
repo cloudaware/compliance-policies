@@ -1,0 +1,62 @@
+---
+name: "OPS05-BP06 Share design standards"
+description: |-
+  Share best practices across teams to increase awareness and maximize the benefits of development efforts. 
+  Document them and keep them up to date as your architecture evolves. If shared standards are enforced 
+  in your organization, it’s critical that mechanisms exist to request additions, changes, and exceptions 
+  to standards. Without this option, standards become a constraint on innovation.
+
+  **Desired outcome**
+
+  - Design standards are shared across teams in your organizations.
+  - They are documented and kept up-to-date as best practices evolve.
+
+  **Common anti-patterns**
+
+  - Two development teams have each created a user authentication service. Your users must maintain 
+    a separate set of credentials for each part of the system they want to access.
+  - Each team manages their own infrastructure. A new compliance requirement forces a change to 
+    your infrastructure and each team implements it in a different way.
+
+  **Benefits of establishing this best practice**
+
+  - Using shared standards supports the adoption of best practices and maximizes the benefits of 
+    development efforts.
+  - Documenting and updating design standards keeps your organization up-to-date with best practices 
+    and security and compliance requirements.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Share existing best practices, design standards, checklists, operating procedures, guidance, and 
+  governance requirements across teams. Have procedures to request changes, additions, and 
+  exceptions to design standards to support improvement and innovation. Make teams aware of published 
+  content. Have a mechanism to keep design standards up-to-date as new best practices emerge.
+
+  **Customer example**
+
+  AnyCompany Retail has a cross-functional architecture team that creates software architecture 
+  patterns. This team builds the architecture with compliance and governance built in. Teams that 
+  adopt these shared standards get the benefits of having compliance and governance built in. They 
+  can quickly build on top of the design standard. The architecture team meets quarterly to evaluate 
+  architecture patterns and update them if necessary.
+
+  ### Implementation steps
+
+  1. Identify a cross-functional team that owns developing and updating design standards. This team 
+     should work with stakeholders across your organization to develop design standards, operating 
+     procedures, checklists, guidance, and governance requirements. Document the design standards 
+     and share them within your organization.
+
+      1. AWS Service Catalog can be used to create portfolios representing design standards using 
+        infrastructure as code. You can share portfolios across accounts.
+
+  2. Have a mechanism in place to keep design standards up-to-date as new best practices are 
+     identified.
+     
+  3. If design standards are centrally enforced, have a process to request changes, updates, and 
+     exemptions.
+
+  **Level of effort for the implementation plan:** Medium. Developing a process to create and share 
+  design standards can take coordination and cooperation with stakeholders across your organization.

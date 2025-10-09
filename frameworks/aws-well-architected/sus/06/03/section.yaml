@@ -1,0 +1,66 @@
+---
+name: "SUS06-BP03 Keep your workload up-to-date"
+description: |-
+  Keep your workload up-to-date to adopt efficient features, remove issues, and 
+  improve the overall efficiency of your workload.
+
+  **Common anti-patterns**
+
+  - You assume your current architecture is static and will not be updated over time.
+  - You do not have any systems or a regular cadence to evaluate if updated 
+    software and packages are compatible with your workload.
+
+  **Benefits of establishing this best practice**
+
+  By establishing a process to keep your workload up to date, you can adopt new 
+  features and capabilities, resolve issues, and improve workload efficiency.
+
+  **Level of risk exposed if this best practice is not established:** Low
+
+  ## Implementation guidance
+
+  Up to date operating systems, runtimes, middlewares, libraries, and applications 
+  can improve workload efficiency and make it easier to adopt more efficient 
+  technologies. Up to date software might also include features to measure the 
+  sustainability impact of your workload more accurately, as vendors deliver 
+  features to meet their own sustainability goals. Adopt a regular cadence to keep 
+  your workload up to date with the latest features and releases.
+
+  ### Implementation steps
+
+  1. Define a process: Use a process and schedule to evaluate new features or 
+  instances for your workload. Take advantage of agility in the cloud to quickly 
+  test how new features can improve your workload to:
+
+      - Reduce sustainability impacts.
+      - Gain performance efficiencies.
+      - Remove barriers for a planned improvement.
+      - Improve your ability to measure and manage sustainability impacts.
+
+  2. Conduct an inventory: Inventory your workload software and architecture and 
+  identify components that need to be updated.
+
+      - You can use AWS Systems Manager Inventory to collect operating system (OS), 
+        application, and instance metadata from your Amazon EC2 instances and 
+        quickly understand which instances are running the software and 
+        configurations required by your software policy and which instances need to 
+        be updated.
+
+  3. Learn the update procedure: Understand how to update the components of your 
+  workload.
+
+      - **Machine images:** Use EC2 Image Builder to manage updates to Amazon Machine 
+        Images (AMIs) for Linux or Windows server images.
+      - **Container images:** Use Amazon Elastic Container Registry (Amazon ECR) with 
+        your existing pipeline to manage Amazon Elastic Container Service (Amazon 
+        ECS) images.
+      - **AWS Lambda:** AWS Lambda includes version management features.
+
+  4. Use automation: Automate updates to reduce the level of effort to deploy new 
+  features and limit errors caused by manual processes.
+
+      - You can use CI/CD to automatically update AMIs, container images, and other 
+        artifacts related to your cloud application.
+      - You can use tools such as AWS Systems Manager Patch Manager to automate the 
+        process of system updates, and schedule the activity using AWS Systems 
+        Manager Maintenance Windows.

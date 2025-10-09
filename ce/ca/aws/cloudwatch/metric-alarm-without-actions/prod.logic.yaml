@@ -1,0 +1,35 @@
+---
+inputType: "CA10__CaAwsCloudWatchMetricAlarm__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsCloudWatchMetricAlarm__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The CloudWatch alarm actions are disabled."
+    remediationMessage: "Consider enabling the alarm actions if the alarm is still required."
+    check:
+      NOT:
+        arg:
+          EXTRACT: "CA10__actionsEnabled__c" # actionsEnabled != true
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The CloudWatch alarm does not have any actions configured\
+      \ for the ALARM, INSUFFICIENT_DATA, or OK states."
+    remediationMessage: "Configure at least one action for the ALARM, INSUFFICIENT_DATA,\
+      \ or OK state to ensure notifications or automated responses are triggered\
+      \ when the alarm changes state."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__alarmActions__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__insufficientDataActions__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__okActions__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The CloudWatch alarm has at least one action configured."

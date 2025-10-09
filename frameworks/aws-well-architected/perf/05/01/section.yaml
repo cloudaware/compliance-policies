@@ -1,0 +1,75 @@
+---
+name: "PERF05-BP01 Establish key performance indicators (KPIs) to measure workload health and performance"
+description: |-
+  Identify the KPIs that quantitatively and qualitatively measure workload performance. KPIs
+  help you measure the health and performance of a workload related to a business goal.
+
+  **Common anti-patterns**
+
+  - You only monitor system-level metrics to gain insight into your workload and don’t
+    understand business impacts to those metrics.
+  - You assume that your KPIs are already being published and shared as standard metric data.
+  - You do not define a quantitative, measurable KPI.
+  - You do not align KPIs with business goals or strategies.
+
+  **Benefits of establishing this best practice**
+
+  Identifying specific KPIs that represent workload health and performance helps align teams
+  on their priorities and define successful business outcomes. Sharing those metrics with all
+  departments provides visibility and alignment on thresholds, expectations, and business
+  impact.
+
+  **Level of risk exposed if this best practice is not established:** High
+
+  ## Implementation guidance
+
+  KPIs allow business and engineering teams to align on the measurement of goals and strategies
+  and how these factors combine to produce business outcomes. For example, a website
+  workload might use page load time as an indication of overall performance. This metric would
+  be one of multiple data points that measures user experience. In addition to identifying the
+  page load time thresholds, you should document the expected outcome or business risk if
+  ideal performance is not met. A long page load time affects your end users directly,
+  decreases their user experience rating, and can lead to a loss of customers. When you define
+  your KPI thresholds, combine both industry benchmarks and your end user expectations. For
+  example, if the current industry benchmark is a webpage loading within a two-second time
+  period, but your end users expect a webpage to load within a one-second time period, then
+  you should take both of these data points into consideration when establishing the KPI.
+
+  Your team must evaluate your workload KPIs using real-time granular data and historical data
+  for reference and create dashboards that perform metric math on your KPI data to derive
+  operational and utilization insights. KPIs should be documented and include thresholds that
+  support business goals and strategies, and should be mapped to metrics being monitored.
+  KPIs should be revisited when business goals, strategies, or end user requirements change.
+
+  ### Implementation steps
+
+  1. Identify stakeholders: Identify and document key business stakeholders, including
+     development and operation teams.
+
+  2. Define objectives: Work with these stakeholders to define and document objectives of
+     your workload. Consider the critical performance aspects of your workloads, such as
+     throughput, response time, and cost, as well as business goals, such as user
+     satisfaction.
+
+  3. Review industry best practices: Review industry best practices to identify relevant KPIs
+     aligned with your workload objectives.
+
+  4. Identify metrics: Identify metrics that are aligned with your workload objectives and can
+     help you measure performance and business goals. Establish KPIs based on these metrics.
+     Example metrics are measurements like average response time or number of concurrent users.
+
+  5. Define and document KPIs: Use industry best practices and your workload objectives to
+     set targets for your workload KPI. Use this information to set KPI thresholds for
+     severity or alarm level. Identify and document the risk and impact of a KPI is not met.
+
+  6. Implement monitoring: Use monitoring tools such as Amazon CloudWatch or AWS Config to
+     collect metrics and measure KPIs.
+
+  7. Visually communicate KPIs: Use dashboard tools like Amazon QuickSight to visualize and
+     communicate KPIs with stakeholders.
+
+  8. Analyze and optimize: Regularly review and analyze KPIs to identify areas of your workload
+     that need to be improved. Work with stakeholders to implement these improvements.
+     
+  9. Revisit and refine: Regularly review metrics and KPIs to assess their effectiveness,
+     especially when business goals or workload performance change.

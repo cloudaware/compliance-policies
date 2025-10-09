@@ -1,0 +1,84 @@
+---
+name: "COST02-BP03 Implement an account structure"
+description: |-
+  Implement a structure of accounts that maps to your organization. This assists in
+  allocating and managing costs throughout your organization.
+
+  **Level of risk exposed if this best practice is not established:** High
+
+  ## Implementation guidance
+
+  AWS Organizations allows you to create multiple AWS accounts which can help you
+  centrally govern your environment as you scale your workloads on AWS. You can model
+  your organizational hierarchy by grouping AWS accounts in organizational unit (OU)
+  structure and creating multiple AWS accounts under each OU. To create an account
+  structure, you need to decide which of your AWS accounts will be the management
+  account first. After that, you can create new AWS accounts or select existing
+  accounts as member accounts based on your designed account structure by following
+  management account best practices and member account best practices.
+
+  It is advised to always have at least one management account with one member account
+  linked to it, regardless of your organization size or usage. All workload resources
+  should reside only within member accounts and no resource should be created in
+  management account. There is no one size fits all answer for how many AWS accounts
+  you should have. Assess your current and future operational and cost models to ensure
+  that the structure of your AWS accounts reflects your organization’s goals. Some
+  companies create multiple AWS accounts for business reasons, for example:
+
+  - Administrative or fiscal and billing isolation is required between organization
+    units, cost centers, or specific workloads.
+  - AWS service limits are set to be specific to particular workloads.
+  - There is a requirement for isolation and separation between workloads and resources.
+
+  Within AWS Organizations, consolidated billing creates the construct between one or
+  more member accounts and the management account. Member accounts allow you to isolate
+  and distinguish your cost and usage by groups. A common practice is to have separate
+  member accounts for each organization unit (such as finance, marketing, and sales),
+  or for each environment lifecycle (such as development, testing and production), or
+  for each workload (workload a, b, and c), and then aggregate these linked accounts
+  using consolidated billing.
+
+  Consolidated billing allows you to consolidate payment for multiple member AWS
+  accounts under a single management account, while still providing visibility for
+  each linked account’s activity. As costs and usage are aggregated in the management
+  account, this allows you to maximize your service volume discounts, and maximize the
+  use of your commitment discounts (Savings Plans and Reserved Instances) to achieve the
+  highest discounts.
+
+  AWS Control Tower can quickly set up and configure multiple AWS accounts, ensuring
+  that governance is aligned with your organization’s requirements.
+
+  ### Implementation steps
+
+  1. Define separation requirements: Requirements for separation are a combination
+     of multiple factors, including security, reliability, and financial constructs.
+     Work through each factor in order and specify whether the workload or workload
+     environment should be separate from other workloads. Security promotes adhesion
+     to access and data requirements. Reliability manages limits so that environments
+     and workloads do not impact others. Review the security and reliability pillars of
+     the Well-Architected Framework periodically and follow the provided best
+     practices. Financial constructs create strict financial separation (different cost
+     center, workload ownerships and accountability). Common examples of separation
+     are production and test workloads being run in separate accounts, or using a
+     separate account so that the invoice and billing data can be provided to the
+     individual business units or departments in the organization or stakeholder who
+     owns the account.
+
+  2. Define grouping requirements: Requirements for grouping do not override the
+     separation requirements, but are used to assist management. Group together
+     similar environments or workloads that do not require separation. An example of
+     this is grouping multiple test or development environments from one or more
+     workloads together.
+
+  3. Define account structure: Using these separations and groupings, specify an
+     account for each group and maintain separation requirements. These accounts are
+     your member or linked accounts. By grouping these member accounts under a single
+     management or payer account, you combine usage, which allows for greater volume
+     discounts across all accounts, which provides a single bill for all accounts. It's
+     possible to separate billing data and provide each member account with an
+     individual view of their billing data. If a member account must not have its usage
+     or billing data visible to any other account, or if a separate bill from AWS is
+     required, define multiple management or payer accounts. In this case, each member
+     account has its own management or payer account. Resources should always be placed
+     in member or linked accounts. The management or payer accounts should only be
+     used for management.

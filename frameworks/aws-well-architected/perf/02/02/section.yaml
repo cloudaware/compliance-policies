@@ -1,0 +1,45 @@
+---
+name: "PERF02-BP02 Understand the available compute configuration and features"
+description: |-
+  Understand the available configuration options and features for your compute 
+  service to help you provision the right amount of resources and improve 
+  performance efficiency.
+
+  **Common anti-patterns:**
+
+  - You do not evaluate compute options or available instance families against 
+    workload characteristics.
+  - You over-provision compute resources to meet peak-demand requirements.
+
+  **Benefits of establishing this best practice:** Be familiar with AWS compute 
+  features and configurations so that you can use a compute solution optimized to 
+  meet your workload characteristics and needs.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Each compute solution has unique configurations and features available to support 
+  different workload characteristics and requirements. Learn how these options 
+  complement your workload, and determine which configuration options are best for 
+  your application. Examples of these options include instance family, sizes, 
+  features (GPU, I/O), bursting, time-outs, function sizes, container instances, 
+  and concurrency. If your workload has been using the same compute option for more 
+  than four weeks and you anticipate that the characteristics will remain the same 
+  in the future, you can use AWS Compute Optimizer to find out if your current 
+  compute option is suitable for the workloads from CPU and memory perspective.
+
+  ### Implementation steps
+
+  - Understand workload requirements (like CPU need, memory, and latency).
+  - Review AWS documentation and best practices to learn about recommended 
+    configuration options that can help improve compute performance. Here are some 
+    key configuration options to consider:
+
+    | Configuration option | Examples |
+    |---------------------|---------|
+    | Instance type | Compute-optimized instances are ideal for workloads that require a high vCPU to memory ratio. Memory-optimized instances deliver large amounts of memory to support memory-intensive workloads. Storage-optimized instances are designed for workloads that require high, sequential read and write access (IOPS) to local storage. |
+    | Pricing model | On-Demand Instances let you use the compute capacity by the hour or second with no long-term commitment. These instances are good for bursting above performance baseline needs. Savings Plans offer significant savings over On-Demand Instances in exchange for a commitment to use a specific amount of compute power for a one or three-year period. Spot Instances let you take advantage of unused instance capacity at a discount for your stateless, fault-tolerant workloads. |
+    | Auto Scaling | Use Auto Scaling configuration to match compute resources to traffic patterns. |
+    | Sizing | Use Compute Optimizer to get machine-learning-powered recommendations on which compute configuration best matches your compute characteristics. Use AWS Lambda Power Tuning to select the best configuration for your Lambda function. |
+    | Hardware-based compute accelerators | Accelerated computing instances perform functions like graphics processing or data pattern matching more efficiently than CPU-based alternatives. For machine learning workloads, take advantage of purpose-built hardware that is specific to your workload, such as AWS Trainium, AWS Inferentia, and Amazon EC2 DL1. |

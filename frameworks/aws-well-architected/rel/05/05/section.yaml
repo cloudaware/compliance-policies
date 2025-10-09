@@ -1,0 +1,107 @@
+---
+name: "REL05-BP05 Set client timeouts"
+description: |-
+  Set timeouts appropriately on connections and requests, verify them systematically, 
+  and do not rely on default values as they are not aware of workload specifics.
+
+  **Desired outcome:** Client timeouts should consider the cost to the client, server, 
+  and workload associated with waiting for requests that take abnormal amounts of time 
+  to complete. Since it is not possible to know the exact cause of any timeout, clients 
+  must use knowledge of services to develop expectations of probable causes and 
+  appropriate timeouts. 
+  
+  Client connections time out based on configured values. After 
+  encountering a timeout, clients make decisions to back off and retry or open a circuit 
+  breaker. These patterns avoid issuing requests that may exacerbate an underlying error 
+  condition.
+
+  **Common anti-patterns:**
+
+  - Not being aware of system timeouts or default timeouts.
+  - Not being aware of normal request completion timing.
+  - Not considering causes for requests taking abnormally long or the resource cost of 
+    waiting.
+  - Ignoring potential network impairments that may fail requests only after long timeouts.
+  - Not testing timeout scenarios for both connections and requests.
+  - Setting timeouts too high, causing long wait times and higher resource consumption.
+  - Setting timeouts too low, causing artificial failures.
+  - Overlooking patterns for handling timeout errors, like circuit breakers or retries.
+  - Not monitoring service call error rates, latency, and outliers to inform timeout 
+    configuration.
+
+  **Benefits of establishing this best practice:** Remote call timeouts are configured 
+  appropriately, systems handle timeouts gracefully, conserve resources when remote calls 
+  respond abnormally slow, and errors are managed predictably.
+
+  **Level of risk exposed if this best practice is not established:** High
+
+  ## Implementation guidance
+
+  Set both a connection timeout and a request timeout on any service dependency 
+  call and generally on any call across processes. Many frameworks offer built-in 
+  timeout capabilities, but be careful, as some have default values that are infinite 
+  or higher than acceptable for your service goals. A value that is too high reduces 
+  the usefulness of the timeout because resources continue to be consumed while 
+  the client waits for the timeout to occur. A value that is too low can generate 
+  increased traffic on the backend and increased latency because too many requests 
+  are retried. In some cases, this can lead to complete outages because all requests 
+  are being retried.
+
+  Consider the following when determining timeout strategies:
+
+  - Requests may take longer than normal to process because of their content, 
+  impairments in a target service, or a networking partition failure.
+
+  - Requests with abnormally expensive content could consume unnecessary server and 
+  client resources. In this case, timing out these requests and not retrying can 
+  preserve resources. Services should also protect themselves from abnormally 
+  expensive content with throttles and server-side timeouts.
+
+  - Requests that take abnormally long due to a service impairment can be timed out 
+  and retried. Consideration should be given to service costs for the request and 
+  retry, but if the cause is a localized impairment, a retry is not likely to be 
+  expensive and will reduce client resource consumption. The timeout may also release 
+  server resources depending on the nature of the impairment.
+
+  - Requests that take a long time to complete because the request or response has 
+  failed to be delivered by the network can be timed out and retried. Because the 
+  request or response was not delivered, failure would have been the outcome regardless 
+  of the length of timeout. Timing out in this case will not release server resources, 
+  but it will release client resources and improve workload performance.
+
+  Take advantage of well-established design patterns like retries and circuit 
+  breakers to handle timeouts gracefully and support fail-fast approaches. AWS SDKs 
+  and AWS CLI allow for configuration of both connection and request timeouts and 
+  for retries with exponential backoff and jitter. AWS Lambda functions support 
+  configuration of timeouts, and with AWS Step Functions, you can build low code 
+  circuit breakers that take advantage of pre-built integrations with AWS services 
+  and SDKs. AWS App Mesh Envoy provides timeout and circuit breaker capabilities.
+
+  ### Implementation steps
+
+  - Configure timeouts on remote service calls and take advantage of built-in language 
+    timeout features or open source timeout libraries.
+  - When your workload makes calls with an AWS SDK, review the documentation for 
+    language specific timeout configuration.
+  - When using AWS SDKs or AWS CLI commands in your workload, configure default 
+    timeout values by setting the AWS configuration defaults for connectTimeoutInMillis 
+    and tlsNegotiationTimeoutInMillis.
+  - Apply command line options cli-connect-timeout and cli-read-timeout to control 
+    one-off AWS CLI commands to AWS services.
+  - Monitor remote service calls for timeouts, and set alarms on persistent errors 
+    so that you can proactively handle error scenarios.
+  - Implement CloudWatch Metrics and CloudWatch anomaly detection on call error rates, 
+    service level objectives for latency, and latency outliers to provide insight 
+    into managing overly aggressive or permissive timeouts.
+  - Configure timeouts on Lambda functions.
+  - API Gateway clients must implement their own retries when handling timeouts. 
+    API Gateway supports a 50 millisecond to 29 second integration timeout for 
+    downstream integrations and does not retry when integration requests timeout.
+  - Implement the circuit breaker pattern to avoid making remote calls when they 
+    are timing out. Open the circuit to avoid failing calls and close the circuit 
+    when calls are responding normally.
+  - For container based workloads, review App Mesh Envoy features to leverage built 
+    in timeouts and circuit breakers.
+  - Use AWS Step Functions to build low code circuit breakers for remote service 
+    calls, especially where calling AWS native SDKs and supported Step Functions 
+    integrations to simplify your workload.

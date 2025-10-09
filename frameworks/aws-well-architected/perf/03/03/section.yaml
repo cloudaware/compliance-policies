@@ -1,0 +1,65 @@
+---
+name: "PERF03-BP03 Collect and record data store performance metrics"
+description: |-
+  Track and record relevant performance metrics for your data store to understand 
+  how your data management solutions are performing. These metrics can help you 
+  optimize your data store, verify that your workload requirements are met, and 
+  provide a clear overview on how the workload performs.
+
+  **Common anti-patterns**
+
+  - You only use manual log file searching for metrics.
+  - You only publish metrics to internal tools used by your team and don’t have a 
+    comprehensive picture of your workload.
+  - You only use the default metrics recorded by your selected monitoring software.
+  - You only review metrics when there is an issue.
+  - You only monitor system-level metrics and do not capture data access or usage 
+    metrics.
+
+  **Benefits of establishing this best practice**
+
+  Establishing a performance baseline helps you understand the normal behavior and 
+  requirements of workloads. Abnormal patterns can be identified and debugged faster, 
+  improving the performance and reliability of the data store.
+
+  **Level of risk exposed if this best practice is not established:** High
+
+  ## Implementation guidance
+
+  To monitor the performance of your data stores, you must record multiple performance 
+  metrics over a period of time. This allows you to detect anomalies, as well as 
+  measure performance against business metrics to verify you are meeting your 
+  workload needs.
+
+  Metrics should include both the underlying system that is supporting the data store 
+  and the database metrics. The underlying system metrics might include CPU utilization, 
+  memory, available disk storage, disk I/O, cache hit ratio, and network inbound and 
+  outbound metrics, while the data store metrics might include transactions per second, 
+  top queries, average query rates, response times, index usage, table locks, query 
+  timeouts, and number of connections open. This data is crucial to understand how the 
+  workload is performing and how the data management solution is used. Use these metrics 
+  as part of a data-driven approach to tune and optimize your workload's resources.
+
+  Use tools, libraries, and systems that record performance measurements related to 
+  database performance.
+
+  ### Implementation steps
+
+  1. Identify the key performance metrics for your data store to track.
+
+  2. Track metrics for specific AWS services:
+  
+  3. Use an approved logging and monitoring solution to collect these metrics. 
+     - Amazon CloudWatch can collect metrics across the resources in your architecture. 
+     - You can also collect and publish custom metrics to surface business or derived 
+       metrics.
+     - Use CloudWatch or third-party solutions to set alarms that indicate when 
+       thresholds are breached.
+
+  4. Check if data store monitoring can benefit from a machine learning solution 
+     that detects performance anomalies. For example, Amazon DevOps Guru for Amazon 
+     RDS provides visibility into performance issues and makes recommendations for 
+     corrective actions.
+
+  5. Configure data retention in your monitoring and logging solution to match your 
+     security and operational goals.

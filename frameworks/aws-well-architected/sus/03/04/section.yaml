@@ -1,0 +1,80 @@
+---
+name: "SUS03-BP04 Optimize impact on devices and equipment"
+description: |-
+  Understand the devices and equipment used in your architecture and use strategies 
+  to reduce their usage. This can minimize the overall environmental impact of your 
+  cloud workload.
+
+  **Common anti-patterns:**
+
+  - You ignore the environmental impact of devices used by your customers.
+  - You manually manage and update resources used by customers.
+
+  **Benefits of establishing this best practice:** Implementing software patterns 
+  and features that are optimized for customer devices can reduce the overall 
+  environmental impact of cloud workload.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Implementing software patterns and features that are optimized for customer devices 
+  can reduce the environmental impact in several ways:
+
+  - Implementing new features that are backward compatible can reduce the number 
+    of hardware replacements.
+  - Optimizing an application to run efficiently on devices can help to reduce their 
+    energy consumption and extend their battery life (if they are powered by battery).
+  - Optimizing an application for devices can also reduce the data transfer over the network.
+
+  Understand the devices and equipment used in your architecture, their expected 
+  lifecycle, and the impact of replacing those components. Implement software 
+  patterns and features that can help to minimize the device energy consumption, 
+  the need for customers to replace the device, and also upgrade it manually.
+
+  ### Implementation steps
+
+  1. **Conduct an inventory:** Inventory the devices used in your architecture. 
+     Devices can be mobile, tablet, IoT devices, smart light, or even smart devices 
+     in a factory.
+
+  2. **Use energy-efficient devices:** Consider using energy-efficient devices in 
+     your architecture. Use power management configurations on devices to enter low 
+     power mode when not in use.
+
+  3. **Run efficient applications:** Optimize the application running on the devices:
+
+      - Use strategies such as running tasks in the background to reduce their 
+        energy consumption.
+      - Account for network bandwidth and latency when building payloads, and 
+        implement capabilities that help your applications work well on low 
+        bandwidth, high latency links.
+      - Convert payloads and files into optimized formats required by devices. For 
+        example, you can use Amazon Elastic Transcoder or AWS Elemental MediaConvert 
+        to convert large, high-quality digital media files into formats that users 
+        can play back on mobile devices, tablets, web browsers, and connected 
+        televisions.
+      - Perform computationally intense activities server-side (such as image 
+        rendering), or use application streaming to improve the user experience on 
+        older devices.
+      - Segment and paginate output, especially for interactive sessions, to manage 
+        payloads and limit local storage requirements.
+
+  4. **Engage suppliers:** Work with device suppliers who use sustainable materials 
+     and provide transparency in their supply chains and environmental certifications.
+
+  5. **Use over-the-air (OTA) updates:** Use automated OTA mechanisms to deploy 
+     updates to one or more devices.
+
+      - You can use a CI/CD pipeline to update mobile applications.
+      - You can use AWS IoT Device Management to remotely manage connected devices 
+        at scale.
+
+  6. **Use managed device farms:** To test new features and updates, use managed 
+     device farms with representative sets of hardware and iterate development to 
+     maximize the devices supported. For more details, see SUS06-BP05 *Use managed 
+     device farms for testing*.
+
+  7. **Continue to monitor and improve:** Track the energy usage of devices to 
+     identify areas for improvement. Use new technologies or best practices to 
+     enhance environmental impacts of these devices.

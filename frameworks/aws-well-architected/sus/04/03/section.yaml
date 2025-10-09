@@ -1,0 +1,73 @@
+---
+name: "SUS04-BP03 Use policies to manage the lifecycle of your datasets"
+description: |-
+  Manage the lifecycle of all of your data and automatically enforce deletion to 
+  minimize the total storage required for your workload.
+
+  **Common anti-patterns:**
+
+  - You manually delete data.
+  - You do not delete any of your workload data.
+  - You do not move data to more energy-efficient storage tiers based on its 
+    retention and access requirements.
+
+  **Benefits of establishing this best practice:** Using data lifecycle policies 
+  ensures efficient data access and retention in a workload.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Datasets usually have different retention and access requirements during their 
+  lifecycle. For example, your application may need frequent access to some 
+  datasets for a limited period of time. After that, those datasets are 
+  infrequently accessed. To improve the efficiency of data storage and 
+  computation over time, implement lifecycle policies, which are rules that define 
+  how data is handled over time.
+
+  With lifecycle configuration rules, you can tell the specific storage service to 
+  transition a dataset to more energy-efficient storage tiers, archive it, or 
+  delete it. This practice minimizes active data storage and retrieval, which 
+  leads to lower energy consumption. In addition, practices such as archiving or 
+  deleting obsolete data support regulatory compliance and data governance.
+
+  ### Implementation steps
+
+  1. **Use data classification:** Classify datasets in your workload.
+
+  2. **Define handling rules:** Define handling procedures for each data class.
+
+  3. **Enable automation:** Set automated lifecycle policies to enforce lifecycle 
+     rules. Here are some examples of how to set up automated lifecycle policies 
+     for different AWS storage services:
+
+      - **Amazon S3:**  
+        You can use Amazon S3 Lifecycle to manage your objects throughout their 
+        lifecycle. If your access patterns are unknown, changing, or unpredictable, 
+        you can use Amazon S3 Intelligent-Tiering, which monitors access patterns 
+        and automatically moves objects that have not been accessed to lower-cost 
+        access tiers. You can leverage Amazon S3 Storage Lens metrics to identify 
+        optimization opportunities and gaps in lifecycle management.
+
+      - **Amazon Elastic Block Store:**  
+        You can use Amazon Data Lifecycle Manager to automate the creation, retention, 
+        and deletion of Amazon EBS snapshots and Amazon EBS-backed AMIs.
+
+      - **Amazon Elastic File System:**  
+        Amazon EFS lifecycle management automatically manages file storage for your 
+        file systems.
+
+      - **Amazon Elastic Container Registry:**  
+        Amazon ECR lifecycle policies automate the cleanup of your container images 
+        by expiring images based on age or count.
+
+      - **AWS Elemental MediaStore:**  
+        You can use an object lifecycle policy that governs how long objects should 
+        be stored in the MediaStore container.
+
+  4. **Delete unused assets:** Delete unused volumes, snapshots, and data that is 
+     out of its retention period. Use native service features like Amazon DynamoDB 
+     Time To Live or Amazon CloudWatch log retention for deletion.
+
+  5. **Aggregate and compress:** Aggregate and compress data where applicable 
+     based on lifecycle rules.

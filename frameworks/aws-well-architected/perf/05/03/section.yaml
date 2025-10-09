@@ -1,0 +1,49 @@
+---
+name: "PERF05-BP03 Define a process to improve workload performance"
+description: |-
+  Define a process to evaluate new services, design patterns, resource types, and
+  configurations as they become available. For example, run existing performance tests on
+  new instance offerings to determine their potential to improve your workload.
+
+  **Common anti-patterns**
+
+  - You assume your current architecture is static and won’t be updated over time.
+  - You introduce architecture changes over time with no metric justification.
+
+  **Benefits of establishing this best practice**
+
+  By defining your process for making architectural changes, you can use gathered data to
+  influence your workload design over time.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Your workload's performance has a few key constraints. Document these so that you know
+  what kinds of innovation might improve the performance of your workload. Use this
+  information when learning about new services or technology as it becomes available to
+  identify ways to alleviate constraints or bottlenecks.
+
+  Identify the key performance constraints for your workload. Document your workload’s
+  performance constraints so that you know what kinds of innovation might improve the
+  performance of your workload.
+
+  ### Implementation steps
+
+  1. Identify KPIs: Identify your workload performance KPIs as outlined in
+     PERF05-BP01 Establish key performance indicators (KPIs) to measure workload health
+     and performance to baseline your workload.
+  2. Implement monitoring: Use AWS observability tools to collect performance metrics and
+     measure KPIs.
+  3. Conduct analysis: Conduct in-depth analysis to identify the areas (like configuration
+     and application code) in your workload that is under-performing as outlined in
+     PERF05-BP02 Use monitoring solutions to understand the areas where performance is
+     most critical. Use your analysis and performance tools to identify the performance
+     improvement strategies.
+  4. Validate improvements: Use sandbox or pre-production environments to validate the
+     effectiveness of improvement strategies.
+  5. Implement changes: Implement the changes in production and continually monitor the
+     workload’s performance. Document the improvements, and communicate the changes to
+     stakeholders.
+  6. Revisit and refine: Regularly review your performance improvement process to identify
+     areas for enhancement.

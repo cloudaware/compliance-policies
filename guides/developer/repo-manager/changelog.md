@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.3.4
+
+- `repo-manager` now outputs absolute paths (to allow click/ctrl+click) in terminals and IDEs
+- `repo-manager policies` subcommand now works from any directory inside the repo and accepts:
+  - full canonical paths `/ce/ca/aws/ec2/elastic-ip-unused`
+  - canonical paths without leading slash `ce/ca/aws/ec2/elastic-ip-unused`
+  - OS-specific paths, like `ce\ca\aws\ec2\elastic-ip-unused` on Windows
+  - relative paths `ec2/elastic-ip-unused` (`ce/ca/aws` being current directory)
+- `repo-manager policies test` in addition to above now:
+  - does not support `/ce/unit-test/*`, instead you can specify folders `/ce/unit-test` to test all policies inside the folder
+- Added `description` into front-matter for `repo-manager docs generate --renderer=DOCUSAURUS` 
+
+## 2.3.3
+
+- Added `repo-manager policies evaluate-object` to check the output of a specific policy against a specific object. Uses data directly from CMDB
+- Endpoint for `repo-manager policies test` updated with the latest changes
+- Added parameter `-t/--threads` to `repo-manager policies test`
+
 ## 2.3.2
 
 - Replaced `&nbsp;` with \u3000 for SectionTree and Folder tree for better readability in plain text

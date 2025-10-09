@@ -1,0 +1,15 @@
+---
+names:
+  full: "AWS ElastiCache Redis Cluster Auto Minor Version Upgrade is not enabled"
+  contextual: "Redis Cluster Auto Minor Version Upgrade is not enabled"
+description: >
+  Ensure that ElastiCache Redis clusters have the Auto Minor Version Upgrade flag enabled 
+  in order to receive automatically minor engine upgrades during the specified 
+  maintenance window.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/infrastructure-modernization"
+  - "/frameworks/aws-well-architected/ops/05/05"
+  - "/frameworks/aws-fsbp-v1.0.0/elasticache/02"

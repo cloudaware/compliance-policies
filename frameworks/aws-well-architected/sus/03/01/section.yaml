@@ -1,0 +1,70 @@
+---
+name: "SUS03-BP01 Optimize software and architecture for asynchronous and scheduled jobs"
+description: |-
+  Use efficient software and architecture patterns such as queue-driven to 
+  maintain consistent high utilization of deployed resources.
+
+  **Common anti-patterns:**
+
+  - You overprovision the resources in your cloud workload to meet unforeseen 
+    spikes in demand.
+  - Your architecture does not decouple senders and receivers of asynchronous 
+    messages by a messaging component.
+
+  **Benefits of establishing this best practice:**
+
+  - Efficient software and architecture patterns minimize the unused resources in 
+    your workload and improve the overall efficiency.
+  - You can scale the processing independently of the receiving of asynchronous 
+    messages.
+  - Through a messaging component, you have relaxed availability requirements that 
+    you can meet with fewer resources.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Use efficient architecture patterns such as event-driven architecture that result 
+  in even utilization of components and minimize overprovisioning in your workload. 
+  Using efficient architecture patterns minimizes idle resources from lack of use 
+  due to changes in demand over time.
+
+  Understand the requirements of your workload components and adopt architecture 
+  patterns that increase overall utilization of resources. Retire components that 
+  are no longer required.
+
+  ### Implementation steps
+
+  1. Analyze the demand for your workload to determine how to respond to those.
+
+  2. For requests or jobs that don’t require synchronous responses, use 
+     queue-driven architectures and auto scaling workers to maximize utilization. 
+     Here are some examples of when you might consider queue-driven architecture:
+
+      | Queuing mechanism                                            | Description                                                           |
+      |--------------------------------------------------------------|-----------------------------------------------------------------------|
+      | **AWS Batch job queues**                                     | AWS Batch jobs are submitted to a job queue where they reside until they can be scheduled to run in a compute environment.|
+      | **Amazon Simple Queue Service and Amazon EC2 Spot Instances**| Pairing Amazon SQS and Spot Instances to build fault tolerant and efficient architecture.|
+
+  3. For requests or jobs that can be processed anytime, use scheduling 
+     mechanisms to process jobs in batch for more efficiency. Here are some 
+     examples of scheduling mechanisms on AWS:
+
+      | Scheduling mechanism                    | Description                                                         |
+      |-----------------------------------------|----------------------------------------------------------------------|
+      | **Amazon EventBridge Scheduler**        | A capability from Amazon EventBridge that allows you to create, run, and manage scheduled tasks at scale.|
+      | **AWS Glue time-based schedule**        | Define a time-based schedule for your crawlers and jobs in AWS Glue.|
+      | **Amazon ECS scheduled tasks**          | Amazon ECS supports creating scheduled tasks. Scheduled tasks use Amazon EventBridge rules to run tasks either on a schedule or in response to an EventBridge event.                                      |
+      | **Instance Scheduler**                  | Configure start and stop schedules for your Amazon EC2 and Amazon Relational Database Service instances.|
+
+  4. If you use polling and webhooks mechanisms in your architecture, replace 
+     those with events. Use event-driven architectures to build highly efficient 
+     workloads.
+
+  5. Leverage serverless on AWS to eliminate over-provisioned infrastructure.
+
+  6. Right size individual components of your architecture to prevent idling 
+     resources waiting for input.
+
+      - You can use the Rightsizing Recommendations in AWS Cost Explorer or AWS 
+        Compute Optimizer to identify rightsizing opportunities.

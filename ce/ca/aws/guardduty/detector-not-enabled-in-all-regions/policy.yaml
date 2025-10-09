@@ -1,0 +1,23 @@
+---
+names:
+  full: "AWS GuardDuty is not enabled in all regions"
+  contextual: "GuardDuty is not enabled in all regions"
+description: >
+  Amazon GuardDuty is a threat detection service that continuously monitors for 
+  malicious activity and unauthorized behavior to protect your AWS accounts and 
+  workloads. It is recommended that GuardDuty be enabled in all supported AWS regions 
+  to ensure comprehensive threat coverage.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+  - "/frameworks/aws-well-architected/sec/04/03"
+  - "/frameworks/aws-well-architected/sec/04/04"
+  - "/frameworks/aws-well-architected/sec/05/03"
+  - "/frameworks/aws-well-architected/sec/05/04"
+  - "/frameworks/aws-fsbp-v1.0.0/guardduty/01"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[GuardDuty.1] GuardDuty should be enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/guardduty-controls.html#guardduty-1"

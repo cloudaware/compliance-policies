@@ -1,0 +1,39 @@
+---
+inputType: "CA10__CaAwsGuardDutyDetector__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsGuardDutyDetector__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "GuardDuty EKS Audit Log Monitoring is disabled."
+    remediationMessage: "Enable EKS Audit Log Monitoring in the GuardDuty data sources settings."
+    check:
+      IS_EQUAL:
+        left:
+          JSON_QUERY_TEXT:
+            expression: "kubernetes.auditLogs.status" 
+            arg:
+              EXTRACT: "caJsonFrom__dataSourcesJson__c"
+            undeterminedIf:
+              evaluationError: "Json query text has failed."
+              resultTypeMismatch: "Json query text did not return text type."
+        right:
+          TEXT: "DISABLED"
+  - status: "COMPLIANT"
+    currentStateMessage: "GuardDuty EKS Audit Log Monitoring is enabled."
+    check:
+      IS_EQUAL:
+        left:
+          JSON_QUERY_TEXT:
+            expression: "kubernetes.auditLogs.status" 
+            arg:
+              EXTRACT: "caJsonFrom__dataSourcesJson__c"
+            undeterminedIf:
+              evaluationError: "Json query text has failed."
+              resultTypeMismatch: "Json query text did not return text type."
+        right:
+          TEXT: "ENABLED"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

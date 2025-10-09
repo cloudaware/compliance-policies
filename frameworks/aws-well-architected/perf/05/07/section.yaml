@@ -1,0 +1,52 @@
+---
+name: "PERF05-BP07 Review metrics at regular intervals"
+description: |-
+  As part of routine maintenance or in response to events or incidents, review which metrics
+  are collected. Use these reviews to identify which metrics were essential in addressing
+  issues and which additional metrics, if they were being tracked, could help identify,
+  address, or prevent issues.
+
+  **Common anti-patterns**
+
+  - You allow metrics to stay in an alarm state for an extended period of time.
+  - You create alarms that are not actionable by an automation system.
+
+  **Benefits of establishing this best practice**
+
+  Continually review metrics that are being collected to verify that they properly identify,
+  address, or prevent issues. Metrics can also become stale if you let them stay in an alarm
+  state for an extended period of time.
+
+  **Level of risk exposed if this best practice is not established:** Medium
+
+  ## Implementation guidance
+
+  Constantly improve metric collection and monitoring. As part of responding to incidents or
+  events, evaluate which metrics were helpful in addressing the issue and which metrics
+  could have helped that are not currently being tracked. Use this method to improve the
+  quality of metrics you collect so that you can prevent, or more quickly resolve future
+  incidents.
+
+  ### Implementation steps
+
+  1. Define metrics: Define critical performance metrics to monitor that are aligned to your
+     workload objective, including metrics such as response time and resource utilization.
+
+  2. Establish baselines: Set a baseline and desirable value for each metric. The baseline
+     should provide reference points to identify deviation or anomalies.
+
+  3. Set up a cadence: Set a cadence (like weekly or monthly) to review critical metrics.
+  
+  4. Identify performance issues: During each review, assess trends and deviation from the
+     baseline values. Look for any performance bottlenecks or anomalies. For identified
+     issues, conduct in-depth root cause analysis to understand the main reason behind the
+     issue.
+
+  5. Identify corrective actions: Use your analysis to identify corrective actions. This may
+     include parameter tuning, fixing bugs, and scaling resources.
+
+  6. Document findings: Document your findings, including identified issues, root causes, and
+     corrective actions.
+     
+  7. Iterate and improve: Continually assess and improve the metrics review process. Use the
+     lessons learned from previous review to enhance the process over time.

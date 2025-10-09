@@ -1,0 +1,47 @@
+---
+name: "REL12-BP01 Use playbooks to investigate failures"
+description: |-
+  Permit consistent and prompt responses to failure scenarios that are not well understood, 
+  by documenting the investigation process in playbooks. Playbooks are the predefined steps 
+  performed to identify the factors contributing to a failure scenario. The results from any 
+  process step are used to determine the next steps to take until the issue is identified 
+  or escalated.
+
+  The playbook is proactive planning that you must do to be able to take reactive actions 
+  effectively. When failure scenarios not covered by the playbook are encountered in 
+  production, first address the issue (put out the fire). Then go back and review the steps 
+  you took to address the issue and use these to add a new entry in the playbook.
+
+  Note that playbooks are used in response to specific incidents, while runbooks are used 
+  to achieve specific outcomes. Often, runbooks are used for routine activities and 
+  playbooks are used to respond to non-routine events.
+
+  **Common anti-patterns:**
+
+  - Planning to deploy a workload without knowing the processes to diagnose issues or respond 
+    to incidents.
+  - Unplanned decisions about which systems to gather logs and metrics from when investigating 
+    an event.
+  - Not retaining metrics and events long enough to be able to retrieve the data.
+
+  **Benefits of establishing this best practice:** Capturing playbooks ensures that processes 
+  can be consistently followed. Codifying your playbooks limits the introduction of errors 
+  from manual activity. Automating playbooks shortens the time to respond to an event by 
+  eliminating the requirement for team member intervention or providing them additional 
+  information when their intervention begins.
+
+  **Level of risk exposed if this best practice is not established:** High
+
+  ## Implementation guidance
+
+  - Use playbooks to identify issues. Playbooks are documented processes to investigate issues. 
+  They allow consistent and prompt responses to failure scenarios. Playbooks must contain 
+  the information and guidance necessary for an adequately skilled person to gather 
+  applicable information, identify potential sources of failure, isolate faults, and determine 
+  contributing factors (perform post-incident analysis).
+
+      - Implement playbooks as code. Perform your operations as code by scripting your playbooks 
+      to ensure consistency and reduce errors caused by manual processes. Playbooks can be composed 
+      of multiple scripts representing the different steps that might be necessary to identify 
+      the contributing factors to an issue. Runbook activities can be invoked or performed as 
+      part of playbook activities, or might prompt to run a playbook in response to identified events.

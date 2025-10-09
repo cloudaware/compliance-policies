@@ -1,0 +1,89 @@
+---
+name: "PERF04-BP01 Understand how networking impacts performance"
+description: |-
+  Analyze and understand how network-related decisions impact your workload to 
+  provide efficient performance and improved user experience.
+
+  **Common anti-patterns**
+
+  - All traffic flows through your existing data centers.
+  - You route all traffic through central firewalls instead of using cloud-native 
+    network security tools.
+  - You provision AWS Direct Connect connections without understanding actual usage 
+    requirements.
+  - You don’t consider workload characteristics and encryption overhead when defining 
+    your networking solutions.
+  - You use on-premises concepts and strategies for networking solutions in the cloud.
+
+  **Benefits of establishing this best practice**
+
+  Understanding how networking impacts workload performance helps you identify 
+  potential bottlenecks, improve user experience, increase reliability, and lower 
+  operational maintenance as the workload changes.
+
+  **Level of risk exposed if this best practice is not established:** High
+
+  ## Implementation guidance
+
+  The network is responsible for the connectivity between application components, 
+  cloud services, edge networks, and on-premises data, and therefore it can heavily 
+  impact workload performance. In addition to workload performance, user experience 
+  can also be impacted by network latency, bandwidth, protocols, location, network 
+  congestion, jitter, throughput, and routing rules.
+
+  Have a documented list of networking requirements from the workload including 
+  latency, packet size, routing rules, protocols, and supporting traffic patterns. 
+  Review the available networking solutions and identify which service meets your 
+  workload networking characteristics. Cloud-based networks can be quickly rebuilt, 
+  so evolving your network architecture over time is necessary to improve performance 
+  efficiency.
+
+  ### Implementation steps
+
+  1. Define and document networking performance requirements, including metrics such 
+     as network latency, bandwidth, protocols, locations, traffic patterns (spikes 
+     and frequency), throughput, encryption, inspection, and routing rules.
+
+  2. Learn about key AWS networking services like VPCs, AWS Direct Connect, Elastic 
+     Load Balancing (ELB), and Amazon Route 53.
+
+  3. Capture the following key networking characteristics:
+
+      - **Foundational networking characteristics:**
+        - VPC Flow Logs
+        - AWS Transit Gateway Flow Logs
+        - AWS Transit Gateway metrics
+        - AWS PrivateLink metrics
+
+      - **Application networking characteristics:**
+        - Elastic Fabric Adapter
+        - AWS App Mesh metrics
+        - Amazon API Gateway metrics
+
+      - **Edge networking characteristics:**
+        - Amazon CloudFront metrics
+        - Amazon Route 53 metrics
+        - AWS Global Accelerator metrics
+
+      - **Hybrid networking characteristics:**
+        - AWS Direct Connect metrics
+        - AWS Site-to-Site VPN metrics
+        - AWS Client VPN metrics
+        - AWS Cloud WAN metrics
+
+      - **Security networking characteristics:**
+        - AWS Shield, AWS WAF, and AWS Network Firewall metrics
+
+      - **Tracing characteristics:**
+        - AWS X-Ray
+        - VPC Reachability Analyzer
+        - Network Access Analyzer
+        - Amazon Inspector
+        - Amazon CloudWatch RUM
+
+  4. Benchmark and test network performance:
+
+      - Benchmark network throughput, as some factors can affect Amazon EC2 network 
+        performance when instances are in the same VPC. Measure the network bandwidth 
+        between Amazon EC2 Linux instances in the same VPC.
+      - Perform load tests to experiment with networking solutions and options.
