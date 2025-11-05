@@ -9,11 +9,18 @@ conditions:
   - status: "COMPLIANT"
     currentStateMessage: "The SQL Instance requires all incoming connections to use SSL."
     check:
-          IS_EQUAL:
-            left:
-              EXTRACT: "CA10__sslMode__c"
-            right:
-              TEXT: "ENCRYPTED_ONLY"
+      OR:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__sslMode__c"
+              right:
+                TEXT: "ENCRYPTED_ONLY"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__sslMode__c"
+              right:
+                TEXT: "TRUSTED_CLIENT_CERTIFICATE_REQUIRED"
 otherwise:
   status: "INCOMPLIANT"
   currentStateMessage: "The SQL Instance does not require incoming connections use SSL."

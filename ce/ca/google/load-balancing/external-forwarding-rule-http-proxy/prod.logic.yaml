@@ -1,0 +1,40 @@
+---
+inputType: "CA10__CaGoogleGceForwardingRule__c"
+importExtracts:
+  - file: /types/CA10__CaGoogleGceForwardingRule__c/object.extracts.yaml
+recordTypes:
+  - "caGoogleGceForwardingRuleGlobal"
+  - "caGoogleGceForwardingRuleExternal"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The policy applies only to external forwarding rules."
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              SET:
+                itemType: "TEXT"
+                items:
+                  - "EXTERNAL"
+                  - "EXTERNAL_MANAGED"
+            search:
+              EXTRACT: "CA10__loadBalancingScheme__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The external forwarding rule uses an HTTP instead of an HTTPS proxy."
+    remediationMessage: "The forwarding rule should use a target HTTPS proxy to ensure traffic is encrypted."
+    check:
+      NOT_EMPTY:
+        arg:
+          EXTRACT: "CA10__targetHttpProxyUniqueId__c"
+  - status: "COMPLIANT"
+    currentStateMessage: "The external forwarding rule is configured to use an HTTPS proxy."
+    check:
+      NOT_EMPTY:
+        arg:
+          EXTRACT: "CA10__targetHttpsProxyUniqueId__c"
+otherwise:
+  status: "INAPPLICABLE"
+  currentStateMessage: "The forwarding rule targets a different type of resource."

@@ -24,3 +24,18 @@ extracts:
           EXTRACT: "CA10__dataSourcesJson__c"
         undeterminedIf:
           isInvalid: "The Data Sources JSON is invalid."
+  - name: "CA10__featuresJson__c"
+    value:
+      FIELD:
+        path: "CA10__featuresJson__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__featuresJson__c"
+            currentStateMessage: "The Features cannot be empty. Possible permission issue with guardduty:GetDetector."
+  - name: "caJsonFrom__featuresJson__c"
+    value:
+      JSON_FROM:
+        arg:
+          EXTRACT: "CA10__featuresJson__c"
+        undeterminedIf:
+          isInvalid: "The Data Sources JSON is invalid."

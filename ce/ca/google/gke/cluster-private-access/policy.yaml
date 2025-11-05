@@ -1,0 +1,13 @@
+---
+names: 
+  full: "Google GKE Cluster Private Google Access is not enabled."
+  contextual: "Cluster Private Google Access is not enabled."
+description: "Ensure that GKE clusters are configured to use Private Google Access.\
+  \ Private Google Access allows cluster hosts in a subnet to reach Google APIs and\
+  \ services using an internal IP address rather than an external IP address."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/pci-dss-v3.2.1/01/03"
+  - "/frameworks/cloudaware/resource-security/secure-access"

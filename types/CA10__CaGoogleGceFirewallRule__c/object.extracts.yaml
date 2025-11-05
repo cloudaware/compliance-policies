@@ -39,5 +39,15 @@ extracts:
         undeterminedIf:
           isInvalid: "Denied protocol ports JSON is invalid."
           isEmpty: "Denied protocol ports JSON is empty."
-
-
+  - name: "CA10__destinationRanges__c"
+    value: 
+      FIELD:
+        path: "CA10__destinationRanges__c"
+        undeterminedIf:
+          isEmpty: "Destination ranges are not populated yet."
+  - name: "CA10__logState__c"
+    value: 
+      FIELD:
+        path: "CA10__logState__c"
+        undeterminedIf:
+         isEmpty: "Logging status undetermined."

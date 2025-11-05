@@ -1,0 +1,21 @@
+---
+names:
+  full: "AWS ELB Load Balancer Cross-Zone Load Balancing is not enabled"
+  contextual: "Load Balancer Cross-Zone Load Balancing is not enabled"
+description: >
+  Ensures that AWS ELB Load Balancers have cross-zone load balancing enabled to 
+  distribute traffic evenly across all registered instances in all enabled 
+  Availability Zones.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+  - "PERFORMANCE"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/cloudaware/resource-performance/performance-tuning"
+  - "/frameworks/aws-well-architected/perf/04/04"
+  - "/frameworks/aws-fsbp-v1.0.0/elb/09"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ELB.9] Classic Load Balancers should have cross-zone load balancing enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-9"

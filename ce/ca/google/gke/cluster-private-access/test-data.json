@@ -1,0 +1,38 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10G1__subnetwork__r.CA10__privateGoogleAccess__c') == 'Enabled'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-08T10:28:58Z" },
+    "Id": "001",
+    "CA10G1__disappearanceTime__c": null,
+    "CA10G1__subnetwork__c": "01-1",
+    "CA10G1__subnetworkUniqueId__c": "projects/subnetworks/default",
+    "CA10G1__subnetwork__r": {
+      "Id": "01-1",
+      "CA10__disappearanceTime__c": null,
+      "CA10__privateGoogleAccess__c": "Enabled"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-08T10:28:58Z" },
+    "Id": "002",
+    "CA10G1__disappearanceTime__c": null,
+    "CA10G1__subnetwork__c": "02-1",
+    "CA10G1__subnetworkUniqueId__c": "projects/subnetworks/ids-cluster-subnet",
+    "CA10G1__subnetwork__r": {
+      "Id": "02-1",
+      "CA10__disappearanceTime__c": null,
+      "CA10__privateGoogleAccess__c": "Disabled"
+    }
+  }
+]

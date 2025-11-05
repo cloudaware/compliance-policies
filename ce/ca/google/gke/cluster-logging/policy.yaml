@@ -1,0 +1,15 @@
+---
+names: 
+  full: "Google GKE Cluster Logging is not enabled"
+  contextual: "Cluster Logging is not enabled"
+description: "Ensure that Cloud Logging is enabled for GKE Clusters to provide\
+  \ visibility into cluster audit, application, and system logs."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cis-gke-v1.8.0/05/07/01"
+  - "/frameworks/pci-dss-v3.2.1/10/02/02"
+  - "/frameworks/pci-dss-v3.2.1/10/02/07"
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"

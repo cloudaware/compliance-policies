@@ -1,0 +1,25 @@
+---
+
+inputType: "CA10G1__CaGoogleGkeCluster__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10G1__CaGoogleGkeCluster__c/object.extracts.yaml"
+  - file: "/types/CA10__CaGoogleGceSubnetwork__c/object.extracts.yaml"
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "The subnetwork for this GKE cluster could not be found in the CMDB."
+    check:
+      IS_EMPTY_LOOKUP: "CA10G1__subnetwork__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "Private Google Access is enabled for the cluster's subnetwork."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10G1__subnetwork__r.CA10__privateGoogleAccess__c"
+        right:
+          TEXT: "Enabled"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Private Google Access is not enabled for the cluster's subnetwork."
+  remediationMessage: "Enable Private Google Access on the subnetwork used by the GKE cluster."

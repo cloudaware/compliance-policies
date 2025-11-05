@@ -1,0 +1,20 @@
+---
+
+inputType: "CA10G1__CaGoogleGkeCluster__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10G1__CaGoogleGkeCluster__c/object.extracts.yaml"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "The Cluster Alias IP is enabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10G1__useIpAliases__c"
+        right:
+          TEXT: "ENABLED"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The Cluster Alias IP is disabled."
+  remediationMessage: "Create a new Cluster with Alias IP ranges enabled."

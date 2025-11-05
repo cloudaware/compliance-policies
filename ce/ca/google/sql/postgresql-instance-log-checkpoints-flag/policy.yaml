@@ -1,0 +1,11 @@
+---
+names: 
+  full: "Google Cloud PostgreSQL Instance Log_checkpoints Database Flag is not set to On"
+  contextual: "PostgreSQL Instance Log_checkpoints Database Flag is not set to On"
+description: "Ensure that the `log_checkpoints` database flag for the Cloud SQL PostgreSQL instance is set to `on`."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cis-gcp-v1.2.0/06/02/01"
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"

@@ -1,0 +1,9 @@
+---
+name: "4.1.2 Minimize access to secrets (Automated)"
+description: "The Kubernetes API stores secrets, which may be service account tokens for the \
+  \ Kubernetes API or credentials used by workloads in the cluster. Access to these secrets \
+  \ should be restricted to the smallest possible group of users to reduce the risk of \
+  \ privilege escalation."
+similar:
+  sections:
+    - "/frameworks/cis-gke-v1.0.0/05/01/02"

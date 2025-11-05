@@ -1,0 +1,65 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-10-14T02:26:39Z" },
+    "CA10__disappearanceTime__c": "2025-10-07T13:17:54Z",
+    "Id": "001",
+    "CA10__Google_GCE_Firewall_Rules__r": [
+      {
+        "CA10__disappearanceTime__c": "2025-10-07T13:18:51Z",
+        "CA10__direction__c": "INGRESS",
+        "CA10__sourceRanges__c": "10.99.1.0/24",
+        "CA10__allowedProtocolsPortsJson__c": "{\"ports\":[{\"protocol\":\"tcp\",\"startPort\":\"1\",\"endPort\":\"65535\"},{\"protocol\":\"udp\",\"startPort\":\"1\",\"endPort\":\"65535\"},{\"protocol\":\"icmp\"}]}",
+        "CA10__gceNetwork__c": "001",
+        "Id": "Id1"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__Google_GCE_Firewall_Rules__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-10-14T02:26:39Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "002",
+    "CA10__Google_GCE_Firewall_Rules__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__direction__c": "INGRESS",
+        "CA10__sourceRanges__c": "0.0.0.0/0",
+        "CA10__allowedProtocolsPortsJson__c": "{\"ports\":[{\"protocol\":\"icmp\"},{\"protocol\":\"tcp\",\"startPort\":\"1\",\"endPort\":\"65535\"},{\"protocol\":\"udp\",\"startPort\":\"1\",\"endPort\":\"65535\"}]}",
+        "CA10__gceNetwork__c": "002",
+        "Id": "Id2"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-10-14T02:26:39Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "003",
+    "CA10__Google_GCE_Firewall_Rules__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__direction__c": "EGRESS",
+        "CA10__sourceRanges__c": "",
+        "CA10__allowedProtocolsPortsJson__c": "{\"ports\":[{\"protocol\":\"icmp\"},{\"protocol\":\"tcp\",\"startPort\":\"443\",\"endPort\":\"443\"}]}",
+        "CA10__gceNetwork__c": "003",
+        "Id": "Id3"
+      }
+    ]
+  }
+]

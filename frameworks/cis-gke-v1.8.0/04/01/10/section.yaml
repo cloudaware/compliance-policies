@@ -1,0 +1,11 @@
+---
+name: "4.1.10 Avoid non-default bindings to system:authenticated (Automated)"
+description: "Avoid non-default `ClusterRoleBindings` and `RoleBindings` with the group \
+  \ `system:authenticated`, except the `ClusterRoleBindings` `system:basic-user`, \
+  \ `system:discovery`, and `system:public-info-viewer`. \
+  \ Google's approach to authentication is to make authenticating to Google Cloud and \
+  \ GKE as simple and secure as possible without adding complex configuration steps. The \
+  \ group `system:authenticated` includes all users with a Google account, which \
+  \ includes all Gmail accounts. Consider your authorization controls with this extended \
+  \ group scope when granting permissions. Thus, group `system:authenticated` is not \
+  \ recommended for non-default use."

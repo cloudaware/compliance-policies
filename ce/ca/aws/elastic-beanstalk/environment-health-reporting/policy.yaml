@@ -1,0 +1,22 @@
+---
+names:
+  full: "AWS Elastic Beanstalk Environment does not have enhanced health reporting enabled"
+  contextual: "Environment does not have enhanced health reporting enabled"
+description: >
+  Enhanced health reporting is a feature that can be enabled within your environment 
+  to allow AWS Elastic Beanstalk to collect additional data about its associated 
+  resources. Elastic Beanstalk uses this data to provide a more comprehensive view 
+  of the environment’s overall health and to help identify potential issues that 
+  could impact application availability.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/elastic-beanstalk/01"
+  - "/frameworks/aws-well-architected/rel/11/01"
+  - "/frameworks/aws-well-architected/rel/11/02"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ElasticBeanstalk.1] Elastic Beanstalk environments should have enhanced health reporting enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/elasticbeanstalk-controls.html#elasticbeanstalk-1"

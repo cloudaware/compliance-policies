@@ -1,0 +1,21 @@
+---
+inputType: "CA10__CaAwsDbInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsDbInstance__c/object.extracts.yaml
+conditions:
+  - status: INCOMPLIANT
+    currentStateMessage: "The DB Instance automated backups are disabled."
+    remediationMessage: "Enable automated backups by setting the backup retention\
+      \ period to a value greater than 0 days."
+    check:
+      IS_EQUAL:
+        left:
+          FIELD:
+            path: CA10__backupRetentionPeriod__c
+        right:
+          NUMBER: 0.0
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: "The DB Instance automated backups are enabled."

@@ -1,0 +1,17 @@
+---
+names:
+  full: "AWS EC2 Auto Scaling Group does not span multiple Availability Zones"
+  contextual: "Auto Scaling Group does not span multiple Availability Zones"
+description: >
+  Ensure that AWS Auto Scaling Groups are configured across multiple Availability 
+  Zones to helps applications remain resilient in case of an Availability Zone failure.
+categories:
+  - "RELIABILITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/auto-scaling/02"
+  - "/frameworks/aws-well-architected/rel/06/04"
+  - "/frameworks/aws-well-architected/rel/07/02"
+  - "/frameworks/aws-well-architected/rel/11/03"
+  - "/frameworks/aws-well-architected/sus/02/01"

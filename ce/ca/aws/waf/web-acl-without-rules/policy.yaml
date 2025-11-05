@@ -1,0 +1,23 @@
+---
+names:
+  full: "AWS WAF Web ACL has no WAF Rules or WAF Rule Groups"
+  contextual: "Web ACL has no WAF Rules or WAF Rule Groups"
+description: "Ensure that AWS WAF web ACLs have at least one rule or rule group\
+  \ to provide protection against common web exploits and malicious traffic."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+  - "/frameworks/aws-fsbp-v1.0.0/waf/04"
+  - "/frameworks/aws-fsbp-v1.0.0/waf/08"
+  - "/frameworks/aws-fsbp-v1.0.0/waf/10"
+  - "/frameworks/aws-well-architected/sec/05/03"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[WAF.4] AWS WAF Classic Regional web ACLs should have at least one rule or rule group"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/waf-controls.html#waf-4"
+    - name: "[WAF.8] AWS WAF Classic global web ACLs should have at least one rule or rule group"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/waf-controls.html#waf-8"
+    - name: "[WAF.10] AWS WAF web ACLs should have at least one rule or rule group"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/waf-controls.html#waf-10"

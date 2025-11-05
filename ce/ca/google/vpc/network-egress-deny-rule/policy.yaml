@@ -1,0 +1,13 @@
+---
+names: 
+  full: "Google GCE Network has no egress deny Firewall Rule"
+  contextual: "GCE Network has no egress deny Firewall Rule"
+description: "Ensure that every VPC Network includes at least one egress firewall\
+  \ rule with a deny action. Implementing a default-deny egress policy enforces\
+  \ the principle of least privilege by controlling and restricting outbound traffic from the network."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/pci-dss-v3.2.1/07/02"
+  - "/frameworks/cloudaware/resource-security/secure-access"

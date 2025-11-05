@@ -2,7 +2,7 @@
     {
         "expectedResult": {
             "status": "INCOMPLIANT",
-            "conditionIndex": "199",
+            "conditionIndex": "299",
             "conditionText": "extract('caJsonFrom__dataSourcesJson__c').jsonQueryText('kubernetes.auditLogs.status') == 'DISABLED'",
             "runtimeError": null
         },
@@ -10,13 +10,14 @@
             "snapshotTime": "2025-10-08T06:14:51Z"
         },
         "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ENABLED",
         "CA10__dataSourcesJson__c": "{\"cloudTrail\":{\"status\":\"ENABLED\"},\"dnsLogs\":{\"status\":\"ENABLED\"},\"flowLogs\":{\"status\":\"ENABLED\"},\"s3Logs\":{\"status\":\"DISABLED\"},\"kubernetes\":{\"auditLogs\":{\"status\":\"DISABLED\"}},\"malwareProtection\":{\"scanEc2InstanceWithFindings\":{\"ebsVolumes\":{\"status\":\"DISABLED\",\"reason\":null}},\"serviceRole\":null}}",
         "Id": "test1"
     },
     {
         "expectedResult": {
             "status": "COMPLIANT",
-            "conditionIndex": "299",
+            "conditionIndex": "399",
             "conditionText": "extract('caJsonFrom__dataSourcesJson__c').jsonQueryText('kubernetes.auditLogs.status') == 'ENABLED'",
             "runtimeError": null
         },
@@ -24,6 +25,7 @@
             "snapshotTime": "2025-10-08T06:14:51Z"
         },
         "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ENABLED",
         "CA10__dataSourcesJson__c": "{\"cloudTrail\":{\"status\":\"ENABLED\"},\"dnsLogs\":{\"status\":\"ENABLED\"},\"flowLogs\":{\"status\":\"ENABLED\"},\"s3Logs\":{\"status\":\"DISABLED\"},\"kubernetes\":{\"auditLogs\":{\"status\":\"ENABLED\"}},\"malwareProtection\":{\"scanEc2InstanceWithFindings\":{\"ebsVolumes\":{\"status\":\"DISABLED\",\"reason\":null}},\"serviceRole\":null}}",
         "Id": "test2"
     }

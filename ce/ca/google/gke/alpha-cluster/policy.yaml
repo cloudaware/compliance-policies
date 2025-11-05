@@ -1,0 +1,13 @@
+---
+names: 
+  full: "Google GKE Cluster Alpha cluster features are enabled"
+  contextual: "Cluster Alpha cluster features are enabled"
+description: "Ensure that Google GKE Clusters are not running with alpha features\
+  \ enabled, especially in production environments. Alpha features are experimental\
+  \ and not covered by the GKE SLA."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cis-gke-v1.8.0/05/10/02"
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"

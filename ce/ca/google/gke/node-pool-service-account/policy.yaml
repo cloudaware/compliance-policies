@@ -1,0 +1,18 @@
+---
+names: 
+  full: "Google GKE Cluster Node Pool uses default Service account"
+  contextual: "Cluster Node Pool uses default Service account"
+description: "Create and use minimally privileged Service accounts to run GKE cluster nodes \
+ \ instead of using the Compute Engine default Service account. Unnecessary permissions could \
+ \ be abused in the case of a node compromise."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cis-gke-v1.8.0/05/02/01"
+  - "/frameworks/pci-dss-v3.2.1/02/01"
+  - "/frameworks/pci-dss-v3.2.1/07/01/02"
+  - "/frameworks/nist-sp-800-53-r4/ac/06"
+  - "/frameworks/nist-sp-800-53-r4/sc/07"
+  - "/frameworks/iso-iec-27001-2013/09/02/03"
+  - "/frameworks/cloudaware/resource-security/secure-access"

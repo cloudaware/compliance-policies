@@ -1,0 +1,15 @@
+---
+names: 
+  full: "Google GCE Network allows unrestricted traffic to Cassandra"
+  contextual: "GCE Network allows unrestricted traffic to Cassandra"
+description: "GCP Firewall Rules should not allow unrestricted ingress traffic from\
+  \ the internet (0.0.0.0/0) to Cassandra ports (7000, 7001, 7199, 8888, 9042, 9160, 61620,\
+  \ 61621)."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/nist-sp-800-53-r4/sc/07"
+  - "/frameworks/pci-dss-v3.2.1/01/02/01"
+  - "/frameworks/iso-iec-27001-2013/13/01/01"
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

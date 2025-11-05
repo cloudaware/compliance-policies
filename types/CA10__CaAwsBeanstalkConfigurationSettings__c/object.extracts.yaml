@@ -1,0 +1,12 @@
+---
+extracts:
+  - name: CA10__optionSettings__c
+    value: 
+      FIELD:
+        path: CA10__optionSettings__c
+  - name: caSetFrom_optionSettings__c
+    value: 
+      SET_FROM:
+        separator: "\n"
+        arg:
+          EXTRACT: CA10__optionSettings__c

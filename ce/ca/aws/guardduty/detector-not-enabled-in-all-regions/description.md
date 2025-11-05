@@ -1,6 +1,6 @@
 # Description
 
-This policy identifies whether AWS GuardDuty is enabled in all active AWS regions for an account.
+This policy identifies whether AWS GuardDuty is enabled in all active AWS regions for an AWS Account.
 
 AWS GuardDuty is a threat detection service that continuously monitors AWS accounts and workloads for malicious or unauthorized activity, providing detailed security findings to support timely remediation.
 

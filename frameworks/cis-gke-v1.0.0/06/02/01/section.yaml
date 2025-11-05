@@ -1,0 +1,6 @@
+---
+name: "6.2.1 Ensure GKE clusters are not running using the Compute Engine \
+  \ default service account (Scored)"
+description: "Create and use minimally privileged Service accounts to run GKE cluster nodes instead of \
+  \ using the Compute Engine default Service account. Unnecessary permissions could be \
+  \ abused in the case of a node compromise."

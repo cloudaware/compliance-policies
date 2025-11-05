@@ -1,0 +1,5 @@
+---
+name: "4.1.6 Avoid use of system:masters group (Automated)"
+description: "The special group system:masters should not be used to grant permissions to any \
+  \ user or service account, except where strictly necessary (e.g. bootstrapping access \
+  \ prior to RBAC being fully available)"

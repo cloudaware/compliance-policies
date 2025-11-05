@@ -1,0 +1,47 @@
+---
+inputType: "CA10__CaAwsGuardDutyDetector__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsGuardDutyDetector__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This GuardDuty Detector is not enabled."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "ENABLED"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "S3 Protection is not enabled for this detector."
+    remediationMessage: "Enable S3 Protection to monitor for suspicious activity related to your S3 buckets."
+    check:
+      NOT_EQUAL:
+        left:
+          JSON_QUERY_TEXT:
+            expression: "[?name=='S3_DATA_EVENTS'].status | [0]" 
+            arg:
+              EXTRACT: "caJsonFrom__featuresJson__c"
+            undeterminedIf:
+              evaluationError: "Json query text has failed."
+              resultTypeMismatch: "Json query text did not return text type."
+        right:
+          TEXT: "ENABLED"
+  - status: "COMPLIANT"
+    currentStateMessage: "S3 Protection is enabled for this detector."
+    check:
+      IS_EQUAL:
+        left:
+          JSON_QUERY_TEXT:
+            expression: "[?name=='S3_DATA_EVENTS'].status | [0]" 
+            arg:
+              EXTRACT: "caJsonFrom__featuresJson__c"
+            undeterminedIf:
+              evaluationError: "Json query text has failed."
+              resultTypeMismatch: "Json query text did not return text type."
+        right:
+          TEXT: "ENABLED"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

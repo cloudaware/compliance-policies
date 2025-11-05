@@ -6,20 +6,20 @@ description: "Flow Logs is a feature that enables users to capture information a
  going to and from network interfaces in the organization's VPC Subnets. Once a flow log is created, \
  the user can view and retrieve its data in Stackdriver Logging. It is recommended that Flow Logs be \
  enabled for every business-critical VPC subnet."
-type: COMPLIANCE_POLICY
+type: "COMPLIANCE_POLICY"
 categories:
   - "SECURITY"
 frameworkMappings:
-  - /frameworks/cis-gcp-v3.0.0/03/08
-  - /frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration
-  - /frameworks/nist-sp-800-53-r5/si/04
-  - /frameworks/iso-iec-27001-2022/08/15
-  - /frameworks/iso-iec-27001-2022/08/16
-  - /frameworks/nist-csf-v1.1/de-cm/01
-  - /frameworks/soc-2/cc7/02/01
-  - /frameworks/soc-2/cc7/02/02
-  - /frameworks/soc-2/cc7/02/03
-  - /frameworks/soc-2/cc7/02/04
+  - "/frameworks/cis-gcp-v3.0.0/03/08"
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
+  - "/frameworks/nist-sp-800-53-r5/si/04"
+  - "/frameworks/iso-iec-27001-2022/08/15"
+  - "/frameworks/iso-iec-27001-2022/08/16"
+  - "/frameworks/nist-csf-v1.1/de-cm/01"
+  - "/frameworks/soc-2/cc7/02/01"
+  - "/frameworks/soc-2/cc7/02/02"
+  - "/frameworks/soc-2/cc7/02/03"
+  - "/frameworks/soc-2/cc7/02/04"
 similarPolicies:
   cloudConformity:
     - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/CloudVPC/enable-vpc-flow-logs.html"

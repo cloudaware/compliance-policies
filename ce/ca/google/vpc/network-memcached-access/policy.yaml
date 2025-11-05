@@ -1,0 +1,14 @@
+---
+names: 
+  full: "Google GCE Network allows unrestricted traffic to Memcached"
+  contextual: "GCE Network allows unrestricted traffic to Memcached"
+description: "GCP Firewall Rules should not allow unrestricted ingress traffic from\
+  \ the internet (0.0.0.0/0) to the Memcached ports (TCP/UDP 11211, 11214, or 11215)."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/nist-sp-800-53-r4/sc/07"
+  - "/frameworks/pci-dss-v3.2.1/01/02/01"
+  - "/frameworks/iso-iec-27001-2013/13/01/01"
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

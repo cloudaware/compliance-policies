@@ -1,0 +1,47 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-21T01:48:33Z"
+        },
+        "CA10__disappearanceTime__c": "2025-10-15T19:54:29Z",
+        "CA10__engine__c": "redis",
+        "CA10__snapshotRetentionLimit__c": 0,
+        "Id": "test1"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__snapshotRetentionLimit__c') == number(0.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-21T01:48:33Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__engine__c": "redis",
+        "CA10__snapshotRetentionLimit__c": 0,
+        "Id": "test2"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "300",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-21T01:48:33Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__engine__c": "redis",
+        "CA10__snapshotRetentionLimit__c": 7,
+        "Id": "test3"
+    }
+]

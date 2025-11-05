@@ -1,0 +1,98 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__Google_GCE_Firewall_Rules__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-14T18:12:05Z" },
+    "Id": "001",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Google_GCE_Firewall_Rules__r": [
+      {
+        "Id": "aa1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__direction__c": "EGRESS",
+        "CA10__destinationRanges__c": "0.0.0.0/0",
+        "CA10__deniedProtocolsPortsJson__c": "{\"ports\":[{\"protocol\":\"all\",\"startPort\":\"ALL\",\"endPort\":\"ALL\"}]}",
+        "CA10__gceNetwork__c": "001"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-14T18:12:05Z" },
+    "Id": "002",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Google_GCE_Firewall_Rules__r": [
+      {
+        "Id": "ab1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__direction__c": "INGRESS",
+        "CA10__destinationRanges__c": "0.0.0.0/0",
+        "CA10__deniedProtocolsPortsJson__c": "{\"ports\":[{\"protocol\":\"all\",\"startPort\":\"ALL\",\"endPort\":\"ALL\"}]}",
+        "CA10__gceNetwork__c": "002"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-14T18:12:05Z" },
+    "Id": "003",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Google_GCE_Firewall_Rules__r": [
+      {
+        "Id": "ac1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__direction__c": "EGRESS",
+        "CA10__destinationRanges__c": "10.40.201.2/32",
+        "CA10__deniedProtocolsPortsJson__c": "{\"ports\":[{\"protocol\":\"all\",\"startPort\":\"ALL\",\"endPort\":\"ALL\"}]}",
+        "CA10__gceNetwork__c": "003"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-14T18:12:05Z" },
+    "Id": "004",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Google_GCE_Firewall_Rules__r": [
+      {
+        "Id": "ad1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__direction__c": "EGRESS",
+        "CA10__destinationRanges__c": "0.0.0.0/0",
+        "CA10__deniedProtocolsPortsJson__c": "{\"ports\":[]}}",
+        "CA10__gceNetwork__c": "004"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-14T18:12:05Z" },
+    "Id": "005",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Google_GCE_Firewall_Rules__r": []
+  }
+]

@@ -1,0 +1,56 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-14T08:05:54Z"
+        },
+        "CA10__disappearanceTime__c": "2025-10-09T18:15:30Z",
+        "CA10__availabilityZones__c": "us-east-1a",
+        "Id": "test1",
+        "RecordTypeId": "RecordTypeId1",
+        "RecordType": {
+            "Id": "RecordTypeId1"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('caSetFrom_availabilityZones__c').size() < number(2.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-14T08:05:54Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__availabilityZones__c": "us-east-1a",
+        "Id": "test2",
+        "RecordTypeId": "RecordTypeId1",
+        "RecordType": {
+            "Id": "RecordTypeId1"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-14T08:05:54Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__availabilityZones__c": "us-east-1a\nus-east-1b",
+        "Id": "test3",
+        "RecordTypeId": "RecordTypeId1",
+        "RecordType": {
+            "Id": "RecordTypeId1"
+        }
+    }
+]

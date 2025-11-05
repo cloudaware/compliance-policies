@@ -1,0 +1,28 @@
+---
+
+inputType: "CA10G1__CaGoogleGkeCluster__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10G1__CaGoogleGkeCluster__c/object.extracts.yaml"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "The Cluster logging enabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10G1__loggingService__c"
+        right:
+          TEXT: "logging.googleapis.com/kubernetes"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Cluster uses legacy logging."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10G1__loggingService__c"
+        right:
+          TEXT: "logging.googleapis.com"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The Cluster logging disabled."
+  remediationMessage: "Enable the Cluster logging."

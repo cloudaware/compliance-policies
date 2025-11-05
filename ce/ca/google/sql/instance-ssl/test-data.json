@@ -15,7 +15,7 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "199",
-      "conditionText": "extract('CA10__sslMode__c') == 'ENCRYPTED_ONLY'",
+      "conditionText": "extract('CA10__sslMode__c') == 'ENCRYPTED_ONLY' || extract('CA10__sslMode__c') == 'TRUSTED_CLIENT_CERTIFICATE_REQUIRED'",
       "runtimeError": null
     },
     "context": { "snapshotTime": "2024-11-25T19:20:39Z" },

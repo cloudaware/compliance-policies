@@ -5,8 +5,8 @@ testData:
   - file: test-data.json
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "Network has GCE Firewall Rules allow unrestricted SSH access."
-    remediationMessage: "Modify  firewall rule"
+    currentStateMessage: "The Network has GCE Firewall Rules allow unrestricted SSH access."
+    remediationMessage: "Modify the firewall rule to remove unrestricted access."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
@@ -20,7 +20,7 @@ relatedLists:
       - file: /types/CA10__CaGoogleGceFirewallRule__c/object.extracts.yaml
     conditions:
       - status: "INAPPLICABLE"
-        currentStateMessage: "This is an ingress security firewall rule."
+        currentStateMessage: "This is not an ingress security firewall rule."
         check:
           NOT_EQUAL:
             left:
@@ -51,7 +51,7 @@ relatedLists:
               JSON_QUERY_NUMBER:
                 arg:
                   EXTRACT: "caJsonFrom__allowedProtocolsPortsJson__c"
-                expression: "length(ports[?((protocol=='all') || (startPort=='null' && endPort=='null') || (protocol=='tcp' && (startPort=='22' || endPort=='22' || (startPort<'22' && endPort>'22'))))])"
+                expression: "length(ports[?(protocol=='tcp' && (startPort=='22' || endPort=='22' || (startPort<'22' && endPort>'22')))])"
                 undeterminedIf:
                   evaluationError: "The JSON query failed."
                   resultTypeMismatch: "The JSON query did not return number type."
@@ -59,4 +59,4 @@ relatedLists:
               NUMBER: 0.0
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "Firewall rule is set correctly."
+      currentStateMessage: "This firewall rule does not allow unrestricted traffic to SSH ports."

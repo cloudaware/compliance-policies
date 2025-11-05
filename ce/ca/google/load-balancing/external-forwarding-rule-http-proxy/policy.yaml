@@ -1,0 +1,12 @@
+---
+names: 
+  full: "Google GCE External Forwarding Rule is configured to use a Target HTTP Proxy"
+  contextual: "External Forwarding Rule is configured to use a Target HTTP Proxy"
+description: "Ensures that external Google Cloud forwarding rules use Target HTTPS\
+  \ Proxies for secure, encrypted traffic, instead of unencrypted Target HTTP Proxies."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/pci-dss-v3.2.1/02/03"
+  - "/frameworks/cloudaware/resource-security/data-encryption"

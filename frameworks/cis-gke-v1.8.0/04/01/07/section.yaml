@@ -1,0 +1,6 @@
+---
+name: "4.1.7 Limit use of the Bind, Impersonate and Escalate permissions \
+  \ in the Kubernetes cluster (Manual)"
+description: "Cluster roles and roles with the impersonate, bind or escalate permissions should not \
+  \ be granted unless strictly required. Each of these permissions allow a particular subject \
+  \ to escalate their privileges beyond those explicitly granted by cluster administrators"

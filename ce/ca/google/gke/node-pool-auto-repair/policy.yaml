@@ -1,0 +1,14 @@
+---
+names: 
+  full: "Google GKE Cluster Node Pool Auto-Repair is disabled"
+  contextual: "Cluster Node Pool Auto-Repair is disabled"
+description: "Ensures that GKE Cluster Node Pools have the Auto-Repair feature\
+  \ enabled. This feature helps maintain node health by automatically repairing\
+  \ nodes that fail health checks."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cis-gke-v1.8.0/05/05/02"
+  - "/frameworks/pci-dss-v3.2.1/02/02"
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"

@@ -1,0 +1,15 @@
+---
+names: 
+  full: "Google GKE Cluster Alias IP is disabled"
+  contextual: "Cluster Alias IP is disabled"
+description: "Ensure that GKE Clusters are created with VPC-native traffic routing\
+  \ by enabling Alias IP. VPC-native clusters are more scalable and secure as they\
+  \ allow pods to have unique, routable IP addresses within the VPC."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cis-gke-v1.8.0/05/06/02"
+  - "/frameworks/pci-dss-v3.2.1/01/03/04"
+  - "/frameworks/pci-dss-v3.2.1/01/03/07"
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"

@@ -1,0 +1,10 @@
+---
+name: "4.4.2 Consider external secret storage (Manual)"
+description: "Consider the use of an external secrets storage and management system instead of \
+  \ using Kubernetes Secrets directly, if more complex secret management is required. \
+  \ Ensure the solution requires authentication to access secrets, has auditing of access to \
+  \ and use of secrets, and encrypts secrets. Some solutions also make it easier to rotate \
+  \ secrets."
+similar:
+  sections:
+    - "/frameworks/cis-gke-v1.0.0/05/04/02"

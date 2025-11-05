@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS GuardDuty Detector S3 Protection is not enabled"
+  contextual: "Detector S3 Protection is not enabled"
+description: >
+  S3 Protection helps you detect potential security risks for data, such as data 
+  exfiltration and destruction, in your AWS S3 buckets. GuardDuty monitors 
+  AWS CloudTrail data events for Amazon S3, that includes object-level API operations 
+  to identify these risks in all the Amazon S3 buckets in your account.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+  - "/frameworks/aws-fsbp-v1.0.0/guardduty/10"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[GuardDuty.10] GuardDuty S3 Protection should be enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/guardduty-controls.html#guardduty-10"

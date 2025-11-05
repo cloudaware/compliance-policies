@@ -1,0 +1,44 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-21T01:48:33Z"
+        },
+        "CA10__disappearanceTime__c": "2025-07-29T11:31:15Z",
+        "CA10__availabilityZones__c": "us-west-1a\nus-west-1b",
+        "Id": "test1"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('caSetFrom_availabilityZones__c').size() <= number(1.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-21T01:48:33Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__availabilityZones__c": "us-west-1a",
+        "Id": "test2"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-21T01:48:33Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__availabilityZones__c": "us-west-1a\nus-west-1b",
+        "Id": "test3"
+    }
+]

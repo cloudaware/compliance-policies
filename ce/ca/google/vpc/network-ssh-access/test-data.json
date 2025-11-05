@@ -91,27 +91,6 @@
       "runtimeError": null
     },
     "context": { "snapshotTime": "2024-11-28T20:26:50Z" },
-    "Id": "a4b0e15",
-    "CA10__disappearanceTime__c": null,
-    "CA10__Google_GCE_Firewall_Rules__r": [
-      {
-        "Id": "a4V0e15",
-        "CA10__disappearanceTime__c": null,
-        "CA10__sourceRanges__c": "0.0.0.0/0",
-        "CA10__direction__c": "INGRESS",
-        "CA10__allowedProtocolsPortsJson__c": "{\"ports\":[{\"protocol\":\"all\"}]}",
-        "CA10__gceNetwork__c": "a4b0e15"
-      }
-    ]
-  },
-  {
-    "expectedResult": {
-      "status": "INCOMPLIANT",
-      "conditionIndex": "199",
-      "conditionText": "CA10__Google_GCE_Firewall_Rules__r.has(INCOMPLIANT)",
-      "runtimeError": null
-    },
-    "context": { "snapshotTime": "2024-11-28T20:26:50Z" },
     "Id": "a4b0e16",
     "CA10__disappearanceTime__c": null,
     "CA10__Google_GCE_Firewall_Rules__r": [

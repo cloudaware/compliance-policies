@@ -1,0 +1,175 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-14T08:05:54Z"
+        },
+        "CA10__disappearanceTime__c": "2025-10-09T18:15:30Z",
+        "CA10__type__c": "network",
+        "CA10__crossZoneLoadBalancing__c": false,
+        "CA10__additionalAttributes__c": "access_logs.s3.enabled: false\nload_balancing.cross_zone.enabled: false",
+        "Id": "test1",
+        "RecordTypeId": "RecordTypeId1",
+        "RecordType": {
+            "Id": "RecordTypeId1"
+        },
+        "CA10__AWS_EC2_Load_Balancer_Target_Group_Links__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__type__c') == 'classic' && extract('CA10__crossZoneLoadBalancing__c') == false",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-14T08:05:54Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__type__c": "classic",
+        "CA10__crossZoneLoadBalancing__c": false,
+        "CA10__additionalAttributes__c": "elb.http.desyncmitigationmode: defensive",
+        "Id": "test2",
+        "RecordTypeId": "RecordTypeId2",
+        "RecordType": {
+            "Id": "RecordTypeId2"
+        },
+        "CA10__AWS_EC2_Load_Balancer_Target_Group_Links__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__type__c') == 'classic' && extract('CA10__crossZoneLoadBalancing__c') == true",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-14T08:05:54Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__type__c": "classic",
+        "CA10__crossZoneLoadBalancing__c": true,
+        "CA10__additionalAttributes__c": "elb.http.desyncmitigationmode: defensive",
+        "Id": "test3",
+        "RecordTypeId": "RecordTypeId2",
+        "RecordType": {
+            "Id": "RecordTypeId2"
+        },
+        "CA10__AWS_EC2_Load_Balancer_Target_Group_Links__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "(extract('CA10__type__c') == 'network' || extract('CA10__type__c') == 'gateway') && extract('caSetFrom_additionalAttributes__c').contains('load_balancing.cross_zone.enabled: false')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-14T08:05:54Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__type__c": "network",
+        "CA10__crossZoneLoadBalancing__c": false,
+        "CA10__additionalAttributes__c": "access_logs.s3.enabled: false\nload_balancing.cross_zone.enabled: false",
+        "Id": "test4",
+        "RecordTypeId": "RecordTypeId1",
+        "RecordType": {
+            "Id": "RecordTypeId1"
+        },
+        "CA10__AWS_EC2_Load_Balancer_Target_Group_Links__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "extract('CA10__type__c') == 'application' && CA10__AWS_EC2_Load_Balancer_Target_Group_Links__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-14T08:05:54Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__type__c": "application",
+        "CA10__crossZoneLoadBalancing__c": false,
+        "CA10__additionalAttributes__c": "access_logs.s3.enabled: false\nload_balancing.cross_zone.enabled: true",
+        "Id": "test5",
+        "RecordTypeId": "RecordTypeId1",
+        "RecordType": {
+            "Id": "RecordTypeId1"
+        },
+        "CA10__AWS_EC2_Load_Balancer_Target_Group_Links__r": [
+            {
+                "CA10__disappearanceTime__c": null,
+                "CA10__targetGroup__c": "test5_1",
+                "CA10__targetGroupArn__c": "targetGroupArn",
+                "CA10__loadBalancer__c": "test5",
+                "Id": "test5_2",
+                "CA10__targetGroup__r": {
+                    "Id": "test5_1",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__attributes__c": "load_balancing.algorithm.type: round_robin\nload_balancing.cross_zone.enabled: false"
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "599",
+            "conditionText": "extract('CA10__type__c') == 'application' && CA10__AWS_EC2_Load_Balancer_Target_Group_Links__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-14T08:05:54Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__type__c": "application",
+        "CA10__crossZoneLoadBalancing__c": false,
+        "CA10__additionalAttributes__c": "access_logs.s3.enabled: false\nload_balancing.cross_zone.enabled: true",
+        "Id": "test6",
+        "RecordTypeId": "RecordTypeId1",
+        "RecordType": {
+            "Id": "RecordTypeId1"
+        },
+        "CA10__AWS_EC2_Load_Balancer_Target_Group_Links__r": [
+            {
+                "CA10__disappearanceTime__c": null,
+                "CA10__targetGroup__c": "test6_1",
+                "CA10__targetGroupArn__c": "targetGroupArn",
+                "CA10__loadBalancer__c": "test6",
+                "Id": "test6_2",
+                "CA10__targetGroup__r": {
+                    "Id": "test6_1",
+                    "CA10__disappearanceTime__c": null,
+                    "CA10__attributes__c": "load_balancing.algorithm.type: round_robin\nload_balancing.cross_zone.enabled: true"
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "699",
+            "conditionText": "extract('caSetFrom_additionalAttributes__c').contains('load_balancing.cross_zone.enabled: true')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-14T08:05:54Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__type__c": "application",
+        "CA10__crossZoneLoadBalancing__c": false,
+        "CA10__additionalAttributes__c": "access_logs.s3.enabled: false\nload_balancing.cross_zone.enabled: true",
+        "Id": "test7",
+        "RecordTypeId": "RecordTypeId1",
+        "RecordType": {
+            "Id": "RecordTypeId1"
+        },
+        "CA10__AWS_EC2_Load_Balancer_Target_Group_Links__r": []
+    }
+]

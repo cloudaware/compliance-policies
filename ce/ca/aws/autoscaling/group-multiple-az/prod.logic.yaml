@@ -1,0 +1,21 @@
+---
+inputType: "CA10__CaAwsAutoScalingGroup__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsAutoScalingGroup__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"  
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Auto Scaling group is configured to use only one Availability Zone."
+    remediationMessage: "Modify the Auto Scaling group to include instances in at least two Availability Zones."
+    check:
+      LESS_THAN_EQUAL:
+        left:
+          SIZE:
+            arg:
+              EXTRACT: "caSetFrom_availabilityZones__c"
+        right:
+          NUMBER: 1
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Auto Scaling group spans multiple Availability Zones."

@@ -177,6 +177,24 @@ extracts:
         undeterminedIf:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
+  - name: "caJsonText__databaseFlagsLogCheckpointsFlagValue__c"
+    value: 
+      JSON_QUERY_TEXT:
+        arg:
+          EXTRACT: "caJsonFrom__databaseFlagsJson__c"
+        expression: "to_string([?name == 'log_checkpoints'].value[] | [0])"
+        undeterminedIf:
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return text type."
+  - name: "caJsonText__databaseFlagsLogTempFilesFlagValue__c"
+    value: 
+      JSON_QUERY_TEXT:
+        arg:
+          EXTRACT: "caJsonFrom__databaseFlagsJson__c"
+        expression: "to_string([?name == 'log_temp_files'].value[] | [0])"
+        undeterminedIf:
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return text type."
   - name: "CA10__authorizedNetworksJson__c"
     value: 
       FIELD:

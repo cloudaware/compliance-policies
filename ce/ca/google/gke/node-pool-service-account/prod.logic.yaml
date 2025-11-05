@@ -1,0 +1,27 @@
+---
+
+inputType: "CA10G1__CaGoogleGkeClusterNodePool__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10G1__CaGoogleGkeClusterNodePool__c/object.extracts.yaml
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "Node Pool Service account config is empty."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10G1__nodeConfigServiceAccount__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Node Pool use default Service account."
+    remediationMessage: "Create a minimally privileged Service account."    
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10G1__nodeConfigServiceAccount__c"
+        right:
+          TEXT: "default"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Node Pool don't use default Service account."
+  

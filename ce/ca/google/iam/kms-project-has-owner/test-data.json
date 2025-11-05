@@ -1,0 +1,106 @@
+[
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "CA10__Google_CloudKSM_Crypto_Keys__r.hasNo(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-10-06T13:24:21Z"
+    },
+    "Id": "001",
+    "CA10__Google_IAM_Policy_Bindings__r": [],
+    "CA10__Google_CloudKSM_Crypto_Keys__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-10-06T13:24:21Z"
+    },
+    "Id": "002",
+    "CA10__Google_IAM_Policy_Bindings__r": [],
+    "CA10__Google_CloudKSM_Crypto_Keys__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__project__c": "002",
+        "Id": "cck001"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__Google_IAM_Policy_Bindings__r.has(INCOMPLIANT) && CA10__Google_CloudKSM_Crypto_Keys__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-10-06T13:24:21Z"
+    },
+    "Id": "003",
+    "CA10__Google_IAM_Policy_Bindings__r": [
+      {
+        "Id": "a9002",
+        "RecordTypeId": "RecordTypeId1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__iamRole__c": "r002",
+        "CA10__iamCuratedRoleId__c": "roles/owner",
+        "CA10__project__c": "003",
+        "RecordType": {
+          "DeveloperName": "caGoogleIamPolicyBindingProject",
+          "Id": "RecordTypeId1"
+        },
+        "CA10__iamRole__r": {
+          "Id": "r002",
+          "CA10__disappearanceTime__c": null,
+          "CA10__roleName__c": "roles/owner"
+        }
+      }
+    ],
+    "CA10__Google_CloudKSM_Crypto_Keys__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__project__c": "003",
+        "Id": "cck002"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "CA10__Google_CloudKSM_Crypto_Keys__r.hasNo(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-10-06T13:24:21Z"
+    },
+    "Id": "004",
+    "CA10__Google_IAM_Policy_Bindings__r": [
+      {
+        "Id": "a9004",
+        "RecordTypeId": "RecordTypeId1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__iamRole__c": "r004",
+        "CA10__iamCuratedRoleId__c": "roles/owner",
+        "CA10__project__c": "004",
+        "RecordType": {
+          "DeveloperName": "caGoogleIamPolicyBindingProject",
+          "Id": "RecordTypeId1"
+        },
+        "CA10__iamRole__r": {
+          "Id": "r004",
+          "CA10__disappearanceTime__c": null,
+          "CA10__roleName__c": "roles/owner"
+        }
+      }
+    ],
+    "CA10__Google_CloudKSM_Crypto_Keys__r": []
+  }
+]

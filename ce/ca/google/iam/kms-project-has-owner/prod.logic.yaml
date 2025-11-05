@@ -1,0 +1,59 @@
+---
+inputType: "CA10__CaGoogleProject__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleProject__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This project does not contain any KMS keys."
+    check:
+      RELATED_LIST_HAS_NO:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__Google_CloudKSM_Crypto_Keys__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The project contains cryptographic keys and has a principal with Owner permissions."
+    remediationMessage: "Assign more granular predefined or custom roles instead."
+    check:
+      AND:
+        args:
+          - RELATED_LIST_HAS:
+              status: "INCOMPLIANT"
+              relationshipName: "CA10__Google_IAM_Policy_Bindings__r"
+          - RELATED_LIST_HAS:
+              status: "INCOMPLIANT"
+              relationshipName: "CA10__Google_CloudKSM_Crypto_Keys__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The project either does not have any principals with the Owner role."
+relatedLists:
+  - relationshipName: "CA10__Google_IAM_Policy_Bindings__r"
+    importExtracts:
+      - file: "/types/CA10__CaGoogleIamPolicyBinding__c/object.extracts.yaml"
+      - file: /types/CA10__CaGoogleIamRole__c/object.extracts.yaml
+    recordTypes:
+      - "caGoogleIamPolicyBindingProject"
+    conditions: 
+       - status: "COMPLIANT"
+         currentStateMessage: "Binding without a role."
+         check:
+           IS_EMPTY_LOOKUP: "CA10__iamRole__r"
+       - status: "INCOMPLIANT"
+         currentStateMessage: "This principal is assigned the Owner role at the project level."
+         remediationMessage: "Remove the binding."
+         check: 
+           IS_EQUAL:
+            left:
+              EXTRACT: "CA10__iamRole__r.CA10__roleName__c"
+            right:
+              TEXT: "roles/owner"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Other IAM Role Bindings."
+  - relationshipName: "CA10__Google_CloudKSM_Crypto_Keys__r"
+    importExtracts:
+      - file: "/types/CA10__CaGoogleCloudKmsCryptoKey__c/object.extracts.yaml"
+    conditions: []
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "The Project with KMS Crypto Key."

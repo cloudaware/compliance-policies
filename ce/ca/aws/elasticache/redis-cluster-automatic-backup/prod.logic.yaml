@@ -1,0 +1,27 @@
+---
+inputType: "CA10__CaAwsCacheCluster__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: /types/CA10__CaAwsCacheCluster__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The policy only applicable to Redis Clusters."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__engine__c"
+        right:
+          TEXT: "redis"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Redis Cluster automatic backups are disabled."
+    remediationMessage: "Enable automatic backups by setting a snapshot retention period greater than 0."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__snapshotRetentionLimit__c"
+        right:
+          NUMBER: 0.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Redis Cluster automatic backups are enabled."

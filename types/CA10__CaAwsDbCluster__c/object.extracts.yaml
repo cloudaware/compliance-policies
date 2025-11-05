@@ -8,3 +8,13 @@ extracts:
           # https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-clusters.html
           # "Engine" attribute represents a non-nullable string.
           isEmpty: DB Engine value cannot be empty. Potential data corruption.
+# Values: Yes | No. Not nullable. Cannot have no access, retrieved via rds:DescribeDBClusters
+  - name: CA10__autoMinorVersionUpgrade__c
+    value:
+      FIELD:
+        path: CA10__autoMinorVersionUpgrade__c
+# Checkbox.
+  - name: CA10__multiAZ__c
+    value:
+      FIELD:
+        path: CA10__multiAZ__c

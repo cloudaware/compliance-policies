@@ -1,0 +1,4 @@
+---
+name: "4.1.9 Avoid non-default bindings to system:unauthenticated (Automated)"
+description: "Avoid non-default `ClusterRoleBindings` and `RoleBindings` with the group \
+  \ `system:unauthenticated`, except the `ClusterRoleBinding` `system:public-infoviewer`."

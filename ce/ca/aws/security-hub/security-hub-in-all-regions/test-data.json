@@ -1,0 +1,120 @@
+[
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10A1__AWS_Security_Hubs__r.count(COMPLIANT) == number(0.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-24T05:35:18Z"
+        },
+        "Id": "test1",
+        "CA10A1__AWS_Security_Hubs__r": [],
+        "CA10__AWS_Account_Regions__r": [
+            {
+                "CA10__status__c": "opt-in-not-required",
+                "CA10__account__c": "test1",
+                "Id": "test1_1"
+            },
+            {
+                "CA10__status__c": "opt-in-not-required",
+                "CA10__account__c": "test1",
+                "Id": "test1_2"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10A1__AWS_Security_Hubs__r.count(COMPLIANT) == CA10__AWS_Account_Regions__r.count(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-24T05:35:18Z"
+        },
+        "Id": "test2",
+        "CA10A1__AWS_Security_Hubs__r": [
+            {
+                "Id": "test2_3",
+                "CA10A1__account__c": "test2",
+                "CA10A1__disappearanceTime__c": null
+            }
+        ],
+        "CA10__AWS_Account_Regions__r": [
+            {
+                "CA10__status__c": "opt-in-not-required",
+                "CA10__account__c": "test2",
+                "Id": "test2_1"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "CA10A1__AWS_Security_Hubs__r.count(COMPLIANT) > CA10__AWS_Account_Regions__r.count(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-24T05:35:18Z"
+        },
+        "Id": "test3",
+        "CA10A1__AWS_Security_Hubs__r": [
+            {
+                "Id": "test3_3",
+                "CA10A1__account__c": "test3",
+                "CA10A1__disappearanceTime__c": null
+            },
+            {
+                "Id": "test3_4",
+                "CA10A1__account__c": "test3",
+                "CA10A1__disappearanceTime__c": null
+            }
+        ],
+        "CA10__AWS_Account_Regions__r": [
+            {
+                "CA10__status__c": "opt-in-not-required",
+                "CA10__account__c": "test3",
+                "Id": "test3_1"
+            },
+            {
+                "CA10__status__c": "not-opted-in",
+                "CA10__account__c": "test3",
+                "Id": "test3_2"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-24T05:35:18Z"
+        },
+        "Id": "test4",
+        "CA10A1__AWS_Security_Hubs__r": [
+            {
+                "Id": "test4_3",
+                "CA10A1__account__c": "test4",
+                "CA10A1__disappearanceTime__c": null
+            }
+        ],
+        "CA10__AWS_Account_Regions__r": [
+            {
+                "CA10__status__c": "opt-in-not-required",
+                "CA10__account__c": "test4",
+                "Id": "test4_1"
+            },
+            {
+                "CA10__status__c": "opt-in-not-required",
+                "CA10__account__c": "test4",
+                "Id": "test4_2"
+            }
+        ]
+    }
+]

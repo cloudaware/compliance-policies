@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.5
+
+- Updated schema for `repo-manager types import`
+
 ## 2.3.4
 
 - `repo-manager` now outputs absolute paths (to allow click/ctrl+click) in terminals and IDEs

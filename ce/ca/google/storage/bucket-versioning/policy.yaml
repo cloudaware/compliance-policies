@@ -1,0 +1,15 @@
+---
+names: 
+  full: "Google Storage Bucket with Log Sink does not have Versioning"
+  contextual: "Bucket with Log Sink does not have Versioning"
+description: "Ensure that Object Versioning is enabled for Google Storage\
+  \ buckets configured as destinations for log sinks."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/nist-sp-800-53-r4/au/11"
+  - "/frameworks/pci-dss-v3.2.1/10/05"
+  - "/frameworks/iso-iec-27001-2013/12/04/02"
+  - "/frameworks/iso-iec-27001-2013/18/01/03"
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"

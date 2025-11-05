@@ -1,0 +1,8 @@
+---
+name: "5.6.2 Ensure use of VPC-native clusters (Automated)"
+description: "Create Alias IPs for the node network CIDR range in order to subsequently configure \
+  \ IP-based policies and firewalling for pods. A cluster that uses Alias IPs is called a VPCnative \
+  \ cluster."
+similar:
+  sections:
+    - "/frameworks/cis-gke-v1.0.0/06/06/02"

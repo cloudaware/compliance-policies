@@ -31,3 +31,10 @@ extracts:
     value:
       FIELD:
         path: "CA10__autoMinorVersionUpgrade__c"
+# Not nullable. Can't have no access, retrieved via elasticache:DescribeCacheClusters
+  - name: "CA10__snapshotRetentionLimit__c"
+    value:
+      FIELD:
+        path: "CA10__snapshotRetentionLimit__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Snapshot Retention Limit cannot be empty."

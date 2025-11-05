@@ -1,0 +1,32 @@
+---
+names: 
+  full: "Google Project with KMS keys has a principal with Owner role"
+  contextual: "Project with KMS keys has a principal with Owner role"
+description: "Ensure that projects containing cryptographic keys do not grant the\
+  \ primitive Owner role to any principal, in order to enforce the principle of\
+  \ least privilege and separation of duties. Assigning the Owner role provides\
+  \ unrestricted access to all resources within the project, including the ability\
+  \ to manage and use sensitive cryptographic keys, which creates a significant\
+  \ security risk."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/nist-sp-800-53-r4/ac/06"
+  - "/frameworks/nist-sp-800-53-r4/sc/12"
+  - "/frameworks/nist-sp-800-53-r5/ac/03"
+  - "/frameworks/nist-sp-800-53-r5/ac/05"
+  - "/frameworks/nist-sp-800-53-r5/ac/06"
+  - "/frameworks/nist-sp-800-53-r5/mp/02"
+  - "/frameworks/pci-dss-v3.2.1/03/05"
+  - "/frameworks/pci-dss-v4.0/01/03/01"
+  - "/frameworks/iso-iec-27001-2013/10/01/02"
+  - "/frameworks/iso-iec-27001-2013/09/02/03"
+  - "/frameworks/iso-iec-27001-2022/05/10"
+  - "/frameworks/iso-iec-27001-2022/05/15"
+  - "/frameworks/iso-iec-27001-2022/08/03"
+  - "/frameworks/iso-iec-27001-2022/08/04"
+  - "/frameworks/soc-2/cc5/02/03"
+  - "/frameworks/soc-2/cc6/01/03"
+  - "/frameworks/soc-2/cc6/01/07"
+  - "/frameworks/cloudaware/identity-and-access-governance/user-account-management"

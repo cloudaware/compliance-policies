@@ -1,0 +1,16 @@
+---
+names: 
+  full: "Google GCE Firewall Rule logging is disabled"
+  contextual: "GCE Firewall Rule logging is disabled"
+description: "Ensure that Firewall Rules Logging is enabled for all GCE firewall\
+  \ rules. This feature records network connections that match a firewall rule,\
+  \ providing crucial data for security auditing, incident response, and network troubleshooting."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/nist-sp-800-53-r4/si/04"
+  - "/frameworks/pci-dss-v3.2.1/10/01"
+  - "/frameworks/pci-dss-v3.2.1/10/02"
+  - "/frameworks/iso-iec-27001-2013/13/01/01"
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"

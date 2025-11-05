@@ -1,0 +1,63 @@
+---
+
+inputType: "CA10__CaGoogleGceNetwork__c"
+testData:
+  - file: test-data.json
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Network has GCE Firewall Rules which allow unrestricted Cassandra access."
+    remediationMessage: "Modify the firewall rule to remove unrestricted access."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__Google_GCE_Firewall_Rules__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Cassandra access is restricted from the internet."
+relatedLists:
+  - relationshipName: "CA10__Google_GCE_Firewall_Rules__r"
+    importExtracts:
+      - file: /types/CA10__CaGoogleGceFirewallRule__c/object.extracts.yaml
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This is not an ingress security firewall rule."
+        check:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__direction__c"
+            right:
+              TEXT: "INGRESS"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This security firewall rule does not allow unrestricted access."
+        check:
+          AND:
+            args:
+              - NOT_EQUAL:
+                  left:
+                    EXTRACT: "CA10__sourceRanges__c"
+                  right:
+                    TEXT: "0.0.0.0/0"
+              - NOT_EQUAL:
+                  left:
+                    EXTRACT: "CA10__sourceRanges__c"
+                  right:
+                    TEXT: "::/0"
+      # tcp protocol and ports including: 7000, 7001, 7199, 8888, 9042, 9160, 61620, 61621
+      - status: "INCOMPLIANT"
+        currentStateMessage: "This firewall rule is unrestricted."
+        remediationMessage: "Modify the firewall rule."
+        check:
+          GREATER_THAN:
+            left:
+              JSON_QUERY_NUMBER:
+                arg:
+                  EXTRACT: "caJsonFrom__allowedProtocolsPortsJson__c"
+                expression: "length(ports[?(protocol=='tcp' && ((startPort=='7000' || endPort=='7000' || (startPort<'7000' && endPort>'7000')) || (startPort=='7001' || endPort=='7001' || (startPort<'7001' && endPort>'7001')) || (startPort=='7199' || endPort=='7199' || (startPort<'7199' && endPort>'7199')) || (startPort=='8888' || endPort=='8888' || (startPort<'8888' && endPort>'8888')) || (startPort=='9042' || endPort=='9042' || (startPort<'9042' && endPort>'9042')) || (startPort=='9160' || endPort=='9160' || (startPort<'9160' && endPort>'9160')) || (startPort=='61620' || endPort=='61620' || (startPort<'61620' && endPort>'61620')) || (startPort=='61621' || endPort=='61621' || (startPort<'61621' && endPort>'61621'))))])"
+                undeterminedIf:
+                  evaluationError: "The JSON query failed."
+                  resultTypeMismatch: "The JSON query did not return number type."
+            right:
+              NUMBER: 0.0
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This firewall rule does not allow unrestricted traffic to Cassandra ports."

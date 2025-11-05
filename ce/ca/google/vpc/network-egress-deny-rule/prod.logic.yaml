@@ -1,0 +1,51 @@
+---
+
+inputType: "CA10__CaGoogleGceNetwork__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "The Network has an Egress deny rule."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__Google_GCE_Firewall_Rules__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The Network has no egress GCE Firewall Rule which denies unwanted outbound traffic."
+  remediationMessage: "Set an Egress deny rule."
+relatedLists:
+  - relationshipName: "CA10__Google_GCE_Firewall_Rules__r"
+    importExtracts:
+      - file: "/types/CA10__CaGoogleGceFirewallRule__c/object.extracts.yaml"
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "Egress deny rule is set."
+        check:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10__direction__c"
+                  right:
+                    TEXT: "EGRESS"
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10__destinationRanges__c"
+                  right:
+                    TEXT: "0.0.0.0/0"
+              - GREATER_THAN:
+                  left:
+                    JSON_QUERY_NUMBER:
+                      arg:
+                        EXTRACT: "caJsonFrom__deniedProtocolsPortsJson__c"
+                      expression: "length(ports[?((protocol=='all') || (startPort=='null' && endPort=='null'))])"
+                      undeterminedIf:
+                        evaluationError: "The JSON query failed."
+                        resultTypeMismatch: "The JSON query did not return number type."
+                  right:
+                    NUMBER: 0.0
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "Egress deny rule not set."
+      remediationMessage: "Set Egress deny rule."

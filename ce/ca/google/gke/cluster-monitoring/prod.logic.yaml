@@ -1,0 +1,28 @@
+---
+
+inputType: "CA10G1__CaGoogleGkeCluster__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10G1__CaGoogleGkeCluster__c/object.extracts.yaml"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "The Cluster Cloud Monitoring enabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10G1__monitoringService__c"
+        right:
+          TEXT: "monitoring.googleapis.com/kubernetes"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Cluster uses legacy monitoring."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10G1__monitoringService__c"
+        right:
+          TEXT: "monitoring.googleapis.com"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The Cluster Cloud Monitoring disabled."
+  remediationMessage: "Enable the Cluster Cloud Monitoring."

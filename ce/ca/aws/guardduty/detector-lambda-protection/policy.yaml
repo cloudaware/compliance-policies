@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS GuardDuty Detector Lambda Protection is not enabled"
+  contextual: "Detector Lambda Protection is not enabled"
+description: >
+  GuardDuty monitors Lambda network activity logs that get generated when a Lambda 
+  function, associated to your account, gets invoked. This helps you detect potential 
+  security threats to the Lambda function.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+  - "/frameworks/aws-fsbp-v1.0.0/guardduty/06"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[GuardDuty.6] GuardDuty Lambda Protection should be enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/guardduty-controls.html#guardduty-6"

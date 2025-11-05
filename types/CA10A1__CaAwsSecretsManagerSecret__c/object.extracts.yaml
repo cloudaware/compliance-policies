@@ -1,0 +1,12 @@
+---
+extracts:
+# Nullable. Can't have no access, retrieved via secretsmanager:ListSecrets
+  - name: CA10A1__deletedDate__c
+    value:
+      FIELD: 
+        path: CA10A1__deletedDate__c
+# Checkbox. Can't have no access, retrieved via secretsmanager:ListSecrets
+  - name: CA10A1__rotationEnabled__c
+    value:
+      FIELD: 
+        path: CA10A1__rotationEnabled__c

@@ -1,0 +1,27 @@
+---
+names:
+  full: "AWS GuardDuty Detector Runtime Monitoring is not enabled"
+  contextual: "Detector Runtime Monitoring is not enabled"
+description: >
+  Runtime Monitoring observes and analyzes operating system-level, networking, and 
+  file events to help you detect potential threats in specific AWS workloads in 
+  your environment.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+  - "/frameworks/aws-fsbp-v1.0.0/guardduty/07"
+  - "/frameworks/aws-fsbp-v1.0.0/guardduty/11"
+  - "/frameworks/aws-fsbp-v1.0.0/guardduty/12"
+  - "/frameworks/aws-fsbp-v1.0.0/guardduty/13"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[GuardDuty.7] GuardDuty EKS Runtime Monitoring should be enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/guardduty-controls.html#guardduty-7"
+    - name: "[GuardDuty.11] GuardDuty Runtime Monitoring should be enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/guardduty-controls.html#guardduty-11"
+    - name: "[GuardDuty.12] GuardDuty ECS Runtime Monitoring should be enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/guardduty-controls.html#guardduty-12"
+    - name: "[GuardDuty.13] GuardDuty EC2 Runtime Monitoring should be enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/guardduty-controls.html#guardduty-13"

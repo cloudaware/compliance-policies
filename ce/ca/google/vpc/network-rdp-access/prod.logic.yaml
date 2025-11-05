@@ -5,22 +5,22 @@ testData:
   - file: test-data.json
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "Network has GCE Firewall Rules which allow unrestricted RDP access"
-    remediationMessage: "Modify  firewall rule"
+    currentStateMessage: "The Network has GCE Firewall Rules which allow unrestricted RDP access."
+    remediationMessage: "Modify the firewall rule to remove unrestricted access."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__Google_GCE_Firewall_Rules__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "RDP access is restricted from the internet"
+  currentStateMessage: "RDP access is restricted from the internet."
 relatedLists:
   - relationshipName: "CA10__Google_GCE_Firewall_Rules__r"
     importExtracts:
       - file: /types/CA10__CaGoogleGceFirewallRule__c/object.extracts.yaml
     conditions:
       - status: "INAPPLICABLE"
-        currentStateMessage: "This is an ingress security firewall rule."
+        currentStateMessage: "This is not an ingress security firewall rule."
         check:
           NOT_EQUAL:
             left:
@@ -43,15 +43,15 @@ relatedLists:
                   right:
                     TEXT: "::/0"
       - status: "INCOMPLIANT"
-        currentStateMessage: "Unsecured firewall rule"
-        remediationMessage: "Modify firewall rule"
+        currentStateMessage: "This firewall rule is unrestricted."
+        remediationMessage: "Modify the firewall rule."
         check:
           GREATER_THAN:
             left:
               JSON_QUERY_NUMBER:
                 arg:
                   EXTRACT: "caJsonFrom__allowedProtocolsPortsJson__c"
-                expression: "length(ports[?((protocol=='all') || (startPort=='null' && endPort=='null') || (protocol=='tcp' && (startPort=='3389' || endPort=='3389' || (startPort<'3389' && endPort>'3389'))))])"
+                expression: "length(ports[?((protocol=='tcp' || protocol=='udp') && (startPort=='3389' || endPort=='3389' || (startPort<'3389' && endPort>'3389')))])"
                 undeterminedIf:
                   evaluationError: "The JSON query failed."
                   resultTypeMismatch: "The JSON query did not return number type."
@@ -59,4 +59,4 @@ relatedLists:
               NUMBER: 0.0
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "Firewall rule set correctly"
+      currentStateMessage: "This firewall rule does not allow unrestricted traffic to RDP ports."

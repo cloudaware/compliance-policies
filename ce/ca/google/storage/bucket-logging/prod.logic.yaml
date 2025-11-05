@@ -1,0 +1,26 @@
+---
+
+inputType: "CA10__CaGoogleStorageBucket__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is a log destination bucket."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__Google_Storage_Buckets__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The storage bucket logging is not enabled."
+    remediationMessage: "Enable logging for the Storage bucket."
+    check:
+      IS_EMPTY_LOOKUP: "CA10__loggingBucket__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Storage bucket logging is enabled"
+relatedLists:
+  - relationshipName: "CA10__Google_Storage_Buckets__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This is a log source bucket." 

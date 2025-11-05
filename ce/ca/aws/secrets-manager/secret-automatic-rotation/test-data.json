@@ -1,0 +1,62 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10A1__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-23T14:48:06Z"
+        },
+        "CA10A1__disappearanceTime__c": "2025-10-16T20:08:56Z",
+        "CA10A1__deletedDate__c": null,
+        "CA10A1__rotationEnabled__c": false,
+        "Id": "test1"
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10A1__deletedDate__c').isNotEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-23T14:48:06Z"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__deletedDate__c": "2025-10-23T14:48:06Z",
+        "CA10A1__rotationEnabled__c": true,
+        "Id": "test2"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10A1__rotationEnabled__c') == true",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-23T14:48:06Z"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__deletedDate__c": null,
+        "CA10A1__rotationEnabled__c": true,
+        "Id": "test3"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10A1__rotationEnabled__c') == false",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-23T14:48:06Z"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__deletedDate__c": null,
+        "CA10A1__rotationEnabled__c": false,
+        "Id": "test4"
+    }
+]

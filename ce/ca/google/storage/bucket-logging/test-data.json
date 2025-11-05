@@ -1,0 +1,93 @@
+[
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "CA10__Google_Storage_Buckets__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-17T08:29:54Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__loggingBucket__c": "",
+        "CA10__loggingBucketName__c": "",
+        "Id": "001",
+        "CA10__loggingBucket__r": {
+            "Id": null,
+            "CA10__disappearanceTime__c": null
+        },
+        "CA10__Google_Storage_Buckets__r": [
+            {
+                "CA10__disappearanceTime__c": null,
+                "CA10__loggingBucket__c": "001",
+                "Id": "001a"
+            },
+            {
+                "CA10__disappearanceTime__c": null,
+                "CA10__loggingBucket__c": "001",
+                "Id": "001b"
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "isEmptyLookup('CA10__loggingBucket__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-17T08:29:54Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__loggingBucket__c": "",
+        "CA10__loggingBucketName__c": "",
+        "Id": "002",
+        "CA10__loggingBucket__r": {
+            "Id": null,
+            "CA10__disappearanceTime__c": null
+        },
+        "CA10__Google_Storage_Buckets__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "300",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-17T08:29:54Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__loggingBucket__c": "003a",
+        "CA10__loggingBucketName__c": "loggingBucketName",
+        "Id": "003",
+        "CA10__loggingBucket__r": {
+            "Id": "003a",
+            "CA10__disappearanceTime__c": null
+        },
+        "CA10__Google_Storage_Buckets__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-17T08:29:54Z"
+        },
+        "CA10__disappearanceTime__c": "2025-10-17T08:29:54Z",
+        "CA10__loggingBucket__c": "",
+        "CA10__loggingBucketName__c": "",
+        "Id": "004",
+        "CA10__loggingBucket__r": {
+            "Id": null,
+            "CA10__disappearanceTime__c": null
+        },
+        "CA10__Google_Storage_Buckets__r": []
+    }
+]

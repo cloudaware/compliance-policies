@@ -17,3 +17,25 @@ extracts:
         separator: "\n"
         arg:
           EXTRACT: CA10__availabilityZones__c
+# Checkbox for Classic load balancer record type.
+  - name: CA10__crossZoneLoadBalancing__c
+    value: 
+      FIELD:
+        path: CA10__crossZoneLoadBalancing__c
+# Values: classic | application | network | gateway. Not nullable
+  - name: CA10__type__c
+    value: 
+      FIELD:
+        path: CA10__type__c
+        undeterminedIf:
+          isEmpty: "Corrupted data. Load Balancer Type cannot be empty."
+  - name: CA10__additionalAttributes__c
+    value: 
+      FIELD:
+        path: CA10__additionalAttributes__c
+  - name: caSetFrom_additionalAttributes__c
+    value: 
+      SET_FROM:
+        separator: "\n"
+        arg:
+          EXTRACT: CA10__additionalAttributes__c

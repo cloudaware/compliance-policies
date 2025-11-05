@@ -1,0 +1,11 @@
+---
+names: 
+  full: "Google Cloud PostgreSQL Instance log_temp_files Database Flag is not set to 0"
+  contextual: "PostgreSQL Instance log_temp_files Database Flag is not set to 0"
+description: "Ensure that the `log_temp_files` database flag for the Cloud SQL PostgreSQL instance is set to `0`."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cis-gcp-v1.2.0/06/02/15"
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"

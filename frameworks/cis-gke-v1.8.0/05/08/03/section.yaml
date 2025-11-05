@@ -1,0 +1,8 @@
+---
+name: "5.8.3 Ensure Legacy Authorization (ABAC) is Disabled (Automated)"
+description: "Legacy Authorization, also known as Attribute-Based Access Control (ABAC) has been \
+  \ superseded by Role-Based Access Control (RBAC) and is not under active \
+  \ development. RBAC is the recommended way to manage permissions in Kubernetes."
+similar:
+  sections:
+    - "/frameworks/cis-gke-v1.0.0/06/08/04"

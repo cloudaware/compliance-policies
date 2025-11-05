@@ -1,6 +1,6 @@
 ---
 name: >
-  [ElastiCache.1] ElastiCache (Redis OSS) clusters should have automatic backups enabled
+  [ElastiCache.1] ElastiCache (Valkey and Redis OSS) clusters should have automatic backups enabled
 description: |-
   Amazon ElastiCache (Redis OSS) clusters can back up their data. You can use 
   the backup to restore a cluster or seed a new cluster. The backup consists of 

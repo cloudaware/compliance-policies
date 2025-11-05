@@ -1,0 +1,16 @@
+---
+names: 
+  full: "Google GKE Cluster Monitoring is not enabled"
+  contextual: "Cluster Monitoring is not enabled"
+description: "Ensure that GKE clusters have Cloud Monitoring enabled to provide\
+  \ visibility into their performance, uptime, and overall health. Cloud Monitoring\
+  \ collects metrics, events, and metadata from GKE clusters."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cis-gke-v1.8.0/05/07/01"
+  - "/frameworks/pci-dss-v3.2.1/10/01"
+  - "/frameworks/pci-dss-v3.2.1/10/02"
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"

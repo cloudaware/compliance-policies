@@ -1,0 +1,17 @@
+---
+names: 
+  full: "Google GKE Cluster Network policy is disabled."
+  contextual: "Cluster Network policy is disabled"
+description: "A network policy is a specification of how groups of pods are allowed to \
+  \ communicate with each other and other network endpoints. NetworkPolicy resources use \
+  \ labels to select pods and define rules which specify what traffic is allowed to the \
+  \ selected pods. The Kubernetes Network Policy API allows the cluster administrator to \
+  \ specify what pods are allowed to communicate with each other."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/nist-sp-800-53-r4/sc/07"
+  - "/frameworks/pci-dss-v3.2.1/01/03"
+  - "/frameworks/iso-iec-27001-2013/13/01/01"

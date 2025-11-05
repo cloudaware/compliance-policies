@@ -1,0 +1,5 @@
+---
+name: "5.1.6 Ensure that Service Account Tokens are only mounted where \
+  \ necessary (Not Scored)"
+description: "Service accounts tokens should not be mounted in pods except where the workload \
+  \ running in the pod explicitly needs to communicate with the API server"

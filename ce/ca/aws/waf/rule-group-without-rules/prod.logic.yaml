@@ -1,0 +1,24 @@
+---
+inputType: "CA10A1__CaAwsWafRuleGroup__c"
+recordTypes:
+  - "caAwsWafv2RuleGroupGlobal"
+  - "caAwsWafv2RuleGroupRegional"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The AWS WAF Rule Group does not have any rules."
+    remediationMessage: "Add at least one rule to the rule group or delete the rule group if it is not needed."
+    check:
+      RELATED_LIST_HAS_NO:
+        status: "COMPLIANT"
+        relationshipName: "CA10A1__AWS_WAF_Rules__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The AWS WAF Rule Group has at least one rule."
+relatedLists:
+  - relationshipName: "CA10A1__AWS_WAF_Rules__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This is a rule within the group."

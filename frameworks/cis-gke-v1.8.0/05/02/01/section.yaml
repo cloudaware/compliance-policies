@@ -1,0 +1,9 @@
+---
+name: "5.2.1 Ensure GKE clusters are not running using the Compute \
+  \ Engine default service account (Automated)"
+description: "Create and use minimally privileged Service accounts to run GKE cluster nodes instead \
+  \ of using the Compute Engine default Service account. Unnecessary permissions could \
+  \ be abused in the case of a node compromise."
+similar:
+  sections:
+    - "/frameworks/cis-gke-v1.0.0/06/02/01"

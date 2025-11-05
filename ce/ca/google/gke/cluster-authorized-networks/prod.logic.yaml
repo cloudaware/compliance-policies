@@ -1,0 +1,22 @@
+---
+
+inputType: "CA10G1__CaGoogleGkeCluster__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10G1__CaGoogleGkeCluster__c/object.extracts.yaml"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Cluster Control Plane Authorized Networks are enabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10G1__masterAuthorizedNetworks__c"
+        right:
+          TEXT: "ENABLED"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Cluster Control Plane Authorized Networks are disabled."
+  remediationMessage: "Enable Control Plane Authorized Networks."
+
+

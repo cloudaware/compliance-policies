@@ -1,0 +1,11 @@
+---
+name: "5.2.2 Prefer using dedicated GCP Service Accounts and \
+  \ Workload Identity (Manual)"
+description: "Kubernetes workloads should not use cluster node service accounts to authenticate to \
+  \ Google Cloud APIs. Each Kubernetes Workload that needs to authenticate to other \
+  \ Google services using Cloud IAM should be provisioned a dedicated Service account. \
+  \ Enabling Workload Identity manages the distribution and rotation of Service account \
+  \ keys for the workloads to use."
+similar:
+  sections:
+    - "/frameworks/cis-gke-v1.0.0/06/02/02"

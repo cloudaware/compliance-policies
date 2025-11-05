@@ -1,0 +1,12 @@
+---
+extracts:
+  - name: CA10__attributes__c
+    value: 
+      FIELD:
+        path: CA10__attributes__c
+  - name: caSetFrom_attributes__c
+    value: 
+      SET_FROM:
+        separator: "\n"
+        arg:
+          EXTRACT: CA10__attributes__c

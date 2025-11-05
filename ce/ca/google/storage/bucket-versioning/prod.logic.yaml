@@ -1,0 +1,40 @@
+---
+
+inputType: "CA10__CaGoogleStorageBucket__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleStorageBucket__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The bucket is a log sink destination."
+    check:
+      RELATED_LIST_HAS_NO:
+        status: "COMPLIANT"
+        relationshipName: "CA10G1__Google_Logging_Log_Sinks__r"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The storage bucket has a locked retention policy."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__retentionPolicyLock__c"
+        right:
+          TEXT: "Locked"
+  - status: "COMPLIANT"
+    currentStateMessage: "Versioning is enabled on this storage bucket."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__versioningEnabled__c"
+        right:
+          BOOLEAN: true
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Versioning is not enabled on this storage bucket."
+  remediationMessage: "Enable Versioning on this bucket."
+relatedLists:
+  - relationshipName: "CA10G1__Google_Logging_Log_Sinks__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This is a Log Sink with a storage bucket destination."

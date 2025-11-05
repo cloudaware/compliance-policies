@@ -1,0 +1,11 @@
+---
+name: "5.10.1 Ensure Kubernetes Web UI is Disabled (Automated)"
+description: "Note: The Kubernetes web UI (Dashboard) does not have admin access by default in \
+  \ GKE 1.7 and higher. The Kubernetes web UI is disabled by default in GKE 1.10 and \
+  \ higher. In GKE 1.15 and higher, the Kubernetes web UI add-on KubernetesDashboard \
+  \ is no longer supported as a managed add-on. \
+  \ The Kubernetes Web UI (Dashboard) has been a historical source of vulnerability and \
+  \ should only be deployed when necessary."
+similar:
+  sections:
+    - "/frameworks/cis-gke-v1.0.0/06/10/01"

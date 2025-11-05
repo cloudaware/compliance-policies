@@ -1,0 +1,12 @@
+---
+names: 
+  full: "Google GCE Network allows unrestricted traffic to all ports"
+  contextual: "GCE Network allows unrestricted traffic to all ports"
+description: "Ensure that no GCE Firewall Rules allow unrestricted ingress access\
+  \ from any IP address (0.0.0.0/0) to all ports."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/pci-dss-v3.2.1/01/02/01"
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

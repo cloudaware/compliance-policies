@@ -1,0 +1,7 @@
+---
+name: "5.8.1 Ensure authentication using Client Certificates is Disabled (Automated)"
+description: "Do not make use of client certificate authentication in GKE, as the credentials cannot be \
+  \ revoked. Instead, use another authentication method like OpenID Connect."
+similar:
+  sections:
+    - "/frameworks/cis-gke-v1.0.0/06/08/02"

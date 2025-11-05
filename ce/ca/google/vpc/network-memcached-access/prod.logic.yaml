@@ -1,0 +1,63 @@
+---
+
+inputType: "CA10__CaGoogleGceNetwork__c"
+testData:
+  - file: test-data.json
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Network has GCE Firewall Rules which allow unrestricted Memcached access."
+    remediationMessage: "Modify the firewall rule to remove unrestricted access."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__Google_GCE_Firewall_Rules__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Memcached access is restricted from the internet."
+relatedLists:
+  - relationshipName: "CA10__Google_GCE_Firewall_Rules__r"
+    importExtracts:
+      - file: /types/CA10__CaGoogleGceFirewallRule__c/object.extracts.yaml
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This is not an ingress security firewall rule."
+        check:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__direction__c"
+            right:
+              TEXT: "INGRESS"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This security firewall rule does not allow unrestricted access."
+        check:
+          AND:
+            args:
+              - NOT_EQUAL:
+                  left:
+                    EXTRACT: "CA10__sourceRanges__c"
+                  right:
+                    TEXT: "0.0.0.0/0"
+              - NOT_EQUAL:
+                  left:
+                    EXTRACT: "CA10__sourceRanges__c"
+                  right:
+                    TEXT: "::/0"
+      # TCP/UDP 11211, 11214, 11215
+      - status: "INCOMPLIANT"
+        currentStateMessage: "This firewall rule is unrestricted."
+        remediationMessage: "Modify the firewall rule."
+        check:
+          GREATER_THAN:
+            left:
+              JSON_QUERY_NUMBER:
+                arg:
+                  EXTRACT: "caJsonFrom__allowedProtocolsPortsJson__c"
+                expression: "length(ports[?((protocol=='tcp' || protocol=='udp') && ((startPort=='11211' || endPort=='11211' || (startPort<'11211' && endPort>'11211')) || (startPort=='11214' || endPort=='11214' || (startPort<'11214' && endPort>'11214')) || (startPort=='11215' || endPort=='11215' || (startPort<'11215' && endPort>'11215'))))])"
+                undeterminedIf:
+                  evaluationError: "The JSON query failed."
+                  resultTypeMismatch: "The JSON query did not return number type."
+            right:
+              NUMBER: 0.0
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This firewall rule does not allow unrestricted traffic to Memcached ports."

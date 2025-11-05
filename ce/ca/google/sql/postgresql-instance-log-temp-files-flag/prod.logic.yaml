@@ -1,0 +1,30 @@
+---
+
+inputType: "CA10__CaGoogleSqlInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleSqlInstance__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is not a PostgreSQL database instance."
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__databaseVersion__c"
+            search:
+              TEXT: "POSTGRE" 
+  - status: "COMPLIANT"
+    currentStateMessage: "The log_temp_files database flag is set to 0."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "caJsonText__databaseFlagsLogTempFilesFlagValue__c"
+        right:
+          TEXT: "0"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The log_temp_files database flag isn't set to 0."
+  remediationMessage: "Set log_temp_files database flag to 0."

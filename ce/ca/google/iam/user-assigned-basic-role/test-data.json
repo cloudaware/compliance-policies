@@ -1,0 +1,62 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10G1__Google_IAM_Policy_Bindings__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-10-05T08:29:52Z" },
+    "Id": "001",
+    "CA10G1__disappearanceTime__c": null,
+    "CA10G1__Google_IAM_Policy_Bindings__r": [
+      {
+        "Id": "a9001",
+        "RecordTypeId": "0125f000001PRjqAAG",
+        "CA10__disappearanceTime__c": null,
+        "CA10__iamRole__c": "r001",
+        "CA10__iamCuratedRoleId__c": "roles/owner",
+        "CA10G1__googleUser__c": "001",
+        "RecordType": {
+          "DeveloperName": "caGoogleIamPolicyBindingProject",
+          "Id": "0125f000001PRjqAAG"
+        },
+        "CA10__iamRole__r": {
+          "Id": "r001",
+          "CA10__disappearanceTime__c": null,
+          "CA10__roleName__c": "roles/owner"
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-10-05T08:29:52Z" },
+    "Id": "002",
+    "CA10G1__disappearanceTime__c": null,
+    "CA10G1__Google_IAM_Policy_Bindings__r": [
+      {
+        "Id": "a9002",
+        "RecordTypeId": "0125f000001PRjqAAG",
+        "CA10__disappearanceTime__c": null,
+        "CA10__iamRole__c": "r002",
+        "CA10__iamCuratedRoleId__c": "roles/bigquery.dataViewer",
+        "CA10G1__googleUser__c": "002",
+        "RecordType": {
+          "DeveloperName": "caGoogleIamPolicyBindingProject",
+          "Id": "0125f000001PRjqAAG"
+        },
+        "CA10__iamRole__r": {
+          "Id": "r002",
+          "CA10__disappearanceTime__c": null,
+          "CA10__roleName__c": "roles/dataViewer"
+        }
+      }
+    ]
+  }
+]

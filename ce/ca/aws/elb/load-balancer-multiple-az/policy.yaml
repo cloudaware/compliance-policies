@@ -1,0 +1,22 @@
+---
+names:
+  full: "AWS ELB Load Balancer is not registered to multiple Availability Zones"
+  contextual: "Load Balancer is not registered to multiple Availability Zones"
+description: >
+  Ensures that AWS ELB Load Balancers are configured for high availability by being 
+  registered in more than one Availability Zone.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-well-architected/perf/04/04"
+  - "/frameworks/aws-well-architected/rel/13/05"
+  - "/frameworks/aws-fsbp-v1.0.0/elb/10"
+  - "/frameworks/aws-fsbp-v1.0.0/elb/13"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ELB.13] Application, Network and Gateway Load Balancers should span multiple Availability Zones"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-13"
+    - name: "[ELB.10] Classic Load Balancer should span multiple Availability Zones"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-10"

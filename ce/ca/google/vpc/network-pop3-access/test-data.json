@@ -1,0 +1,128 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-11-28T20:26:50Z" },
+    "Id": "a4b0e1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Google_GCE_Firewall_Rules__r": [
+      {
+        "Id": "a4V0e1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__sourceRanges__c": "0.0.0.0/0",
+        "CA10__direction__c": "INGRESS",
+        "CA10__allowedProtocolsPortsJson__c": "{\"ports\":[{\"protocol\":\"tcp\",\"startPort\":\"30000\",\"endPort\":\"32767\"}]}",
+        "CA10__gceNetwork__c": "a4b0e1"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-11-28T20:26:50Z" },
+    "Id": "a4b0e12",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Google_GCE_Firewall_Rules__r": [
+      {
+        "Id": "a4V0e12",
+        "CA10__disappearanceTime__c": null,
+        "CA10__sourceRanges__c": "0.0.0.0/0",
+        "CA10__direction__c": "INGRESS",
+        "CA10__allowedProtocolsPortsJson__c": "{\"ports\":[{\"protocol\":\"tcp\",\"startPort\":\"11\",\"endPort\":\"11\"},{\"protocol\":\"tcp\",\"startPort\":\"16379\",\"endPort\":\"16379\"}]}",
+        "CA10__gceNetwork__c": "a4b0e12"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-11-28T20:26:50Z" },
+    "Id": "a4b0e13",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Google_GCE_Firewall_Rules__r": [
+        {
+            "Id": "a4V0e13",
+            "CA10__disappearanceTime__c": null,
+            "CA10__sourceRanges__c": "10.128.0.0/9",
+            "CA10__direction__c": "INGRESS",
+            "CA10__allowedProtocolsPortsJson__c": "{\"ports\":[{\"protocol\":\"all\"}]}",
+            "CA10__gceNetwork__c": "a4b0e13"
+        }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-11-28T20:26:50Z" },
+    "Id": "a4b0e14",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Google_GCE_Firewall_Rules__r": [
+        {
+            "Id": "a4V0e41",
+            "CA10__disappearanceTime__c": null,
+            "CA10__sourceRanges__c": "0.0.0.0/0",
+            "CA10__direction__c": "INGRESS",
+            "CA10__allowedProtocolsPortsJson__c": "{\"ports\":[{\"protocol\":\"icmp\"}]}",
+            "CA10__gceNetwork__c": "a4b0e14"
+        }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__Google_GCE_Firewall_Rules__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-11-28T20:26:50Z" },
+    "Id": "a4b0e16",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Google_GCE_Firewall_Rules__r": [
+      {
+        "Id": "a4V0e16",
+        "CA10__disappearanceTime__c": null,
+        "CA10__sourceRanges__c": "0.0.0.0/0",
+        "CA10__direction__c": "INGRESS",
+        "CA10__allowedProtocolsPortsJson__c": "{\"ports\":[{\"protocol\":\"tcp\",\"startPort\":\"10\",\"endPort\":\"110\"}]}",
+        "CA10__gceNetwork__c": "a4b0e16"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__Google_GCE_Firewall_Rules__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-11-28T20:26:50Z" },
+    "Id": "a4b0e17",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Google_GCE_Firewall_Rules__r": [
+      {
+        "Id": "a4V0e17",
+        "CA10__disappearanceTime__c": null,
+        "CA10__sourceRanges__c": "0.0.0.0/0",
+        "CA10__direction__c": "INGRESS",
+        "CA10__allowedProtocolsPortsJson__c": "{\"ports\":[{\"protocol\":\"tcp\",\"startPort\":\"110\",\"endPort\":\"110\"}]}",
+        "CA10__gceNetwork__c": "a4b0e17"
+      }
+    ]
+  }
+]

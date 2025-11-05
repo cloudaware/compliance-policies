@@ -1,0 +1,96 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-10-07T10:39:40Z" },
+    "CA10__disappearanceTime__c": "2024-12-16T11:44:48Z",
+    "CA10__retentionPolicyLock__c": "",
+    "CA10__versioningEnabled__c": false,
+    "Id": "001",
+    "CA10G1__Google_Logging_Log_Sinks__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "CA10G1__Google_Logging_Log_Sinks__r.hasNo(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-10-07T10:39:40Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__retentionPolicyLock__c": "",
+    "CA10__versioningEnabled__c": false,
+    "Id": "002",
+    "CA10G1__Google_Logging_Log_Sinks__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__retentionPolicyLock__c') == 'Locked'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-10-07T10:39:40Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__retentionPolicyLock__c": "Locked",
+    "CA10__versioningEnabled__c": false,
+    "Id": "003",
+    "CA10G1__Google_Logging_Log_Sinks__r": [
+      {
+        "CA10G1__disappearanceTime__c": null,
+        "CA10G1__bucket__c": "003",
+        "Id": "ls001",
+        "RecordTypeId": "0125f0000003udqAAA",
+        "RecordType": { "Id": "0125f0000003udqAAA" }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__versioningEnabled__c') == true",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-10-07T10:39:40Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__retentionPolicyLock__c": "",
+    "CA10__versioningEnabled__c": true,
+    "Id": "004",
+    "CA10G1__Google_Logging_Log_Sinks__r": [
+      {
+        "CA10G1__disappearanceTime__c": null,
+        "CA10G1__bucket__c": "004",
+        "Id": "ls002",
+        "RecordTypeId": "0125f0000003udqAAA",
+        "RecordType": { "Id": "0125f0000003udqAAA" }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-10-07T10:39:40Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__retentionPolicyLock__c": "",
+    "CA10__versioningEnabled__c": false,
+    "Id": "005",
+    "CA10G1__Google_Logging_Log_Sinks__r": [
+      {
+        "CA10G1__disappearanceTime__c": null,
+        "CA10G1__bucket__c": "005",
+        "Id": "ls003",
+        "RecordTypeId": "0125f0000003udqAAA",
+        "RecordType": { "Id": "0125f0000003udqAAA" }
+      }
+    ]
+  }
+]

@@ -1,0 +1,77 @@
+[
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "201",
+            "conditionText": "CA10__featuresJson__c.delegatedTo(CA10__featuresJson__c).isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-28T14:32:29Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ENABLED",
+        "CA10__featuresJson__c": "",
+        "Id": "test1"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('caJsonFrom__featuresJson__c').jsonQueryText('[?name==\\'S3_DATA_EVENTS\\'].status | [0]') != 'ENABLED'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-28T14:32:29Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ENABLED",
+        "CA10__featuresJson__c": "[{\"name\":\"CLOUD_TRAIL\",\"status\":\"ENABLED\",\"updatedAt\":{\"iMillis\":1761639172,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"DNS_LOGS\",\"status\":\"ENABLED\",\"updatedAt\":{\"iMillis\":1761639172,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"FLOW_LOGS\",\"status\":\"ENABLED\",\"updatedAt\":{\"iMillis\":1761639172,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"S3_DATA_EVENTS\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1748550108,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"EKS_AUDIT_LOGS\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1748550108,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"EBS_MALWARE_PROTECTION\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1748550108,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"EKS_RUNTIME_MONITORING\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1748550108,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}},\"additionalConfiguration\":[{\"name\":\"EKS_ADDON_MANAGEMENT\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1748550108,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}}]},{\"name\":\"LAMBDA_NETWORK_LOGS\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1748550108,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"RUNTIME_MONITORING\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1748550108,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}},\"additionalConfiguration\":[{\"name\":\"EKS_ADDON_MANAGEMENT\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1748550108,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"ECS_FARGATE_AGENT_MANAGEMENT\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1748550108,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"EC2_AGENT_MANAGEMENT\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1748550108,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}}]}]",
+        "Id": "test2"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('caJsonFrom__featuresJson__c').jsonQueryText('[?name==\\'S3_DATA_EVENTS\\'].status | [0]') == 'ENABLED'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-28T14:32:29Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ENABLED",
+        "CA10__featuresJson__c": "[{\"name\":\"CLOUD_TRAIL\",\"status\":\"ENABLED\",\"updatedAt\":{\"iMillis\":1761639184,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"DNS_LOGS\",\"status\":\"ENABLED\",\"updatedAt\":{\"iMillis\":1761639184,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"FLOW_LOGS\",\"status\":\"ENABLED\",\"updatedAt\":{\"iMillis\":1761639184,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"S3_DATA_EVENTS\",\"status\":\"ENABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"EKS_AUDIT_LOGS\",\"status\":\"ENABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"EBS_MALWARE_PROTECTION\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"RDS_LOGIN_EVENTS\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"EKS_RUNTIME_MONITORING\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}},\"additionalConfiguration\":[{\"name\":\"EKS_ADDON_MANAGEMENT\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}}]},{\"name\":\"LAMBDA_NETWORK_LOGS\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"RUNTIME_MONITORING\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}},\"additionalConfiguration\":[{\"name\":\"EKS_ADDON_MANAGEMENT\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"ECS_FARGATE_AGENT_MANAGEMENT\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"EC2_AGENT_MANAGEMENT\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}}]}]",
+        "Id": "test3"
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__status__c') != 'ENABLED'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-28T14:32:29Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "DISABLED",
+        "CA10__featuresJson__c": "[{\"name\":\"CLOUD_TRAIL\",\"status\":\"ENABLED\",\"updatedAt\":{\"iMillis\":1761639184,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"DNS_LOGS\",\"status\":\"ENABLED\",\"updatedAt\":{\"iMillis\":1761639184,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"FLOW_LOGS\",\"status\":\"ENABLED\",\"updatedAt\":{\"iMillis\":1761639184,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"S3_DATA_EVENTS\",\"status\":\"ENABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"EKS_AUDIT_LOGS\",\"status\":\"ENABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"EBS_MALWARE_PROTECTION\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"RDS_LOGIN_EVENTS\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"EKS_RUNTIME_MONITORING\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}},\"additionalConfiguration\":[{\"name\":\"EKS_ADDON_MANAGEMENT\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}}]},{\"name\":\"LAMBDA_NETWORK_LOGS\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"RUNTIME_MONITORING\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}},\"additionalConfiguration\":[{\"name\":\"EKS_ADDON_MANAGEMENT\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"ECS_FARGATE_AGENT_MANAGEMENT\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"EC2_AGENT_MANAGEMENT\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}}]}]",
+        "Id": "test4"
+    },
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-28T14:32:29Z"
+        },
+        "CA10__disappearanceTime__c": "2025-10-28T14:32:29Z",
+        "CA10__status__c": "ENABLED",
+        "CA10__featuresJson__c": "[{\"name\":\"CLOUD_TRAIL\",\"status\":\"ENABLED\",\"updatedAt\":{\"iMillis\":1761639184,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"DNS_LOGS\",\"status\":\"ENABLED\",\"updatedAt\":{\"iMillis\":1761639184,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"FLOW_LOGS\",\"status\":\"ENABLED\",\"updatedAt\":{\"iMillis\":1761639184,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"S3_DATA_EVENTS\",\"status\":\"ENABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"EKS_AUDIT_LOGS\",\"status\":\"ENABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"EBS_MALWARE_PROTECTION\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"RDS_LOGIN_EVENTS\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"EKS_RUNTIME_MONITORING\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}},\"additionalConfiguration\":[{\"name\":\"EKS_ADDON_MANAGEMENT\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}}]},{\"name\":\"LAMBDA_NETWORK_LOGS\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"RUNTIME_MONITORING\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}},\"additionalConfiguration\":[{\"name\":\"EKS_ADDON_MANAGEMENT\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"ECS_FARGATE_AGENT_MANAGEMENT\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}},{\"name\":\"EC2_AGENT_MANAGEMENT\",\"status\":\"DISABLED\",\"updatedAt\":{\"iMillis\":1759353476,\"iChronology\":{\"iBase\":{\"iMinDaysInFirstWeek\":4}}}}]}]",
+        "Id": "test5"
+    }
+]

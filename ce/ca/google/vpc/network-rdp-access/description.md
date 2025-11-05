@@ -1,51 +1,28 @@
 # Description
 
-GCP `Firewall Rules` are specific to a `VPC Network`. Each rule either `allows` or `denies` traffic when its conditions are met. Its conditions allow users to specify the type of traffic, such as ports and protocols, and the source or destination of the traffic, including IP addresses, subnets, and instances.
+This policy identifies Google GCE Networks that have Firewall Rules allowing unrestricted incoming traffic (`0.0.0.0/0`) from the internet to the Remote Desktop Protocol (RDP) port, `TCP/UDP 3389`.
 
-Firewall rules are defined at the VPC network level and are specific to the network in which they are defined. The rules themselves cannot be shared among networks. Firewall rules only support IPv4 traffic. When specifying a source for an ingress rule or a destination for an egress rule by address, an `IPv4` address or `IPv4 block in CIDR` notation can be used. Generic `(0.0.0.0/0)` incoming traffic from the Internet to a VPC or VM instance using `RDP` on `Port 3389` can be avoided.
+In GCP, **Firewall Rules** are defined at the **VPC Network** level. Each rule either *allows* or *denies* traffic based on its configuration. These configurations specify the type of traffic (e.g., protocols and ports) and the source or destination (e.g., IP addresses, subnets, and instances).
 
 ## Rationale
 
-GCP `Firewall Rules` within a `VPC Network`. These rules apply to outgoing (egress) traffic from instances and incoming (ingress) traffic to instances in the network. Egress and ingress traffic flows are controlled even if the traffic stays within the network (for example, instance-to-instance communication). For an instance to have outgoing Internet access, the network must have a valid Internet gateway route or custom route whose destination IP is specified. This route simply defines the path to the Internet, to avoid the most general `(0.0.0.0/0)` destination `IP Range` specified from the Internet through `RDP` with the default `Port 3389`. Generic access from the Internet to a specific IP Range should be restricted.
+The RDP port is used for remote administrative access to Windows-based virtual machines. Exposing this port to the public internet poses a significant security risk, as it becomes a prime target for automated scanners and attackers performing brute-force, credential-stuffing, and vulnerability-based attacks. A successful exploit could lead to unauthorized access or complete compromise of the affected virtual machine.
+
+To reduce risk, RDP access should be limited to specific administrative IP addresses or managed securely through Identity-Aware Proxy (IAP) or VPN access.
 
 ## Impact
 
-All Remote Desktop Protocol (RDP) connections from outside of the network to the concerned VPC(s) will be blocked. There could be a business need where secure shell access is required from outside of the network to access resources associated with the VPC. In that case, specific source IP(s) should be mentioned in firewall rules to white-list access to RDP port for the concerned VPC(s).
+All Remote Desktop Protocol (RDP) connections from outside of the network to the concerned VPC(s) can be blocked. If external administrative access is required, firewall rules should be restricted to allow connections only from specific, trusted IP addresses that are explicitly authorized.
 
 ## Audit
 
-### From Google Cloud Console
+This policy flags a *Google GCE Network* as `INCOMPLIANT` if it includes at least one *Firewall Rule* that meets all of the following conditions:
 
-1. Go to `VPC network`.
-2. Go to the `Firewall Rules`.
-3. Ensure `Port` is not equal to `3389` and `Action` is not `Allow`.
-4. Ensure `IP Ranges` is not equal to `0.0.0.0/0` under `Source filters`.
-
-### From Google Cloud CLI
-
-            gcloud compute firewall-rules list --format=table'(name,direction,sourceRanges,allowed.ports)'
-
-Ensure that there is no rule matching the below criteria:
-
-• `SOURCE_RANGES` is `0.0.0.0/0`
-
-• AND `DIRECTION` is `INGRESS`
-
-• AND `IPProtocol` is `TCP` or `ALL`
-
-• AND `PORTS` is set to `3389` or `range containing 3389` or `Null (not set)`
-
-Note:
-
-• When ALL TCP ports are allowed in a rule, PORT does not have any value set (`NULL`)
-
-• When ALL Protocols are allowed in a rule, PORT does not have any value set (`NULL`)
+- `Source Ranges` is **0.0.0.0/0** or **::/0**
+- `Direction` is **INGRESS**
+- `Allowed Protocols / Ports JSON` specifies the **tcp** or **udp** `protocols` and the `startPort` - `endPort` range includes **3389**.
 
 ## References
 
 1. <https://cloud.google.com/vpc/docs/firewalls#blockedtraffic>
 2. <https://cloud.google.com/blog/products/identity-security/cloud-iap-enables-context-aware-access-to-vms-via-ssh-and-rdp-without-bastion-hosts>
-
-## Additional Information
-
-Currently, GCP VPC only supports IPV4; however, Google is already working on adding IPV6 support for VPC. In that case along with source IP range `0.0.0.0`, the rule should be checked for IPv6 equivalent `::/0` as well.

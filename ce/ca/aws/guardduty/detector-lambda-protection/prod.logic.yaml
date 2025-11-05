@@ -1,0 +1,47 @@
+---
+inputType: "CA10__CaAwsGuardDutyDetector__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsGuardDutyDetector__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This GuardDuty Detector is not enabled."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "ENABLED"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Lambda Protection is not enabled for this detector."
+    remediationMessage: "Enable Lambda Protection to monitor your AWS Lambda functions."
+    check:
+      IS_EQUAL:
+        left:
+          JSON_QUERY_TEXT:
+            expression: "[?name=='LAMBDA_NETWORK_LOGS'].status | [0]" 
+            arg:
+              EXTRACT: "caJsonFrom__featuresJson__c"
+            undeterminedIf:
+              evaluationError: "Json query text has failed."
+              resultTypeMismatch: "Json query text did not return text type."
+        right:
+          TEXT: "DISABLED"
+  - status: "COMPLIANT"
+    currentStateMessage: "Lambda Protection is enabled for this detector."
+    check:
+      IS_EQUAL:
+        left:
+          JSON_QUERY_TEXT:
+            expression: "[?name=='LAMBDA_NETWORK_LOGS'].status | [0]" 
+            arg:
+              EXTRACT: "caJsonFrom__featuresJson__c"
+            undeterminedIf:
+              evaluationError: "Json query text has failed."
+              resultTypeMismatch: "Json query text did not return text type."
+        right:
+          TEXT: "ENABLED"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

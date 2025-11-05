@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS RDS Instance automated backups are not enabled"
+  contextual: "Instance automated backups are not enabled"
+description: "Ensure that automated backups are enabled for AWS RDS DB instances. Automated
+  backups allow you to recover your database to any point in time within your retention
+  period."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-protection-and-recovery"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/11"
+  - "/frameworks/aws-well-architected/rel/09/01"
+  - "/frameworks/aws-well-architected/rel/09/03"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[RDS.11] RDS instances should have automatic backups enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-11"

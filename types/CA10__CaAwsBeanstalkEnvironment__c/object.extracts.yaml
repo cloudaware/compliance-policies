@@ -1,0 +1,8 @@
+---
+extracts:
+# Values: Aborting | Launching | Updating | LinkingFrom | LinkingTo | Ready | Terminating | Terminated.
+# Not nullable. Can't have no access, retrieved via elasticbeanstalk:DescribeEnvironments
+  - name: CA10__status__c
+    value: 
+      FIELD:
+        path: CA10__status__c

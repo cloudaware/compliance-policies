@@ -1,0 +1,54 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10G1__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-10-12T22:03:58Z" },
+    "CA10G1__disappearanceTime__c": "2022-02-25T17:19:05Z",
+    "CA10G1__networkPolicy__c": "Enabled",
+    "CA10G1__addonsNetworkPolicyConfig__c": "",
+    "Id": "001"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10G1__networkPolicy__c').isEmpty() && extract('CA10G1__addonsNetworkPolicyConfig__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-10-12T22:03:58Z" },
+    "CA10G1__disappearanceTime__c": null,
+    "CA10G1__networkPolicy__c": "",
+    "CA10G1__addonsNetworkPolicyConfig__c": "",
+    "Id": "002"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10G1__networkPolicy__c') == 'Enabled' || extract('CA10G1__addonsNetworkPolicyConfig__c') == 'Enabled'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-10-12T22:03:58Z" },
+    "CA10G1__disappearanceTime__c": null,
+    "CA10G1__networkPolicy__c": "Enabled",
+    "CA10G1__addonsNetworkPolicyConfig__c": "",
+    "Id": "003"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10G1__networkPolicy__c') == 'Disabled' || extract('CA10G1__addonsNetworkPolicyConfig__c') == 'Disabled'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-10-12T22:03:58Z" },
+    "CA10G1__disappearanceTime__c": null,
+    "CA10G1__networkPolicy__c": "",
+    "CA10G1__addonsNetworkPolicyConfig__c": "Disabled",
+    "Id": "004"
+  }
+]

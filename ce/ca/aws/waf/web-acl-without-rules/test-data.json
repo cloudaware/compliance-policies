@@ -1,0 +1,52 @@
+[
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__AWS_WAF_Rules__r.hasNo(COMPLIANT) && CA10A1__AWS_WAF_Rule_Groups__r.hasNo(COMPLIANT) && CA10__AWS_WAF_Web_ACL_Activated_Rules__r.hasNo(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-24T05:35:18Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "Id": "test1",
+        "RecordTypeId": "RecordTypeId1",
+        "RecordType": {
+            "Id": "RecordTypeId1"
+        },
+        "CA10__AWS_WAF_Rules__r": [],
+        "CA10A1__AWS_WAF_Rule_Groups__r": [],
+        "CA10__AWS_WAF_Web_ACL_Activated_Rules__r": []
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-24T05:35:18Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "Id": "test2",
+        "RecordTypeId": "RecordTypeId2",
+        "RecordType": {
+            "Id": "RecordTypeId2"
+        },
+        "CA10__AWS_WAF_Rules__r": [
+            {
+                "CA10__disappearanceTime__c": null,
+                "CA10__webAcl__c": "test2",
+                "Id": "test2_1",
+                "RecordTypeId": "RecordTypeId2_1",
+                "RecordType": {
+                    "Id": "RecordTypeId2_1"
+                }
+            }
+        ],
+        "CA10A1__AWS_WAF_Rule_Groups__r": [],
+        "CA10__AWS_WAF_Web_ACL_Activated_Rules__r": []
+    }
+]

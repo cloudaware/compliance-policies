@@ -1,0 +1,45 @@
+---
+extracts:
+# Nullable
+  - name: "CA10G1__kubernetesAlpha__c"
+    value: 
+      FIELD:
+        path: "CA10G1__kubernetesAlpha__c"
+  - name: "CA10G1__loggingService__c"
+    value: 
+      FIELD:
+        path: "CA10G1__loggingService__c"
+  - name: "CA10G1__monitoringService__c"
+    value: 
+      FIELD:
+        path: "CA10G1__monitoringService__c"
+  - name: "CA10G1__useIpAliases__c"
+    value: 
+      FIELD:
+        path: "CA10G1__useIpAliases__c"
+  - name: "CA10G1__legacyAbac__c"
+    value: 
+      FIELD:
+        path: "CA10G1__legacyAbac__c"
+  - name: "CA10G1__masterAuthorizedNetworks__c"
+    value: 
+      FIELD:
+        path: "CA10G1__masterAuthorizedNetworks__c"
+  - name: "CA10G1__privateNodes__c"
+    value: 
+      FIELD:
+        path: "CA10G1__privateNodes__c"
+  - name: "CA10G1__addonsKubernetesDashboard__c"
+    value: 
+      FIELD:
+        path: "CA10G1__addonsKubernetesDashboard__c"
+# Text. Nullable. Values: ENABLED, DISABLED
+  - name: "CA10G1__networkPolicy__c"
+    value: 
+      FIELD:
+        path: "CA10G1__networkPolicy__c"
+# Text. Nullable. Values: ENABLED, DISABLED
+  - name: "CA10G1__addonsNetworkPolicyConfig__c"
+    value: 
+      FIELD:
+        path: "CA10G1__addonsNetworkPolicyConfig__c"

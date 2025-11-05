@@ -69,3 +69,8 @@ extracts:
     value:
       FIELD:
         path: "CA10__databaseConnectionsAvg30d__c"
+# Not nullable. Can't have no access, retrieved via rds:DescribeDBInstances
+  - name: "CA10__backupRetentionPeriod__c"
+    value:
+      FIELD:
+        path: "CA10__backupRetentionPeriod__c"

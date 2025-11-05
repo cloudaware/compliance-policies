@@ -12,20 +12,7 @@ After enforcing SSL requirement for connections, existing client will not be abl
 
 ## Audit
 
-### From Google Cloud Console
-
-1. Go to <https://console.cloud.google.com/sql/instances>.
-2. Click on an instance name to see its configuration overview.
-3. In the left-side panel, select `Connections`.
-4. In the `Security` section, ensure that `Allow only SSL connections` option is selected.
-
-### From Google Cloud CLI
-
-1. Get the detailed configuration for every SQL database instance using the following command:
-
-            gcloud sql instances list --format=json
-
-Ensure that section `settings: ipConfiguration` has the parameter `sslMode` set to `ENCRYPTED_ONLY` .
+This policy flags a *Google SQL Instance* as `INCOMPLIANT` if its `SSL Mode` is **not** set either to **ENCRYPTED_ONLY** or **TRUSTED_CLIENT_CERTIFICATE_REQUIRED**.
 
 ## Default Value
 

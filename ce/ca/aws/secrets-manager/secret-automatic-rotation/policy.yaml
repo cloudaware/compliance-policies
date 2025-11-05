@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS Secrets Manager Secret Automatic Rotation is not enabled"
+  contextual: "Secret Automatic Rotation is not enabled"
+description: >
+  Ensure that secrets stored in AWS Secrets Manager are configured for automatic 
+  rotation to minimize the risk associated with long-lived credentials
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/secret-and-certificate-governance/expiration-management"
+  - "/frameworks/aws-fsbp-v1.0.0/secrets-manager/01"
+  - "/frameworks/aws-well-architected/sec/02/03"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[SecretsManager.1] Secrets Manager secrets should have automatic rotation enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/secretsmanager-controls.html#secretsmanager-1"

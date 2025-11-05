@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS ElastiCache Redis Cluster automatic backups are not enabled"
+  contextual: "Redis Cluster automatic backups are not enabled"
+description: >
+  Ensure that AWS ElastiCache clusters for Valkey and Redis OSS have automatic 
+  backups enabled to facilitate point-in-time recovery and protect against data loss.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-protection-and-recovery"
+  - "/frameworks/aws-fsbp-v1.0.0/elasticache/01"
+  - "/frameworks/aws-well-architected/rel/09/03"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ElastiCache.1] ElastiCache (Valkey and Redis OSS) clusters should have automatic backups enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/elasticache-controls.html#elasticache-1"

@@ -1,0 +1,13 @@
+---
+names: 
+  full: "Google Storage Bucket logging is not enabled"
+  contextual: "Bucket logging is not enabled"
+description: "Cloud Storage bucket logging provides detailed records of requests\
+  \ made to a bucket, which is crucial for security auditing and operational insights.\
+  \ It is recommended to enable logging for all storage buckets to track access\
+  \ patterns and identify potential unauthorized activities."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"

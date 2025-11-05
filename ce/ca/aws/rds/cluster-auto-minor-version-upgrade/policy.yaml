@@ -1,0 +1,20 @@
+---
+names:
+  full: "AWS RDS Multi-AZ Cluster Auto Minor Version Upgrade is not enabled"
+  contextual: "Multi-AZ Cluster Auto Minor Version Upgrade is not enabled"
+description: "Ensure that RDS Multi-AZ database clusters have the Auto Minor Version Upgrade\
+  \ flag enabled in order to receive automatically minor engine upgrades, including\
+  \ security patches and bug fixes."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+  - "RELIABILITY"
+  - "PERFORMANCE"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/infrastructure-modernization"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/35"
+  - "/frameworks/aws-well-architected/ops/05/05"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[RDS.35] RDS DB clusters should have automatic minor version upgrade enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-35"

@@ -1,0 +1,8 @@
+---
+name: "3.1.2 Ensure that the kubelet kubeconfig file ownership is set to \
+  \ root:root (Automated)"
+description: "If `kubelet` is running, ensure that the file ownership of its kubeconfig file is set to \
+  \ `root:root`."
+similar:
+  sections:
+    - "/frameworks/cis-gke-v1.0.0/04/01/06"

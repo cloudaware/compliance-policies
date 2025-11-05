@@ -1,0 +1,39 @@
+---
+inputType: "CA10__CaAwsWafWebAcl__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The WAF web ACL does not have any rules or rule groups configured."
+    remediationMessage: "Add at least one rule or rule group to the web ACL to provide protection."
+    check:
+      AND:
+        args:
+          - RELATED_LIST_HAS_NO:
+              status: "COMPLIANT"
+              relationshipName: "CA10__AWS_WAF_Rules__r"
+          - RELATED_LIST_HAS_NO:
+              status: "COMPLIANT"
+              relationshipName: "CA10A1__AWS_WAF_Rule_Groups__r"
+          - RELATED_LIST_HAS_NO:
+              status: "COMPLIANT"
+              relationshipName: "CA10__AWS_WAF_Web_ACL_Activated_Rules__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The WAF web ACL has at least one rule or rule group configured."
+relatedLists:
+  - relationshipName: "CA10__AWS_WAF_Rules__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Rule exists."
+  - relationshipName: "CA10A1__AWS_WAF_Rule_Groups__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Rule group exists."
+  - relationshipName: "CA10__AWS_WAF_Web_ACL_Activated_Rules__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Rule exists."

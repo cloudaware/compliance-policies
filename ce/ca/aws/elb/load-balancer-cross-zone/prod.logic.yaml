@@ -1,0 +1,133 @@
+---
+inputType: "CA10__CaAwsLoadBalancer__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsLoadBalancer__c/object.extracts.yaml"
+# recordTypes:
+#   - "caAwsLoadBalancerApplication"
+#   - "caAwsLoadBalancerClassic"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Cross-zone load balancing is disabled for this Classic Load Balancer."
+    remediationMessage: "Enable cross-zone load balancing in the Load Balancer's attributes."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__type__c"
+              right:
+                TEXT: "classic"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__crossZoneLoadBalancing__c"
+              right:
+                BOOLEAN: false
+  - status: "COMPLIANT"
+    currentStateMessage: "Cross-zone load balancing is enabled for this Classic Load Balancer."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__type__c"
+              right:
+                TEXT: "classic"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__crossZoneLoadBalancing__c"
+              right:
+                BOOLEAN: true
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Cross-zone load balancing is disabled for this Load Balancer."
+    remediationMessage: "Enable the 'load_balancing.cross_zone.enabled' attribute for the Load Balancer."
+    check:
+      AND:
+        args:
+          - OR:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: "CA10__type__c"
+                    right:
+                      TEXT: "network"
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: "CA10__type__c"
+                    right:
+                      TEXT: "gateway"
+          - CONTAINS:
+              arg:
+                EXTRACT: "caSetFrom_additionalAttributes__c"
+              search:
+                TEXT: "load_balancing.cross_zone.enabled: false"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Cross-zone load balancing is disabled on at least one\
+      \ of the target groups associated with this Application Load Balancer."
+    remediationMessage: "Enable the 'load_balancing.cross_zone.enabled' attribute\
+      \ for all associated target groups."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__type__c"
+              right:
+                TEXT: "application"
+          - RELATED_LIST_HAS:
+              status: "INCOMPLIANT"
+              relationshipName: "CA10__AWS_EC2_Load_Balancer_Target_Group_Links__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "Cross-zone load balancing is enabled for this Load Balancer."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__type__c"
+              right:
+                TEXT: "application"
+          - RELATED_LIST_HAS:
+              status: "COMPLIANT"
+              relationshipName: "CA10__AWS_EC2_Load_Balancer_Target_Group_Links__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "Cross-zone load balancing is enabled for this Load Balancer."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "caSetFrom_additionalAttributes__c"
+        search:
+          TEXT: "load_balancing.cross_zone.enabled: true"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."
+relatedLists:
+  - relationshipName: "CA10__AWS_EC2_Load_Balancer_Target_Group_Links__r"
+    importExtracts:
+      - file: /types/CA10__CaAwsLoadBalancerTargetGroup__c/object.extracts.yaml
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The 'load_balancing.cross_zone.enabled' attribute is set to 'false' on this target group."
+        remediationMessage: "Enable cross-zone load balancing for this target group."
+        check:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__targetGroup__r.caSetFrom_attributes__c"
+            search:
+              TEXT: "load_balancing.cross_zone.enabled: false"
+      - status: "COMPLIANT"
+        currentStateMessage: "The 'load_balancing.cross_zone.enabled' attribute is set to 'true'."
+        check:
+          CONTAINS_ANY:
+            arg:
+              EXTRACT: "CA10__targetGroup__r.caSetFrom_attributes__c"
+            search:
+              SET:
+                itemType: TEXT
+                items:
+                  - "load_balancing.cross_zone.enabled: true"
+                  - "load_balancing.cross_zone.enabled: use_load_balancer_configuration"
+    otherwise:
+      status: "UNDETERMINED"
+      currentStateMessage: "The 'load_balancing.cross_zone.enabled' attribute does not exist."

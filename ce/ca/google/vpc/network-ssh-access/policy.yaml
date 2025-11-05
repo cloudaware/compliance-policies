@@ -1,31 +1,25 @@
 ---
 names: 
-  full: "Google GCE Network has Firewall Rules which allow unrestricted SSH access from the Internet"
-  contextual: "GCE Network has Firewall Rules which allow unrestricted SSH access from the Internet"
-description: "GCP Firewall Rules are specific to a VPC Network. Each rule either allows or denies \
- traffic when its conditions are met. Its conditions allow the user to specify the type of traffic, \ 
- such as ports and protocols, and the source or destination of the traffic, including IP addresses, \ 
- subnets, and instances.
- Firewall rules are defined at the VPC network level and are specific to the network in which they \ 
- are defined. The rules themselves cannot be shared among networks. Firewall rules only support IPv4 \ 
- traffic. When specifying a source for an ingress rule or a destination for an egress rule by address, \ 
- only an IPv4 address or IPv4 block in CIDR notation can be used. Generic (0.0.0.0/0) incoming traffic \ 
- from the internet to VPC or VM instance using SSH on Port 22 can be avoided."
-type: COMPLIANCE_POLICY
+  full: "Google GCE Network allows unrestricted SSH traffic"
+  contextual: "GCE Network allows unrestricted SSH traffic"
+description: "GCP Firewall Rules should not allow unrestricted ingress traffic from\
+  \ the internet (0.0.0.0/0) to the SSH port (TCP 22)."
+type: "COMPLIANCE_POLICY"
 categories:
   - "SECURITY"
 frameworkMappings:
-  - /frameworks/cis-gcp-v3.0.0/03/06
-  - /frameworks/cloudaware/resource-security/secure-access
-  - /frameworks/nist-sp-800-53-r4/sc/07
-  - /frameworks/nist-sp-800-53-r5/ca/09
-  - /frameworks/nist-sp-800-53-r5/sc/07
-  - /frameworks/pci-dss-v3.2.1/01/02/01
-  - /frameworks/pci-dss-v4.0/01/02/01
-  - /frameworks/pci-dss-v4.0/01/04/01
-  - /frameworks/iso-iec-27001-2013/13/01/01
-  - /frameworks/soc-2/cc6/06/01
-  - /frameworks/soc-2/cc6/06/04
+  - "/frameworks/cis-gcp-v3.0.0/03/06"
+  - "/frameworks/cloudaware/resource-security/secure-access"
+  - "/frameworks/nist-sp-800-53-r4/sc/07"
+  - "/frameworks/nist-sp-800-53-r5/ca/09"
+  - "/frameworks/nist-sp-800-53-r5/sc/07"
+  - "/frameworks/pci-dss-v3.2.1/01/02/01"
+  - "/frameworks/pci-dss-v4.0/01/02/01"
+  - "/frameworks/pci-dss-v4.0/01/04/01"
+  - "/frameworks/iso-iec-27001-2013/13/01/01"
+  - "/frameworks/soc-2/cc6/06/01"
+  - "/frameworks/soc-2/cc6/06/04"
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
 similarPolicies:
   cloudConformity:
     - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/CloudVPC/unrestricted-ssh-access.html"

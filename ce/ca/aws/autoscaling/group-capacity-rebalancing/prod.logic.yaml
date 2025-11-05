@@ -1,0 +1,26 @@
+---
+inputType: "CA10__CaAwsAutoScalingGroup__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsAutoScalingGroup__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"  
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Capacity Rebalancing only applies to Auto Scaling groups\
+      \ with a mixed instances launch template."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10A1__mixedInstancesLaunchTemplateId__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Capacity Rebalancing is not enabled for this Auto Scaling group."
+    remediationMessage: "Enable Capacity Rebalancing for the Auto Scaling group to proactively manage Spot Instances."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__capacityRebalancing__c"
+        right:
+          TEXT: "Enable"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Capacity Rebalancing is enabled for this Auto Scaling group."

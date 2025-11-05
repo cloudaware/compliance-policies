@@ -1,0 +1,5 @@
+---
+name: "5.6.4 The default namespace should not be used (Scored)"
+description: "Kubernetes provides a default namespace, where objects are placed if no namespace is \
+  \ specified for them. Placing objects in this namespace makes application of RBAC and other \
+  \ controls more difficult."

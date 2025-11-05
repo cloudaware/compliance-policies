@@ -13,12 +13,17 @@ categories:
 frameworkMappings:
   - "/frameworks/cloudaware/logging-and-monitoring/alerting-and-notification"
   - "/frameworks/aws-well-architected/ops/04/05"
+  - "/frameworks/aws-well-architected/ops/09/02"
   - "/frameworks/aws-well-architected/rel/11/06"
   - "/frameworks/nist-sp-800-53-r5/au/06/01"
   - "/frameworks/nist-sp-800-53-r5/au/06/05"
   - "/frameworks/nist-sp-800-53-r5/ca/07"  
+  - "/frameworks/nist-sp-800-53-r5/ir/04/01"
+  - "/frameworks/nist-sp-800-53-r5/ir/04/05"  
+  - "/frameworks/nist-sp-800-53-r5/si/04/05"  
   - "/frameworks/nist-sp-800-53-r5/si/04/12"  
-  - "/frameworks/nist-sp-800-53-r5/si/02"
+  - "/frameworks/nist-sp-800-53-r5/si/02"  
+  - "/frameworks/nist-sp-800-53-r5/si/20"
 similarPolicies:
   awsSecurityHub:
     - name: "[CloudWatch.17] CloudWatch alarm actions should be activated"

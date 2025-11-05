@@ -1,0 +1,38 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-15T00:50:50Z" },
+    "Id": "001",
+    "CA10__disappearanceTime__c": "2025-06-12T11:30:05Z",
+    "CA10__logState__c": "Disabled"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__logState__c') == 'Enabled'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-15T00:50:50Z" },
+    "Id": "002",
+    "CA10__disappearanceTime__c": null,
+    "CA10__logState__c": "Enabled"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-15T00:50:50Z" },
+    "Id": "003",
+    "CA10__disappearanceTime__c": null,
+    "CA10__logState__c": "Disabled"
+  }
+]

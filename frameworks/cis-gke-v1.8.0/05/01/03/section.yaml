@@ -1,0 +1,10 @@
+---
+name: "5.1.3 Minimize cluster access to read-only for Container Image \
+  \ repositories (Manual)"
+description: "Note: GCR is now deprecated, see the references for more details. \
+  \ Configure the Cluster Service Account with Artifact Registry Viewer Role to only allow \
+  \ read-only access to AR repositories. Configure the Cluster Service Account with \
+  \ Storage Object Viewer Role to only allow read-only access to GCR."
+similar:
+  sections:
+    - "/frameworks/cis-gke-v1.0.0/06/01/03"

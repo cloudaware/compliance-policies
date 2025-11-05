@@ -1,0 +1,21 @@
+---
+names:
+  full: "AWS EC2 Auto Scaling Group Capacity Rebalancing is not enabled"
+  contextual: "Auto Scaling Group Capacity Rebalancing is not enabled"
+description: >
+  Ensure that Capacity Rebalancing is enabled for AWS EC2 Auto Scaling Groups 
+  that use a mixed instances launch template. This feature helps improve application 
+  availability by proactively launching a replacement Spot Instance when an existing 
+  one receives a rebalance recommendation, which is a signal that the instance is 
+  at elevated risk of interruption.
+categories:
+  - "RELIABILITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-well-architected/perf/04/04"
+  - "/frameworks/aws-well-architected/rel/06/04"
+  - "/frameworks/aws-well-architected/rel/07/02"
+  - "/frameworks/aws-well-architected/rel/11/03"
+  - "/frameworks/aws-well-architected/rel/13/05"
+  - "/frameworks/aws-well-architected/sus/02/01"

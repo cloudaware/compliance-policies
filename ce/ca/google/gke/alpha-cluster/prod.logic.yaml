@@ -1,0 +1,20 @@
+---
+
+inputType: "CA10G1__CaGoogleGkeCluster__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10G1__CaGoogleGkeCluster__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Alpha cluster features are enabled for this GKE cluster."
+    remediationMessage: "Create a new cluster with alpha features disabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10G1__kubernetesAlpha__c"
+        right:
+          TEXT: "ENABLED"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Alpha cluster features are disabled for this GKE cluster."

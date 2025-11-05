@@ -12,6 +12,8 @@
 
 To enforce SSL encryption for an instance run the command:
 
-            gcloud sql instances patch INSTANCE_NAME --ssl-mode= ENCRYPTED_ONLY
+    ```sh
+    gcloud sql instances patch INSTANCE_NAME --ssl-mode= ENCRYPTED_ONLY
+    ```
 
 Note: `RESTART` is required for type MySQL Generation 1 Instances (`backendType: FIRST_GEN`) to get this configuration in effect.

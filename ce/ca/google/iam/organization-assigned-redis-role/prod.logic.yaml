@@ -1,0 +1,43 @@
+---
+inputType: "CA10__CaGoogleResourceManagerOrganization__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The organization has at least one Redis IAM role assigned to a principal."
+    remediationMessage: "Remove the predefined Redis IAM role binding from the organization level."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__Google_IAM_Policy_Bindings__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Organization doesn't have a predefined Redis IAM role assigned."
+relatedLists:
+  - relationshipName: "CA10__Google_IAM_Policy_Bindings__r"
+    importExtracts:
+      - file: "/types/CA10__CaGoogleIamPolicyBinding__c/object.extracts.yaml"
+      - file: "/types/CA10__CaGoogleIamRole__c/object.extracts.yaml"
+    recordTypes:
+      - "caGoogleIamPolicyBindingOrganization"
+    conditions: 
+      - status: "COMPLIANT"
+        currentStateMessage: "Empty policy binding."
+        check:
+          IS_EMPTY_LOOKUP: "CA10__iamRole__r"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "This IAM policy binding grants a predefined Redis role at the organization level."
+        check: 
+          CONTAINS:
+            arg:
+              SET:
+                itemType: "TEXT"
+                items:
+                  - "roles/redis.admin"
+                  - "roles/redis.editor"
+                  - "roles/redis.viewer"
+            search:
+              EXTRACT: "CA10__iamRole__r.CA10__roleName__c"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This IAM policy binding is not for a predefined Redis role."

@@ -39,3 +39,8 @@ extracts:
     value: 
       FIELD:
         path: CA10A1__mixedInstancesLaunchTemplateId__c          
+# Values: Enable | Disable. Nullable, null == Disable. Can't have no access, retrieved via autoscaling:DescribeAutoScalingGroups     
+  - name: CA10__capacityRebalancing__c
+    value: 
+      FIELD:
+        path: CA10__capacityRebalancing__c          

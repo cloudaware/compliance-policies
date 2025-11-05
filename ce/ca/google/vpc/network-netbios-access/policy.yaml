@@ -1,0 +1,14 @@
+---
+names: 
+  full: "Google GCE Network allows unrestricted NetBIOS traffic"
+  contextual: "GCE Network has Firewall Rules which allow unrestricted NetBIOS access from the Internet"
+description: "GCP Firewall Rules should not allow unrestricted ingress traffic from\
+  \ the internet (0.0.0.0/0) to NetBIOS ports (TCP/UDP 137, 138, 139)."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/nist-sp-800-53-r4/sc/07"
+  - "/frameworks/pci-dss-v3.2.1/01/02/01"
+  - "/frameworks/iso-iec-27001-2013/13/01/01"
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

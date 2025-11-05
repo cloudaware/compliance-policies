@@ -1,0 +1,26 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10G1__useIpAliases__c') == 'ENABLED'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-09T14:01:34Z" },
+    "Id": "001",
+    "CA10G1__disappearanceTime__c": null,
+    "CA10G1__useIpAliases__c": "Enabled"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-09T14:01:34Z" },
+    "Id": "002",
+    "CA10G1__disappearanceTime__c": null,
+    "CA10G1__useIpAliases__c": ""
+  }
+]

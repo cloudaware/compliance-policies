@@ -1,0 +1,53 @@
+---
+
+inputType: "CA10G1__CaGoogleGkeCluster__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10G1__CaGoogleGkeCluster__c/object.extracts.yaml"
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "The Cluster Network policy state is indeterminate."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10G1__networkPolicy__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10G1__addonsNetworkPolicyConfig__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Cluster Network policy is disabled."
+    remediationMessage: "Enable the Cluster Network policy"
+    check:
+      OR:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10G1__networkPolicy__c"
+              right:
+                TEXT: "Disabled"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10G1__addonsNetworkPolicyConfig__c"
+              right:
+                TEXT: "Disabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Cluster Network policy is enabled."
+    check:
+      OR:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10G1__networkPolicy__c"
+              right:
+                TEXT: "Enabled"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10G1__addonsNetworkPolicyConfig__c"
+              right:
+                TEXT: "Enabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

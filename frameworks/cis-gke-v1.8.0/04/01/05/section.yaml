@@ -1,0 +1,8 @@
+---
+name: "4.1.5 Ensure that Service Account Tokens are only mounted \
+  \ where necessary (Automated)"
+description: "Service accounts tokens should not be mounted in pods except where the workload \
+  \ running in the pod explicitly needs to communicate with the API server"
+similar:
+  sections:
+    - "/frameworks/cis-gke-v1.0.0/05/01/06"

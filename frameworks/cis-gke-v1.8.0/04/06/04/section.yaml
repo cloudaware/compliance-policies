@@ -1,0 +1,8 @@
+---
+name: "4.6.4 The default namespace should not be used (Automated)"
+description: "Kubernetes provides a default namespace, where objects are placed if no namespace \
+  \ is specified for them. Placing objects in this namespace makes application of RBAC and \
+  \ other controls more difficult."
+similar:
+  sections:
+    - "/frameworks/cis-gke-v1.0.0/05/06/04"

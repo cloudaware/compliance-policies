@@ -1,0 +1,21 @@
+---
+names:
+  full: "AWS WAF Rule Group has no WAF Rules"
+  contextual: "Rule Group has no WAF Rules"
+description: "Ensure that AWS WAF Rule Groups contain at least one rule. An empty\
+  \ rule group provides no traffic filtering and may indicate an incomplete\
+  \ configuration or an unused resource."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+  - "/frameworks/aws-fsbp-v1.0.0/waf/03"
+  - "/frameworks/aws-fsbp-v1.0.0/waf/07"
+  - "/frameworks/aws-well-architected/sec/05/03"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[WAF.3] AWS WAF Classic Regional rule groups should have at least one rule"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/waf-controls.html#waf-3"
+    - name: "[WAF.7] AWS WAF Classic global rule groups should have at least one rule"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/waf-controls.html#waf-7"

@@ -1,18 +1,18 @@
 ---
 inputType: "CA10__CaAwsLoadBalancer__c"
 testData:
-  - file: 'test-data.json'
+  - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The Load Balancer has no listeners."
-    remediationMessage: "Consider adding listeners to the Load Balancer or deleting it if it is no longer needed."
+    remediationMessage: "Consider adding listeners to the Load Balancer or deleting it if no longer required."
     check:
       RELATED_LIST_HAS_NO:
         status: "COMPLIANT"
         relationshipName: "CA10__AWS_EC2_Load_Balancer_Listeners__r"
   - status: "INCOMPLIANT"
     currentStateMessage: "The Load Balancer has no registered targets."
-    remediationMessage: "Ensure that the instances or targets in the target groups are healthy, or delete the Load Balancer if it is no longer needed."
+    remediationMessage: "Ensure that the instances or targets in the target groups are healthy, or delete the Load Balancer if no longer require."
     check:
       RELATED_LIST_HAS_NO:
         status: "COMPLIANT"

@@ -1,0 +1,45 @@
+---
+inputType: "CA10G1__CaGoogleUser__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The User is assigned one of the basic roles: Owner, Editor, or Viewer."
+    remediationMessage: "Replace the basic role with a more restrictive role."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10G1__Google_IAM_Policy_Bindings__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The User doesn't have a basic role assigned."
+relatedLists:
+  - relationshipName: "CA10G1__Google_IAM_Policy_Bindings__r"
+    importExtracts:
+      - file: "/types/CA10__CaGoogleIamPolicyBinding__c/object.extracts.yaml"
+      - file: "/types/CA10__CaGoogleIamRole__c/object.extracts.yaml"
+    recordTypes:
+      - "caGoogleIamPolicyBindingOrganization"
+      - "caGoogleIamPolicyBindingFolder"
+      - "caGoogleIamPolicyBindingProject"
+    conditions: 
+      - status: "COMPLIANT"
+        currentStateMessage: "Empty policy binding."
+        check:
+          IS_EMPTY_LOOKUP: "CA10__iamRole__r"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "User has a basic role assigned."
+        check: 
+          CONTAINS:
+            arg:
+              SET:
+                itemType: "TEXT"
+                items:
+                  - "roles/owner"
+                  - "roles/editor"
+                  - "roles/viewer"
+            search:
+              EXTRACT: "CA10__iamRole__r.CA10__roleName__c"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "User doesn't have a basic role assigned."

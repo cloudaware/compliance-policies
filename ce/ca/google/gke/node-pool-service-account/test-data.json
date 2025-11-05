@@ -1,0 +1,26 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10G1__nodeConfigServiceAccount__c') == 'default'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-11T18:29:55Z" },
+    "Id": "001",
+    "CA10G1__disappearanceTime__c": null,
+    "CA10G1__nodeConfigServiceAccount__c": "default"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-11T18:29:55Z" },
+    "Id": "002",
+    "CA10G1__disappearanceTime__c": null,
+    "CA10G1__nodeConfigServiceAccount__c": "tt-gke-11kc@my.iam.gserviceaccount.com"
+  }
+]

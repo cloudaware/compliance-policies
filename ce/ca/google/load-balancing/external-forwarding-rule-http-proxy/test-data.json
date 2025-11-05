@@ -1,0 +1,128 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-15T03:37:19Z"
+        },
+        "CA10__disappearanceTime__c": "2025-10-14T09:37:04Z",
+        "CA10__loadBalancingScheme__c": "EXTERNAL",
+        "CA10__targetHttpProxyUniqueId__c": "",
+        "CA10__targetHttpsProxyUniqueId__c": "",
+        "Id": "test1",
+        "RecordTypeId": "RecordTypeId1",
+        "RecordType": {
+            "DeveloperName": "caGoogleGceForwardingRuleExternal",
+            "Id": "RecordTypeId1"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "not(setOfText(['caGoogleGceForwardingRuleGlobal', 'caGoogleGceForwardingRuleExternal']).contains(RecordType.DeveloperName))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-15T03:37:19Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__loadBalancingScheme__c": "INTERNAL",
+        "CA10__targetHttpProxyUniqueId__c": "",
+        "CA10__targetHttpsProxyUniqueId__c": "",
+        "Id": "test2",
+        "RecordTypeId": "RecordTypeId2",
+        "RecordType": {
+            "DeveloperName": "caGoogleGceForwardingRuleInternal",
+            "Id": "RecordTypeId2"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "299",
+            "conditionText": "not(setOfText(['EXTERNAL', 'EXTERNAL_MANAGED']).contains(extract('CA10__loadBalancingScheme__c')))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-15T03:37:19Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__loadBalancingScheme__c": "",
+        "CA10__targetHttpProxyUniqueId__c": "",
+        "CA10__targetHttpsProxyUniqueId__c": "",
+        "Id": "test3",
+        "RecordTypeId": "RecordTypeId3",
+        "RecordType": {
+            "DeveloperName": "caGoogleGceForwardingRuleGlobal",
+            "Id": "RecordTypeId3"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__targetHttpProxyUniqueId__c').isNotEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-15T03:37:19Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__loadBalancingScheme__c": "EXTERNAL",
+        "CA10__targetHttpProxyUniqueId__c": "targetHttpProxyUniqueId",
+        "CA10__targetHttpsProxyUniqueId__c": "",
+        "Id": "test4",
+        "RecordTypeId": "RecordTypeId3",
+        "RecordType": {
+            "DeveloperName": "caGoogleGceForwardingRuleGlobal",
+            "Id": "RecordTypeId3"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "extract('CA10__targetHttpsProxyUniqueId__c').isNotEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-15T03:37:19Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__loadBalancingScheme__c": "EXTERNAL",
+        "CA10__targetHttpProxyUniqueId__c": "",
+        "CA10__targetHttpsProxyUniqueId__c": "targetHttpsProxyUniqueId",
+        "Id": "test5",
+        "RecordTypeId": "RecordTypeId3",
+        "RecordType": {
+            "DeveloperName": "caGoogleGceForwardingRuleGlobal",
+            "Id": "RecordTypeId3"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "500",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-15T03:37:19Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__loadBalancingScheme__c": "EXTERNAL",
+        "CA10__targetHttpProxyUniqueId__c": "",
+        "CA10__targetHttpsProxyUniqueId__c": "",
+        "Id": "test6",
+        "RecordTypeId": "RecordTypeId1",
+        "RecordType": {
+            "DeveloperName": "caGoogleGceForwardingRuleExternal",
+            "Id": "RecordTypeId1"
+        }
+    }
+]

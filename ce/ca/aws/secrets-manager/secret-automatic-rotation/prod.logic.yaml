@@ -1,0 +1,33 @@
+---
+inputType: "CA10A1__CaAwsSecretsManagerSecret__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10A1__CaAwsSecretsManagerSecret__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This secret is active."
+    check:
+      NOT_EMPTY:
+        arg:
+          EXTRACT: "CA10A1__deletedDate__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Automatic rotation is not enabled for this Secret."
+    remediationMessage: "Enable automatic rotation for the secret to reduce the risk of long-lived credentials being compromised."    
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10A1__rotationEnabled__c"
+        right:
+          BOOLEAN: false
+  - status: "COMPLIANT"
+    currentStateMessage: "Automatic rotation is enabled for this Secret."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10A1__rotationEnabled__c"
+        right:
+          BOOLEAN: true
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."
