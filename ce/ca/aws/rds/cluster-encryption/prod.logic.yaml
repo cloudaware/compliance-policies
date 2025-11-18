@@ -1,0 +1,19 @@
+---
+inputType: "CA10__CaAwsDbCluster__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsDbCluster__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "RDS Cluster storage encryption is enabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__storageEncrypted__c
+        right:
+          BOOLEAN: true 
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "RDS Cluster storage encryption is disabled."
+  remediationMessage: "Enable RDS Cluster storage encryption."

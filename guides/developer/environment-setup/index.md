@@ -22,7 +22,7 @@ If you prefer to use your local installation of VS Code, you will need to instal
 
 - **Git:** For version control.
 - **Java:** Required to run the `repo-manager.jar`.
-- **[`repo-manager`](../repo-manager/index.md):** To manage the repository. 
+- **[`repo-manager`](../repo-manager/index.md):** To manage the repository.
 - **Google Cloud CLI:** For interacting with Google Cloud services, particularly BigQuery.
 - **Recommended VS Code Extensions:** See the list below.
 

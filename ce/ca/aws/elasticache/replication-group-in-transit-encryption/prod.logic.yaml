@@ -1,0 +1,25 @@
+---
+inputType: "CA10__CaAwsCacheReplicationGroup__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: /types/CA10__CaAwsCacheReplicationGroup__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Replication Group is not available."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "available"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "In-transit encryption is not enabled for this Replication Group."
+    remediationMessage: "Consider enabling in-transit encryption for the Replication Group."
+    check:
+      NOT:
+        arg:
+          EXTRACT: "CA10__transitEncryptionEnabled__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "In-transit encryption is enabled for this Replication Group."

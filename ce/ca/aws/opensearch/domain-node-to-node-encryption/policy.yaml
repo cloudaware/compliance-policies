@@ -1,0 +1,21 @@
+---
+names:
+  full: "AWS OpenSearch Domain Node To Node Encryption is not enabled"
+  contextual: "Domain Node To Node Encryption is not enabled"
+description: >
+  Ensure that node-to-node encryption is enabled for AWS OpenSearch Domains to 
+  protect data in transit within a cluster. Node-to-node encryption uses TLS to 
+  encrypt all communications between nodes.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-fsbp-v1.0.0/es/03"
+  - "/frameworks/aws-fsbp-v1.0.0/opensearch/03"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Opensearch.3] OpenSearch domains should encrypt data sent between nodes"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/opensearch-controls.html#opensearch-3"
+    - name: "[ES.3] Elasticsearch domains should encrypt data sent between nodes"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/es-controls.html#es-3"

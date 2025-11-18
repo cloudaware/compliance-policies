@@ -1,0 +1,21 @@
+---
+names:
+  full: "AWS OpenSearch Domain has a public endpoint"
+  contextual: "Domain has a public endpoint"
+description: >
+  Ensure that AWS OpenSearch Domains are deployed within a VPC to restrict access 
+  and enhance security. Public endpoints expose the domain to the internet, 
+  increasing the risk of unauthorized access.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/aws-fsbp-v1.0.0/es/02"
+  - "/frameworks/aws-fsbp-v1.0.0/opensearch/02"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Opensearch.2] OpenSearch domains should not be publicly accessible"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/opensearch-controls.html#opensearch-2"
+    - name: "[ES.2] Elasticsearch domains should not be publicly accessible"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/es-controls.html#es-2"

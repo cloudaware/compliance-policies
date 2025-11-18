@@ -14,4 +14,6 @@ Without Auto Scaling, DynamoDB tables are at risk of being either over-provision
 
 This policy marks an *AWS DynamoDB Table* as `INCOMPLIANT` if it is in **Provisioned** mode but does *not* have a related *AWS App AutoScaling Scalable Target* record in the CMDB.
 
-Table configured with **On-Demand** capacity mode is flagged as `INAPPLICABLE`.
+*Table* configured with **On-Demand** capacity mode is flagged as `INAPPLICABLE`.
+
+If the *Table* is not **ACTIVE**, it is marked as `INAPPLICABLE`.

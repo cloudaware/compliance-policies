@@ -6,6 +6,14 @@ importExtracts:
   - file: "/types/CA10__CaAwsKmsKey__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
+    currentStateMessage: "This Key is not Customer-managed."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__manager__c"
+        right:
+          TEXT: "CUSTOMER"
+  - status: "INAPPLICABLE"
     currentStateMessage: "KMS Key rotation can not be enabled for any asymmetric CMK."
     check:
       NOT_EQUAL:

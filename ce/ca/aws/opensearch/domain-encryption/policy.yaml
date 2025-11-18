@@ -1,0 +1,21 @@
+---
+names:
+  full: "AWS OpenSearch Domain is not encrypted at rest"
+  contextual: "Domain is not encrypted at rest"
+description: >
+  Ensure that Amazon OpenSearch domains have encryption at rest enabled to protect 
+  sensitive data from unauthorized access to the underlying storage.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-fsbp-v1.0.0/es/01"
+  - "/frameworks/aws-fsbp-v1.0.0/opensearch/01"
+  - "/frameworks/aws-well-architected/sec/08/02"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Opensearch.1] OpenSearch domains should have encryption at rest enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/opensearch-controls.html#opensearch-1"
+    - name: "[ES.1] Elasticsearch domains should have encryption at-rest enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/es-controls.html#es-1"

@@ -4,6 +4,14 @@ testData:
 importExtracts:
   - file: /types/CA10__CaAwsDynamoDbTable__c/object.extracts.yaml
 conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The table is not active."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__tableStatus__c"
+        right:
+          TEXT: "ACTIVE"
   - status: "INCOMPLIANT"
     currentStateMessage: "Point-in-Time Recovery is not enabled for this DynamoDB table."
     remediationMessage: "Consider enabling Point-in-Time Recovery for the DynamoDB table to allow for granular data restoration."

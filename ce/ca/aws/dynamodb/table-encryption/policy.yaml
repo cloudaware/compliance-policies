@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS DynamoDB Table is not encrypted with a KMS key"
+  contextual: "Table is not encrypted with a KMS key"
+description: >
+  Ensure that Amazon DynamoDB Tables are encrypted at rest using a KMS key. By 
+  default, all DynamoDB tables are encrypted with an AWS owned key. Using a KMS 
+  key (either AWS managed or Customer-Managed) provides enhanced security through 
+  centralized key management, access control, and auditing capabilities for data 
+  stored in DynamoDB.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-well-architected/sec/08/02"
+similarPolicies:
+  internal:
+    - "dec-x-c658697c"

@@ -1,0 +1,27 @@
+---
+extracts:
+# Values: true | false (TEXT). Not nullable. Can't have no access retrieved via es:DescribeDomains
+  - name: "CA10__serviceSoftwareUpdateAvailable__c"
+    value:
+      FIELD:
+        path: "CA10__serviceSoftwareUpdateAvailable__c"
+# Checkbox
+  - name: "CA10__encryptionAtRestEnabled__c"
+    value:
+      FIELD:
+        path: "CA10__encryptionAtRestEnabled__c"
+# Nullable. Can't have no access retrieved via es:DescribeDomains
+  - name: "CA10__endpoint__c"
+    value:
+      FIELD:
+        path: "CA10__endpoint__c"
+# Nullable. Can't have no access retrieved via es:DescribeDomains
+  - name: "CA10__vpcEndpoints__c"
+    value:
+      FIELD:
+        path: "CA10__vpcEndpoints__c"
+# Checkbox
+  - name: "CA10__nodeToNodeEncryptionEnabled__c"
+    value:
+      FIELD:
+        path: "CA10__nodeToNodeEncryptionEnabled__c"

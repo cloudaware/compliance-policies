@@ -1,0 +1,29 @@
+---
+names:
+  full: "AWS S3 Bucket is not encrypted with a KMS key"
+  contextual: "Bucket is not encrypted with a KMS key"
+description: >
+  Ensure that Amazon S3 buckets are configured to use Server-Side Encryption with 
+  AWS SSE-KMS or DSSE-KMS to protect data at rest. Using SSE-KMS or DSSE-KMS provides 
+  an auditable trail of key usage and allows for centralized management of encryption keys.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-well-architected/sec/08/02"
+  - "/frameworks/aws-well-architected/sec/08/03"
+  - "/frameworks/nist-sp-800-53-r5/sc/12/02"
+  - "/frameworks/nist-sp-800-53-r5/cm/03/06"
+  - "/frameworks/nist-sp-800-53-r5/sc/13"
+  - "/frameworks/nist-sp-800-53-r5/sc/28"
+  - "/frameworks/nist-sp-800-53-r5/sc/28/01"
+  - "/frameworks/nist-sp-800-53-r5/sc/07/10"
+  - "/frameworks/nist-sp-800-53-r5/ca/09/01"
+  - "/frameworks/nist-sp-800-53-r5/si/07/06"
+  - "/frameworks/nist-sp-800-53-r5/au/09"
+  - "/frameworks/pci-dss-v4.0.1/03/05/01"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[S3.17] S3 general purpose buckets should be encrypted at rest with AWS KMS keys"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/s3-controls.html#s3-17"

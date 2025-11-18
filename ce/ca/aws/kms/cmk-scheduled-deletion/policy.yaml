@@ -1,0 +1,21 @@
+---
+names:
+  full: "AWS KMS CMK is scheduled for deletion"
+  contextual: "CMK is scheduled for deletion"
+description: >
+  Ensure that AWS KMS Customer-Managed Keys (CMKs) are not scheduled for deletion 
+  and disabled instead, if they're not in use. Deleting a CMK is an irreversible 
+  action that can lead to permanent data loss.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/aws-fsbp-v1.0.0/kms/03"
+  - "/frameworks/cloudaware/secret-and-certificate-governance/expiration-management"
+  - "/frameworks/aws-well-architected/sec/08/01"
+  - "/frameworks/aws-well-architected/sec/09/01"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[KMS.3] AWS KMS keys should not be deleted unintentionally"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/kms-controls.html#kms-3"

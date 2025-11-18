@@ -1,0 +1,20 @@
+---
+names:
+  full: "AWS ElastiCache Replication Group is not encrypted in-transit"
+  contextual: "Replication Group is not encrypted in-transit"
+description: >
+  Ensure that ElastiCache Replication Groups have encryption in-transit enabled. 
+  This feature encrypts data as it travels between clients and the Redis cluster, 
+  as well as between nodes within the cluster. Enabling this feature is essential 
+  for protecting data from eavesdropping and man-in-the-middle attacks.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-well-architected/sec/08/02"
+  - "/frameworks/aws-fsbp-v1.0.0/elasticache/05"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ElastiCache.5] ElastiCache replication groups should be encrypted in transit"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/elasticache-controls.html#elasticache-5"

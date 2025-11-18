@@ -1,0 +1,17 @@
+---
+names:
+  full: "AWS SageMaker Endpoint Config does not specify a KMS key"
+  contextual: "Endpoint Config does not specify a KMS key"
+description: >
+  Ensure that AWS SageMaker Endpoint Configurations utilize customer-managed AWS KMS keys. 
+  This provides an additional layer of security for the data stored on the endpoint's storage volume.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-well-architected/sec/08/02"
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/SageMaker/endpoint-encrypted-with-cmk.html"
+      name: "Endpoints Encrypted With KMS Customer Managed Keys"

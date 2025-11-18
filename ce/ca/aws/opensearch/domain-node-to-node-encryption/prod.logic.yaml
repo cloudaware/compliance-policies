@@ -1,0 +1,17 @@
+---
+inputType: "CA10__CaAwsElasticsearchDomain__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsElasticsearchDomain__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Node-to-node encryption is not enabled for the OpenSearch Domain."
+    remediationMessage: "Consider enabling node-to-node encryption."
+    check:
+      NOT:
+        arg:
+          EXTRACT: "CA10__nodeToNodeEncryptionEnabled__c"    
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Node-to-node encryption is enabled for the OpenSearch Domain."

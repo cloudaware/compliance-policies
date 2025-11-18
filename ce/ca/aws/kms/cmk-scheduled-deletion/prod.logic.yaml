@@ -1,0 +1,26 @@
+---
+inputType: "CA10__CaAwsKmsKey__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsKmsKey__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This Key is not Customer-managed."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__manager__c"
+        right:
+          TEXT: "CUSTOMER"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This KMS CMK is scheduled for deletion."
+    remediationMessage: "Consider disabling the key instead of deleting it if the key\ 
+      \ is not in use. Deleting a key is an irreversible action."
+    check:
+      NOT_EMPTY:
+        arg:
+          EXTRACT: "CA10__deletionDate__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "This KMS CMK is not scheduled for deletion."

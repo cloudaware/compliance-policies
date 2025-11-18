@@ -1,0 +1,20 @@
+---
+extracts:
+# Values: creating, available, modifying, deleting, create-failed, snapshotting.
+# Not nullable. Can't have no access, retrieved via elasticache:DescribeReplicationGroups
+  - name: "CA10__status__c"
+    value:
+      FIELD:
+        path: "CA10__status__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Status cannot be empty." 
+# Checkbox
+  - name: "CA10__atRestEncryptionEnabled__c"
+    value:
+      FIELD:
+        path: "CA10__atRestEncryptionEnabled__c"
+# Checkbox
+  - name: "CA10__transitEncryptionEnabled__c"
+    value:
+      FIELD:
+        path: "CA10__transitEncryptionEnabled__c"

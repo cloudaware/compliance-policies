@@ -1,0 +1,41 @@
+---
+inputType: "CA10__CaAwsBucket__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsBucket__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The S3 bucket is not encrypted."
+    remediationMessage: "Enable Server-Side Encryption with AWS KMS (SSE-KMS) for the bucket."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__serverSideEncryptionAlgorithm__c"
+        right:
+          TEXT: "None"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The S3 bucket is encrypted with Amazon S3 managed key."
+    remediationMessage: "Enable Server-Side Encryption with AWS KMS for the bucket."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__serverSideEncryptionAlgorithm__c"
+        right:
+          TEXT: "AES256"
+  - status: "COMPLIANT"
+    currentStateMessage: "The S3 Bucket is encrypted with a KMS key."
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: "TEXT"
+            items:
+              - "aws:kms"
+              - "aws:kms:dsse"
+              - "aws:fsx"
+        search:
+          EXTRACT: "CA10__serverSideEncryptionAlgorithm__c"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

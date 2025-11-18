@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.3.8
+
+- Updated with `cloudaware-mcp` v1.0.4: added `analyze_field` tool.
+
+## 2.3.7
+
+- Added `repo-manager mcp cloudaware --port ${port}` - to start Cloudaware MCP locally with HTTP transport
+
+## 2.3.6
+
+- Added `repo-manager mcp cloudaware` - Cloudaware MCP v1.0.0 with `stdio` transport
+
 ## 2.3.5
 
 - Updated schema for `repo-manager types import`

@@ -40,8 +40,23 @@
             "snapshotTime": "2025-10-21T01:48:33Z"
         },
         "CA10__disappearanceTime__c": null,
-        "CA10__engine__c": "redis",
+        "CA10__engine__c": "valkey",
         "CA10__snapshotRetentionLimit__c": 7,
         "Id": "test3"
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "not(setOfText(['redis', 'valkey']).contains(extract('CA10__engine__c')))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-08T06:14:51Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__engine__c": "memcached",
+        "CA10__snapshotRetentionLimit__c": 7,
+        "Id": "test4"
     }
 ]

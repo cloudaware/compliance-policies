@@ -1,0 +1,20 @@
+---
+names:
+  full: "AWS RDS Cluster Encryption is not enabled"
+  contextual: "Cluster Encryption is not enabled"
+description: >
+  Ensure that Amazon RDS Database Clusters have storage encryption enabled to protect data at rest.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/27"
+  - "/frameworks/aws-fsbp-v1.0.0/documentdb/01"
+  - "/frameworks/aws-well-architected/sec/08/02"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[RDS.27] RDS DB clusters should be encrypted at rest"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-27"
+    - name: "[DocumentDB.1] Amazon DocumentDB clusters should be encrypted at rest"  
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/documentdb-controls.html#documentdb-1"

@@ -11,12 +11,13 @@
         },
         "Id": "test1",
         "CA10__disappearanceTime__c": "2025-07-14T20:30:40Z",
+        "CA10__tableStatus__c": "ACTIVE",
         "CA10__pointInTimeRecoveryStatus__c": "ENABLED"
     },
     {
         "expectedResult": {
             "status": "INCOMPLIANT",
-            "conditionIndex": "199",
+            "conditionIndex": "299",
             "conditionText": "extract('CA10__pointInTimeRecoveryStatus__c') == 'DISABLED'",
             "runtimeError": null
         },
@@ -25,12 +26,13 @@
         },
         "Id": "test2",
         "CA10__disappearanceTime__c": null,
+        "CA10__tableStatus__c": "ACTIVE",
         "CA10__pointInTimeRecoveryStatus__c": "DISABLED"
     },
     {
         "expectedResult": {
             "status": "COMPLIANT",
-            "conditionIndex": "299",
+            "conditionIndex": "399",
             "conditionText": "extract('CA10__pointInTimeRecoveryStatus__c') == 'ENABLED'",
             "runtimeError": null
         },
@@ -39,6 +41,22 @@
         },
         "Id": "test3",
         "CA10__disappearanceTime__c": null,
+        "CA10__tableStatus__c": "ACTIVE",
+        "CA10__pointInTimeRecoveryStatus__c": "ENABLED"
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__tableStatus__c') != 'ACTIVE'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-07-21T14:37:53Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__tableStatus__c": "DELETING",
         "CA10__pointInTimeRecoveryStatus__c": "ENABLED"
     }
 ]

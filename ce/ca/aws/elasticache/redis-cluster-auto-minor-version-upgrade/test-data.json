@@ -48,7 +48,7 @@
         "expectedResult": {
             "status": "INAPPLICABLE",
             "conditionIndex": "199",
-            "conditionText": "extract('CA10__engine__c') != 'redis'",
+            "conditionText": "not(setOfText(['redis', 'valkey']).contains(extract('CA10__engine__c')))",
             "runtimeError": null
         },
         "context": {

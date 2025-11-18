@@ -1,8 +1,22 @@
 {
-  "theme": "Default",
-  "selectedAuthType": "oauth-personal",
-  "fileFiltering": {
-    "respectGitIgnore": false
+  "context": {
+    "fileName": "agents.md",
+    "fileFiltering": {
+      "respectGitIgnore": false
+    }
   },
-  "contextFileName": "agents.md"
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "ui": {
+    "theme": "Default"
+  },
+  "mcpServers": {
+    "cloudaware-mcp-stdio": {
+      "command": "repo-manager",
+      "args": ["mcp", "cloudaware"]
+    }
+  }
 }

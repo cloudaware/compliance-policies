@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS OpenSearch Domain latest Service Software Update is not installed"
+  contextual: "Domain latest Service Software Update is not installed"
+description: >
+  Ensure that Amazon OpenSearch Domains are running the latest compatible service 
+  software update to benefit from the latest security patches, bug fixes, and 
+  performance improvements.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/infrastructure-modernization"
+  - "/frameworks/aws-well-architected/sec/06/01"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Opensearch.10] OpenSearch domains should have the latest software update installed"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/opensearch-controls.html#opensearch-10"

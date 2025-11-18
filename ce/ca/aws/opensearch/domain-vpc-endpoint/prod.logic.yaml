@@ -1,0 +1,34 @@
+---
+inputType: "CA10__CaAwsElasticsearchDomain__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsElasticsearchDomain__c/object.extracts.yaml"
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "Unable to determine OpenSearch Domain endpoint configuration."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:  
+                EXTRACT: "CA10__endpoint__c"
+          - IS_EMPTY:
+              arg:  
+                EXTRACT: "CA10__vpcEndpoints__c"              
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The OpenSearch domain has a public endpoint and is not deployed within a VPC."
+    remediationMessage: "Deploy the OpenSearch domain within a VPC to restrict access."
+    check:
+      NOT_EMPTY:
+        arg:  
+          EXTRACT: "CA10__endpoint__c"              
+  - status: "COMPLIANT"
+    currentStateMessage: "The OpenSearch domain is deployed within a VPC."
+    check:
+      NOT_EMPTY:
+        arg:  
+          EXTRACT: "CA10__vpcEndpoints__c"              
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

@@ -1,0 +1,20 @@
+---
+names:
+  full: "AWS ElastiCache Replication Group is not encrypted at rest"
+  contextual: "Replication Group is not encrypted at rest"
+description: >
+  Ensure that ElastiCache Replication Groups have encryption at rest enabled. 
+  This feature encrypts the data stored on disk, including backups, using AWS KMS. 
+  Enabling encryption at rest adds a critical layer of data protection against 
+  unauthorized access to the underlying storage.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-well-architected/sec/08/02"
+  - "/frameworks/aws-fsbp-v1.0.0/elasticache/04"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ElastiCache.4] ElastiCache replication groups should be encrypted at rest"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/elasticache-controls.html#elasticache-4"

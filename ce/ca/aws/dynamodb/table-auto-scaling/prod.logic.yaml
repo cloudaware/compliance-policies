@@ -5,6 +5,14 @@ importExtracts:
  - file: /types/CA10__CaAwsDynamoDbTable__c/object.extracts.yaml
 conditions:
   - status: "INAPPLICABLE"
+    currentStateMessage: "The table is not active."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__tableStatus__c"
+        right:
+          TEXT: "ACTIVE"
+  - status: "INAPPLICABLE"
     currentStateMessage: "The DynamoDB Table uses On-Demand capacity mode, which scales automatically."
     check:
       IS_EQUAL:

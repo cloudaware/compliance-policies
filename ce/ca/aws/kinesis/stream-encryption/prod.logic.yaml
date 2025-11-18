@@ -1,0 +1,35 @@
+---
+inputType: "CA10__CaAwsKinesisStream__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsKinesisStream__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Kinesis Stream is not active."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "ACTIVE"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Server-side encryption is not enabled for this Kinesis Stream."
+    remediationMessage: "Enable server-side encryption for the stream to protect data at rest."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__encryptionType__c"
+        right:
+          TEXT: "NONE"
+  - status: "COMPLIANT"
+    currentStateMessage: "Server-side encryption is enabled for this Kinesis Stream."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__encryptionType__c"
+        right:
+          TEXT: "KMS"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

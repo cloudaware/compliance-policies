@@ -1,0 +1,26 @@
+---
+inputType: "CA10__CaAwsCacheReplicationGroup__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: /types/CA10__CaAwsCacheReplicationGroup__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Replication Group is not available."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "available"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Encryption at rest is not enabled for this replication group."
+    remediationMessage: "Encryption at rest must be enabled at creation time.\
+      \ A new encrypted replication group must be created from a backup."
+    check:
+      NOT:
+        arg:
+          EXTRACT: "CA10__atRestEncryptionEnabled__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Encryption at rest is enabled for this replication group."

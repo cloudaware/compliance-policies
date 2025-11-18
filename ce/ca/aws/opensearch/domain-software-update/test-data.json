@@ -1,0 +1,44 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-29T06:46:08Z"
+        },
+        "CA10__disappearanceTime__c": "2025-08-17T07:38:43Z",
+        "CA10__serviceSoftwareUpdateAvailable__c": "true",
+        "Id": "test1"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__serviceSoftwareUpdateAvailable__c') == 'false'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-29T06:46:08Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__serviceSoftwareUpdateAvailable__c": "false",
+        "Id": "test2"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__serviceSoftwareUpdateAvailable__c') == 'true'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-29T06:46:08Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__serviceSoftwareUpdateAvailable__c": "true",
+        "Id": "test3"
+    }
+]

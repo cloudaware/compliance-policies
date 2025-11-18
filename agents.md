@@ -125,12 +125,13 @@ The repository stores compliance policies as declarative YAML files.
 
 ### Workflow: Testing a Policy
 
-1. **Generate Test Data (if needed)**:
+1. **Capture Test Data**:
     - Run `repo-manager policies generate CAPTURE_TEST_DATA /path/to/your/prod.logic.yaml`.
     - This creates a `.sql` file in a `.generated` directory.
     - Execute this SQL against BigQuery.
     - Save the results as `test-data.json` in the policy's directory.
     - Modify the JSON to cover all conditions and edge cases.
+    - IMPORTANT: Do not write `test-data.json` file from scratch. Always use `CAPTURE_TEST_DATA` and then modify the captured data file.
 2. **Run Tests**:
     - Execute `repo-manager policies test /path/to/your/prod.logic.yaml` for a single policy or `repo-manager policies test all` for all policies.
     - This command validates the logic against `test-data.json` and creates a `.test-results.yaml` file.
@@ -277,7 +278,7 @@ For questions about which objects are compliant or non-compliant with a specific
 
 ## 8. Reference Documentation
 
-For more detailed information about specific aspects of the Compliance Engine, refer to the documentation in the `guides` directory:
+Depending on the task, you must read the relevant documentation in the `guides` directory:
 
 ### Policy Development
 - [Policy Development Guide](./guides/developer/index.md) - Comprehensive guide to developing policies

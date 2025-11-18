@@ -30,3 +30,8 @@ extracts:
     value:
       FIELD:
         path: "CA10__tableStatus__c"
+# Values: ENABLED | null. Possible permission issue with dynamodb:DescribeTable.
+  - name: "CA10__sseDescriptionStatus__c"
+    value:
+      FIELD:
+        path: "CA10__sseDescriptionStatus__c"

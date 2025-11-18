@@ -13,3 +13,5 @@ Enabling PITR incurs additional charges based on the total size of the DynamoDB 
 ## Audit
 
 This policy marks an *AWS DynamoDB Table* as `INCOMPLIANT` if `Point In Time Recovery Status` is set to **DISABLED**.
+
+If the *DynamoDB Table* is not **ACTIVE**, it is marked as `INAPPLICABLE`.

@@ -1,0 +1,17 @@
+---
+names:
+  full: "AWS Kinesis Stream is not encrypted at rest"
+  contextual: "Stream is not encrypted at rest"
+description: >
+  
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/aws-fsbp-v1.0.0/kinesis/01"
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-well-architected/sec/08/02"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Kinesis.1] Kinesis streams should be encrypted at rest"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/kinesis-controls.html#kinesis-1"

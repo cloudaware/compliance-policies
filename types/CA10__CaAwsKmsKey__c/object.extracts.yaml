@@ -30,3 +30,17 @@ extracts:
           noAccessDelegate:
             path: "CA10__rotationEnabled__c"
             currentStateMessage: "Unable to determine Key Rotation status. Possible permission issue with kms:GetKeyRotationStatus."
+# Nullable.
+  - name: "CA10__deletionDate__c"
+    value: 
+      FIELD:
+        path: "CA10__deletionDate__c"
+# Values: AWS | Customer. Not Nullable.
+  - name: "CA10__manager__c"
+    value: 
+      FIELD:
+        path: "CA10__manager__c"
+        undeterminedIf:
+          noAccessDelegate: 
+            path: "CA10__manager__c"
+            currentStateMessage: "Unable to determine Key Manager. Possible permission issue with kms:DescribeKey."

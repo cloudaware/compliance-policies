@@ -1,0 +1,12 @@
+---
+extracts:
+# Values: KMS | NONE. Not nullable.
+  - name: "CA10__encryptionType__c"
+    value: 
+      FIELD:
+        path: "CA10__encryptionType__c"
+# Values: CREATING | DELETING | ACTIVE | UPDATING. Not nullable. 
+  - name: "CA10__status__c"
+    value: 
+      FIELD:
+        path: "CA10__status__c"

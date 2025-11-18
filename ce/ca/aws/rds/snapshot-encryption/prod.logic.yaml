@@ -1,0 +1,25 @@
+---
+inputType: "CA10__CaAwsDbSnapshot__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsDbSnapshot__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Snapshot is not in available status."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "available"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The RDS Snapshot is not encrypted."
+    remediationMessage: "Consider encrypting the snapshot by creating an encrypted copy and deleting the original."
+    check:
+      NOT:
+        arg:
+          EXTRACT: "CA10__encrypted__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Snapshot is not encrypted."

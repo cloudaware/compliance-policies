@@ -8,11 +8,17 @@ conditions:
   - status: "INAPPLICABLE"
     currentStateMessage: "The policy only applicable to Redis Clusters."
     check:
-      NOT_EQUAL:
-        left:
-          EXTRACT: "CA10__engine__c"
-        right:
-          TEXT: "redis"
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              SET:
+                itemType: TEXT
+                items:
+                  - "redis"
+                  - "valkey"
+            search:
+              EXTRACT: "CA10__engine__c"
   - status: "INCOMPLIANT"
     currentStateMessage: "ElastiCache Cluster Auto Minor Version Upgrade is not enabled."
     remediationMessage: "Consider enabling Auto Minor Version Upgrade for this ElastiCache Cluster."    

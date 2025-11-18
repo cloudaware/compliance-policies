@@ -1,0 +1,17 @@
+---
+inputType: "CA10A1__CaAwsSageMakerEndpointConfig__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10A1__CaAwsSageMakerEndpointConfig__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "KMS key is not specified for the SageMaker endpoint configuration."
+    remediationMessage: "Specify a KMS key for the endpoint configuration to encrypt data on the storage volume."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10A1__kmsKeyId__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The SageMaker Endpoint Config utilizes a KMS key."
