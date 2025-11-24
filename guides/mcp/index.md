@@ -121,8 +121,6 @@ Add Cloudaware MCP by going into `Settings` → `Connectors` → `Add custom con
 
 Replace `your-export-project-id` and `your-sobjects-dataset-name` with your actual values.
 
-NOTE (18 November 2025): Server can be added and authenticated, but Claude shows permanently stuck on "Loading...".
-
 ### Gemini CLI
 
 Add following to your `~/.gemini/settings.json`:

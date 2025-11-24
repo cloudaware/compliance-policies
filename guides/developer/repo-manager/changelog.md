@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.12
+
+- Updated with `cloudaware-mcp` v1.0.7
+
 ## 2.3.11
 
 - Renamed `/export` directory to `/tmp` directory. All exports and task-related files are now stored in `/tmp` directory.

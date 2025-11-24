@@ -15,6 +15,8 @@ repo-manager [OPTIONS] [COMMAND]
 
 ### Options
 
+- `--[no-]auto-update`
+  - Manually trigger or suppress repo-manager update. By default auto-update will trigger periodically.
 - `-b`, `--backend`=`BACKEND`
   - API backend. Valid values: `PRODUCTION`, `LOCAL`.
   - Default: `PRODUCTION`
@@ -32,6 +34,7 @@ repo-manager [OPTIONS] [COMMAND]
 ### Subcommands
 
 - [auth](#repo-manager-auth) - Authorization commands.
+- [env](#repo-manager-env) - Shows the information about the current environment.
 - [policies](#repo-manager-policies) - Tools for working with compliance policies.
 - [docs](#repo-manager-docs) - Tools to manage auto-generated documentation from repository.
 - [schema](#repo-manager-schema) - Tools to manage schema files in the repository.
@@ -40,7 +43,9 @@ repo-manager [OPTIONS] [COMMAND]
 - [ai](#repo-manager-ai) - Tools for working with AI and LLMs.
 - [ui](#repo-manager-ui) - Run UI for repo-manager.
 - [soql](#repo-manager-soql) - Tools for working with SOQL queries.
+- [mcp](#repo-manager-mcp) - Command that starts MCP servers.
 - [gen-manpage](#repo-manager-gen-manpage) - Generates man pages for all commands in the specified directory.
+- [cleanup](#repo-manager-cleanup) - Cleans up generated and imported files and directories from repository.
 
 ## `repo-manager auth`
 
@@ -154,6 +159,21 @@ repo-manager auth remove [OPTIONS]
 - `-V`, `--version`
   - Print version information and exit.
 
+## `repo-manager env`
+
+Shows the information about the current environment.
+
+```bash
+repo-manager env [OPTIONS]
+```
+
+### Options
+
+- `-h`, `--help`
+  - Show this help message and exit.
+- `-V`, `--version`
+  - Print version information and exit.
+
 ## `repo-manager docs`
 
 Tools to manage auto-generated documentation from the repository.
@@ -199,8 +219,17 @@ repo-manager docs generate [OPTIONS]
 
 ### Options
 
+- `-f`, `--format`=`<arg1>`
+  - Output format.
+  - Valid values: `MD`, `MDX`.
 - `-h`, `--help`
   - Show this help message and exit.
+- `-r`, `--renderer`=`<arg2>`
+  - Renderer that will show documentation for the user.
+  - Valid values: `NONE`, `CLOUDAWARE`, `DOCUSAURUS`.
+- `-t`, `--threads`=`<arg3>`
+  - Number of worker threads.
+  - Default: `CPU_COUNT/2`.
 - `-V`, `--version`
   - Print version information and exit.
 - `-w`, `--watch`
@@ -223,8 +252,64 @@ repo-manager policies [OPTIONS] [COMMAND]
 
 ### Subcommands
 
+- [capture-test-data](#repo-manager-policies-capture-test-data) - Captures the test-data.json for the specified policy from the data available in CloudAware.
+- [evaluate-object](#repo-manager-policies-evaluate-object) - Evaluates a single object with a single policy.
 - [generate](#repo-manager-policies-generate) - Generate BigQuery script for a policy.
+- [import-stats](#repo-manager-policies-import-stats) - Imports stats for the latest runs of all policies into a file.
 - [test](#repo-manager-policies-test) - Run tests for a policy.
+
+## `repo-manager policies capture-test-data`
+
+Captures the test-data.json for the specified policy from the data available in CloudAware.
+
+```bash
+repo-manager policies capture-test-data [OPTIONS] <id>
+```
+
+### Options
+
+- `-h`, `--help`
+  - Show this help message and exit.
+- `-o`, `--output-file`=`PATH`
+  - Path to the output file.
+  - Default: `POLICY_DIR/test-data.json`
+- `-V`, `--version`
+  - Print version information and exit.
+
+### Arguments
+
+- `id`
+  - Policy ID/Path or Logic ID/Path.
+
+## `repo-manager policies evaluate-object`
+
+Evaluates a single object with a single policy.
+
+```bash
+repo-manager policies evaluate-object [OPTIONS] <id> <caUuid>
+```
+
+### Options
+
+- `-c`, `--command`=`<arg3>`
+  - In case of immediate execution, command to pass the path to received script.
+  - Default: `node`
+- `-e`, `--execute`
+  - Execute the received script immediately.
+  - Default: `false`
+- `-h`, `--help`
+  - Show this help message and exit.
+- `-V`, `--version`
+  - Print version information and exit.
+- `-w`, `--wrapper`=`<arg4>`
+  - Wrapper for received script, use `__CONTENT__` to substitute script content.
+
+### Arguments
+
+- `id`
+  - Policy ID/Path or Logic ID/Path.
+- `caUuid`
+  - CloudAware UUID of the object to test.
 
 ## `repo-manager policies generate`
 
@@ -249,6 +334,21 @@ repo-manager policies generate [OPTIONS] <kind> <id>
 - `id`
   - Policy ID or Logic ID for which to generate the script.
 
+## `repo-manager policies import-stats`
+
+Imports stats for the latest runs of all policies into a file.
+
+```bash
+repo-manager policies import-stats [OPTIONS]
+```
+
+### Options
+
+- `-h`, `--help`
+  - Show this help message and exit.
+- `-V`, `--version`
+  - Print version information and exit.
+
 ## `repo-manager policies test`
 
 Runs tests for a specified compliance policy to ensure its correctness and validity.
@@ -259,15 +359,24 @@ repo-manager policies test [OPTIONS] <id>
 
 ### Options
 
+- `--format`=`<arg1>`
+  - Output format.
+  - Valid values: `NONE`, `JUNIT`.
 - `-h`, `--help`
   - Show this help message and exit.
+- `--output-dir`=`<arg2>`
+  - Output directory for reports.
+  - Default: `REPO/target/surefire-reports` for `JUNIT`.
+- `-t`, `--threads`=`<arg3>`
+  - Number of worker threads.
+  - Default: `1`, maximum: `5`.
 - `-V`, `--version`
   - Print version information and exit.
 
 ### Arguments
 
 - `id`
-  - Policy ID, Logic ID, `'all'` to run tests for all policies or `'unit-tests'` to run tests for all unit-tests.
+  - Policy ID/Path, Logic ID/Path, Folder ID/Path, `'all'` or `'unit-tests'`.
 
 ## `repo-manager schema`
 
@@ -505,6 +614,8 @@ repo-manager types import [OPTIONS]
 
 - `--exclude-custom-fields`
   - Excludes custom fields from imported types, focusing on standard Salesforce objects.
+- `--exclude-custom-types`
+  - Excludes custom types from imported types.
 - `-h`, `--help`
   - Show this help message and exit.
 - `-p`, `--preset`=`PRESET`
@@ -512,6 +623,42 @@ repo-manager types import [OPTIONS]
   - Valid values: `REFERENCED`, `CLOUDAWARE`, `STANDARD`, `EXTRA`.
 - `-t`, `--type`=`TYPE`
   - Salesforce type API name to import. Can be specified multiple times.
+- `-V`, `--version`
+  - Print version information and exit.
+
+## `repo-manager mcp`
+
+Command that starts MCP servers.
+
+```bash
+repo-manager mcp [OPTIONS] [COMMAND]
+```
+
+### Options
+
+- `-h`, `--help`
+  - Show this help message and exit.
+- `-V`, `--version`
+  - Print version information and exit.
+
+### Subcommands
+
+- [cloudaware](#repo-manager-mcp-cloudaware) - Starts cloudaware-mcp server with Stdio transport.
+
+## `repo-manager mcp cloudaware`
+
+Starts cloudaware-mcp server with Stdio transport.
+
+```bash
+repo-manager mcp cloudaware [OPTIONS]
+```
+
+### Options
+
+- `-h`, `--help`
+  - Show this help message and exit.
+- `-p`, `--port`=`<arg0>`
+  - Port that HTTP server will listen on, if not specified server starts with stdio transport.
 - `-V`, `--version`
   - Print version information and exit.
 
@@ -560,3 +707,18 @@ Point the `SOURCE_DIR` to either the `--outdir` directory or the `--template-dir
 
 See [https://asciidoctor.org/docs/user-manual/\#man-pages](https://asciidoctor.org/docs/user-manual/#man-pages)
 See [http://man7.org/linux/man-pages/man7/roff.7.html](http://man7.org/linux/man-pages/man7/roff.7.html)
+
+## `repo-manager cleanup`
+
+Cleans up generated and imported files and directories from repository.
+
+```bash
+repo-manager cleanup [OPTIONS]
+```
+
+### Options
+
+- `-h`, `--help`
+  - Show this help message and exit.
+- `-V`, `--version`
+  - Print version information and exit.
