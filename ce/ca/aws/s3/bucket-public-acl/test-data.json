@@ -1,0 +1,162 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-11T04:01:28Z"
+        },
+        "CA10__disappearanceTime__c": "2025-08-06T13:01:39Z",
+        "CA10__blockPublicAcls__c": "Yes",
+        "CA10__accessControlGrants__c": 1,
+        "CA10__accessControlPolicy__c": "{\n\"grants\":[{\n\"grantee\":{\n\"groupName\":\"AuthenticatedUsers\",\n\"identifier\":\"http://acs.amazonaws.com/groups/global/AuthenticatedUsers\",\n\"typeIdentifier\":\"uri\"\n},\n\"permission\":\"WRITE_ACP\"\n}]}",
+        "Id": "test1"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__blockPublicAcls__c') == 'Yes'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-11T04:01:28Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__blockPublicAcls__c": "Yes",
+        "CA10__accessControlGrants__c": 1,
+        "CA10__accessControlPolicy__c": "{\n\"grants\":[{\n\"grantee\":{\n\"groupName\":\"AuthenticatedUsers\",\n\"identifier\":\"http://acs.amazonaws.com/groups/global/AuthenticatedUsers\",\n\"typeIdentifier\":\"uri\"\n},\n\"permission\":\"WRITE_ACP\"\n}]}",
+        "Id": "test2"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__accessControlGrants__c') == number(0.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-11T04:01:28Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__blockPublicAcls__c": "No",
+        "CA10__accessControlGrants__c": 0,
+        "CA10__accessControlPolicy__c": "{\n\"requesterCharged\":false\n}",
+        "Id": "test3"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('caJsonFrom__accessControlPolicy__c').jsonQueryText('length(grants[?permission==\\'FULL_CONTROL\\' && (grantee.identifier==\\'http://acs.amazonaws.com/groups/global/AllUsers\\' || grantee.identifier==\\'http://acs.amazonaws.com/groups/global/AuthenticatedUsers\\')])') > number(0.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-11T04:01:28Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__blockPublicAcls__c": "No",
+        "CA10__accessControlGrants__c": 8,
+        "CA10__accessControlPolicy__c": "{\n\"grants\":[{\n\"grantee\":{\n\"groupName\":\"AuthenticatedUsers\",\n\"identifier\":\"http://acs.amazonaws.com/groups/global/AuthenticatedUsers\",\n\"typeIdentifier\":\"uri\"\n},\n\"permission\":\"FULL_CONTROL\"\n}]}",
+        "Id": "test4"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "extract('caJsonFrom__accessControlPolicy__c').jsonQueryText('length(grants[?(permission==\\'READ\\' || permission==\\'READ_ACP\\') && (grantee.identifier==\\'http://acs.amazonaws.com/groups/global/AllUsers\\' || grantee.identifier==\\'http://acs.amazonaws.com/groups/global/AuthenticatedUsers\\')])') > number(0.0) && extract('caJsonFrom__accessControlPolicy__c').jsonQueryText('length(grants[?(permission==\\'WRITE\\' || permission==\\'WRITE_ACP\\') && (grantee.identifier==\\'http://acs.amazonaws.com/groups/global/AllUsers\\' || grantee.identifier==\\'http://acs.amazonaws.com/groups/global/AuthenticatedUsers\\')])') > number(0.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-11T04:01:28Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__blockPublicAcls__c": "No",
+        "CA10__accessControlGrants__c": 8,
+        "CA10__accessControlPolicy__c": "{\n\"grants\":[{\n\"grantee\":{\n\"groupName\":\"AuthenticatedUsers\",\n\"identifier\":\"http://acs.amazonaws.com/groups/global/AuthenticatedUsers\",\n\"typeIdentifier\":\"uri\"\n},\n\"permission\":\"WRITE_ACP\"\n},{\n\"grantee\":{\n\"groupName\":\"AllUsers\",\n\"identifier\":\"http://acs.amazonaws.com/groups/global/AllUsers\",\n\"typeIdentifier\":\"uri\"\n},\n\"permission\":\"READ\"\n}]}",
+        "Id": "test5"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "599",
+            "conditionText": "extract('caJsonFrom__accessControlPolicy__c').jsonQueryText('length(grants[?(permission==\\'READ\\' || permission==\\'READ_ACP\\') && (grantee.identifier==\\'http://acs.amazonaws.com/groups/global/AllUsers\\' || grantee.identifier==\\'http://acs.amazonaws.com/groups/global/AuthenticatedUsers\\')])') > number(0.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-11T04:01:28Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__blockPublicAcls__c": "No",
+        "CA10__accessControlGrants__c": 5,
+        "CA10__accessControlPolicy__c": "{\n  \"grants\" : [ {\n    \"grantee\" : {\n      \"identifier\" : \"identifier\",\n      \"typeIdentifier\" : \"id\"\n    },\n    \"permission\" : \"READ\"\n  }, {\n    \"grantee\" : {\n      \"displayName\" : \"244029740462\",\n      \"identifier\" : \"3e1543c4d95b52de555636d38ac41ecb78c8e3f1f4bd2a600c36148a2b430749\",\n      \"typeIdentifier\" : \"id\"\n    },\n    \"permission\" : \"WRITE\"\n  }, {\n    \"grantee\" : {\n      \"displayName\" : \"244029740462\",\n      \"identifier\" : \"3e1543c4d95b52de555636d38ac41ecb78c8e3f1f4bd2a600c36148a2b430749\",\n      \"typeIdentifier\" : \"id\"\n    },\n    \"permission\" : \"READ_ACP\"\n  }, {\n    \"grantee\" : {\n      \"identifier\" : \"3e1543c4d95b52de555636d38ac41ecb78c8e3f1f4bd2a600c36148a2b430749\",\n      \"typeIdentifier\" : \"id\"\n    },\n    \"permission\" : \"WRITE_ACP\"\n  }, {\n    \"grantee\" : {\n      \"groupName\" : \"AllUsers\",\n      \"identifier\" : \"http://acs.amazonaws.com/groups/global/AllUsers\",\n      \"typeIdentifier\" : \"uri\"\n    },\n    \"permission\" : \"READ\"\n  } ],\n  \"requesterCharged\" : false\n}",
+        "Id": "test6"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "700",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-11T04:01:28Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__blockPublicAcls__c": "No",
+        "CA10__accessControlGrants__c": 1,
+        "CA10__accessControlPolicy__c": "{\n\"grants\":[{\n\"grantee\":{\n\"identifier\":\"identifier\",\n\"typeIdentifier\":\"id\"\n},\n\"permission\":\"FULL_CONTROL\"\n}]}",
+        "Id": "test7"
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "301",
+            "conditionText": "CA10__accessControlPolicy__c.delegatedTo(CA10__accessControlPolicy__c).isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-11T04:01:28Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__blockPublicAcls__c": "No",
+        "CA10__accessControlGrants__c": 1,
+        "CA10__accessControlPolicy__c": "",
+        "Id": "test8"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "700",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-11T04:01:28Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__blockPublicAcls__c": "No",
+        "CA10__accessControlGrants__c": 1,
+        "CA10__accessControlPolicy__c": "{\n\"grants\":[]}",
+        "Id": "test9"
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "304",
+            "conditionText": "extract('caJsonFrom__accessControlPolicy__c').jsonQueryText('length(grants[?permission==\\'FULL_CONTROL\\' && (grantee.identifier==\\'http://acs.amazonaws.com/groups/global/AllUsers\\' || grantee.identifier==\\'http://acs.amazonaws.com/groups/global/AuthenticatedUsers\\')])').isEvaluationFailed()",
+            "runtimeError": "TypeError: length() expected argument 1 to be type 2,3,4 but received type 7 instead."
+        },
+        "context": {
+            "snapshotTime": "2025-11-11T04:01:28Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__blockPublicAcls__c": "No",
+        "CA10__accessControlGrants__c": 1,
+        "CA10__accessControlPolicy__c": "{}",
+        "Id": "test10"
+    }
+]

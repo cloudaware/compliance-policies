@@ -1,0 +1,12 @@
+---
+extracts:
+# Not nullable. Can't have no access, retrieved via redshift:DescribeClusterParameters
+  - name: "CA10__parameterName__c"
+    value:
+      FIELD:
+        path: "CA10__parameterName__c"
+# Can't have no access, retrieved via redshift:DescribeClusterParameters
+  - name: "CA10__parameterValue__c"
+    value:
+      FIELD:
+        path: "CA10__parameterValue__c"

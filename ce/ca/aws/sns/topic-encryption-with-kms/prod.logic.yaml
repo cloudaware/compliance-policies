@@ -1,0 +1,17 @@
+---
+inputType: "CA10__CaAwsTopic__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsTopic__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The SNS Topic is not encrypted with a KMS key."
+    remediationMessage: "Consider enabling server-side encryption (SSE) using a KMS key."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__kmsKeyId__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The SNS Topic is encrypted with a KMS key."

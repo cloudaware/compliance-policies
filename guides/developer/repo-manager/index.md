@@ -9,7 +9,7 @@ Read full [cli reference](cli.md) or execute `repo-manager --help`.
 
 ## Requirements
 
-The only requirement to run `repo-manager` is to have Java 8+ installed. We recommend installing the latest LTE version of Java.
+The only requirement to run `repo-manager` is to have Java 17+ installed. We recommend installing the latest LTE version of Java.
 
 If `java`/`java.exe` executable is not in your `PATH`, use the full path to the executable in all commands listed in this document.
 

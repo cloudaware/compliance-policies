@@ -1,0 +1,43 @@
+---
+inputType: "CA10__CaAwsAccount__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsAccount__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "CloudAware Collector Status is not OK."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "OK"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Shield Advanced subscription is not enabled for this AWS Account."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__shieldAdvancedState__c"
+        right:
+          TEXT: "ACTIVE"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "An IAM role for AWS Shield Response Team (SRT) access is not configured."
+    remediationMessage: "Create an IAM role with the 'AWSShieldDRTAccessPolicy' managed policy to allow the SRT access."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__shieldAdvancedSrtSupportConfigured__c"
+        right:
+          TEXT: "No"
+  - status: "COMPLIANT"
+    currentStateMessage: "An IAM role for AWS Shield Response Team (SRT) access is configured."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__shieldAdvancedSrtSupportConfigured__c"
+        right:
+          TEXT: "Yes"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

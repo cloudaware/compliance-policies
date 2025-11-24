@@ -1,0 +1,130 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-17T13:19:58Z"
+        },
+        "CA10__disappearanceTime__c": "2025-08-06T13:01:39Z",
+        "CA10__policyIsPublic__c": "No Policy",
+        "CA10__blockPublicPolicy__c": "Yes",
+        "CA10__policyDocumentExt__c": "",
+        "Id": "test1"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__policyIsPublic__c') != 'Yes'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-17T13:19:58Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyIsPublic__c": "No Policy",
+        "CA10__blockPublicPolicy__c": "Yes",
+        "CA10__policyDocumentExt__c": "",
+        "Id": "test2"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__blockPublicPolicy__c') == 'Yes'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-17T13:19:58Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyIsPublic__c": "Yes",
+        "CA10__blockPublicPolicy__c": "Yes",
+        "CA10__policyDocumentExt__c": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":[\"s3:PutObject\",\"s3:GetObject\"],\"Resource\":[\"*\"],\"AnalyzedResult\":{\"accessLevel\":\"ANONYMOUS_PRINCIPAL\",\"reason\":\"All principals '*' do not restrict access\"}}]}",
+        "Id": "test3"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "CA10__policyDocumentExt__c .allows(EXTERNAL_PRINCIPAL, [s3:PutObject, s3:DeleteObject, s3:DeleteObjectVersion, ... 3 elements])",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-17T13:19:58Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyIsPublic__c": "Yes",
+        "CA10__blockPublicPolicy__c": "No",
+        "CA10__policyDocumentExt__c": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":[\"s3:Put*\",\"s3:Get*\"],\"Resource\":[\"*\"],\"AnalyzedResult\":{\"accessLevel\":\"ANONYMOUS_PRINCIPAL\",\"reason\":\"All principals '*' do not restrict access\"}}]}",
+        "Id": "test4"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "CA10__policyDocumentExt__c .allows(EXTERNAL_PRINCIPAL, [s3:PutObject, s3:DeleteObject, s3:DeleteObjectVersion, ... 3 elements])",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-17T13:19:58Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyIsPublic__c": "Yes",
+        "CA10__blockPublicPolicy__c": "No",
+        "CA10__policyDocumentExt__c": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":[\"s3:Put*\",\"s3:Delete*\"],\"Resource\":[\"*\"],\"AnalyzedResult\":{\"accessLevel\":\"ANONYMOUS_PRINCIPAL\",\"reason\":\"All principals '*' do not restrict access\"}}]}",
+        "Id": "test5"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "CA10__policyDocumentExt__c .allows(EXTERNAL_PRINCIPAL, [s3:ListBucket, s3:GetObject, s3:GetObjectVersion])",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-17T13:19:58Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyIsPublic__c": "Yes",
+        "CA10__blockPublicPolicy__c": "No",
+        "CA10__policyDocumentExt__c": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":[\"s3:List*\",\"s3:Get*\"],\"Resource\":[\"*\"],\"AnalyzedResult\":{\"accessLevel\":\"ANONYMOUS_PRINCIPAL\",\"reason\":\"All principals '*' do not restrict access\"}}]}",
+        "Id": "test6"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "500",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-17T13:19:58Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyIsPublic__c": "Yes",
+        "CA10__blockPublicPolicy__c": "No",
+        "CA10__policyDocumentExt__c": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::id:role/iam-role\"},\"Action\":[\"s3:List*\",\"s3:Get*\"],\"Resource\":[\"*\"],\"AnalyzedResult\":{\"accessLevel\":\"EXTERNAL_PRINCIPAL\",\"reason\":\"\"}}]}",
+        "Id": "test7"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "CA10__policyDocumentExt__c .allows(EXTERNAL_PRINCIPAL, [s3:PutObject, s3:DeleteObject, s3:DeleteObjectVersion, ... 3 elements])",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-17T13:19:58Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyIsPublic__c": "Yes",
+        "CA10__blockPublicPolicy__c": "No",
+        "CA10__policyDocumentExt__c": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"s3:*\",\"Resource\":[\"*\"],\"AnalyzedResult\":{\"accessLevel\":\"ANONYMOUS_PRINCIPAL\",\"reason\":\"All principals '*' do not restrict access\"}}]}",
+        "Id": "test8"
+    }
+]

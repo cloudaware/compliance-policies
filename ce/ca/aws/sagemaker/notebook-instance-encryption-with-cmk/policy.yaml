@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS SageMaker Notebook Instance is not encrypted with a Customer-Managed KMS key"
+  contextual: "Notebook Instance is not encrypted with a Customer-Managed KMS key"
+description: >
+  Ensure that AWS SageMaker Notebook Instances are encrypted with a Customer-Managed 
+  KMS Key (CMK) to enhance data security and control. Using CMKs allows you to manage 
+  the lifecycle of the encryption keys, including rotation and access policies, 
+  providing an additional layer of protection for data stored on the instance's volume.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-well-architected/sec/08/02"
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/SageMaker/notebook-data-encrypted-with-kms-customer-master-keys.html"
+      name: "Notebook Data Encrypted With KMS Customer Managed Keys"

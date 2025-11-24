@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS Redshift Cluster is not required to use encryption in transit"
+  contextual: "Cluster is not required to use encryption in transit"
+description: >
+  Ensure that AWS Redshift Clusters are configured to enforce SSL/TLS encryption 
+  for all connections to protect data in transit.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-fsbp-v1.0.0/redshift/02"
+  - "/frameworks/aws-well-architected/sec/09/03"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Redshift.2] Connections to Amazon Redshift clusters should be encrypted in transit"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/redshift-controls.html#redshift-2"
+    

@@ -8,4 +8,4 @@ By default, the storage volume for a SageMaker endpoint is encrypted with a temp
 
 ## Audit
 
-This policy flags an *AWS SageMaker Endpoint Configs* as `INCOMPLIANT` if the `KMS Key ID` field is **empty**.
+This policy flags an *AWS SageMaker Endpoint Config* as `INCOMPLIANT` if the `KMS Key ID` field is **empty**.

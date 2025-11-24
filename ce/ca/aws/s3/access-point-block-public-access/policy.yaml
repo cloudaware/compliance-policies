@@ -1,0 +1,20 @@
+---
+names:
+  full: "AWS S3 Access Point is not configured to block public access"
+  contextual: "Access Point is not configured to block public access"
+description: >
+  S3 Access Points provide Block Public Access settings to help you manage public 
+  access to Amazon S3 data. By default, new access points have these settings enabled. 
+  It is recommended to keep these settings enabled to prevent data from being exposed 
+  publicly through the access point.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/aws-fsbp-v1.0.0/s3/19"
+  - "/frameworks/aws-well-architected/sec/08/04"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[S3.19] S3 access points should have block public access settings enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/s3-controls.html#s3-19"

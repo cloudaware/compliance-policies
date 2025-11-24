@@ -1,0 +1,112 @@
+---
+inputType: "CA10__CaAwsBucket__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsBucket__c/object.extracts.yaml"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "The Bucket is configured to block public ACLs."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__blockPublicAcls__c
+        right:
+          TEXT: "Yes"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Bucket ACL is configured with any grants."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__accessControlGrants__c
+        right:
+          NUMBER: 0.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The bucket ACL grants public full control access."
+    remediationMessage: "Modify the bucket ACL to remove grants for 'Everyone' or\
+      \ 'Any authenticated AWS user'. It is strongly recommended to enable\
+      \ 'Block all public access' and use IAM policies for access control."
+    check:
+      # Full control for Everyone or Any authenticated AWS user
+      GREATER_THAN:
+        left:
+          JSON_QUERY_NUMBER:
+            arg:
+              EXTRACT: "caJsonFrom__accessControlPolicy__c"
+            expression: "length(grants[?permission=='FULL_CONTROL' && (grantee.identifier=='http://acs.amazonaws.com/groups/global/AllUsers' || grantee.identifier=='http://acs.amazonaws.com/groups/global/AuthenticatedUsers')])"
+            undeterminedIf:
+              evaluationError: "The JSON query has failed."
+              resultTypeMismatch: "The JSON query did not return a number type."
+        right:
+          NUMBER: 0.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The bucket ACL grants both public read and public write access."
+    remediationMessage: "Modify the bucket ACL to remove grants for 'Everyone' or\
+      \ 'Any authenticated AWS user'. It is strongly recommended to enable\
+      \ 'Block all public access' and use IAM policies for access control."
+    check:
+      AND:
+        args:
+          # Read permissions for Everyone or Any authenticated AWS user
+          - GREATER_THAN:
+              left:
+                JSON_QUERY_NUMBER:
+                  arg:
+                    EXTRACT: "caJsonFrom__accessControlPolicy__c"
+                  expression: "length(grants[?(permission=='READ' || permission=='READ_ACP') && (grantee.identifier=='http://acs.amazonaws.com/groups/global/AllUsers' || grantee.identifier=='http://acs.amazonaws.com/groups/global/AuthenticatedUsers')])"
+                  undeterminedIf:
+                    evaluationError: "The JSON query has failed."
+                    resultTypeMismatch: "The JSON query did not return a number type."
+              right:
+                NUMBER: 0.0
+          # Write permissions for Everyone or Any authenticated AWS user
+          - GREATER_THAN:
+              left:
+                JSON_QUERY_NUMBER:
+                  arg:
+                    EXTRACT: "caJsonFrom__accessControlPolicy__c"
+                  expression: "length(grants[?(permission=='WRITE' || permission=='WRITE_ACP') && (grantee.identifier=='http://acs.amazonaws.com/groups/global/AllUsers' || grantee.identifier=='http://acs.amazonaws.com/groups/global/AuthenticatedUsers')])"
+                  undeterminedIf:
+                    evaluationError: "The JSON query has failed."
+                    resultTypeMismatch: "The JSON query did not return a number type."
+              right:
+                NUMBER: 0.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The bucket ACL grants public read access."
+    remediationMessage: "Modify the bucket ACL to remove grants for 'Everyone' or\
+      \ 'Any authenticated AWS user'. It is strongly recommended to enable\
+      \ 'Block all public access' and use IAM policies for access control."
+    check:
+      # Read permissions for Everyone or Any authenticated AWS user
+       GREATER_THAN:
+        left:
+          JSON_QUERY_NUMBER:
+            arg:
+              EXTRACT: "caJsonFrom__accessControlPolicy__c"
+            expression: "length(grants[?(permission=='READ' || permission=='READ_ACP') && (grantee.identifier=='http://acs.amazonaws.com/groups/global/AllUsers' || grantee.identifier=='http://acs.amazonaws.com/groups/global/AuthenticatedUsers')])"
+            undeterminedIf:
+              evaluationError: "The JSON query has failed."
+              resultTypeMismatch: "The JSON query did not return a number type."
+        right:
+          NUMBER: 0.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The bucket ACL grants public write access."
+    remediationMessage: "Modify the bucket ACL to remove grants for 'Everyone' or\
+      \ 'Any authenticated AWS user'. It is strongly recommended to enable\
+      \ 'Block all public access' and use IAM policies for access control."
+    check:
+      # Read permissions for Everyone or Any authenticated AWS user
+      GREATER_THAN:
+        left:
+          JSON_QUERY_NUMBER:
+            arg:
+              EXTRACT: "caJsonFrom__accessControlPolicy__c"
+            expression: "length(grants[?(permission=='WRITE' || permission=='WRITE_ACP') && (grantee.identifier=='http://acs.amazonaws.com/groups/global/AllUsers' || grantee.identifier=='http://acs.amazonaws.com/groups/global/AuthenticatedUsers')])"
+            undeterminedIf:
+              evaluationError: "The JSON query has failed."
+              resultTypeMismatch: "The JSON query did not return a number type."
+        right:
+          NUMBER: 0.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Bucket ACL does not grant public read or write access."

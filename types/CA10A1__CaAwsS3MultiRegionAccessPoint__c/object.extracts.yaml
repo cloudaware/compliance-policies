@@ -1,0 +1,34 @@
+---
+extracts:
+  - name: "CA10A1__blockPublicAcls__c"
+    value: 
+      FIELD:
+        path: "CA10A1__blockPublicAcls__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10A1__blockPublicAcls__c"
+            currentStateMessage: "Unable to determine block public access settings. Possible permission issue with s3:GetAccessPoint"
+  - name: "CA10A1__blockPublicPolicy__c"
+    value: 
+      FIELD:
+        path: "CA10A1__blockPublicPolicy__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10A1__blockPublicPolicy__c"
+            currentStateMessage: "Unable to determine block public access settings. Possible permission issue with s3:GetAccessPoint"
+  - name: "CA10A1__ignorePublicAcls__c"
+    value: 
+      FIELD:
+        path: "CA10A1__ignorePublicAcls__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10A1__ignorePublicAcls__c"
+            currentStateMessage: "Unable to determine block public access settings. Possible permission issue with s3:GetAccessPoint"
+  - name: "CA10A1__restrictPublicBuckets__c"
+    value: 
+      FIELD:
+        path: "CA10A1__restrictPublicBuckets__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10A1__restrictPublicBuckets__c"
+            currentStateMessage: "Unable to determine block public access settings. Possible permission issue with s3:GetAccessPoint"

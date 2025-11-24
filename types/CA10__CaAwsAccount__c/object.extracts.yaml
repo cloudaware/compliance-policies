@@ -6,4 +6,27 @@ extracts:
         path: CA10__accountId__c
         undeterminedIf:
           isEmpty: "Account ID can not be empty. Possibly corrupted data."
-  
+# Not nullable
+  - name: "CA10__shieldAdvancedState__c"
+    value: 
+      FIELD:
+        path: "CA10__shieldAdvancedState__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__shieldAdvancedState__c"
+            currentStateMessage: "Shield Advanced subscription state cannot be empty. Possible permission issue with shield:GetSubscriptionState"
+# Not nullable
+  - name: "CA10__shieldAdvancedSrtSupportConfigured__c"
+    value: 
+      FIELD:
+        path: "CA10__shieldAdvancedSrtSupportConfigured__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__shieldAdvancedSrtSupportConfigured__c"
+            currentStateMessage: "Shield Advanced SRT Access state cannot be empty. Possible permission issue with shield:DescribeDRTAccess"
+# Not nullable
+  - name: "CA10__status__c"
+    value: 
+      FIELD:
+        path: "CA10__status__c"
+

@@ -1,0 +1,62 @@
+[
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10A1__kmsKeyId__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-09T19:32:58Z"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__status__c": "InService",
+        "CA10A1__kmsKeyId__c": "",
+        "Id": "test1"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "300",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-09T19:32:58Z"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__status__c": "InService",
+        "CA10A1__kmsKeyId__c": "kmsKeyId",
+        "Id": "test2"
+    },
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10A1__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-09T19:32:58Z"
+        },
+        "CA10A1__disappearanceTime__c": "2025-11-09T19:32:58Z",
+        "CA10A1__status__c": "InService",
+        "CA10A1__kmsKeyId__c": "kmsKeyId",
+        "Id": "test3"
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10A1__status__c') != 'InService'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-09T19:32:58Z"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__status__c": "Stopped",
+        "CA10A1__kmsKeyId__c": "kmsKeyId",
+        "Id": "test4"
+    }
+]

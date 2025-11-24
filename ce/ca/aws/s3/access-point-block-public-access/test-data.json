@@ -1,0 +1,53 @@
+[
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10A1__blockPublicAcls__c') != 'Yes' || extract('CA10A1__blockPublicPolicy__c') != 'Yes' || extract('CA10A1__ignorePublicAcls__c') != 'Yes' || extract('CA10A1__restrictPublicBuckets__c') != 'Yes'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-09T19:32:58Z"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__blockPublicAcls__c": "No",
+        "CA10A1__blockPublicPolicy__c": "No",
+        "CA10A1__ignorePublicAcls__c": "No",
+        "CA10A1__restrictPublicBuckets__c": "No",
+        "Id": "test1"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-09T19:32:58Z"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__blockPublicAcls__c": "Yes",
+        "CA10A1__blockPublicPolicy__c": "Yes",
+        "CA10A1__ignorePublicAcls__c": "Yes",
+        "CA10A1__restrictPublicBuckets__c": "Yes",
+        "Id": "test2"
+    },
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10A1__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-09T19:32:58Z"
+        },
+        "CA10A1__disappearanceTime__c": "2025-11-09T19:32:58Z",
+        "CA10A1__blockPublicAcls__c": "Yes",
+        "CA10A1__blockPublicPolicy__c": "Yes",
+        "CA10A1__ignorePublicAcls__c": "Yes",
+        "CA10A1__restrictPublicBuckets__c": "Yes",
+        "Id": "test3"
+    }
+]

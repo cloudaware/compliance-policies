@@ -1,0 +1,26 @@
+---
+names:
+  full: "AWS SNS Topic is not encrypted with a KMS key"
+  contextual: "Topic is not encrypted with a KMS key"
+description: >
+  Enable server-side encryption (SSE) for Amazon SNS topics to protect the contents 
+  of messages at rest using KMS keys. AWS KMS provides enhanced security and control 
+  over the keys used to encrypt data.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-well-architected/sec/08/02"
+  - "/frameworks/nist-sp-800-53-r5/ca/09/01"
+  - "/frameworks/nist-sp-800-53-r5/cm/03/06"
+  - "/frameworks/nist-sp-800-53-r5/sc/13"
+  - "/frameworks/nist-sp-800-53-r5/sc/28"
+  - "/frameworks/nist-sp-800-53-r5/sc/28/01"
+  - "/frameworks/nist-sp-800-53-r5/sc/07"
+  - "/frameworks/nist-sp-800-53-r5/sc/07/10"
+  - "/frameworks/nist-sp-800-53-r5/si/07/06"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[SNS.1] SNS topics should be encrypted at-rest using AWS KMS"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/sns-controls.html#sns-1"

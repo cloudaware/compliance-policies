@@ -1,0 +1,13 @@
+---
+names:
+  full: "AWS Shield Advanced SRT access is not configured"
+  contextual: "Shield Advanced SRT access is not configured"
+description: >
+  Ensure an IAM role exists to grant the AWS Shield Response Team (SRT) access 
+  to the AWS account to help with DDoS event mitigation.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/identity-and-access-governance/rbac-management"
+  - "/frameworks/aws-well-architected/sec/10/05"

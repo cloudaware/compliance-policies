@@ -1,0 +1,12 @@
+---
+extracts:
+# Nullable.
+  - name: CA10A1__kmsKeyId__c
+    value:
+      FIELD: 
+        path: CA10A1__kmsKeyId__c
+# Values: Pending | InService | Stopping | Stopped | Failed | Deleting | Updating. Not nullable
+  - name: CA10A1__status__c
+    value:
+      FIELD: 
+        path: CA10A1__status__c

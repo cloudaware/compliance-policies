@@ -1,0 +1,22 @@
+---
+names:
+  full: "AWS S3 Bucket ACL allows public read or write access"
+  contextual: "Bucket ACL allows public read or write access"
+description: >
+  S3 bucket ACLs should not grant public read or write access. Granting permissions 
+  to 'allUsers' (everyone on the internet) or 'allAuthenticatedUsers' (any authenticated 
+  AWS account) can lead to unintended data exposure.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/aws-fsbp-v1.0.0/s3/02"
+  - "/frameworks/aws-fsbp-v1.0.0/s3/03"
+  - "/frameworks/aws-well-architected/sec/08/04"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[S3.2] S3 general purpose buckets should block public read access"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/s3-controls.html#s3-2"
+    - name: "[S3.3] S3 general purpose buckets should block public write access"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/s3-controls.html#s3-3"

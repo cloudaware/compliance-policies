@@ -103,7 +103,7 @@ Server uses Google OAuth 2.0 for authentication. You must have required permissi
 Add Cloudaware MCP by running the following command:
 
 ```shell
-claude mcp add --transport http cloudaware-mcp "https://inbound.prod.cloudaware.com/mcp?your-export-project-id&sObjectsDataset=your-sobjects-dataset-name"
+claude mcp add --transport http cloudaware-mcp "https://inbound.prod.cloudaware.com/mcp?exportProject=your-export-project-id&sObjectsDataset=your-sobjects-dataset-name"
 ```
 
 Replace `your-export-project-id` and `your-sobjects-dataset-name` with your actual values.
@@ -115,7 +115,7 @@ After adding the MCP server, start Claude Code and use `/mcp` command to authent
 Add Cloudaware MCP by going into `Settings` → `Connectors` → `Add custom connector` and adding a new server with the following parameters:
 
 - Name: `cloudaware-mcp`
-- URL: `https://inbound.prod.cloudaware.com/mcp?your-export-project-id&sObjectsDataset=your-sobjects-dataset-name`
+- URL: `https://inbound.prod.cloudaware.com/mcp?exportProject=your-export-project-id&sObjectsDataset=your-sobjects-dataset-name`
 - Advanced Settings → OAuth Client ID: leave blank
 - Advanced Settings → OAuth Client Secret: leave blank
 

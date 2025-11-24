@@ -1,0 +1,99 @@
+---
+inputType: "CA10__CaAwsRedshiftCluster__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsRedshiftClusterParameter__c/object.extracts.yaml"
+  - file: "/types/CA10__CaAwsRedshiftCluster__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Cluster is not available."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "available"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Redshift Cluster require_ssl parameter is set to false."
+    remediationMessage: "Consider enabling require_ssl parameter for the Cluster."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10A2__AWS_Redshift_Cluster_ParameterGroup_Link__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Redshift Cluster require_ssl parameter is set to true."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10A2__AWS_Redshift_Cluster_ParameterGroup_Link__r"
+  - status: "UNDETERMINED"
+    currentStateMessage: "Unexpected value for the require_ssl parameter. It is not set to true/false."
+    check:
+      RELATED_LIST_HAS:
+        status: "UNDETERMINED"
+        relationshipName: "CA10A2__AWS_Redshift_Cluster_ParameterGroup_Link__r"
+  - status: "UNDETERMINED"
+    currentStateMessage: "The require_ssl parameter does not exist in the CMDB."
+    check:
+      RELATED_LIST_HAS:
+        status: "INAPPLICABLE"
+        relationshipName: "CA10A2__AWS_Redshift_Cluster_ParameterGroup_Link__r"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "The Redshift Cluster parameters do not exist in the CMDB."
+relatedLists:
+  - relationshipName: "CA10A2__AWS_Redshift_Cluster_ParameterGroup_Link__r"
+    conditions: 
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The require_ssl parameter is set to false."
+        remediationMessage: "Consider enabling require_ssl parameter."
+        check:
+          RELATED_LIST_HAS:
+            status: "INCOMPLIANT"
+            relationshipName: "CA10A2__parameterGroup__r.CA10__AWS_Redshift_Cluster_Parameters__r"
+      - status: "COMPLIANT"
+        currentStateMessage: "The require_ssl parameter is set to true."
+        check:
+          RELATED_LIST_HAS:
+            status: "COMPLIANT"
+            relationshipName: "CA10A2__parameterGroup__r.CA10__AWS_Redshift_Cluster_Parameters__r"
+      - status: "UNDETERMINED"
+        currentStateMessage: "Unexpected value for the require_ssl parameter. It is not set to true/false."
+        check:
+          RELATED_LIST_HAS:
+            status: "UNDETERMINED"
+            relationshipName: "CA10A2__parameterGroup__r.CA10__AWS_Redshift_Cluster_Parameters__r"
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "The require_ssl parameter does not exist in the CMDB." 
+    relatedLists:
+      - relationshipName: "CA10A2__parameterGroup__r.CA10__AWS_Redshift_Cluster_Parameters__r"
+        conditions:
+          - status: "INAPPLICABLE"
+            currentStateMessage: "This is an unrelated parameter."
+            check:
+              NOT_EQUAL:
+                left:
+                  EXTRACT: "CA10__parameterName__c"
+                right:
+                  TEXT: "require_ssl"
+          - status: "INCOMPLIANT"
+            currentStateMessage: "The require_ssl parameter is not set to false."
+            check:
+              IS_EQUAL:
+                left:
+                  EXTRACT: "CA10__parameterValue__c"
+                right:
+                  TEXT: "false"
+          - status: "COMPLIANT"
+            currentStateMessage: "The require_ssl parameter is not set to true."
+            check:
+              IS_EQUAL:
+                left:
+                  EXTRACT: "CA10__parameterValue__c"
+                right:
+                  TEXT: "true"
+        otherwise:
+          status: "UNDETERMINED"
+          currentStateMessage: "Unexpected values in the fields."

@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.3.11
+
+- Renamed `/export` directory to `/tmp` directory. All exports and task-related files are now stored in `/tmp` directory.
+
+## 2.3.10
+
+- Updated with `cloudaware-mcp` v1.0.6
+- Added `repo-manager policies capture-test-data` command to capture test data as a file in one step, instead of `repo-manager policies generate CAPTURE_TEST_DATA ... && bq query ...`
+
+## 2.3.9
+
+- Fixed the issue when repo-manager did not accept absolute paths correctly on Linux.
+
 ## 2.3.8
 
 - Updated with `cloudaware-mcp` v1.0.4: added `analyze_field` tool.

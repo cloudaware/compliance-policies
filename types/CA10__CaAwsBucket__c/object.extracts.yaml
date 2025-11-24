@@ -170,3 +170,34 @@ extracts:
           noAccessDelegate:
             path: "CA10__serverSideEncryptionAlgorithm__c"
             currentStateMessage: "Unable to determine Bucket Encryption Algorithm. Possible permissions issue with s3:GetEncryptionConfiguration"
+  - name: "CA10__accessControlPolicy__c"
+    value: 
+      FIELD:
+        path: "CA10__accessControlPolicy__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__accessControlPolicy__c"
+            currentStateMessage: "Unable to determine the bucket ACL. Possible permission issue with s3:GetBucketAcl"
+  - name: "caJsonFrom__accessControlPolicy__c"
+    value: 
+      JSON_FROM:
+        arg:
+          EXTRACT: "CA10__accessControlPolicy__c"
+        undeterminedIf:
+          isInvalid: "The Access Control Policy JSON is invalid."
+  - name: "CA10__accessControlGrants__c"
+    value: 
+      FIELD:
+        path: "CA10__accessControlGrants__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__accessControlGrants__c"
+            currentStateMessage: "Unable to determine the bucket ACL. Possible permission issue with s3:GetBucketAcl"
+  - name: "CA10__policyIsPublic__c"
+    value: 
+      FIELD:
+        path: "CA10__policyIsPublic__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__policyIsPublic__c"
+            currentStateMessage: "Unable to determine the bucket policy status. Possible permission issue with s3:GetBucketPolicyStatus"

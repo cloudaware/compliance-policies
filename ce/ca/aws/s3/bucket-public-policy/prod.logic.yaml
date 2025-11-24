@@ -1,0 +1,51 @@
+---
+inputType: "CA10__CaAwsBucket__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsBucket__c/object.extracts.yaml"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "The bucket policy is not public."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: CA10__policyIsPublic__c
+        right:
+          TEXT: "Yes"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Bucket policy is public but the block public policy configuration is enabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__blockPublicPolicy__c
+        right:
+          TEXT: "Yes"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The bucket policy grants public write access to the bucket data."
+    remediationMessage: "Consider removing the public write access from the bucket."
+    check:
+      AWS_POLICY_ALLOWS:
+        widestAcceptableAccessLevel: "EXTERNAL_PRINCIPAL"
+        policyExtField: "CA10__policyDocumentExt__c"
+        actions:
+          - "s3:PutObject"
+          - "s3:DeleteObject"
+          - "s3:DeleteObjectVersion"
+          - "s3:PutObjectAcl"
+          - "s3:PutBucketAcl"
+          - "s3:PutBucketPolicy"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The bucket policy grants public read access to the bucket data."
+    remediationMessage: "Consider removing the public read access from the bucket."
+    check:
+      AWS_POLICY_ALLOWS:
+        widestAcceptableAccessLevel: "EXTERNAL_PRINCIPAL"
+        policyExtField: "CA10__policyDocumentExt__c"
+        actions:
+          - "s3:ListBucket"
+          - "s3:GetObject"
+          - "s3:GetObjectVersion"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Bucket policy does not grant public read or write access to the bucket data."

@@ -1,0 +1,92 @@
+[
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__status__c') != 'OK'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-12T00:15:54Z"
+        },
+        "CA10__status__c": "Error",
+        "CA10__shieldAdvancedState__c": "INACTIVE",
+        "CA10__shieldAdvancedSrtSupportConfigured__c": "",
+        "Id": "test1"
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__shieldAdvancedState__c') != 'ACTIVE'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-12T00:15:54Z"
+        },
+        "CA10__status__c": "OK",
+        "CA10__shieldAdvancedState__c": "INACTIVE",
+        "CA10__shieldAdvancedSrtSupportConfigured__c": "",
+        "Id": "test2"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__shieldAdvancedSrtSupportConfigured__c') == 'No'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-12T00:15:54Z"
+        },
+        "CA10__status__c": "OK",
+        "CA10__shieldAdvancedState__c": "ACTIVE",
+        "CA10__shieldAdvancedSrtSupportConfigured__c": "No",
+        "Id": "test3"
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "201",
+            "conditionText": "CA10__shieldAdvancedState__c.delegatedTo(CA10__shieldAdvancedState__c).isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-12T00:15:54Z"
+        },
+        "CA10__status__c": "OK",
+        "CA10__shieldAdvancedState__c": "",
+        "CA10__shieldAdvancedSrtSupportConfigured__c": "",
+        "Id": "test4"
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "301",
+            "conditionText": "CA10__shieldAdvancedSrtSupportConfigured__c.delegatedTo(CA10__shieldAdvancedSrtSupportConfigured__c).isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-12T00:15:54Z"
+        },
+        "CA10__status__c": "OK",
+        "CA10__shieldAdvancedState__c": "ACTIVE",
+        "CA10__shieldAdvancedSrtSupportConfigured__c": "",
+        "Id": "test5"
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "201",
+            "conditionText": "CA10__shieldAdvancedState__c.delegatedTo(CA10__shieldAdvancedState__c).isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-11-12T00:15:54Z"
+        },
+        "CA10__status__c": "OK",
+        "CA10__shieldAdvancedState__c": "",
+        "CA10__shieldAdvancedSrtSupportConfigured__c": "Yes",
+        "Id": "test6"
+    }
+]

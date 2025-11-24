@@ -355,7 +355,7 @@ repo-manager ai context generate [OPTIONS]
   - Show this help message and exit.
 - `-o`, `--output-directory`=`PATH`
   - Path to the output file.
-  - Default: `'export/llm-context'`
+  - Default: `'tmp/llm-context'`
 - `-V`, `--version`
   - Print version information and exit.
 
@@ -454,7 +454,7 @@ repo-manager sections export [OPTIONS]
   - Show this help message and exit.
 - `-o`, `--output-directory`=`PATH`
   - Path to the output file.
-  - Default: `'export'`
+  - Default: `'tmp'`
 - `-V`, `--version`
   - Print version information and exit.
 

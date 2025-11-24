@@ -1,0 +1,36 @@
+---
+inputType: "CA10A1__CaAwsS3AccessPoint__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10A1__CaAwsS3AccessPoint__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The S3 Multi-Region Access Point is not configured to block public access."
+    remediationMessage: "Consider configuring the S3 Multi-Region Access Point to block all public access settings."
+    check:
+      OR:
+        args:
+          - NOT_EQUAL:
+              left:
+                EXTRACT: CA10A1__blockPublicAcls__c
+              right:
+                TEXT: "Yes"
+          - NOT_EQUAL:
+              left:
+                EXTRACT: CA10A1__blockPublicPolicy__c
+              right:
+                TEXT: "Yes"
+          - NOT_EQUAL:
+              left:
+                EXTRACT: CA10A1__ignorePublicAcls__c
+              right:
+                TEXT: "Yes"
+          - NOT_EQUAL:
+              left:
+                EXTRACT: CA10A1__restrictPublicBuckets__c
+              right:
+                TEXT: "Yes"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The S3 Multi-Region Access Point is configured to block all public access."
