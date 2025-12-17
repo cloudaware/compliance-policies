@@ -1,11 +1,11 @@
 # Description
 
-Network Security Group Flow Logs should be enabled and the retention period set to greater than or equal to 90 days.
+Consider migrating from network security group flow logs to virtual network flow logs.
 
 **Retirement Notice**
 On September 30, 2027, network security group (NSG) flow logs will be retired. Starting June 30, 2025, it will no longer be possible to create new NSG flow logs. Azure recommends migrating to virtual network flow logs.
 Review <https://azure.microsoft.com/en-gb/updates?id=Azure-NSG-flow-logs-Retirement> for more information.
-For virtual network flow logs, consider applying the recommendation `Ensure that virtual network flow log retention days is set to greater than or equal to 90` in this section.
+For virtual network flow logs, consider applying the policy [`Azure Virtual Network Flow Logs retention period is less than 90 days`](../virtual-network-flow-logs-retention-period-over-90-days/) in this section.
 
 ## Rationale
 
@@ -13,19 +13,14 @@ Flow logs enable capturing information about IP traffic flowing in and out of ne
 
 ## Impact
 
-This will keep IP traffic logs for longer than 90 days. As a level 2, first determine your need to retain data, then apply your selection here. As this is data stored for longer, your monthly storage costs will increase depending on your data use.
+This will keep IP traffic logs for longer than 90 days. First determine your need to retain data, then apply your selection here. As this is data stored for longer, your monthly storage costs will increase depending on your data use.
 
 ## Audit
 
 This policy marks an *Azure Network Security Group* as `INCOMPLIANT` if any of the following conditions are met:
 
-- `Flow Logs Enabled` is set to **false**.
 - `Flow Logs Retention Policy Enabled` is set to **false**.
 - `Flow Logs Retention Policy Days` is configured to fewer than **90** days.
-
-## Default Value
-
-By default, Network Security Group Flow Logs are `disabled`.
 
 ## References
 

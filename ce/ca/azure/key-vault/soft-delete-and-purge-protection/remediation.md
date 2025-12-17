@@ -1,26 +1,28 @@
 # Remediation
 
-To enable `Do Not Purge` and `Soft Delete` for a Key Vault:
+**Note:** Once enabled, purge protection cannot be disabled.
 
 ## From Azure Portal
 
 1. Go to `Key Vaults`.
-2. For each Key Vault.
-3. Click `Properties`.
-4. Ensure the status of Purge protection reads `Enable purge protection (enforce a mandatory retention period for deleted vaults and vault objects)`.
-
-    **Note**: once enabled you cannot disable it.
+2. Click the name of a key vault.
+3. Under `Settings`, click `Properties`.
+4. Select the radio button next to `Enable purge protection (enforce a mandatory retention period for deleted vaults and vault objects)`.
 5. Click `Save`.
-6. Repeat steps 1-5 for each Key Vault requiring remediation.
+6. Repeat steps 1-5 for each key vault requiring remediation.
 
 ## From Azure CLI
 
+For each key vault requiring remediation, run the following command to enable purge protection:
+
 ```sh
-az resource update --id /subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/<resourceGroupName>/providers/Microsoft.KeyVault /vaults/<keyVaultName> --set properties.enablePurgeProtection=true
+az resource update --resource-group <resource-group> --name <key-vault> --resource-type "Microsoft.KeyVault/vaults" --set properties.enablePurgeProtection=true
 ```
 
 ## From PowerShell
 
+For each key vault requiring remediation, run the following command to enable purge protection:
+
 ```ps
-Update-AzKeyVault -VaultName <vaultName> -ResourceGroupName <resourceGroupName> -EnablePurgeProtection
+Update-AzKeyVault -ResourceGroupName <resource-group> -VaultName <key-vault> -EnablePurgeProtection
 ```

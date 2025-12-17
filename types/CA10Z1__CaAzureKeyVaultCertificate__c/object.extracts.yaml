@@ -1,0 +1,26 @@
+---
+extracts:
+# Nullable. Text.
+  - name: "CA10Z1__policyX509CertificateProperties__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__policyX509CertificateProperties__c"
+        returnType: BYTES
+# Nullable.
+  - name: "caJsonFrom__policyX509CertificateProperties__c"
+    value:
+      JSON_FROM:
+        arg:
+          EXTRACT: "CA10Z1__policyX509CertificateProperties__c"
+        undeterminedIf:
+          isInvalid: "Extensions JSON is invalid"
+# Number. Validity Period (in months)
+  - name: "caJsonNumber__policyX509CertificatePropertiesValidityInMonths__c"
+    value: 
+      JSON_QUERY_NUMBER:
+        arg: 
+          EXTRACT: "caJsonFrom__policyX509CertificateProperties__c"
+        expression: "validityInMonths"
+        undeterminedIf: 
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return a number type."

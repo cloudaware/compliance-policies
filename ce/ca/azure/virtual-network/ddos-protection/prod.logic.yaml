@@ -1,0 +1,19 @@
+---
+inputType: "CA10__CaAzureVirtualNetwork__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: "/types/CA10__CaAzureVirtualNetwork__c/object.extracts.yaml"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "DDoS Network Protection for the Virtual Network is Enabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__enableDdosProtection__c"
+        right:
+          BOOLEAN: true
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "DDoS Network Protection for the Virtual Network is not Enabled."
+  remediationMessage: "Enable DDoS Network Protection for the Virtual Network."

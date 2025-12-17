@@ -23,7 +23,7 @@ By exploring the repository, the AI agent can utilize:
 
 - Information about [all available types](../types/all.gen.md) to select the correct one based on user queries.
 - Detailed type descriptions, including available fields (e.g., [AWS EC2 Instance](../types/CA10__CaAwsInstance__c/type.json.md)).
-- Available Compliance Engine policies, located in the [`/ce`](../ce/folder.yaml.md) directory.
+- Available Compliance Engine policies, located in the [`ce`](../ce/folder.yaml.md) directory.
 
 The system also relies on the AI's built-in knowledge of:
 

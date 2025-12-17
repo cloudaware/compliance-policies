@@ -23,7 +23,7 @@ There may be administrative overhead, as users who lose access to their secondar
 
 ## Default Value
 
-By default, the `Number of methods required to reset` is set to `2`.
+By default, the `Number of methods required to reset` is `1`.
 
 ## References
 

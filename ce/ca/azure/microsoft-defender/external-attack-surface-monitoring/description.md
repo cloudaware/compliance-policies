@@ -16,11 +16,9 @@ This tool can monitor the externally exposed resources of an organization, provi
 
 ## Impact
 
-Microsoft Defender EASM workspaces are currently available as Azure Resources with a 30-day free trial period but can quickly accrue significant charges. The costs are calculated daily as (Number of "billable" inventory items) x (item cost per day; approximately: $0.017).
+Microsoft Defender EASM workspaces are currently available as Azure Resources with a 30-day free trial period but can quickly accrue significant charges. The costs are calculated daily as (Number of "billable" inventory items) x (item cost per day).
 
 Estimated cost is not provided within the tool, and users are strongly advised to contact their Microsoft sales representative for pricing and set a calendar reminder for the end of the trial period.
-
-For an EASM workspace having an Inventory of 5k-10k billable items (IP addresses, hostnames, SSL certificates, etc) a typical cost might be approximately $85-170 per day or $2500-5000 USD/month at the time of publication.
 
 If the workspace is deleted by the last day of a free trial period, no charges are billed.
 
@@ -41,7 +39,7 @@ Microsoft Defender EASM is an optional, paid Azure Resource that must be created
 ## References
 
 1. <https://learn.microsoft.com/en-us/azure/external-attack-surface-management/>
-2. <https://learn.microsoft.com/en-us/azure/external-attack-surface-management/deploying-the-defender-easm-azure-resource?source=recommendations>
+2. <https://learn.microsoft.com/en-us/azure/external-attack-surface-management/deploying-the-defender-easm-azure-resource>
 3. <https://www.microsoft.com/en-us/security/blog/2022/08/02/microsoft-announces-new-solutions-for-threat-intelligence-and-attack-surface-management/>
 
 ## Additional Information

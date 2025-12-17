@@ -19,4 +19,8 @@ Using a customer-managed VNet ensures better control over network security and a
 
 ## Audit
 
-This policy flags an *Azure Databricks Workspace* as `INCOMPLAINT` if the `Parameters JSON` field **does not** contain the **Custom Virtual Network Id** parameter.
+This policy flags an *Azure Databricks Workspace* as `INCOMPLIANT` if the `Parameters JSON` field **does not** contain the **Custom Virtual Network Id** parameter.
+
+## Default Value
+
+By default, Azure Databricks uses a Databricks-Managed VNet.

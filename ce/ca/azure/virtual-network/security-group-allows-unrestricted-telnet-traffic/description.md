@@ -12,7 +12,7 @@ Limiting Telnet access may require updates to legacy systems or workflows. Ensur
 
 ## Audit
 
-This policy flagged an *Azure Network Security Group* as `INCOMPLIANT` if it contains at least one **Inbound Security Rule** that meets all of the following conditions:
+This policy flags an *Azure Network Security Group* as `INCOMPLIANT` if it contains at least one **Inbound Security Rule** that meets all of the following conditions:
 
 - `Direction` is **Inbound**.
 - `Access` is **Allow**.

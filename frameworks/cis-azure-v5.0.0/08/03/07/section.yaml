@@ -1,0 +1,18 @@
+---
+name: "8.3.7 Ensure Public Network Access is Disabled (Automated)"
+description: >
+  Disable public network access to prevent exposure to the internet and reduce the risk of 
+  unauthorized access. Use private endpoints to securely manage access within trusted networks.
+
+  When a private endpoint is configured on a key vault, connections from Azure resources 
+  within the same subnet will use its private IP address. However, network traffic from the 
+  public internet can still connect to the key vault's public endpoint (mykeyvault.vault.azure.net) 
+  using its public IP address unless public network access is disabled.
+
+  Disabling public network access removes the vault's public endpoint from Azure public DNS, 
+  reducing its exposure to the public internet. With a private endpoint configured, network 
+  traffic will use the vault's private endpoint IP address for all requests 
+  (mykeyvault.vault.privatelink.azure.net).
+similar:
+  sections:
+    - "/frameworks/cis-azure-v4.0.0/09/03/07"

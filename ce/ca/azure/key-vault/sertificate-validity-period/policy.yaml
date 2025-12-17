@@ -1,0 +1,11 @@
+---
+names:
+  full: Azure Key Vault Certificate Validity Period (in months) is more than 12
+  contextual: Key Vault Certificate Validity Period (in months) is more than 12
+description: "Restrict the validity period of certificates stored in Azure Key Vault to 12 months or less."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v5.0.0/08/03/11"
+  - "/frameworks/cloudaware/resource-security/secure-access"

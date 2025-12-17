@@ -1,0 +1,39 @@
+---
+inputType: "CA10__CaAzureStorageAccount__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAzureStorageAccount__c/object.extracts.yaml
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "Empty key creation time value"
+    check:
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__primaryKeyCreationTime__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__secondaryKeyCreationTime__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Access keys hadn't been rotated in over 90 days."
+    remediationMessage: "Rotate keys to align with best practices."
+    check:
+      OR:
+        args:
+          - NOT:
+              arg:
+                IS_WITHIN_LAST_DAYS:
+                  offsetDays: 90
+                  arg:
+                    EXTRACT: "CA10__primaryKeyCreationTime__c"
+          - NOT:
+              arg:
+                IS_WITHIN_LAST_DAYS:
+                  offsetDays: 90
+                  arg:
+                    EXTRACT: "CA10__secondaryKeyCreationTime__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Access keys had been rotated in over 90 days."

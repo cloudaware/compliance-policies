@@ -13,6 +13,7 @@
         "RecordTypeId": "recordType",
         "CA10__disappearanceTime__c": "2024-06-07T14:13:24Z",
         "CA10__networkAclsDefaultAction__c": "Allow",
+        "CA10__publicNetworkAccessState__c": "Enabled",
         "RecordType": {
             "DeveloperName": "StorageAccount",
             "Id": "test1_1"
@@ -21,7 +22,7 @@
     {
         "expectedResult": {
             "status": "INCOMPLIANT",
-            "conditionIndex": "199",
+            "conditionIndex": "299",
             "conditionText": "extract('CA10__networkAclsDefaultAction__c') == 'Allow'",
             "runtimeError": null
         },
@@ -32,6 +33,7 @@
         "RecordTypeId": "recordType",
         "CA10__disappearanceTime__c": null,
         "CA10__networkAclsDefaultAction__c": "Allow",
+        "CA10__publicNetworkAccessState__c": "Enabled",
         "RecordType": {
             "DeveloperName": "StorageAccount",
             "Id": "test2_1"
@@ -40,7 +42,7 @@
     {
         "expectedResult": {
             "status": "COMPLIANT",
-            "conditionIndex": "299",
+            "conditionIndex": "399",
             "conditionText": "extract('CA10__networkAclsDefaultAction__c') == 'Deny'",
             "runtimeError": null
         },
@@ -51,6 +53,7 @@
         "RecordTypeId": "recordType",
         "CA10__disappearanceTime__c": null,
         "CA10__networkAclsDefaultAction__c": "Deny",
+        "CA10__publicNetworkAccessState__c": "Enabled",
         "RecordType": {
             "DeveloperName": "StorageAccount",
             "Id": "test3_1"
@@ -59,7 +62,7 @@
     {
         "expectedResult": {
             "status": "UNDETERMINED",
-            "conditionIndex": "101",
+            "conditionIndex": "201",
             "conditionText": "CA10__networkAclsDefaultAction__c.isEmpty()",
             "runtimeError": null
         },
@@ -70,9 +73,30 @@
         "RecordTypeId": "recordType",
         "CA10__disappearanceTime__c": null,
         "CA10__networkAclsDefaultAction__c": "",
+        "CA10__publicNetworkAccessState__c": "Enabled",
         "RecordType": {
             "DeveloperName": "StorageAccount",
             "Id": "test4_1"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__publicNetworkAccessState__c') == 'Disabled'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-13T04:17:29Z"
+        },
+        "Id": "test5",
+        "RecordTypeId": "recordType",
+        "CA10__disappearanceTime__c": null,
+        "CA10__networkAclsDefaultAction__c": "Allow",
+        "CA10__publicNetworkAccessState__c": "Disabled",
+        "RecordType": {
+            "DeveloperName": "StorageAccount",
+            "Id": "test5_1"
         }
     }
 ]

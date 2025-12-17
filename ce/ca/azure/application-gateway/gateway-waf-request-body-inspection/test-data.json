@@ -1,0 +1,64 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-12T22:17:00Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "001",
+    "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r": [
+      {
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__wafPolicy__c": "waf001",
+        "CA10Z1__wafPolicyId__c": "/subscriptions/resourcegroups/providers/microsoft.network/applicationgateway/001",
+        "CA10Z1__applicationGateway__c": "001",
+        "Id": "waflink001",
+        "CA10Z1__wafPolicy__r": {
+          "Id": "waf001",
+          "CA10Z1__disappearanceTime__c": null,
+          "CA10Z1__policySettings__c": "{\"state\":\"Enabled\",\"mode\":\"Prevention\",\"requestBodyCheck\":false,\"requestBodyInspectLimitInKB\":128,\"requestBodyEnforcement\":false,\"maxRequestBodySizeInKb\":128,\"fileUploadEnforcement\":false,\"fileUploadLimitInMb\":100}"
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-12T22:17:00Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "002",
+    "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r": [
+      {
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__wafPolicy__c": "waf002",
+        "CA10Z1__wafPolicyId__c": "/subscriptions/resourcegroups/providers/microsoft.network/applicationgateway/002",
+        "CA10Z1__applicationGateway__c": "002",
+        "Id": "waflink002",
+        "CA10Z1__wafPolicy__r": {
+          "Id": "waf002",
+          "CA10Z1__disappearanceTime__c": null,
+          "CA10Z1__policySettings__c": "{\"state\":\"Enabled\",\"mode\":\"Prevention\",\"requestBodyCheck\":true,\"requestBodyInspectLimitInKB\":128,\"requestBodyEnforcement\":true,\"maxRequestBodySizeInKb\":128,\"fileUploadEnforcement\":true,\"fileUploadLimitInMb\":100,\"jsChallengeCookieExpirationInMins\":30}"
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-12T22:17:00Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "003",
+    "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r": []
+  }
+]

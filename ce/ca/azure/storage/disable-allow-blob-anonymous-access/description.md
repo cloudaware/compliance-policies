@@ -24,7 +24,6 @@ By default, `allowBlobPublicAccess` is `Disabled`.
 
 1. <https://learn.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent?tabs=portal>
 2. <https://learn.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent?source=recommendations&tabs=portal>
-3. Classic Storage Accounts: <https://learn.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent-classic?tabs=portal>
 
 ## Additional Information
 

@@ -20,7 +20,7 @@ By default, no custom owner roles are created.
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/billing/billing-add-change-azure-subscription-administrator>
+1. <https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/add-change-subscription-administrator>
 2. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-privileged-access#pa-1-separate-and-limit-highly-privilegedadministrative-users>
 3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-privileged-access#pa-3-manage-lifecycle-of-identities-and-entitlements>
 4. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-governance-strategy#gs-2-define-and-implement-enterprise-segmentationseparation-of-duties-strategy>

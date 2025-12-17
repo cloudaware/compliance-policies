@@ -1,0 +1,35 @@
+---
+inputType: "CA10__CaAwsEcsService__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsEcsService__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Service is not active."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "ACTIVE"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The ECS Service is configured to automatically assign public IP addresses."
+    remediationMessage: "Update the Service network configuration to disable Auto-assign public IP."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__assignPublicIp__c"
+        right:
+          TEXT: "Enabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "The ECS Service is configured to not assign public IP addresses."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__assignPublicIp__c"
+        right:
+          TEXT: "Disabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

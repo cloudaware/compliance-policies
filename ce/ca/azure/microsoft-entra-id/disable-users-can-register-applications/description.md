@@ -14,7 +14,6 @@ Enforcing this setting will create additional requests for approval that will ne
 
 This policy marks an *Azure Active Directory* as `INCOMPLIANT` if the related *Active Directory Auth Policy* has `Default Permission: Create Apps` set to **Enabled**. This field corresponds to the `Users can register applications` setting in the Microsoft Entra admin center’s **User settings** when enabled (set to **Yes**).
 
-
 ## Default Value
 
 By default, `Users can register applications` is set to `Yes`.

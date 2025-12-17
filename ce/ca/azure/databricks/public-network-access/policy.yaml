@@ -1,0 +1,12 @@
+---
+names:
+  full: Azure Databricks Workspace Allow Public Network Access is not disabled
+  contextual: Databricks Workspace Allow Public Network Access is not disabled
+description: "Disable public network access to prevent exposure to the internet and reduce the risk of\
+  \ unauthorized access. Use private endpoints to securely manage access within trusted networks."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v5.0.0/02/01/10"
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

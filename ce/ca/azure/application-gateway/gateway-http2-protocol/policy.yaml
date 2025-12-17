@@ -1,0 +1,11 @@
+---
+names:
+  full: "Azure Application Gateway HTTP2 protocol is not enabled"
+  contextual: "Application Gateway HTTP2 protocol is not enabled"
+description: "Enable HTTP/2 for improved performance, efficiency, and security."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v5.0.0/07/13"
+  - "/frameworks/cloudaware/resource-security/threat-protection"

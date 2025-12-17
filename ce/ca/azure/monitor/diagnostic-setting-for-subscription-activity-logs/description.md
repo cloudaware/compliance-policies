@@ -4,7 +4,7 @@ Enable Diagnostic settings for exporting activity logs. Diagnostic settings are 
 
 ## Rationale
 
-A diagnostic setting controls how a diagnostic log is exported. By default, logs are retained only for 90 days. Diagnostic settings should be defined so that logs can be exported and stored for a longer duration in order to analyze security activities within an Azure subscription.
+A diagnostic setting controls how a diagnostic log is exported. By default, logs are retained only for 90 days. Diagnostic settings should be defined so that logs can be exported and stored for a longer duration to analyze security activities within an Azure subscription.
 
 ## Audit
 
@@ -58,6 +58,6 @@ By default, diagnostic setting is not set.
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs#export-the-activity-log-with-a-log-profile>
+1. <https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/data-sources>
 2. <https://learn.microsoft.com/en-us/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest>
 3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-logging-threat-detection#lt-3-enable-logging-for-security-investigation>

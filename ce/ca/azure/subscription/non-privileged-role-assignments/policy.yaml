@@ -1,0 +1,13 @@
+---
+names:
+  full: Azure Non-Privileged Role Assignments are not periodically reviewed
+  contextual: Non-Privileged Role Assignments are not periodically reviewed
+description: "Periodic review of non-privileged role assignments is performed to ensure\
+  \ that the non-privileged roles assigned to users are accurate and appropriate."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v5.0.0/05/03/07"
+  - "/frameworks/cloudaware/identity-and-access-governance/rbac-management"

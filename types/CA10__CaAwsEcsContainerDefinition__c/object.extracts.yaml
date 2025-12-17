@@ -1,0 +1,28 @@
+---
+extracts:
+# Checkbox
+  - name: "CA10__privileged__c"
+    value:
+      FIELD:
+        path: "CA10__privileged__c"
+# Nullable. 
+  - name: "CA10__user__c"
+    value:
+      FIELD:
+        path: "CA10__user__c"
+# Checkbox
+  - name: "CA10__readonlyRootFilesystem__c"
+    value:
+      FIELD:
+        path: "CA10__readonlyRootFilesystem__c"
+  - name: "CA10__environment__c"
+    value:
+      FIELD:
+        returnType: "BYTES"
+        path: "CA10__environment__c"
+# Values: json-file | syslog | journald | gelf | fluentd | awslogs | splunk | awsfirelens
+# Nullable. 
+  - name: "CA10__logConfigurationDriver__c"
+    value:
+      FIELD:
+        path: "CA10__logConfigurationDriver__c"

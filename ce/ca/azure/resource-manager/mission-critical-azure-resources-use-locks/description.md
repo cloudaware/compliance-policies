@@ -51,7 +51,7 @@ By default, no locks are set.
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources>
-2. <https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-governance#azure-resource-locks>
-3. <https://docs.microsoft.com/en-us/azure/governance/blueprints/concepts/resource-locking>
+1. <https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources>
+2. <https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-platform#inventory-and-visibility-recommendations>
+3. <https://learn.microsoft.com/en-us/azure/governance/blueprints/concepts/resource-locking>
 4. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-asset-management#am-4-limit-access-to-asset-management>

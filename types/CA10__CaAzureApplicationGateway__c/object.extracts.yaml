@@ -1,0 +1,17 @@
+---
+extracts:
+# Checkbox.
+  - name: "CA10__wafEnabled__c"
+    value: 
+      FIELD:
+        path: "CA10__wafEnabled__c"
+# Text. Nullable
+  - name: "CA10__sslPolicyMinProtocolVersion__c"
+    value: 
+      FIELD:
+        path: "CA10__sslPolicyMinProtocolVersion__c"
+# Checkbox.
+  - name: "CA10__enableHttp2__c"
+    value: 
+      FIELD:
+        path: "CA10__enableHttp2__c"

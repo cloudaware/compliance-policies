@@ -40,5 +40,5 @@ By default Network Security Group logs are not sent to Log Analytics.
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-portal>
+1. <https://learn.microsoft.com/en-us/azure/network-watcher/nsg-flow-logs-tutorial>
 2. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-logging-threat-detection#lt-4-enable-network-logging-for-security-investigation>

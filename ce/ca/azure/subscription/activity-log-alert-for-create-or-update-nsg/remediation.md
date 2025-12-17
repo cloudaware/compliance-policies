@@ -23,7 +23,13 @@
 ## From Azure CLI
 
 ```sh
-az monitor activity-log alert create --resource-group "<resource group name>" --condition category=Administrative and operationName=Microsoft.Network/networkSecurityGroups/write and level=verbose --scope "/subscriptions/<subscription ID>" --name "<activity log rule name>" --subscription <subscription id> --action-group <action group ID>
+az monitor activity-log alert create 
+    --resource-group {{resource-group-name}} \
+    --condition category=Administrative and operationName=Microsoft.Network/networkSecurityGroups/write and level=verbose \
+    --scope /subscriptions/{{subscription-id}} \
+    --name {{activity-log-rule-name}} \
+    --subscription {{subscription-id}} \
+    --action-group {{action group-id}}
 ```
 
 ## From PowerShell
@@ -31,23 +37,48 @@ az monitor activity-log alert create --resource-group "<resource group name>" --
 Create the `Conditions` object:
 
 ```ps
-$conditions = @() $conditions += New-AzActivityLogAlertAlertRuleAnyOfOrLeafConditionObject -Equal Administrative -Field category $conditions += New-AzActivityLogAlertAlertRuleAnyOfOrLeafConditionObject -Equal Microsoft.Network/networkSecurityGroups/write -Field operationName $conditions += New-AzActivityLogAlertAlertRuleAnyOfOrLeafConditionObject -Equal Verbose -Field level
+$conditions = @() 
+
+$conditions += New-AzActivityLogAlertAlertRuleAnyOfOrLeafConditionObject `
+    -Equal Administrative `
+    -Field category 
+
+$conditions += New-AzActivityLogAlertAlertRuleAnyOfOrLeafConditionObject `
+    -Equal Microsoft.Network/networkSecurityGroups/write `
+    -Field operationName 
+
+$conditions += New-AzActivityLogAlertAlertRuleAnyOfOrLeafConditionObject `
+    -Equal Verbose `
+    -Field level
 ```
 
 Retrieve the `Action Group` information and store in a variable, then create the `Actions` object:
 
 ```ps
-$actionGroup = Get-AzActionGroup -ResourceGroupName <resource group name> -Name <action group name> $actionObject = New-AzActivityLogAlertActionGroupObject -Id $actionGroup.Id
+$actionGroup = Get-AzActionGroup `
+    -ResourceGroupName {{resource-group-name}} `
+    -Name {{action-group-name}} 
+
+$actionObject = New-AzActivityLogAlertActionGroupObject `
+    -Id $actionGroup.Id
 ```
 
 Create the `Scope` object:
 
 ```ps
-$scope = "/subscriptions/<subscription id>"
+$scope = "/subscriptions/{{subscription-id}}"
 ```
 
 Create the `Activity Log Alert Rule` for `Microsoft.Network/networkSecurityGroups/write`:
 
 ```ps
-New-AzActivityLogAlert -Name "<activity log alert rule name>" -ResourceGroupName "<resource group name>" -Condition $conditions -Scope $scope -Location global -Action $actionObject -Subscription <subscription ID> -Enabled $true
+New-AzActivityLogAlert `
+    -Name "{{activity-log-alert-rule-name}}" `
+    -ResourceGroupName "{{resource-group-name}}" `
+    -Condition $conditions `
+    -Scope $scope `
+    -Location global `
+    -Action $actionObject `
+    -Subscription {{subscription-id}} `
+    -Enabled $true
 ```

@@ -5,9 +5,8 @@ importExtracts:
 testData:
   - file: "test-data.json"
 conditions:
-  - status: "INCOMPLIANT"
+  - status: "INAPPLICABLE"
     currentStateMessage: "Network Security Group Flow Logs are disabled."
-    remediationMessage: "Consider enabling Network Security Group Flow Logs."
     check:
       IS_EQUAL:
         left:
@@ -16,7 +15,7 @@ conditions:
           BOOLEAN: false
   - status: "INCOMPLIANT"
     currentStateMessage: "Network Security Group Flow Logs retention policy is disabled."
-    remediationMessage: "Consider enabling retention policy for Network Security Group Flow Logs."
+    remediationMessage: "Consider migrating the NSG Flow Logs and enabling a retention policy."
     check:
       IS_EQUAL:
         left:
@@ -25,7 +24,7 @@ conditions:
           BOOLEAN: false
   - status: "INCOMPLIANT"
     currentStateMessage: "Network Security Group Flow Logs retention period is less than 90 days."
-    remediationMessage: "Consider setting the retention period to 'greater then or equal to 90 days'."
+    remediationMessage: "Consider migrating the NSG Flow Logs and updating the retention policy."
     check:
       LESS_THAN:
         left:

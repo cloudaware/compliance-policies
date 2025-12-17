@@ -1,0 +1,11 @@
+---
+name: "9.3.11 Ensure Redundancy is set to 'geo-redundant storage (GRS)' on critical Azure Storage Accounts (Automated)"
+description: >
+  Geo-redundant storage (GRS) in Azure replicates data three times within the primary 
+  region using locally redundant storage (LRS) and asynchronously copies it to a 
+  secondary region hundreds of miles away. This setup ensures high availability and 
+  resilience by providing 16 nines (99.99999999999999%) durability over a year, 
+  safeguarding data against regional outages.
+similar:
+  sections:
+  - "/frameworks/cis-azure-v4.0.0/10/03/12"

@@ -3,13 +3,13 @@ names:
   full: Azure Storage Account Public Network Access is not disabled
   contextual: Public Network Access is not disabled
 description: Disallowing public network access for a storage account overrides the
-  public access settings for individual containers in that storage account for   Azure
+  public access settings for individual containers in that storage account for Azure
   Resource Manager Deployment Model storage accounts.
 type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - "/frameworks/cis-azure-v4.0.0/10/03/02/02"
+  - "/frameworks/cis-azure-v5.0.0/09/03/02/02"
   - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
 similarPolicies:
   cloudConformity:

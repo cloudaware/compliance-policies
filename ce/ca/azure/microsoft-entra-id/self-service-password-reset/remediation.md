@@ -8,3 +8,4 @@
 4. Under `Manage`, select `Password reset`.
 5. Select `Authentication methods`.
 6. Set the `Number of methods required to reset` to `2`.
+7. Click `Save`

@@ -1,0 +1,50 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('caJsonNumber__policyX509CertificatePropertiesValidityInMonths__c') <= number(12.0)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-07T08:18:54Z" },
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__policyX509CertificateProperties__c": "{\"subject\":\"CN\\u003dKeyVault, O\\u003dOutsystems - Software Em Rede S.A., L\\u003dLinda-A-Velha, C\\u003dPT\",\"ekus\":[\"1.3.6.1.5.5.7.3.3\"],\"subjectAlternativeNames\":{\"dnsNames\":[]},\"keyUsage\":[\"digitalSignature\"],\"validityInMonths\":12}",
+    "Id": "001"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('caJsonNumber__policyX509CertificatePropertiesValidityInMonths__c') > number(12.0)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-07T08:18:54Z" },
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__policyX509CertificateProperties__c": "{\"subject\":\"CN\\u003dKeyVault Generated\",\"ekus\":[\"1.3.6.1.5.5.7.3.1\",\"1.3.6.1.5.5.7.3.2\"],\"keyUsage\":[\"cRLSign\",\"dataEncipherment\",\"digitalSignature\",\"keyAgreement\",\"keyCertSign\",\"keyEncipherment\"],\"validityInMonths\":13}",
+    "Id": "002"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-07T08:18:54Z" },
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__policyX509CertificateProperties__c": "{\"subject\":\"CN\\u003dKeyVault Generated\",\"ekus\":[\"1.3.6.1.5.5.7.3.1\",\"1.3.6.1.5.5.7.3.2\"],\"keyUsage\":[\"cRLSign\",\"dataEncipherment\",\"digitalSignature\",\"keyAgreement\",\"keyCertSign\",\"keyEncipherment\"],\"validityInMonths\":null}",
+    "Id": "003"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-07T08:18:54Z" },
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__policyX509CertificateProperties__c": null,
+    "Id": "004"
+  }
+]

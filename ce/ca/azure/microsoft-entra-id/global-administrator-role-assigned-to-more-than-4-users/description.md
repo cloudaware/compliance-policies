@@ -6,9 +6,13 @@ This recommendation aims to maintain a balance between security and operational 
 
 The Global Administrator role has extensive privileges across all services in Microsoft Entra ID. The Global Administrator role should never be used in regular daily activities; administrators should have a regular user account for daily activities, and a separate account for administrative responsibilities. Limiting the number of Global Administrators helps mitigate the risk of unauthorized access, reduces the potential impact of human error, and aligns with the principle of least privilege to reduce the attack surface of an Azure tenant. Conversely, having at least two Global Administrators ensures that administrative functions can be performed without interruption in case of unavailability of a single admin.
 
+For any accounts assigned the Global Administrator role, at least one strong authentication method such as a FIDO2 key or certificate is strongly advised. Additional detail on strong passwordless authentication methods is provided in the recommendation titled "Ensure passwordless authentication methods are considered" and a link can be found in references for more detail about emergency access accounts.
+
 ## Impact
 
 Implementing this recommendation may require changes in administrative workflows or the redistribution of roles and responsibilities. Adequate training and awareness should be provided to all Global Administrators.
+
+NOTE: If an organization's tenant is using a third-party identity provider, the audit and remediation procedures presented here may not be relevant. The principle of the recommendation is still relevant, and compensating controls that are relevant to the third-party identity provider should be implemented.
 
 ## Audit
 

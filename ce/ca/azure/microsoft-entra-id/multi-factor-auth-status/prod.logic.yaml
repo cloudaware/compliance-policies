@@ -1,0 +1,34 @@
+---
+inputType: "CA10__CaAzureActiveDirectoryUser__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureActiveDirectoryUser__c/object.extracts.yaml"
+conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "MFA is not enabled for the Active Directory User."
+        remediationMessage: "Enable MFA for the Active Directory User."
+        check:
+          IS_EMPTY:
+            arg:
+              EXTRACT: "CA10__mfaState__c"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "MFA is disabled for the Active Directory User."
+        remediationMessage: "Enable MFA for the Active Directory User."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__mfaState__c"
+            right:
+              TEXT: "disabled"
+      - status: "COMPLIANT"
+        currentStateMessage: "MFA is enabled for the Active Directory User."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__mfaState__c"
+            right:
+              TEXT: "enabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected MFA state value."

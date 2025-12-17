@@ -29,7 +29,7 @@ aws ec2 revoke-security-group-ingress \
     --ip-permissions file://{{revoke-rule}}.json
 ```
 
-**Note**: You must revoke the entire rule as it was originally defined — that is, exact protocol, full port range, and CIDR block — and if needed, recreate any safe sub-rules after that.
+**Note**: You must revoke the entire rule as it was originally defined, that is, exact protocol, full port range, and CIDR block, and if needed, recreate any safe sub-rules after that.
 
 ## From Console
 

@@ -22,8 +22,8 @@ By default, Microsoft Defender for Resource Manager is not enabled.
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/defender-for-cloud/enable-enhanced-security>
-2. <https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-resource-manager-introduction>
+1. <https://learn.microsoft.com/en-us/azure/defender-for-cloud/connect-azure-subscription>
+2. <https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-resource-manager-introduction>
 3. <https://azure.microsoft.com/en-us/pricing/details/defender-for-cloud/>
-4. <https://docs.microsoft.com/en-us/azure/defender-for-cloud/alerts-overview>
+4. <https://learn.microsoft.com/en-us/azure/defender-for-cloud/alerts-overview>
 5. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-logging-threat-detection#lt-1-enable-threat-detection-capabilities>

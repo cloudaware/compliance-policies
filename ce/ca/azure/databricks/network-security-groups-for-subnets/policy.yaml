@@ -1,15 +1,14 @@
 ---
 names:
-  full: Azure Databricks network security groups are not configured
-  contextual: Databricks network security groups are not configured
+  full: Azure Databricks Workspace network security groups are not configured
+  contextual: Databricks Workspace network security groups are not configured
 description: "Network Security Groups (NSGs) should be implemented to control inbound and\
   \ outbound traffic to Azure Databricks subnets, ensuring only authorized communication.\
   \ NSGs should be configured with deny rules to block unwanted traffic and restrict\
   \ communication to essential sources only."
-impossible: true
 type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - "/frameworks/cis-azure-v4.0.0/03/01/02"
+  - "/frameworks/cis-azure-v5.0.0/02/01/02"
   - "/frameworks/cloudaware/resource-security/secure-access"

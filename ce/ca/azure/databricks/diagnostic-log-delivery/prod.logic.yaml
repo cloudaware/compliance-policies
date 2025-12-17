@@ -1,0 +1,82 @@
+---
+inputType: "CA10Z1__CaAzureDatabricksWorkspace__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Diagnostic log delivery is configured for Azure Databricks."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10Z1__Azure_Diagnostic_Settings__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Diagnostic log delivery is not configured for Azure Databricks."
+  remediationMessage: "Configure diagnostic log delivery."
+relatedLists:
+  - relationshipName: "CA10Z1__Azure_Diagnostic_Settings__r"
+    importExtracts:
+      - file: "/types/CA10__CaAzureDiagnosticSetting__c/object.extracts.yaml"
+    conditions: 
+# Ensure that logging is enabled for the following categories: accounts, clusters, notebook, jobs, workspace
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Logging is not enabled for the required categories."
+        check:
+          NOT:
+            arg:
+              AND:
+                args:
+                  - JSON_QUERY_BOOLEAN:
+                      arg: 
+                        EXTRACT: "caJsonFrom__logsJson__c"
+                      expression: "[? category == `accounts`].enabled | [0]"
+                      undeterminedIf: 
+                        evaluationError: "The JSON query has failed."
+                        resultTypeMismatch: "The JSON query did not return boolean type."
+                  - JSON_QUERY_BOOLEAN:
+                      arg: 
+                        EXTRACT: "caJsonFrom__logsJson__c"
+                      expression: "[? category == `clusters`].enabled | [0]"
+                      undeterminedIf: 
+                        evaluationError: "The JSON query has failed."
+                        resultTypeMismatch: "The JSON query did not return boolean type."
+                  - JSON_QUERY_BOOLEAN:
+                      arg: 
+                        EXTRACT: "caJsonFrom__logsJson__c"
+                      expression: "[? category == `notebook`].enabled | [0]"
+                      undeterminedIf: 
+                        evaluationError: "The JSON query has failed."
+                        resultTypeMismatch: "The JSON query did not return boolean type."
+                  - JSON_QUERY_BOOLEAN:
+                      arg: 
+                        EXTRACT: "caJsonFrom__logsJson__c"
+                      expression: "[? category == `jobs`].enabled | [0]"
+                      undeterminedIf: 
+                        evaluationError: "The JSON query has failed."
+                        resultTypeMismatch: "The JSON query did not return boolean type."
+                  - JSON_QUERY_BOOLEAN:
+                      arg: 
+                        EXTRACT: "caJsonFrom__logsJson__c"
+                      expression: "[? category == `workspace`].enabled | [0]"
+                      undeterminedIf: 
+                        evaluationError: "The JSON query has failed."
+                        resultTypeMismatch: "The JSON query did not return boolean type."
+# Verify that logs are being sent to one or more of the following destinations: Azure Log Analytics workspace, Azure Storage Account, Azure Event Hubs
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Logs destination does not exist."
+        remediationMessage: "Set a destination for the logs"
+        check:
+          AND:
+            args:
+              - IS_EMPTY:
+                  arg:
+                    EXTRACT: "CA10__workspaceId__c"
+              - IS_EMPTY:
+                  arg:
+                    EXTRACT: CA10__storageAccountId__c
+              - IS_EMPTY:
+                  arg:
+                    EXTRACT: CA10__eventHubAuthorizationRuleId__c
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Diagnostic Settings are configured properly."

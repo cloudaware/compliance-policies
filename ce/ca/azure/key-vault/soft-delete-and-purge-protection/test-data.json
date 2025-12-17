@@ -18,7 +18,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "199",
-            "conditionText": "extract('CA10__softDelete__c') == 'Disabled'",
+            "conditionText": "extract('CA10__purgeProtection__c') != 'Enabled'",
             "runtimeError": null
         },
         "context": {
@@ -26,35 +26,20 @@
         },
         "Id": "test2",
         "CA10__disappearanceTime__c": null,
-        "CA10__softDelete__c": "Disabled",
-        "CA10__purgeProtection__c": ""
-    },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "299",
-            "conditionText": "extract('CA10__purgeProtection__c') != 'Enabled'",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-27T20:33:04Z"
-        },
-        "Id": "test3",
-        "CA10__disappearanceTime__c": null,
         "CA10__softDelete__c": "Enabled",
         "CA10__purgeProtection__c": ""
     },
     {
         "expectedResult": {
             "status": "COMPLIANT",
-            "conditionIndex": "399",
-            "conditionText": "extract('CA10__purgeProtection__c') == 'Enabled' && extract('CA10__softDelete__c') == 'Enabled'",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__purgeProtection__c') == 'Enabled'",
             "runtimeError": null
         },
         "context": {
             "snapshotTime": "2024-06-27T20:33:04Z"
         },
-        "Id": "test4",
+        "Id": "test3",
         "CA10__disappearanceTime__c": null,
         "CA10__softDelete__c": "Enabled",
         "CA10__purgeProtection__c": "Enabled"

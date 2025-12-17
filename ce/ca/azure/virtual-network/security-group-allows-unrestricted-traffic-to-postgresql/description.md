@@ -12,7 +12,7 @@ Implementing these restrictions requires careful planning to avoid disrupting le
 
 ## Audit
 
-This policy flagged an *Azure Network Security Group* as `INCOMPLIANT` if it contains at least one **Inbound Security Rule** that meets all of the following conditions:
+This policy flags an *Azure Network Security Group* as `INCOMPLIANT` if it contains at least one **Inbound Security Rule** that meets all of the following conditions:
 
 - `Direction` is **Inbound**.
 - `Access` is **Allow**.

@@ -1,0 +1,13 @@
+---
+names:
+  full: "Azure Virtual Network has DDoS Network Protection disabled"
+  contextual: "Virtual Network has DDoS Network Protection disabled"
+description: >
+  Azure DDoS Network Protection defends resources in virtual networks 
+  against distributed denial-of-service (DDoS) attacks.
+categories:
+  - "RELIABILITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/cis-azure-v5.0.0/08/05"

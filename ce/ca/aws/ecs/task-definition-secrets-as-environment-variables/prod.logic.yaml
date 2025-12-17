@@ -1,0 +1,82 @@
+---
+inputType: "CA10__CaAwsEcsTaskDefinition__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsEcsTaskDefinition__c/object.extracts.yaml"
+  - file: "/types/CA10__CaAwsEcsContainerDefinition__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Task Definition is not active."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "ACTIVE"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Task Definition contains environment variables with\
+      \ names indicating sensitive data (e.g., AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, ECS_ENGINE_AUTH_DATA)."
+    remediationMessage: "Move sensitive data to AWS Secrets Manager or SSM Parameter\
+      \ Store and reference them using the secrets parameter."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__AWS_ECS_Container_Definitions__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "No obvious secrets detected in plaintext environment variables (e.g., AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, ECS_ENGINE_AUTH_DATA)."
+relatedLists:
+  - relationshipName: "CA10__AWS_ECS_Container_Definitions__r"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The container contains ECS_ENGINE_AUTH_DATA secret in environment variables."
+        check:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__environment__c"
+            search:
+              BYTES: "ECS_ENGINE_AUTH_DATA"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The container contains PASSWORD secret in environment variables."
+        check:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__environment__c"
+            search:
+              BYTES: "PASSWORD"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The container contains SECRET secret in environment variables."
+        check:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__environment__c"
+            search:
+              BYTES: "SECRET"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The container contains API_KEY secret in environment variables."
+        check:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__environment__c"
+            search:
+              BYTES: "API_KEY"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The container contains ACCESS_KEY secret in environment variables."
+        check:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__environment__c"
+            search:
+              BYTES: "ACCESS_KEY"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The container contains TOKEN secret in environment variables."
+        check:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__environment__c"
+            search:
+              BYTES: "TOKEN"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "The container does not contain any secrets in environment variables."

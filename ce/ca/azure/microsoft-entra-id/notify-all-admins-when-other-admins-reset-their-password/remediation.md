@@ -8,4 +8,4 @@
 4. Under `Manage`, select `Password reset`.
 5. Under `Manage`, select `Notifications`.
 6. Set `Notify all admins when other admins reset their password?` to `Yes`.
-7. Click Save.
+7. Click `Save`.

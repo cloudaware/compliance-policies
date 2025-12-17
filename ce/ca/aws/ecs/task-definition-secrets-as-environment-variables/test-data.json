@@ -1,0 +1,83 @@
+[
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "CA10__AWS_ECS_Container_Definitions__r": [],
+        "context": {
+            "snapshotTime": "2025-12-12T04:42:59Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-07-31T04:38:58Z",
+        "CA10__status__c": "ACTIVE"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__status__c') != 'ACTIVE'",
+            "conditionIndex": 199,
+            "status": "INAPPLICABLE"
+        },
+        "CA10__AWS_ECS_Container_Definitions__r": [
+            {
+                "CA10__environment__c": "VARIABLE: text\n",
+                "Id": "test2_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__taskDefinition__c": "test2"
+            }
+        ],
+        "context": {
+            "snapshotTime": "2025-12-12T04:42:59Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "INACTIVE"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "CA10__AWS_ECS_Container_Definitions__r.has(INCOMPLIANT)",
+            "conditionIndex": 299,
+            "status": "INCOMPLIANT"
+        },
+        "CA10__AWS_ECS_Container_Definitions__r": [
+            {
+                "CA10__environment__c": "AWS_SECRET_ACCESS_KEY: secret-access-key\n",
+                "Id": "test3_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__taskDefinition__c": "test3"
+            }
+        ],
+        "context": {
+            "snapshotTime": "2025-12-12T04:42:59Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "otherwise",
+            "conditionIndex": 300,
+            "status": "COMPLIANT"
+        },
+        "CA10__AWS_ECS_Container_Definitions__r": [
+            {
+                "CA10__environment__c": "VARIABLE: text\n",
+                "Id": "test4_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__taskDefinition__c": "test4"
+            }
+        ],
+        "context": {
+            "snapshotTime": "2025-12-12T04:42:59Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE"
+    }
+]

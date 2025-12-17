@@ -1,0 +1,9 @@
+---
+name: "2.1.8 Ensure critical data in Azure Databricks is encrypted with customer-managed keys (CMK) (Manual)"
+description: >
+  Customer-managed keys introduce additional depth to security by providing a means to manage access control for encryption keys. 
+  Where compliance and security frameworks indicate the need, and organizational capacity allows, sensitive data at rest can be 
+  encrypted using customer-managed keys (CMK) rather than Microsoft-managed keys.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v4.0.0/03/01/08"

@@ -16,9 +16,9 @@ By default, `Owner` is selected.
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/security-center/security-center-provide-security-contact-details>
-2. <https://docs.microsoft.com/en-us/rest/api/securitycenter/securitycontacts/list>
-3. <https://docs.microsoft.com/en-us/rest/api/securitycenter/security-contacts>
+1. <https://learn.microsoft.com/en-us/azure/defender-for-cloud/configure-email-notifications>
+2. <https://learn.microsoft.com/en-us/rest/api/defenderforcloud/security-contacts/list>
+3. <https://learn.microsoft.com/en-us/rest/api/defenderforcloud/security-contacts>
 4. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-incident-response#ir-2-preparation---setup-incident-notification>
 
 ## Additional Information

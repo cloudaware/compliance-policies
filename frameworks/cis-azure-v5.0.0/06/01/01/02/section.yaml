@@ -1,0 +1,12 @@
+---
+name: "6.1.1.2 Ensure Diagnostic Setting captures appropriate categories (Automated)"
+description: >
+  Prerequisite: A Diagnostic Setting must exist. If a Diagnostic Setting does not exist, 
+  the navigation and options within this recommendation will not be available. Please review 
+  the recommendation at the beginning of this subsection titled: "Ensure that a 'Diagnostic Setting' exists."
+
+  The diagnostic setting should be configured to log the appropriate activities from the control/management plane.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v3.0.0/06/01/02"
+    - "/frameworks/cis-azure-v4.0.0/07/01/01/02"

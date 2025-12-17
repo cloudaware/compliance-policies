@@ -6,6 +6,8 @@ Microsoft Entra ID Conditional Access allows an organization to configure `Named
 
 Defining trusted source IP addresses or ranges helps organizations create and enforce Conditional Access policies around those trusted or untrusted IP addresses and ranges. Users authenticating from trusted IP addresses and/or ranges may have less access restrictions or access requirements when compared to users that try to authenticate to Microsoft Entra ID from untrusted locations or untrusted source IP addresses/ranges.
 
+Note on Assessment Status: Because the determination of entities to be included or excluded is specific and unique to each organization, assessment status for this recommendation is considered 'Manual' even though some elements for automation (CLI, PowerShell) are provided.
+
 ## Impact
 
 When configuring `Named locations`, the organization can create locations using Geographical location data or by defining source IP addresses or ranges. Configuring `Named locations` using a Country location does not provide the organization the ability to mark those locations as trusted, and any Conditional Access policy relying on those `Countries location` setting will not be able to use the `All trusted locations` setting within the Conditional Access policy. They instead will have to rely on the `Select locations` setting. This may add additional resource requirements when configuring, and will require thorough organizational testing.

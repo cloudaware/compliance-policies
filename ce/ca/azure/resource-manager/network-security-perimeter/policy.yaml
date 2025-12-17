@@ -1,0 +1,15 @@
+---
+names:
+  full: "Azure Network Security Perimeter is used to secure Azure PaaS resources"
+  contextual: "Network Security Perimeter is used to secure Azure PaaS resources"
+description: "Azure Network Security Perimeter creates a logical boundary around Azure platform-as-a-service (PaaS)\
+  \ resources outside of virtual networks. By default, the network security perimeter denies public\
+  \ access to associated PaaS resources, with the ability to define explicit rules for inbound and\
+  \ outbound traffic."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v5.0.0/07/16"
+  - "/frameworks/cloudaware/resource-security/threat-protection"

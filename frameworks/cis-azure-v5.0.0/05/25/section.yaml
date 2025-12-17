@@ -1,0 +1,10 @@
+---
+name: "5.25 Ensure that 'Subscription leaving Microsoft Entra tenant' and 'Subscription entering Microsoft Entra tenant' is set to 'Permit no one' (Manual)"
+description: >
+  Users who are set as subscription owners are able to make administrative changes to the subscriptions 
+  and move them into and out of Microsoft Entra ID.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v3.0.0/02/25"
+    - "/frameworks/cis-azure-v4.0.0/06/25"
+    

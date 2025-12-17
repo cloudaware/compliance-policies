@@ -2,6 +2,8 @@
 
 Microsoft Entra ID has native and extended identity functionality allowing you to invite people from outside your organization to be guest users in your cloud account and sign in with their own work, school, or social identities.
 
+While an automated assessment procedure exists for this recommendation, the assessment status remains manual. Evaluating the appropriateness of guest users requires a manual review, as it depends on the specific needs and context of each organization and environment.
+
 ## Rationale
 
 Guest users are typically added outside your employee on-boarding/off-boarding process and could potentially be overlooked indefinitely. To prevent this, guest users should be reviewed on a regular basis. During this audit, guest users should also be determined to not have administrative privileges.

@@ -1,0 +1,11 @@
+---
+name: "7.2 Ensure that SSH access from the Internet is evaluated and restricted (Automated)"
+description: >
+  Network security groups should be periodically evaluated for port misconfigurations. 
+  Where SSH is not explicitly required and narrowly configured for resources attached to 
+  a network security group, Internet-level access to Azure resources should be restricted 
+  or eliminated.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v3.0.0/07/02"
+    - "/frameworks/cis-azure-v4.0.0/08/02"

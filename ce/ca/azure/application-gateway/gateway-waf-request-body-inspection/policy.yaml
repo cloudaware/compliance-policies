@@ -1,0 +1,12 @@
+---
+names:
+  full: "Azure Application Gateway WAF policy Request body inspection property is not enabled"
+  contextual: "Application Gateway WAF policy Request body inspection property is not enabled"
+description: "Enable request body inspection so that the Web Application Firewall evaluates the\
+  \ contents of HTTP message bodies for potential threats."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v5.0.0/07/14"
+  - "/frameworks/cloudaware/resource-security/threat-protection"

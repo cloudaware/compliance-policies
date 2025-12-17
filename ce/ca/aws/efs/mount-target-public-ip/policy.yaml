@@ -1,0 +1,19 @@
+---
+names:
+  full: AWS EFS Mount Target is in a subnet that assigns public IP addresses on launch
+  contextual: Mount Target is in a subnet that assigns public IP addresses on launch
+description: >
+  Ensure that Amazon EFS Mount Targets are not deployed in subnets configured 
+  to automatically assign public IPv4 addresses. EFS is designed to be accessed 
+  privately within the VPC, and placing mount targets in public subnets may 
+  violate network segmentation best practices.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/aws-fsbp-v1.0.0/efs/06"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[EFS.6] EFS mount targets should not be associated with subnets that assign public IP addresses on launch"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/efs-controls.html#efs-6"

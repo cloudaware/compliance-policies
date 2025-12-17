@@ -2,28 +2,25 @@
 
 ## From Azure Portal
 
-Key Vaults can be configured to use `Azure role-based access control` on creation.
-
-For existing Key Vaults:
-
-1. From Azure Home open the Portal Menu in the top left corner
-2. Select `Key Vaults`
-3. Select a Key Vault to audit
-4. Select `Networking`
-5. NEXT
+1. Go to `Key vaults`.
+2. Click the name of a key vault.
+3. Under `Settings`, click `Networking`.
+4. Under `Firewalls and virtual networks`, next to `Allow access from:`, click the radio button next to `Disable public access`.
+5. Click `Apply`.
+6. Repeat steps 1-5 for each key vault requiring remediation.
 
 ## From Azure CLI
 
-To disable Public network access for each Key Vault, run the following Azure CLI command:
+For each key vault requiring remediation, run the following command to disable public network access:
 
 ```sh
-az keyvault update --resource-group <resource_group> --name <vault_name> --public-network-access Disabled
+az keyvault update --resource-group <resource-group> --name <key-vault> --public-network-access Disabled
 ```
 
 ## From PowerShell
 
-To enable RBAC authorization on each Key Vault, run the following PowerShell command:
+For each key vault requiring remediation, run the following command to disable public network access:
 
 ```ps
-Update-AzKeyVault -ResourceGroupName <resource_group> -VaultName <vault_name> -PublicNetworkAccess "Disabled"
+Update-AzKeyVault -ResourceGroupName <resource-group> -VaultName <vault-name> -PublicNetworkAccess "Disabled"
 ```

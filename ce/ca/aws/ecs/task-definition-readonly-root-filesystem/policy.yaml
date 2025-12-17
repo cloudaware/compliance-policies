@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS ECS Task Definition Readonly Root Filesystem is disabled"
+  contextual: "Task Definition Readonly Root Filesystem is disabled"
+description: >
+  Ensure that AWS ECS Task Definitions configure containers to mount their
+  root file system as read-only. This prevents malicious processes from modifying
+  local files, installing software, or persisting malware within the container.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/secure-access"
+  - "/frameworks/aws-fsbp-v1.0.0/ecs/05"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ECS.5] ECS containers should be limited to read-only access to root filesystems"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/ecs-controls.html#ecs-5"

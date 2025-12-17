@@ -1,0 +1,230 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-12T08:07:53Z" },
+    "CA10__disappearanceTime__c": "2025-09-14T19:28:23Z",
+    "Name": "Azure Kubernetes User Role",
+    "Id": "001",
+    "CA10__Azure_Authorization_Role_Assignments__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('Name') != 'Owner'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-12T08:07:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "Name": "API Management Service Contributor",
+    "Id": "002",
+    "CA10__Azure_Authorization_Role_Assignments__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "299",
+      "conditionText": "CA10__Azure_Authorization_Role_Assignments__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-12T08:07:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "Name": "Owner",
+    "Id": "003",
+    "CA10__Azure_Authorization_Role_Assignments__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__groupPrincipal__c": "a9N4x000000ZC4vEAG",
+        "CA10__groupPrincipalId__c": "4bd01aff-28cf-40bf-84e5-17174559acfb",
+        "CA10__role__c": "003",
+        "Id": "003-1",
+        "CA10__groupPrincipal__r": {
+          "Id": "003-2",
+          "CA10__disappearanceTime__c": null
+        }
+      },
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__groupPrincipal__c": "",
+        "CA10__groupPrincipalId__c": "",
+        "CA10__role__c": "003",
+        "Id": "003-3",
+        "CA10__groupPrincipal__r": {
+          "Id": null,
+          "CA10__disappearanceTime__c": null
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "CA10__Azure_Authorization_Role_Assignments__r.count(INCOMPLIANT) < number(2.0)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-12T08:07:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "Name": "Owner",
+    "Id": "004",
+    "CA10__Azure_Authorization_Role_Assignments__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__groupPrincipal__c": "",
+        "CA10__groupPrincipalId__c": "",
+        "CA10__role__c": "004",
+        "Id": "aByPo000000W73GKAS",
+        "CA10__groupPrincipal__r": {
+          "Id": null,
+          "CA10__disappearanceTime__c": null
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10__Azure_Authorization_Role_Assignments__r.count(INCOMPLIANT) > number(3.0)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-12T08:07:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "Name": "Owner",
+    "Id": "005",
+    "CA10__Azure_Authorization_Role_Assignments__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__groupPrincipal__c": "",
+        "CA10__groupPrincipalId__c": "",
+        "CA10__role__c": "005",
+        "Id": "aByPo0000070KJEKA2",
+        "CA10__groupPrincipal__r": {
+          "Id": null,
+          "CA10__disappearanceTime__c": null
+        }
+      },
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__groupPrincipal__c": "",
+        "CA10__groupPrincipalId__c": "",
+        "CA10__role__c": "005",
+        "Id": "aBy4x000000L9FPCA0",
+        "CA10__groupPrincipal__r": {
+          "Id": null,
+          "CA10__disappearanceTime__c": null
+        }
+      },
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__groupPrincipal__c": "",
+        "CA10__groupPrincipalId__c": "",
+        "CA10__role__c": "005",
+        "Id": "aBy4x000000L7quCAC",
+        "CA10__groupPrincipal__r": {
+          "Id": null,
+          "CA10__disappearanceTime__c": null
+        }
+      },
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__groupPrincipal__c": "",
+        "CA10__groupPrincipalId__c": "",
+        "CA10__role__c": "005",
+        "Id": "aBy4x000000L7qvCAC",
+        "CA10__groupPrincipal__r": {
+          "Id": null,
+          "CA10__disappearanceTime__c": null
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "500",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-12T08:07:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "Name": "Owner",
+    "Id": "006",
+    "CA10__Azure_Authorization_Role_Assignments__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__groupPrincipal__c": "",
+        "CA10__groupPrincipalId__c": "",
+        "CA10__role__c": "006",
+        "Id": "aByPo0000000BOUKA2",
+        "CA10__groupPrincipal__r": {
+          "Id": null,
+          "CA10__disappearanceTime__c": null
+        }
+      },
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__groupPrincipal__c": "",
+        "CA10__groupPrincipalId__c": "",
+        "CA10__role__c": "006",
+        "Id": "aByPo00000008ytKAA",
+        "CA10__groupPrincipal__r": {
+          "Id": null,
+          "CA10__disappearanceTime__c": null
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "500",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-12T08:07:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "Name": "Owner",
+    "Id": "007",
+    "CA10__Azure_Authorization_Role_Assignments__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__groupPrincipal__c": "",
+        "CA10__groupPrincipalId__c": "",
+        "CA10__role__c": "007",
+        "Id": "aByPo0000000BOUKA27",
+        "CA10__groupPrincipal__r": {
+          "Id": null,
+          "CA10__disappearanceTime__c": null
+        }
+      },
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__groupPrincipal__c": "",
+        "CA10__groupPrincipalId__c": "",
+        "CA10__role__c": "007",
+        "Id": "aByPo00000008ytKAA7",
+        "CA10__groupPrincipal__r": {
+          "Id": null,
+          "CA10__disappearanceTime__c": null
+        }
+      },
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__groupPrincipal__c": "",
+        "CA10__groupPrincipalId__c": "",
+        "CA10__role__c": "007",
+        "Id": "aByPo00000009WLKAY7",
+        "CA10__groupPrincipal__r": {
+          "Id": null,
+          "CA10__disappearanceTime__c": null
+        }
+      }
+    ]
+  }
+]

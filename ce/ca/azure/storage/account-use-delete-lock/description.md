@@ -4,6 +4,8 @@ Azure Resource Manager CannotDelete (Delete) locks can prevent users from accide
 
 This feature is a protective control for the availability of data. By ensuring that a storage account or its parent resource group cannot be deleted without first removing the lock, the risk of data loss is reduced.
 
+While an automated assessment procedure exists for this recommendation, the assessment status remains manual. Determining storage accounts that require CannotDelete locks depends on the context and requirements of each organization and environment.
+
 ## Rationale
 
 Applying a Delete lock on storage accounts protects the availability of data by preventing the accidental or unauthorized deletion of the entire storage account. It is a fundamental protective control that can prevent data loss

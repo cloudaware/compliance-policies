@@ -31,34 +31,34 @@ The definition of "equal" varies based on the data type being compared:
   - Comparison is **case-insensitive**.
   - Whitespace (including spaces, tabs, and newlines) at the beginning, end, and duplicates in the middle of the string are normalized before comparison. For example, `"  hello   world\n"` is equal to `"hello world"`.
   - An empty string (`""`) or a whitespace-only string is considered equal to `null`.
-  - *See unit tests: [`/ce/unit-test/is-equal/text/unit-test.logic.yaml`](../../../ce/unit-test/is-equal/text/unit-test.logic.yaml.md)*
+  - *See unit tests: [`ce/unit-test/is-equal/text/unit-test.logic.yaml`](../../../ce/unit-test/is-equal/text/unit-test.logic.yaml.md)*
 
 - **`Bytes`**:
   - Comparison is **case-sensitive**.
   - Whitespace is preserved and treated as part of the string. For example, `"  hello "` is not equal to `"hello"`.
   - An empty string (`""`) is considered equal to `null`.
-  - *See unit tests: [`/ce/unit-test/is-equal/bytes/unit-test.logic.yaml`](../../../ce/unit-test/is-equal/bytes/unit-test.logic.yaml.md)*
+  - *See unit tests: [`ce/unit-test/is-equal/bytes/unit-test.logic.yaml`](../../../ce/unit-test/is-equal/bytes/unit-test.logic.yaml.md)*
 
 - **`Number`**:
   - Standard numeric equality is used. For example, `10` is equal to `10.0`.
   - `null` is a distinct value and is not equal to `0`.
-  - *See unit tests: [`/ce/unit-test/is-equal/number/unit-test.logic.yaml`](../../../ce/unit-test/is-equal/number/unit-test.logic.yaml.md)*
+  - *See unit tests: [`ce/unit-test/is-equal/number/unit-test.logic.yaml`](../../../ce/unit-test/is-equal/number/unit-test.logic.yaml.md)*
 
 - **`Boolean`**:
   - Compares `true`, `false`, and `null` as three distinct values. `true` is not equal to `null`.
-  - *See unit tests: [`/ce/unit-test/is-equal/boolean/unit-test.logic.yaml`](../../../ce/unit-test/is-equal/boolean/unit-test.logic.yaml.md)*
+  - *See unit tests: [`ce/unit-test/is-equal/boolean/unit-test.logic.yaml`](../../../ce/unit-test/is-equal/boolean/unit-test.logic.yaml.md)*
 
 - **`DateTime`**:
   - Comparison is timezone-aware and normalized to UTC. For example, `2023-01-01T12:00:00Z` is equal to `2023-01-01T13:00:00+01:00`.
   - Comparison is precise to the millisecond.
-  - *See unit tests: [`/ce/unit-test/is-equal/date-time/unit-test.logic.yaml`](../../../ce/unit-test/is-equal/date-time/unit-test.logic.yaml.md)*
+  - *See unit tests: [`ce/unit-test/is-equal/date-time/unit-test.logic.yaml`](../../../ce/unit-test/is-equal/date-time/unit-test.logic.yaml.md)*
 
 - **`Collection (List and Set)`**:
   - Performs a deep, element-by-element comparison.
   - For a **`List`**, the order of elements and duplicate values are significant. `["a", "b"]` is not equal to `["b", "a"]`.
   - For a **`Set`**, the order of elements and duplicate values are ignored. `{"a", "b"}` is equal to `{"b", "a", "b"}`.
   - An empty collection is considered equal to `null`.
-  - *See unit tests: [`/ce/unit-test/is-equal/collection/unit-test.logic.yaml`](../../../ce/unit-test/is-equal/collection/unit-test.logic.yaml.md)*
+  - *See unit tests: [`ce/unit-test/is-equal/collection/unit-test.logic.yaml`](../../../ce/unit-test/is-equal/collection/unit-test.logic.yaml.md)*
 
 - **`JSON`**:
   - Performs a deep, recursive comparison of the JSON structure.
@@ -66,7 +66,7 @@ The definition of "equal" varies based on the data type being compared:
   - The order of elements in an array **does** matter. `[1, 2]` is not equal to `[2, 1]`.
   - Keys with a `null` value are treated as non-existent and are ignored during comparison. `{"name": "John", "age": null}` is equal to `{"name": "John"}`.
   - An empty JSON object (`{}`) is considered equal to `null`.
-  - *See unit tests: [`/ce/unit-test/is-equal/json/unit-test.logic.yaml`](../../../ce/unit-test/is-equal/json/unit-test.logic.yaml.md)*
+  - *See unit tests: [`ce/unit-test/is-equal/json/unit-test.logic.yaml`](../../../ce/unit-test/is-equal/json/unit-test.logic.yaml.md)*
 
 ## Examples
 

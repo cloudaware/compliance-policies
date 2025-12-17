@@ -1,0 +1,45 @@
+---
+inputType: "CA10__CaAzureApplicationGateway__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Application Gateway has a WAF Policy with Disabled requestBodyCheck feature."
+    remediationMessage: "Enable the WAF Policy request body inspection."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "The WAF Policy request body inspection is enabled."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Application Gateway has a WAF Policy without populated requestBodyCheck feature." 
+relatedLists:
+  - relationshipName: "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r"
+    importExtracts:
+      - file: /types/CA10Z1__CaAzureApplicationGatewayWafPolicy__c/object.extracts.yaml
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "WAF Policy with Disabled requestBodyCheck."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10Z1__wafPolicy__r.caJsonBoolean__policySettingsRequestBodyCheck__c"
+            right:
+              BOOLEAN: false
+      - status: "COMPLIANT"
+        currentStateMessage: "WAF Policy with Enabled requestBodyCheck."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10Z1__wafPolicy__r.caJsonBoolean__policySettingsRequestBodyCheck__c"
+            right:
+              BOOLEAN: true
+    otherwise:
+      status: "UNDETERMINED"
+      currentStateMessage: "WAF Policy `requestBodyCheck` value is undetermined." 

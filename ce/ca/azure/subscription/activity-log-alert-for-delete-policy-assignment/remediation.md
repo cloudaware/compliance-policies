@@ -23,7 +23,13 @@
 ## From Azure CLI
 
 ```sh
-az monitor activity-log alert create --resource-group "<resource group name>" --condition category=Administrative and operationName=Microsoft.Authorization/policyAssignments/delete and level=<verbose | information | warning | error | critical> --scope "/subscriptions/<subscription ID>" --name "<activity log rule name>" --subscription <subscription id> --action-group <action group ID>
+az monitor activity-log alert create /
+    --resource-group {{resource-group-name}} /
+    --condition category=Administrative and operationName=Microsoft.Authorization/policyAssignments/delete and level={{verbose | information | warning | error | critical}} /
+    --scope /subscriptions/{{subscription-id}} /
+    --name {{activity-log-rule-name}} /
+    --subscription {{subscription-id}} /
+    --action-group {{action-group-id}}
 ```
 
 ## From PowerShell
@@ -31,23 +37,48 @@ az monitor activity-log alert create --resource-group "<resource group name>" --
 Create the conditions object:
 
 ```ps
-$conditions = @() $conditions += New-AzActivityLogAlertAlertRuleAnyOfOrLeafConditionObject -Equal Administrative -Field category $conditions += New-AzActivityLogAlertAlertRuleAnyOfOrLeafConditionObject -Equal Microsoft.Authorization/policyAssignments/delete -Field operationName $conditions += New-AzActivityLogAlertAlertRuleAnyOfOrLeafConditionObject -Equal Verbose -Field level
+$conditions = @() 
+
+$conditions += New-AzActivityLogAlertAlertRuleAnyOfOrLeafConditionObject `
+    -Equal Administrative `
+    -Field category 
+
+$conditions += New-AzActivityLogAlertAlertRuleAnyOfOrLeafConditionObject `
+    -Equal Microsoft.Authorization/policyAssignments/delete `
+    -Field operationName 
+
+$conditions += New-AzActivityLogAlertAlertRuleAnyOfOrLeafConditionObject `
+    -Equal Verbose `
+    -Field level
 ```
 
 Retrieve the `Action Group` information and store in a variable, then create the `Action` object:
 
 ```ps
-$actionGroup = Get-AzActionGroup -ResourceGroupName <resource group name> -Name <action group name> $actionObject = New-AzActivityLogAlertActionGroupObject -Id $actionGroup.Id
+$actionGroup = Get-AzActionGroup `
+    -ResourceGroupName {{resource-group-name}} `
+    -Name {{action-group-name}} 
+
+$actionObject = New-AzActivityLogAlertActionGroupObject `
+    -Id $actionGroup.Id
 ```
 
 Create the `Scope` variable:
 
 ```ps
-$scope = "/subscriptions/<subscription id>"
+$scope = /subscriptions/{{subscription-id}}
 ```
 
 Create the `Activity Log Alert Rule` for `Microsoft.Authorization/policyAssignments/delete`:
 
 ```ps
-New-AzActivityLogAlert -Name "<activity log alert rule name>" -ResourceGroupName "<resource group name>" -Condition $conditions -Scope $scope -Location global -Action $actionObject -Subscription <subscription ID> -Enabled $true
+New-AzActivityLogAlert `
+    -Name {{activity-log-alert-rule-name}} `
+    -ResourceGroupName {{resource-group-name}} `
+    -Condition $conditions `
+    -Scope $scope `
+    -Location global `
+    -Action $actionObject `
+    -Subscription {{subscription-id}} `
+    -Enabled $true
 ```

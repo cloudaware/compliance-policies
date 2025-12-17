@@ -10,7 +10,7 @@ Attackers use Device code flow in phishing attacks and, if successful, results i
 
 Microsoft Entra ID P1 or P2 is required.
 
-This policy should be tested using the Report-only mode before implementation. Without a full and careful understanding of the accounts and personnel who require Device code authentication flow, implementing this policy can block authentication for users and devices who rely on Device code flow. For users and devices that rely on device code flow authentication, more secure alternatives should be implemented wherever possible.
+This policy should be tested using the `Report-only mode` before implementation. Without a full and careful understanding of the accounts and personnel who require Device code authentication flow, implementing this policy can block authentication for users and devices who rely on Device code flow. For users and devices that rely on device code flow authentication, more secure alternatives should be implemented wherever possible.
 
 ## Audit
 
@@ -34,8 +34,8 @@ This policy does not exist by default.
 
 1. <https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-authentication-flows#device-code-flow>
 2. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-identity-management#im-7-restrict-resource-access-based-on--conditions>
-3. <https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/concept-conditional-access-report-only>
-4. <https://learn.microsoft.com/en-us/entra/identity/conditional-access/how-to-policy-authentication-flows>
+3. <https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-report-only>
+4. <https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-block-authentication-flows>
 
 ## Additional Information
 

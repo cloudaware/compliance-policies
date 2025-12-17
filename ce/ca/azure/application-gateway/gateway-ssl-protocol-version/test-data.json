@@ -1,0 +1,38 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__sslPolicyMinProtocolVersion__c') == 'TLSv1_0' || extract('CA10__sslPolicyMinProtocolVersion__c') == 'TLSv1_1'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-10T11:11:03Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__sslPolicyMinProtocolVersion__c": "TLSv1_0",
+    "Id": "001"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-10T11:11:03Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__sslPolicyMinProtocolVersion__c": "TLSv1_2",
+    "Id": "002"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__sslPolicyMinProtocolVersion__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-10T11:11:03Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__sslPolicyMinProtocolVersion__c": null,
+    "Id": "003"
+  }
+]

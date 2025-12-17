@@ -1,0 +1,57 @@
+---
+inputType: "CA10__CaAzureAuthorizationRole__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureAuthorizationRole__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The policy applies only to the Owner role."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "Name"
+        right:
+          TEXT: "Owner"
+  - status: "UNDETERMINED"
+    currentStateMessage: "The Owner role is assigned to a group."
+    remediationMessage: "Check the number of members in the group."
+    check:
+      RELATED_LIST_HAS:
+        status: "UNDETERMINED"
+        relationshipName: "CA10__Azure_Authorization_Role_Assignments__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Owner role is assigned to fewer then 2 users."
+    remediationMessage: "Consider assigning more users."
+    check:
+      LESS_THAN:
+        left:
+          RELATED_LIST_COUNT:
+            status: "INCOMPLIANT"
+            relationshipName: "CA10__Azure_Authorization_Role_Assignments__r"
+        right:
+          NUMBER: 2.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Owner role is assigned to more then 3 users."
+    remediationMessage: "Consider deleting extra users."
+    check:
+      GREATER_THAN:
+        left:
+          RELATED_LIST_COUNT:
+            status: "INCOMPLIANT"
+            relationshipName: "CA10__Azure_Authorization_Role_Assignments__r"
+        right:
+          NUMBER: 3.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Owner role is assigned for 2 or 3 users."
+relatedLists:
+  - relationshipName: "CA10__Azure_Authorization_Role_Assignments__r"
+    conditions:
+      - status: "UNDETERMINED"
+        currentStateMessage: "Role assigned to Group"
+        check:
+          NOT_EMPTY_LOOKUP: "CA10__groupPrincipal__r"
+    otherwise: 
+      status: "INCOMPLIANT"
+      currentStateMessage: "Owner Role Assignment exists."

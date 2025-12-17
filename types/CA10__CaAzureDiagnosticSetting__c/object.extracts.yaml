@@ -15,3 +15,18 @@ extracts:
           EXTRACT: "CA10__logsJson__c"
         undeterminedIf:
           isInvalid: "Logs JSON is invalid."
+# Nullable. Azure Log Analytics workspace
+  - name: "CA10__workspaceId__c"
+    value: 
+      FIELD:
+        path: "CA10__workspaceId__c"
+# Nullable. Azure Storage Account
+  - name: "CA10__storageAccountId__c"
+    value: 
+      FIELD:
+        path: "CA10__storageAccountId__c"
+# Nullable. Azure Event Hubs
+  - name: "CA10__eventHubAuthorizationRuleId__c"
+    value: 
+      FIELD:
+        path: "CA10__eventHubAuthorizationRuleId__c"

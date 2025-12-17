@@ -38,8 +38,8 @@ By default, `Guest user access restrictions` is set to `Guest users have limited
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions#member-and-guest-users>
+1. <https://learn.microsoft.com/en-us/entra/fundamentals/users-default-permissions#member-and-guest-users>
 2. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-privileged-access#pa-3-manage-lifecycle-of-identities-and-entitlements>
 3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-governance-strategy#gs-2-define-and-implement-enterprise-segmentationseparation-of-duties-strategy>
 4. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-governance-strategy#gs-6-define-and-implement-identity-and-privileged-access-strategy>
-5. <https://docs.microsoft.com/en-us/azure/active-directory/enterprise-users/users-restrict-guest-permissions>
+5. <https://learn.microsoft.com/en-us/entra/identity/users/users-restrict-guest-permissions>

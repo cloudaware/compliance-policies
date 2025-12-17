@@ -1,0 +1,19 @@
+---
+inputType: "CA10__CaAzureApplicationGateway__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: /types/CA10__CaAzureApplicationGateway__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "The HTTP2 protocol is enabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__enableHttp2__c"
+        right:
+          BOOLEAN: true
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The HTTP2 protocol is not enabled." 
+  remediationMessage: "Consider enabling the HTTP2 protocol."

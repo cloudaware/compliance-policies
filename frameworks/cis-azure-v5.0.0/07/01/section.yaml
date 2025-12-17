@@ -1,0 +1,10 @@
+---
+name: "7.1 Ensure that RDP access from the Internet is evaluated and restricted (Automated)"
+description: >
+  Network security groups should be periodically evaluated for port misconfigurations. 
+  Where RDP is not explicitly required and narrowly configured for resources attached to 
+  a network security group, Internet-level access to Azure resources should be restricted or eliminated.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v3.0.0/07/01"
+    - "/frameworks/cis-azure-v4.0.0/08/01"

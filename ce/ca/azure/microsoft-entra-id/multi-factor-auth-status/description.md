@@ -19,22 +19,7 @@ Users would require two forms of authentication before any access is granted. Ad
 
 ## Audit
 
-### From Azure Portal
-
-1. Go to `Microsoft Entra ID`.
-2. Under `Manage`, click `Users`.
-3. Click `Per-user MFA` from the top menu.
-4. Ensure that `Status` is `enabled` for all users.
-
-### From REST API
-
-Run the following Graph PowerShell command:
-
-```ps
-get-mguser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName
-```
-
-If the output contains any `UserPrincipalName`, then this recommendation is non-compliant.
+This policy flags an *Azure Active Directory User* as `INCOMPLIANT` if the `MFA State` is **Disabled** or empty.
 
 ## Default Value
 
@@ -42,7 +27,7 @@ Multifactor authentication is not enabled for all users by default. Starting in 
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication>
+1. <https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mfa-howitworks>
 2. <https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mandatory-multifactor-authentication>
 3. <https://azure.microsoft.com/en-us/blog/announcing-mandatory-multi-factor-authentication-for-azure-sign-in/>
 4. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-identity-management#im-4-authenticate-server-and-services>

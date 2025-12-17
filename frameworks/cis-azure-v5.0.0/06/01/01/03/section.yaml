@@ -1,0 +1,11 @@
+---
+name: "6.1.1.3 Ensure the storage account containing the container with activity logs is encrypted with Customer Managed Key (CMK) (Manual)"
+description: >
+  Customer-managed keys introduce additional depth to security by providing a means to 
+  manage access control for encryption keys. Where compliance and security frameworks 
+  indicate the need, and organizational capacity allows, sensitive data at rest can be 
+  encrypted using customer-managed keys (CMK) rather than Microsoft-managed keys.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v3.0.0/06/01/03"
+    - "/frameworks/cis-azure-v4.0.0/07/01/01/03"

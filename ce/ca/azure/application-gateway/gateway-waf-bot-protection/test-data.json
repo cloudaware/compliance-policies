@@ -1,0 +1,128 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-19T21:25:23Z" },
+    "CA10__disappearanceTime__c": "2025-11-14T15:07:38Z",
+    "Id": "001",
+    "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-19T21:25:23Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "002",
+    "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r": [
+      {
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__wafPolicy__c": "waf002",
+        "CA10Z1__wafPolicyId__c": "/subscriptions/1/resourcegroups/r/providers/microsoft.network/applicationgatewaywebapplicationfirewallpolicies/002",
+        "CA10Z1__applicationGateway__c": "002",
+        "Id": "waflink002",
+        "CA10Z1__wafPolicy__r": {
+          "Id": "waf002",
+          "CA10Z1__disappearanceTime__c": null,
+          "CA10Z1__managedRulesDefinition__c": "{\"exclusions\":[],\"managedRuleSets\":[{\"ruleSetType\":\"OWASP\",\"ruleSetVersion\":\"3.1\",\"ruleGroupOverrides\":[]}]}"
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-19T21:25:23Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "003",
+    "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r": [
+      {
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__wafPolicy__c": "waf003",
+        "CA10Z1__wafPolicyId__c": "/subscriptions/1/resourcegroups/r/providers/microsoft.network/applicationgatewaywebapplicationfirewallpolicies/003",
+        "CA10Z1__applicationGateway__c": "003",
+        "Id": "waflink003",
+        "CA10Z1__wafPolicy__r": {
+          "Id": "waf003",
+          "CA10Z1__disappearanceTime__c": null,
+          "CA10Z1__managedRulesDefinition__c": "{\"exclusions\":[],\"managedRuleSets\":[{\"ruleSetType\":\"Microsoft_BotManagerRuleSet\",\"ruleSetVersion\":\"1.0\",\"ruleGroupOverrides\":[{\"ruleGroupName\":\"BadBots\",\"rules\":[{\"ruleId\":\"100100\",\"state\":\"Disabled\",\"action\":\"LOG\"},{\"ruleId\":\"100200\",\"state\":\"Disabled\",\"action\":\"LOG\"}]},{\"ruleGroupName\":\"GoodBots\",\"rules\":[{\"ruleId\":\"200100\",\"state\":\"Disabled\",\"action\":\"ALLOW\"},{\"ruleId\":\"200200\",\"state\":\"Disabled\",\"action\":\"LOG\"}]},{\"ruleGroupName\":\"UnknownBots\",\"rules\":[{\"ruleId\":\"300100\",\"state\":\"Disabled\",\"action\":\"LOG\"},{\"ruleId\":\"300700\",\"state\":\"Disabled\",\"action\":\"LOG\"},{\"ruleId\":\"300600\",\"state\":\"Disabled\",\"action\":\"LOG\"},{\"ruleId\":\"300500\",\"state\":\"Disabled\",\"action\":\"LOG\"},{\"ruleId\":\"300300\",\"state\":\"Disabled\",\"action\":\"LOG\"},{\"ruleId\":\"300400\",\"state\":\"Disabled\",\"action\":\"LOG\"}]}]}]}"
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-19T21:25:23Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "004",
+    "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r": [
+      {
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__wafPolicy__c": "waf004",
+        "CA10Z1__wafPolicyId__c": "/subscriptions/1/resourcegroups/r/providers/microsoft.network/applicationgatewaywebapplicationfirewallpolicies/004",
+        "CA10Z1__applicationGateway__c": "004",
+        "Id": "waflink004",
+        "CA10Z1__wafPolicy__r": {
+          "Id": "waf004",
+          "CA10Z1__disappearanceTime__c": null,
+          "CA10Z1__managedRulesDefinition__c": "{\"exclusions\":[],\"managedRuleSets\":[{\"ruleSetType\":\"Microsoft_BotManagerRuleSet\",\"ruleSetVersion\":\"1.0\",\"ruleGroupOverrides\":[]}]}"        
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-19T21:25:23Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "005",
+    "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r": [
+      {
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__wafPolicy__c": "waf005",
+        "CA10Z1__wafPolicyId__c": "/subscriptions/1/resourcegroups/r/providers/microsoft.network/applicationgatewaywebapplicationfirewallpolicies/005",
+        "CA10Z1__applicationGateway__c": "005",
+        "Id": "waflink005",
+        "CA10Z1__wafPolicy__r": {
+          "Id": "waf005",
+          "CA10Z1__disappearanceTime__c": null,
+          "CA10Z1__managedRulesDefinition__c": "{\"exclusions\":[],\"managedRuleSets\":[{\"ruleSetType\":\"Microsoft_BotManagerRuleSet\",\"ruleSetVersion\":\"1.1\",\"ruleGroupOverrides\":[{\"ruleGroupName\":\"UnknownBots\",\"rules\":[{\"ruleId\":\"300700\",\"state\":\"Enabled\",\"action\":\"LOG\"}]}]}]}"        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-19T21:25:23Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "006",
+    "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r": []
+  }
+]
+
+
+

@@ -16,11 +16,11 @@ By default, no monitoring alerts are created.
 
 ## References
 
-1. <https://docs.microsoft.com/en-in/azure/azure-monitor/platform/alerts-activity-log>
-2. <https://docs.microsoft.com/en-in/rest/api/monitor/activitylogalerts/createorupdate>
-3. <https://docs.microsoft.com/en-in/rest/api/monitor/activitylogalerts/listbysubscriptionid>
+1. <https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-activity-log-alert-rule>
+2. <https://learn.microsoft.com/en-us/rest/api/monitor/activity-log-alerts/create-or-update>
+3. <https://learn.microsoft.com/en-us/rest/api/monitor/activity-log-alerts/list-by-subscription-id>
 4. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-logging-threat-detection#lt-3-enable-logging-for-security-investigation>
-5. <https://azure.microsoft.com/en-us/services/blueprints/>
+5. <https://azure.microsoft.com/en-us/products/blueprints/>
 
 ## Additional Information
 

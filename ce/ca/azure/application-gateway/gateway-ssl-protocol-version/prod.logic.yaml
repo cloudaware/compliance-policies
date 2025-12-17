@@ -1,0 +1,32 @@
+---
+inputType: "CA10__CaAzureApplicationGateway__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: /types/CA10__CaAzureApplicationGateway__c/object.extracts.yaml
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "The Application Gateway SSL protocol version is undefined (empty value)."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__sslPolicyMinProtocolVersion__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Application Gateway SSL protocol version is outdated."
+    remediationMessage: "It is highly recommended to use TLS 1.2 or higher."
+    check:
+      OR:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__sslPolicyMinProtocolVersion__c"
+              right:
+                TEXT: "TLSv1_0"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__sslPolicyMinProtocolVersion__c"
+              right:
+                TEXT: "TLSv1_1"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Azure Application Gateway use the current SSL protocol version." 

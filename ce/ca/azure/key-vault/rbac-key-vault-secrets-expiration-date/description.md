@@ -22,7 +22,7 @@ By default, secrets do not expire.
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis>
-2. <https://docs.microsoft.com/en-us/rest/api/keyvault/about-keys--secrets-and-certificates#key-vault-secrets>
+1. <https://learn.microsoft.com/en-us/azure/key-vault/general/basic-concepts>
+2. <https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates>
 3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-data-protection#dp-6-use-a-secure-key-management-process>
-4. <https://docs.microsoft.com/en-us/powershell/module/az.keyvault/set-azkeyvaultsecretattribute?view=azps-0.10.0>
+4. <https://learn.microsoft.com/en-us/powershell/module/az.keyvault/set-azkeyvaultsecretattribute>

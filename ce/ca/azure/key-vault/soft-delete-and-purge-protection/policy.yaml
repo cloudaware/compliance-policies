@@ -1,16 +1,16 @@
 ---
 names:
-  full: Azure Key Vault Soft Delete and Purge Protection functions are not enabled
-  contextual: Soft Delete and Purge Protection functions are not enabled
+  full: Azure Key Vault Purge Protection function is not enabled
+  contextual: Purge Protection function is not enabled
 description: "It is recommended the Key Vault be made recoverable by enabling the\
-  \ 'Do Not Purge' and 'Soft Delete' functions. This is in order to prevent loss of\
-  \ encrypted data,   including storage accounts, SQL databases, and/or dependent\
-  \ services provided by Key Vault objects (Keys, Secrets, Certificates) etc."
+  \ 'Do Not Purge' function. This is in order to prevent loss of encrypted data,\
+  \ including storage accounts, SQL databases, and/or dependent services provided\
+  \ by Key Vault objects (Keys, Secrets, Certificates) etc."
 type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - "/frameworks/cis-azure-v4.0.0/09/03/05"
+  - "/frameworks/cis-azure-v5.0.0/08/03/05"
   - "/frameworks/cloudaware/resource-security/data-protection-and-recovery"
 similarPolicies:
   internal:

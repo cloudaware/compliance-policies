@@ -1,0 +1,9 @@
+---
+name: "8.3.4 Ensure that the Expiration Date is set for all Secrets in Non-RBAC Key Vaults (Automated)"
+description: >
+  Ensure that all Secrets in Non Role Based Access Control (RBAC) Azure Key Vaults 
+  have an expiration date set.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v3.0.0/03/03/04"
+    - "/frameworks/cis-azure-v4.0.0/09/03/04"

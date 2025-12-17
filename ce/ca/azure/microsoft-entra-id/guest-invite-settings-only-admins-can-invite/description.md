@@ -1,6 +1,6 @@
 # Description
 
-Restrict invitations to users with specific administrative roles only.
+Restrict invitations to either users with specific administrative roles or no one.
 
 ## Rationale
 
@@ -25,7 +25,8 @@ By default, `Guest invite restrictions` is set to `Anyone in the organization ca
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-delegate-invitations>
+1. <https://learn.microsoft.com/en-us/entra/external-id/external-collaboration-settings-configure>
 2. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-governance-strategy#gs-6-define-and-implement-identity-and-privileged-access-strategy>
 3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-governance-strategy#gs-2-define-and-implement-enterprise-segmentationseparation-of-duties-strategy>
 4. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-privileged-access#pa-3-manage-lifecycle-of-identities-and-entitlements>
+5. <https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.identity.signins/update-mgpolicyauthorizationpolicy?view=graph-powershell-1.0>

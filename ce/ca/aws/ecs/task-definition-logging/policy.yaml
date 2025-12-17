@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS ECS Task Definition logging is not configured"
+  contextual: "Task Definition logging is not configured"
+description: >
+  Ensure that AWS ECS Task Definitions have a log configuration specified for
+  their containers. Configuring a log driver (such as awslogs, splunk, or fluentd)
+  is essential for capturing application logs, which are critical for debugging,
+  monitoring application health, and security auditing.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/ecs/09"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ECS.9] ECS task definitions should have a logging configuration"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/ecs-controls.html#ecs-9"

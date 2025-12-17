@@ -201,3 +201,20 @@ extracts:
     value:
       FIELD:
         path: "CA10__locationName__c"
+# Date/Time field.
+  - name: "CA10__primaryKeyCreationTime__c"
+    value:
+      FIELD:
+        path: "CA10__primaryKeyCreationTime__c"
+# Date/Time field.
+  - name: "CA10__secondaryKeyCreationTime__c"
+    value:
+      FIELD:
+        path: "CA10__secondaryKeyCreationTime__c"
+# Nullable. Number field.
+  - name: "CA10__keyExpirationPeriodDays__c"
+    value:
+      FIELD:
+        path: "CA10__keyExpirationPeriodDays__c"
+
+        

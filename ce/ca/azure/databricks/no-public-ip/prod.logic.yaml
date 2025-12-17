@@ -1,0 +1,27 @@
+---
+inputType: "CA10Z1__CaAzureDatabricksWorkspace__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10Z1__CaAzureDatabricksWorkspace__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Secure cluster connectivity (also known as no public IP) is disabled on the Databricks Workspace."
+    remediationMessage: "Enable Secure cluster connectivity on the Azure Databricks Workspace."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "caJsonText__parametersJsonEnableNoPublicIpValue__c"
+        right:
+          BOOLEAN: false
+  - status: "COMPLIANT"
+    currentStateMessage: "Secure cluster connectivity (also known as no public IP) is enabled on the Databricks Workspace."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "caJsonText__parametersJsonEnableNoPublicIpValue__c"
+        right:
+          BOOLEAN: true
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

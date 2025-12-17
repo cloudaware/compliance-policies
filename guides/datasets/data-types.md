@@ -22,7 +22,7 @@ The **Field API Name** is the unique identifier for a specific field within a gi
 - **Example**: `CA10__stateName__c` on the `CA10__CaAwsInstance__c` object.
 - **Usage**: Field API Names are used to reference specific attributes of an object, such as when querying data. They correspond directly to column names in the BigQuery `sobjects` tables.
 
-You can find available fields for any given [type](../developer/index.md#type) by exploring the generated documentation in the `/types` directory.
+You can find available fields for any given [type](../developer/index.md#type) by exploring the generated documentation in the `types` directory.
 
 ## Salesforce ID
 

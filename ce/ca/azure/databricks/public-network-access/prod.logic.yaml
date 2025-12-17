@@ -1,0 +1,34 @@
+---
+inputType: "CA10Z1__CaAzureDatabricksWorkspace__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10Z1__CaAzureDatabricksWorkspace__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Allow Public Network Access is not configured on the Databricks Workspace."
+    remediationMessage: "Disable Allow Public Network Access on the Azure Databricks Workspace."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10Z1__publicNetworkAccess__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Allow Public Network Access is Enabled on the Databricks Workspace."
+    remediationMessage: "Disable Allow Public Network Access on the Azure Databricks Workspace."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__publicNetworkAccess__c"
+        right:
+          TEXT: "Enabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "Allow Public Network Access is Disabled on the Databricks Workspace."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__publicNetworkAccess__c"
+        right:
+          TEXT: "Disabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

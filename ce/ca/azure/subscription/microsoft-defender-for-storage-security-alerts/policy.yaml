@@ -1,0 +1,15 @@
+---
+names:
+  full: Azure Subscription Microsoft Defender Security Alerts For Storage are configured
+  contextual: Microsoft Defender Security Alerts For Storage are configured
+description: "After enabling Microsoft Defender for Storage, configure an alert monitoring and\
+  \ response process to ensure that alerts are actioned in a timely manner. Integrate with\
+  \ SIEM solutions like Microsoft Sentinel, or configure email/webhook notifications to\
+  \ security teams."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v5.0.0/08/01/05/02"
+  - "/frameworks/cloudaware/resource-security/microsoft-defender-configuration"

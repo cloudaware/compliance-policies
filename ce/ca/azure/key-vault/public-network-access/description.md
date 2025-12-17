@@ -1,18 +1,30 @@
 # Description
 
-When Private endpoint is configured on a Key Vault, connections from Azure resources within the same subnet will use its private IP address. However, network traffic from the public internet can still flow connect to the Key Vault’s public endpoint (mykeyvault.vault.azure.net) using its public IP address unless Public network access is set to “Disabled”.
+This policy identifies Azure Key Vaults where public network access is not disabled to reduce exposure to the internet and minimize the risk of unauthorized access. Access to Azure Key Vault should be restricted to trusted networks using private endpoints.
 
-Setting the Public network access to “Disabled” with a Private Endpoint will remove the Vault’s public endpoint from Azure public DNS, reducing its exposure to the public internet. Network traffic will use the Vault private endpoint IP address for all requests (mykeyvault.vault.privatelink.azure.net).
+Disabling public network access removes the key vault’s public endpoint from Azure public DNS. With a private endpoint in place, all traffic is routed through the private endpoint using the private DNS name (`mykeyvault.vault.privatelink.azure.net`), ensuring access occurs only within trusted network boundaries.
+
+When a private endpoint is configured for a key vault, Azure resources within the associated virtual network connect to the vault using a private IP address. However, unless public network access is explicitly disabled, the key vault remains reachable via its public endpoint (`mykeyvault.vault.azure.net`) over the internet.
 
 ## Rationale
 
-Removing a point of interconnection from the internet edge to your Key Vault can strengthen the network security boundary of your system and reduce the risk of exposing the control plane or vault objects to untrusted clients.
+Disabling public network access improves security by ensuring that a service is not exposed on the public internet.
+
+Removing a point of interconnection from the internet edge to your key vault can strengthen the network security boundary of your system and reduce the risk of exposing the control plane or vault objects to untrusted clients.
 
 Although Azure resources are never truly isolated from the public internet, disabling the public endpoint removes a line of sight from the public internet and increases the effort required for an attack.
 
 ## Impact
 
-Implementation needs to be properly designed from the ground up, as this is a fundamental change to the network architecture of your system. It will increase the configuration effort and decrease the usability of the Key Vault, and is appropriate for workloads where security is the primary consideration.
+**NOTE:** Prior to disabling public network access, it is strongly recommended that, for each key vault, either:
+
+- virtual network integration is completed
+
+OR
+
+- private endpoints/links are set up as described in **"Ensure Private Endpoints are used to access Azure Key Vault."**
+
+Disabling public network access restricts access to the service. This enhances security but will require the configuration of a virtual network and/or private endpoints for any services or users needing access within trusted networks.
 
 ## Audit
 
@@ -20,7 +32,7 @@ This policy flags an *Azure Key Vault* as `INCOMPLIANT` if `Public Network Acces
 
 ## Default Value
 
-The default value for Access control in Key Vaults is Vault Policy.
+Public network access is enabled by default.
 
 ## References
 

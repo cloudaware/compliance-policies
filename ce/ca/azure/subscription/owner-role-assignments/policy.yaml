@@ -1,0 +1,12 @@
+---
+names:
+  full: "Azure Owner Role has less than 2 or grater than 3 assignments"
+  contextual: "Owner Role has less than 2 or grater than 3 assignments"
+description: "The Owner role in Azure grants full control over all resources in a subscription, including\
+  \ the ability to assign roles to others."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v5.0.0/05/27"
+  - "/frameworks/cloudaware/identity-and-access-governance/rbac-management"

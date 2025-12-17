@@ -25,11 +25,11 @@ By default, Microsoft Defender for IoT is not enabled.
 
 ## References
 
-1. <https://azure.microsoft.com/en-us/services/iot-defender/#overview>
-2. <https://docs.microsoft.com/en-us/azure/defender-for-iot/>
-3. <https://azure.microsoft.com/en-us/pricing/details/iot-defender/>
-4. <https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/defender-for-iot-security-baseline>
-5. <https://docs.microsoft.com/en-us/cli/azure/iot?view=azure-cli-latest>
+1. <https://www.microsoft.com/en-us/security/business/endpoint-security/microsoft-defender-iot#overview>
+2. <https://learn.microsoft.com/en-us/azure/defender-for-iot/>
+3. <https://www.microsoft.com/en-us/security/business/endpoint-security/microsoft-defender-iot-pricing>
+4. <https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/microsoft-defender-for-iot-security-baseline>
+5. <https://learn.microsoft.com/en-us/cli/azure/iot>
 6. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-logging-threat-detection#lt-1-enable-threat-detection-capabilities>
 7. <https://learn.microsoft.com/en-us/azure/defender-for-iot/device-builders/quickstart-onboard-iot-hub>
 

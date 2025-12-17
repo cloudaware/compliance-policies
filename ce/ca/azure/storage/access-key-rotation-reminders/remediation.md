@@ -12,5 +12,26 @@
 ## From Powershell
 
 ```ps
-$rgName = <resource group name for the storage> $accountName = <storage account name> $account = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName if ($account.KeyCreationTime.Key1 -eq $null -or $account.KeyCreationTime.Key2 -eq $null){ Write-output ("You must regenerate both keys at least once before setting expiration policy") } else { $account = Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -KeyExpirationPeriodInDay 90 } $account.KeyPolicy.KeyExpirationPeriodInDays
+$rgName = {{resource-group-name}}
+$accountName = {{storage-account-name}}
+
+# Get storage account details
+$account = Get-AzStorageAccount `
+    -ResourceGroupName $rgName `
+    -Name $accountName
+
+# Check if both keys have been regenerated at least once
+if ($account.KeyCreationTime.Key1 -eq $null -or $account.KeyCreationTime.Key2 -eq $null) {
+    Write-Output "You must regenerate both keys at least once before setting expiration policy"
+}
+else {
+    # Set key expiration policy to 90 days
+    $account = Set-AzStorageAccount `
+        -ResourceGroupName $rgName `
+        -Name $accountName `
+        -KeyExpirationPeriodInDay 90
+}
+
+# Display the key expiration period
+$account.KeyPolicy.KeyExpirationPeriodInDays
 ```

@@ -28,7 +28,7 @@ By default, `Restrict access to Microsoft Entra admin center` is set to `No`.
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/active-directory/active-directory-assign-admin-roles-azure-portal>
+1. <https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference>
 2. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-governance-strategy#gs-2-define-and-implement-enterprise-segmentationseparation-of-duties-strategy>
 3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-governance-strategy#gs-6-define-and-implement-identity-and-privileged-access-strategy>
 4. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-privileged-access#pa-1-separate-and-limit-highly-privilegedadministrative-users>

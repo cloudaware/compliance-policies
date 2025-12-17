@@ -12,7 +12,7 @@
 
 ## Other Options within Azure Portal
 
-• <https://docs.microsoft.com/en-us/azure/active-directory/authentication/tutorial-enable-azure-mfa>
-• <https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings>
-• <https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-policy-admin-mfa>
-• <https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-getstarted#enable-multi-factor-authentication-with-conditional-access>
+- <https://learn.microsoft.com/en-us/entra/identity/authentication/tutorial-enable-azure-mfa>
+- <https://learn.microsoft.com/en-us/entra/identity/authentication/howto-mfa-mfasettings>
+- <https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-old-require-mfa-admin>
+- <https://learn.microsoft.com/en-us/entra/identity/authentication/howto-mfa-getstarted#enable-multi-factor-authentication-with-conditional-access>

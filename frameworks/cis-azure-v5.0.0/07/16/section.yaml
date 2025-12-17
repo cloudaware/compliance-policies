@@ -1,0 +1,10 @@
+---
+name: "7.16 Ensure Azure Network Security Perimeter is used to secure Azure platform-as-a-service resources (Manual)"
+description: >
+  Azure Network Security Perimeter creates a logical boundary around Azure platform-as-a-service (PaaS) 
+  resources outside of virtual networks. By default, the network security perimeter denies public access 
+  to associated PaaS resources, with the ability to define explicit rules for inbound and outbound traffic.
+
+  While an automated assessment procedure exists for this recommendation, the assessment status remains manual. 
+  Determining appropriate network security perimeter profiles and resource assignments depends on the context 
+  and requirements of each organization and environment.

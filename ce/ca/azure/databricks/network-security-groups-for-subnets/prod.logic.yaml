@@ -1,0 +1,34 @@
+---
+inputType: "CA10Z1__CaAzureDatabricksWorkspace__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10Z1__CaAzureDatabricksWorkspace__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Databricks Workspace is not deployed in a customer-managed virtual network."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "caJsonText__parametersJsonCustomVirtualNetworkValue__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Databricks Workspace network subnets do not have NSGs assigned."
+    remediationMessage: "Consider assigning NSGs to the subnets."
+    check:
+      AND:
+        args:
+          - IS_EMPTY_LOOKUP: "CA10Z1__privateNetworkSubnet__r.CA10__networkSecurityGroup__r"
+          - IS_EMPTY_LOOKUP: "CA10Z1__publicNetworkSubnet__r.CA10__networkSecurityGroup__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Databricks Workspace private subnet does not have aт NSG assigned."
+    remediationMessage: "Consider assigning a NSG to the subnet."
+    check:
+      IS_EMPTY_LOOKUP: "CA10Z1__privateNetworkSubnet__r.CA10__networkSecurityGroup__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Databricks Workspace public subnet does not have aт NSG assigned."
+    remediationMessage: "Consider assigning a NSG to the subnet."
+    check:
+      IS_EMPTY_LOOKUP: "CA10Z1__publicNetworkSubnet__r.CA10__networkSecurityGroup__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Databricks Workspace is configured with a VNet."

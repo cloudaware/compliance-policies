@@ -22,14 +22,7 @@ This recommendation should be implemented initially and then may be overridden b
 
 ## Audit
 
-### From Azure Portal
-
-To ensure security defaults is enabled in your directory:
-
-1. From Azure Home select the Portal Menu.
-2. Browse to `Microsoft Entra ID` > `Properties`.
-3. Select `Manage security defaults`.
-4. Under `Security defaults`, verify that `Enabled (recommended)` is selected.
+This policy flags an *Azure Active Directory* as `INCOMPLIANT` if the `Security Defaults Enforcement Policy` is **Disabled** or empty.
 
 ## Default Value
 
@@ -37,7 +30,7 @@ If your tenant was created on or after October 22, 2019, security defaults may a
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/concept-fundamentals-security-defaults>
+1. <https://learn.microsoft.com/en-us/entra/fundamentals/security-defaults>
 2. <https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-security-defaults/ba-p/1061414>
 3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-identity-management#im-2-protect-identity-and-authentication-systems>
 

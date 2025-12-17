@@ -1,0 +1,34 @@
+---
+inputType: "CA10__CaAzureActiveDirectory__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureActiveDirectory__c/object.extracts.yaml"
+conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Security defaults are not enabled for the Active Directory."
+        remediationMessage: "Enable Security defaults for Active Directory"
+        check:
+          IS_EMPTY:
+            arg:
+              EXTRACT: "CA10__securityDefaultsEnforcementPolicy__c"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Security defaults are disabled for the Active Directory."
+        remediationMessage: "Enable Security defaults for Active Directory"
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__securityDefaultsEnforcementPolicy__c"
+            right:
+              TEXT: "Disabled"
+      - status: "COMPLIANT"
+        currentStateMessage: "Security defaults are enabled for the Active Directory."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__securityDefaultsEnforcementPolicy__c"
+            right:
+              TEXT: "Enabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected Security Defaults state value."

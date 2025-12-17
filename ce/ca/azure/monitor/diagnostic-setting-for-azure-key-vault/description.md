@@ -73,7 +73,7 @@ By default, Diagnostic AuditEvent logging is not enabled for Key Vault instances
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/key-vault/general/howto-logging>
+1. <https://learn.microsoft.com/en-us/azure/key-vault/general/howto-logging>
 2. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-data-protection#dp-8-ensure-security-of-key-and-certificate-repository>
 3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-logging-threat-detection#lt-3-enable-logging-for-security-investigation>
 

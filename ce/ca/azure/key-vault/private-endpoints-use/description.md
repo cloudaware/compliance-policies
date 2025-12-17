@@ -1,14 +1,20 @@
 # Description
 
+Use private endpoints to allow clients and services to securely access data located over a network via an encrypted Private Link. To do this, the private endpoint uses an IP address from the VNet for each service. Network traffic between disparate services securely traverses encrypted over the VNet. This VNet can also link addressing space, extending your network and accessing resources on it. Similarly, it can be a tunnel through public networks to connect remote infrastructures together. This creates further security through segmenting network traffic and preventing outside sources from accessing it.
+
 Private endpoints will secure network traffic from Azure Key Vault to the resources requesting secrets and keys.
 
 ## Rationale
+
+Securing traffic between services through encryption protects the data from easy interception and reading.
 
 Private endpoints will keep network requests to Azure Key Vault limited to the endpoints attached to the resources that are whitelisted to communicate with each other. Assigning the Key Vault to a network without an endpoint will allow other resources on that network to view all traffic from the Key Vault to its destination. In spite of the complexity in configuration, this is recommended for high security secrets.
 
 ## Impact
 
-Incorrect or poorly-timed changing of network configuration could result in service interruption. There are also additional costs tiers for running a private endpoint per petabyte or more of networking traffic.
+If an Azure Virtual Network is not implemented correctly, this may result in the loss of critical network traffic.
+
+Private endpoints are charged per hour of use. Refer to <https://azure.microsoft.com/en-us/pricing/details/private-link/> and <https://azure.microsoft.com/en-us/pricing/calculator/> to estimate potential costs.
 
 ## Audit
 

@@ -1,0 +1,13 @@
+---
+names:
+  full: Azure Subscription Microsoft Defender For APIs is not set to On
+  contextual: Microsoft Defender For APIs is not set to On
+description: "Turning on Microsoft Defender for APIs enables threat detection\
+  \ for APIs, providing threat intelligence, anomaly detection, and behavior\
+  \ analytics in the Microsoft Defender for Cloud."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v5.0.0/08/01/02/01"
+  - "/frameworks/cloudaware/resource-security/microsoft-defender-configuration"

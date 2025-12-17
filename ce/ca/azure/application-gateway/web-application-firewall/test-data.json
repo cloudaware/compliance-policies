@@ -1,0 +1,26 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__wafEnabled__c') == true",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-10T11:11:03Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__wafEnabled__c": true,
+    "Id": "001"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-10T11:11:03Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__wafEnabled__c": false,
+    "Id": "002"
+  }
+]

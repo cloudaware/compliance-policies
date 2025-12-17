@@ -34,5 +34,5 @@ Not configured.
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/app-service/troubleshoot-diagnostic-logs>
+1. <https://learn.microsoft.com/en-us/azure/app-service/troubleshoot-diagnostic-logs>
 2. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-logging-threat-detection#lt-3-enable-logging-for-security-investigation>

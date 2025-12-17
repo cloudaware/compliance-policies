@@ -6,12 +6,11 @@ description: "Enable multi-factor authentication for all roles, groups, and user
   \ that have write access or permissions to Azure resources. These include custom\
   \ created objects or built-in roles such as: Service Co-Administrators, Subscription\
   \ Owners Contributors"
-impossible: true
 type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - "/frameworks/cis-azure-v4.0.0/06/01/02"
+  - "/frameworks/cis-azure-v5.0.0/05/01/02"
   - "/frameworks/cloudaware/identity-and-access-governance/mfa-implementation"
 similarPolicies:
   cloudConformity:

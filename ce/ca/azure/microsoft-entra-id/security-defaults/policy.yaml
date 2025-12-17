@@ -6,13 +6,12 @@ description: >
   Security defaults in Microsoft Entra ID make it easier to be secure and
   help protect your organization. Security defaults contain preconfigured security settings
   for common attacks.
-impossible: true
 type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - "/frameworks/cis-azure-v4.0.0/06/01/01"
-  - /frameworks/cloudaware/identity-and-access-governance/general-access-controls
+  - "/frameworks/cis-azure-v5.0.0/05/01/01"
+  - "/frameworks/cloudaware/identity-and-access-governance/general-access-controls"
 similarPolicies:
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/azure/ActiveDirectory/security-defaults-enabled.html

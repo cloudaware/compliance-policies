@@ -28,7 +28,12 @@
 For each subscription requiring remediation, run the following command to create a `ServiceHealth` alert rule for a subscription:
 
 ```sh
-az monitor activity-log alert create --subscription <subscription-id> --resource-group <resource-group> --name <alert-rule> --condition category=ServiceHealth and properties.incidentType=Incident --scope /subscriptions/<subscription-id> --action-group <action-group>
+az monitor activity-log alert create /
+    --subscription {{subscription-id}} /
+    --resource-group {{resource-group}} /
+    --name {{alert-rule}} /
+    --condition category=ServiceHealth and properties.incidentType=Incident --scope /subscriptions/{{subscription-id}} /
+    --action-group {{action-group}}
 ```
 
 ## From PowerShell
@@ -36,13 +41,21 @@ az monitor activity-log alert create --subscription <subscription-id> --resource
 Create the `Conditions` object:
 
 ```ps
-$conditions = @() $conditions += New-AzActivityLogAlertAlertRuleAnyOfOrLeafConditionObject -Field category -Equal ServiceHealth $conditions += New-AzActivityLogAlertAlertRuleAnyOfOrLeafConditionObject -Field properties.incidentType -Equal Incident
+$conditions = @() 
+
+$conditions += New-AzActivityLogAlertAlertRuleAnyOfOrLeafConditionObject `
+    -Field category `
+    -Equal ServiceHealth 
+
+$conditions += New-AzActivityLogAlertAlertRuleAnyOfOrLeafConditionObject `
+    -Field properties.incidentType `
+    -Equal Incident
 ```
 
 Retrieve the `Action Group` information and store in a variable:
 
 ```ps
-$actionGroup = Get-AzActionGroup -ResourceGroupName <resource-group> -Name <action-group>
+$actionGroup = Get-AzActionGroup -ResourceGroupName {{resource-group}} -Name {{action-group}}
 ```
 
 Create the `Actions` object:
@@ -54,13 +67,21 @@ $actionObject = New-AzActivityLogAlertActionGroupObject -Id $actionGroup.Id
 Create the `Scope` object:
 
 ```ps
-$scope = "/subscriptions/<subscription-id>"
+$scope = "/subscriptions/{{subscription-id}}"
 ```
 
 Create the `Activity Log Alert Rule`:
 
 ```ps
-New-AzActivityLogAlert -Name <alert-rule> -ResourceGroupName <resource-group> -Condition $conditions -Scope $scope -Location global -Action $actionObject -Subscription <subscription-id> -Enabled $true
+New-AzActivityLogAlert `
+    -Name {{alert-rule}} `
+    -ResourceGroupName {{resource-group}} `
+    -Condition $conditions `
+    -Scope $scope `
+    -Location global `
+    -Action $actionObject `
+    -Subscription {{subscription-id}} `
+    -Enabled $true
 ```
 
 Repeat for each subscription requiring remediation.

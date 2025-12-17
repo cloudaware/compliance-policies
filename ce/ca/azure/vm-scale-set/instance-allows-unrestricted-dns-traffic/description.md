@@ -12,7 +12,7 @@ Enforcing restrictions on DNS traffic may require reconfiguration of application
 
 ## Audit
 
-This policy flagged an *Azure VM Scale Set Instance* as `INCOMPLIANT` if it is associated with a *Network Interface* that is connected to an *NSG* containing at least one **Inbound Security Rule** that meets all of the following conditions:
+This policy flags an *Azure VM Scale Set Instance* as `INCOMPLIANT` if it is associated with a *Network Interface* that is connected to an *NSG* containing at least one **Inbound Security Rule** that meets all of the following conditions:
 
 - `Direction` is **Inbound**.
 - `Access` is **Allow**.

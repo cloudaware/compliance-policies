@@ -1,56 +1,77 @@
 # Remediation
 
-## From Azure Portal
+## Enable Diagnostic Logging
 
-### Enable diagnostic logging for Azure Databricks
+### **From Azure Portal**
 
 1. Navigate to your Azure Databricks workspace.
-2. In the left-hand menu, select `Monitoring` > `Diagnostic settings`.
-3. Click `+ Add diagnostic setting`.
-4. Under `Category details`, select the log categories you wish to capture, such as AuditLogs, Clusters, Notebooks, and Jobs.
+2. Select **Monitoring** > **Diagnostic settings** from the left-hand menu.
+3. Click **+ Add diagnostic setting**.
+4. Under **Category details**, select the log categories you want to capture, such as:
+
+   - `AuditLogs`
+   - `Clusters`
+   - `Notebooks`
+   - `Jobs`
+   - `Workspace`
 5. Choose a destination for the logs:
 
-    - `Log Analytics workspace`: For advanced querying and monitoring.
-    - `Storage account`: For long-term retention.
-    - `Event Hub`: For integration with third-party systems.
+   - **Log Analytics workspace** - for advanced querying and monitoring.
+   - **Storage account** : for long-term retention.
+   - **Event Hub** : for integration with third-party systems.
+6. Provide a **Name** for the diagnostic setting and click **Save**.
 
-6. Provide a `Name` for the diagnostic setting.
-7. Click `Save`.
-
-### Implement log retention policies
-
-1. Navigate to your Log Analytics workspace.
-2. Under `General`, select `Usage and estimated costs`.
-3. Click `Data Retention`.
-4. Adjust the retention period slider to the desired number of days (up to 730 days).
-5. Click `OK`.
-
-### Monitor logs for anomalies
-
-1. Navigate to `Azure Monitor`.
-2. Select `Alerts` > `+ New alert rule`.
-3. Under `Scope`, specify the Databricks resource.
-4. Define `Condition` based on log queries that identify anomalies (e.g. unauthorized access attempts).
-5. Configure `Actions` to notify stakeholders or trigger automated responses.
-6. Provide an Alert rule `name` and `description`.
-7. Click `Create alert rule`.
-
-### From Azure CLI
-
-Enable diagnostic logging for Azure Databricks:
+### **From Azure CLI**
 
 ```sh
-az monitor diagnostic-settings create --name "DatabricksLogging" --resource <databricks-resource-id> --logs '[{"category": "AuditLogs", "enabled": true}, {"category": "Clusters", "enabled": true}, {"category": "Notebooks", "enabled": true}, {"category": "Jobs", "enabled": true}]' --workspace <log-analytics-id>
+az monitor diagnostic-settings create \
+    --name "DatabricksLogging" \
+    --resource {{databricks-resource-id}} \
+    --logs '[{"category": "AuditLogs", "enabled": true}, {"category": "Clusters", "enabled": true}, {"category": "Notebooks", "enabled": true}, {"category": "Jobs", "enabled": true}, {"category": "Workspace", "enabled": true}]' \
+    --workspace {{log-analytics-id}}
 ```
 
-Implement log retention policies:
+## Configure Log Retention
+
+### **From Azure Portal**
+
+1. Navigate to the associated **Log Analytics workspace**.
+2. Under **General**, select **Usage and estimated costs** > **Data Retention**.
+3. Adjust the retention period slider (up to 730 days).
+4. Click **OK**.
+
+### **From Azure CLI**
 
 ```sh
-az monitor log-analytics workspace update --resource-group <resource-group> --name <log-analytics-name> --retention-time 365
+az monitor log-analytics workspace update \
+    --resource-group {{resource-group}} \
+    --name {{log-analytics-name}} \
+    --retention-time 365
 ```
 
-Monitor logs for anomalies:
+## Monitor Logs for Anomalies
 
-```sh
-az monitor activity-log alert create --name "DatabricksAnomalyAlert" --resource-group <resource-group> --scopes <databricks-resource-id> --condition "contains 'UnauthorizedAccess'"
+### **From Azure Portal**
+
+1. Go to **Azure Monitor** > **Alerts** > **+ New alert rule**.
+2. Under **Scope**, select the Databricks workspace.
+3. Define a **Condition** using log queries (e.g., unauthorized access attempts).
+4. Configure **Actions** to notify stakeholders or trigger automated responses.
+5. Provide a **Name** and **Description** for the alert.
+6. Click **Create alert rule**.
+
+### **From Azure CLI**
+
+```bash
+az monitor activity-log alert create \
+    --name "DatabricksAnomalyAlert" \
+    --resource-group {{resource-group}} \
+    --scopes {{databricks-resource-id}} \
+    --condition "contains 'UnauthorizedAccess'"
 ```
+
+## Notes
+
+- Diagnostic logging requires the **Premium Azure Databricks plan**.
+- Log retention and alert rules should be reviewed periodically to address evolving security threats and operational needs.
+- Ensure all required log categories are enabled for comprehensive auditing and compliance.

@@ -1,0 +1,62 @@
+[
+    {
+        "CA10__assignPublicIp__c": "Disabled",
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "context": {
+            "snapshotTime": "2025-12-12T04:42:59Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-12-05T02:07:04Z",
+        "CA10__status__c": "ACTIVE"
+    },
+    {
+        "CA10__assignPublicIp__c": "Enabled",
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__assignPublicIp__c') == 'Enabled'",
+            "conditionIndex": 299,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-12T04:42:59Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE"
+    },
+    {
+        "CA10__assignPublicIp__c": "Disabled",
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__assignPublicIp__c') == 'Disabled'",
+            "conditionIndex": 399,
+            "status": "COMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-12T04:42:59Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE"
+    },
+    {
+        "CA10__assignPublicIp__c": "Disabled",
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__status__c') != 'ACTIVE'",
+            "conditionIndex": 199,
+            "status": "INAPPLICABLE"
+        },
+        "context": {
+            "snapshotTime": "2025-12-12T04:42:59Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "INACTIVE"
+    }
+]

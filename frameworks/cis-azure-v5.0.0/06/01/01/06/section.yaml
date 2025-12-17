@@ -1,0 +1,9 @@
+---
+name: "6.1.1.6 Ensure that logging for Azure AppService 'HTTP logs' is enabled (Automated)"
+description: >
+  Enable AppServiceHTTPLogs diagnostic log category for Azure App Service instances 
+  to ensure all http requests are captured and centrally logged.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v3.0.0/06/01/06"
+    - "/frameworks/cis-azure-v4.0.0/07/01/01/06"

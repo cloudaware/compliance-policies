@@ -1,0 +1,13 @@
+---
+names:
+  full: Azure Databricks Workspace Secure Cluster Connectivity is not enabled
+  contextual: Databricks Workspace Secure Cluster Connectivity is not enabled
+description: "Enable secure cluster connectivity (also known as no public IP) on Azure Databricks\
+  \ workspaces to ensure that clusters do not have public IP addresses and communicate with the\
+  \ control plane over a secure connection."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v5.0.0/02/01/09"
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"

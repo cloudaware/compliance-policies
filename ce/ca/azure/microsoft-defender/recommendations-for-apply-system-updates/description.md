@@ -43,4 +43,3 @@ By default, patches are not automatically deployed.
 
 1. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-posture-vulnerability-management#pv-6-rapidly-and-automatically-remediate-vulnerabilities>
 2. <https://azure.microsoft.com/en-us/pricing/details/defender-for-cloud/>
-3. <https://docs.microsoft.com/en-us/azure/defender-for-cloud/deploy-vulnerability-assessment-vm>

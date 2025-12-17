@@ -5,6 +5,11 @@ extracts:
     value: 
       FIELD:
         path: "CA10Z1__encryptionManagedDisksKeySource__c"
+# Text.
+  - name: "CA10Z1__publicNetworkAccess__c"
+    value: 
+      FIELD:
+        path: "CA10Z1__publicNetworkAccess__c"
   - name: "CA10Z1__parametersJson__c"
     value:
       FIELD:
@@ -27,3 +32,24 @@ extracts:
         undeterminedIf: 
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return a boolean."
+
+  - name: "caJsonText__parametersJsonEnableNoPublicIpValue__c"
+    value: 
+      JSON_QUERY_BOOLEAN:
+        arg: 
+          EXTRACT: "caJsonFrom__parametersJson__c"
+        expression: "enableNoPublicIp.value"
+        undeterminedIf: 
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return a boolean."
+
+# Nullable. Can't have no access, retrieved via Microsoft.Databricks/workspaces
+  - name: CA10Z1__privateNetworkSubnetId__c
+    value: 
+      FIELD:
+        path: CA10Z1__privateNetworkSubnetId__c  
+# Nullable. Can't have no access, retrieved via Microsoft.Databricks/workspaces   
+  - name: CA10Z1__publicNetworkSubnetId__c
+    value: 
+      FIELD:
+        path: CA10Z1__publicNetworkSubnetId__c

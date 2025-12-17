@@ -4,7 +4,7 @@ importExtracts:
 testData:
   - file: "test-data.json"
 conditions:
-  - status: "INAPPLICABLE"
+  - status: "COMPLIANT"
     currentStateMessage: "Cluster endpoint public access is disabled."
     check:
       IS_EQUAL:

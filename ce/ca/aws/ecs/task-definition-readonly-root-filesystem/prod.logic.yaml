@@ -1,0 +1,38 @@
+---
+inputType: "CA10__CaAwsEcsTaskDefinition__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsEcsTaskDefinition__c/object.extracts.yaml"
+  - file: "/types/CA10__CaAwsEcsContainerDefinition__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Task Definition is not active."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "ACTIVE"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Task Definition contains at least one container with a writable root filesystem."
+    remediationMessage: "Update the Task Definition to enable readonlyRootFilesystem for all containers."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__AWS_ECS_Container_Definitions__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "All containers in the Task Definition have a read-only root filesystem."
+relatedLists:
+  - relationshipName: "CA10__AWS_ECS_Container_Definitions__r"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The container is given write access to its root filesystems."
+        check:
+          NOT:
+            arg:
+              EXTRACT: "CA10__readonlyRootFilesystem__c"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "The container has read-only access to its root filesystems."

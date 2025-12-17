@@ -1,0 +1,24 @@
+---
+extracts:
+# Values: bridge | host | awsvpc | none
+# Nullable.
+  - name: "CA10__networkMode__c"
+    value:
+      FIELD:
+        path: "CA10__networkMode__c"
+# Values: ACTIVE | INACTIVE | DELETE_IN_PROGRESS
+# Not nullable. 
+  - name: "CA10__status__c"
+    value:
+      FIELD:
+        path: "CA10__status__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__status__c"
+            currentStateMessage: "Task Definition status cannot be empty. Possible permission issue with ecs:DescribeTaskDefinition"
+# Values: task | host
+# Nullable.
+  - name: "CA10__pidMode__c"
+    value:
+      FIELD:
+        path: "CA10__pidMode__c"

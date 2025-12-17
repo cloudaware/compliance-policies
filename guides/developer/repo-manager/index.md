@@ -57,7 +57,7 @@ There are several important files that `repo-manager` uses to operate:
 - `.ca` directory is a directory where `repo-manager` will look for configuration files, specifically `profiles.json` for API authentication. `repo-manager` will look for this file in the following locations, in order of decreasing priority:
   - If `--config=/exmple/path/my-ca` option used, `repo-manager` will look for `profiles.json` in `/exmple/path/my-ca/profiles.json`
   - If `--repository=/example/path/to/repo` option used, then `/example/path/to/repo/.ca/profiles.json`
-  - If `.ca` directory present in you current working directory, then `.ca/profiles.json`
+  - If `.ca` directory present in your current working directory, then `.ca/profiles.json`
   - Otherwise `~/.ca/profiles.json` will be used
 
 ## Auto-update

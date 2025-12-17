@@ -14,9 +14,9 @@ Review the security rules associated with the relevant Network Security Group (N
 
     ```sh
     az network nsg rule delete \
-      --resource-group {{resource-group-name}} \
-      --nsg-name {{nsg-name}} \
-      --name {{rule-name}}
+        --resource-group {{resource-group-name}} \
+        --nsg-name {{nsg-name}} \
+        --name {{rule-name}}
     ```
 
 2. **Restrict the rule:**

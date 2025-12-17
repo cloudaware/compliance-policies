@@ -15,7 +15,7 @@
 Use the below command to set `Allow Microsoft Defender for Endpoint to access my data`:
 
 ```sh
-az account get-access-token --query "{subscription:subscription,accessToken:accessToken}" --out tsv | xargs -L1 bash -c 'curl -X PUT -H "Authorization: Bearer $1" -H "Content-Type: application/json" https://management.azure.com/subscriptions/<subscriptionID>/providers/Microsoft.Security/settings/WDATP?api-version=2021-06-01 -d@"input.json"'
+az account get-access-token --query "{subscription:subscription,accessToken:accessToken}" --out tsv | xargs -L1 bash -c 'curl -X PUT -H "Authorization: Bearer $1" -H "Content-Type: application/json" https://management.azure.com/subscriptions/<subscriptionID>/providers/Microsoft.Security/settings/WDATP?api-version=2022-05-01 -d@"input.json"'
 ```
 
 Where `input.json` contains the Request body json data as mentioned below:

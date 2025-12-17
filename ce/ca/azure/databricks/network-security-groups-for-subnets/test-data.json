@@ -1,0 +1,181 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10Z1__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-19T07:17:23Z" },
+    "CA10Z1__disappearanceTime__c": "2025-11-13T16:22:07Z",
+    "CA10Z1__privateNetworkSubnet__c": "",
+    "CA10Z1__privateNetworkSubnetId__c": "/subscriptions/resourcegroups/providers/subnets/001-1",
+    "CA10Z1__publicNetworkSubnet__c": "",
+    "CA10Z1__publicNetworkSubnetId__c": "/subscriptions/resourcegroups/providers/subnets/001-2",
+    "Id": "001",
+    "CA10Z1__privateNetworkSubnet__r": {
+      "CA10__disappearanceTime__c": null,
+      "CA10__networkSecurityGroup__c": null,
+      "CA10__networkSecurityGroupId__c": null,
+      "Id": null,
+      "CA10__networkSecurityGroup__r": {
+        "Id": null,
+        "CA10__disappearanceTime__c": null
+      }
+    },
+    "CA10Z1__publicNetworkSubnet__r": {
+      "CA10__disappearanceTime__c": null,
+      "CA10__networkSecurityGroup__c": null,
+      "CA10__networkSecurityGroupId__c": null,
+      "Id": null,
+      "CA10__networkSecurityGroup__r": {
+        "Id": null,
+        "CA10__disappearanceTime__c": null
+      }
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "isEmptyLookup('CA10Z1__privateNetworkSubnet__r.CA10__networkSecurityGroup__r') && isEmptyLookup('CA10Z1__publicNetworkSubnet__r.CA10__networkSecurityGroup__r')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-19T07:17:23Z" },
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__parametersJson__c": "{\"customVirtualNetworkId\":{\"type\":\"STRING\",\"value\":\"/subscriptions/8064/resourceGroups/AZ-Network/providers/Microsoft.Network/virtualNetworks/AZ-prd\"},\"customPublicSubnetName\":{\"type\":\"STRING\",\"value\":\"Consumer-SN\"},\"customPrivateSubnetName\":{\"type\":\"STRING\",\"value\":\"Consumer-SN\"},\"enableNoPublicIp\":{\"type\":\"BOOL\",\"value\":false}}",
+    "CA10Z1__privateNetworkSubnet__c": "",
+    "CA10Z1__privateNetworkSubnetId__c": "",
+    "CA10Z1__publicNetworkSubnet__c": "",
+    "CA10Z1__publicNetworkSubnetId__c": "",
+    "Id": "002",
+    "CA10Z1__privateNetworkSubnet__r": {
+      "CA10__disappearanceTime__c": null,
+      "CA10__networkSecurityGroup__c": null,
+      "CA10__networkSecurityGroupId__c": null,
+      "Id": null,
+      "CA10__networkSecurityGroup__r": {
+        "Id": null,
+        "CA10__disappearanceTime__c": null
+      }
+    },
+    "CA10Z1__publicNetworkSubnet__r": {
+      "CA10__disappearanceTime__c": null,
+      "CA10__networkSecurityGroup__c": null,
+      "CA10__networkSecurityGroupId__c": null,
+      "Id": null,
+      "CA10__networkSecurityGroup__r": {
+        "Id": null,
+        "CA10__disappearanceTime__c": null
+      }
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "isEmptyLookup('CA10Z1__privateNetworkSubnet__r.CA10__networkSecurityGroup__r')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-19T07:17:23Z" },
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__parametersJson__c": "{\"customVirtualNetworkId\":{\"type\":\"STRING\",\"value\":\"/subscriptions/8064/resourceGroups/AZ-Network/providers/Microsoft.Network/virtualNetworks/AZ-prd\"},\"customPublicSubnetName\":{\"type\":\"STRING\",\"value\":\"Consumer-SN\"},\"customPrivateSubnetName\":{\"type\":\"STRING\",\"value\":\"Consumer-SN\"},\"enableNoPublicIp\":{\"type\":\"BOOL\",\"value\":false}}",
+    "CA10Z1__privateNetworkSubnet__c": "pns-003",
+    "CA10Z1__privateNetworkSubnetId__c": "/subscriptions/resourcegroups/providers/subnets/003-1",
+    "CA10Z1__publicNetworkSubnet__c": "pbns-003",
+    "CA10Z1__publicNetworkSubnetId__c": "/subscriptions/resourcegroups/providers/subnets/003-2",
+    "Id": "003",
+    "CA10Z1__privateNetworkSubnet__r": {
+      "CA10__disappearanceTime__c": null,
+      "CA10__networkSecurityGroup__c": null,
+      "CA10__networkSecurityGroupId__c": null,
+      "Id": null,
+      "CA10__networkSecurityGroup__r": {
+        "Id": null,
+        "CA10__disappearanceTime__c": null
+      }
+    },
+    "CA10Z1__publicNetworkSubnet__r": {
+      "CA10__disappearanceTime__c": null,
+      "CA10__networkSecurityGroup__c": "pbNSG-003",
+      "CA10__networkSecurityGroupId__c": "/subscriptions/resourcegroups/providers/microsoft.network/networksecuritygroups/003-1-nsg",
+      "Id": "pbns-003",
+      "CA10__networkSecurityGroup__r": {
+        "Id": "pbNSG-003",
+        "CA10__disappearanceTime__c": null
+      }
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "isEmptyLookup('CA10Z1__publicNetworkSubnet__r.CA10__networkSecurityGroup__r')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-19T07:17:23Z" },
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__parametersJson__c": "{\"customVirtualNetworkId\":{\"type\":\"STRING\",\"value\":\"/subscriptions/8064/resourceGroups/AZ-Network/providers/Microsoft.Network/virtualNetworks/AZ-prd\"},\"customPublicSubnetName\":{\"type\":\"STRING\",\"value\":\"Consumer-SN\"},\"customPrivateSubnetName\":{\"type\":\"STRING\",\"value\":\"Consumer-SN\"},\"enableNoPublicIp\":{\"type\":\"BOOL\",\"value\":false}}",
+    "CA10Z1__privateNetworkSubnet__c": "pns-004",
+    "CA10Z1__privateNetworkSubnetId__c": "/subscriptions/resourcegroups/providers/subnets/004-1",
+    "CA10Z1__publicNetworkSubnet__c": "pbns-004",
+    "CA10Z1__publicNetworkSubnetId__c": "/subscriptions/resourcegroups/providers/subnets/004-2",
+    "Id": "004",
+    "CA10Z1__privateNetworkSubnet__r": {
+      "CA10__disappearanceTime__c": null,
+      "CA10__networkSecurityGroup__c": "prNSG-004",
+      "CA10__networkSecurityGroupId__c": "/subscriptions/resourcegroups/providers/microsoft.network/networksecuritygroups/004nsg",
+      "Id": "pns-004",
+      "CA10__networkSecurityGroup__r": {
+        "Id": "prNSG-004",
+        "CA10__disappearanceTime__c": null
+      }
+    },
+    "CA10Z1__publicNetworkSubnet__r": {
+      "CA10__disappearanceTime__c": null,
+      "CA10__networkSecurityGroup__c": null,
+      "CA10__networkSecurityGroupId__c": null,
+      "Id": null,
+      "CA10__networkSecurityGroup__r": {
+        "Id": null,
+        "CA10__disappearanceTime__c": null
+      }
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "500",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-19T07:17:23Z" },
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__parametersJson__c": "{\"customVirtualNetworkId\":{\"type\":\"STRING\",\"value\":\"/subscriptions/8064/resourceGroups/AZ-Network/providers/Microsoft.Network/virtualNetworks/AZ-prd\"},\"customPublicSubnetName\":{\"type\":\"STRING\",\"value\":\"Consumer-SN\"},\"customPrivateSubnetName\":{\"type\":\"STRING\",\"value\":\"Consumer-SN\"},\"enableNoPublicIp\":{\"type\":\"BOOL\",\"value\":false}}",
+    "CA10Z1__privateNetworkSubnet__c": "pns-005",
+    "CA10Z1__privateNetworkSubnetId__c": "/subscriptions/resourcegroups/providers/subnets/005-1",
+    "CA10Z1__publicNetworkSubnet__c": "pbns-005",
+    "CA10Z1__publicNetworkSubnetId__c": "/subscriptions/resourcegroups/providers/subnets/005-2",
+    "Id": "005",
+    "CA10Z1__privateNetworkSubnet__r": {
+      "CA10__disappearanceTime__c": null,
+      "CA10__networkSecurityGroup__c": "prNSG-005",
+      "CA10__networkSecurityGroupId__c": "/subscriptions/resourcegroups/providers/microsoft.network/networksecuritygroups/005nsg",
+      "Id": "pns-005",
+      "CA10__networkSecurityGroup__r": {
+        "Id": "prNSG-005",
+        "CA10__disappearanceTime__c": null
+      }
+    },
+    "CA10Z1__publicNetworkSubnet__r": {
+      "CA10__disappearanceTime__c": null,
+      "CA10__networkSecurityGroup__c": "pbNSG-005",
+      "CA10__networkSecurityGroupId__c": "/subscriptions/resourcegroups/providers/microsoft.network/networksecuritygroups/005-1-nsg",
+      "Id": "pbns-005",
+      "CA10__networkSecurityGroup__r": {
+        "Id": "pbNSG-005",
+        "CA10__disappearanceTime__c": null
+      }
+    }
+  }
+]

@@ -7,27 +7,28 @@ Defender for Servers offers two paid plans:
 **Plan 1**
 
 The following components are enabled by default:
-• Log Analytics agent (deprecated)
-• Endpoint protection
+
+- Log Analytics agent (deprecated)
+- Endpoint protection
 
 Plan 1 also offers the following components, disabled by default:
 
-• Vulnerability assessment for machines
-• Guest Configuration agent (preview)
+- Vulnerability assessment for machines
+- Guest Configuration agent (preview)
 
 **Plan 2**
 
 The following components are enabled by default:
 
-• Log Analytics agent (deprecated)
-• Vulnerability assessment for machines
-• Endpoint protection
-• Agentless scanning for machines
+- Log Analytics agent (deprecated)
+- Vulnerability assessment for machines
+- Endpoint protection
+- Agentless scanning for machines
 
 Plan 2 also offers the following components, disabled by default:
 
-• Guest Configuration agent (preview)
-• File Integrity Monitoring
+- Guest Configuration agent (preview)
+- File Integrity Monitoring
 
 ## Rationale
 

@@ -3,12 +3,11 @@ names:
   full: Azure Storage Account Access Keys are not regenerated periodically
   contextual: Access Keys are not regenerated periodically
 description: "For increased security, regenerate storage account access keys periodically."
-impossible: true
 type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - "/frameworks/cis-azure-v4.0.0/10/03/01/02"
+  - "/frameworks/cis-azure-v5.0.0/09/03/01/02"
   - "/frameworks/cloudaware/resource-security/secure-access"
 similarPolicies:
   cloudConformity:

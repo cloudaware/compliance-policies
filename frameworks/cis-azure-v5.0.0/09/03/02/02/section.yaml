@@ -1,0 +1,12 @@
+---
+name: "9.3.2.2 Ensure that 'Public Network Access' is 'Disabled' for storage accounts (Automated)"
+description: >
+  Disable public network access to prevent exposure to the internet and reduce the risk of 
+  unauthorized access. Use private endpoints to securely manage access within trusted networks.
+
+  Disallowing public network access for a storage account overrides the public access settings 
+  for individual containers in that storage account.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v3.0.0/04/06"
+    - "/frameworks/cis-azure-v4.0.0/10/03/02/02"

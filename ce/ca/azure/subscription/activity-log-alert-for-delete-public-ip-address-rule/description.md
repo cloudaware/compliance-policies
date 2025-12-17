@@ -21,8 +21,8 @@ By default, no monitoring alerts are created or active.
 
 ## References
 
-1. <https://azure.microsoft.com/en-us/updates/classic-alerting-monitoring-retirement>
-2. <https://docs.microsoft.com/en-in/azure/azure-monitor/platform/alerts-activity-log>
-3. <https://docs.microsoft.com/en-in/rest/api/monitor/activitylogalerts/createorupdate>
-4. <https://docs.microsoft.com/en-in/rest/api/monitor/activitylogalerts/listbysubscriptionid>
+1. <https://azure.microsoft.com/en-us/updates?id=classic-alerting-monitoring-retirement>
+2. <https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-activity-log-alert-rule>
+3. <https://learn.microsoft.com/en-us/rest/api/monitor/activity-log-alerts/create-or-update>
+4. <https://learn.microsoft.com/en-us/rest/api/monitor/activity-log-alerts/list-by-subscription-id>
 5. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-logging-threat-detection#lt-3-enable-logging-for-security-investigation>

@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.3.13
+
+- Added more flexibility to location parameter in `repo-manager policies` subcommands
+- Better output for `repo-manager policies` subcommands, when location points to a single logic file
+- Added `-v`/`--verbose` parameter for verbose output
+- `repo-manager` now default to non-verbose mode, instead of verbose by-default
+
 ## 2.3.12
 
 - Updated with `cloudaware-mcp` v1.0.7

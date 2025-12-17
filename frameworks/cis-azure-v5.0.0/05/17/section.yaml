@@ -1,0 +1,12 @@
+---
+name: "5.17 Ensure that 'Restrict access to Microsoft Entra admin center' is set to 'Yes' (Manual)"
+description: >
+  Restrict access to the Microsoft Entra ID administration center to administrators only.
+
+  NOTE: This only affects access to the Entra ID administrator's web portal. This setting 
+  does not prohibit privileged users from using other methods such as Rest API or Powershell 
+  to obtain sensitive information from Microsoft Entra ID.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v3.0.0/02/17"
+    - "/frameworks/cis-azure-v4.0.0/06/17"

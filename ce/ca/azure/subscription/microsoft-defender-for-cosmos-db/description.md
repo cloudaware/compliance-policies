@@ -23,8 +23,8 @@ By default, Microsoft Defender for Azure Cosmos DB is not enabled.
 ## References
 
 1. <https://azure.microsoft.com/en-us/pricing/details/defender-for-cloud/>
-2. <https://docs.microsoft.com/en-us/azure/defender-for-cloud/enable-enhanced-security>
-3. <https://docs.microsoft.com/en-us/azure/defender-for-cloud/alerts-overview>
-4. <https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/cosmos-db-security-baseline>
-5. <https://docs.microsoft.com/en-us/azure/defender-for-cloud/quickstart-enable-database-protections>
+2. <https://learn.microsoft.com/en-us/azure/defender-for-cloud/connect-azure-subscription>
+3. <https://learn.microsoft.com/en-us/azure/defender-for-cloud/alerts-overview>
+4. <https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/azure-cosmos-db-security-baseline>
+5. <https://learn.microsoft.com/en-us/azure/defender-for-cloud/tutorial-enable-databases-plan>
 6. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-logging-threat-detection#lt-1-enable-threat-detection-capabilities>

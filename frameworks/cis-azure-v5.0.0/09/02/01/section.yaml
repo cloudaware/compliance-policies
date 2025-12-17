@@ -1,0 +1,13 @@
+---
+name: "9.2.1 Ensure that soft delete for blobs on Azure Blob Storage storage accounts is Enabled (Automated)"
+description: >
+  Blobs in Azure storage accounts may contain sensitive or personal data, such as ePHI 
+  or financial information. Data that is erroneously modified or deleted by an application or 
+  a user can lead to data loss or unavailability.
+
+  It is recommended that soft delete be enabled on Azure storage accounts with blob 
+  storage to allow for the preservation and recovery of data when blobs or blob snapshots 
+  are deleted.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v4.0.0/10/02/01"

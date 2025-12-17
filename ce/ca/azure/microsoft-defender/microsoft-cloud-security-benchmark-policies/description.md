@@ -17,14 +17,14 @@ Policies within the MCSB default to an effect of `Audit` and will evaluate - but
 1. From Azure Home select the Portal Menu.
 2. Select `Microsoft Defender for Cloud`.
 3. Under `Management`, select `Environment Settings`.
-4. Select the appropriate Subscription.
+4. Select the appropriate Management Group or Subscription.
 5. Click on `Security policies` in the left column.
 6. Click on `Microsoft cloud security benchmark`.
 7. Click `Add Filter` and select `Effect`.
 8. Check the `Disabled` box to search for all disabled policies.
 9. Click `Apply`.
-
-If no Policies are shown, no Policies are in `Disabled` status and no remediation is necessary. If any Policies remain in the list, the policy `Effect` should be changed to `Audit`.
+10. Ensure that no policies are displayed, signifying that there are no disabled policies.
+11. Repeat steps 1-10 for each Management Group or Subscription.
 
 ## Default Value
 
@@ -32,11 +32,8 @@ By default, the MCSB policy initiative is associated to all subscriptions and **
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/security-center/security-center-policies>
-2. <https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-transparent-data-encryption>
-3. <https://msdn.microsoft.com/en-us/library/mt704062.aspx>
-4. <https://msdn.microsoft.com/en-us/library/mt704063.aspx>
-5. <https://docs.microsoft.com/en-us/rest/api/policy/policy-assignments/get>
-6. <https://docs.microsoft.com/en-us/rest/api/policy/policy-assignments/create>
-7. <https://docs.microsoft.com/en-in/azure/security-center/tutorial-security-policy>
-8. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-governance-strategy#gs-7-define-and-implement-logging-threat-detection-and-incident-response-strategy>
+1. <https://learn.microsoft.com/en-us/azure/defender-for-cloud/security-policy-concept>
+2. <https://learn.microsoft.com/en-us/azure/defender-for-cloud/implement-security-recommendations>
+3. <https://learn.microsoft.com/en-us/rest/api/policy/policy-assignments/get>
+4. <https://learn.microsoft.com/en-us/rest/api/policy/policy-assignments/create>
+5. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-governance-strategy#gs-7-define-and-implement-logging-threat-detection-and-incident-response-strategy>

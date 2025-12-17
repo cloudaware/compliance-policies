@@ -1,0 +1,26 @@
+---
+inputType: "CA10__CaAzureStorageAccount__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAzureStorageAccount__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Key rotation reminders are not configured."
+    remediationMessage: "Configure the Key rotation reminders."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__keyExpirationPeriodDays__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Key rotation reminders are set for more than 90 days."
+    remediationMessage: "Configure Key rotation reminders for 90 days."
+    check:
+      GREATER_THAN:
+        left:
+          EXTRACT: "CA10__keyExpirationPeriodDays__c"
+        right:
+          NUMBER: 90.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Key rotation reminders are configured."

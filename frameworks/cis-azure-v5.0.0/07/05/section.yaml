@@ -1,0 +1,8 @@
+---
+name: "7.5 Ensure that network security group flow log retention days is set to greater than or equal to 90 (Automated)"
+description: >
+  Network security group flow logs should be enabled and the retention period set to greater than or equal to 90 days.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v3.0.0/07/05"
+    - "/frameworks/cis-azure-v4.0.0/08/05"

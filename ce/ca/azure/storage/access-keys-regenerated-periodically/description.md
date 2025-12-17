@@ -16,38 +16,7 @@ Regenerating access keys can affect services in Azure as well as the organizatio
 
 ## Audit
 
-### From Azure Portal
-
-1. Go to `Storage Accounts`.
-2. For each Storage Account, under `Security + networking`, go to `Access keys`.
-3. Review the date in the `Last rotated` field for **each** key.
-
-If the `Last rotated` field indicates value greater than 90 day [or greater than your organization's period of validity], the key should be rotated.
-
-### From Azure CLI
-
-1. Get a list of storage accounts:
-
-```sh
-az storage account list --subscription <subscription-id>
-```
-
-Make a note of `id`, `name` and `resourceGroup`.
-
-2. For every storage account make sure that key is regenerated in past 90 days:
-
-```sh
-az monitor activity-log list --namespace Microsoft.Storage --offset 90d --query "[?contains(authorization.action, 'regenerateKey')]" --resource-id <resource id>
-```
-
-The output should contain:
-
-```
-"authorization"/"scope": <your_storage_account> AND 
-"authorization"/"action": "Microsoft.Storage/storageAccounts/regeneratekey/action" AND 
-"status"/"localizedValue": "Succeeded" 
-"status"/"Value": "Succeeded"
-```
+This policy flags an *Azure Storage Account* as `INCOMPLIANT` if either the `Access key 1` or the `Access key 2` is not rotated in over 90 days.
 
 ## Default Value
 

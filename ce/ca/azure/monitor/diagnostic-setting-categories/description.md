@@ -18,8 +18,8 @@ When the diagnostic setting is created using Azure Portal, by default no categor
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-settings>
-2. <https://docs.microsoft.com/en-us/azure/azure-monitor/samples/resource-manager-diagnostic-settings>
+1. <https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings>
+2. <https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-manager-diagnostic-settings>
 3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-logging-threat-detection#lt-3-enable-logging-for-security-investigation>
 4. <https://learn.microsoft.com/en-us/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest>
-5. <https://learn.microsoft.com/en-us/powershell/module/az.monitor/new-azsubscriptiondiagnosticsetting?view=azps-9.2.0>
+5. <https://learn.microsoft.com/en-us/powershell/module/az.monitor/new-azsubscriptiondiagnosticsetting?view=azps-13.4.0>

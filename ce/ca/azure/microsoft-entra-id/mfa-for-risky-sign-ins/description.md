@@ -25,11 +25,11 @@ Risk Policies for Conditional Access require Microsoft Entra ID P2. Additional o
 
 ## Default Value
 
-Starting October 2024, MFA will be required for all accounts by default.
+MFA is not enabled by default.
 
 ## References
 
-1. <https://learn.microsoft.com/en-us/entra/identity/conditional-access/howto-conditional-access-policy-risk>
+1. <https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-risk-based-sign-in>
 2. <https://learn.microsoft.com/en-us/entra/identity/conditional-access/troubleshoot-conditional-access-what-if>
 3. <https://learn.microsoft.com/en-us/entra/identity/conditional-access/howto-conditional-access-insights-reporting>
 4. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-identity-management#im-7-restrict-resource-access-based-on--conditions>

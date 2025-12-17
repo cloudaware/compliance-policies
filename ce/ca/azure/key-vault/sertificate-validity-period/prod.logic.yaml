@@ -1,0 +1,27 @@
+---
+inputType: "CA10Z1__CaAzureKeyVaultCertificate__c"
+importExtracts:
+  - file: "/types/CA10Z1__CaAzureKeyVaultCertificate__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "The Key Vault Certificate Validity Period (in months) is less than or equal 12."
+    check:
+      LESS_THAN_EQUAL:
+        left:
+          EXTRACT: "caJsonNumber__policyX509CertificatePropertiesValidityInMonths__c"
+        right:
+          NUMBER: 12.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Key Vault Certificate Validity Period (in months) is greater than 12."
+    remediationMessage: "Restrict the validity period of certificates stored in Azure Key Vault to 12 months or less."
+    check:
+      GREATER_THAN:
+        left:
+          EXTRACT: "caJsonNumber__policyX509CertificatePropertiesValidityInMonths__c"
+        right:
+          NUMBER: 12.0
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

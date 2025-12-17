@@ -1,0 +1,11 @@
+---
+name: "5.2.6 Ensure that multifactor authentication is required for Windows Azure Service Management API (Manual)"
+description: >
+  This recommendation ensures that users accessing the Windows Azure Service Management API 
+  (i.e. Azure Powershell, Azure CLI, Azure Resource Manager API, etc.) are required to use 
+  multi-factor authentication (MFA) credentials when accessing resources through the 
+  Windows Azure Service Management API.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v3.0.0/02/02/07"
+    - "/frameworks/cis-azure-v4.0.0/06/02/06"

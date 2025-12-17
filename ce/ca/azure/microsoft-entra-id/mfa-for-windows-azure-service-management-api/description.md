@@ -35,8 +35,8 @@ MFA is not enabled by default for administrative actions.
 ## References
 
 1. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-identity-management#im-7-restrict-resource-access-based-on--conditions>
-2. <https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/concept-conditional-access-users-groups>
-3. <https://learn.microsoft.com/en-us/entra/identity/conditional-access/howto-conditional-access-policy-azure-management>
+2. <https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-users-groups>
+3. <https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-old-require-mfa-azure-mgmt>
 4. <https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-cloud-apps#windows-azure-service-management-api>
 
 ## Additional Information

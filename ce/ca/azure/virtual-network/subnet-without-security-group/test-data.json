@@ -1,0 +1,59 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-10T11:11:03Z" },
+    "CA10__disappearanceTime__c": "2025-10-31T16:09:45Z",
+    "CA10__networkSecurityGroup__c": "",
+    "CA10__networkSecurityGroupId__c": "",
+    "Id": "001",
+    "RecordTypeId": "0124x000001OkZ6AAK",
+    "CA10__networkSecurityGroup__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null
+    },
+    "RecordType": { "Id": "0124x000001OkZ6AAK" }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "notEmptyLookup('CA10__networkSecurityGroup__r')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-10T11:11:03Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__networkSecurityGroup__c": "g002",
+    "CA10__networkSecurityGroupId__c": "/subscriptions/groupId",
+    "Id": "002",
+    "RecordTypeId": "0124x000001OkZ6AAK",
+    "CA10__networkSecurityGroup__r": {
+      "Id": "g002",
+      "CA10__disappearanceTime__c": null
+    },
+    "RecordType": { "Id": "0124x000001OkZ6AAK" }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-10T11:11:03Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__networkSecurityGroup__c": "",
+    "CA10__networkSecurityGroupId__c": "",
+    "Id": "003",
+    "RecordTypeId": "0124x000001OkZ6AAK",
+    "CA10__networkSecurityGroup__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null
+    },
+    "RecordType": { "Id": "0124x000001OkZ6AAK" }
+  }
+]

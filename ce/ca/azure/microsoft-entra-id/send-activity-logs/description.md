@@ -51,4 +51,4 @@ By default, Microsoft Entra diagnostic settings do not exist.
 ## References
 
 1. <https://learn.microsoft.com/en-us/entra/identity/monitoring-health/howto-configure-diagnostic-settings>
-2. <https://learn.microsoft.com/en-us/entra/identity/monitoring-health/howto-access-activity-logs?tabs=microsoft-entra-activity-logs%2Carchive-activity-logs-to-a-storage-account>
+2. <https://learn.microsoft.com/en-us/entra/identity/monitoring-health/howto-access-activity-logs>

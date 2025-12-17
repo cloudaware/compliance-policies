@@ -6,12 +6,11 @@ description: Access Keys authenticate application access requests to data contai
   in Storage Accounts. A periodic rotation of these keys is recommended to ensure
   that potentially compromised keys cannot result in a long-term exploitable credential.
   The 'Rotation Reminder' is an automatic reminder feature for a manual procedure.
-impossible: true
 type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - "/frameworks/cis-azure-v4.0.0/10/03/01/01"
+  - "/frameworks/cis-azure-v5.0.0/09/03/01/01"
   - "/frameworks/cloudaware/resource-security/secure-access"
 similarPolicies:
   internal:

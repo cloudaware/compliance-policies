@@ -17,13 +17,20 @@ By adding this role, specific permissions may be granted for managing just resou
 1. In the Azure portal, open a subscription or resource group where you want to view assigned roles.
 2. Select `Access control (IAM)`.
 3. Select `Roles`.
-4. Search for the custom role named "role_name" e.g. from remediation `Resource Lock Administrator`.
-5. Ensure that the role is assigned to the appropriate users.
+4. Click `Type : All`.
+5. Click to view the drop-down menu.
+6. Select `Custom role`.
+7. Click `View` in the `Details` column of a custom role.
+8. Review the role permissions.
+9. Click `Assignments` and review the assignments.
+10. Click the `X` to exit the custom role details page.
+11. Repeat steps 7-10. Ensure that at least one custom role exists that assigns the `Microsoft.Authorization/locks` permission to appropriate members.
+12. Repeat steps 1-11 for each subscription or resource group.
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/role-based-access-control/custom-roles>
-2. <https://docs.microsoft.com/en-us/azure/role-based-access-control/check-access>
+1. <https://learn.microsoft.com/en-us/azure/role-based-access-control/custom-roles>
+2. <https://learn.microsoft.com/en-us/azure/role-based-access-control/check-access>
 3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-privileged-access#pa-1-separate-and-limit-highly-privilegedadministrative-users>
 4. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-privileged-access#pa-7-follow-just-enough-administration-least-privilege-principle>
 5. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-privileged-access#pa-3-manage-lifecycle-of-identities-and-entitlements>

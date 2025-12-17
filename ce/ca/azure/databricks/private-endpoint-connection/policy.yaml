@@ -1,0 +1,12 @@
+---
+names:
+  full: Azure Databricks Workspace does not use private endpoint connections
+  contextual: Databricks Workspace does not use private endpoint connections
+description: "Use private endpoints for Azure Databricks workspaces to allow clients and services to\
+  \ securely access data located over a network via an encrypted Private Link."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v5.0.0/02/01/11"
+  - "/frameworks/cloudaware/resource-security/secure-access"

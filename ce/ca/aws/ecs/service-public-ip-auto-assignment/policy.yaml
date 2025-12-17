@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS ECS Service automatically assigns public IP addresses"
+  contextual: "Service automatically assigns public IP addresses"
+description: >
+  Ensure that Amazon ECS services do not automatically assign public IP addresses
+  to tasks. Assigning public IPs to tasks makes them directly accessible from
+  the internet, increasing the attack surface.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/aws-fsbp-v1.0.0/ecs/02"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ECS.2] ECS services should not have public IP addresses assigned to them automatically"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/ecs-controls.html#ecs-2"

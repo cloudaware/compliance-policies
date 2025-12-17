@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS ECS Fargate Service platform version is outdated"
+  contextual: "Fargate Service platform version is outdated"
+description: >
+  Ensure that AWS ECS services running on Fargate are configured to use the
+  LATEST platform version. Using the LATEST platform version ensures that
+  tasks automatically use the most current, stable runtime environment, which
+  includes the newest features and security patches.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/infrastructure-modernization"
+  - "/frameworks/aws-fsbp-v1.0.0/ecs/10"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ECS.10] ECS Fargate services should run on the latest Fargate platform version"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/ecs-controls.html#ecs-10"

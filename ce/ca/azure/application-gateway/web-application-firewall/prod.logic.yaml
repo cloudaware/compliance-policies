@@ -1,0 +1,19 @@
+---
+inputType: "CA10__CaAzureApplicationGateway__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: /types/CA10__CaAzureApplicationGateway__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Web Application Firewall (WAF) is enabled on the Application Gateway."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__wafEnabled__c"
+        right:
+          BOOLEAN: true
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Web Application Firewall (WAF) is not enabled on the Application Gateway." 
+  remediationMessage: "Enable Web Application Firewall (WAF) on the Application Gateway."

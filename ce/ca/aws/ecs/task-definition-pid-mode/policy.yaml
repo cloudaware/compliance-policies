@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS ECS Task Definition shares the host's process namespace"
+  contextual: "Task Definition shares the host's process namespace"
+description: >
+  Ensure that AWS ECS Task Definitions do not configure containers to share
+  the host's process ID (PID) namespace. Sharing the host's PID namespace allows
+  containers to view and interact with all processes on the host system, significantly
+  reducing isolation and increasing security risks.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/secure-access"
+  - "/frameworks/aws-fsbp-v1.0.0/ecs/03"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ECS.3] ECS task definitions should not share the host's process namespace"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/ecs-controls.html#ecs-3"

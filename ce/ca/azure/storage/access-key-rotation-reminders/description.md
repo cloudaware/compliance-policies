@@ -16,27 +16,7 @@ This recommendation only creates a periodic reminder to regenerate access keys. 
 
 ## Audit
 
-### From Azure Portal
-
-1. Go to `Storage Accounts`.
-2. For each Storage Account, under `Security + networking`, go to `Access keys`.
-3. If the button `Edit rotation reminder` is displayed, the Storage Account is compliant. Click `Edit rotation reminder` and review the `Remind me every` field for a desirable periodic setting that fits your security program's needs. If the button `Set rotation reminder` is displayed, the Storage Account is not compliant.
-
-### From Powershell
-
-```ps
-$rgName = <resource group name for the storage> $accountName = <storage account name> $account = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName Write-Output $accountName -> Write-Output "Expiration Reminder set to: $($account.KeyPolicy.KeyExpirationPeriodInDays) Days" Write-Output "Key1 Last Rotated: $($account.KeyCreationTime.Key1.ToShortDateString())" Write-Output "Key2 Last Rotated: $($account.KeyCreationTime.Key2.ToShortDateString())"
-```
-
-Key rotation is recommended if the creation date for any key is empty.
-
-If the reminder is set, the period in days will be returned. The recommended period is 90 days.
-
-### From Azure Policy
-
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
-
-•   **Policy ID**: [044985bb-afe1-42cd-8a36-9d5d42424537](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailAdaptor.ReactView/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F044985bb-afe1-42cd-8a36-9d5d42424537) - **Name**: 'Storage account keys should not be expired'
+This policy flags an *Azure Storage Account* as `INCOMPLIANT` if `Rotation Reminder` is not set in 90 days.
 
 ## Default Value
 

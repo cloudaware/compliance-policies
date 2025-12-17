@@ -4,9 +4,23 @@ NOTE: This recommendation assumes that the `Public network access` parameter is 
 
 - Ensure Default Network Access Rule for Storage Accounts is Set to Deny
 
-Some Azure services that interact with storage accounts operate from networks that can't be granted access through network rules. To help this type of service work as intended, allow the set of trusted Azure services to bypass the network rules. These services will then use strong authentication to access the storage account. If the `Allow Azure services on the trusted services list to access this storage account` exception is enabled, the following services are granted access to the storage account: Azure Backup, Azure Data Box, Azure DevTest Labs, Azure Event Grid, Azure Event Hubs, Azure File Sync, Azure HDInsight, Azure Import/Export, Azure Monitor, Azure Networking Services, and Azure Site Recovery (when registered in the subscription).
+Some Azure services that interact with storage accounts operate from networks that can't be granted access through network rules. To help this type of service work as intended, allow the set of trusted Azure services to bypass the network rules. These services will then use strong authentication to access the storage account. If the `Allow Azure services on the trusted services list to access this storage account` exception is enabled, the following services are granted access to the storage account:
+
+- Azure Backup,
+- Azure Data Box,
+- Azure DevTest Labs,
+- Azure Event Grid,
+- Azure Event Hubs,
+- Azure File Sync,
+- Azure HDInsight,
+- Azure Import/Export,
+- Azure Monitor,
+- Azure Networking Services, and
+- Azure Site Recovery (when registered in the subscription).
 
 ## Rationale
+
+**NOTE**: If none of the services listed in the Description are in use in your environment, you may wish to make an exception to this recommendation and disable 'Allow Azure services on the trusted services list to access this storage account.'
 
 Turning on firewall rules for storage account will block access to incoming requests for data, including from other Azure services. We can re-enable this functionality by enabling `Trusted Azure Services` through networking exceptions.
 

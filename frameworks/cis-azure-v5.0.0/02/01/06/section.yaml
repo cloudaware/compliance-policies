@@ -1,0 +1,14 @@
+---
+name: "2.1.6 Ensure that usage is restricted and expiry is enforced for Databricks personal access tokens (Manual)"
+description: >
+  Databricks personal access tokens (PATs) provide API-based authentication for users and applications. 
+  By default, users can generate API tokens without expiration, leading to potential security risks 
+  if tokens are leaked, improperly stored, or not rotated regularly.
+  
+  To mitigate these risks, administrators should:
+  • Restrict token creation to approved users and service principals.
+  • Enforce expiration policies to prevent long-lived tokens.
+  • Monitor token usage and revoke unused or compromised tokens.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v4.0.0/03/01/06"

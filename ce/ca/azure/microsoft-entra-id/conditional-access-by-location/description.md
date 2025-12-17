@@ -8,6 +8,8 @@ Conditional Access Policies can be used to block access from geographic location
 
 Conditional Access, when used as a deny list for the tenant or subscription, is able to prevent ingress or egress of traffic to countries that are outside of the scope of interest (e.g.: customers, suppliers) or jurisdiction of an organization. This is an effective way to prevent unnecessary and long-lasting exposure to international threats such as APTs.
 
+Note on Assessment Status: Because the determination of entities to be included or excluded is specific and unique to each organization, assessment status for this recommendation is considered 'Manual' even though some elements for automation (CLI, PowerShell) are provided.
+
 ## Impact
 
 Microsoft Entra ID P1 or P2 is required. Limiting access geographically will deny access to users that are traveling or working remotely in a different part of the world. A point-to-site or site to site tunnel such as a VPN is recommended to address exceptions to geographic access policies.
@@ -46,8 +48,8 @@ This policy does not exist by default.
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-policy-location>
-2. <https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/concept-conditional-access-report-only>
+1. <https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-block-by-location>
+2. <https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-report-only>
 3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-identity-management#im-7-restrict-resource-access-based-on--conditions>
 
 ## Additional Information

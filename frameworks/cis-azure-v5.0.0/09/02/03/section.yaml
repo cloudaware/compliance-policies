@@ -1,0 +1,9 @@
+---
+name: "9.2.3 Ensure 'Versioning' is set to 'Enabled' on Azure Blob Storage storage accounts (Automated)"
+description: >
+  Enabling blob versioning allows for the automatic retention of previous versions of 
+  objects. With blob versioning enabled, earlier versions of a blob are accessible for data 
+  recovery in the event of modifications or deletions.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v4.0.0/10/02/02"

@@ -1,0 +1,35 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__securityDefaultsEnforcementPolicy__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-14T05:59:27Z" },
+    "CA10__securityDefaultsEnforcementPolicy__c": "",
+    "Id": "001"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__securityDefaultsEnforcementPolicy__c') == 'Disabled'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-14T05:59:27Z" },
+    "CA10__securityDefaultsEnforcementPolicy__c": "Disabled",
+    "Id": "002"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__securityDefaultsEnforcementPolicy__c') == 'Enabled'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-14T05:59:27Z" },
+    "CA10__securityDefaultsEnforcementPolicy__c": "Enabled",
+    "Id": "003"
+  }
+]

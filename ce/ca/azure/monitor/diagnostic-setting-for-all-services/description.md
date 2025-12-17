@@ -4,6 +4,8 @@ Resource Logs capture activity to the data access plane while the Activity log i
 
 A number of back-end services were not configured to log and store Resource Logs for certain activities or for a sufficient length. It is crucial that monitoring is correctly configured to log all relevant activities and retain those logs for a sufficient length of time. Given that the mean time to detection in an enterprise is 240 days, a minimum retention period of two years is recommended.
 
+While an automated assessment procedure exists for this recommendation, the assessment status remains manual. Determining whether resource logging should be enabled for specific resources depends on the context and requirements of each organization and environment.
+
 ## Rationale
 
 A lack of monitoring reduces the visibility into the data plane, and therefore an organization's ability to detect reconnaissance, authorization attempts or other malicious activity. Unlike Activity Logs, Resource Logs are not enabled by default. Specifically, without monitoring it would be impossible to tell which entities had accessed a data store that was breached. In addition, alerts for failed attempts to access APIs for Web Services or Databases are only possible when logging is enabled.
@@ -71,6 +73,7 @@ If referencing a digital copy of this Benchmark, clicking a Policy ID will open 
 - **Policy ID**: [b4330a05-a843-4bc8-bf9a-cacce50c67f4](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4330a05-a843-4bc8-bf9a-cacce50c67f4) - **Name**: `Resource logs in Search services should be enabled`
 - **Policy ID**: [f8d36e2f-389b-4ee4-898d-21aeb69a0f45](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8d36e2f-389b-4ee4-898d-21aeb69a0f45) - **Name**: `Resource logs in Service Bus should be enabled`
 - **Policy ID**: [f9be5368-9bf5-4b84-9e0a-7850da98bb46](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff9be5368-9bf5-4b84-9e0a-7850da98bb46) - **Name**: `Resource logs in Azure Stream Analytics should be enabled`
+- **Policy ID**: [8a04f872-51e9-4313-97fb-fc1c3543011c](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8a04f872-51e9-4313-97fb-fc1c3543011c) - **Name**: `Azure Application Gateway should have Resource logs enabled`
 
 ## Default Value
 
@@ -80,12 +83,12 @@ By default, Azure Monitor Resource Logs are `Disabled` for all resources.
 
 1. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-logging-threat-detection#lt-3-enable-logging-for-security-investigation>
 2. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-logging-threat-detection#lt-5-centralize-security-log-management-and-analysis>
-3. <https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/monitor-azure-resource>
-4. Supported Log Categories: <https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories>
-5. Logs and Audit - Fundamentals: <https://docs.microsoft.com/en-us/azure/security/fundamentals/log-audit>
-6. Collecting Logs: <https://docs.microsoft.com/en-us/azure/azure-monitor/platform/collect-activity-logs>
-7. Key Vault Logging: <https://docs.microsoft.com/en-us/azure/key-vault/key-vault-logging>
-8. Monitor Diagnostic Settings: <https://docs.microsoft.com/en-us/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest>
-9. Overview of Diagnostic Logs: <https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-logs-overview>
-10. Supported Services for Diagnostic Logs: <https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-logs-schema>
-11. Diagnostic Logs for CDNs: <https://docs.microsoft.com/en-us/azure/cdn/cdn-azure-diagnostic-logs>
+3. <https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/monitor-azure-resource>
+4. Supported Log Categories: <https://learn.microsoft.com/en-us/azure/azure-monitor/reference/logs-index>
+5. Logs and Audit - Fundamentals: <https://learn.microsoft.com/en-us/azure/security/fundamentals/log-audit>
+6. Collecting Logs: <https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/activity-log>
+7. Key Vault Logging: <https://learn.microsoft.com/en-us/azure/key-vault/general/logging>
+8. Monitor Diagnostic Settings: <https://learn.microsoft.com/en-us/cli/azure/monitor/diagnostic-settings>
+9. Overview of Diagnostic Logs: <https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/data-sources>
+10. Supported Services for Diagnostic Logs: <https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-schema>
+11. Diagnostic Logs for CDNs: <https://learn.microsoft.com/en-us/azure/cdn/cdn-azure-diagnostic-logs>

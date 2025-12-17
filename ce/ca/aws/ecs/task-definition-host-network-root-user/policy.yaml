@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS ECS Task Definition with Host Network Mode runs containers as root"
+  contextual: "Task Definition with Host Network Mode runs containers as root"
+description: >
+  Ensure that ECS Task Definitions configured with Host Network Mode do not run
+  containers with root privileges. Using the host network mode gives the container
+  full access to the host's network stack, and running as root increases the
+  risk of container breakout and host compromise.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/secure-access"
+  - "/frameworks/aws-fsbp-v1.0.0/ecs/01"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ECS.1] Amazon ECS task definitions should have secure networking modes and user definitions"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/ecs-controls.html#ecs-1"

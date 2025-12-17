@@ -1,0 +1,59 @@
+---
+inputType: "CA10__CaAzureApplicationGateway__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Application Gateway WAF Policy does not use the Bot Manager Rule Set."
+    remediationMessage: "Configure the Gateway WAF Policy to use the Bot Manager Rule Set."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Application Gateway has a WAF Policy that uses the Bot Manager Rule Set."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The Application Gateway has no WAF Policy."
+  remediationMessage: "Configure a WAF Policy for the Application Gateway."
+relatedLists:
+  - relationshipName: "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r"
+    importExtracts:
+      - file: /types/CA10Z1__CaAzureApplicationGatewayWafPolicy__c/object.extracts.yaml
+    conditions:
+    # Microsoft_BotManagerRuleSet not exist
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Ensure a managed rule set with ruleSetType of Microsoft_BotManagerRuleSet is returned."
+        remediationMessage: "Create managed rule set."
+        check:
+          LESS_THAN:
+            left:
+              EXTRACT: "CA10Z1__wafPolicy__r.caJsonFrom__managedRulesDefinitionMicrosoftBotManagerRuleSetCount__c"
+            right:
+              NUMBER: 1.0
+    # ruleGroupOverrides is empty
+      - status: "COMPLIANT"
+        currentStateMessage: "The ruleGroupOverrides is empty"
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10Z1__wafPolicy__r.caJsonFrom__managedRulesDefinitionMicrosoftBotManagerRuleSetRuleGroupOverridesCount__c"
+            right:
+              NUMBER: 0.0
+    # no ruleGroupOverrides for ruleGroupName BadBots with state Disabled are returned
+      - status: "COMPLIANT"
+        currentStateMessage: "There're no ruleGroupOverrides for the BadBots rule group name in Disabled state."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10Z1__wafPolicy__r.caJsonFrom__managedRulesDefinitionMicrosoftBotManagerRuleSetRuleGroupOverridesBadBotsRulesDisabledExist__c"
+            right:
+              BOOLEAN: false
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "The ruleGroupOverrides for the BadBots rule group name in Disabled state are returned."
+      remediationMessage: "Enable the Bad Bots rule group."

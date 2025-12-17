@@ -12,7 +12,7 @@ conditions:
         left:
           EXTRACT: "CA10__publicNetworkAccess__c"
         right:
-          TEXT: 'Disabled'
+          TEXT: "Disabled"
 otherwise:
   status: "INCOMPLIANT"
   currentStateMessage: "Public network access is not disabled."

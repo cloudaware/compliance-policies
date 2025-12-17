@@ -27,7 +27,7 @@ By default, the `Number of days before users are asked to re-confirm their authe
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-how-it-works#registration>
-2. <https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-sspr-deployment>
+1. <https://learn.microsoft.com/en-us/entra/identity/authentication/concept-sspr-howitworks#registration>
+2. <https://support.microsoft.com/en-us/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e>
 3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-governance-strategy#gs-6-define-and-implement-identity-and-privileged-access-strategy>
-4. <https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-authentication-methods>
+4. <https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-methods>

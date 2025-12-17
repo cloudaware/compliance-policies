@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS ECS Task Definition runs as privileged"
+  contextual: "Task Definition runs as privileged"
+description: >
+  Ensure that AWS ECS Task Definitions do not configure containers to run in
+  privileged mode. Privileged containers have access to all devices on the host
+  and bypass many of the isolation features of containers, posing a severe security risk.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/secure-access"
+  - "/frameworks/aws-fsbp-v1.0.0/ecs/04"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ECS.4] ECS containers should run as non-privileged"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/ecs-controls.html#ecs-4"

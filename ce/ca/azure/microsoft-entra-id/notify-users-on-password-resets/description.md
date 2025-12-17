@@ -27,7 +27,7 @@ By default, `Notify users on password resets?` is set to `Yes`.
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/active-directory/authentication/tutorial-enable-sspr#set-up-notifications-and-customizations>
-2. <https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-how-it-works#notifications>
-3. <https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-sspr-deployment>
+1. <https://learn.microsoft.com/en-us/entra/identity/authentication/tutorial-enable-sspr#set-up-notifications-and-customizations>
+2. <https://learn.microsoft.com/en-us/entra/identity/authentication/concept-sspr-howitworks#notifications>
+3. <https://support.microsoft.com/en-us/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e>
 4. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-governance-strategy#gs-6-define-and-implement-identity-and-privileged-access-strategy>

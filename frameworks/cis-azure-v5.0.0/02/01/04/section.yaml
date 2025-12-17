@@ -1,0 +1,12 @@
+---
+name: "2.1.4 Ensure that users and groups are synced from Microsoft Entra ID to Azure Databricks (Manual)"
+description: >
+  To ensure centralized identity and access management, users and groups from Microsoft Entra ID should 
+  be synchronized with Azure Databricks. This is achieved through SCIM provisioning, which automates 
+  the creation, update, and deactivation of users and groups in Databricks based on Entra ID assignments. 
+  Enabling this integration ensures that access controls in Databricks remain consistent with corporate 
+  identity governance policies, reducing the risk of orphaned accounts, stale permissions, and 
+  unauthorized access.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v4.0.0/03/01/04"

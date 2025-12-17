@@ -22,7 +22,7 @@ By default, no monitoring alerts are created.
 
 1. <https://learn.microsoft.com/en-us/azure/service-health/overview>
 2. <https://learn.microsoft.com/en-us/azure/service-health/alerts-activity-log-service-notifications-portal>
-3. <https://azure.microsoft.com/en-gb/pricing/details/monitor/#faq>
+3. <https://azure.microsoft.com/en-us/pricing/details/monitor/#faq>
 4. <https://learn.microsoft.com/en-us/cli/azure/monitor/activity-log/alert>
 5. <https://learn.microsoft.com/en-us/powershell/module/az.monitor/get-azactivitylogalert>
 6. <https://learn.microsoft.com/en-us/powershell/module/az.monitor/new-azactivitylogalert>

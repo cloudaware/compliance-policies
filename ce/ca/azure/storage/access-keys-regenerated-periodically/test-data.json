@@ -1,0 +1,62 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-06T01:39:08Z" },
+    "CA10__disappearanceTime__c": "2025-10-27T14:29:45Z",
+    "CA10__primaryKeyCreationTime__c": "2023-09-19T17:48:00Z",
+    "CA10__secondaryKeyCreationTime__c": "2023-09-19T17:48:00Z",
+    "Id": "001",
+    "RecordTypeId": "0124x000001OkZ4AAK",
+    "RecordType": { "Id": "0124x000001OkZ4AAK" }
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__primaryKeyCreationTime__c').isEmpty() || extract('CA10__secondaryKeyCreationTime__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-06T01:39:08Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__primaryKeyCreationTime__c": null,
+    "CA10__secondaryKeyCreationTime__c": "2023-03-31T11:01:28Z",
+    "Id": "002",
+    "RecordTypeId": "0124x000001OkZ4AAK",
+    "RecordType": { "Id": "0124x000001OkZ4AAK" }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "not(extract('CA10__primaryKeyCreationTime__c').withinLastDays(90)) || not(extract('CA10__secondaryKeyCreationTime__c').withinLastDays(90))",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-06T01:39:08Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__primaryKeyCreationTime__c": "2023-03-31T11:01:28Z",
+    "CA10__secondaryKeyCreationTime__c": "2023-03-31T11:01:28Z",
+    "Id": "003",
+    "RecordTypeId": "0124x000001OkZ4AAK",
+    "RecordType": { "Id": "0124x000001OkZ4AAK" }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-06T01:39:08Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__primaryKeyCreationTime__c": "2025-09-12T17:27:34Z",
+    "CA10__secondaryKeyCreationTime__c": "2025-09-12T17:27:34Z",
+    "Id": "004",
+    "RecordTypeId": "0124x000001OkZ4AAK",
+    "RecordType": { "Id": "0124x000001OkZ4AAK" }
+  }
+]

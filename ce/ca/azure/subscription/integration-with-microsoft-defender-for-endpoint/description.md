@@ -1,6 +1,6 @@
 # Description
 
-This integration setting enables Microsoft Defender for Endpoint (formerly 'Advanced Threat Protection' or 'ATP' or 'WDATP' - see additional info) to communicate with Microsoft Defender for Cloud.
+The Endpoint protection component enables Microsoft Defender for Endpoint (formerly 'Advanced Threat Protection' or 'ATP' or 'WDATP' - see additional info) to communicate with Microsoft Defender for Cloud.
 
 **IMPORTANT**: When enabling integration between DfE & DfC it needs to be taken into account that this will have some side effects that may be undesirable.
 
@@ -22,42 +22,7 @@ Endpoint protection requires licensing and is included in these plans:
 
 ## Audit
 
-### From Azure Portal
-
-1. From Azure Home select the Portal Menu.
-2. Select `Microsoft Defender for Cloud`.
-3. Under `Management`, select `Environment Settings`.
-4. Click on the subscription name.
-5. Click `Settings & monitoring`.
-6. Ensure the `Status` for `Endpoint protection` is set to `On`.
-
-### From Azure CLI
-
-Ensure the output of the below command is `True`:
-
-```sh
-az account get-access-token --query "{subscription:subscription,accessToken:accessToken}" --out tsv | xargs -L1 bash -c 'curl -X GET -H "Authorization: Bearer $1" -H "Content-Type: application/json" https://management.azure.com/subscriptions/<subscriptionID>/providers/Microsoft.Security/settings?api-version=2021-06-01' | jq '.|.value[] | select(.name=="WDATP")'|jq '.properties.enabled'
-```
-
-### From PowerShell
-
-Run the following commands to login and audit this check:
-
-```ps
-Connect-AzAccount Set-AzContext -Subscription <subscriptionID> Get-AzSecuritySetting | Select-Object name,enabled |where-object {$_.name -eq "WDATP"}
-```
-
-### PowerShell Output - Non-Compliant
-
-|Name|Enabled|
-|---|---|
-|WDATP|False|
-
-### PowerShell Output - Compliant
-
-|Name|Enabled|
-|---|---|
-|WDATP|True|
+This policy flags an *Azure Subscription* as `INCOMPLIANT` if the related `Azure Defender Plan` for **Endpoint** has its `Endpoint protection` (`WDATP`) is not enabled.
 
 ## Default Value
 
@@ -65,9 +30,9 @@ By default, Endpoint protection is `off`.
 
 ## References
 
-1. <https://docs.microsoft.com/en-in/azure/defender-for-cloud/integration-defender-for-endpoint?tabs=windows>
-2. <https://docs.microsoft.com/en-us/rest/api/securitycenter/settings/list>
-3. <https://docs.microsoft.com/en-us/rest/api/securitycenter/settings/update>
+1. <https://learn.microsoft.com/en-us/azure/defender-for-cloud/integration-defender-for-endpoint>
+2. <https://learn.microsoft.com/en-us/rest/api/defenderforcloud/settings/list>
+3. <https://learn.microsoft.com/en-us/rest/api/defenderforcloud/settings/update>
 4. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-endpoint-security#es-1-use-endpoint-detection-and-response-edr>
 5. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-endpoint-security#es-2-use-modern-anti-malware-software>
 

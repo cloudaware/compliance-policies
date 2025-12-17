@@ -1,0 +1,12 @@
+---
+names:
+  full: "Azure Network Subnet without Network Security Group"
+  contextual: "Network Subnet without Network Security Group"
+description: "Protect subnet resources by ensuring subnets are associated with network security\
+  \ groups, which can filter inbound and outbound traffic using security rules."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v5.0.0/07/11"
+  - "/frameworks/cloudaware/resource-security/secure-access"

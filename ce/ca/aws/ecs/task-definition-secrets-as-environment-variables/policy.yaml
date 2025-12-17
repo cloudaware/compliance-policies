@@ -1,0 +1,20 @@
+---
+names:
+  full: "AWS ECS Task Definition passes secrets as container environment variables"
+  contextual: "Task Definition passes secrets as container environment variables"
+description: >
+  Ensure that AWS ECS Task Definitions do not pass sensitive information, such as
+  passwords, tokens, or API keys, as plaintext environment variables. Storing secrets
+  in plaintext exposes them to anyone with read access to the task definition or
+  console. Secrets should instead be injected from AWS Systems Manager Parameter
+  Store or AWS Secrets Manager.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/secure-access"
+  - "/frameworks/aws-fsbp-v1.0.0/ecs/08"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ECS.8] Secrets should not be passed as container environment variables"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/ecs-controls.html#ecs-8"

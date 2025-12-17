@@ -1,6 +1,6 @@
 # Description
 
-Azure Databricks encrypts data in transit using TLS 1.2+ to secure API, workspace, and cluster communications. By default, data at rest is encrypted using Microsoft-managed keys.
+Customer-managed keys introduce additional depth to security by providing a means to manage access control for encryption keys. Where compliance and security frameworks indicate the need, and organizational capacity allows, sensitive data at rest can be encrypted using customer-managed keys (CMK) rather than Microsoft-managed keys.
 
 ## Rationale
 
@@ -22,3 +22,13 @@ This policy flags an *Azure Databricks Workspace* as `INCOMPLIANT` if the `Encry
 
 - **Empty** indicating that no encryption is configured, or
 - **Not** set to **Microsoft.Keyvault**, indicating the use of a Microsoft-managed key instead of a customer-managed key.
+
+## Default Value
+
+By default, encryption type is set to Microsoft-managed keys.
+
+## References
+
+1. <https://learn.microsoft.com/en-us/azure/security/fundamentals/data-encryption-best-practices#protect-data-at-rest>
+2. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-data-protection#dp-5-use-customer-managed-key-option-in-data-at-rest-encryption-when-required>
+3. <https://learn.microsoft.com/en-us/azure/databricks/security/keys/cmk-managed-disks-azure/cmk-managed-disks-azure>

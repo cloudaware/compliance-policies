@@ -1,0 +1,13 @@
+---
+names:
+  full: Azure Tenant Creator Role Assignments are not periodically reviewed
+  contextual: Tenant Creator Role Assignments are not periodically reviewed
+description: "Periodic review of Tenant Creator role assignments is performed to ensure that the\
+  \ Tenant Creator roles assigned to users are accurate and appropriate."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v5.0.0/05/03/06"
+  - "/frameworks/cloudaware/identity-and-access-governance/rbac-management"

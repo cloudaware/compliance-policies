@@ -22,8 +22,8 @@ By default, Microsoft Defender plan is `off`.
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/security-center/security-center-detection-capabilities>
-2. <https://docs.microsoft.com/en-us/rest/api/securitycenter/pricings/update>
-3. <https://docs.microsoft.com/en-us/powershell/module/az.security/get-azsecuritypricing>
+1. <https://learn.microsoft.com/en-us/azure/defender-for-cloud/alerts-overview>
+2. <https://learn.microsoft.com/en-us/rest/api/defenderforcloud/pricings/update>
+3. <https://learn.microsoft.com/en-us/powershell/module/az.security/get-azsecuritypricing>
 4. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-data-protection#dp-2-monitor-anomalies-and-threats-targeting-sensitive-data>
 5. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-logging-threat-detection#lt-1-enable-threat-detection-capabilities>

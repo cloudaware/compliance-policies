@@ -1,0 +1,42 @@
+[
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__subnet__r.CA10__mapPublicIpOnLaunch__c') == true",
+            "conditionIndex": 299,
+            "status": "INCOMPLIANT"
+        },
+        "CA10__subnetId__c": "subnet-ecdb1c8b",
+        "context": {
+            "snapshotTime": "2025-12-15T08:15:42Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subnet__r": {
+            "CA10__mapPublicIpOnLaunch__c": true,
+            "Id": "test1_1",
+            "CA10__disappearanceTime__c": null
+        },
+        "CA10__subnet__c": "test1_1"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "otherwise",
+            "conditionIndex": 300,
+            "status": "COMPLIANT"
+        },
+        "CA10__subnetId__c": "subnet-0b58c43b8ee8b3816",
+        "context": {
+            "snapshotTime": "2025-12-15T08:15:42Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subnet__r": {
+            "CA10__mapPublicIpOnLaunch__c": false,
+            "Id": "test2_2",
+            "CA10__disappearanceTime__c": null
+        },
+        "CA10__subnet__c": "test2_2"
+    }
+]

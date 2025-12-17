@@ -1,0 +1,92 @@
+[
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "CA10__pidMode__c": "",
+        "context": {
+            "snapshotTime": "2025-12-12T04:42:59Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-07-31T04:38:58Z",
+        "CA10__status__c": "ACTIVE"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "CA10__status__c.delegatedTo(CA10__status__c).isEmpty()",
+            "conditionIndex": 101,
+            "status": "UNDETERMINED"
+        },
+        "CA10__pidMode__c": "",
+        "context": {
+            "snapshotTime": "2025-12-12T04:42:59Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": ""
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__status__c') != 'ACTIVE'",
+            "conditionIndex": 199,
+            "status": "INAPPLICABLE"
+        },
+        "CA10__pidMode__c": "",
+        "context": {
+            "snapshotTime": "2025-12-12T04:42:59Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "INACTIVE"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__pidMode__c') == 'host'",
+            "conditionIndex": 299,
+            "status": "INCOMPLIANT"
+        },
+        "CA10__pidMode__c": "host",
+        "context": {
+            "snapshotTime": "2025-12-12T04:42:59Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "otherwise",
+            "conditionIndex": 300,
+            "status": "COMPLIANT"
+        },
+        "CA10__pidMode__c": "",
+        "context": {
+            "snapshotTime": "2025-12-12T04:42:59Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "otherwise",
+            "conditionIndex": 300,
+            "status": "COMPLIANT"
+        },
+        "CA10__pidMode__c": "task",
+        "context": {
+            "snapshotTime": "2025-12-12T04:42:59Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE"
+    }
+]

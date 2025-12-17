@@ -2,6 +2,8 @@
 
 Public IP Addresses provide tenant accounts with Internet connectivity for resources contained within the tenant. During the creation of certain resources in Azure, a Public IP Address may be created. All Public IP Addresses within the tenant should be periodically reviewed for accuracy and necessity.
 
+While an automated assessment procedure exists for this recommendation, the assessment status remains manual. Evaluating the appropriateness of public IP addresses requires a manual review, as it depends on the specific needs and context of each organization and environment.
+
 ## Rationale
 
 Public IP Addresses allocated to the tenant should be periodically reviewed for necessity. Public IP Addresses that are not intentionally assigned and controlled present a publicly facing vector for threat actors and significant risk to the tenant.
@@ -35,5 +37,5 @@ During Virtual Machine and Application creation, a setting may create and attach
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/cli/azure/network/public-ip?view=azure-cli-latest>
+1. <https://learn.microsoft.com/en-us/cli/azure/network/public-ip>
 2. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-network-security>

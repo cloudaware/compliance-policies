@@ -1,0 +1,12 @@
+---
+names:
+  full: "Azure Application Gateway WAF policy bot protection is not enabled"
+  contextual: "Application Gateway WAF policy bot protection is not enabled"
+description: "Enable bot protection on the Web Application Firewall to block or log requests from\
+  \ known malicious IP addresses identified through the Microsoft Threat Intelligence feed."
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v5.0.0/07/15"
+  - "/frameworks/cloudaware/resource-security/threat-protection"

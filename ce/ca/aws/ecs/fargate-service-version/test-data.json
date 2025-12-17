@@ -1,0 +1,98 @@
+[
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "context": {
+            "snapshotTime": "2025-12-12T04:42:59Z"
+        },
+        "CA10__platformVersion__c": "",
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-12-05T02:07:04Z",
+        "CA10__launchType__c": "EC2",
+        "CA10__status__c": "ACTIVE"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__launchType__c') != 'FARGATE'",
+            "conditionIndex": 299,
+            "status": "INAPPLICABLE"
+        },
+        "context": {
+            "snapshotTime": "2025-12-12T04:42:59Z"
+        },
+        "CA10__platformVersion__c": "LATEST",
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchType__c": "",
+        "CA10__status__c": "ACTIVE"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__platformVersion__c') == 'LATEST'",
+            "conditionIndex": 499,
+            "status": "COMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-12T04:42:59Z"
+        },
+        "CA10__platformVersion__c": "LATEST",
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchType__c": "FARGATE",
+        "CA10__status__c": "ACTIVE"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__status__c') != 'ACTIVE'",
+            "conditionIndex": 199,
+            "status": "INAPPLICABLE"
+        },
+        "context": {
+            "snapshotTime": "2025-12-12T04:42:59Z"
+        },
+        "CA10__platformVersion__c": "LATEST",
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchType__c": "EC2",
+        "CA10__status__c": "INACTIVE"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__platformVersion__c') == '1.3.0'",
+            "conditionIndex": 399,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-12T04:42:59Z"
+        },
+        "CA10__platformVersion__c": "1.3.0",
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchType__c": "FARGATE",
+        "CA10__status__c": "ACTIVE"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__platformVersion__c') == '1.4.0'",
+            "conditionIndex": 599,
+            "status": "COMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-12T04:42:59Z"
+        },
+        "CA10__platformVersion__c": "1.4.0",
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__launchType__c": "FARGATE",
+        "CA10__status__c": "ACTIVE"
+    }
+]

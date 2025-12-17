@@ -1,0 +1,31 @@
+---
+extracts:
+# Values: Enabled | Disabled. Not nullable.
+  - name: "CA10__assignPublicIp__c"
+    value:
+      FIELD:
+        path: "CA10__assignPublicIp__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__assignPublicIp__c"
+            currentStateMessage: "Service Assign Public IP config cannot be empty. Possible permission issue with ecs:DescribeServices"
+# Values: ACTIVE | DRAINING | INACTIVE. Not nullable.
+  - name: "CA10__status__c"
+    value:
+      FIELD:
+        path: "CA10__status__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__status__c"
+            currentStateMessage: "Service status cannot be empty. Possible permission issue with ecs:DescribeServices"
+# Values: EC2 | FARGATE | EXTERNAL | MANAGED_INSTANCES
+# Nullable
+  - name: "CA10__launchType__c"
+    value:
+      FIELD:
+        path: "CA10__launchType__c"
+# Nullable.
+  - name: "CA10__platformVersion__c"
+    value:
+      FIELD:
+        path: "CA10__platformVersion__c"

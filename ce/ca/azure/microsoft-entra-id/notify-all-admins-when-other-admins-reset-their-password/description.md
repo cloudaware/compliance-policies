@@ -27,8 +27,8 @@ By default, `Notify all admins when other admins reset their password?` is set t
 
 ## References
 
-1. <https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-how-it-works#notifications>
-2. <https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-sspr-deployment>
+1. <https://learn.microsoft.com/en-us/entra/identity/authentication/concept-sspr-howitworks#notifications>
+2. <https://support.microsoft.com/en-us/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e>
 3. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-governance-strategy#gs-6-define-and-implement-identity-and-privileged-access-strategy>
 4. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-privileged-access#pa-1-separate-and-limit-highly-privilegedadministrative-users>
-5. <https://docs.microsoft.com/en-us/azure/active-directory/authentication/tutorial-enable-sspr#set-up-notifications-and-customizations>
+5. <https://learn.microsoft.com/en-us/entra/identity/authentication/tutorial-enable-sspr#set-up-notifications-and-customizations>

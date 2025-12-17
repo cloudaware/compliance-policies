@@ -1,0 +1,9 @@
+---
+name: "9.1.2 Ensure 'SMB protocol version' is set to 'SMB 3.1.1' or higher for SMB file shares (Automated)"
+description: >
+  Ensure that SMB file shares are configured to use the latest supported SMB protocol 
+  version. Keeping the SMB protocol updated helps mitigate risks associated with older 
+  SMB versions, which may contain vulnerabilities and lack essential security controls.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v4.0.0/10/01/02"

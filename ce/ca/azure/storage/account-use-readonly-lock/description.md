@@ -8,6 +8,8 @@ Microsoft does not recommend `ReadOnly` locks for storage accounts with Azure Fi
 
 This Azure Resource Manager REST API documentation (spec) provides information about the control plane `POST` operations for *Microsoft.Storage* resources.
 
+While an automated assessment procedure exists for this recommendation, the assessment status remains manual. Determining storage accounts that require ReadOnly locks depends on the context and requirements of each organization and environment.
+
 ## Rationale
 
 Applying a `ReadOnly` lock on storage accounts protects the confidentiality and availability of data by preventing the accidental or unauthorized deletion of the entire storage account and modification of the account, container properties, or access permissions. It can offer enhanced protection for blob and queue workloads with tradeoffs in usability and compatibility for clients using account shared access keys.

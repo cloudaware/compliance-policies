@@ -1,0 +1,11 @@
+---
+name: "3.1.1 Ensure only MFA enabled identities can access privileged Virtual Machine (Manual)"
+description: >
+  Verify identities without MFA that can log in to a privileged virtual machine using separate login credentials. 
+  An adversary can leverage the access to move laterally and perform actions with the virtual machine's 
+  managed identity. Make sure the virtual machine only has necessary permissions, and revoke the admin-level 
+  permissions according to the principle of least privilege.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v3.0.0/08/10"
+    - "/frameworks/cis-azure-v4.0.0/04/01/01"

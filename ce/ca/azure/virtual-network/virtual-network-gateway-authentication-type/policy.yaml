@@ -1,0 +1,13 @@
+---
+names:
+  full: "Azure Virtual Network Gateway point-to-site configuration authentication type is not set to Azure Active Directory"
+  contextual: "Virtual Network Gateway point-to-site configuration authentication type is not set to Azure Active Directory"
+description: >
+  Enable only Azure Active Directory (Microsoft Entra ID) authentication for Azure VPN Gateway point-to-site connections.
+impossible: true
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cis-azure-v5.0.0/07/09"
+  - "/frameworks/cloudaware/resource-security/secure-access"

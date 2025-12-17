@@ -1,0 +1,62 @@
+---
+inputType: "CA10__CaAwsEcsTaskDefinition__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsEcsTaskDefinition__c/object.extracts.yaml"
+  - file: "/types/CA10__CaAwsEcsContainerDefinition__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Task Definition is not active."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "ACTIVE"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Task Definition Network Mode is not set to Host."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__networkMode__c"
+        right:
+          TEXT: "host"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Task Definition uses Host Network Mode and has at least one container running as root."
+    remediationMessage: "Update the Task Definition to specify a non-root user for all containers."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__AWS_ECS_Container_Definitions__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Task Definition uses Host Network Mode but all containers are configured to run as a non-root user."
+relatedLists:
+  - relationshipName: "CA10__AWS_ECS_Container_Definitions__r"
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "The container is given elevated privileges on the host container instance."
+        check:
+          EXTRACT: "CA10__privileged__c"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The container uses the root user."
+        check:
+          CONTAINS:
+            arg:
+              SET:
+                itemType: TEXT
+                items:
+                  - "root"
+                  - "0"
+            search:
+              EXTRACT: "CA10__user__c"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The container uses the root user."
+        check:
+          IS_EMPTY:
+            arg:
+              EXTRACT: "CA10__user__c"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "The user is non-root." 
