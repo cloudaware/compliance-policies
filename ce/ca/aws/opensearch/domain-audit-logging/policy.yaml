@@ -1,0 +1,21 @@
+---
+names:
+  full: "AWS OpenSearch Domain audit logging is not enabled"
+  contextual: "Domain audit logging is not enabled"
+description: >
+  Ensure that audit logging is enabled for Amazon OpenSearch Service domains. 
+  Audit logs provide a record of user requests to the domain and are essential 
+  for security auditing and regulatory compliance.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/es/05"
+  - "/frameworks/aws-fsbp-v1.0.0/opensearch/05"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Opensearch.5] OpenSearch domains should have audit logging enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/opensearch-controls.html#opensearch-5"
+    - name: "[ES.5] Elasticsearch domains should have audit logging enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/es-controls.html#es-5"

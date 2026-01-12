@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS Inspector Lambda Code Scanning is not enabled"
+  contextual: "Inspector Lambda Code Scanning is not enabled"
+description: >
+  Amazon Inspector offers code scanning for AWS Lambda functions. This feature 
+  performs static analysis of your application code to identify security vulnerabilities, 
+  such as hardcoded secrets, insecure coding patterns, and common injection flaws. 
+  Enabling this ensures your serverless functions are secure from the code level up.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/aws-fsbp-v1.0.0/inspector/03"
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Inspector.3] Amazon Inspector Lambda code scanning should be enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/inspector-controls.html#inspector-3"

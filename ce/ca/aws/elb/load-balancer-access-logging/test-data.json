@@ -1,0 +1,62 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-08T03:55:39Z" },
+    "CA10__disappearanceTime__c": "2025-12-06T06:53:02Z",
+    "CA10__accessLogsEnabled__c": true,
+    "CA10__type__c": "application",
+    "Id": "001",
+    "RecordTypeId": "rt000",
+    "RecordType": { "Id": "rt000" }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__accessLogsEnabled__c') == false",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-08T03:55:39Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__accessLogsEnabled__c": false,
+    "CA10__type__c": "application",
+    "Id": "002",
+    "RecordTypeId": "rt000",
+    "RecordType": { "Id": "rt000" }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__accessLogsEnabled__c') == true",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-08T03:55:39Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__accessLogsEnabled__c": true,
+    "CA10__type__c": "network",
+    "Id": "003",
+    "RecordTypeId": "rt000",
+    "RecordType": { "Id": "rt000" }
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__type__c') == 'gateway'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-08T03:55:39Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__accessLogsEnabled__c": true,
+    "CA10__type__c": "gateway",
+    "Id": "004",
+    "RecordTypeId": "rt000",
+    "RecordType": { "Id": "rt000" }
+  }
+]

@@ -1,0 +1,78 @@
+---
+inputType: "CA10__CaAwsLoadBalancer__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsLoadBalancer__c/object.extracts.yaml"
+recordTypes:
+  - "caAwsLoadBalancerApplication"
+  - "caAwsLoadBalancerClassic"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Desync mitigation mode only applies to Application and Classic Load Balancers."
+    check:
+      AND:
+        args:
+          - NOT_EQUAL:
+              left:
+                EXTRACT: "CA10__type__c"
+              right:
+                TEXT: "application"
+          - NOT_EQUAL:
+              left:
+                EXTRACT: "CA10__type__c"
+              right:
+                TEXT: "classic"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Application Load Balancer is configured with the insecure 'monitor' desync mitigation mode."
+    remediationMessage: "Change the 'routing.http.desync_mitigation_mode' attribute to 'defensive' or 'strictest'."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "caSetFrom_additionalAttributes__c"
+        search:
+          TEXT: "routing.http.desync_mitigation_mode: monitor"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Classic Load Balancer is configured with the insecure 'monitor' desync mitigation mode."
+    remediationMessage: "Change the 'routing.http.desync_mitigation_mode' attribute to 'defensive' or 'strictest'."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "caSetFrom_additionalAttributes__c"
+        search:
+          TEXT: "elb.http.desyncmitigationmode: monitor"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Application Load Balancer is configured with 'strictest' desync mitigation mode."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "caSetFrom_additionalAttributes__c"
+        search:
+          TEXT: "routing.http.desync_mitigation_mode: strictest"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Classic Load Balancer is configured with 'strictest' desync mitigation mode."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "caSetFrom_additionalAttributes__c"
+        search:
+          TEXT: "elb.http.desyncmitigationmode: strictest"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Application Load Balancer is configured with 'defensive' desync mitigation mode."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "caSetFrom_additionalAttributes__c"
+        search:
+          TEXT: "routing.http.desync_mitigation_mode: defensive"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Classic Load Balancer is configured with 'defensive' desync mitigation mode."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "caSetFrom_additionalAttributes__c"
+        search:
+          TEXT: "elb.http.desyncmitigationmode: defensive"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

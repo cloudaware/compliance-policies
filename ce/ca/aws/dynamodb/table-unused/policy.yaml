@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS DynamoDB Table is unused"
+  contextual: "Table is unused"
+description: >
+  Identify AWS DynamoDB Tables that appear to be unused (empty). A table is 
+  considered unused if it has been active for more than 30 days but contains 
+  zero items. Removing unused tables helps reduce storage costs and clutter.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"
+  - "/frameworks/aws-well-architected/cost/04/02"
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/DynamoDB/unused-dynamodb-tables.html
+      name: Unused Table

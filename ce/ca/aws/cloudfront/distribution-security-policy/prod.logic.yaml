@@ -1,0 +1,36 @@
+---
+inputType: "CA10__CaAwsDistribution__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsDistribution__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"  
+recordTypes:
+  - "caWebDistribution"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Protocol version isn't set."
+    remediationMessage: "Consider creating a security policy."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__viewerCertificateMinimumProtocolVersion__c"  
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The CloudFront Distribution uses a legacy Security Policy."
+    remediationMessage: "Update the Security Policy to a version enforcing at least TLSv1.2_2021."
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items: 
+              - "SSLv3"
+              - "TLSv1"
+              - "TLSv1_2016"
+              - "TLSv1.1_2016"
+              - "TLSv1.2_2018"
+              - "TLSv1.2_2019"
+        search:
+          EXTRACT: "CA10__viewerCertificateMinimumProtocolVersion__c" 
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The CloudFront Distribution uses a current Security Policy."

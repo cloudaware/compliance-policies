@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS IAM User has no active credentials"
+  contextual: "User has no active credentials"
+description: >
+  Identify IAM users that have no console password and no active access keys. 
+  These accounts are dormant and provide no utility, but still represent a management 
+  overhead and potential security risk if credentials are added later without review.
+type: "BEST_PRACTICE"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/identity-and-access-governance/credential-lifecycle-management"
+  - "/frameworks/aws-well-architected/sec/03/06"
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/IAM/unused-iam-user.html
+      name: Unused IAM User

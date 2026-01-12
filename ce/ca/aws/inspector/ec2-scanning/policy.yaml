@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS Inspector EC2 Scanning is not enabled"
+  contextual: "Inspector EC2 Scanning is not enabled"
+description: >
+  Amazon Inspector is an automated vulnerability management service that continually 
+  scans Amazon EC2 instances for software vulnerabilities and unintended network 
+  exposure. It is recommended to enable EC2 scanning to proactively identify and 
+  remediate security risks.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/aws-fsbp-v1.0.0/inspector/01"
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Inspector.1] Amazon Inspector EC2 scanning should be enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/inspector-controls.html#inspector-1"

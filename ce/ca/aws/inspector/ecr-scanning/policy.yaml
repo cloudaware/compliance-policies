@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS Inspector ECR Scanning is not enabled"
+  contextual: "Inspector ECR Scanning is not enabled"
+description: >
+  Amazon Inspector provides automated, continuous vulnerability scanning for container 
+  images stored in Amazon Elastic Container Registry (ECR). Enabling this feature 
+  ensures that container images are assessed for software vulnerabilities as soon 
+  as they are pushed and on a continuous basis.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/aws-fsbp-v1.0.0/inspector/02"
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Inspector.2] Amazon Inspector ECR scanning should be enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/inspector-controls.html#inspector-2"

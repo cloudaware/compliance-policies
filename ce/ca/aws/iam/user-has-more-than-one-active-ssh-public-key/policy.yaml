@@ -1,0 +1,18 @@
+---
+names:
+  full: AWS IAM User has more than one active SSH public key
+  contextual: User has more than one active SSH public key
+description: >
+  Identify IAM users who have multiple active SSH public keys. Users should generally 
+  only have one active key to ensure strict credential management and minimize 
+  the attack surface for programmatic access.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/identity-and-access-governance/credential-lifecycle-management"
+  - "/frameworks/aws-well-architected/sec/03/06"
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/IAM/unnecessary-ssh-public-keys.html
+      name: Unnecessary SSH Public Keys

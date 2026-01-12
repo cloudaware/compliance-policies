@@ -1,0 +1,23 @@
+---
+extracts:
+# Nulable. Boolean. Values: true, false.
+  - name: "CA10__public__c"
+    value: 
+      FIELD:
+        path: "CA10__public__c"
+# Values: pending | available | invalid | deregistered | transient | failed | error | disabled. 
+# Not nullable
+  - name: "CA10__state__c"
+    value: 
+      FIELD:
+        path: "CA10__state__c"
+#Not nullable
+  - name: "CA10__creationDate__c"
+    value: 
+      FIELD:
+        path: "CA10__creationDate__c"
+# Nullable
+  - name: "CA10__lastLaunchedTime__c"
+    value: 
+      FIELD:
+        path: "CA10__lastLaunchedTime__c"

@@ -1,0 +1,49 @@
+---
+inputType: CA10__CaAwsAccessKey__c
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsAccessKey__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The access key is currently Inactive."
+    check:
+      NOT_EQUAL:
+        left:
+          FIELD:
+            path: "CA10__status__c"
+        right:
+          TEXT: "Active"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The access key is active but has not been used in over 90 days."
+    remediationMessage: "Deactivate the unused access key."
+    check:
+      AND:
+        args:
+          - NOT_EMPTY:
+              arg:
+                FIELD:
+                  path: "CA10__lastUsedDate__c"
+          - IS_BEYOND_LAST_DAYS:
+              offsetDays: 90
+              arg:
+                FIELD:
+                  path: "CA10__lastUsedDate__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The access key is active, has never been used, and was created over 90 days ago."
+    remediationMessage: "Deactivate the unused access key."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                FIELD:
+                  path: "CA10__lastUsedDate__c"
+          - IS_BEYOND_LAST_DAYS:
+              offsetDays: 90
+              arg:
+                FIELD:
+                  path: "CA10__createDate__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The access key is active and has been used within the last 90 days (or is recently created)."

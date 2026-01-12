@@ -1,0 +1,18 @@
+---
+names:
+  full: AWS ACM Certificate validation has failed
+  contextual: Certificate validation has failed
+description: >
+  Ensure that AWS ACM Certificates are successfully validated. Certificates with 
+  a status of FAILED or VALIDATION_TIMED_OUT cannot be used to secure traffic 
+  and indicate an issue with the domain ownership verification process.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/secret-and-certificate-governance/cryptographic-configuration"
+  - "/frameworks/aws-well-architected/sec/09/01"
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/ACM/certificate-validity.html
+      name: AWS ACM Certificates Validity

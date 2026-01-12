@@ -1,0 +1,62 @@
+[
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "conditionIndex": 99,
+      "status": "DISAPPEARED"
+    },
+    "context": {
+      "snapshotTime": "2026-01-12T08:31:03Z"
+    },
+    "CA10__retentionPeriodHours__c": 24.0,
+    "Id": "test1",
+    "CA10__disappearanceTime__c": "2026-01-12T08:31:03Z",
+    "CA10__status__c": "ACTIVE"
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__status__c') != 'ACTIVE'",
+      "conditionIndex": 199,
+      "status": "INAPPLICABLE"
+    },
+    "context": {
+      "snapshotTime": "2026-01-12T08:31:03Z"
+    },
+    "CA10__retentionPeriodHours__c": 24.0,
+    "Id": "test2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "INACTIVE"
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "CA10__retentionPeriodHours__c < number(168.0)",
+      "conditionIndex": 299,
+      "status": "INCOMPLIANT"
+    },
+    "context": {
+      "snapshotTime": "2026-01-12T08:31:03Z"
+    },
+    "CA10__retentionPeriodHours__c": 167.0,
+    "Id": "test3",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "ACTIVE"
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "otherwise",
+      "conditionIndex": 300,
+      "status": "COMPLIANT"
+    },
+    "context": {
+      "snapshotTime": "2026-01-12T08:31:03Z"
+    },
+    "CA10__retentionPeriodHours__c": 168.0,
+    "Id": "test4",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "ACTIVE"
+  }
+]

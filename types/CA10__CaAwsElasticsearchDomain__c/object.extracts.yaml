@@ -25,3 +25,46 @@ extracts:
     value:
       FIELD:
         path: "CA10__nodeToNodeEncryptionEnabled__c"
+# Nullable. Can't have no access retrieved via es:DescribeDomains
+  - name: "CA10__logPublishingOptionsJson__c"
+    value:
+      FIELD:
+        returnType: "BYTES"
+        path: "CA10__logPublishingOptionsJson__c"
+  - name: "caJsonFrom__logPublishingOptionsJson__c"
+    value:
+      JSON_FROM:
+        arg:
+          EXTRACT: "CA10__logPublishingOptionsJson__c"
+        undeterminedIf:
+          isInvalid: "Log Publishing Options JSON is invalid."
+# Not nullable. Can't have no access retrieved via es:DescribeDomains
+  - name: "CA10__clusterConfigInstanceCount__c"
+    value:
+      FIELD:
+        path: "CA10__clusterConfigInstanceCount__c"
+# Not nullable. Can't have no access retrieved via es:DescribeDomains
+  - name: "CA10__clusterConfigZoneAwarenessEnabled__c"
+    value:
+      FIELD:
+        path: "CA10__clusterConfigZoneAwarenessEnabled__c"
+# Nullable. Can't have no access retrieved via es:DescribeDomains
+  - name: "CA10__clusterConfigDedicatedMasterEnabled__c"
+    value:
+      FIELD:
+        path: "CA10__clusterConfigDedicatedMasterEnabled__c"
+# Nullable. Can't have no access retrieved via es:DescribeDomains
+  - name: "CA10__clusterConfigDedicatedMasterCount__c"
+    value:
+      FIELD:
+        path: "CA10__clusterConfigDedicatedMasterCount__c"
+# Nullable. Can't have no access retrieved via es:DescribeDomains
+  - name: "CA10__endpointOptionsEnforceHttps__c"
+    value:
+      FIELD:
+        path: "CA10__endpointOptionsEnforceHttps__c"
+# Nullable. Can't have no access retrieved via es:DescribeDomains
+  - name: "CA10__endpointOptionsTlsSecurityPolicy__c"
+    value:
+      FIELD:
+        path: "CA10__endpointOptionsTlsSecurityPolicy__c"

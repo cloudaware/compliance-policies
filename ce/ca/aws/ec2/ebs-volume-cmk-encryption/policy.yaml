@@ -1,0 +1,24 @@
+---
+names:
+  full: "AWS EBS Attached Volume is not encrypted with KMS CMK"
+  contextual: "EBS Attached Volume is not encrypted with KMS CMK"
+description: >
+  Ensure that your EBS volumes are using KMS customer-managed keys instead of 
+  AWS managed-keys (default key used for volume encryption) in order to have more 
+  granular control over your data encryption and decryption process. Once implemented, 
+  the KMS customer-managed keys will be used to encrypt and decrypt EBS data at rest, 
+  volume snapshots and disk I/O.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-fsbp-v1.0.0/ec2/03"
+  - "/frameworks/aws-well-architected/sec/08/01"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[EC2.3] Attached Amazon EBS volumes should be encrypted at-rest"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-3"
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EBS/ebs-encrypted-with-kms-customer-master-keys.html"
+      name: EBS Encrypted With KMS Customer Master Keys

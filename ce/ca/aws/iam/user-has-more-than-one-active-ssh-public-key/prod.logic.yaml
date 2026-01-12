@@ -1,0 +1,45 @@
+---
+inputType: "CA10__CaAwsUser__c"
+testData:
+  - file: test-data.json
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The user doesn't have active SSH Public keys."
+    check:
+      IS_EQUAL:
+        left:
+          RELATED_LIST_COUNT:
+            status: "COMPLIANT"
+            relationshipName: "CA10__AWS_IAM_SSH_Public_Keys__r"
+        right:
+          NUMBER: 0.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The user has more than one active SSH public key."
+    remediationMessage: "Deactivate or remove the extra active SSH public keys."
+    check:
+      GREATER_THAN:
+        left:
+          RELATED_LIST_COUNT:
+            status: "COMPLIANT"
+            relationshipName: "CA10__AWS_IAM_SSH_Public_Keys__r"
+        right:
+          NUMBER: 1.0
+otherwise:
+  status:  "COMPLIANT"
+  currentStateMessage: "This IAM user has only one active SSH Public key."
+relatedLists:
+  - relationshipName: "CA10__AWS_IAM_SSH_Public_Keys__r"
+    importExtracts:
+      - file: /types/CA10__CaAwsIamSshPublicKey__c/object.extracts.yaml
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "This is an active SSH public key."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__status__c"
+            right:
+              TEXT: "Active"
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "This SSH public key is inactive."

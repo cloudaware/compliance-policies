@@ -14,3 +14,12 @@ extracts:
     value:
       FIELD:
         path: "CA10__userName__c"
+  - name: "CA10__accessKeysCount__c"
+    value:
+      FIELD:
+        path: "CA10__accessKeysCount__c"
+# Not nullable
+  - name: "CA10__createDate__c"
+    value:
+      FIELD:
+        path: "CA10__createDate__c"

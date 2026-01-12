@@ -1,0 +1,240 @@
+[
+    {
+        "CA10__type__c": "network",
+        "RecordType": {
+            "Id": "RecordTypeId1",
+            "DeveloperName": "caAwsLoadBalancerApplication"
+        },
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "CA10__AWS_EC2_Load_Balancer_Listeners__r": [],
+        "context": {
+            "snapshotTime": "2025-12-19T02:21:26Z"
+        },
+        "RecordTypeId": "RecordTypeId1",
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-12-10T09:11:05Z"
+    },
+    {
+        "CA10__type__c": "classic",
+        "RecordType": {
+            "Id": "RecordTypeId2",
+            "DeveloperName": "caAwsLoadBalancerClassic"
+        },
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "not(setOfText(['caAwsLoadBalancerApplication']).contains(RecordType.DeveloperName))",
+            "conditionIndex": 199,
+            "status": "INAPPLICABLE"
+        },
+        "CA10__AWS_EC2_Load_Balancer_Listeners__r": [],
+        "context": {
+            "snapshotTime": "2025-12-19T02:21:26Z"
+        },
+        "RecordTypeId": "RecordTypeId2",
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null
+    },
+    {
+        "CA10__type__c": "gateway",
+        "RecordType": {
+            "Id": "RecordTypeId1",
+            "DeveloperName": "caAwsLoadBalancerApplication"
+        },
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__type__c') != 'application'",
+            "conditionIndex": 299,
+            "status": "INAPPLICABLE"
+        },
+        "CA10__AWS_EC2_Load_Balancer_Listeners__r": [],
+        "context": {
+            "snapshotTime": "2025-12-19T02:21:26Z"
+        },
+        "RecordTypeId": "RecordTypeId1",
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null
+    },
+    {
+        "CA10__type__c": "application",
+        "RecordType": {
+            "Id": "RecordTypeId1",
+            "DeveloperName": "caAwsLoadBalancerApplication"
+        },
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "CA10__AWS_EC2_Load_Balancer_Listeners__r.has(INCOMPLIANT)",
+            "conditionIndex": 399,
+            "status": "INCOMPLIANT"
+        },
+        "CA10__AWS_EC2_Load_Balancer_Listeners__r": [
+            {
+                "RecordType": {
+                    "Id": "RecordTypeId1_1"
+                },
+                "CA10__protocol__c": "HTTP",
+                "RecordTypeId": "RecordTypeId1_1",
+                "CA10__defaultActionsJson__c": "[{\"type\":\"forward\",\"targetGroupArn\":\"targetGroupArn\",\"forwardConfig\":{\"targetGroups\":[{\"targetGroupArn\":\"targetGroupArn\",\"weight\":1}]}}]",
+                "CA10__loadBalancer__c": "test4",
+                "Id": "test4_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__AWS_EC2_Load_Balancer_Listener_Rules__r": [
+                    {
+                        "CA10__actionsJson__c": "[{\"type\":\"forward\",\"targetGroupArn\":\"targetGroupArn\",\"forwardConfig\":{\"targetGroups\":[{\"targetGroupArn\":\"targetGroupArn\",\"weight\":1}]}}]",
+                        "Id": "test4_2",
+                        "CA10__disappearanceTime__c": null,
+                        "CA10__listener__c": "test4_1"
+                    }
+                ]
+            }
+        ],
+        "context": {
+            "snapshotTime": "2025-12-19T02:21:26Z"
+        },
+        "RecordTypeId": "RecordTypeId1",
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null
+    },
+    {
+        "CA10__type__c": "application",
+        "RecordType": {
+            "Id": "RecordTypeId1",
+            "DeveloperName": "caAwsLoadBalancerApplication"
+        },
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "CA10__AWS_EC2_Load_Balancer_Listeners__r.has(COMPLIANT)",
+            "conditionIndex": 499,
+            "status": "COMPLIANT"
+        },
+        "CA10__AWS_EC2_Load_Balancer_Listeners__r": [
+            {
+                "RecordType": {
+                    "Id": "RecordTypeId1_1"
+                },
+                "CA10__protocol__c": "HTTP",
+                "RecordTypeId": "RecordTypeId1_1",
+                "CA10__defaultActionsJson__c": "[{\"type\":\"redirect\",\"order\":1,\"redirectConfig\":{\"protocol\":\"HTTPS\",\"port\":\"443\",\"host\":\"#{host}\",\"path\":\"/#{path}\",\"query\":\"#{query}\",\"statusCode\":\"HTTP_301\"}}]",
+                "CA10__loadBalancer__c": "test5",
+                "Id": "test5_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__AWS_EC2_Load_Balancer_Listener_Rules__r": [
+                    {
+                        "CA10__actionsJson__c": "[{\"type\":\"redirect\",\"order\":1,\"redirectConfig\":{\"protocol\":\"HTTPS\",\"port\":\"443\",\"host\":\"#{host}\",\"path\":\"/#{path}\",\"query\":\"#{query}\",\"statusCode\":\"HTTP_301\"}}]",
+                        "Id": "test5_2",
+                        "CA10__disappearanceTime__c": null,
+                        "CA10__listener__c": "test5_1"
+                    }
+                ]
+            },
+            {
+                "RecordType": {
+                    "Id": "RecordTypeId1_1"
+                },
+                "CA10__protocol__c": "HTTPS",
+                "RecordTypeId": "RecordTypeId1_1",
+                "CA10__defaultActionsJson__c": "[{\"type\":\"fixed-response\",\"order\":1,\"fixedResponseConfig\":{\"messageBody\":\"HEALTHY\",\"statusCode\":\"200\",\"contentType\":\"text/plain\"}}]",
+                "CA10__loadBalancer__c": "test5",
+                "Id": "test5_3",
+                "CA10__disappearanceTime__c": null,
+                "CA10__AWS_EC2_Load_Balancer_Listener_Rules__r": [
+                    {
+                        "CA10__actionsJson__c": "[{\"type\":\"forward\",\"targetGroupArn\":\"targetGroupArn\",\"order\":1,\"forwardConfig\":{\"targetGroups\":[{\"targetGroupArn\":\"targetGroupArn\",\"weight\":1}]}}]",
+                        "Id": "test5_4",
+                        "CA10__disappearanceTime__c": null,
+                        "CA10__listener__c": "test5_3"
+                    }
+                ]
+            }
+        ],
+        "context": {
+            "snapshotTime": "2025-12-19T02:21:26Z"
+        },
+        "RecordTypeId": "RecordTypeId1",
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null
+    },
+    {
+        "CA10__type__c": "application",
+        "RecordType": {
+            "Id": "RecordTypeId1",
+            "DeveloperName": "caAwsLoadBalancerApplication"
+        },
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "otherwise",
+            "conditionIndex": 500,
+            "status": "COMPLIANT"
+        },
+        "CA10__AWS_EC2_Load_Balancer_Listeners__r": [],
+        "context": {
+            "snapshotTime": "2025-12-19T02:21:26Z"
+        },
+        "RecordTypeId": "RecordTypeId1",
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null
+    },
+    {
+        "CA10__type__c": "application",
+        "RecordType": {
+            "Id": "RecordTypeId1",
+            "DeveloperName": "caAwsLoadBalancerApplication"
+        },
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "CA10__AWS_EC2_Load_Balancer_Listeners__r.has(COMPLIANT)",
+            "conditionIndex": 499,
+            "status": "COMPLIANT"
+        },
+        "CA10__AWS_EC2_Load_Balancer_Listeners__r": [
+            {
+                "RecordType": {
+                    "Id": "RecordTypeId1_1"
+                },
+                "CA10__protocol__c": "HTTP",
+                "RecordTypeId": "RecordTypeId1_1",
+                "CA10__defaultActionsJson__c": "[{\"type\":\"fixed-response\",\"order\":1,\"fixedResponseConfig\":{\"messageBody\":\"HEALTHY\",\"statusCode\":\"200\",\"contentType\":\"text/plain\"}}]",
+                "CA10__loadBalancer__c": "test7",
+                "Id": "test7_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__AWS_EC2_Load_Balancer_Listener_Rules__r": [
+                    {
+                        "CA10__actionsJson__c": "[{\"type\":\"redirect\",\"order\":1,\"redirectConfig\":{\"protocol\":\"HTTPS\",\"port\":\"443\",\"host\":\"#{host}\",\"path\":\"/#{path}\",\"query\":\"#{query}\",\"statusCode\":\"HTTP_301\"}}]",
+                        "Id": "test7_2",
+                        "CA10__disappearanceTime__c": null,
+                        "CA10__listener__c": "test7_1"
+                    }
+                ]
+            },
+            {
+                "RecordType": {
+                    "Id": "RecordTypeId1_1"
+                },
+                "CA10__protocol__c": "HTTPS",
+                "RecordTypeId": "RecordTypeId1_1",
+                "CA10__defaultActionsJson__c": "[{\"type\":\"fixed-response\",\"order\":1,\"fixedResponseConfig\":{\"messageBody\":\"HEALTHY\",\"statusCode\":\"200\",\"contentType\":\"text/plain\"}}]",
+                "CA10__loadBalancer__c": "test7",
+                "Id": "test7_3",
+                "CA10__disappearanceTime__c": null,
+                "CA10__AWS_EC2_Load_Balancer_Listener_Rules__r": [
+                    {
+                        "CA10__actionsJson__c": "[{\"type\":\"forward\",\"targetGroupArn\":\"targetGroupArn\",\"order\":1,\"forwardConfig\":{\"targetGroups\":[{\"targetGroupArn\":\"targetGroupArn\",\"weight\":1}]}}]",
+                        "Id": "test7_4",
+                        "CA10__disappearanceTime__c": null,
+                        "CA10__listener__c": "test7_3"
+                    }
+                ]
+            }
+        ],
+        "context": {
+            "snapshotTime": "2025-12-19T02:21:26Z"
+        },
+        "RecordTypeId": "RecordTypeId1",
+        "Id": "test7",
+        "CA10__disappearanceTime__c": null
+    }
+]

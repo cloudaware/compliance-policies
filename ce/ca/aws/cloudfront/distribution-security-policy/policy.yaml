@@ -1,0 +1,20 @@
+---
+names:
+  full: AWS CloudFront Web Distribution uses legacy Security Policy
+  contextual: Web Distribution uses legacy Security Policy
+description: >
+  Ensure that AWS CloudFront Web Distributions are configured to use a current 
+  Security Policy (at least TLSv1.2_2021) that enforces the use of TLS 1.2 or later. 
+  Legacy policies support outdated protocols and ciphers that may expose traffic 
+  to vulnerabilities.
+categories:
+  - "SECURITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-well-architected/sec/09/01"
+  - "/frameworks/aws-fsbp-v1.0.0/cloudfront/15"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[CloudFront.15] CloudFront distributions should use the recommended TLS security policy"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/cloudfront-controls.html#cloudfront-15"

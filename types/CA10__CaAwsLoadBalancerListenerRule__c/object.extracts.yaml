@@ -1,0 +1,17 @@
+---
+extracts:
+# Not nullable. Can't have no access, retrieved via elasticloadbalancing:DescribeRules
+  - name: CA10__actionsJson__c
+    value: 
+      FIELD:
+        returnType: "BYTES"
+        path: CA10__actionsJson__c
+        undeterminedIf:
+          isEmpty: "Load Balancer Listener Rule Actions cannot be empty. Corrupted data."
+  - name: caJsonFrom_actionsJson__c
+    value: 
+      JSON_FROM:
+        arg:
+          EXTRACT: "CA10__actionsJson__c"
+        undeterminedIf:
+          isInvalid: "The Actions JSON is invalid"

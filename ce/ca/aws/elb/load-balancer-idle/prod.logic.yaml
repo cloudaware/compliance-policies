@@ -1,0 +1,49 @@
+---
+inputType: "CA10__CaAwsLoadBalancer__c"
+recordTypes:
+  - "caAwsLoadBalancerApplication"
+  - "caAwsLoadBalancerClassic"
+importExtracts:
+  - file: "/types/CA10__CaAwsLoadBalancer__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This policy only applies to Application and Classic Load Balancers."
+    check:
+      AND:
+        args:
+          - NOT_EQUAL:
+              left:
+                EXTRACT: "CA10__type__c"
+              right:
+                TEXT: "application"
+          - NOT_EQUAL:
+              left:
+                EXTRACT: "CA10__type__c"
+              right:
+                TEXT: "classic"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Load Balancer has been created less than 30 days ago."
+    check:
+      IS_WITHIN_LAST_DAYS:
+        offsetDays: 30
+        arg:
+          EXTRACT: "CA10__createdTime__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Load Balancer has received zero requests in the last 30 days."
+    remediationMessage: "Review the idle Load Balancer and consider deleting it to save costs."
+    check:
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__requestCountOneMonth__c"
+          - LESS_THAN_EQUAL:
+              left:
+                EXTRACT: "CA10__requestCountOneMonth__c"
+              right:
+                NUMBER: 0.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Application Load Balancer is actively processing requests."

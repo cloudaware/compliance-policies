@@ -5,8 +5,25 @@ extracts:
     value: 
       FIELD:
         path: "CA10__encryptionType__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__encryptionType__c"
+            currentStateMessage: "Stream encryption type cannot be empty. Possible permission issue with kinesis:DescribeStreamSummary."
 # Values: CREATING | DELETING | ACTIVE | UPDATING. Not nullable. 
   - name: "CA10__status__c"
     value: 
       FIELD:
         path: "CA10__status__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__status__c"
+            currentStateMessage: "Stream status cannot be empty. Possible permission issue with kinesis:DescribeStreamSummary."
+# Allowed values: 24 to 8760. Not nullable. 
+  - name: "CA10__retentionPeriodHours__c"
+    value: 
+      FIELD:
+        path: "CA10__retentionPeriodHours__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__retentionPeriodHours__c"
+            currentStateMessage: "Stream retention period cannot be empty. Possible permission issue with kinesis:DescribeStreamSummary."

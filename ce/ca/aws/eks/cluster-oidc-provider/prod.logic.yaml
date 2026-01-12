@@ -18,8 +18,8 @@ conditions:
         status: "COMPLIANT"
         relationshipName: "CA10A1__AWS_IAM_OpenID_Connect_Providers__r"
 otherwise:
-  status: "COMPLIANT" 
-  currentStateMessage: ""
+  status: "UNDETERMINED"
+  currentStateMessage: "Cluster neither has, nor has no IAM OpenID Connect Providers. This condition should not match to any object"
 relatedLists:
   - relationshipName: "CA10A1__AWS_IAM_OpenID_Connect_Providers__r"
     conditions: []

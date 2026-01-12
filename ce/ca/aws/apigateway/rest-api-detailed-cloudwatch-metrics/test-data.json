@@ -1,0 +1,93 @@
+[
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "not(setOfText(['restApi']).contains(RecordType.DeveloperName))",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-01T00:50:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "001",
+    "RecordTypeId": "rt001",
+    "RecordType": { "DeveloperName": "httpApi", "Id": "rt001" },
+    "CA10__AWS_API_Gateway_Stages__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__cloudWatchMetricsEnabled__c": true,
+        "CA10__restApi__c": "001",
+        "Id": "gs001",
+        "RecordTypeId": "rt001",
+        "RecordType": { "Id": "rt001" }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__AWS_API_Gateway_Stages__r.count(COMPLIANT) == number(0.0)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-01T00:50:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "002",
+    "RecordTypeId": "rt002",
+    "RecordType": { "DeveloperName": "restApi", "Id": "rt002" },
+    "CA10__AWS_API_Gateway_Stages__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "CA10__AWS_API_Gateway_Stages__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-01T00:50:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "003",
+    "RecordTypeId": "rt002",
+    "RecordType": { "DeveloperName": "restApi", "Id": "rt002" },
+    "CA10__AWS_API_Gateway_Stages__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__cloudWatchMetricsEnabled__c": false,
+        "CA10__restApi__c": "003",
+        "Id": "gs003",
+        "RecordTypeId": "rt003",
+        "RecordType": { "Id": "rt003" }
+      },
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__cloudWatchMetricsEnabled__c": true,
+        "CA10__restApi__c": "003",
+        "Id": "gs003-2",
+        "RecordTypeId": "rt003",
+        "RecordType": { "Id": "rt003" }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-01T00:50:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "004",
+    "RecordTypeId": "rt002",
+    "RecordType": { "DeveloperName": "restApi", "Id": "rt002" },
+    "CA10__AWS_API_Gateway_Stages__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__cloudWatchMetricsEnabled__c": true,
+        "CA10__restApi__c": "004",
+        "Id": "gs004",
+        "RecordTypeId": "rt003",
+        "RecordType": { "Id": "rt003" }
+      }
+    ]
+  }
+]

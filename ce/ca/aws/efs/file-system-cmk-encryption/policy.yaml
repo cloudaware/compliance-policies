@@ -1,0 +1,23 @@
+---
+names:
+  full: "AWS EFS File System is not encrypted with KMS CMK"
+  contextual: "File System is not encrypted with KMS Customer Master Key"
+description: >
+  Ensure that your Amazon EFS file systems are encrypted using KMS customer-managed keys instead of 
+  AWS managed-keys (default keys used by the EFS service when there are no customer keys defined). 
+  Using a CMK provides additional control over key rotation, access policies, 
+  and auditing compared to the default AWS-managed key.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-fsbp-v1.0.0/efs/01"
+  - "/frameworks/aws-well-architected/sec/08/02"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[EFS.1] Elastic File System should be configured to encrypt file data at-rest using AWS KMS"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/efs-controls.html#efs-1"
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EFS/efs-encrypted-with-kms-customer-master-keys.html"
+      name: AWS KMS Customer Master Keys for EFS Encryption

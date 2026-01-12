@@ -28,3 +28,18 @@ extracts:
         #   noAccessDelegate:
         #     path: "CA10__defaultRootObject__c"
         #     currentStateMessage: "Unable to determine Viewer Certificate SSL Support Method. Possible permission issue with cloudfront:GetDistribution."
+# Text. Nullable
+  - name: "CA10__viewerCertificateMinimumProtocolVersion__c"
+    value:
+      FIELD:
+        path: "CA10__viewerCertificateMinimumProtocolVersion__c"
+# Text. Nullable
+  - name: "CA10__s3OriginDomainName__c"
+    value:
+      FIELD:
+        path: "CA10__s3OriginDomainName__c"
+# Text. Nullable
+  - name: "CA10__s3OriginAccessIdentity__c"
+    value:
+      FIELD:
+        path: "CA10__s3OriginAccessIdentity__c"

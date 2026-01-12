@@ -1,0 +1,110 @@
+[
+    {
+        "CA10__lastLaunchedTime__c": null,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "CA10__state__c": "available",
+        "CA10__creationDate__c": "2025-12-07T21:17:20Z",
+        "context": {
+            "snapshotTime": "2025-12-17T05:19:13Z"
+        },
+        "CA10__AWS_EC2_Instances__r": [],
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-12-14T21:11:49Z"
+    },
+    {
+        "CA10__lastLaunchedTime__c": null,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__state__c') != 'available'",
+            "conditionIndex": 199,
+            "status": "INAPPLICABLE"
+        },
+        "CA10__state__c": "pending",
+        "CA10__creationDate__c": "2025-12-17T00:10:22Z",
+        "context": {
+            "snapshotTime": "2025-12-17T05:19:13Z"
+        },
+        "CA10__AWS_EC2_Instances__r": [],
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null
+    },
+    {
+        "CA10__lastLaunchedTime__c": null,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__creationDate__c').withinLastDays(90)",
+            "conditionIndex": 299,
+            "status": "INAPPLICABLE"
+        },
+        "CA10__state__c": "available",
+        "CA10__creationDate__c": "2025-12-14T08:11:20Z",
+        "context": {
+            "snapshotTime": "2025-12-17T05:19:13Z"
+        },
+        "CA10__AWS_EC2_Instances__r": [],
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null
+    },
+    {
+        "CA10__lastLaunchedTime__c": "2021-09-23T00:09:39Z",
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "CA10__AWS_EC2_Instances__r.has(COMPLIANT)",
+            "conditionIndex": 499,
+            "status": "COMPLIANT"
+        },
+        "CA10__state__c": "available",
+        "CA10__creationDate__c": "2021-09-23T00:09:39Z",
+        "context": {
+            "snapshotTime": "2025-12-17T05:19:13Z"
+        },
+        "CA10__AWS_EC2_Instances__r": [
+            {
+                "CA10__image__c": "test4",
+                "Id": "test4_1",
+                "CA10__disappearanceTime__c": null
+            }
+        ],
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null
+    },
+    {
+        "CA10__lastLaunchedTime__c": null,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "otherwise",
+            "conditionIndex": 500,
+            "status": "INCOMPLIANT"
+        },
+        "CA10__state__c": "available",
+        "CA10__creationDate__c": "2025-08-09T12:27:22Z",
+        "context": {
+            "snapshotTime": "2025-12-17T05:19:13Z"
+        },
+        "CA10__AWS_EC2_Instances__r": [],
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null
+    },
+    {
+        "CA10__lastLaunchedTime__c": "2025-12-17T05:19:13Z",
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__lastLaunchedTime__c').withinLastDays(90)",
+            "conditionIndex": 399,
+            "status": "COMPLIANT"
+        },
+        "CA10__state__c": "available",
+        "CA10__creationDate__c": "2025-08-09T12:27:22Z",
+        "context": {
+            "snapshotTime": "2025-12-17T05:19:13Z"
+        },
+        "CA10__AWS_EC2_Instances__r": [],
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null
+    }
+]

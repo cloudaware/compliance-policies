@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS ELB Application Load Balancer is not configured to redirect HTTP to HTTPS"
+  contextual: "Application Load Balancer is not configured to redirect HTTP to HTTPS"
+description: >
+  Ensure that Application Load Balancers are configured to automatically redirect 
+  all incoming HTTP traffic (port 80) to HTTPS (port 443). This ensures that data 
+  in transit is always encrypted."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-fsbp-v1.0.0/elb/01"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ELB.1] Application Load Balancer should be configured to redirect all HTTP requests to HTTPS"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-1"

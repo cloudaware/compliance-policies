@@ -1,0 +1,59 @@
+---
+inputType: "CA10__CaAwsAccount__c"
+testData:
+  - file: test-data.json
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The number of RDS database instances in your AWS account has reached the service quota."
+    remediationMessage: "Consider increasing the service limit for RDS database instances."
+    check:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__AWS_Account_Limits__r"
+        status: "INCOMPLIANT"
+  - status: "COMPLIANT"
+    currentStateMessage: "The number of RDS database instances in your AWS account has not reached the service quota."
+    check:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__AWS_Account_Limits__r"
+        status: "COMPLIANT"
+  - status: "UNDETERMINED"
+    currentStateMessage: "The service quota for the Account is not available."
+    check:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__AWS_Account_Limits__r"
+        status: "UNDETERMINED"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "The service quota for the Account is not available."
+relatedLists:
+  - relationshipName: "CA10__AWS_Account_Limits__r"
+    importExtracts:
+      - file: /types/CA10__CaAwsAccountLimits__c/object.extracts.yaml
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The number of RDS database instances in your AWS account has reached the service quota."
+        remediationMessage: "Consider increasing the service limit for RDS database instances."
+        check:
+          GREATER_THAN_EQUAL:
+            left:
+              EXTRACT: "CA10__rdsInstancesUsedPercent__c"
+            right:
+              NUMBER: 90.0
+      - status: "COMPLIANT"
+        currentStateMessage: "There is no RDS database instances in your AWS account"
+        check:
+          IS_EMPTY: 
+            arg:
+              EXTRACT: "CA10__rdsInstancesUsedPercent__c"   
+      - status: "COMPLIANT"
+        currentStateMessage: "The number of RDS database instances provisioned in your AWS account has not reached the service quota."
+        check:
+          LESS_THAN:
+            left:
+              EXTRACT: "CA10__rdsInstancesUsedPercent__c"
+            right:
+              NUMBER: 90.0
+    otherwise:
+      status: "UNDETERMINED"
+      currentStateMessage: "Unexpected value in the field."
+      

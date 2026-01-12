@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.3.15
+
+- Improved error messages
+
+## 2.3.14
+
+- Fixed a bug for `repo-manager test ... --format=JUNIT` without `--output-dir` provided
+
 ## 2.3.13
 
 - Added more flexibility to location parameter in `repo-manager policies` subcommands

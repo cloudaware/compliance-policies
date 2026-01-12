@@ -1,0 +1,18 @@
+---
+names:
+  full: AWS API Gateway REST API Detailed CloudWatch Metrics are not enabled
+  contextual: REST API Detailed CloudWatch Metrics are not enabled
+description: >
+  Ensure that detailed CloudWatch metrics are enabled for all APIs created with 
+  AWS API Gateway service in order to monitor API stages caching, latency and 
+  detected errors at a more granular level and set alarms accordingly.
+categories:
+  - "RELIABILITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-well-architected/rel/06/02"
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/APIGateway/detailed-cloudwatch-metrics.html
+      name: APIs Detailed CloudWatch Metrics

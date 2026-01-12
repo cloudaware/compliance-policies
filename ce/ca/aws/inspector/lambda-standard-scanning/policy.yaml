@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS Inspector Lambda Standard Scanning is not enabled"
+  contextual: "Inspector Lambda Standard Scanning is not enabled"
+description: >
+  Amazon Inspector provides standard scanning for AWS Lambda functions, which 
+  automatically detects software vulnerabilities in your function's package dependencies. 
+  Enabling this ensures that your serverless applications are continuously monitored 
+  for known CVEs in their libraries and layers.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/aws-fsbp-v1.0.0/inspector/04"
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Inspector.4] Amazon Inspector Lambda standard scanning should be enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/inspector-controls.html#inspector-4"

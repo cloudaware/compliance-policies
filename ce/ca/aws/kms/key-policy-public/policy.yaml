@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS KMS Key Policy allows public access"
+  contextual: "Key Policy allows public access"
+description: >
+  Ensure that AWS KMS key policies do not allow anonymous or public access. 
+  Allowing unrestricted access to cryptographic keys could enable unauthorized parties 
+  to encrypt, decrypt, or manage data, leading to severe data breaches.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/aws-fsbp-v1.0.0/kms/05"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[KMS.5] KMS keys should not be publicly accessible"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/kms-controls.html#kms-5"

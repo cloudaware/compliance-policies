@@ -1,0 +1,23 @@
+---
+names:
+  full: "AWS ELB Load Balancer Access Logging is disabled"
+  contextual: "Load Balancer Access Logging is disabled"
+description: >
+  Ensure that Access Logging is enabled for AWS Elastic Load Balancers. 
+  Access logs capture detailed information about requests sent to your load balancer, 
+  including the time the request was received, the client's IP address, latencies, 
+  request paths, and server responses.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
+  - "/frameworks/aws-well-architected/sec/04/02"
+  - "/frameworks/aws-fsbp-v1.0.0/elb/05"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ELB.5] Application and Classic Load Balancers logging should be enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-5"
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/ELB/elb-access-log.html
+      name: ELB Access Log

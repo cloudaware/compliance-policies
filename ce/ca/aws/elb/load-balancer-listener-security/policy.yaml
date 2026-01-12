@@ -1,0 +1,24 @@
+---
+names:
+  full: "AWS ELB Load Balancer listeners are not using a secure protocol"
+  contextual: "Load Balancer listeners are not using a secure protocol"
+description: >
+  Check your Elastic Load Balancers (ELBs) listeners for insecure configurations. 
+  CloudAware recommends only using secure protocols, such as HTTPS, TLS or QUIC, to 
+  encrypt the communication between the client and your load balancers.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-well-architected/sec/09/01"
+  - "/frameworks/aws-fsbp-v1.0.0/elb/18"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ELB.18] Application and Network Load Balancer listeners should use secure protocols to encrypt data in transit"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-18"
+    - name: "[ELB.3] Classic Load Balancer listeners should be configured with HTTPS or TLS termination"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-3"
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/ELB/elb-listener-security.html
+      name: ELB Listener Security

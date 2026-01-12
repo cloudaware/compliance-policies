@@ -1,0 +1,17 @@
+---
+extracts:
+# Date/Time. Nullable.
+  - name: CA10__lastUsedDate__c
+    value: 
+      FIELD:
+        path: CA10__lastUsedDate__c
+# Values: Active | Inactive. Not nullable.
+  - name: CA10__status__c
+    value: 
+      FIELD:
+        path: CA10__status__c
+# Date/Time. Not nullable.
+  - name: CA10__createDate__c
+    value: 
+      FIELD:
+        path: CA10__createDate__c

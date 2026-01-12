@@ -1,0 +1,58 @@
+---
+inputType: "CA10__CaAwsKmsKey__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsKmsKey__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The key is not enabled."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: CA10__state__c
+        right:
+          TEXT: "Enabled"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The KMS Key Policy allows anonymous access."
+    remediationMessage: "Modify the key policy to remove statements where the Principal is '*'."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__AWS_KMS_Key_Policies__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "The KMS Key policy does not allow anonymous access."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__AWS_KMS_Key_Policies__r"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "The Key Policy is not present in the CMDB."
+relatedLists:
+  - relationshipName: "CA10__AWS_KMS_Key_Policies__r"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The KMS Key Policy allows anonymous access."
+        remediationMessage: "Modify the key policy to remove statements where the Principal is '*'."
+        check:
+          AWS_POLICY_ALLOWS:
+            widestAcceptableAccessLevel: "EXTERNAL_PRINCIPAL"
+            policyExtField: "CA10__policyDocumentExt__c"
+            actions:
+              - "kms:Encrypt"
+              - "kms:Decrypt"
+              - "kms:ReEncryptFrom"
+              - "kms:ReEncryptTo"
+              - "kms:GenerateDataKey"
+              - "kms:CreateGrant"
+              - "kms:DescribeKey"
+              - "kms:EnableKey"
+              - "kms:PutKeyPolicy"
+              - "kms:GetKeyPolicy"
+              - "kms:ScheduleKeyDeletion"
+              - "kms:CancelKeyDeletion"
+              - "kms:RotateKeyOnDemand"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "The KMS Key policy does not allow anonymous or public access."

@@ -1,0 +1,47 @@
+---
+inputType: "CA10__CaAwsAccount__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsAccount__c/object.extracts.yaml"
+testData:
+  - file: test-data.json
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "Amazon Inspector status is not available."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__inspectorStatus__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Amazon Inspector is not enabled for this account."
+    remediationMessage: "Enable Amazon Inspector in the AWS console."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__inspectorStatus__c"
+        right:
+          TEXT: "Disabled"
+  - status: "UNDETERMINED"
+    currentStateMessage: "Amazon Inspector Lambda Standard scanning status is not available."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__inspectorLambdaStatus__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Amazon Inspector Lambda Standard scanning is disabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__inspectorLambdaStatus__c"
+        right:
+          TEXT: "Disabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "Amazon Inspector Lambda Standard scanning is enabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__inspectorLambdaStatus__c"
+        right:
+          TEXT: "Enabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

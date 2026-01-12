@@ -1,0 +1,102 @@
+[
+    {
+        "CA10__type__c": "gateway",
+        "CA10__additionalAttributes__c": "",
+        "RecordType": {
+            "Id": "RecordTypeId1",
+            "DeveloperName": "caAwsLoadBalancerApplication"
+        },
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "context": {
+            "snapshotTime": "2025-12-22T05:18:15Z"
+        },
+        "RecordTypeId": "RecordTypeId1",
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-12-18T15:43:21Z"
+    },
+    {
+        "CA10__type__c": "gateway",
+        "CA10__additionalAttributes__c": "deletion_protection.enabled: false\nload_balancing.cross_zone.enabled: true",
+        "RecordType": {
+            "Id": "RecordTypeId1",
+            "DeveloperName": "caAwsLoadBalancerApplication"
+        },
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__type__c') != 'application' && extract('CA10__type__c') != 'classic'",
+            "conditionIndex": 299,
+            "status": "INAPPLICABLE"
+        },
+        "context": {
+            "snapshotTime": "2025-12-22T05:18:15Z"
+        },
+        "RecordTypeId": "RecordTypeId1",
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null
+    },
+    {
+        "CA10__type__c": "application",
+        "CA10__additionalAttributes__c": "access_logs.s3.enabled: false\nrouting.http.drop_invalid_header_fields.enabled: false\nhealth_check_logs.s3.prefix: \nconnection_logs.s3.enabled: false\naccess_logs.s3.prefix: \nrouting.http2.enabled: true\nwaf.fail_open.enabled: false\nrouting.http.xff_client_port.enabled: false\nclient_keep_alive.seconds: 3600\nhealth_check_logs.s3.bucket: \nconnection_logs.s3.bucket: \ndeletion_protection.enabled: false\naccess_logs.s3.bucket: \nload_balancing.cross_zone.enabled: true\nzonal_shift.config.enabled: false\nrouting.http.preserve_host_header.enabled: false\nrouting.http.x_amzn_tls_version_and_cipher_suite.enabled: false\nconnection_logs.s3.prefix: \nidle_timeout.timeout_seconds: 60\nhealth_check_logs.s3.enabled: false\nrouting.http.xff_header_processing.mode: append\nrouting.http.desync_mitigation_mode: defensive",
+        "RecordType": {
+            "Id": "RecordTypeId1",
+            "DeveloperName": "caAwsLoadBalancerApplication"
+        },
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('caSetFrom_additionalAttributes__c').contains('routing.http.desync_mitigation_mode: defensive')",
+            "conditionIndex": 799,
+            "status": "COMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-22T05:18:15Z"
+        },
+        "RecordTypeId": "RecordTypeId1",
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null
+    },
+    {
+        "CA10__type__c": "classic",
+        "CA10__additionalAttributes__c": "elb.http.desyncmitigationmode: defensive",
+        "RecordType": {
+            "Id": "RecordTypeId2",
+            "DeveloperName": "caAwsLoadBalancerClassic"
+        },
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('caSetFrom_additionalAttributes__c').contains('elb.http.desyncmitigationmode: defensive')",
+            "conditionIndex": 899,
+            "status": "COMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-22T05:18:15Z"
+        },
+        "RecordTypeId": "RecordTypeId2",
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null
+    },
+    {
+        "CA10__type__c": "classic",
+        "CA10__additionalAttributes__c": "elb.http.desyncmitigationmode: monitor",
+        "RecordType": {
+            "Id": "RecordTypeId2",
+            "DeveloperName": "caAwsLoadBalancerClassic"
+        },
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('caSetFrom_additionalAttributes__c').contains('elb.http.desyncmitigationmode: monitor')",
+            "conditionIndex": 499,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-22T05:18:15Z"
+        },
+        "RecordTypeId": "RecordTypeId2",
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null
+    }
+]

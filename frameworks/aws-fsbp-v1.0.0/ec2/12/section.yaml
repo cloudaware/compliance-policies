@@ -1,0 +1,11 @@
+---
+name: >
+  [EC2.12] Unused Amazon EC2 EIPs should be removed
+description: |-
+  A failed finding indicates you may have unused EC2 EIPs.
+
+  This will help you maintain an accurate asset inventory of EIPs in your cardholder
+  data environment (CDE).
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-12

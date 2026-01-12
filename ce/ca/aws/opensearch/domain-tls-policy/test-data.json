@@ -1,0 +1,62 @@
+[
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "context": {
+            "snapshotTime": "2025-12-23T10:29:21Z"
+        },
+        "CA10__endpointOptionsEnforceHttps__c": "false",
+        "CA10__endpointOptionsTlsSecurityPolicy__c": "Policy-Min-TLS-1-0-2019-07",
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-08-17T07:38:43Z"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__endpointOptionsEnforceHttps__c') == 'false'",
+            "conditionIndex": 299,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-23T10:29:21Z"
+        },
+        "CA10__endpointOptionsEnforceHttps__c": "false",
+        "CA10__endpointOptionsTlsSecurityPolicy__c": "Policy-Min-TLS-1-2-2019-07",
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "setOfText(['Policy-Min-TLS-1-0-2019-07', 'Policy-Min-TLS-1-2-2019-07']).contains(extract('CA10__endpointOptionsTlsSecurityPolicy__c'))",
+            "conditionIndex": 399,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-23T10:29:21Z"
+        },
+        "CA10__endpointOptionsEnforceHttps__c": "true",
+        "CA10__endpointOptionsTlsSecurityPolicy__c": "Policy-Min-TLS-1-2-2019-07",
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__endpointOptionsEnforceHttps__c') == 'true'",
+            "conditionIndex": 499,
+            "status": "COMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-23T10:29:21Z"
+        },
+        "CA10__endpointOptionsEnforceHttps__c": "true",
+        "CA10__endpointOptionsTlsSecurityPolicy__c": "Policy-Min-TLS-1-2-PFS-2023-10",
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null
+    }
+]

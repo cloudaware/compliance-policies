@@ -1,0 +1,16 @@
+name: >
+  [ELB.18] Application and Network Load Balancer listeners should use secure 
+  protocols to encrypt data in transit
+description: |-
+  To encrypt data that's transmitted between a client and a load balancer, Elastic 
+  Load Balancer listeners should be configured to use industry-standard security 
+  protocols: HTTPS for Application Load Balancers, or TLS for Network Load Balancers. 
+  Otherwise, data that's transmitted between a client and a load balancer is 
+  vulnerable to interception, tampering, and unauthorized access. Use of HTTPS or TLS 
+  by a listener aligns with security best practices and helps ensure the confidentiality 
+  and integrity of data during transmission. This is particularly important for 
+  applications that handle sensitive information, or must comply with security standards 
+  that require encryption of data in transit.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-18

@@ -1,0 +1,23 @@
+---
+inputType: "CA10__CaAwsAccount__c"
+testData:
+  - file: test-data.json
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "The Account has a password policy."
+    check:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__AWS_IAM_Password_Policies__r"
+        status: "COMPLIANT"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The Account does not have any password policy."
+  remediationMessage: "Create an IAM Password Policy."
+relatedLists:
+  - relationshipName: "CA10__AWS_IAM_Password_Policies__r"
+    importExtracts:
+      - file: /types/CA10__CaAwsPasswordPolicy__c/object.extracts.yaml
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "The is a password policy."

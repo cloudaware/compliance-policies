@@ -1,0 +1,21 @@
+---
+names:
+  full: "AWS OpenSearch Domain error logging is not enabled"
+  contextual: "Domain error logging is not enabled"
+description: >
+  Ensure that error logging is enabled for Amazon OpenSearch Service domains. 
+  Error logs are useful for troubleshooting and provide information about 
+  issues encountered by the domain.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/es/04"
+  - "/frameworks/aws-fsbp-v1.0.0/opensearch/04"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Opensearch.4] OpenSearch domain error logging to CloudWatch Logs should be enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/opensearch-controls.html#opensearch-4"
+    - name: "[ES.4] Elasticsearch domain error logging to CloudWatch Logs should be enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/es-controls.html#es-4"

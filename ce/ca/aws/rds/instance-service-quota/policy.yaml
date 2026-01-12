@@ -1,0 +1,16 @@
+---
+names:
+  full: "AWS RDS Instance count has reach the service quota"
+  contextual: "Instance count has reach the service quota"
+description: "Ensure that the number of RDS database instances provisioned in your AWS account \
+  \ has not reached the service quota established for your organization for the RDS workload deployed."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-well-architected/rel/01/05"
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/RDS/db-instance-counts.html"
+      name: "RDS Instance Counts"

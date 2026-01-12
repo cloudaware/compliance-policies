@@ -1,0 +1,82 @@
+[
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "context": {
+            "snapshotTime": "2025-12-19T02:21:26Z"
+        },
+        "CA10__createDate__c": "2025-11-05T14:18:01Z",
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-12-12T21:58:51Z",
+        "CA10__lastUsedDate__c": "2025-11-05T14:20:00Z",
+        "CA10__status__c": "Active"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "CA10__status__c != 'Active'",
+            "conditionIndex": 199,
+            "status": "INAPPLICABLE"
+        },
+        "context": {
+            "snapshotTime": "2025-12-19T02:21:26Z"
+        },
+        "CA10__createDate__c": "2023-08-04T18:46:57Z",
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__lastUsedDate__c": null,
+        "CA10__status__c": "Inactive"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "CA10__lastUsedDate__c.isNotEmpty() && CA10__lastUsedDate__c.beyondLastDays(90)",
+            "conditionIndex": 299,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-19T02:21:26Z"
+        },
+        "CA10__createDate__c": "2025-08-06T17:01:57Z",
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__lastUsedDate__c": "2025-08-26T20:22:00Z",
+        "CA10__status__c": "Active"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "CA10__lastUsedDate__c.isEmpty() && CA10__createDate__c.beyondLastDays(90)",
+            "conditionIndex": 399,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-19T02:21:26Z"
+        },
+        "CA10__createDate__c": "2025-05-07T20:33:32Z",
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__lastUsedDate__c": null,
+        "CA10__status__c": "Active"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "otherwise",
+            "conditionIndex": 400,
+            "status": "COMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-19T02:21:26Z"
+        },
+        "CA10__createDate__c": "2025-07-25T20:46:37Z",
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__lastUsedDate__c": "2025-12-18T21:39:00Z",
+        "CA10__status__c": "Active"
+    }
+]

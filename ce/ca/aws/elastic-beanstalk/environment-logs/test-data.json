@@ -1,0 +1,137 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-22T08:35:50Z"
+        },
+        "CA10__disappearanceTime__c": "2025-10-22T08:35:50Z",
+        "CA10__status__c": "Ready",
+        "Id": "test1",
+        "CA10__AWS_Beanstalk_Configuration_Settings__r": [
+            {
+                "Id": "test1_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__optionSettings__c": "aws:elasticbeanstalk:healthreporting:system SystemType basic",
+                "CA10__environment__c": "test1",
+                "RecordTypeId": "RecordTypeId",
+                "RecordType": {
+                    "Id": "RecordTypeId",
+                    "DeveloperName": "caEnvironmentConfigurationSettings"
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__status__c') != 'Ready'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-22T08:35:50Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "Terminated",
+        "Id": "test2",
+        "CA10__AWS_Beanstalk_Configuration_Settings__r": [
+            {
+                "Id": "test2_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__optionSettings__c": "aws:elasticbeanstalk:healthreporting:system SystemType basic",
+                "CA10__environment__c": "test2",
+                "RecordTypeId": "RecordTypeId",
+                "RecordType": {
+                    "Id": "RecordTypeId",
+                    "DeveloperName": "caEnvironmentConfigurationSettings"
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "CA10__AWS_Beanstalk_Configuration_Settings__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-22T08:35:50Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "Ready",
+        "Id": "test3",
+        "CA10__AWS_Beanstalk_Configuration_Settings__r": [
+            {
+                "Id": "test3_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__optionSettings__c": "aws:elasticbeanstalk:hostmanager LogPublicationControl true\naws:elasticbeanstalk:cloudwatch:logs StreamLogs false",
+                "CA10__environment__c": "test3",
+                "RecordTypeId": "RecordTypeId",
+                "RecordType": {
+                    "Id": "RecordTypeId",
+                    "DeveloperName": "caEnvironmentConfigurationSettings"
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "CA10__AWS_Beanstalk_Configuration_Settings__r.has(COMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-22T08:35:50Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "Ready",
+        "Id": "test4",
+        "CA10__AWS_Beanstalk_Configuration_Settings__r": [
+            {
+                "Id": "test4_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__optionSettings__c": "aws:elasticbeanstalk:hostmanager LogPublicationControl false\naws:elasticbeanstalk:cloudwatch:logs StreamLogs true",
+                "CA10__environment__c": "test4",
+                "RecordTypeId": "RecordTypeId",
+                "RecordType": {
+                    "Id": "RecordTypeId",
+                    "DeveloperName": "caEnvironmentConfigurationSettings"
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "CA10__AWS_Beanstalk_Configuration_Settings__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-22T08:35:50Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "Ready",
+        "Id": "test5",
+        "CA10__AWS_Beanstalk_Configuration_Settings__r": [
+            {
+                "Id": "test5_1",
+                "CA10__disappearanceTime__c": null,
+                "CA10__optionSettings__c": "",
+                "CA10__environment__c": "test5",
+                "RecordTypeId": "RecordTypeId",
+                "RecordType": {
+                    "Id": "RecordTypeId",
+                    "DeveloperName": "caEnvironmentConfigurationSettings"
+                }
+            }
+        ]
+    }
+]

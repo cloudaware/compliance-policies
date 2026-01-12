@@ -1,0 +1,85 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__AWS_RDS_Event_Subscriptions__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-25T10:00:40Z" },
+    "Id": "001",
+    "CA10__AWS_RDS_Event_Subscriptions__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__enabled__c": true,
+        "CA10__sourceType__c": "db-instance",
+        "CA10__eventCategories__c": "failover",
+        "CA10__account__c": "001",
+        "Id": "001-1"
+      },
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__enabled__c": true,
+        "CA10__sourceType__c": "db-security-group",
+        "CA10__eventCategories__c": "configuration change\ncreation\ndeletion\nfailover\nfailure\nlow storage\nmaintenance\nnotification\nrecovery\nrestoration\navailability",
+        "CA10__account__c": "001",
+        "Id": "001-2"
+      },
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__enabled__c": true,
+        "CA10__sourceType__c": "db-instance",
+        "CA10__eventCategories__c": "maintenance\nsecurity patching",
+        "CA10__account__c": "001",
+        "Id": "001-3"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-25T10:00:40Z" },
+    "Id": "002",
+    "CA10__AWS_RDS_Event_Subscriptions__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__enabled__c": true,
+        "CA10__sourceType__c": "db-instance",
+        "CA10__eventCategories__c": "failover",
+        "CA10__account__c": "002",
+        "Id": "002-1"
+      },
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__enabled__c": true,
+        "CA10__sourceType__c": "db-instance",
+        "CA10__eventCategories__c": "configuration change\ncreation\ndeletion\nfailover\nfailure\nlow storage\nmaintenance\nnotification\nrecovery\nrestoration\navailability",
+        "CA10__account__c": "002",
+        "Id": "002-2"
+      },
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__enabled__c": true,
+        "CA10__sourceType__c": "db-instance",
+        "CA10__eventCategories__c": "maintenance\nsecurity patching",
+        "CA10__account__c": "002",
+        "Id": "003-3"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-25T10:00:40Z" },
+    "Id": "003",
+    "CA10__AWS_RDS_Event_Subscriptions__r": []
+  }
+]

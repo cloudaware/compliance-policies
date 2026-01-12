@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS EC2 Image is publicly accessible"
+  contextual: "EC2 Image is publicly accessible"
+description: >
+  Ensure that your AWS AMIs are not publicly shared with the other 
+  AWS accounts. Public AMIs are available to all AWS accounts, which creates a 
+  significant risk of exposing sensitive data, intellectual property, or credentials 
+  stored within the image.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/aws-well-architected/sec/03/07"
+similarPolicies:
+    cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EC2/publicly-shared-ami.html"
+      name: Publicly Shared AMI

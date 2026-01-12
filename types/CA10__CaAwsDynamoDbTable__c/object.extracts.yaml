@@ -35,3 +35,21 @@ extracts:
     value:
       FIELD:
         path: "CA10__sseDescriptionStatus__c"
+# Not nullable. Number
+  - name: "CA10__itemCount__c"
+    value:
+      FIELD:
+        path: "CA10__itemCount__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__itemCount__c"
+            currentStateMessage: "Dynamo DB Table item count cannot be empty. Possible permission issue with dynamodb:DescribeTable"
+# Not nullable.
+  - name: "CA10__creationDateTime__c"
+    value:
+      FIELD:
+        path: "CA10__creationDateTime__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__creationDateTime__c"
+            currentStateMessage: "Dynamo DB Table creation date cannot be empty. Possible permission issue with dynamodb:DescribeTable"

@@ -1,0 +1,23 @@
+---
+names:
+  full: "AWS ELB Load Balancer is not configured with defensive or strictest desync mitigation mode"
+  contextual: "Load Balancer is not configured with defensive or strictest desync mitigation mode"
+description: >
+  Ensure that your Amazon Application Load Balancers and Classic Load Balancers 
+  are configured with defensive or strictest desync mitigation modes. 
+  This prevents HTTP desynchronization vulnerabilities that can lead to request 
+  smuggling and unauthorized access to your backend applications.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+  - "PERFORMANCE"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+  - "/frameworks/aws-fsbp-v1.0.0/elb/12"
+  - "/frameworks/aws-fsbp-v1.0.0/elb/14"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ELB.12] Application Load Balancer should be configured with defensive or strictest desync mitigation mode"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-12"
+    - name: "[ELB.14] Classic Load Balancer should be configured with defensive or strictest desync mitigation mode"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-14"

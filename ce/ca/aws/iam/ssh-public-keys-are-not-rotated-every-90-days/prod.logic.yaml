@@ -1,0 +1,26 @@
+---
+inputType: "CA10__CaAwsIamSshPublicKey__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsIamSshPublicKey__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The SSH public key is currently Inactive."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "Active"
+  - status: INCOMPLIANT
+    currentStateMessage: "The SSH public key is active but was uploaded more than 90 days ago."
+    remediationMessage: "Rotate the SSH public key by uploading a new one and deleting the old one."
+    check:
+      IS_BEYOND_LAST_DAYS:
+        offsetDays: 90
+        arg:
+          EXTRACT: "CA10__uploadDate__c"
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: "The SSH public key is active and has been rotated within the last 90 days."

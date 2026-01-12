@@ -1,0 +1,36 @@
+---
+inputType: "CA10__CaAwsAcmCertificate__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsAcmCertificate__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This certificate validation is pending."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "PENDING_VALIDATION"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The certificate validation has failed."
+    remediationMessage: "Review the failure reason and re-initiate validation."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "FAILED"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The certificate validation has timed out."
+    remediationMessage: "Ensure that the validation requirements are met and re-initiate validation."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "VALIDATION_TIMED_OUT"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The certificate is issued."

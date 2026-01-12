@@ -1,0 +1,49 @@
+---
+inputType: "CA10__CaAwsElasticsearchDomain__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsElasticsearchDomain__c/object.extracts.yaml"
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "The dedicated master configuration is not populated in the CMDB."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__clusterConfigDedicatedMasterEnabled__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Dedicated master nodes are disabled for this OpenSearch Domain."
+    remediationMessage: "Enable dedicated master nodes and set the count to at least 3."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__clusterConfigDedicatedMasterEnabled__c"
+        right:
+          TEXT: "false"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The OpenSearch domain has fewer than 3 dedicated master nodes."
+    remediationMessage: "Increase the dedicated master node count to 3."
+    check:
+      LESS_THAN:
+        left:
+          EXTRACT: "CA10__clusterConfigDedicatedMasterCount__c"
+        right:
+          NUMBER: 3.0
+  - status: "COMPLIANT"
+    currentStateMessage: "The OpenSearch domain has at least 3 dedicated master nodes."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__clusterConfigDedicatedMasterEnabled__c"
+              right:
+                TEXT: "true"
+          - GREATER_THAN_EQUAL:
+              left:
+                EXTRACT: "CA10__clusterConfigDedicatedMasterCount__c"
+              right:
+                NUMBER: 3.0
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

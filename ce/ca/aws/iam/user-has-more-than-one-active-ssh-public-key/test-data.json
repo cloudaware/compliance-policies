@@ -1,0 +1,108 @@
+[
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "CA10__AWS_IAM_SSH_Public_Keys__r.count(COMPLIANT) == number(0.0)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-09T07:11:01Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "001",
+    "CA10__AWS_IAM_SSH_Public_Keys__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "CA10__AWS_IAM_SSH_Public_Keys__r.count(COMPLIANT) == number(0.0)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-09T07:11:01Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "002",
+    "CA10__AWS_IAM_SSH_Public_Keys__r": [
+        {
+            "CA10__disappearanceTime__c": null,
+            "CA10__status__c": "Inactive",
+            "Id": "id_002_01",
+            "CA10__user__c": "002"
+
+        }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__AWS_IAM_SSH_Public_Keys__r.count(COMPLIANT) > number(1.0)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-09T07:11:01Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "003",
+    "CA10__AWS_IAM_SSH_Public_Keys__r": [
+        {
+            "CA10__disappearanceTime__c": null,
+            "CA10__status__c": "Active",
+            "Id": "id_003_01",
+            "CA10__user__c": "003"
+
+        },
+        {
+            "CA10__disappearanceTime__c": null,
+            "CA10__status__c": "Active",
+            "Id": "id_003_02",
+            "CA10__user__c": "003"
+
+        }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-09T07:11:01Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "004",
+    "CA10__AWS_IAM_SSH_Public_Keys__r": [
+        {
+            "CA10__disappearanceTime__c": null,
+            "CA10__status__c": "Active",
+            "Id": "id_004_01",
+            "CA10__user__c": "004"
+
+        }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-09T07:11:01Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "005",
+    "CA10__AWS_IAM_SSH_Public_Keys__r": [
+        {
+            "CA10__disappearanceTime__c": null,
+            "CA10__status__c": "Active",
+            "Id": "id_005_01",
+            "CA10__user__c": "005"
+
+        },
+        {
+            "CA10__disappearanceTime__c": null,
+            "CA10__status__c": "Inactive",
+            "Id": "id_005_02",
+            "CA10__user__c": "005"
+
+        }
+    ]
+  }
+]

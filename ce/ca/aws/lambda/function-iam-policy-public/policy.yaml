@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS Lambda Function allows public access"
+  contextual: "Function allows public access"
+description: >
+  Ensure that AWS Lambda functions are not publicly accessible. Resource-based 
+  policies for Lambda functions should restrict access to specific AWS accounts, 
+  services, or IAM principals to prevent unauthorized execution and potential data exposure.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/aws-fsbp-v1.0.0/lambda/01"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Lambda.1] Lambda function policies should prohibit public access"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/lambda-controls.html#lambda-1"

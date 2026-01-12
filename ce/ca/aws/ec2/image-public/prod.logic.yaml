@@ -1,0 +1,26 @@
+inputType: "CA10__CaAwsImage__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: /types/CA10__CaAwsImage__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The EC2 Image is publicly accessible."
+    remediationMessage: "Consider restricting the image access to private or sharing only with specific AWS accounts."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__public__c"
+        right:
+          BOOLEAN: true
+  - status: "COMPLIANT"
+    currentStateMessage: "The EC2 Image is not publicly accessible."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__public__c"
+        right:
+          BOOLEAN: false
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

@@ -1,0 +1,47 @@
+[
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "CA10__clusterConfigDedicatedMasterCount__c": null,
+        "context": {
+            "snapshotTime": "2025-12-23T10:29:21Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-08-17T07:38:43Z",
+        "CA10__clusterConfigDedicatedMasterEnabled__c": "false"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__clusterConfigDedicatedMasterEnabled__c') == 'false'",
+            "conditionIndex": 299,
+            "status": "INCOMPLIANT"
+        },
+        "CA10__clusterConfigDedicatedMasterCount__c": null,
+        "context": {
+            "snapshotTime": "2025-12-23T10:29:21Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__clusterConfigDedicatedMasterEnabled__c": "false"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__clusterConfigDedicatedMasterEnabled__c') == 'true' && extract('CA10__clusterConfigDedicatedMasterCount__c') >= number(3.0)",
+            "conditionIndex": 499,
+            "status": "COMPLIANT"
+        },
+        "CA10__clusterConfigDedicatedMasterCount__c": 3.0,
+        "context": {
+            "snapshotTime": "2025-12-23T10:29:21Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__clusterConfigDedicatedMasterEnabled__c": "true"
+    }
+]

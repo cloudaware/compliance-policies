@@ -25,3 +25,10 @@ extracts:
         path: "CA10__state__c"
         undeterminedIf:
           isEmpty: "Corrupted data. Snapshot Start Time cannot be empty."
+# Not Nullable.
+  - name: "CA10__encrypted__c"
+    value:
+      FIELD:
+        path: "CA10__encrypted__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Snapshot `Encrypted` state cannot be empty."

@@ -1,0 +1,122 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-02T19:54:10Z" },
+    "CA10__disappearanceTime__c": "2025-12-02T17:47:56Z",
+    "CA10__status__c": "in-use",
+    "CA10__encrypted__c": false,
+    "CA10__kmsKey__c": "",
+    "CA10__kmsKeyArn__c": "",
+    "Id": "001",
+    "CA10__kmsKey__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null,
+      "CA10__manager__c": null
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__status__c') != 'in-use'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-02T19:54:10Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "deleting",
+    "CA10__encrypted__c": true,
+    "CA10__kmsKey__c": "kk002",
+    "CA10__kmsKeyArn__c": "arn:aws:kms:eu-west-1:XXX:key/XXX19",
+    "Id": "002",
+    "CA10__kmsKey__r": {
+      "Id": "kk002",
+      "CA10__disappearanceTime__c": null,
+      "CA10__manager__c": "AWS"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "not(extract('CA10__encrypted__c'))",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-02T19:54:10Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "in-use",
+    "CA10__encrypted__c": false,
+    "CA10__kmsKey__c": "",
+    "CA10__kmsKeyArn__c": "",
+    "Id": "003",
+    "CA10__kmsKey__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null,
+      "CA10__manager__c": null
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "isEmptyLookup('CA10__kmsKey__r')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-02T19:54:10Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "in-use",
+    "CA10__encrypted__c": true,
+    "CA10__kmsKey__c": "",
+    "CA10__kmsKeyArn__c": "",
+    "Id": "004",
+    "CA10__kmsKey__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null,
+      "CA10__manager__c": null
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__kmsKey__r.CA10__manager__c') != 'CUSTOMER'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-02T19:54:10Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "in-use",
+    "CA10__encrypted__c": true,
+    "CA10__kmsKey__c": "kk005",
+    "CA10__kmsKeyArn__c": "arn:aws:kms:ca-central-1:XXX4:key/xxxx55",
+    "Id": "005",
+    "CA10__kmsKey__r": {
+      "Id": "kk005",
+      "CA10__disappearanceTime__c": null,
+      "CA10__manager__c": "AWS"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "599",
+      "conditionText": "extract('CA10__encrypted__c') == true && extract('CA10__kmsKey__r.CA10__manager__c') == 'CUSTOMER'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-02T19:54:10Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "in-use",
+    "CA10__encrypted__c": true,
+    "CA10__kmsKey__c": "kk006",
+    "CA10__kmsKeyArn__c": "arn:aws:kms:eu-west-1:xxx6:key/9xxx76",
+    "Id": "006",
+    "CA10__kmsKey__r": {
+      "Id": "kk006",
+      "CA10__disappearanceTime__c": null,
+      "CA10__manager__c": "CUSTOMER"
+    }
+  }
+]

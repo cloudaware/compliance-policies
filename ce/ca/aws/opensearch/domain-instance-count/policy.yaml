@@ -1,0 +1,21 @@
+---
+names:
+  full: "AWS OpenSearch Domain Instance Count is fewer than three"
+  contextual: "Domain Instance Count is fewer than three"
+description: >
+  Ensure that Amazon OpenSearch Service domains are configured for high availability. 
+  This requires at least three data nodes and the enablement of Zone Awareness 
+  to distribute instances across multiple Availability Zones.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/es/06"
+  - "/frameworks/aws-fsbp-v1.0.0/opensearch/06"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Opensearch.6] OpenSearch domains should have at least three data nodes"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/opensearch-controls.html#opensearch-6"
+    - name: "[ES.6] Elasticsearch domains should have at least three data nodes"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/es-controls.html#es-6"

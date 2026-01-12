@@ -1,0 +1,27 @@
+---
+names:
+  full: "AWS EMR Cluster encryption is disabled"
+  contextual: "Cluster encryption is disabled"
+description: >
+  Ensure Amazon EMR clusters use a Security Configuration to enable encryption at-rest 
+  and in-transit. These settings protect sensitive data on cluster storage and 
+  during communication between nodes.
+impossible: true
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-well-architected/sec/08/02"
+  - "/frameworks/aws-well-architected/sec/09/02"
+  - "/frameworks/aws-fsbp-v1.0.0/emr/03"
+  - "/frameworks/aws-fsbp-v1.0.0/emr/04"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[EMR.3] Amazon EMR security configurations should be encrypted at rest"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/emr-controls.html#emr-3"
+    - name: "[EMR.4] Amazon EMR security configurations should be encrypted in transit"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/emr-controls.html#emr-4"
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EMR/in-transit-and-at-rest-encryption.html
+      name: EMR In-Transit and At-Rest Encryption

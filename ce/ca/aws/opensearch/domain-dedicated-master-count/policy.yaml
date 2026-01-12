@@ -1,0 +1,20 @@
+---
+names:
+  full: "AWS OpenSearch Domain Dedicated Master Count is fewer than three"
+  contextual: "Domain Dedicated Master Count is fewer than three"
+description: >
+  Ensure that Amazon OpenSearch Service domains use at least three dedicated 
+  master nodes. Dedicated master nodes increase cluster stability by offloading 
+  cluster management tasks from data nodes and providing a quorum for leader 
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/es/07"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Opensearch.11] OpenSearch domains should have at least three dedicated primary nodes"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/opensearch-controls.html#opensearch-11"
+    - name: "[ES.7] Elasticsearch domains should be configured with at least three dedicated master nodes"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/es-controls.html#es-7"

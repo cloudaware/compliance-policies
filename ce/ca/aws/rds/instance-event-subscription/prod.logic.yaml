@@ -1,0 +1,51 @@
+---
+inputType: "CA10__CaAwsAccount__c"
+testData:
+  - file: test-data.json
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "The RDS Event Subscription for critical Instance Events is configured."
+    check:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__AWS_RDS_Event_Subscriptions__r"
+        status: "COMPLIANT"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The RDS Event Subscription is not configured for critical Instance Events."
+  remediationMessage: "Configure RDS Event Subscription for critical Instance Events."
+relatedLists:
+  - relationshipName: "CA10__AWS_RDS_Event_Subscriptions__r"
+    importExtracts:
+      - file: /types/CA10__CaAwsDbEventSubscription__c/object.extracts.yaml
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This is not an active Instance Event Subscription."
+        check:
+          NOT:
+            arg:
+              AND:
+                args:
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__enabled__c"
+                      right:
+                        BOOLEAN: true
+                  - IS_EQUAL:
+                      left:
+                        EXTRACT: "CA10__sourceType__c"
+                      right:
+                        TEXT: 'db-instance'
+      - status: "COMPLIANT"
+        currentStateMessage: "This is an Event Subscription for critical Instance Events."
+        check:
+          CONTAINS_ALL:
+            arg:
+              EXTRACT: "CA10__eventCategories__c" 
+            search:
+              LIST:
+                itemType: TEXT
+                items: ["maintenance", "configuration change", "failure"]
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "This is an Event Subscription for non-critical Instance Events."
+      

@@ -1,0 +1,35 @@
+---
+inputType: "CA10__CaAwsLoadBalancer__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsLoadBalancer__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Access logs are not supported for Gateway Load Balancers."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__type__c"
+        right:
+          TEXT: "gateway"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Load Balancer Access Logging is not enabled."
+    remediationMessage: "Enable Load Balancer Access Logging."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__accessLogsEnabled__c"
+        right:
+          BOOLEAN: false
+  - status: "COMPLIANT"
+    currentStateMessage: "Load Balancer Access Logging is enabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__accessLogsEnabled__c"
+        right:
+          BOOLEAN: true
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

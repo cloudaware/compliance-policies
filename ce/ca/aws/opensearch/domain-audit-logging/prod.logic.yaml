@@ -1,0 +1,40 @@
+---
+inputType: "CA10__CaAwsElasticsearchDomain__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsElasticsearchDomain__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Log publishing options are not configured."
+    remediationMessage: "Enable error logging (AUDIT_LOGS) for the OpenSearch domain."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__logPublishingOptionsJson__c"    
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Audit logging (AUDIT_LOGS) is explicitly disabled in the configuration."
+    remediationMessage: "Enable error logging (AUDIT_LOGS) for the OpenSearch domain."
+    check:
+      NOT:
+        arg:
+          JSON_QUERY_BOOLEAN:
+            arg:
+              EXTRACT: "caJsonFrom__logPublishingOptionsJson__c"
+            expression: "AUDIT_LOGS.enabled"
+            undeterminedIf:
+              evaluationError: "The AUDIT_LOGS key is missing from the configuration."
+              resultTypeMismatch: "The logging status value is not a boolean."
+  - status: "COMPLIANT"
+    currentStateMessage: "Audit logging (AUDIT_LOGS) is enabled."
+    check:
+      JSON_QUERY_BOOLEAN:
+        arg:
+          EXTRACT: "caJsonFrom__logPublishingOptionsJson__c"
+        expression: "AUDIT_LOGS.enabled"
+        undeterminedIf:
+          evaluationError: "The AUDIT_LOGS key is missing from the configuration."
+          resultTypeMismatch: "The logging status value is not a boolean."
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

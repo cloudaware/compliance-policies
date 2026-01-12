@@ -1,0 +1,58 @@
+[
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "context": {
+            "snapshotTime": "2025-12-23T10:29:21Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-08-17T07:38:43Z",
+        "CA10__logPublishingOptionsJson__c": "{\"SEARCH_SLOW_LOGS\":{\"cloudWatchLogsLogGroupArn\":\"cloudWatchLogsLogGroupArn\",\"enabled\":true},\"AUDIT_LOGS\":{\"cloudWatchLogsLogGroupArn\":\"cloudWatchLogsLogGroupArn\",\"enabled\":true},\"INDEX_SLOW_LOGS\":{\"cloudWatchLogsLogGroupArn\":\"cloudWatchLogsLogGroupArn\",\"enabled\":true}}"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__logPublishingOptionsJson__c').isEmpty()",
+            "conditionIndex": 199,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-23T10:29:21Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__logPublishingOptionsJson__c": ""
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "not(extract('caJsonFrom__logPublishingOptionsJson__c').jsonQueryText('AUDIT_LOGS.enabled'))",
+            "conditionIndex": 299,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-23T10:29:21Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__logPublishingOptionsJson__c": "{\"INDEX_SLOW_LOGS\":{\"cloudWatchLogsLogGroupArn\":\"cloudWatchLogsLogGroupArn\",\"enabled\":true}}"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('caJsonFrom__logPublishingOptionsJson__c').jsonQueryText('AUDIT_LOGS.enabled')",
+            "conditionIndex": 399,
+            "status": "COMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-23T10:29:21Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__logPublishingOptionsJson__c": "{\"AUDIT_LOGS\":{\"cloudWatchLogsLogGroupArn\":\"cloudWatchLogsLogGroupArn\",\"enabled\":true},\"AUDIT_LOGS\":{\"cloudWatchLogsLogGroupArn\":\"cloudWatchLogsLogGroupArn\",\"enabled\":true},\"INDEX_SLOW_LOGS\":{\"cloudWatchLogsLogGroupArn\":\"cloudWatchLogsLogGroupArn\",\"enabled\":true}}"
+    }
+]

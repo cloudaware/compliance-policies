@@ -1,0 +1,62 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-21T23:51:55Z" },
+    "CA10__disappearanceTime__c": "2025-12-12T21:19:09Z",
+    "CA10__status__c": "VALIDATION_TIMED_OUT",
+    "Id": "001"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__status__c') == 'PENDING_VALIDATION'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-21T23:51:55Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "PENDING_VALIDATION",
+    "Id": "002"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__status__c') == 'FAILED'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-21T23:51:55Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "FAILED",
+    "Id": "003"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__status__c') == 'VALIDATION_TIMED_OUT'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-21T23:51:55Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "VALIDATION_TIMED_OUT",
+    "Id": "004"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-21T23:51:55Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "ISSUED",
+    "Id": "005"
+  }
+]

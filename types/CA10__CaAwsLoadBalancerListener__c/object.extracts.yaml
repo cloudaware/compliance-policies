@@ -1,0 +1,27 @@
+---
+extracts:
+# Not applicable to Classic Load Balancers
+# Not nullable. Can't have no access, retrieved via elasticloadbalancing:DescribeListeners
+  - name: CA10__defaultActionsJson__c
+    value: 
+      FIELD:
+        returnType: "BYTES"
+        path: CA10__defaultActionsJson__c
+        undeterminedIf:
+          isEmpty: "Load Balancer Listener Default Action cannot be empty. Corrupted data."
+  - name: caJsonFrom_defaultActionsJson__c
+    value: 
+      JSON_FROM:
+        arg:
+          EXTRACT: "CA10__defaultActionsJson__c"
+        undeterminedIf:
+          isInvalid: "The Actions JSON is invalid"
+# Nullable. Text.
+  - name: CA10__protocol__c
+    value: 
+      FIELD:
+        path: CA10__protocol__c
+  - name: CA10__loadBalancerPort__c
+    value: 
+      FIELD:
+        path: CA10__loadBalancerPort__c

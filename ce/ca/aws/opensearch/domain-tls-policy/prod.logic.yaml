@@ -1,0 +1,45 @@
+---
+inputType: "CA10__CaAwsElasticsearchDomain__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsElasticsearchDomain__c/object.extracts.yaml"
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "The Enforce HTTPS endpoint option is not populated in the CMDB."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__endpointOptionsEnforceHttps__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Enforce HTTPS endpoint option is not enabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__endpointOptionsEnforceHttps__c"
+        right:
+          TEXT: "false"  
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The OpenSearch Domain is using an outdated TLS security policy."
+    remediationMessage: "Update the Domain to the latest TLS security policy."
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: "TEXT"
+            items:
+              - "Policy-Min-TLS-1-0-2019-07"
+              - "Policy-Min-TLS-1-2-2019-07"
+        search:
+          EXTRACT: "CA10__endpointOptionsTlsSecurityPolicy__c"
+  - status: "COMPLIANT"
+    currentStateMessage: "The OpenSearch domain enforces HTTPS and uses the latest TLS 1.2 security policy."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__endpointOptionsEnforceHttps__c"
+        right:
+          TEXT: "true"  
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

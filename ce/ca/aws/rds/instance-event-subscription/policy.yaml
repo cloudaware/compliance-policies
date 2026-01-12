@@ -1,0 +1,15 @@
+---
+names:
+  full: "AWS RDS Instance Event Subscription for critical events is not configured"
+  contextual: "Instance Event Subscription for critical events is not configured"
+description: "Ensure that your RDS event notification subscriptions are configured for critical Database Instance events."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/20"
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/RDS/notifications.html"
+      name: "RDS Event Notifications"

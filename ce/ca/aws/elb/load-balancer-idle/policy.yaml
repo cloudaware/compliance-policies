@@ -1,0 +1,17 @@
+---
+names:
+  full: AWS ELB Application Load Balancer is idle
+  contextual: ELB Application Load Balancer is idle
+description: >
+  Identify AWS Application Load Balancers (ALBs) that have received no requests 
+  over the last 30 days. Idle ALBs incur costs without providing value and should 
+  be reviewed for deletion.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/ELB/idle-elastic-load-balancer.html
+      name: Idle Elastic Load Balancer

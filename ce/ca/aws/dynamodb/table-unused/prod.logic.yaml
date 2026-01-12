@@ -1,0 +1,34 @@
+inputType: "CA10__CaAwsDynamoDbTable__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: /types/CA10__CaAwsDynamoDbTable__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The table is not active."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__tableStatus__c"
+        right:
+          TEXT: "ACTIVE"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The table was created less than 30 days ago."
+    check:
+      IS_WITHIN_LAST_DAYS:
+        offsetDays: 30
+        arg:
+          FIELD:
+            path: "CA10__creationDateTime__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The DynamoDB Table is not used and contains 0 items."
+    remediationMessage: "Consider deleting the Table."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__itemCount__c"
+        right:
+          NUMBER: 0.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Table contains items and is considered in use."

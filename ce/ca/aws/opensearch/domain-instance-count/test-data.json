@@ -1,0 +1,62 @@
+[
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "context": {
+            "snapshotTime": "2025-12-23T10:29:21Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-08-17T07:38:43Z",
+        "CA10__clusterConfigZoneAwarenessEnabled__c": "true",
+        "CA10__clusterConfigInstanceCount__c": 2.0
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__clusterConfigZoneAwarenessEnabled__c') == 'false'",
+            "conditionIndex": 299,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-23T10:29:21Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__clusterConfigZoneAwarenessEnabled__c": "false",
+        "CA10__clusterConfigInstanceCount__c": 1.0
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__clusterConfigInstanceCount__c') < number(3.0)",
+            "conditionIndex": 399,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-23T10:29:21Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__clusterConfigZoneAwarenessEnabled__c": "true",
+        "CA10__clusterConfigInstanceCount__c": 2.0
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__clusterConfigZoneAwarenessEnabled__c') == 'true' && extract('CA10__clusterConfigInstanceCount__c') >= number(3.0)",
+            "conditionIndex": 499,
+            "status": "COMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-23T10:29:21Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__clusterConfigZoneAwarenessEnabled__c": "true",
+        "CA10__clusterConfigInstanceCount__c": 4.0
+    }
+]

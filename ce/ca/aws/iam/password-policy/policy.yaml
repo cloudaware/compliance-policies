@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS Account does not have an IAM Password Policy"
+  contextual: "Account does not have an IAM Password Policy"
+description: "Ensure that an IAM Password Policy is configured for the AWS Account.\
+  \ Password policies allow you to enforce password complexity requirements and rotation\
+  \ schedules for IAM users, securing access to the AWS environment."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/identity-and-access-governance/credential-lifecycle-management"
+  - "/frameworks/aws-fsbp-v1.0.0/iam/07"
+  - "/frameworks/aws-well-architected/sec/02/01"
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/IAM/password-policy.html"
+      name: "IAM Password Policy"

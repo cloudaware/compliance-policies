@@ -1,0 +1,15 @@
+---
+names:
+  full: "AWS RDS Security Group Event Subscription for critical events is not configured"
+  contextual: "Security Group Event Subscription for critical events is not configure"
+description: "Ensure that your RDS event notification subscriptions are configured for critical Security Group events."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/22"
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/RDS/notifications.html"
+      name: "RDS Event Notifications"

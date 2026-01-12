@@ -1,0 +1,56 @@
+---
+inputType: "CA10__CaAwsBeanstalkEnvironment__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsBeanstalkEnvironment__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Elastic Beanstalk Environment is not in the Ready status."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "Ready"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Logs are not enabled for this Elastic Beanstalk Environment."
+    remediationMessage: "Enable CloudWatch log streaming or S3 log rotation for the environment."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__AWS_Beanstalk_Configuration_Settings__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "Logs are enabled for this Elastic Beanstalk Environment."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__AWS_Beanstalk_Configuration_Settings__r"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unable to determine logs configuration for this Elastic Beanstalk Environment."
+relatedLists:
+  - relationshipName: "CA10__AWS_Beanstalk_Configuration_Settings__r"
+    importExtracts:
+      - file: "/types/CA10__CaAwsBeanstalkConfigurationSettings__c/object.extracts.yaml"
+    recordTypes:
+      - "caEnvironmentConfigurationSettings"
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "Elastic Beanstalk Environment logs enabled."
+        check:
+          OR:
+            args:
+              - CONTAINS:
+                  arg:
+                    EXTRACT: "caSetFrom_optionSettings__c"
+                  search:
+                    TEXT: "aws:elasticbeanstalk:hostmanager LogPublicationControl true"
+              - CONTAINS:
+                  arg:
+                    EXTRACT: "caSetFrom_optionSettings__c"
+                  search:
+                    TEXT: "aws:elasticbeanstalk:cloudwatch:logs StreamLogs true"
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "Elastic Beanstalk Environment logs aren't enabled."

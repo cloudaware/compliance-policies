@@ -1,0 +1,21 @@
+---
+inputType: "CA10__CaAwsLambdaFunction__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Lambda Function resource-based policy allows anonymous access."
+    remediationMessage: "Modify the function's resource-based policy to remove permissions granted to anonymous principals."
+    check:
+      AWS_POLICY_ALLOWS:
+        policyExtField: "CA10__iamPolicyExt__c"
+        widestAcceptableAccessLevel: "EXTERNAL_PRINCIPAL"
+        actions:
+          - "lambda:InvokeFunction"
+          - "lambda:GetFunction"
+          - "lambda:UpdateFunctionCode"
+          - "lambda:DeleteFunction"
+          - "lambda:GetPolicy"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Lambda Function is not publicly accessible."

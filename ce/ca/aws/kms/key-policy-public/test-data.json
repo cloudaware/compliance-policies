@@ -1,0 +1,105 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-01-11T19:40:46Z"
+    },
+    "CA10__disappearanceTime__c": "2026-01-11T10:49:25Z",
+    "CA10__state__c": "PendingDeletion",
+    "Id": "test1",
+    "CA10__AWS_KMS_Key_Policies__r": [
+      {
+        "CA10__disappearanceTime__c": "2026-01-11T10:50:14Z",
+        "CA10__policyDocumentExt__c": "{\"Id\":\"Id\",\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Sid\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::id:root\"},\"Action\":\"kms:*\",\"Resource\":\"*\",\"AnalyzedResult\":{\"accessLevel\":\"SAME_ACCOUNT\",\"reason\":\"reason\"}}]}",
+        "CA10__kmsKey__c": "test1",
+        "Id": "test1_1"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__state__c') != 'Enabled'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-01-11T19:40:46Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "Disabled",
+    "Id": "test2",
+    "CA10__AWS_KMS_Key_Policies__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyDocumentExt__c": "{\"Id\":\"Id\",\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Sid\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::id:root\"},\"Action\":\"kms:*\",\"Resource\":\"*\",\"AnalyzedResult\":{\"accessLevel\":\"SAME_ACCOUNT\",\"reason\":\"reason\"}}]}",
+        "CA10__kmsKey__c": "test2",
+        "Id": "test2_1"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__AWS_KMS_Key_Policies__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-01-11T19:40:46Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "Enabled",
+    "Id": "test3",
+    "CA10__AWS_KMS_Key_Policies__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyDocumentExt__c": "{\"Id\":\"Id\",\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"kms:Get*\",\"Resource\":\"*\",\"AnalyzedResult\":{\"accessLevel\":\"ANONYMOUS_PRINCIPAL\",\"reason\":\"All principals '*' do not restrict access\"}}]}",
+        "CA10__kmsKey__c": "test3",
+        "Id": "test3_1"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "CA10__AWS_KMS_Key_Policies__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-01-11T19:40:46Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "Enabled",
+    "Id": "test4",
+    "CA10__AWS_KMS_Key_Policies__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyDocumentExt__c": "{\"Id\":\"Id\",\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Sid\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lightsail.amazonaws.com\"},\"Action\":[\"kms:Describe*\",\"kms:Get*\"],\"Resource\":\"*\",\"AnalyzedResult\":{\"accessLevel\":\"AWS_SERVICE\",\"reason\":\"Access allowed only for AWS Service: 'lightsail.amazonaws.com'\"}}]}",
+        "CA10__kmsKey__c": "test4",
+        "Id": "test4_1"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-01-11T19:40:46Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "Enabled",
+    "Id": "test5",
+    "CA10__AWS_KMS_Key_Policies__r": []
+  }
+]

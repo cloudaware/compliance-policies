@@ -1,0 +1,25 @@
+---
+names:
+  full: "AWS Elastic Beanstalk Environment does not have logs enabled"
+  contextual: "Environment does not have logs enabled"
+description: >
+  Ensure that AWS Elastic Beanstalk environments are configured to publish logs. 
+  Enabling log publication to Amazon S3 or streaming logs to Amazon CloudWatch Logs 
+  ensures that instance logs are preserved for troubleshooting, auditing, and 
+  historical analysis.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/elastic-beanstalk/03"
+  - "/frameworks/aws-well-architected/sec/04/02"
+  - "/frameworks/aws-well-architected/rel/06/05"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ElasticBeanstalk.3] Elastic Beanstalk should stream logs to CloudWatch"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/elasticbeanstalk-controls.html#elasticbeanstalk-3"
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/ElasticBeanstalk/logging-enabled.html"
+      name: Elastic Beanstalk Persistent Logs

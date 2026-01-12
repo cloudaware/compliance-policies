@@ -3,7 +3,8 @@ names:
   full: "AWS Kinesis Stream is not encrypted at rest"
   contextual: "Stream is not encrypted at rest"
 description: >
-  
+  Ensure that AWS Kinesis Data Streams are encrypted at rest using server-side encryption (SSE). 
+  Encryption helps protect sensitive data from unauthorized access to the underlying storage.
 type: "COMPLIANCE_POLICY"
 categories:
   - "SECURITY"

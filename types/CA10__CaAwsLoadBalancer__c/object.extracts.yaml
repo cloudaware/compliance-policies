@@ -39,3 +39,18 @@ extracts:
         separator: "\n"
         arg:
           EXTRACT: CA10__additionalAttributes__c
+# Checkbox.
+  - name: CA10__accessLogsEnabled__c
+    value: 
+      FIELD:
+        path: CA10__accessLogsEnabled__c
+# Number.
+  - name: CA10__requestCountOneMonth__c
+    value: 
+      FIELD:
+        path: CA10__requestCountOneMonth__c
+# Date/Time.
+  - name: CA10__createdTime__c
+    value: 
+      FIELD:
+        path: CA10__createdTime__c

@@ -1,0 +1,58 @@
+[
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__tableStatus__c') != 'ACTIVE'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-02T01:10:46Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__tableStatus__c": "INACTIVE",
+    "CA10__creationDateTime__c": "2024-12-02T01:10:46Z",
+    "CA10__itemCount__c": null,
+    "Id": "001"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "CA10__creationDateTime__c.withinLastDays(30)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-02T01:10:46Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__tableStatus__c": "ACTIVE",
+    "CA10__creationDateTime__c": "2025-11-02T01:10:46Z",
+    "CA10__itemCount__c": 0,
+    "Id": "002"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__itemCount__c') == number(0.0)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-02T01:10:46Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__tableStatus__c": "ACTIVE",
+    "CA10__creationDateTime__c": "2024-12-02T01:10:46Z",
+    "CA10__itemCount__c": 0,
+    "Id": "003"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-02T01:10:46Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__tableStatus__c": "ACTIVE",
+    "CA10__creationDateTime__c": "2024-12-02T01:10:46Z",
+    "CA10__itemCount__c": 7,
+    "Id": "004"
+  }
+]

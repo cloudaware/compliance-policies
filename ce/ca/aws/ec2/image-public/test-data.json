@@ -1,0 +1,38 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-03T09:28:25Z" },
+    "CA10__disappearanceTime__c": "2025-11-24T12:43:45Z",
+    "CA10__public__c": false,
+    "Id": "001"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__public__c') == true",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-03T09:28:25Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__public__c": true,
+    "Id": "003"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__public__c') == false",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-03T09:28:25Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__public__c": false,
+    "Id": "004"
+  }
+]

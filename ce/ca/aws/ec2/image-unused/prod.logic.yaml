@@ -1,0 +1,45 @@
+---
+inputType: "CA10__CaAwsImage__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsImage__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The AMI is not available."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__state__c"
+        right:
+          TEXT: "available"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The AMI was created less than 90 days ago."
+    check:
+      IS_WITHIN_LAST_DAYS:
+        offsetDays: 90
+        arg:
+          EXTRACT: "CA10__creationDate__c"
+  - status: "COMPLIANT"
+    currentStateMessage: "The AMI was used within the last 90 days."
+    check:
+      IS_WITHIN_LAST_DAYS:
+        offsetDays: 90
+        arg:
+          EXTRACT: "CA10__lastLaunchedTime__c"
+  - status: "COMPLIANT"
+    currentStateMessage: "The AMI is currently in use by one or more EC2 instances."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__AWS_EC2_Instances__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The AMI wasn't used within the last 90 days and has no associated running instances."
+  remediationMessage: "Deregister the AMI and delete its associated EBS snapshots to save costs."
+relatedLists:
+  - relationshipName: "CA10__AWS_EC2_Instances__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "The EC2 Instance exists."

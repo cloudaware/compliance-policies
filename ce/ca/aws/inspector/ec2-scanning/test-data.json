@@ -1,0 +1,44 @@
+[
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__inspectorStatus__c') == 'Disabled'",
+            "conditionIndex": 299,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-24T00:33:47Z"
+        },
+        "CA10__inspectorEc2Status__c": "Disabled",
+        "CA10__inspectorStatus__c": "Disabled",
+        "Id": "test1"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__inspectorEc2Status__c') == 'Disabled'",
+            "conditionIndex": 499,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-24T00:33:47Z"
+        },
+        "CA10__inspectorEc2Status__c": "Disabled",
+        "CA10__inspectorStatus__c": "Enabled",
+        "Id": "test2"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__inspectorEc2Status__c') == 'Enabled'",
+            "conditionIndex": 599,
+            "status": "COMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2025-12-24T00:33:47Z"
+        },
+        "CA10__inspectorEc2Status__c": "Enabled",
+        "CA10__inspectorStatus__c": "Enabled",
+        "Id": "test3"
+    }
+]

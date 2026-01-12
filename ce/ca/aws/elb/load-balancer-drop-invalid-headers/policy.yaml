@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS ELB Application Load Balancer is not configured to drop invalid HTTP headers"
+  contextual: "Application Load Balancer is not configured to drop invalid HTTP headers"
+description: >
+  Ensure that your AWS Application Load Balancers (ALB) are configured to drop 
+  invalid HTTP headers. This security feature helps prevent potential application-level 
+  attacks, such as HTTP request smuggling or desynchronization, by filtering out 
+  malformed headers before they reach the backend targets.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+  - "/frameworks/aws-fsbp-v1.0.0/elb/04"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ELB.4] Application Load Balancer should be configured to drop invalid http headers"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-4"

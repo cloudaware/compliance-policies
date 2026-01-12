@@ -1,0 +1,23 @@
+---
+names:
+  full: "AWS EBS Snapshot is not encrypted"
+  contextual: "EBS Snapshot is not encrypted"
+description: >
+  Ensure that Amazon EBS snapshots are encrypted to protect data at rest. 
+  Encrypted snapshots provide an additional layer of security by preventing 
+  unauthorized access to the snapshot content. The EBS encryption and decryption 
+  is handled transparently and does not require any additional 
+  action from you, your server instance, or your application.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-fsbp-v1.0.0/ec2/03"
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EBS/snapshot-encrypted.html
+      name: EBS Snapshot Encrypted
+  awsSecurityHub:
+    - name: "[EC2.3] Attached Amazon EBS volumes should be encrypted at-rest"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-3"

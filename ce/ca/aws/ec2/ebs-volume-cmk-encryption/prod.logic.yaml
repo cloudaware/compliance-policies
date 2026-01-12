@@ -1,0 +1,53 @@
+inputType: "CA10__CaAwsVolume__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsVolume__c/object.extracts.yaml"
+  - file: "/types/CA10__CaAwsKmsKey__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This policy only applies to attached EBS volumes. This volume is not attached."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "in-use"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The EBS volume is not encrypted. This is addressed in 'ebs-volume-encryption' policy"
+    check:
+      NOT:
+        arg:
+          EXTRACT: "CA10__encrypted__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The attached EBS volume is not encrypted using a KMS key."
+    remediationMessage: "Enable KMS customer-managed key encryption for the volume."
+    check:
+      IS_EMPTY_LOOKUP: CA10__kmsKey__r
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The attached EBS volume is not encrypted using a KMS customer-managed keys."
+    remediationMessage: "Enable KMS customer-managed keys encryption for the volume."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__kmsKey__r.CA10__manager__c"
+        right:
+          TEXT: 'CUSTOMER'
+  - status: "COMPLIANT"
+    currentStateMessage: "The attached EBS volume is encrypted using a KMS customer-managed key."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__encrypted__c"
+              right:
+                BOOLEAN: true
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__kmsKey__r.CA10__manager__c"
+              right:
+                TEXT: 'CUSTOMER'
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

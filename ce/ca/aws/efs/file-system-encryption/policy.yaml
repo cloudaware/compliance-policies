@@ -9,7 +9,7 @@ categories:
 frameworkMappings:
   - "/frameworks/cis-aws-v6.0.0/03/03/01"
   - "/frameworks/cloudaware/resource-security/data-encryption"
-  - "/frameworks/aws-fsbp-v1.0.0/efs/01"
+  - "/frameworks/aws-fsbp-v1.0.0/efs/08"
   - "/frameworks/aws-well-architected/sec/08/02"
 similarPolicies:
   internal:
@@ -17,3 +17,6 @@ similarPolicies:
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EFS/encryption-enabled.html
       name: EFS Encryption Enabled
+  awsSecurityHub:
+    - name: "[EFS.8] EFS file systems should be encrypted at rest"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/efs-controls.html#efs-8"

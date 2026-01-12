@@ -1,0 +1,88 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__AWS_EC2_Load_Balancer_Listeners__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-08T06:03:44Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "001",
+    "RecordTypeId": "rt00id",
+    "RecordType": { "Id": "rt00id" },
+    "CA10__AWS_EC2_Load_Balancer_Listeners__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__protocol__c": "HTTP",
+        "CA10__loadBalancerPort__c": 80.0,
+        "CA10__loadBalancer__c": "001",
+        "Id": "lis001",
+        "RecordTypeId": "rtlis00id",
+        "RecordType": { "Id": "rtlis00id" }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__AWS_EC2_Load_Balancer_Listeners__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-08T06:03:44Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "002",
+    "RecordTypeId": "rt00id",
+    "RecordType": { "Id": "rt00id" },
+    "CA10__AWS_EC2_Load_Balancer_Listeners__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__protocol__c": "HTTPS",
+        "CA10__loadBalancerPort__c": 80.0,
+        "CA10__loadBalancer__c": "002",
+        "Id": "lis002",
+        "RecordTypeId": "rtlis00id",
+        "RecordType": { "Id": "rtlis00id" }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-08T06:03:44Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "003",
+    "RecordTypeId": "rt00id",
+    "RecordType": { "Id": "rt00id" },
+    "CA10__AWS_EC2_Load_Balancer_Listeners__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__AWS_EC2_Load_Balancer_Listeners__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-08T06:03:44Z" },
+    "CA10__disappearanceTime__c": null,
+    "Id": "004",
+    "RecordTypeId": "rt00id",
+    "RecordType": { "Id": "rt00id" },
+    "CA10__AWS_EC2_Load_Balancer_Listeners__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__protocol__c": "TCP",
+        "CA10__loadBalancerPort__c": 443.0,
+        "CA10__loadBalancer__c": "004",
+        "Id": "lis004",
+        "RecordTypeId": "rtlis00id",
+        "RecordType": { "Id": "rtlis00id" }
+      }
+    ]
+  }
+]

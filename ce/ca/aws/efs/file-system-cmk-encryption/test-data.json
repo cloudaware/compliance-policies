@@ -1,0 +1,78 @@
+[
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "not(extract('CA10__encrypted__c'))",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-01T00:50:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__encrypted__c": false,
+    "CA10__kmsKey__c": "",
+    "CA10__kmsKeyArn__c": "",
+    "Id": "001",
+    "CA10__kmsKey__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null,
+      "CA10__manager__c": null
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "isEmptyLookup('CA10__kmsKey__r')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-01T00:50:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__encrypted__c": true,
+    "CA10__kmsKey__c": "",
+    "CA10__kmsKeyArn__c": "",
+    "Id": "002",
+    "CA10__kmsKey__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null,
+      "CA10__manager__c": null
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__kmsKey__r.CA10__manager__c') != 'CUSTOMER'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-01T00:50:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__encrypted__c": true,
+    "CA10__kmsKey__c": "key003",
+    "CA10__kmsKeyArn__c": "arn:aws:kms:us-east-1:33333:key/3",
+    "Id": "003",
+    "CA10__kmsKey__r": {
+      "Id": "key003",
+      "CA10__disappearanceTime__c": null,
+      "CA10__manager__c": "AWS"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__encrypted__c') == true && extract('CA10__kmsKey__r.CA10__manager__c') == 'CUSTOMER'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-01T00:50:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__encrypted__c": true,
+    "CA10__kmsKey__c": "key004",
+    "CA10__kmsKeyArn__c": "arn:aws:kms:us-east-1:44444:key/f4",
+    "Id": "004",
+    "CA10__kmsKey__r": {
+      "Id": "key004",
+      "CA10__disappearanceTime__c": null,
+      "CA10__manager__c": "CUSTOMER"
+    }
+  }
+]

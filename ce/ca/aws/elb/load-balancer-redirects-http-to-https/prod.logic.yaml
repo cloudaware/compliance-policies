@@ -1,0 +1,90 @@
+---
+inputType: "CA10__CaAwsLoadBalancer__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsLoadBalancer__c/object.extracts.yaml"
+  - file: "/types/CA10__CaAwsLoadBalancerListener__c/object.extracts.yaml"
+  - file: "/types/CA10__CaAwsLoadBalancerListenerRule__c/object.extracts.yaml"
+recordTypes:
+  - "caAwsLoadBalancerApplication"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is not an Application Load Balancer."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__type__c"
+        right:
+          TEXT: "application"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The ALB has an HTTP listener that is not configured to redirect to HTTPS."
+    remediationMessage: "Modify the HTTP listener to use a default action of Redirect to Port 443."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__AWS_EC2_Load_Balancer_Listeners__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "The ALB correctly redirects HTTP traffic to HTTPS."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__AWS_EC2_Load_Balancer_Listeners__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The ALB does not have an HTTP listener enabled."
+relatedLists:
+  - relationshipName: "CA10__AWS_EC2_Load_Balancer_Listeners__r"
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This is not an HTTP listener."
+        check:
+          NOT_EQUAL:
+            left:
+              FIELD:
+                path: "CA10__protocol__c"
+            right:
+              TEXT: "HTTP"
+      - status: "COMPLIANT"
+        currentStateMessage: "The Load Balancer Listener's default action redirects HTTP to HTTPS."
+        check:
+          NOT_EQUAL:
+            left:
+              JSON_QUERY_NUMBER:
+                expression: "length([?type=='redirect' && redirectConfig.protocol=='HTTPS' && redirectConfig.port=='443'])"
+                arg:
+                  EXTRACT: "caJsonFrom_defaultActionsJson__c"
+                undeterminedIf:
+                  evaluationError: "The JSON query has failed."
+                  resultTypeMismatch: "The JSON query did not return Number type." 
+            right:
+              NUMBER: 0.0
+      - status: "COMPLIANT"
+        currentStateMessage: "The Load Balancer Listener's rule action redirects HTTP to HTTPS."
+        check:
+          RELATED_LIST_HAS:
+            status: "COMPLIANT"
+            relationshipName: "CA10__AWS_EC2_Load_Balancer_Listener_Rules__r"
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "This HTTP listener does not have a redirect action configured."
+    relatedLists:
+      - relationshipName: "CA10__AWS_EC2_Load_Balancer_Listener_Rules__r"
+        conditions:
+          - status: "COMPLIANT"
+            currentStateMessage: "The Load Balancer Listener Rule action redirects HTTP to HTTPS."
+            check:
+              NOT_EQUAL:
+                left:
+                  JSON_QUERY_NUMBER:
+                    expression: "length([?type=='redirect' && redirectConfig.protocol=='HTTPS' && redirectConfig.port=='443'])"
+                    arg:
+                      EXTRACT: "caJsonFrom_actionsJson__c"
+                    undeterminedIf:
+                      evaluationError: "The JSON query has failed."
+                      resultTypeMismatch: "The JSON query did not return Number type." 
+                right:
+                  NUMBER: 0.0
+        otherwise:
+          status: "INCOMPLIANT"
+          currentStateMessage: "This HTTP listener rule does not have the required redirect action."

@@ -1,0 +1,45 @@
+---
+inputType: "CA10__CaAwsApiGatewayRestApi__c"
+testData:
+  - file: test-data.json
+recordTypes:
+  - restApi
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "There is no related API Stage where CloudWatch Metrics are enabled."
+    remediationMessage: "Consider enabling CloudWatch Metrics for the API Stage."
+    check:
+      IS_EQUAL:
+        left:
+          RELATED_LIST_COUNT:
+            status: "COMPLIANT"
+            relationshipName: "CA10__AWS_API_Gateway_Stages__r"
+        right:
+          NUMBER: 0.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "There is at least one related API Stage where CloudWatch Metrics are not enabled."
+    remediationMessage: "Consider enabling CloudWatch Metrics for the API Stage."
+    check:
+      RELATED_LIST_HAS:
+        relationshipName: "CA10__AWS_API_Gateway_Stages__r"
+        status: "INCOMPLIANT"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "CloudWatch Metrics for all API Stages are enabled."
+relatedLists:
+  - relationshipName: "CA10__AWS_API_Gateway_Stages__r"
+    importExtracts:
+      - file: "/types/CA10__CaAwsApiGatewayStage__c/object.extracts.yaml"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "CloudWatch Metrics are not enabled for this API Stage."
+        remediationMessage: "Consider enabling CloudWatch Metrics for this API Stage."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10__cloudWatchMetricsEnabled__c"
+            right:
+              BOOLEAN: false
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "CloudWatch Metrics are enabled."

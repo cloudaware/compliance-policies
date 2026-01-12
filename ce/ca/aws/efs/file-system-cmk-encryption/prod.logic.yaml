@@ -1,0 +1,46 @@
+---
+inputType: "CA10__CaAwsEfsFileSystem__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: "/types/CA10__CaAwsEfsFileSystem__c/object.extracts.yaml"
+  - file: "/types/CA10__CaAwsKmsKey__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The EFS File System is not encrypted with any key. This is addressed in the file-system-encryption policy."
+    check:
+      NOT:
+        arg:
+          EXTRACT: "CA10__encrypted__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The EFS File System is not encrypted using KMS key."
+    remediationMessage: "Enable KMS customer-managed keys encryption for the EFS File System."
+    check:
+      IS_EMPTY_LOOKUP: CA10__kmsKey__r
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The EFS File System is not encrypted using KMS customer-managed keys."
+    remediationMessage: "Enable KMS CMK customer-managed keys encryption for the EFS File System."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__kmsKey__r.CA10__manager__c"
+        right:
+          TEXT: 'CUSTOMER'
+  - status: "COMPLIANT"
+    currentStateMessage: "The EFS File System is encrypted using KMS CMK customer-managed keys."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__encrypted__c"
+              right:
+                BOOLEAN: true
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__kmsKey__r.CA10__manager__c"
+              right:
+                TEXT: 'CUSTOMER'
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

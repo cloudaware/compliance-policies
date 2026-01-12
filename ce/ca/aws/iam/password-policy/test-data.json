@@ -1,0 +1,30 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__AWS_IAM_Password_Policies__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-27T06:42:48Z" },
+    "Id": "001",
+    "CA10__AWS_IAM_Password_Policies__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__account__c": "001",
+        "Id": "pp001"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-11-27T06:42:48Z" },
+    "Id": "002",
+    "CA10__AWS_IAM_Password_Policies__r": []
+  }
+]

@@ -1,0 +1,21 @@
+---
+names:
+  full: AWS IAM Access Key is unused
+  contextual: IAM Access Key is unused
+description: >
+  Identify and remove active IAM access keys that have not been used for 90 days 
+  or more. Reducing the number of active, unused credentials minimizes the risk 
+  of unauthorized access if a key is compromised.
+type: "BEST_PRACTICE"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/identity-and-access-governance/credential-lifecycle-management"
+  - "/frameworks/aws-fsbp-v1.0.0/iam/08"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[IAM.8] Unused IAM user credentials should be removed"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/iam-controls.html#iam-8"
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/IAM/unnecessary-access-keys.html
+      name: Unnecessary Access Keys

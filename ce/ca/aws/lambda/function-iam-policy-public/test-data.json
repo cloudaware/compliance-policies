@@ -1,0 +1,72 @@
+[
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "context": {
+            "snapshotTime": "2026-01-12T08:31:03Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-07-29T12:38:18Z",
+        "CA10__iamPolicyExt__c": ""
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "otherwise",
+            "conditionIndex": 200,
+            "status": "COMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2026-01-12T08:31:03Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__iamPolicyExt__c": "{\"Id\":\"Id\",\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Sid\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"apigateway.amazonaws.com\"},\"Action\":\"lambda:Invoke*\",\"Resource\":\"Resource\",\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":\"SourceArn\"}},\"AnalyzedResult\":{\"accessLevel\":\"SAME_ACCOUNT\",\"reason\":\"reason\"}}]}"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "otherwise",
+            "conditionIndex": 200,
+            "status": "COMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2026-01-12T08:31:03Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__iamPolicyExt__c": ""
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "CA10__iamPolicyExt__c .allows(EXTERNAL_PRINCIPAL, [lambda:InvokeFunction, lambda:GetFunction, lambda:UpdateFunctionCode, ... 2 elements])",
+            "conditionIndex": 199,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2026-01-12T08:31:03Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__iamPolicyExt__c": "{\"Id\":\"Id\",\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"lambda:Invoke*\",\"Resource\":\"*\",\"AnalyzedResult\":{\"accessLevel\":\"ANONYMOUS_PRINCIPAL\",\"reason\":\"All principals '*' do not restrict access\"}}]}"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "CA10__iamPolicyExt__c .allows(EXTERNAL_PRINCIPAL, [lambda:InvokeFunction, lambda:GetFunction, lambda:UpdateFunctionCode, ... 2 elements])",
+            "conditionIndex": 199,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2026-01-12T08:31:03Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__iamPolicyExt__c": "{\"Id\":\"Id\",\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Action\":\"lambda:Invoke*\",\"Resource\":\"*\",\"AnalyzedResult\":{\"accessLevel\":\"ANONYMOUS_PRINCIPAL\",\"reason\":\"All principals '*' do not restrict access\"}}]}"
+    }
+]

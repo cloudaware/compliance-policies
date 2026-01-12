@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS EMR Cluster Logging is disabled"
+  contextual: "EMR Cluster logging disabled"
+description: >
+  Ensure that Amazon EMR clusters are configured to export log files to Amazon S3. 
+  Logging must be enabled during cluster creation to provide an audit trail and 
+  facilitate troubleshooting after the cluster is terminated.
+impossible: true
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
+  - "/frameworks/aws-well-architected/sec/04/02"
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EMR/logging-enabled.html
+      name: EMR Cluster Logging

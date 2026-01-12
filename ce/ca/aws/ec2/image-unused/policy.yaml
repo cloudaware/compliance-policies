@@ -1,0 +1,17 @@
+---
+names:
+  full: AWS EC2 Image is unused
+  contextual: Image is unused
+description: >
+  Identify Amazon Machine Images (AMIs) that are older than 90 days and not 
+  associated with any running EC2 instances. Deregistering unused AMIs and 
+  deleting their associated snapshots can reduce storage costs.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"
+similarPolicies:
+    cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EC2/unused-ami.html"
+      name: Unused AMI

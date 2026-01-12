@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS Kinesis Stream Retention Period Hours is less than 7 days"
+  contextual: "Stream Retention Period Hours is less than 7 days"
+description: >
+  Ensure that AWS Kinesis Data Streams are configured to retain data records for at least 7 days. 
+  Sufficient retention periods are critical for data durability, allowing consumers extra time to recover 
+  from failures or process backlogs without losing data.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/aws-fsbp-v1.0.0/kinesis/03"
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Kinesis.3] Kinesis streams should have an adequate data retention period"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/kinesis-controls.html#kinesis-3"

@@ -1,0 +1,53 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__viewerCertificateMinimumProtocolVersion__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-01T00:50:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__viewerCertificateMinimumProtocolVersion__c": null,
+    "Id": "001",
+    "RecordTypeId": "rt000",
+    "RecordType": {
+        "Id": "rt000",
+        "DeveloperName": "caWebDistribution"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "setOfText(['SSLv3', 'TLSv1', 'TLSv1_2016', 'TLSv1.1_2016', 'TLSv1.2_2018', 'TLSv1.2_2019']).contains(extract('CA10__viewerCertificateMinimumProtocolVersion__c'))",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-01T00:50:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__viewerCertificateMinimumProtocolVersion__c": "TLSv1.1_2016",
+    "Id": "002",
+    "RecordTypeId": "rt000",
+    "RecordType": {
+        "Id": "rt000",
+        "DeveloperName": "caWebDistribution"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-01T00:50:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__viewerCertificateMinimumProtocolVersion__c": "TLSv1.2_2021",
+    "Id": "003",
+    "RecordTypeId": "rt000",
+    "RecordType": {
+        "Id": "rt000",
+        "DeveloperName": "caWebDistribution"
+    }
+  }
+]
