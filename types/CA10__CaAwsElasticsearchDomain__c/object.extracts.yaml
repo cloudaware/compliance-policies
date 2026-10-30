@@ -1,10 +1,38 @@
 ---
 extracts:
+  - name: "CA10__engineVersion__c"
+    value:
+      FIELD:
+        path: "CA10__engineVersion__c"
+        undeterminedIf:
+          isEmpty: "The domain engine family and version are not populated in the CMDB."
+  - name: "CA10__deleted__c"
+    value:
+      FIELD:
+        path: "CA10__deleted__c"
+        undeterminedIf:
+          isEmpty: "The domain deletion status is not collected."
+# Values: true | false (TEXT). Not nullable. Can't have no access retrieved via es:DescribeDomains
+  - name: "CA10__created__c"
+    value:
+      FIELD:
+        path: "CA10__created__c"
+        undeterminedIf:
+          isEmpty: "The domain creation status is not collected."
 # Values: true | false (TEXT). Not nullable. Can't have no access retrieved via es:DescribeDomains
   - name: "CA10__serviceSoftwareUpdateAvailable__c"
     value:
       FIELD:
         path: "CA10__serviceSoftwareUpdateAvailable__c"
+        undeterminedIf:
+          isEmpty: "The service software update status is not populated in the CMDB."
+# Values: true | false (TEXT). Not nullable. Can't have no access retrieved via es:DescribeDomains
+  - name: "CA10__advancedSecurityEnabled__c"
+    value:
+      FIELD:
+        path: "CA10__advancedSecurityEnabled__c"
+        undeterminedIf:
+          isEmpty: "The fine-grained access control setting is not populated in the CMDB."
 # Checkbox
   - name: "CA10__encryptionAtRestEnabled__c"
     value:
@@ -58,13 +86,15 @@ extracts:
     value:
       FIELD:
         path: "CA10__clusterConfigDedicatedMasterCount__c"
-# Nullable. Can't have no access retrieved via es:DescribeDomains
   - name: "CA10__endpointOptionsEnforceHttps__c"
     value:
       FIELD:
         path: "CA10__endpointOptionsEnforceHttps__c"
-# Nullable. Can't have no access retrieved via es:DescribeDomains
+        undeterminedIf:
+          isEmpty: "The created domain HTTPS enforcement setting is not collected."
   - name: "CA10__endpointOptionsTlsSecurityPolicy__c"
     value:
       FIELD:
         path: "CA10__endpointOptionsTlsSecurityPolicy__c"
+        undeterminedIf:
+          isEmpty: "The created domain TLS security policy is not collected."

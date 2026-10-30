@@ -1,6 +1,6 @@
 # Description
 
-This policy identifies Amazon RDS database instances that operate at high utilization levels that may be overburdened and require scaling or resizing to maintain optimal performance. An instance is flagged as overutilized if its average CPU utilization has exceeded 90% over the last 30 days.
+This policy identifies Amazon RDS database instances that operate at high utilization levels, which may indicate that they are overburdened and require scaling or workload tuning to maintain optimal performance. An instance is flagged as overutilized when its 30-day average CPU utilization exceeds 90% and database connection or disk I/O metrics indicate workload activity.
 
 ## Rationale
 
@@ -14,8 +14,14 @@ Scaling or resizing incurs additional costs. Implementing scaling strategies all
 
 This policy evaluates an *AWS RDS Instance* based on its 30-day performance metrics.
 
-The *Instance* is marked as `INCOMPLIANT` if its `CPU Utilization, Average, %` metric is greater than 90%.
+The *Instance* is marked as `INCOMPLIANT` if all the following criteria are met:
+
+- `CloudWatch: CPU, 30-Day` is greater than 90%.
+- At least one of the following workload activity indicators is present:
+  - `CloudWatch: Database Connections Max,30d` is greater than 0.
+  - `CloudWatch: Disk Read IOPS, 30-Day` is greater than 50 IOPS.
+  - `CloudWatch: Disk Write IOPS, 30-Day` is greater than 50 IOPS.
 
 The *Instance* is marked as `INAPPLICABLE` if it is **not** in an **available** `Status` or it has been running for less than 30 days.
 
-The *Instance* is marked as `UNDETERMINED` if any of the evaluated metrics are empty, indicating insufficient data in the CMDB to assess whether the instance is overutilized.
+The *Instance* is marked as `UNDETERMINED` if its `Status`, `Create Time`, `CloudWatch: CPU, 30-Day`, or all workload activity indicators are empty, indicating insufficient data in the CMDB to assess whether the instance is overutilized.

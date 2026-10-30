@@ -1,0 +1,92 @@
+[
+  {
+    "RecordType": {
+      "Id": "RecordType1",
+      "DeveloperName": "caWebDistribution"
+    },
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "isEmptyLookup('CA10__wafV2WebAcl__r') && isEmptyLookup('CA10__webAcl__r')",
+      "conditionIndex": 299,
+      "status": "INCOMPLIANT"
+    },
+    "CA10__webAcl__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null
+    },
+    "context": {
+      "snapshotTime": "2026-01-23T14:00:42Z"
+    },
+    "RecordTypeId": "RecordType1",
+    "CA10__webAcl__c": "",
+    "CA10__wafV2WebAclArn__c": "",
+    "CA10__webAacId__c": "",
+    "Id": "test1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__wafV2WebAcl__c": "",
+    "CA10__wafV2WebAcl__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null
+    }
+  },
+  {
+    "RecordType": {
+      "Id": "RecordType1",
+      "DeveloperName": "caWebDistribution"
+    },
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "otherwise",
+      "conditionIndex": 300,
+      "status": "COMPLIANT"
+    },
+    "CA10__webAcl__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null
+    },
+    "context": {
+      "snapshotTime": "2026-01-23T14:00:42Z"
+    },
+    "RecordTypeId": "RecordType1",
+    "CA10__webAcl__c": "",
+    "CA10__wafV2WebAclArn__c": "wafV2WebAclArn",
+    "CA10__webAacId__c": "",
+    "Id": "test2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__wafV2WebAcl__c": "test2_1",
+    "CA10__wafV2WebAcl__r": {
+      "Id": "test2_1",
+      "CA10__disappearanceTime__c": null
+    }
+  },
+  {
+    "RecordType": {
+      "Id": "RecordType1",
+      "DeveloperName": "caWebDistribution"
+    },
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "otherwise",
+      "conditionIndex": 300,
+      "status": "COMPLIANT"
+    },
+    "CA10__webAcl__r": {
+      "Id": "test3_1",
+      "CA10__disappearanceTime__c": null
+    },
+    "context": {
+      "snapshotTime": "2026-01-23T14:00:42Z"
+    },
+    "RecordTypeId": "RecordType1",
+    "CA10__webAcl__c": "test3_1",
+    "CA10__wafV2WebAclArn__c": "",
+    "CA10__webAacId__c": "webAacId",
+    "Id": "test3",
+    "CA10__disappearanceTime__c": null,
+    "CA10__wafV2WebAcl__c": "",
+    "CA10__wafV2WebAcl__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null
+    }
+  }
+]

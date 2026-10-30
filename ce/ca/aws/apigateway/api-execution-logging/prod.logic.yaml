@@ -7,7 +7,7 @@ testData:
   - file: test-data.json
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "HTTP API does not support execution logs."
+    currentStateMessage: "HTTP APIs do not support execution logs."
     check:
       IS_EQUAL:
         left:
@@ -15,28 +15,28 @@ conditions:
         right:
           TEXT: "HTTP"
   - status: "INCOMPLIANT"
-    currentStateMessage: "There is at least one related API Stage where CloudWatch Execution Logs are not enabled."
-    remediationMessage: "Consider enabling CloudWatch Execution Logs for the API Stage."
+    currentStateMessage: "At least one API stage does not have CloudWatch execution logs enabled."
+    remediationMessage: "Enable CloudWatch execution logs for the API stage."
     check:
       RELATED_LIST_HAS:
         relationshipName: "CA10__AWS_API_Gateway_Stages__r"
         status: "INCOMPLIANT"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "API is compliant"
+  currentStateMessage: "All API stages have CloudWatch execution logs enabled."
 relatedLists:
   - relationshipName: "CA10__AWS_API_Gateway_Stages__r"
     conditions:
       - status: "INCOMPLIANT"
-        currentStateMessage: "CloudWatch Execution Logs are not enabled for this API Stage."
-        remediationMessage: "Consider enabling CloudWatch Execution Logs for this API Stage."
+        currentStateMessage: "CloudWatch execution logs are not enabled for this API stage."
+        remediationMessage: "Enable CloudWatch execution logs for this API stage."
         check:
           IS_EMPTY:
             arg:
               EXTRACT: "CA10__cloudWatchLogLevel__c"
       - status: "INCOMPLIANT"
-        currentStateMessage: "CloudWatch Execution Logs are turned off for this API Stage."
-        remediationMessage: "Consider enabling CloudWatch Execution Logs for this API Stage."
+        currentStateMessage: "CloudWatch execution logs are turned off for this API stage."
+        remediationMessage: "Enable CloudWatch execution logs for this API stage."
         check:
           IS_EQUAL:
             left:
@@ -45,4 +45,4 @@ relatedLists:
               TEXT: "OFF"
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "CloudWatch Execution Logs are enabled."
+      currentStateMessage: "CloudWatch execution logs are enabled for this API stage."

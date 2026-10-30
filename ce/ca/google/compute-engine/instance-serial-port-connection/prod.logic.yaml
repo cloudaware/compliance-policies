@@ -7,8 +7,8 @@ importExtracts:
   - file: /types/CA10__CaGoogleGceInstance__c/object.extracts.yaml
 conditions: 
   - status: "INCOMPLIANT"
-    currentStateMessage: "Enable Connecting to Serial Ports is enabled for the instance."
-    remediationMessage: "It is recommended to disable Connecting to Serial Ports."
+    currentStateMessage: "Serial port connections are enabled for the instance."
+    remediationMessage: "Disable serial port connections."
     check:
       CONTAINS:
         arg:
@@ -17,4 +17,4 @@ conditions:
           TEXT: "true"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "Enable Connecting to Serial Ports is not enabled for the instance."
+  currentStateMessage: "Serial port connections are disabled for the instance."

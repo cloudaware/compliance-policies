@@ -4,7 +4,7 @@ Require administrators or appropriately delegated users to create new tenants.
 
 ## Rationale
 
-It is recommended to only allow an administrator to create new tenants. This prevent users from creating new Microsoft Entra ID or Azure AD B2C tenants and ensures that only authorized users are able to do so.
+It is recommended to allow only administrators to create new tenants. This prevents users from creating new Microsoft Entra ID or Azure AD B2C tenants and ensures that only authorized users are able to do so.
 
 ## Impact
 

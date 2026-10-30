@@ -6,7 +6,7 @@ importExtracts:
   - file: /types/CA10__CaAzureVirtualMachine__c/object.extracts.yaml
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "Only for running VM"
+    currentStateMessage: "Applicable only to running virtual machines."
     check:
       NOT_EQUAL:
         left:
@@ -14,7 +14,7 @@ conditions:
         right:
           TEXT: "VM running"
   - status: "INAPPLICABLE"
-    currentStateMessage: "The VM has been running for less than 14 days."
+    currentStateMessage: "The virtual machine has been running for less than 14 days."
     check:
       NOT:
         arg:
@@ -22,8 +22,8 @@ conditions:
             offsetDays: 14
             arg:
               EXTRACT: "CA10__timeCreated__c"
-  - status: UNDETERMINED
-    currentStateMessage: "There is not enough data in the CMDB to identify if the VM is overutilized."
+  - status: "UNDETERMINED"
+    currentStateMessage: "There is not enough data in the CMDB to determine whether the virtual machine is overutilized."
     check:
       OR:
         args:
@@ -33,13 +33,48 @@ conditions:
           - IS_EMPTY:
               arg:
                 EXTRACT: "CA10__monitorCpuMax14Day__c"
+          - AND:
+              args:
+                - NOT_EMPTY:
+                    arg:
+                      EXTRACT: "CA10N__newRelicHost__c"
+                - IS_EMPTY:
+                    arg:
+                      EXTRACT: "CA10N__newRelicHostMemoryUsed14Day__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The VM is overutilized with Average CPU Utilization > 80%\
-      \ and Max CPU Utilization > 95%."
-    remediationMessage: "Consider scaling up the VM or implementing auto scaling."
+    currentStateMessage: "The virtual machine is overutilized with average CPU utilization\
+      \ > 80%, max CPU utilization > 95%, and memory utilization > 80%."
+    remediationMessage: "Scale up the virtual machine or implement autoscaling."
     check:
       AND:
         args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10N__newRelicHost__c"
+          - GREATER_THAN:
+              left:
+                EXTRACT: "CA10__monitorCpuAvg14Day__c"
+              right:
+                NUMBER: 80.0
+          - GREATER_THAN:
+              left:
+                EXTRACT: "CA10__monitorCpuMax14Day__c"
+              right:
+                NUMBER: 95.0
+          - GREATER_THAN:
+              left:
+                EXTRACT: "CA10N__newRelicHostMemoryUsed14Day__c"
+              right:
+                NUMBER: 80.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The virtual machine is overutilized with average CPU utilization > 80% and max CPU utilization > 95%."
+    remediationMessage: "Scale up the virtual machine or implement autoscaling."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10N__newRelicHost__c"
           - GREATER_THAN:
               left:
                 EXTRACT: "CA10__monitorCpuAvg14Day__c"
@@ -52,4 +87,4 @@ conditions:
                 NUMBER: 95.0
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "Virtual machine is not overutilized"
+  currentStateMessage: "The virtual machine is not overutilized."

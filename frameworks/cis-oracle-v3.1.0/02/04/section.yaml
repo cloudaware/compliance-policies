@@ -1,0 +1,9 @@
+---
+name: 2.4 Ensure no network security groups allow ingress from 0.0.0.0/0 to port 3389 - Level 1 (Automated)
+description: >
+  Network security groups provide stateful filtering of ingress/egress network
+  traffic to OCI resources. It is recommended that no security group allows
+  unrestricted ingress access to port 3389.
+similar:
+  internal:
+    - dec-c-50c0dce0

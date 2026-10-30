@@ -1,14 +1,11 @@
 # Remediation
 
-**Note**: To manage MFA devices for the AWS root user account, you must use your
-root account credentials to sign in to AWS. You cannot manage MFA devices for the
-root account using other credentials.
-Perform the following to establish a hardware MFA for the root user account:
+**Note**: To manage MFA devices for the AWS root user account, you must use your root account credentials to sign in to AWS. You cannot manage MFA devices for the root account using other credentials.
 
 Perform the following to establish a hardware MFA for the root user account:
 
 1. Sign in to the AWS Management Console and open the IAM console at <https://console.aws.amazon.com/iam/>.
-2. Choose `Dashboard` , and under `Security Status` , expand `Activate MFA` on your root account.
+2. Choose `Dashboard`, and under `Security Status`, expand `Activate MFA` on your root account.
 3. Choose `Activate MFA`.
 4. In the wizard, choose `A hardware MFA` device and then choose `Next Step`.
 5. In the `Serial Number` box, enter the serial number that is found on the back of the MFA device.

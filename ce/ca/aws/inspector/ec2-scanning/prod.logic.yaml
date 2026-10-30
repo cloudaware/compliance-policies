@@ -28,6 +28,7 @@ conditions:
           EXTRACT: "CA10__inspectorEc2Status__c"
   - status: "INCOMPLIANT"
     currentStateMessage: "Amazon Inspector EC2 scanning is disabled."
+    remediationMessage: "Enable EC2 scanning in Amazon Inspector."
     check:
       IS_EQUAL:
         left:

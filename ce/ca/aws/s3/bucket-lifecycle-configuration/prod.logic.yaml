@@ -20,21 +20,21 @@ conditions:
         right: 
           BOOLEAN: true
   - status: "INCOMPLIANT"
-    currentStateMessage: "The bucket doesn't have a Lifecycle configuration."
-    remediationMessage: "Consider creating an S3 Lifecycle configuration for the bucket."
+    currentStateMessage: "The bucket does not have a lifecycle configuration."
+    remediationMessage: "Create an S3 lifecycle configuration for the bucket."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__lifecycleRulesJson__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Bucket Lifecycle configuration rules are disabled."
-    remediationMessage: "Consider enabling or adding active rules to the bucket Lifecycle configuration."
+    currentStateMessage: "Bucket lifecycle configuration rules are disabled."
+    remediationMessage: "Enable or adding active rules to the bucket lifecycle configuration."
     check:
       NOT:
         arg:
           EXTRACT: "caJsonBoolean__lifecycleRulesJsonStatusEnabled__c"
   - status: "COMPLIANT"
-    currentStateMessage: "The bucket Lifecycle configuration is enabled."
+    currentStateMessage: "The bucket lifecycle configuration is enabled."
     check:
       EXTRACT: "caJsonBoolean__lifecycleRulesJsonStatusEnabled__c"
 otherwise:

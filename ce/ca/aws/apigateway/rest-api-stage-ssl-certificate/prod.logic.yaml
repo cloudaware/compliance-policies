@@ -8,7 +8,7 @@ recordTypes:
   - "restApiStage"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The Stage belongs to a private API endpoint."
+    currentStateMessage: "The stage belongs to a private API endpoint."
     check:
       IS_EQUAL:
         left:
@@ -16,18 +16,18 @@ conditions:
         right:
           TEXT: "PRIVATE"
   - status: "INAPPLICABLE"
-    currentStateMessage: "The Stage doesn't have HTTP integrations."
+    currentStateMessage: "The stage does not have HTTP integrations."
     check:
       RELATED_LIST_HAS_NO:
         status: "COMPLIANT"
         relationshipName: "CA10__restApi__r.CA10A1__AWS_API_Gateway_Methods__r"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Stage is not configured to use an SSL certificate."
-    remediationMessage: "Consider generating an SSL certificate for authentication."
+    currentStateMessage: "The stage is not configured to use an SSL certificate."
+    remediationMessage: "Generate an SSL certificate for authentication."
     check:
       IS_EMPTY_LOOKUP: "CA10__clientCertificate__r"
   - status: "COMPLIANT"
-    currentStateMessage: "The Stage is configured to use an SSL certificate."
+    currentStateMessage: "The stage is configured to use an SSL certificate."
     check:
       NOT_EMPTY_LOOKUP: "CA10__clientCertificate__r"
 otherwise:

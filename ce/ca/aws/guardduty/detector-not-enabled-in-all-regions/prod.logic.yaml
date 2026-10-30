@@ -18,14 +18,14 @@ conditions:
 otherwise:
   status: "INCOMPLIANT"
   currentStateMessage: "GuardDuty is not enabled for all active regions."
-  remediationMessage: "Consider enabling GuardDuty in each active region to ensure full threat detection coverage."
+  remediationMessage: "Enable GuardDuty in each active region to ensure full threat detection coverage."
 relatedLists:
   - relationshipName: "CA10__AWS_GuardDuty_Detectors__r"
     importExtracts:
       - file: /types/CA10__CaAwsGuardDutyDetector__c/object.extracts.yaml
     conditions:
       - status: "COMPLIANT"
-        currentStateMessage: "Active AWS GuardDuty Detector."
+        currentStateMessage: "Active AWS GuardDuty detector."
         check:
           IS_EQUAL:
             left:
@@ -40,7 +40,7 @@ relatedLists:
       - file: /types/CA10__CaAwsAccountRegion__c/object.extracts.yaml
     conditions:
     - status: "COMPLIANT"
-      currentStateMessage: "Active AWS Account Region."
+      currentStateMessage: "Active AWS account region."
       check:
         NOT_EQUAL:
           left:
@@ -49,4 +49,4 @@ relatedLists:
             TEXT: "not-opted-in"
     otherwise:
       status: "INAPPLICABLE"
-      currentStateMessage: "This AWS Account Region is not active."
+      currentStateMessage: "This AWS account region is not active."

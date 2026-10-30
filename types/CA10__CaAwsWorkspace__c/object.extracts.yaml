@@ -19,3 +19,13 @@ extracts:
         path: CA10__runningMode__c
         undeterminedIf:
           isEmpty: "Corrupted data. Workspace Running Mode cannot be empty."
+# Nullable.
+  - name: CA10__rootVolumeEncryptionEnabled__c
+    value:
+      FIELD: 
+        path: CA10__rootVolumeEncryptionEnabled__c
+# Nullable.
+  - name: CA10__userVolumeEncryptionEnabled__c
+    value:
+      FIELD: 
+        path: CA10__userVolumeEncryptionEnabled__c

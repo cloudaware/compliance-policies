@@ -1,6 +1,6 @@
 # Description
 
-Disabling public network access restricts the service from accessing public networks.
+Disabling public network access restricts the service from being accessed over public networks.
 
 ## Rationale
 

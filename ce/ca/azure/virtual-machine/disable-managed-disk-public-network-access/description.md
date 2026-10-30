@@ -38,7 +38,7 @@ Repeat Parts A and B to evaluate all Disks in all VMs.
 For each managed disk, run the following command:
 
 ```sh
-az disk show --disk-name <disk name> --resource-group <resource group name>
+az disk show --disk-name {{disk-name}} --resource-group {{resource-group-name}}
 ```
 
 Ensure the `publicNetworkAccess` setting is set to `Disabled` and the `networkAccessPolicy` setting is set to `AllowPrivate` or `DenyAll`.
@@ -48,7 +48,7 @@ Ensure the `publicNetworkAccess` setting is set to `Disabled` and the `networkAc
 For each managed disk, run the following PowerShell command:
 
 ```ps
-Get-AzDisk -ResourceGroupName <resource group name> -DiskName <disk name>
+Get-AzDisk -ResourceGroupName {{resource-group-name}} -DiskName {{disk-name}}
 ```
 
 Ensure the `PublicNetworkAccess` setting is `Disabled` and the `NetworkAccessPolicy` is set to `AllowPrivate` or `DenyAll`.
@@ -61,7 +61,7 @@ If referencing a digital copy of this Benchmark, clicking a Policy ID will open 
 
 ## Default Value
 
-By default, Disk Network access is set to `Enable public access from all networks`.
+By default, disk network access is set to `Enable public access from all networks`.
 
 ## References
 

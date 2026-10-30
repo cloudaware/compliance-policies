@@ -13,12 +13,12 @@ To grant the permissions required to enable Security Hub, attach the Security Hu
 
 1. Run the `enable-security-hub` command. To enable the default standards, include `--enable-default-standards`:
 
-```sh
-aws securityhub enable-security-hub --enable-default-standards
-```
+    ```sh
+    aws securityhub enable-security-hub --enable-default-standards
+    ```
 
 2. To enable the security hub without the default standards, include `--no-enable-default-standards`:
 
-```sh
-aws securityhub enable-security-hub --no-enable-default-standards
-```
+    ```sh
+    aws securityhub enable-security-hub --no-enable-default-standards
+    ```

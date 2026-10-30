@@ -23,7 +23,7 @@ conditions:
           TEXT: "ACTIVE"
   - status: "INCOMPLIANT"
     currentStateMessage: "An IAM role for AWS Shield Response Team (SRT) access is not configured."
-    remediationMessage: "Create an IAM role with the 'AWSShieldDRTAccessPolicy' managed policy to allow the SRT access."
+    remediationMessage: "Create an IAM role with the 'AWSShieldDRTAccessPolicy' managed policy to allow SRT access."
     check:
       IS_EQUAL:
         left:

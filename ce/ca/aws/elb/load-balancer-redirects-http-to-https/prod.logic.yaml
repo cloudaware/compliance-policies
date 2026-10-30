@@ -10,7 +10,7 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This is not an Application Load Balancer."
+    currentStateMessage: "This is not an application load balancer."
     check:
       NOT_EQUAL:
         left:
@@ -19,7 +19,7 @@ conditions:
           TEXT: "application"
   - status: "INCOMPLIANT"
     currentStateMessage: "The ALB has an HTTP listener that is not configured to redirect to HTTPS."
-    remediationMessage: "Modify the HTTP listener to use a default action of Redirect to Port 443."
+    remediationMessage: "Modify the HTTP listener to use a default action that redirects to port 443."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
@@ -41,12 +41,11 @@ relatedLists:
         check:
           NOT_EQUAL:
             left:
-              FIELD:
-                path: "CA10__protocol__c"
+              EXTRACT: "CA10__protocol__c"
             right:
               TEXT: "HTTP"
       - status: "COMPLIANT"
-        currentStateMessage: "The Load Balancer Listener's default action redirects HTTP to HTTPS."
+        currentStateMessage: "The load balancer listener's default action redirects HTTP to HTTPS."
         check:
           NOT_EQUAL:
             left:
@@ -60,7 +59,7 @@ relatedLists:
             right:
               NUMBER: 0.0
       - status: "COMPLIANT"
-        currentStateMessage: "The Load Balancer Listener's rule action redirects HTTP to HTTPS."
+        currentStateMessage: "The load balancer listener's rule action redirects HTTP to HTTPS."
         check:
           RELATED_LIST_HAS:
             status: "COMPLIANT"
@@ -72,7 +71,7 @@ relatedLists:
       - relationshipName: "CA10__AWS_EC2_Load_Balancer_Listener_Rules__r"
         conditions:
           - status: "COMPLIANT"
-            currentStateMessage: "The Load Balancer Listener Rule action redirects HTTP to HTTPS."
+            currentStateMessage: "The load balancer listener rule action redirects HTTP to HTTPS."
             check:
               NOT_EQUAL:
                 left:

@@ -26,19 +26,17 @@ conditions:
     check:
       IS_EQUAL:
         left:
-          FIELD:
-            path: "CA10__vpcSubnet__r.CA10__defaultForAz__c"
+          EXTRACT: "CA10__vpcSubnet__r.CA10__defaultForAz__c"
         right:
           BOOLEAN: false
   - status: "INCOMPLIANT"
     currentStateMessage: "The instance has an auto-assigned public IP address and is located in a default subnet."
-    remediationMessage: "Consider moving the instance to a custom subnet intended\
-      \ for public resources or removing its public IP address if internet access is not required."
+    remediationMessage: "Move the instance to a custom subnet intended\
+      \ for public resources or remove its public IP address if internet access is not required."
     check:
       IS_EQUAL:
         left:
-          FIELD:
-            path: "CA10__vpcSubnet__r.CA10__mapPublicIpOnLaunch__c"
+          EXTRACT: "CA10__vpcSubnet__r.CA10__mapPublicIpOnLaunch__c"
         right:
           BOOLEAN: true
 otherwise:
@@ -51,3 +49,4 @@ relatedLists:
     otherwise:
       status: "COMPLIANT"
       currentStateMessage: "This is an Elastic IP address."
+

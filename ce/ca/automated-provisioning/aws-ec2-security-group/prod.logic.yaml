@@ -1,0 +1,94 @@
+---
+inputType: "CA10__CaAwsSecurityGroup__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is AWS CloudFormation."
+    check:
+      TAG_EXISTS:
+        name:
+          BYTES: "aws:cloudformation:logical-id"
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is AWS CloudFormation."
+    check:
+      TAG_EXISTS:
+        name:
+          BYTES: "aws:cloudformation:stack-id"
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is AWS CloudFormation."
+    check:
+      TAG_EXISTS:
+        name:
+          BYTES: "aws:cloudformation:stack-name"
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is Amazon EKS."
+    check:
+      TAG_EXISTS:
+        name:
+          BYTES: "aws:eks:cluster-name"
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is AWS Service Catalog."
+    check:
+      TAG_EXISTS:
+        name:
+          BYTES: "aws:servicecatalog:portfolioArn"
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is AWS Service Catalog."
+    check:
+      TAG_EXISTS:
+        name:
+          BYTES: "aws:servicecatalog:productArn"
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is AWS Service Catalog."
+    check:
+      TAG_EXISTS:
+        name:
+          BYTES: "aws:servicecatalog:provisioningPrincipalArn"
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is AWS Service Catalog."
+    check:
+      TAG_EXISTS:
+        name:
+          BYTES: "aws:servicecatalog:provisionedProductArn"
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is AWS Service Catalog."
+    check:
+      TAG_EXISTS:
+        name:
+          BYTES: "aws:servicecatalog:provisioningArtifactIdentifier"
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is AWS Application Migration Service."
+    check:
+      IS_EQUAL:
+        left:
+          TAG_VALUE_TEXT:
+            name:
+              BYTES: "AWSApplicationMigrationServiceManaged"
+        right:
+          TEXT: "mgn.amazonaws.com"
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is AWS Elastic Disaster Recovery."
+    check:
+      IS_EQUAL:
+        left:
+          TAG_VALUE_TEXT:
+            name:
+              BYTES: "AWSElasticDisasterRecoveryManaged"
+        right:
+          TEXT: "drs.amazonaws.com"
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is AWS Elastic Beanstalk."
+    check:
+      AND:
+        args:
+          - TAG_EXISTS:
+              name:
+                BYTES: "elasticbeanstalk:environment-name"
+          - TAG_EXISTS:
+              name:
+                BYTES: "elasticbeanstalk:environment-id"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The automated provisioning source is not identified by supported AWS-managed tag signals."
+  remediationMessage: "Review the automated provisioning source, ownership, and expected management workflow."

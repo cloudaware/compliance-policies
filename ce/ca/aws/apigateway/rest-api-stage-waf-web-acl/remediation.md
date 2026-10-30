@@ -4,7 +4,7 @@
 
 ### Associate an AWS WAF Web ACL with an API Gateway API Stage
 
-You can link an AWS WAF Web ACL to an API Gateway Stage by running the `associate-web-acl` command:
+Associate an AWS WAF Web ACL with an API Gateway stage by running the `associate-web-acl` command:
 
 ```sh
 aws wafv2 associate-web-acl \
@@ -12,4 +12,4 @@ aws wafv2 associate-web-acl \
 --resource-arn {{api-gateway-stage-arn}}
 ```
 
-Replace `{{web-acl-arn}}` with the ARN of your Web ACL and `{{api-gateway-stage-arn}}` with the ARN of your API Gateway Stage.
+Replace `{{web-acl-arn}}` with the ARN of your Web ACL and `{{api-gateway-stage-arn}}` with the ARN of your API Gateway stage.

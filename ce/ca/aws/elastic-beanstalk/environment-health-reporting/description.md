@@ -12,4 +12,4 @@ In contrast, Basic Health Reporting only provides binary instance health informa
 
 This policy flags an *AWS Elastic Beanstalk Environment* as `INCOMPLIANT` if its related *AWS Elastic Beanstalk Configuration Set.* contains the entry **aws:elasticbeanstalk:healthreporting:system SystemType basic** in `Option Settings`.
 
-*Beanstalk Environment* is marked as `INAPPLICABLE` in its `Status` is not **Ready**.
+*Beanstalk Environment* is marked as `INAPPLICABLE` if its `Status` is not **Ready**.

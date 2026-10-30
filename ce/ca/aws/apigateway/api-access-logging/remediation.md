@@ -31,7 +31,7 @@ To set up these permissions:
 2. Attach the above policy to the IAM role.
 3. Set the IAM role ARN in the `cloudWatchRoleArn` property of your `Account`. Note that you must configure the `cloudWatchRoleArn` separately for each AWS Region where you wish to enable CloudWatch Logs.
 
-If you receive an error when setting the IAM role ARN, check your AWS Security Token Service account settings to make sure that AWS STS is enabled in the Region that you're using.
+If you receive an error when setting the IAM role ARN, check your AWS Security Token Service account settings to make sure that AWS STS is enabled in the region you're using.
 
 ## From Command Line
 

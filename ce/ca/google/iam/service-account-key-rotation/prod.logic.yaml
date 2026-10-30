@@ -6,8 +6,8 @@ importExtracts:
   - file: /types/CA10__CaGoogleIamServiceAccountKey__c/object.extracts.yaml
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "Service Account key is older than 90 days."
-    remediationMessage: "It's recommended to rotate Service Account key."
+    currentStateMessage: "Service account key is older than 90 days."
+    remediationMessage: "Rotate service account keys at least every 90 days."
     check:
       IS_BEYOND_LAST_DAYS:
         offsetDays: 90
@@ -15,4 +15,4 @@ conditions:
           EXTRACT: CA10__validAfter__c
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "Service Account key is regularly rotated."
+  currentStateMessage: "Service account key was created within the last 90 days."

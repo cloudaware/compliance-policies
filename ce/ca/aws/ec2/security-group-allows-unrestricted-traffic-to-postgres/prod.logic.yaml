@@ -4,15 +4,15 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "This Security Group allows access from 0.0.0.0/0 or ::/0 to PostgreSQL on port 3306."
-    remediationMessage: "Consider changing the Security Group source field to a range other than 0.0.0.0/0 or delete the offending inbound rule."
+    currentStateMessage: "This security group allows access from 0.0.0.0/0 or ::/0 to PostgreSQL on port 3306."
+    remediationMessage: "Change the security group source to a range other than 0.0.0.0/0 or delete the offending inbound rule."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "This Security Group doesn't allow unrestricted access to PostgreSQL."
+  currentStateMessage: "This security group does not allow unrestricted access to PostgreSQL."
 relatedLists: 
   - relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
     importExtracts:
@@ -60,9 +60,9 @@ relatedLists:
                       right:
                         TEXT: "tcp"
       - status: "INCOMPLIANT"
-        currentStateMessage: "This Security Group allows access from 0.0.0.0/0 or\
+        currentStateMessage: "This security group allows access from 0.0.0.0/0 or\\
           \ ::/0 to PostgreSQL on port 5432."
-        remediationMessage: "Consider changing the source field to a range other\
+        remediationMessage: "Change the source field to a range other\
           \ than 0.0.0.0/0 or delete the offending inbound rule."
         check:
           AND:
@@ -79,4 +79,7 @@ relatedLists:
                     NUMBER: 5432.0
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "This Security Group doesn't allow unrestricted access."
+      currentStateMessage: "This security group does not allow unrestricted access."
+
+
+

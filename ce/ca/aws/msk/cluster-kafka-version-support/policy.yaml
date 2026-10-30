@@ -1,0 +1,12 @@
+---
+names:
+  full: AWS MSK Cluster Kafka version is outside support
+  contextual: Cluster Kafka version is outside support
+description: >
+  Ensure that MSK Provisioned clusters use a Kafka version within the published AWS support
+  period to avoid unsupported broker software and unplanned automatic upgrades.
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization

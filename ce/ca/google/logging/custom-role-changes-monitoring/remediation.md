@@ -13,7 +13,7 @@
         OR protoPayload.methodName="google.iam.admin.v1.DeleteRole" 
         OR protoPayload.methodName="google.iam.admin.v1.UpdateRole")
 
-4. Click `Submit Filter`. Display logs appear based on the filter text entered by the user.
+4. Click `Submit Filter`. Displayed logs appear based on the filter text entered by the user.
 5. In the `Metric Editor` menu on the right, fill out the name field. Set `Units` to `1` (default) and `Type` to `Counter`. This ensures that the log metric counts the number of log entries matching the advanced logs query.
 6. Click `Create Metric`.
 
@@ -21,7 +21,7 @@
 
 1. Identify the new metric that was just created under the section `User-defined Metrics` at <https://console.cloud.google.com/logs/metrics>.
 2. Click the 3-dot icon in the rightmost column for the metric and select `Create alert from Metric`. A new page displays.
-3. Fill out the alert policy configuration and click `Save`. Choose the alerting threshold and configuration that makes sense for the user's organization. For example, a threshold of zero(0) for the most recent value ensures that a notification is triggered for every owner change in the project:
+3. Fill out the alert policy configuration and click `Save`. Choose the alerting threshold and configuration that makes sense for the user's organization. For example, a threshold of zero (0) for the most recent value ensures that a notification is triggered for every owner change in the project:
 
         Set `Aggregator` to `Count` 
         Set `Configuration`: 
@@ -36,8 +36,8 @@
 
 ### Create the prescribed Log Metric
 
-• Use the command: gcloud logging metrics create
+- Use the command `gcloud logging metrics create`.
 
 ### Create the prescribed Alert Policy
 
-• Use the command: gcloud alpha monitoring policies create
+- Use the command `gcloud alpha monitoring policies create`.

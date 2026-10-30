@@ -26,4 +26,4 @@ conditions:
 otherwise:
   status: "INCOMPLIANT"
   currentStateMessage: "SQL Server's Transparent Data Encryption (TDE) protector is not encrypted with Customer-managed key."
-  remediationMessage: "Consider encrypting SQL Server's Transparent Data Encryption (TDE) protector with Customer-managed key."
+  remediationMessage: "Protect the TDE protector with a customer-managed key."

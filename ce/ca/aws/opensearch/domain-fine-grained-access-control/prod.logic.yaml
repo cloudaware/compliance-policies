@@ -1,0 +1,27 @@
+---
+inputType: "CA10__CaAwsElasticsearchDomain__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsElasticsearchDomain__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Fine-grained access control is not enabled for the OpenSearch domain."
+    remediationMessage: "Enable fine-grained access control and configure a master user or identity provider for the OpenSearch domain."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__advancedSecurityEnabled__c"
+        right:
+          TEXT: "false"
+  - status: "COMPLIANT"
+    currentStateMessage: "Fine-grained access control is enabled for the OpenSearch domain."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__advancedSecurityEnabled__c"
+        right:
+          TEXT: "true"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

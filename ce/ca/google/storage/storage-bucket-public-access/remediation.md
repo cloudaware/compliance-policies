@@ -5,11 +5,13 @@
 1. Go to `Storage browser` by visiting <https://console.cloud.google.com/storage/browser>.
 2. Click on the bucket name to go to its `Bucket details` page.
 3. Click on the `Permissions` tab.
-4. Click `Delete` button in front of `allUsers` and `allAuthenticatedUsers` to remove that particular role assignment.
+4. Click `Delete` in front of `allUsers` and `allAuthenticatedUsers` to remove those role assignments.
 
 ## From Google Cloud CLI
 
 Remove `allUsers` and `allAuthenticatedUsers` access.
 
-            gsutil iam ch -d allUsers gs://BUCKET_NAME 
-            gsutil iam ch -d allAuthenticatedUsers gs://BUCKET_NAME
+```sh
+gsutil iam ch -d allUsers gs://{{bucket-name}} 
+gsutil iam ch -d allAuthenticatedUsers gs://{{bucket-name}}
+```

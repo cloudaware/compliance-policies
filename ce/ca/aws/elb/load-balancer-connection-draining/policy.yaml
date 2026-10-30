@@ -1,0 +1,22 @@
+---
+names:
+  full: "AWS ELB Classic Load Balancer Connection Draining is disabled"
+  contextual: "Classic Load Balancer Connection Draining is disabled"
+description: >
+  Ensure that connection draining is enabled for AWS Classic Load Balancers. 
+  Connection draining allows the load balancer to complete in-flight requests 
+  made to instances that are deregistering or becoming unhealthy, preventing 
+  service interruptions during maintenance or scaling events.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/elb/07"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ELB.7] Classic Load Balancers should have connection draining enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-7"
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/ELB/elb-connection-draining-enabled.html
+      name: ELB Connection Draining Enabled

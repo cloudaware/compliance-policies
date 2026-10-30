@@ -1,0 +1,14 @@
+---
+names:
+  full: "Oracle IAAS Boot Volume is not encrypted with a customer managed key"
+  contextual: "IAAS Boot volume is not encrypted with a customer managed key"
+description: >
+  Ensure that Oracle IAAS Boot Volumes use customer managed keys
+  from OCI Vault so you retain direct control over encryption key access,
+  rotation, and revocation.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/cis-oracle-v3.1.0/05/02/02"

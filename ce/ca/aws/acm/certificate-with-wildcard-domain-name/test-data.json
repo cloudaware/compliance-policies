@@ -31,9 +31,9 @@
     },
     {
         "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "199",
-            "conditionText": "extract('CA10__status__c') != 'ISSUED' && extract('CA10__domainName__c').startsWith('*')",
+            "status": "COMPLIANT",
+            "conditionIndex": "200",
+            "conditionText": "otherwise",
             "runtimeError": null
         },
         "context": {
@@ -46,9 +46,9 @@
     },
     {
         "expectedResult": {
-            "status": "COMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__status__c') == 'ISSUED' && extract('CA10__domainName__c').startsWith('*')",
             "runtimeError": null
         },
         "context": {

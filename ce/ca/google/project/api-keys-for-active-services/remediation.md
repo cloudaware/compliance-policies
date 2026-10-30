@@ -1,16 +1,21 @@
 # Remediation
 
-## From Console
+## From Google Cloud Console
 
-1. Go to `APIs & Services\Credentials`
-2. In the section `API Keys`, to delete API Keys: Click the `Delete Bin Icon` in front of every `API Key Name`.
+1. Go to `APIs & Services\Credentials`.
+2. In the `API Keys` section, delete API keys by clicking the Delete icon in front of each `API Key Name`.
 
-## From Google Cloud Command Line
+## From Google Cloud CLI
 
-1. Run the following from within the project you wish to audit
+1. Run the following from within the project you want to audit:
 
-    gcloud services api-keys list --filter
+    ```sh
+    gcloud services api-keys list \
+        --filter={{filter}}
+    ```
 
-2. Pipe the results into
+2. Pipe the results into:
 
-    gcloud alpha services api-keys delete
+    ```sh
+    gcloud alpha services api-keys delete {{api-key-id}}
+    ```

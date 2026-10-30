@@ -1,12 +1,12 @@
 # Description
 
-Public IP Addresses provide tenant accounts with Internet connectivity for resources contained within the tenant. During the creation of certain resources in Azure, a Public IP Address may be created. All Public IP Addresses within the tenant should be periodically reviewed for accuracy and necessity.
+Public IP Addresses provide tenant accounts with internet connectivity for resources within the tenant. During the creation of certain resources in Azure, a Public IP Address may be created. All Public IP Addresses within the tenant should be periodically reviewed for accuracy and necessity.
 
-While an automated assessment procedure exists for this recommendation, the assessment status remains manual. Evaluating the appropriateness of public IP addresses requires a manual review, as it depends on the specific needs and context of each organization and environment.
+While an automated assessment procedure exists for this recommendation, the assessment remains manual. Evaluating the appropriateness of public IP addresses requires review, as it depends on the specific needs and context of each organization and environment.
 
 ## Rationale
 
-Public IP Addresses allocated to the tenant should be periodically reviewed for necessity. Public IP Addresses that are not intentionally assigned and controlled present a publicly facing vector for threat actors and significant risk to the tenant.
+Public IP Addresses allocated to the tenant should be periodically reviewed for necessity. Public IP Addresses that are not intentionally assigned and controlled present a public-facing vector for threat actors and significant risk to the tenant.
 
 ## Audit
 
@@ -23,7 +23,7 @@ Public IP Addresses allocated to the tenant should be periodically reviewed for 
 
 ### From Azure CLI
 
-List all Public IP addresses
+List all Public IP addresses:
 
 ```sh
 az network public-ip list

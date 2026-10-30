@@ -1,0 +1,31 @@
+---
+names:
+  full: "AWS RDS Cluster required log exports to CloudWatch Logs are not enabled"
+  contextual: "Cluster required log exports to CloudWatch Logs are not enabled"
+description: >
+  Ensure that supported AWS RDS DB clusters export the required database logs to
+  CloudWatch Logs. Aurora MySQL clusters must export audit logs, Aurora
+  PostgreSQL clusters must export PostgreSQL logs, and Amazon DocumentDB and
+  Amazon Neptune clusters must export audit logs.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/34"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/45"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/37"
+  - "/frameworks/aws-fsbp-v1.0.0/documentdb/04"
+  - "/frameworks/aws-fsbp-v1.0.0/neptune/02"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[RDS.34] Aurora MySQL DB clusters should publish audit logs to CloudWatch Logs"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-34"
+    - name: "[RDS.45] Aurora MySQL DB clusters should have audit logging enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-45"
+    - name: "[RDS.37] Aurora PostgreSQL DB clusters should publish logs to CloudWatch Logs"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-37"
+    - name: "[DocumentDB.4] Amazon DocumentDB clusters should publish audit logs to CloudWatch Logs"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/documentdb-controls.html#documentdb-4"
+    - name: "[Neptune.2] Neptune DB clusters should publish audit logs to CloudWatch Logs"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/neptune-controls.html#neptune-2"

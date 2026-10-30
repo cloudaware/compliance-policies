@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS MSK Cluster Client-Broker Encryption is not enabled"
+  contextual: "Cluster Client-Broker Encryption is not enabled"
+description: >
+  Ensure that Amazon MSK clusters are configured to enforce TLS encryption for 
+  data in transit between clients and brokers. This prevents plaintext traffic 
+  and protects data from eavesdropping.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+  - "/frameworks/aws-fsbp-v1.0.0/msk/01"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[MSK.1] MSK clusters should be encrypted in transit among broker nodes"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/msk-controls.html#msk-1"

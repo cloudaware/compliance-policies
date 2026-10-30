@@ -1,29 +1,29 @@
 # Description
 
-Azure App Service Authentication is a feature that can prevent anonymous HTTP requests from reaching a Web Application or authenticate those with tokens before they reach the app. If an anonymous request is received from a browser, App Service will redirect to a logon page. To handle the logon process, a choice from a set of identity providers can be made, or a custom authentication mechanism can be implemented.
+Azure App Service Authentication is a feature that can prevent anonymous HTTP requests from reaching a web application or authenticate those requests with tokens before they reach the app. If an anonymous request is received from a browser, App Service redirects to a login page. To handle the login process, you can choose from a set of identity providers or implement a custom authentication mechanism.
 
 ## Rationale
 
-By Enabling App Service Authentication, every incoming HTTP request passes through it before being handled by the application code. It also handles authentication of users with the specified provider (Entra ID, Facebook, Google, Microsoft Account, and Twitter), validation, storing and refreshing of tokens, managing the authenticated sessions and injecting identity information into request headers. Disabling HTTP Basic Authentication functionality further ensures legacy authentication methods are disabled within the application.
+By enabling App Service Authentication, every incoming HTTP request passes through it before being handled by the application code. It also handles authentication of users with the specified provider (Entra ID, Facebook, Google, Microsoft Account, and Twitter), validation, storing and refreshing of tokens, managing authenticated sessions, and injecting identity information into request headers. Disabling HTTP Basic Authentication further ensures legacy authentication methods are disabled within the application.
 
 ## Impact
 
-This is only required for App Services which require authentication. Enabling on site like a marketing or support website will prevent unauthenticated access which would be undesirable.
+This is only required for App Services that require authentication. Enabling it on a site like a marketing or support website will prevent unauthenticated access, which may be undesirable.
 
-Adding Authentication requirement will increase cost of App Service and require additional security components to facilitate the authentication.
+Adding an authentication requirement can increase App Service costs and require additional security components to facilitate authentication.
 
 ## Audit
 
 ### From Azure Portal
 
-1. Login to Azure Portal using <https://portal.azure.com>.
+1. Log in to the Azure portal using <https://portal.azure.com>.
 2. Go to `App Services`.
-3. Click on each App.
-4. Under `Settings` section, Click on `Authentication`.
-5. Ensure that `App Service authentication` set to `Enabled` (Will only appear once an Identity provider is set up/selected).
+3. Select each app.
+4. Under `Settings`, select `Authentication`.
+5. Ensure `App Service authentication` is set to `Enabled` (this appears only after an identity provider is set up).
 6. Navigate back to the application blade.
-7. Under `Settings`, click on `Configuration`.
-8. Click on the `General Settings` tab.
+7. Under `Settings`, select `Configuration`.
+8. Select the `General Settings` tab.
 9. Under `Platform settings`, ensure `Basic Auth Publishing Credentials` is set to `Off`.
 
 ### From Azure CLI
@@ -31,7 +31,10 @@ Adding Authentication requirement will increase cost of App Service and require 
 To check App Service Authentication status for an existing app, run the following command (using `authV1` extension):
 
 ```sh
-az webapp auth show --resource-group <RESOURCE_GROUP_NAME> --name <APP_NAME> --query enabled
+az webapp auth show \
+    --resource-group {{resource-group-name}} \
+    --name {{app-name}} \
+    --query enabled
 ```
 
 The output should return `true` if App Service authentication is set to `On`.
@@ -39,7 +42,9 @@ The output should return `true` if App Service authentication is set to `On`.
 If using the `authV2` extension for the `az webapp auth` CLI, run the following command:
 
 ```sh
-az webapp auth show --resource-group <RESOURCE_GROUP_NAME> --name <APP_NAME>
+az webapp auth show \
+    --resource-group {{resource-group-name}} \
+    --name {{app-name}}
 ```
 
 Ensure that the `enabled` setting under `azureActiveDirectory` is set to `true`.
@@ -47,11 +52,21 @@ Ensure that the `enabled` setting under `azureActiveDirectory` is set to `true`.
 To check whether the `Basic Auth Publishing Credentials` are disabled, issue the following commands:
 
 ```sh
-az resource show --resource-group <RESOURCE GROUP NAME> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<APPLICATION NAME>
+az resource show \
+    --resource-group {{resource-group-name}} \
+    --name scm \
+    --namespace Microsoft.Web \
+    --resource-type basicPublishingCredentialsPolicies \
+    --parent sites/{{application-name}}
 ```
 
 ```sh
-az resource show --resource-group <RESOURCE GROUP NAME> --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<APPLICATION NAME>
+az resource show \
+    --resource-group {{resource-group-name}} \
+    --name ftp \
+    --namespace Microsoft.Web \
+    --resource-type basicPublishingCredentialsPolicies \
+    --parent sites/{{application-name}}
 ```
 
 Ensure `allow` is set to `false` under `properties` within the output of each of the above commands.
@@ -65,7 +80,7 @@ If referencing a digital copy of this Benchmark, clicking a Policy ID will open 
 
 ## Default Value
 
-By default, App Service Authentication is disabled when a new app is created using the command-line tool or Azure Portal console.
+By default, App Service Authentication is disabled when a new app is created using the command-line tool or the Azure portal.
 
 ## References
 
@@ -76,4 +91,4 @@ By default, App Service Authentication is disabled when a new app is created usi
 
 ## Additional Information
 
-You're not required to use App Service for authentication and authorization. Many web frameworks are bundled with security features, and you can use them if you like. If you need more flexibility than App Service provides, you can also write your own utilities. Secure authentication and authorization require deep understanding of security, including federation, encryption, JSON web tokens (JWT) management, grant types, and so on.
+You are not required to use App Service for authentication and authorization. Many web frameworks are bundled with security features that you can use. If you need more flexibility than App Service provides, you can also write your own utilities. Secure authentication and authorization require deep understanding of security, including federation, encryption, JSON web tokens (JWT) management, grant types, and more.

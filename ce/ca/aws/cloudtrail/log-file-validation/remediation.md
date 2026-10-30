@@ -1,6 +1,6 @@
 # Remediation
 
-Perform one the following to enable log file validation on a given trail:
+Perform one of the following to enable log file validation on a given trail:
 
 ## Using AWS CloudFormation
 
@@ -38,11 +38,11 @@ Resources:
 Enable log file validation on a trail:
 
 ```sh
-aws cloudtrail update-trail --name <trail_name> --enable-log-file-validation
+aws cloudtrail update-trail --name {{trail_name}} --enable-log-file-validation
 ```
 
 **Note**: periodic validation of logs using these digests can be performed by running the following command:
 
 ```sh
-aws cloudtrail validate-logs --trail-arn <trail_arn> --start-time <start_time> --end-time <end_time>
+aws cloudtrail validate-logs --trail-arn {{trail_arn}} --start-time {{start_time}} --end-time {{end_time}}
 ```

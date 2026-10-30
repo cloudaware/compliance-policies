@@ -6,7 +6,7 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: INAPPLICABLE
-    currentStateMessage: Encrypted RDS Snapshots cannot be public # cannot be set to restore:all
+    currentStateMessage: "Encrypted RDS snapshots cannot be public." # cannot be set to restore:all
     check:
       IS_EQUAL:
         left:
@@ -14,7 +14,7 @@ conditions:
         right:
           BOOLEAN: true
   - status: INAPPLICABLE
-    currentStateMessage: RDS Snapshots created automatically or via AWS Backup Service cannot be public
+    currentStateMessage: "RDS snapshots created automatically or via AWS Backup cannot be public."
     check:
       OR:
         args:
@@ -29,8 +29,8 @@ conditions:
               right:
                 TEXT: awsbackup
   - status: INCOMPLIANT
-    currentStateMessage: RDS Snapshot is publicly accessible
-    remediationMessage: Consider making the snapshot completely private or scoping the access to a subset of AWS Accounts.
+    currentStateMessage: "The RDS snapshot is publicly accessible."
+    remediationMessage: "Make the snapshot private or restrict access to specific AWS accounts."
     check:
       IS_EQUAL:
         left:
@@ -39,8 +39,8 @@ conditions:
           TEXT: public
   # TODO: modify the INCOMPLIANT status logic to use map ops when released.
   - status: INCOMPLIANT
-    currentStateMessage: RDS snapshot is publicly accessible
-    remediationMessage: Consider making the snapshot completely private or scoping the access to a subset of AWS Accounts.
+    currentStateMessage: "The RDS snapshot is publicly accessible."
+    remediationMessage: "Make the snapshot private or restrict access to specific AWS accounts."
     check:
       IS_EQUAL:
         left:
@@ -55,4 +55,4 @@ conditions:
           TEXT: "all"
 otherwise:
   status: COMPLIANT
-  currentStateMessage: RDS snapshot is not publicly accessible
+  currentStateMessage: "The RDS snapshot is not publicly accessible."

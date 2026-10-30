@@ -5,7 +5,7 @@ names:
 description: >
   Identify and address overutilized Amazon EC2 instances to prevent performance 
   degradation and optimize resource allocation. Instances are considered 
-  overutilized if their average CPU utilization exceeds 80% and maximum CPU 
+  overutilized if their average CPU and memory utilization exceeds 80% and maximum CPU 
   utilization consistently spikes above 95% over a 14-day period.
 type: "COMPLIANCE_POLICY"
 categories:

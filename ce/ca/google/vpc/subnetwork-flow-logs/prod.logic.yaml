@@ -6,8 +6,16 @@ testData:
 importExtracts:
   - file: /types/CA10__CaGoogleGceSubnetwork__c/object.extracts.yaml
 conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This subnetwork does not support VPC Flow Logs."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__purpose__c"
+        right:
+          TEXT: "PRIVATE"
   - status: "COMPLIANT"
-    currentStateMessage: "Flow Logs are enabled and configured correctly."
+    currentStateMessage: "Flow logs are enabled and configured correctly."
     check:
       AND:
         args:
@@ -48,5 +56,5 @@ conditions:
                       EXTRACT: "CA10__logConfigFilterExpr__c"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "Flow Logs aren't enabled or configured correctly."
+  currentStateMessage: "Flow logs are not enabled or configured correctly."
   remediationMessage: "Enable flow logs."

@@ -1,10 +1,10 @@
 # Description
 
-**[IMPORTANT - Please read the section overview**: If your organization pays for Microsoft Entra ID licensing (included in Microsoft 365 E3, E5, or F5, and EM&S E3 or E5 licenses) and **CAN** use Conditional Access, ignore the recommendations in this section and proceed to the Conditional Access section.]
+**[Important - Please read the section overview**: If your organization pays for Microsoft Entra ID licensing (included in Microsoft 365 E3, E5, or F5, and EM&S E3 or E5 licenses) and **CAN** use Conditional Access, ignore the recommendations in this section and proceed to the Conditional Access section.]
 
 Security defaults in Microsoft Entra ID make it easier to be secure and help protect your organization. Security defaults contain preconfigured security settings for common attacks.
 
-Security defaults is available to everyone. The goal is to ensure that all organizations have a basic level of security enabled at no extra cost. You may turn on security defaults in the Azure portal.
+Security defaults are available to everyone. The goal is to ensure that all organizations have a basic level of security enabled at no extra cost. You may turn on security defaults in the Azure portal.
 
 ## Rationale
 
@@ -13,8 +13,8 @@ Security defaults provide secure default settings that we manage on behalf of or
 For example, doing the following:
 
 - Requiring all users and admins to register for MFA.
-- Challenging users with MFA - when necessary, based on factors such as location, device, role, and task.
-- Disabling authentication from legacy authentication clients, which can’t do MFA.
+- Challenging users with MFA when necessary, based on factors such as location, device, role, and task.
+- Disabling authentication from legacy authentication clients, which cannot do MFA.
 
 ## Impact
 

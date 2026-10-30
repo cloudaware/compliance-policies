@@ -1,0 +1,13 @@
+---
+name: "9.2.2 Ensure that Soft Delete for Containers on Azure Blob Storage Storage Accounts is Enabled (Automated)"
+description: |-
+  Containers in Azure storage accounts may contain sensitive or personal data, such as 
+  ePHI or financial information. Data that is erroneously modified or deleted by an 
+  application or a user can lead to data loss or unavailability.
+
+  It is recommended that soft delete for containers be enabled on Azure storage accounts 
+  with blob storage to allow for the preservation and recovery of data when containers are 
+  deleted.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v5.0.0/09/02/02"

@@ -1,0 +1,21 @@
+---
+names:
+  full: "AWS RDS Cluster IAM Database Authentication is not enabled"
+  contextual: "Cluster IAM Database Authentication is not enabled"
+description: >
+  IAM database authentication allows you to authenticate to your DB cluster using 
+  IAM users or roles. This eliminates the need to manage database-specific passwords 
+  and improves security by centralizing access control for Aurora and Neptune clusters.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/secure-access"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/12"
+  - "/frameworks/aws-fsbp-v1.0.0/neptune/07"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[RDS.12] IAM authentication should be configured for RDS clusters"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-12"
+    - name: "[Neptune.7] Neptune DB clusters should have IAM database authentication enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/neptune-controls.html#neptune-7"

@@ -1,0 +1,18 @@
+---
+names:
+  full: AWS Account Root User signing certificates are active
+  contextual: Root User signing certificates are active
+description: >
+  Ensure that no signing certificates exist for the AWS root account. 
+  The root user is the most privileged user in an AWS account, and minimizing 
+  its credentials reduces the risk of account compromise.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/identity-and-access-governance/credential-lifecycle-management"
+  - "/frameworks/aws-well-architected/sec/01/02"
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/IAM/root-active-certificates.html
+      name: Root Account Active Signing Certificates

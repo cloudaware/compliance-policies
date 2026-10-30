@@ -4,12 +4,12 @@ Before deleting a reserved IP address, confirm that it is not required for any c
 
 ## Release an Unused Static External IP Address
 
-### **Using gcloud CLI**
+### **From Google Cloud CLI**
 
 ```sh
 gcloud compute addresses delete {{address-name}} \
-    --region {{region}} \
-    --project {{project-id}}
+    --region={{region}} \
+    --project={{project-id}}
 ```
 
 For global addresses (e.g., used by global load balancers), run:
@@ -17,5 +17,5 @@ For global addresses (e.g., used by global load balancers), run:
 ```sh
 gcloud compute addresses delete {{address-name}} \
     --global \
-    --project {{project-id}}
+    --project={{project-id}}
 ```

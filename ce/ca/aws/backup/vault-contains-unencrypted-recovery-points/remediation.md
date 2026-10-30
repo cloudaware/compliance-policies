@@ -12,4 +12,4 @@ For resource types not yet fully integrated with AWS Backup’s independent encr
 
 ## IAM and KMS Permissions
 
-Ensure the principal (role or user) executing backup and restore operations has the necessary KMS actions in its IAM policy. Confirm the KMS key policy grants the principal permission to use the key.  Without proper permissions, Backup jobs will report success, but individual recovery point objects will not be backed up or restored, resulting in unnoticed data gaps.
+Ensure the principal (role or user) executing backup and restore operations has the necessary KMS actions in its IAM policy. Confirm the KMS key policy grants the principal permission to use the key. Without proper permissions, Backup jobs will report success, but individual recovery point objects will not be backed up or restored, resulting in unnoticed data gaps.

@@ -1,0 +1,19 @@
+---
+inputType: "CA10Z1__CaAzureDevTestVirtualMachine__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10Z1__CaAzureDevTestVirtualMachine__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The applicable auto-shutdown schedule is disabled or absent."
+    remediationMessage: "Review and enable an appropriate auto-shutdown schedule."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "caJsonText__autoShutdownStatus__c"
+        right:
+          TEXT: "Enabled"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Auto-shutdown is enabled."

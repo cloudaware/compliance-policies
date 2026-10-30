@@ -10,8 +10,8 @@ Run the `update-environment` command using the name of the Elastic Beanstalk env
 
 ```sh
 aws elasticbeanstalk update-environment \
-    --region us-east-1 \
-    --environment-name CcProdWebsite-env \
+    --region {{region-name}} \
+    --environment-name {{environment-name}} \
     --option-settings \
         Namespace=aws:elasticbeanstalk:hostmanager,OptionName=LogPublicationControl,Value=true \
         Namespace=aws:elasticbeanstalk:cloudwatch:logs,OptionName=RetentionInDays,Value=90 \

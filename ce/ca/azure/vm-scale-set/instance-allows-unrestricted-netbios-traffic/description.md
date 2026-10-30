@@ -2,7 +2,7 @@
 
 Ensure that Azure VM Scale Set Instances are not configured to allow unrestricted inbound access to NetBIOS ports (TCP/UDP 137, 138, 139). These ports are commonly associated with legacy file-sharing and network management protocols in Windows environments. Exposing NetBIOS ports to the public internet can present substantial security risks.
 
-## Rational
+## Rationale
 
 Restricting NetBIOS traffic through NSGs significantly reduces the attack surface of Azure VM Scale Set Instances (VMs) and enhances the overall security posture. NetBIOS has been a target for exploitation due to its known vulnerabilities, and its use in modern cloud environments is rare. Minimizing the exposure of these ports reduces the likelihood of unauthorized access, data exfiltration, and the spread of malicious payloads through legacy network protocols.
 
@@ -20,6 +20,6 @@ This policy flags an *Azure VM Scale Set Instance* as `INCOMPLIANT` if it is ass
 - `Source Address Prefix` is either **Internet**, `*` **0.0.0.0**, **/0**, or **Any**.
 - `Destination Port` is **137-139**.
 
-If the `Direction`, `Access`, `Protocol`, or `Source Address Prefix` fields do not match the criteria above, the VM is marked as `INAPPLICABLE`.
+If the `Direction`, `Access`, `Protocol`, or `Source Address Prefix` fields do not match the criteria above, the Azure VM Scale Set Instance is marked as `INAPPLICABLE`.
 
-If the `Destination Port` does not match, the VM is considered `COMPLIANT`.
+If the `Destination Port` does not match, the Azure VM Scale Set Instance is considered `COMPLIANT`.

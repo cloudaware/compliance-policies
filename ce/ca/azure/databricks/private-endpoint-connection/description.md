@@ -2,7 +2,7 @@
 
 This policy identifies Azure Databricks Workspaces that do not utilize private endpoints.
 
-Private endpoints provide secure, private connectivity to Azure Databricks workspaces over an encrypted Azure Private Link. Each service receives an IP address from the associated Virtual Network (VNet), ensuring that network traffic between clients, services, and resources remains private and encrypted. Private endpoints also enable network segmentation, hybrid connectivity through VNet peering or VPN/ExpressRoute, and secure tunneling across public networks, reducing exposure to external threats.
+Private endpoints provide secure, private connectivity to Azure Databricks workspaces over Azure Private Link. Each service receives an IP address from the associated Virtual Network (VNet), ensuring that network traffic between clients, services, and resources remains private and encrypted. Private endpoints also enable network segmentation, hybrid connectivity through VNet peering or VPN or ExpressRoute, and secure tunneling across public networks, reducing exposure to external threats.
 
 ## Rationale
 
@@ -25,8 +25,8 @@ To estimate potential costs, refer to:
 
 Before a private endpoint can be configured, Azure Databricks workspaces:
 
-- must be deployed in a customer-managed virtual network (VNet injection), refer to [`Azure Databricks Workspace is not deployed in a customer-managed virtual network (VNet)`](../customer-managed-virtual-network/)
-- must have secure cluster connectivity enabled—refer to the recommendation [`Azure Databricks Workspace Secure Cluster Connectivity is not enabled`](../no-public-ip/)
+- must be deployed in a customer-managed virtual network (VNet injection). Refer to [`Azure Databricks Workspace is not deployed in a customer-managed virtual network (VNet)`](../customer-managed-virtual-network/)
+- must have secure cluster connectivity enabled. Refer to the recommendation [`Azure Databricks Workspace Secure Cluster Connectivity is not enabled`](../no-public-ip/)
 - must be on the `Premium` pricing tier
 
 Ensure the requirements and concepts are considered carefully before applying this recommendation.

@@ -10,7 +10,7 @@ This **requires recreating the Databricks workspace** using VNet injection.
 
     ```sh
     az network nsg create \
-        --resource-group {{resource-group}} \
+        --resource-group {{resource-group-name}} \
         --name {{nsg-name}} \
         --location {{location}}
     ```
@@ -19,10 +19,10 @@ This **requires recreating the Databricks workspace** using VNet injection.
 
     ```sh
     az network vnet create \
-        --resource-group {{resource-group}} \
+        --resource-group {{resource-group-name}} \
         --name {{vnet-name}} \
-        --address-prefix {{10.0.0.0/16}} \
-        --subnets "[{name:{{private-subnet-name}},address-prefix:{{subnet-prefix}}},{name:{{public-subnet-name}},address-prefix:{{subnet-prefix}} }]" \
+        --address-prefix {{vnet-address-prefix}} \
+        --subnets "[{name:{{private-subnet-name}},address-prefix:{{subnet-address-prefix}}},{name:{{public-subnet-name}},address-prefix:{{subnet-address-prefix}}}]" \
         --nsg {{nsg-name}}
     ```
 
@@ -30,10 +30,10 @@ This **requires recreating the Databricks workspace** using VNet injection.
 
     ```sh
     az databricks workspace create \
-        --resource-group {{resource-group}} \
+        --resource-group {{resource-group-name}} \
         --name {{workspace-name}} \
         --location {{location}} \
-        --sku {{premium}} \
+        --sku {{sku-name}} \
         --vnet {{vnet-name}} \
         --public-subnet {{public-subnet-name}} \
         --private-subnet {{private-subnet-name}}

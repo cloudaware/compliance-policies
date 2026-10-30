@@ -9,10 +9,10 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The WebSocket API has at least one API Route with\
-      \ no Authorization Type configured."
-    remediationMessage: "Consider configuring an authorization type for the\
-      \ API Route in the API Gateway."
+    currentStateMessage: "The WebSocket API has at least one API route with\
+      \ no authorization type configured."
+    remediationMessage: "Configure an authorization type for the\
+      \ API route in API Gateway."
     check: 
       AND:
         args:
@@ -25,10 +25,10 @@ conditions:
               status: "INCOMPLIANT"
               relationshipName: "CA10A1__AWS_API_Gateway_Routes__r"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The HTTP API has at least one API Route with\
-      \ no Authorization Type configured."
-    remediationMessage: "Consider configuring an authorization type for the\
-      \ API Route in the API Gateway."
+    currentStateMessage: "The HTTP API has at least one API route with\
+      \ no authorization type configured."
+    remediationMessage: "Configure an authorization type for the\
+      \ API route in API Gateway."
     check:
       AND:
         args:
@@ -42,13 +42,13 @@ conditions:
               relationshipName: "CA10A1__AWS_API_Gateway_Routes__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The API doesn't have Routes without an Authorization Type."
+  currentStateMessage: "All API routes have an authorization type configured."
 relatedLists:
   - relationshipName: "CA10A1__AWS_API_Gateway_Routes__r"
     conditions:
       - status: "INCOMPLIANT"
-        currentStateMessage: "API Gateway Route Authorization Type is not configured."
-        remediationMessage: "Configure Authorization Type for the API Gateway Route."
+        currentStateMessage: "API Gateway route authorization type is not configured."
+        remediationMessage: "Configure an authorization type for the API Gateway route."
         check:
           IS_EQUAL:
             left:
@@ -57,4 +57,5 @@ relatedLists:
               TEXT: "NONE"
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "API Gateway Route Authorization Type is configured."
+      currentStateMessage: "API Gateway route authorization type is configured."
+

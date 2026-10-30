@@ -6,8 +6,8 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "App Service FTPS State is AllAllowed."
-    remediationMessage: "Consider setting FTPS State to disabled or FtpsOnly."
+    currentStateMessage: "The App Service FTPS state is set to AllAllowed."
+    remediationMessage: "Set the FTPS state to Disabled or FtpsOnly."
     check:
       IS_EQUAL:
         left:
@@ -15,7 +15,7 @@ conditions:
         right:
           TEXT: "AllAllowed"
   - status: "COMPLIANT"
-    currentStateMessage: "App Service FTPS State is disabled."
+    currentStateMessage: "The App Service FTPS state is set to Disabled."
     check:
       IS_EQUAL:
         left:
@@ -23,7 +23,7 @@ conditions:
         right:
           TEXT: "Disabled"
   - status: "COMPLIANT"
-    currentStateMessage: "App Service FTPS State is FtpsOnly."
+    currentStateMessage: "The App Service FTPS state is set to FtpsOnly."
     check:
       IS_EQUAL:
         left:

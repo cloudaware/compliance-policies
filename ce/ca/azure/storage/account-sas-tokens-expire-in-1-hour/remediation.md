@@ -1,6 +1,6 @@
 # Remediation
 
-When generating shared access signature tokens, use start and end time such that it falls within an hour.
+When generating shared access signature tokens, use a start and end time that falls within one hour.
 
 ## From Azure Portal
 

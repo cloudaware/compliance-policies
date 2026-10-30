@@ -13,7 +13,7 @@ conditions:
 # You cannot activate MFA if you have lifecycle configuration in place. 
 # It doesn't matter if it's enabled or not.
   - status: "INAPPLICABLE"
-    currentStateMessage: "It's not possible to use MFA Delete with existing Lifecycle configurations."
+    currentStateMessage: "MFA Delete cannot be used with existing lifecycle configurations."
     check:
       NOT_EMPTY:
         arg:
@@ -22,7 +22,7 @@ conditions:
 # if versioning is active and activates it if it's not       
   - status: "INCOMPLIANT"
     currentStateMessage: "MFA delete is not enabled."
-    remediationMessage: "Consider enabling MFA delete on the bucket."
+    remediationMessage: "Enable MFA delete on the bucket."
     check:
       IS_EQUAL:
         left:
@@ -31,4 +31,4 @@ conditions:
           BOOLEAN: false
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Bucket has MFA Delete."
+  currentStateMessage: "The bucket has MFA Delete enabled."

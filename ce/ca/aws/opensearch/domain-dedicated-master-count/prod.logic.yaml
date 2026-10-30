@@ -12,7 +12,7 @@ conditions:
         arg:
           EXTRACT: "CA10__clusterConfigDedicatedMasterEnabled__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Dedicated master nodes are disabled for this OpenSearch Domain."
+    currentStateMessage: "Dedicated master nodes are disabled for this OpenSearch domain."
     remediationMessage: "Enable dedicated master nodes and set the count to at least 3."
     check:
       IS_EQUAL:

@@ -7,7 +7,7 @@ Execute the following AWS CLI command to remove an expired recovery point:
 ```sh
 aws backup delete-recovery-point \
     --backup-vault-name {{backup-vault-name}} \
-    --recovery-point-arn {{recovery-point-arn}} \
+    --recovery-point-arn {{recovery-point-arn}}
 ```
 
 ## Troubleshooting Lifecycle Failures

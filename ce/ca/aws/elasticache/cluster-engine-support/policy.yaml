@@ -1,0 +1,12 @@
+---
+names:
+  full: AWS ElastiCache Cluster engine is outside standard support
+  contextual: Cluster engine is outside standard support
+description: >
+  Ensure that node-based ElastiCache clusters use engine versions within AWS standard
+  support to reduce security and operational risks and avoid Extended Support charges.
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization

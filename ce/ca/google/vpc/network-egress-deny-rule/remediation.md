@@ -4,18 +4,18 @@
 
 Creating a firewall rule that denies all egress traffic ensures that no outbound connections are allowed unless explicitly permitted by higher-priority rules.
 
-### **From gcloud CLI**
+### **From Google Cloud CLI**
 
-    ```sh
-    gcloud compute firewall-rules create {{firewall-rule-name}} \
-        --network={{network-name}} \
-        --action=DENY \
-        --direction=EGRESS \
-        --priority=65534 \
-        --rules=all \
-        --destination-ranges=0.0.0.0/0 \
-        --enable-logging
-    ```
+```sh
+gcloud compute firewall-rules create {{firewall-rule-name}} \
+    --network={{network-name}} \
+    --action=DENY \
+    --direction=EGRESS \
+    --priority=65534 \
+    --rules=all \
+    --destination-ranges=0.0.0.0/0 \
+    --enable-logging
+```
 
 **Notes:**
 

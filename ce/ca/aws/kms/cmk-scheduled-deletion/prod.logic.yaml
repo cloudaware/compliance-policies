@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10__CaAwsKmsKey__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This Key is not Customer-managed."
+    currentStateMessage: "This key is not customer-managed."
     check:
       NOT_EQUAL:
         left:
@@ -15,8 +15,7 @@ conditions:
           TEXT: "CUSTOMER"
   - status: "INCOMPLIANT"
     currentStateMessage: "This KMS CMK is scheduled for deletion."
-    remediationMessage: "Consider disabling the key instead of deleting it if the key\ 
-      \ is not in use. Deleting a key is an irreversible action."
+    remediationMessage: "Disable the key instead of deleting it if it is not in use. Deleting a key is irreversible."
     check:
       NOT_EMPTY:
         arg:

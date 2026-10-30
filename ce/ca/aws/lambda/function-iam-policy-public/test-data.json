@@ -17,7 +17,7 @@
         "expectedResult": {
             "runtimeError": null,
             "conditionText": "otherwise",
-            "conditionIndex": 200,
+            "conditionIndex": 300,
             "status": "COMPLIANT"
         },
         "context": {
@@ -30,8 +30,8 @@
     {
         "expectedResult": {
             "runtimeError": null,
-            "conditionText": "otherwise",
-            "conditionIndex": 200,
+            "conditionText": "extract('CA10__iamPolicyExt__c').isEmpty()",
+            "conditionIndex": 199,
             "status": "COMPLIANT"
         },
         "context": {
@@ -45,7 +45,7 @@
         "expectedResult": {
             "runtimeError": null,
             "conditionText": "CA10__iamPolicyExt__c .allows(EXTERNAL_PRINCIPAL, [lambda:InvokeFunction, lambda:GetFunction, lambda:UpdateFunctionCode, ... 2 elements])",
-            "conditionIndex": 199,
+            "conditionIndex": 299,
             "status": "INCOMPLIANT"
         },
         "context": {
@@ -59,7 +59,7 @@
         "expectedResult": {
             "runtimeError": null,
             "conditionText": "CA10__iamPolicyExt__c .allows(EXTERNAL_PRINCIPAL, [lambda:InvokeFunction, lambda:GetFunction, lambda:UpdateFunctionCode, ... 2 elements])",
-            "conditionIndex": 199,
+            "conditionIndex": 299,
             "status": "INCOMPLIANT"
         },
         "context": {

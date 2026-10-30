@@ -1,5 +1,20 @@
 ---
 extracts:
+  - name: CA10A2__engineLifecycleSupportInfo__c
+    value:
+      FIELD:
+        path: CA10A2__engineLifecycleSupportInfo__c
+        returnType: BYTES
+  - name: CA10__engineVersion__c
+    value:
+      FIELD:
+        path: CA10__engineVersion__c
+        undeterminedIf:
+          isEmpty: The instance engine version is missing.
+  - name: CA10__cluster__c
+    value:
+      FIELD:
+        path: CA10__cluster__c
 # Not Nullable. Can't have no access, retrieved via rds:DescribeDBInstances
   - name: CA10__engine__c
     value:
@@ -39,11 +54,15 @@ extracts:
     value:
       FIELD:
         path: "CA10__status__c"
+        undeterminedIf:
+          isEmpty: "The instance status is empty, so the policy cannot determine whether the instance is available."
 # Nullable.
   - name: "CA10__createTime__c"
     value:
       FIELD:
         path: "CA10__createTime__c"
+        undeterminedIf:
+          isEmpty: "The instance creation time is empty, so the policy cannot confirm a full evaluation period."
 # Nullable.
   - name: "CA10__averageCpuOneMonth__c"
     value:
@@ -69,8 +88,48 @@ extracts:
     value:
       FIELD:
         path: "CA10__databaseConnectionsAvg30d__c"
+# Nullable.
+  - name: "CA10__databaseConnectionsMax30d__c"
+    value:
+      FIELD:
+        path: "CA10__databaseConnectionsMax30d__c"
 # Not nullable. Can't have no access, retrieved via rds:DescribeDBInstances
   - name: "CA10__backupRetentionPeriod__c"
     value:
       FIELD:
         path: "CA10__backupRetentionPeriod__c"
+# Text.
+  - name: CA10__masterUsername__c
+    value:
+      FIELD:
+        path: CA10__masterUsername__c
+# Checkbox.
+  - name: CA10__iamDatabaseAuthenticationEnabled__c
+    value:
+      FIELD:
+        path: CA10__iamDatabaseAuthenticationEnabled__c
+# Text.
+  - name: CA10__enabledCloudWatchLogsExports__c
+    value:
+      FIELD:
+        path: CA10__enabledCloudWatchLogsExports__c
+# Checkbox.
+  - name: CA10__deletionProtection__c
+    value:
+      FIELD:
+        path: CA10__deletionProtection__c
+# Nullable. Can't have no access, retrieved via rds:DescribeDBInstances
+  - name: CA10__clusterArn__c
+    value:
+      FIELD:
+        path: CA10__clusterArn__c
+# Not nullable. Can't have no access, retrieved via rds:DescribeDBInstances
+  - name: "CA10__monitoringInterval__c"
+    value:
+      FIELD:
+        path: "CA10__monitoringInterval__c"
+# Checkbox.
+  - name: CA10__copyTagsToSnapshot__c
+    value:
+      FIELD:
+        path: CA10__copyTagsToSnapshot__c

@@ -16,7 +16,7 @@ aws ec2 create-launch-template-version \
     --launch-template-data '{"MetadataOptions":{"HttpTokens":"required"}}'
 ```
 
-After running, note the new `new-version-number` from the command output.
+After running the command, note the `new-version-number` from the output.
 
 ### Update the Auto Scaling Group
 
@@ -34,7 +34,7 @@ Replace `new-version-number` with the version number created in the first step.
 
 The CloudFormation stack:
 
-- Re-publishes your existing Launch Template with `HttpEndpoint: enabled` and `HttpTokens: required`.
+- Republishes your existing Launch Template with `HttpEndpoint: enabled` and `HttpTokens: required`.
 - Updates your Auto Scaling Group to point at the new template version.
 
 ```yaml

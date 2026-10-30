@@ -1,0 +1,51 @@
+---
+extracts:
+# Values: ACTIVE | INACTIVE. Not nullable. Retrieved via cognito-idp:DescribeUserPool
+  - name: CA10A1__deletionProtection__c
+    value:
+      FIELD:
+        path: CA10A1__deletionProtection__c
+        undeterminedIf:
+          isEmpty: "Deletion Protection should not be empty. Possibly corrupted data."
+# Values: OFF | ON | OPTIONAL. Not nullable. Retrieved via cognito-idp:DescribeUserPool
+  - name: CA10A1__mfaConfiguration__c
+    value:
+      FIELD:
+        path: CA10A1__mfaConfiguration__c
+        undeterminedIf:
+          isEmpty: "MFA Configuration should not be empty. Possibly corrupted data."
+# Number. Not nullable. Retrieved via cognito-idp:DescribeUserPool
+  - name: CA10A1__passwordPolicyMinimumLength__c
+    value:
+      FIELD:
+        path: CA10A1__passwordPolicyMinimumLength__c
+# Values: true | false. Not nullable. Retrieved via cognito-idp:DescribeUserPool
+  - name: CA10A1__passwordPolicyIsRequireLowercase__c
+    value:
+      FIELD:
+        path: CA10A1__passwordPolicyIsRequireLowercase__c
+        undeterminedIf:
+          isEmpty: "Password Policy Require Lowercase should not be empty. Possibly corrupted data."
+  - name: CA10A1__passwordPolicyIsRequireUppercase__c
+    value:
+      FIELD:
+        path: CA10A1__passwordPolicyIsRequireUppercase__c
+        undeterminedIf:
+          isEmpty: "Password Policy Require Uppercase should not be empty. Possibly corrupted data."
+  - name: CA10A1__passwordPolicyIsRequireNumbers__c
+    value:
+      FIELD:
+        path: CA10A1__passwordPolicyIsRequireNumbers__c
+        undeterminedIf:
+          isEmpty: "Password Policy Require Numbers should not be empty. Possibly corrupted data."
+  - name: CA10A1__passwordPolicyIsRequireSymbols__c
+    value:
+      FIELD:
+        path: CA10A1__passwordPolicyIsRequireSymbols__c
+        undeterminedIf:
+          isEmpty: "Password Policy Require Symbols should not be empty. Possibly corrupted data."
+# Number. Not nullable. Retrieved via cognito-idp:DescribeUserPool
+  - name: CA10A1__passwordPolicyTemporaryValidityDays__c
+    value:
+      FIELD:
+        path: CA10A1__passwordPolicyTemporaryValidityDays__c

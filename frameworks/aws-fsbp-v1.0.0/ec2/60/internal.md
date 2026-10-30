@@ -1,0 +1,1 @@
+The absence of a Systems Manager Incident Manager interface endpoint is not a meaningful compliance finding by itself. A VPC only needs this endpoint when workloads in that VPC are expected to use Incident Manager privately. CE does not have a reliable way to prove that such workloads or that requirement actually exist in the account or in the specific VPC.

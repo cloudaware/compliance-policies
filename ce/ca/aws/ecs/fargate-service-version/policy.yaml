@@ -4,8 +4,8 @@ names:
   contextual: "Fargate Service platform version is outdated"
 description: >
   Ensure that AWS ECS services running on Fargate are configured to use the
-  LATEST platform version. Using the LATEST platform version ensures that
-  tasks automatically use the most current, stable runtime environment, which
+  LATEST platform version or the latest explicit version for their operating
+  system. New deployments use the most current, stable runtime environment, which
   includes the newest features and security patches.
 type: "COMPLIANCE_POLICY"
 categories:

@@ -17,8 +17,8 @@ Agentless discovery for Kubernetes requires licensing and is included in:
 
 ### From Azure Portal
 
-1. From the Azure Portal `Home` page, select `Microsoft Defender for Cloud`.
-2. Under `Management` select `Environment Settings`.
+1. From the Azure portal `Home` page, select `Microsoft Defender for Cloud`.
+2. Under `Management`, select `Environment Settings`.
 3. Select a subscription.
 4. Under `Settings` > `Defender Plans`, click `Settings & monitoring`.
 5. Locate the row for `Agentless discovery for Kubernetes`.

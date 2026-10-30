@@ -1,0 +1,529 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10__sumTwoWeekInvocationCount__c.isEmpty() || CA10__sumTwoWeekInvocationCount__c < number(10.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "invocations-0",
+    "CA10__disappearanceTime__c": null,
+    "CreatedDate": "2026-08-01T00:00:00Z",
+    "CA10__sumTwoWeekInvocationCount__c": 0
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10__sumTwoWeekInvocationCount__c.isEmpty() || CA10__sumTwoWeekInvocationCount__c < number(10.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "invocations-1",
+    "CA10__disappearanceTime__c": null,
+    "CreatedDate": "2026-08-01T00:00:00Z",
+    "CA10__sumTwoWeekInvocationCount__c": 1
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10__sumTwoWeekInvocationCount__c.isEmpty() || CA10__sumTwoWeekInvocationCount__c < number(10.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "invocations-9",
+    "CA10__disappearanceTime__c": null,
+    "CreatedDate": "2026-08-01T00:00:00Z",
+    "CA10__sumTwoWeekInvocationCount__c": 9
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "500",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "invocations-10",
+    "CA10__disappearanceTime__c": null,
+    "CreatedDate": "2026-08-01T00:00:00Z",
+    "CA10__sumTwoWeekInvocationCount__c": 10
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10__sumTwoWeekInvocationCount__c.isEmpty() || CA10__sumTwoWeekInvocationCount__c < number(10.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "invocations-None",
+    "CA10__disappearanceTime__c": null,
+    "CreatedDate": "2026-08-01T00:00:00Z",
+    "CA10__sumTwoWeekInvocationCount__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "299",
+      "conditionText": "CA10__sumTwoWeekInvocationCount__c < number(0.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "invocations--1",
+    "CA10__disappearanceTime__c": null,
+    "CreatedDate": "2026-08-01T00:00:00Z",
+    "CA10__sumTwoWeekInvocationCount__c": -1
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "not(extract('CreatedDate').beyondLastDays(14))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "new",
+    "CA10__disappearanceTime__c": null,
+    "CreatedDate": "2026-10-12T00:00:00Z",
+    "CA10__sumTwoWeekInvocationCount__c": 0
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "not(extract('CreatedDate').beyondLastDays(14))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "14-day-boundary",
+    "CA10__disappearanceTime__c": null,
+    "CreatedDate": "2026-09-29T00:00:00Z",
+    "CA10__sumTwoWeekInvocationCount__c": 0
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "101",
+      "conditionText": "CreatedDate.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "missing-age",
+    "CA10__disappearanceTime__c": null,
+    "CreatedDate": null,
+    "CA10__sumTwoWeekInvocationCount__c": 0
+  },
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "disappeared",
+    "CA10__disappearanceTime__c": "2026-10-12T00:00:00Z",
+    "CreatedDate": null,
+    "CA10__sumTwoWeekInvocationCount__c": null
+  },
+  {
+    "CreatedDate": "2026-08-01T00:00:00Z",
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10__sumTwoWeekInvocationCount__c.isEmpty() || CA10__sumTwoWeekInvocationCount__c < number(10.0)",
+      "runtimeError": null
+    },
+    "Id": "zero-stale-record",
+    "CA10__disappearanceTime__c": null,
+    "LastModifiedDate": "2026-08-01T00:00:00Z",
+    "CA10__sumTwoWeekInvocationCount__c": 0
+  },
+  {
+    "CreatedDate": "2026-08-01T00:00:00Z",
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10__sumTwoWeekInvocationCount__c.isEmpty() || CA10__sumTwoWeekInvocationCount__c < number(10.0)",
+      "runtimeError": null
+    },
+    "Id": "zero-recent-record-change",
+    "CA10__disappearanceTime__c": null,
+    "LastModifiedDate": "2026-10-13T11:00:00Z",
+    "CA10__sumTwoWeekInvocationCount__c": 0
+  },
+  {
+    "CreatedDate": "2026-08-01T00:00:00Z",
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "CA10__lastScanDate__c": "2026-10-13T11:00:00Z",
+    "Id": "zero-recent-vulnerability-scan",
+    "CA10__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10__sumTwoWeekInvocationCount__c.isEmpty() || CA10__sumTwoWeekInvocationCount__c < number(10.0)",
+      "runtimeError": null
+    },
+    "CA10__sumTwoWeekInvocationCount__c": 0
+  },
+  {
+    "CreatedDate": "2026-09-28T23:59:59Z",
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "just-before-age-boundary",
+    "CA10__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10__sumTwoWeekInvocationCount__c.isEmpty() || CA10__sumTwoWeekInvocationCount__c < number(10.0)",
+      "runtimeError": null
+    },
+    "CA10__sumTwoWeekInvocationCount__c": 0
+  },
+  {
+    "CreatedDate": "2026-08-01T00:00:00Z",
+    "CA10__disappearanceTime__c": null,
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "omitted-count",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10__sumTwoWeekInvocationCount__c.isEmpty() || CA10__sumTwoWeekInvocationCount__c < number(10.0)",
+      "runtimeError": null
+    }
+  },
+  {
+    "CreatedDate": "2026-10-14T00:00:00Z",
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "future-created-date",
+    "CA10__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "not(extract('CreatedDate').beyondLastDays(14))",
+      "runtimeError": null
+    },
+    "CA10__sumTwoWeekInvocationCount__c": 0
+  },
+  {
+    "Id": "new-null-count",
+    "CreatedDate": "2026-10-12T00:00:00Z",
+    "CA10__sumTwoWeekInvocationCount__c": null,
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "not(extract('CreatedDate').beyondLastDays(14))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "age-boundary-null-count",
+    "CreatedDate": "2026-09-29T00:00:00Z",
+    "CA10__sumTwoWeekInvocationCount__c": null,
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "not(extract('CreatedDate').beyondLastDays(14))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "missing-age-null-count",
+    "CreatedDate": null,
+    "CA10__sumTwoWeekInvocationCount__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "101",
+      "conditionText": "CreatedDate.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "not(extract('CreatedDate').beyondLastDays(14))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "new-low-count",
+    "CA10__disappearanceTime__c": null,
+    "CreatedDate": "2026-10-12T00:00:00Z",
+    "CA10__sumTwoWeekInvocationCount__c": 1
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "not(extract('CreatedDate').beyondLastDays(14))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "14-day-boundary-low-count",
+    "CA10__disappearanceTime__c": null,
+    "CreatedDate": "2026-09-29T00:00:00Z",
+    "CA10__sumTwoWeekInvocationCount__c": 1
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "101",
+      "conditionText": "CreatedDate.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "missing-age-low-count",
+    "CA10__disappearanceTime__c": null,
+    "CreatedDate": null,
+    "CA10__sumTwoWeekInvocationCount__c": 1
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10__sumTwoWeekInvocationCount__c.isEmpty() || CA10__sumTwoWeekInvocationCount__c < number(10.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "older-than-14-day-cutoff",
+    "CA10__disappearanceTime__c": null,
+    "CreatedDate": "2026-09-28T23:59:59Z",
+    "CA10__sumTwoWeekInvocationCount__c": 1
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10__sumTwoWeekInvocationCount__c.isEmpty() || CA10__sumTwoWeekInvocationCount__c < number(10.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "stale-record-low-count",
+    "CA10__disappearanceTime__c": null,
+    "CreatedDate": "2026-08-01T00:00:00Z",
+    "CA10__sumTwoWeekInvocationCount__c": 4,
+    "LastModifiedDate": "2026-01-01T00:00:00Z"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10__sumTwoWeekInvocationCount__c.isEmpty() || CA10__sumTwoWeekInvocationCount__c < number(10.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "recent-record-update-low-count",
+    "CA10__disappearanceTime__c": null,
+    "CreatedDate": "2026-08-01T00:00:00Z",
+    "CA10__sumTwoWeekInvocationCount__c": 3,
+    "LastModifiedDate": "2026-10-13T11:59:00Z"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "500",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "stale-record-high-count",
+    "CA10__disappearanceTime__c": null,
+    "CreatedDate": "2026-08-01T00:00:00Z",
+    "CA10__sumTwoWeekInvocationCount__c": 1000000,
+    "LastModifiedDate": "2026-01-01T00:00:00Z"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "CA10__sumTwoWeekInvocationErrors__c >= number(10.0) || CA10__sumTwoWeekInvocationThrottled__c >= number(10.0)",
+      "runtimeError": null
+    },
+    "CreatedDate": "2026-08-01T00:00:00Z",
+    "CA10__sumTwoWeekInvocationErrors__c": 69102,
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__sumTwoWeekInvocationCount__c": null,
+    "CA10__sumTwoWeekInvocationThrottled__c": 0,
+    "Id": "null-count-high-execution-errors"
+  },
+  {
+    "CA10__sumTwoWeekInvocationCount__c": 0,
+    "CreatedDate": "2026-08-01T00:00:00Z",
+    "Id": "error-exclusion-boundary",
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "CA10__sumTwoWeekInvocationErrors__c": 10,
+    "CA10__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "CA10__sumTwoWeekInvocationErrors__c >= number(10.0) || CA10__sumTwoWeekInvocationThrottled__c >= number(10.0)",
+      "runtimeError": null
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "CA10__sumTwoWeekInvocationErrors__c >= number(10.0) || CA10__sumTwoWeekInvocationThrottled__c >= number(10.0)",
+      "runtimeError": null
+    },
+    "CreatedDate": "2026-08-01T00:00:00Z",
+    "CA10__sumTwoWeekInvocationErrors__c": 0,
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__sumTwoWeekInvocationCount__c": 3,
+    "CA10__sumTwoWeekInvocationThrottled__c": 61,
+    "Id": "low-count-high-throttles"
+  },
+  {
+    "CA10__sumTwoWeekInvocationCount__c": 0,
+    "CreatedDate": "2026-08-01T00:00:00Z",
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "throttle-exclusion-boundary",
+    "CA10__sumTwoWeekInvocationThrottled__c": 10,
+    "CA10__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "CA10__sumTwoWeekInvocationErrors__c >= number(10.0) || CA10__sumTwoWeekInvocationThrottled__c >= number(10.0)",
+      "runtimeError": null
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10__sumTwoWeekInvocationCount__c.isEmpty() || CA10__sumTwoWeekInvocationCount__c < number(10.0)",
+      "runtimeError": null
+    },
+    "CreatedDate": "2026-08-01T00:00:00Z",
+    "CA10__sumTwoWeekInvocationErrors__c": 9,
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__sumTwoWeekInvocationCount__c": 9,
+    "CA10__sumTwoWeekInvocationThrottled__c": 9,
+    "Id": "auxiliary-counters-below-threshold"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10__sumTwoWeekInvocationCount__c.isEmpty() || CA10__sumTwoWeekInvocationCount__c < number(10.0)",
+      "runtimeError": null
+    },
+    "CreatedDate": "2026-08-01T00:00:00Z",
+    "CA10__sumTwoWeekInvocationErrors__c": null,
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__sumTwoWeekInvocationCount__c": null,
+    "CA10__sumTwoWeekInvocationThrottled__c": null,
+    "Id": "all-activity-counters-null"
+  },
+  {
+    "CA10__sumTwoWeekInvocationCount__c": -1,
+    "CreatedDate": "2026-08-01T00:00:00Z",
+    "Id": "invalid-count-before-activity-exclusion",
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "CA10__sumTwoWeekInvocationErrors__c": 1008,
+    "CA10__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "299",
+      "conditionText": "CA10__sumTwoWeekInvocationCount__c < number(0.0)",
+      "runtimeError": null
+    }
+  },
+  {
+    "CreatedDate": "2026-10-12T00:00:00Z",
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "not(extract('CreatedDate').beyondLastDays(14))",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__sumTwoWeekInvocationCount__c": null,
+    "CA10__sumTwoWeekInvocationThrottled__c": 61,
+    "Id": "new-function-before-activity-exclusion"
+  }
+]

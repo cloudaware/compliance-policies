@@ -1,0 +1,109 @@
+---
+inputType: CA10__CaAwsMqBroker__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsMqBroker__c/object.extracts.yaml
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: The broker is creating, being deleted, or its creation failed.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - DELETION_IN_PROGRESS
+              - CREATION_FAILED
+              - CREATION_IN_PROGRESS
+        search:
+          EXTRACT: CA10__state__c
+  - status: UNDETERMINED
+    currentStateMessage: The broker state does not confirm an existing broker whose engine can be assessed.
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              SET:
+                itemType: TEXT
+                items:
+                  - RUNNING
+                  - REBOOT_IN_PROGRESS
+                  - CRITICAL_ACTION_REQUIRED
+                  - REPLICA
+            search:
+              EXTRACT: CA10__state__c
+  - status: INCOMPLIANT
+    currentStateMessage: The broker ActiveMQ minor version has reached Amazon MQ end of support.
+    remediationMessage: Test clients and upgrade the broker to a supported Amazon MQ for ActiveMQ version.
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10__engineType__c
+              right:
+                TEXT: ActiveMQ
+          - OR:
+              args:
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - '5.15'
+                          - '5.16'
+                          - '5.17'
+                    search:
+                      EXTRACT: CA10__engineVersion__c
+                - STARTS_WITH:
+                    arg:
+                      EXTRACT: CA10__engineVersion__c
+                    search:
+                      TEXT: 5.15.
+                - STARTS_WITH:
+                    arg:
+                      EXTRACT: CA10__engineVersion__c
+                    search:
+                      TEXT: 5.16.
+                - STARTS_WITH:
+                    arg:
+                      EXTRACT: CA10__engineVersion__c
+                    search:
+                      TEXT: 5.17.
+  - status: INCOMPLIANT
+    currentStateMessage: The broker RabbitMQ minor version has reached Amazon MQ end of support.
+    remediationMessage: Test clients and upgrade the broker to a supported Amazon MQ for RabbitMQ version.
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10__engineType__c
+              right:
+                TEXT: RabbitMQ
+          - OR:
+              args:
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - '3.11'
+                          - '3.12'
+                    search:
+                      EXTRACT: CA10__engineVersion__c
+                - STARTS_WITH:
+                    arg:
+                      EXTRACT: CA10__engineVersion__c
+                    search:
+                      TEXT: 3.11.
+                - STARTS_WITH:
+                    arg:
+                      EXTRACT: CA10__engineVersion__c
+                    search:
+                      TEXT: 3.12.
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: The broker engine version does not match a known Amazon MQ end-of-support version.

@@ -17,12 +17,12 @@ Buckets with less critical or easily replaceable objects may not need MFA Delete
 
 ## Impact
 
-Enabling MFA delete on an S3 bucket could required additional administrator oversight. Enabling MFA delete may impact other services that automate the creation and/or deletion of S3 buckets.
+Enabling MFA Delete on an S3 bucket could require additional administrator oversight. Enabling MFA Delete may impact other services that automate the creation and/or deletion of S3 buckets.
 
 ## Audit
 
 This policy marks an object as `INCOMPLIANT` when `Versioning MFA Delete Enabled` boolean is set to `false`.
 
-It's not possible to use MFA Delete with existing Lifecycle Configurations therefore, if an object has a Lifecycle Configuration, it will be marked as `INAPPLICABLE`.
+It's not possible to use MFA Delete with existing Lifecycle Configurations, therefore if an object has a Lifecycle Configuration, it will be marked as `INAPPLICABLE`.
 
-An empty `Versioning Status` field indicates a possible permission issue with `s3:GetBucketVersioning` API call thus the object will be marked as `UNDETERMINED`.
+An empty `Versioning Status` field indicates a possible permission issue with the `s3:GetBucketVersioning` API call, thus the object will be marked as `UNDETERMINED`.

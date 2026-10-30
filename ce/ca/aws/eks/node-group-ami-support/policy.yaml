@@ -1,0 +1,12 @@
+names:
+  full: AWS EKS Node Group Linux AMI is outside support
+  contextual: Node Group Linux AMI is outside support
+description: >
+  Ensure that Amazon EKS managed node groups use a maintained Linux AMI family and Kubernetes-specific AMI stream.
+  Retired families and streams no longer receive AWS image maintenance.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization

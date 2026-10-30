@@ -1,6 +1,6 @@
 # Description
 
-**Prerequisite**: A Diagnostic Setting must exist. If a Diagnostic Setting does not exist, the navigation and options within this recommendation will not be available. Please review the recommendation at the beginning of this subsection titled: "Ensure that a 'Diagnostic Setting' exists."
+**Prerequisite**: A Diagnostic Setting must exist. If one does not exist, the navigation and options within this recommendation are not available. Review the recommendation at the beginning of this subsection titled: "Ensure that a 'Diagnostic Setting' exists."
 
 The diagnostic setting should be configured to log the appropriate activities from the control/management plane.
 

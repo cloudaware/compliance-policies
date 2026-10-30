@@ -6,7 +6,7 @@ importExtracts:
   - file: /types/CA10__CaAwsCacheCluster__c/object.extracts.yaml
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The policy only applicable to Redis Clusters."
+    currentStateMessage: "This policy is only applicable to Redis clusters."
     check:
       NOT:
         arg:
@@ -20,8 +20,8 @@ conditions:
             search:
               EXTRACT: "CA10__engine__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Redis Cluster automatic backups are disabled."
-    remediationMessage: "Enable automatic backups by setting a snapshot retention period greater than 0."
+    currentStateMessage: "Automatic backups are disabled for this Redis cluster."
+    remediationMessage: "Set a snapshot retention period greater than 0 to enable automatic backups."
     check:
       IS_EQUAL:
         left:
@@ -30,4 +30,4 @@ conditions:
           NUMBER: 0.0
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Redis Cluster automatic backups are enabled."
+  currentStateMessage: "Automatic backups are enabled for this Redis cluster."

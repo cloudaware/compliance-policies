@@ -1,0 +1,50 @@
+---
+inputType: CA10__CaAwsGlueJob__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsGlueJob__c/object.extracts.yaml
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: The job does not use Spark.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - pythonshell
+              - glueray
+        search:
+          EXTRACT: CA10__commandName__c
+  - status: UNDETERMINED
+    currentStateMessage: The job type is unknown, so Spark runtime support cannot be assessed.
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              SET:
+                itemType: TEXT
+                items:
+                  - glueetl
+                  - gluestreaming
+            search:
+              EXTRACT: CA10__commandName__c
+  - status: INCOMPLIANT
+    currentStateMessage: The job uses an AWS Glue version that AWS no longer supports.
+    remediationMessage: Migrate and test the job on a supported AWS Glue version, or retire it if it's no longer needed.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - "0.9"
+              - "1.0"
+              - "2.0"
+        search:
+          EXTRACT: CA10__glueVersion__c
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: The job uses a supported AWS Glue version.

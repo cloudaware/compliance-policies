@@ -1,10 +1,10 @@
 # Description
 
-This policy identifies AWS WAF Rule Groups that do not contain any rules. A rule group is a reusable collection of rules that can be added to a Web ACL to help manage and apply consistent web request filtering across applications. A rule group without any rules does not perform any inspection or filtering and therefore provides no protection.
+This policy identifies AWS WAF rule groups that contain zero rules. Rule groups are reusable collections of WAF rules that you attach to Web ACLs to standardize request inspection across applications and environments. An empty rule group performs no inspection or filtering and therefore provides no protection.
 
 ## Rationale
 
-An empty rule group typically indicates an incomplete configuration or a resource that was created but never fully implemented. Keeping such unused resources can create configuration drift, increase management complexity, and lead to a false sense of security if administrators assume the rule group is active and providing protection when it is not.
+An empty rule group usually indicates an incomplete or abandoned configuration. Retaining unused resources increases configuration drift and can create a false sense of coverage if engineers assume the rule group is active. It also adds operational overhead during reviews and audits.
 
 ## Audit
 

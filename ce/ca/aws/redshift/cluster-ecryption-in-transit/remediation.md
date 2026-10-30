@@ -6,8 +6,8 @@ To ensure all client connections use SSL/TLS, update the Redshift cluster parame
 
 ### Prerequisites
 
-- Verify cluster status is available before making changes
-- Plan for a maintenance window as a reboot is required
+- Verify the cluster status is available before making changes
+- Plan for a maintenance window, as a reboot is required
 
 ### **From Command Line**
 

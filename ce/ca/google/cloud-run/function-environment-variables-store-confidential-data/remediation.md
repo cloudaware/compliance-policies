@@ -5,7 +5,7 @@
 ### From Google Cloud Console
 
 1. Within the project you wish to enable, select the Navigation hamburger menu in the top left. Hover over `APIs & Services` to under the heading `Serverless`, then select `Enabled APIs & Services` in the menu that opens up.
-2. Click the button `+ Enable APIS and Services`
+2. Click the button `+ Enable APIs and Services`
 3. In the `Search` bar, search for `Secret Manager API` and select it.
 4. Click the blue box that says `Enable`.
 
@@ -13,7 +13,9 @@
 
 1. Within the project you wish to enable the API in, run the following command.
 
+    ```sh
     gcloud services enable Secret Manager API
+    ```
 
 ## Reviewing Environment Variables That Should Be Migrated to Secret Manager
 
@@ -26,13 +28,17 @@
 
 ### From Google Cloud CLI
 
-1. To view a list of your cloud functions run
+1. To view a list of your Cloud Functions, run
 
+    ```sh
     gcloud functions list
+    ```
 
-2. For each cloud function run the following command.
+2. For each Cloud Function, run the following command.
 
-    gcloud functions describe <function_name>
+    ```sh
+    gcloud functions describe {{function-name}}
+    ```
 
 3. Review the settings of the `buildEnvironmentVariables` and `environmentVariables`. Keep this information for the next step.
 
@@ -50,16 +56,19 @@
 
 ### From Google Cloud CLI
 
-1. Run the following command with the Environment Variable name you are replacing in the `<secret-id>`. It is most secure to point this command to a file with the Environment Variable value located in it, as if you entered it via command line it would show up in your shell’s command history.
+1. Run the following command with the Environment Variable name you are replacing in the `{{secret-id}}`. It is most secure to point this command to a file with the Environment Variable value located in it, as if you entered it via command line it would show up in your shell’s command history.
 
-        gcloud secrets create <secret-id> --data-file="/path/to/file.txt"
+    ```sh
+    gcloud secrets create {{secret-id}} \
+        --data-file="/path/to/file.txt"
+    ```
 
 ## Granting your Runtime's Service Account Access to Secrets
 
 ### From Google Cloud Console
 
-1. Within the project containing your runtime login with account that has the `roles/secretmanager.secretAccessor` permission.
-2. Select the Navigation hamburger menu in the top left. Hover over `Security` to under the then select `Secret Manager` in the menu that opens up.
+1. Within the project containing your runtime, log in with an account that has the `roles/secretmanager.secretAccessor` permission.
+2. Select the Navigation hamburger menu in the top left. Hover over `Security`, then select `Secret Manager` in the menu that opens up.
 3. Click the name of a secret listed in this screen.
 4. If it is not already open, click `Show Info Panel` in this screen to open the panel.
 5. In the info panel, click `Add principal`.
@@ -74,16 +83,16 @@ As of the time of writing, using Google CLI to list Runtime variables is only in
 
 ### From Google Cloud Console
 
-This depends heavily on which language your runtime is in. For the sake of the brevity of this recommendation, please see the '/docs/creating-and-accessing-secrets#access' reference for language specific instructions.
+This depends heavily on which language your runtime is in. For the sake of brevity, please see the '/docs/creating-and-accessing-secrets#access' reference for language-specific instructions.
 
 ### From Google Cloud CLI
 
-This depends heavily on which language your runtime is in. For the sake of the brevity of this recommendation, please see the' /docs/creating-and-accessing-secrets#access' reference for language specific instructions.
+This depends heavily on which language your runtime is in. For the sake of brevity, please see the '/docs/creating-and-accessing-secrets#access' reference for language-specific instructions.
 
 ## Deleting the Insecure Environment Variables
 
 Be certain to do this step last.
-Removing variables from code actively referencing them will prevent it from completing successfully.
+Removing variables that are actively referenced will prevent it from completing successfully.
 
 ### From Google Cloud Console
 
@@ -95,6 +104,7 @@ Removing variables from code actively referencing them will prevent it from comp
 
 ### From Google Cloud CLI
 
- gcloud functions deploy \<Function name>--remove-env-vars \<env vars>
+gcloud functions deploy {{Function name}}\
+    --remove-env-vars {{env vars}}
 
-If you need to find the env vars to remove, they are from the step where `gcloud functions describe <function_name>` was run.
+If you need to find the env vars to remove, they are from the step where `gcloud functions describe {{function-name}}` was run.

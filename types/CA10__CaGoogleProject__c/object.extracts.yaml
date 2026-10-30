@@ -10,3 +10,25 @@ extracts:
     value: 
       FIELD:
         path: "CA10__enabledServices__c"
+  - name: "CA10__gceCommonMetadataItemsJson__c"
+    value:
+      FIELD:
+        path: "CA10__gceCommonMetadataItemsJson__c"
+  - name: "caJsonFrom__gceCommonMetadataItemsJson__c"
+    value:
+      JSON_FROM:
+        arg:
+          FIELD:
+            path: "CA10__gceCommonMetadataItemsJson__c"
+            returnType: BYTES
+        undeterminedIf:
+          isInvalid: "GCE common metadata items JSON is invalid."
+  - name: "caJsonText__gceCommonMetadataEnableOsloginValue__c"
+    value:
+      JSON_QUERY_TEXT:
+        arg:
+          EXTRACT: "caJsonFrom__gceCommonMetadataItemsJson__c"
+        expression: "to_string([?key == 'enable-oslogin'].value[] | [0])"
+        undeterminedIf:
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return text type."

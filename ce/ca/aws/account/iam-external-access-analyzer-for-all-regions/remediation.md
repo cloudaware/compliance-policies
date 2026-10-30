@@ -18,7 +18,7 @@ Perform the following to enable IAM Access analyzer for IAM policies:
 Run the following command:
 
 ```sh
-aws accessanalyzer create-analyzer --analyzer-name <NAME> --type <ACCOUNT|ORGANIZATION>
+aws accessanalyzer create-analyzer --analyzer-name {{NAME}} --type {{ACCOUNT|ORGANIZATION}}
 ```
 
 Repeat this command above for each active region.

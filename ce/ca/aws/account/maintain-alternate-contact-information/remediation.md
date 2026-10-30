@@ -11,10 +11,14 @@ Perform the following to establish security contact information:
 
 ## From Command Line
 
-Run the following command with the following input parameters: `--email-address`, `--name`, and `--phone-number`.
+Run the following command with the input parameters `--email-address`, `--name`, and `--phone-number`:
 
 ```sh
-aws account put-alternate-contact --alternate-contact-type SECURITY
+aws account put-alternate-contact \
+    --alternate-contact-type SECURITY \
+    --email-address {{email-address}} \
+    --name {{name}} \
+    --phone-number {{phone-number}}
 ```
 
 **Note**: Consider specifying an internal email distribution list to ensure emails are regularly monitored by more than one individual.

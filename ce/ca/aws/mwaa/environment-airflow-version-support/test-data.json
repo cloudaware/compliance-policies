@@ -1,0 +1,719 @@
+[
+  {
+    "Id": "supported-2.7.2",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 400,
+      "conditionText": "otherwise"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "2.7.2"
+  },
+  {
+    "Id": "supported-2.8.1",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 400,
+      "conditionText": "otherwise"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "2.8.1"
+  },
+  {
+    "Id": "supported-2.9.2",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 400,
+      "conditionText": "otherwise"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "2.9.2"
+  },
+  {
+    "Id": "supported-2.10.1",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 400,
+      "conditionText": "otherwise"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "2.10.1"
+  },
+  {
+    "Id": "supported-2.10.3",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 400,
+      "conditionText": "otherwise"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "2.10.3"
+  },
+  {
+    "Id": "supported-2.11.0",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 400,
+      "conditionText": "otherwise"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "2.11.0"
+  },
+  {
+    "Id": "supported-2.11.2",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 400,
+      "conditionText": "otherwise"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "2.11.2"
+  },
+  {
+    "Id": "supported-3.0.6",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 400,
+      "conditionText": "otherwise"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "3.0.6"
+  },
+  {
+    "Id": "supported-3.2.1",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 400,
+      "conditionText": "otherwise"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "3.2.1"
+  },
+  {
+    "Id": "supported-3.3.1",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 400,
+      "conditionText": "otherwise"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "3.3.1"
+  },
+  {
+    "Id": "current-expired-1.10.12",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "setOfText(['1.10.12', '2.0.2', '2.2.2', '2.4.3', '2.5.1', '2.6.3']).contains(extract('CA10A1__airflowVersion__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "1.10.12"
+  },
+  {
+    "Id": "current-expired-2.0.2",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "setOfText(['1.10.12', '2.0.2', '2.2.2', '2.4.3', '2.5.1', '2.6.3']).contains(extract('CA10A1__airflowVersion__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "2.0.2"
+  },
+  {
+    "Id": "current-expired-2.2.2",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "setOfText(['1.10.12', '2.0.2', '2.2.2', '2.4.3', '2.5.1', '2.6.3']).contains(extract('CA10A1__airflowVersion__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "2.2.2"
+  },
+  {
+    "Id": "current-expired-2.4.3",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "setOfText(['1.10.12', '2.0.2', '2.2.2', '2.4.3', '2.5.1', '2.6.3']).contains(extract('CA10A1__airflowVersion__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "2.4.3"
+  },
+  {
+    "Id": "current-expired-2.5.1",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "setOfText(['1.10.12', '2.0.2', '2.2.2', '2.4.3', '2.5.1', '2.6.3']).contains(extract('CA10A1__airflowVersion__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "2.5.1"
+  },
+  {
+    "Id": "current-expired-2.6.3",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "setOfText(['1.10.12', '2.0.2', '2.2.2', '2.4.3', '2.5.1', '2.6.3']).contains(extract('CA10A1__airflowVersion__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "2.6.3"
+  },
+  {
+    "Id": "excluded-CREATE_FAILED",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATE_FAILED', 'DELETING', 'DELETED', 'CREATING', 'PENDING', 'UPDATING', 'ROLLING_BACK', 'CREATING_SNAPSHOT', 'MAINTENANCE', 'UNAVAILABLE']).contains(extract('CA10A1__status__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "CREATE_FAILED",
+    "CA10A1__airflowVersion__c": "2.6.3"
+  },
+  {
+    "Id": "excluded-missing-version-CREATE_FAILED",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATE_FAILED', 'DELETING', 'DELETED', 'CREATING', 'PENDING', 'UPDATING', 'ROLLING_BACK', 'CREATING_SNAPSHOT', 'MAINTENANCE', 'UNAVAILABLE']).contains(extract('CA10A1__status__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "CREATE_FAILED",
+    "CA10A1__airflowVersion__c": null
+  },
+  {
+    "Id": "excluded-DELETING",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATE_FAILED', 'DELETING', 'DELETED', 'CREATING', 'PENDING', 'UPDATING', 'ROLLING_BACK', 'CREATING_SNAPSHOT', 'MAINTENANCE', 'UNAVAILABLE']).contains(extract('CA10A1__status__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "DELETING",
+    "CA10A1__airflowVersion__c": "2.6.3"
+  },
+  {
+    "Id": "excluded-missing-version-DELETING",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATE_FAILED', 'DELETING', 'DELETED', 'CREATING', 'PENDING', 'UPDATING', 'ROLLING_BACK', 'CREATING_SNAPSHOT', 'MAINTENANCE', 'UNAVAILABLE']).contains(extract('CA10A1__status__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "DELETING",
+    "CA10A1__airflowVersion__c": null
+  },
+  {
+    "Id": "excluded-DELETED",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATE_FAILED', 'DELETING', 'DELETED', 'CREATING', 'PENDING', 'UPDATING', 'ROLLING_BACK', 'CREATING_SNAPSHOT', 'MAINTENANCE', 'UNAVAILABLE']).contains(extract('CA10A1__status__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "DELETED",
+    "CA10A1__airflowVersion__c": "2.6.3"
+  },
+  {
+    "Id": "excluded-missing-version-DELETED",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATE_FAILED', 'DELETING', 'DELETED', 'CREATING', 'PENDING', 'UPDATING', 'ROLLING_BACK', 'CREATING_SNAPSHOT', 'MAINTENANCE', 'UNAVAILABLE']).contains(extract('CA10A1__status__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "DELETED",
+    "CA10A1__airflowVersion__c": null
+  },
+  {
+    "Id": "excluded-CREATING",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATE_FAILED', 'DELETING', 'DELETED', 'CREATING', 'PENDING', 'UPDATING', 'ROLLING_BACK', 'CREATING_SNAPSHOT', 'MAINTENANCE', 'UNAVAILABLE']).contains(extract('CA10A1__status__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "CREATING",
+    "CA10A1__airflowVersion__c": "2.6.3"
+  },
+  {
+    "Id": "excluded-PENDING",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATE_FAILED', 'DELETING', 'DELETED', 'CREATING', 'PENDING', 'UPDATING', 'ROLLING_BACK', 'CREATING_SNAPSHOT', 'MAINTENANCE', 'UNAVAILABLE']).contains(extract('CA10A1__status__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "PENDING",
+    "CA10A1__airflowVersion__c": "2.6.3"
+  },
+  {
+    "Id": "excluded-UPDATING",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATE_FAILED', 'DELETING', 'DELETED', 'CREATING', 'PENDING', 'UPDATING', 'ROLLING_BACK', 'CREATING_SNAPSHOT', 'MAINTENANCE', 'UNAVAILABLE']).contains(extract('CA10A1__status__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "UPDATING",
+    "CA10A1__airflowVersion__c": "2.6.3"
+  },
+  {
+    "Id": "excluded-ROLLING_BACK",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATE_FAILED', 'DELETING', 'DELETED', 'CREATING', 'PENDING', 'UPDATING', 'ROLLING_BACK', 'CREATING_SNAPSHOT', 'MAINTENANCE', 'UNAVAILABLE']).contains(extract('CA10A1__status__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ROLLING_BACK",
+    "CA10A1__airflowVersion__c": "2.6.3"
+  },
+  {
+    "Id": "excluded-CREATING_SNAPSHOT",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATE_FAILED', 'DELETING', 'DELETED', 'CREATING', 'PENDING', 'UPDATING', 'ROLLING_BACK', 'CREATING_SNAPSHOT', 'MAINTENANCE', 'UNAVAILABLE']).contains(extract('CA10A1__status__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "CREATING_SNAPSHOT",
+    "CA10A1__airflowVersion__c": "2.6.3"
+  },
+  {
+    "Id": "excluded-MAINTENANCE",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATE_FAILED', 'DELETING', 'DELETED', 'CREATING', 'PENDING', 'UPDATING', 'ROLLING_BACK', 'CREATING_SNAPSHOT', 'MAINTENANCE', 'UNAVAILABLE']).contains(extract('CA10A1__status__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "MAINTENANCE",
+    "CA10A1__airflowVersion__c": "2.6.3"
+  },
+  {
+    "Id": "excluded-UNAVAILABLE",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATE_FAILED', 'DELETING', 'DELETED', 'CREATING', 'PENDING', 'UPDATING', 'ROLLING_BACK', 'CREATING_SNAPSHOT', 'MAINTENANCE', 'UNAVAILABLE']).contains(extract('CA10A1__status__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "UNAVAILABLE",
+    "CA10A1__airflowVersion__c": "2.6.3"
+  },
+  {
+    "Id": "unknown-status-UNRECOGNIZED",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "not(setOfText(['AVAILABLE', 'UPDATE_FAILED']).contains(extract('CA10A1__status__c')))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "UNRECOGNIZED",
+    "CA10A1__airflowVersion__c": "2.6.3"
+  },
+  {
+    "Id": "rollback-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "setOfText(['1.10.12', '2.0.2', '2.2.2', '2.4.3', '2.5.1', '2.6.3']).contains(extract('CA10A1__airflowVersion__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "UPDATE_FAILED",
+    "CA10A1__airflowVersion__c": "2.6.3"
+  },
+  {
+    "Id": "rollback-supported",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 400,
+      "conditionText": "otherwise"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "UPDATE_FAILED",
+    "CA10A1__airflowVersion__c": "3.3.1"
+  },
+  {
+    "Id": "missing-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 301,
+      "conditionText": "CA10A1__airflowVersion__c.isEmpty()"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": null
+  },
+  {
+    "Id": "empty-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 301,
+      "conditionText": "CA10A1__airflowVersion__c.isEmpty()"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": ""
+  },
+  {
+    "Id": "whitespace-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 301,
+      "conditionText": "CA10A1__airflowVersion__c.isEmpty()"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "   "
+  },
+  {
+    "Id": "major-only",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 400,
+      "conditionText": "otherwise"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "3"
+  },
+  {
+    "Id": "malformed-version",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 400,
+      "conditionText": "otherwise"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "3.3.1-custom"
+  },
+  {
+    "Id": "prefixed-version",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 400,
+      "conditionText": "otherwise"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "v3.3.1"
+  },
+  {
+    "Id": "future-version",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 400,
+      "conditionText": "otherwise"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "9.9.9"
+  },
+  {
+    "Id": "unlisted-patch",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 400,
+      "conditionText": "otherwise"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "2.6.4"
+  },
+  {
+    "Id": "missing-status",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 101,
+      "conditionText": "CA10A1__status__c.isEmpty()"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": null,
+    "CA10A1__airflowVersion__c": "2.6.3"
+  },
+  {
+    "Id": "empty-status",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 101,
+      "conditionText": "CA10A1__status__c.isEmpty()"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "",
+    "CA10A1__airflowVersion__c": "2.6.3"
+  },
+  {
+    "Id": "whitespace-status",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 101,
+      "conditionText": "CA10A1__status__c.isEmpty()"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": " ",
+    "CA10A1__airflowVersion__c": "2.6.3"
+  },
+  {
+    "Id": "missing-all",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 101,
+      "conditionText": "CA10A1__status__c.isEmpty()"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": null,
+    "CA10A1__airflowVersion__c": null
+  },
+  {
+    "Id": "disappeared-expired",
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "runtimeError": null,
+      "conditionIndex": 99,
+      "conditionText": "isDisappeared(CA10A1__disappearanceTime__c)"
+    },
+    "CA10A1__disappearanceTime__c": "2026-10-22T10:00:00Z",
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "2.6.3"
+  },
+  {
+    "Id": "excluded-missing-version-CREATING",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATE_FAILED', 'DELETING', 'DELETED', 'CREATING', 'PENDING', 'UPDATING', 'ROLLING_BACK', 'CREATING_SNAPSHOT', 'MAINTENANCE', 'UNAVAILABLE']).contains(extract('CA10A1__status__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "CREATING",
+    "CA10A1__airflowVersion__c": null
+  },
+  {
+    "Id": "excluded-missing-version-PENDING",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATE_FAILED', 'DELETING', 'DELETED', 'CREATING', 'PENDING', 'UPDATING', 'ROLLING_BACK', 'CREATING_SNAPSHOT', 'MAINTENANCE', 'UNAVAILABLE']).contains(extract('CA10A1__status__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "PENDING",
+    "CA10A1__airflowVersion__c": null
+  },
+  {
+    "Id": "excluded-missing-version-UPDATING",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATE_FAILED', 'DELETING', 'DELETED', 'CREATING', 'PENDING', 'UPDATING', 'ROLLING_BACK', 'CREATING_SNAPSHOT', 'MAINTENANCE', 'UNAVAILABLE']).contains(extract('CA10A1__status__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "UPDATING",
+    "CA10A1__airflowVersion__c": null
+  },
+  {
+    "Id": "excluded-missing-version-ROLLING_BACK",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATE_FAILED', 'DELETING', 'DELETED', 'CREATING', 'PENDING', 'UPDATING', 'ROLLING_BACK', 'CREATING_SNAPSHOT', 'MAINTENANCE', 'UNAVAILABLE']).contains(extract('CA10A1__status__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ROLLING_BACK",
+    "CA10A1__airflowVersion__c": null
+  },
+  {
+    "Id": "excluded-missing-version-CREATING_SNAPSHOT",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATE_FAILED', 'DELETING', 'DELETED', 'CREATING', 'PENDING', 'UPDATING', 'ROLLING_BACK', 'CREATING_SNAPSHOT', 'MAINTENANCE', 'UNAVAILABLE']).contains(extract('CA10A1__status__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "CREATING_SNAPSHOT",
+    "CA10A1__airflowVersion__c": null
+  },
+  {
+    "Id": "excluded-missing-version-MAINTENANCE",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATE_FAILED', 'DELETING', 'DELETED', 'CREATING', 'PENDING', 'UPDATING', 'ROLLING_BACK', 'CREATING_SNAPSHOT', 'MAINTENANCE', 'UNAVAILABLE']).contains(extract('CA10A1__status__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "MAINTENANCE",
+    "CA10A1__airflowVersion__c": null
+  },
+  {
+    "Id": "excluded-missing-version-UNAVAILABLE",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATE_FAILED', 'DELETING', 'DELETED', 'CREATING', 'PENDING', 'UPDATING', 'ROLLING_BACK', 'CREATING_SNAPSHOT', 'MAINTENANCE', 'UNAVAILABLE']).contains(extract('CA10A1__status__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "UNAVAILABLE",
+    "CA10A1__airflowVersion__c": null
+  },
+  {
+    "Id": "rollback-missing-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 301,
+      "conditionText": "CA10A1__airflowVersion__c.isEmpty()"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "UPDATE_FAILED",
+    "CA10A1__airflowVersion__c": null
+  },
+  {
+    "Id": "omitted-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 301,
+      "conditionText": "CA10A1__airflowVersion__c.isEmpty()"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE"
+  },
+  {
+    "Id": "incomplete-minor-version",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 400,
+      "conditionText": "otherwise"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "2.6"
+  },
+  {
+    "Id": "normalized-expired-version",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "setOfText(['1.10.12', '2.0.2', '2.2.2', '2.4.3', '2.5.1', '2.6.3']).contains(extract('CA10A1__airflowVersion__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": " available ",
+    "CA10A1__airflowVersion__c": " 2.6.3 "
+  },
+  {
+    "Id": "maintenance-history-does-not-upgrade-airflow",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "setOfText(['1.10.12', '2.0.2', '2.2.2', '2.4.3', '2.5.1', '2.6.3']).contains(extract('CA10A1__airflowVersion__c'))"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": "2.6.3",
+    "CA10A1__lastUpdateSource__c": "internal maintenance",
+    "CA10A1__lastUpdateStatus__c": "SUCCESS",
+    "CA10A1__lastUpdateCreatedAt__c": "2026-10-26T12:00:00Z",
+    "CA10A1__requirementsS3ObjectVersion__c": "3.3.1",
+    "CA10A1__pluginsS3ObjectVersion__c": "3.3.1"
+  },
+  {
+    "Id": "failed-update-does-not-deprecate-airflow",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 400,
+      "conditionText": "otherwise"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "UPDATE_FAILED",
+    "CA10A1__airflowVersion__c": "3.3.1",
+    "CA10A1__lastUpdateStatus__c": "FAILED",
+    "CA10A1__requirementsS3ObjectVersion__c": "2.6.3",
+    "CA10A1__pluginsS3ObjectVersion__c": "2.6.3"
+  },
+  {
+    "Id": "s3-versions-cannot-replace-missing-airflow-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 301,
+      "conditionText": "CA10A1__airflowVersion__c.isEmpty()"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "AVAILABLE",
+    "CA10A1__airflowVersion__c": null,
+    "CA10A1__requirementsS3ObjectVersion__c": "3.3.1",
+    "CA10A1__pluginsS3ObjectVersion__c": "3.3.1"
+  }
+]

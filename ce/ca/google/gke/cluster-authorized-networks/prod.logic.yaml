@@ -7,7 +7,7 @@ importExtracts:
   - file: "/types/CA10G1__CaGoogleGkeCluster__c/object.extracts.yaml"
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "Cluster Control Plane Authorized Networks are enabled."
+    currentStateMessage: "Control plane authorized networks are enabled."
     check:
       IS_EQUAL:
         left:
@@ -16,7 +16,7 @@ conditions:
           TEXT: "ENABLED"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "Cluster Control Plane Authorized Networks are disabled."
-  remediationMessage: "Enable Control Plane Authorized Networks."
+  currentStateMessage: "Control plane authorized networks are disabled."
+  remediationMessage: "Enable control plane authorized networks."
 
 

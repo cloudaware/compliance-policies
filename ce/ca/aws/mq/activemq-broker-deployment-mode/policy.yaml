@@ -1,0 +1,26 @@
+---
+names:
+  full: AWS MQ ActiveMQ Broker uses the single instance deployment mode
+  contextual: ActiveMQ Broker uses the single instance deployment mode
+description: >
+  Ensure that Amazon MQ ActiveMQ brokers are configured with high availability. 
+  Active/standby deployment mode is recommended for production environments to 
+  provide redundancy and ensure continuity of service if a broker instance fails 
+  or undergoes maintenance.
+type: "COMPLIANCE_POLICY"
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/nist-sp-800-53-r5/cp/10"
+  - "/frameworks/nist-sp-800-53-r5/cp/06/02"
+  - "/frameworks/nist-sp-800-53-r5/sc/36"
+  - "/frameworks/nist-sp-800-53-r5/sc/05/02"
+  - "/frameworks/nist-sp-800-53-r5/si/13/05"
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/MQ/deployment-mode.html
+      name: MQ Deployment Mode
+  awsSecurityHub:
+    - name: "[MQ.5] ActiveMQ brokers should use active/standby deployment mode"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/mq-controls.html#mq-5"

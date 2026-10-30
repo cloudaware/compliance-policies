@@ -10,3 +10,18 @@ extracts:
     value:
       FIELD: 
         path: CA10A1__rotationEnabled__c
+# Nullable. Can't have no access, retrieved via secretsmanager:ListSecrets
+  - name: CA10A1__lastAccessedDate__c
+    value:
+      FIELD: 
+        path: CA10A1__lastAccessedDate__c
+# Not nullable. Can't have no access, retrieved via secretsmanager:ListSecrets
+  - name: CA10A1__lastChangedDate__c
+    value:
+      FIELD: 
+        path: CA10A1__lastChangedDate__c
+# Nullable. Can't have no access, retrieved via secretsmanager:ListSecrets
+  - name: CA10A1__lastRotatedDate__c
+    value:
+      FIELD: 
+        path: CA10A1__lastRotatedDate__c

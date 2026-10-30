@@ -3,11 +3,11 @@
 ## From Azure Portal
 
 1. Go to `Storage accounts`.
-2. Click the name of a storage account with blob storage.
+2. Click the name of a storage account with Blob Storage.
 3. In the `Overview` page, on the `Properties` tab, under `Blob service`, click `Disabled` next to `Versioning`.
 4. Under `Tracking`, check the box next to `Enable versioning for blobs`.
 5. Select the radio button next to `Keep all versions or Delete versions after (in days)`.
-6. If selecting to delete versions, enter a number of in the box after which to delete blob versions.
+6. If selecting to delete versions, enter the number of days after which to delete blob versions.
 7. Click `Save`.
 8. Repeat steps 1-7 for each storage account with blob storage.
 
@@ -16,7 +16,9 @@
 For each storage account requiring remediation, run the following command to enable blob versioning:
 
 ```sh
-az storage account blob-service-properties update --account-name <storage-account> --enable-versioning true
+az storage account blob-service-properties update \
+    --account-name {{storage-account-name}} \
+    --enable-versioning true
 ```
 
 ## From PowerShell
@@ -24,5 +26,8 @@ az storage account blob-service-properties update --account-name <storage-accoun
 For each storage account requiring remediation, run the following command to enable blob versioning:
 
 ```ps
-Update-AzStorageBlobServiceProperty -ResourceGroupName <resource-group> -StorageAccountName <storage-account> -IsVersioningEnabled $true
+Update-AzStorageBlobServiceProperty `
+    -ResourceGroupName {{resource-group-name}} `
+    -StorageAccountName {{storage-account-name}} `
+    -IsVersioningEnabled $true
 ```

@@ -7,7 +7,7 @@ testData:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The Auto Scaling group is configured to use only one Availability Zone."
-    remediationMessage: "Modify the Auto Scaling group to include instances in at least two Availability Zones."
+    remediationMessage: "Configure the Auto Scaling group to use at least two Availability Zones."
     check:
       LESS_THAN_EQUAL:
         left:

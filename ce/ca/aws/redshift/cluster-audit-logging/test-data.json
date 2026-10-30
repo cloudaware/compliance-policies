@@ -1,0 +1,41 @@
+[
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__status__c') != 'available'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-18T08:35:49Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "paused",
+    "CA10__logging__c": "Disabled",
+    "Id": "001"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__logging__c') != 'Enabled'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-18T08:35:49Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__logging__c": "Disabled",
+    "Id": "002"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-18T08:35:49Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__logging__c": "Enabled",
+    "Id": "003"
+  }
+]

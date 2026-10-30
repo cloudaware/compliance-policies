@@ -4,7 +4,7 @@ Enabling the `log_connections` setting causes each attempted connection to the s
 
 ## Rationale
 
-PostgreSQL does not log attempted connections by default. Enabling the `log_connections` setting will create log entries for each attempted connection as well as successful completion of client authentication which can be useful in troubleshooting issues and to determine any unusual connection attempts to the server. This recommendation is applicable to PostgreSQL database instances.
+PostgreSQL does not log attempted connections by default. Enabling the `log_connections` setting creates log entries for each attempted connection and successful completion of client authentication, which can be useful for troubleshooting issues and identifying unusual connection attempts to the server. This recommendation is applicable to PostgreSQL database instances.
 
 ## Impact
 
@@ -23,7 +23,10 @@ Turning on logging will increase the required storage over time. Mismanaged logs
 
 1. Ensure the below command returns `on` for every Cloud SQL PostgreSQL database instance:
 
-            gcloud sql instances describe [INSTANCE_NAME] --format=json | jq '.settings.databaseFlags[] | select(.name=="log_connections")|.value'
+    ```sh
+    gcloud sql instances describe {{instance-name}} \
+        --format=json | jq '.settings.databaseFlags[] | select(.name=="log_connections") | .value'
+    ```
 
 In the output, database flags are listed under the `settings` as the collection `databaseFlags`.
 

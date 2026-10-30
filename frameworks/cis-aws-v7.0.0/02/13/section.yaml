@@ -1,0 +1,15 @@
+---
+name: 2.13 Ensure IAM users receive permissions only through groups (Automated)
+description: |-
+  IAM users are granted access to services, functions, and data through IAM policies.
+  There are four ways to assign policies to a user:
+
+  1. Attach an inline (user) policy directly to the user
+  2. Attach a managed policy directly to the user
+  3. Add the user to an IAM group with attached policies
+  4. Add the user to an IAM group with inline policies
+
+  Only assigning permissions through IAM groups is recommended.
+similar:
+  sections:
+    - /frameworks/cis-aws-v6.0.0/02/14

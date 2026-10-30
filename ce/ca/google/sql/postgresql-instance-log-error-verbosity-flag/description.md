@@ -2,9 +2,9 @@
 
 The `log_error_verbosity` flag controls the verbosity/details of messages logged. Valid values are:
 
-            • TERSE
-            • DEFAULT
-            • VERBOSE
+- TERSE
+- DEFAULT
+- VERBOSE
 
 `TERSE` excludes the logging of `DETAIL`, `HINT`, `QUERY`, and `CONTEXT` error information.
 
@@ -25,21 +25,24 @@ Turning on logging will increase the required storage over time. Mismanaged logs
 ### From Google Cloud Console
 
 1. Go to the Cloud SQL Instances page in the Google Cloud Console by visiting <https://console.cloud.google.com/sql/instances>.
-2. Select the instance to open its `Instance Overview` page
-3. Go to `Configuration` card
-4. Under `Database flags`, check the value of `log_error_verbosity` flag is set to `DEFAULT` or stricter.
+2. Select the instance to open its `Instance Overview` page.
+3. Go to the `Configuration` card.
+4. Under `Database flags`, check that the value of the `log_error_verbosity` flag is set to `DEFAULT` or stricter.
 
 ### From Google Cloud CLI
 
-1. Use the below command for every Cloud SQL PostgreSQL database instance to verify the value of `log_error_verbosity`
+1. Use the following command for every Cloud SQL PostgreSQL database instance to verify the value of `log_error_verbosity`:
 
-            gcloud sql instances describe [INSTANCE_NAME] --format=json | jq '.settings.databaseFlags[] | select(.name=="log_error_verbosity")|.value'
+    ```sh
+    gcloud sql instances describe {{instance-name}} \
+        --format=json | jq '.settings.databaseFlags[] | select(.name=="log_error_verbosity") | .value'
+    ```
 
-In the output, database flags are listed under the settings as the collection databaseFlags.
+In the output, database flags are listed under `settings` as the `databaseFlags` collection.
 
 ## Default Value
 
-By default `log_error_verbosity` is `DEFAULT`.
+By default, `log_error_verbosity` is `DEFAULT`.
 
 ## References
 

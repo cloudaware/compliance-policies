@@ -1,6 +1,6 @@
 # Description
 
-Networking for Azure Databricks can be set up in a few different ways. Using a customer-managed Virtual Network (VNet) (also known as VNet Injection) ensures that compute clusters and control planes are securely isolated within the organization’s network boundary. By default, Databricks creates a managed VNet, which provides limited control over network security policies, firewall configurations, and routing.
+Networking for Azure Databricks can be set up in a few different ways. Using a customer-managed Virtual Network (VNet), also known as VNet injection, ensures that compute clusters and control planes are securely isolated within the organization's network boundary. By default, Azure Databricks creates a managed VNet, which provides limited control over network security policies, firewall configurations, and routing.
 
 ## Rationale
 

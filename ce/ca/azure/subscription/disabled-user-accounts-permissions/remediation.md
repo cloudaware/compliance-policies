@@ -21,5 +21,5 @@
 For each account requiring remediation, run the following command to remove an assigned role:
 
 ```ps
-Remove-AzRoleAssignment -ObjectId $user.ObjectId -RoleDefinitionName <role-definition-name>
+Remove-AzRoleAssignment -ObjectId $user.ObjectId -RoleDefinitionName {{role-definition-name}}
 ```

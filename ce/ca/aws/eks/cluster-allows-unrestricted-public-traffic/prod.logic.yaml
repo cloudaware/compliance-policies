@@ -5,7 +5,7 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "Cluster endpoint public access is disabled."
+    currentStateMessage: "The cluster endpoint public access is disabled."
     check:
       IS_EQUAL:
         left:
@@ -13,7 +13,8 @@ conditions:
         right:
           TEXT: "Disabled"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Cluster endpoint public access allows all IP addresses." 
+    currentStateMessage: "The cluster endpoint public access allows access from all IP addresses."
+    remediationMessage: "Limit public endpoint access to approved CIDR ranges."
     check:
       CONTAINS:
         arg:
@@ -22,4 +23,4 @@ conditions:
           TEXT: "0.0.0.0/0"
 otherwise:
   status: "COMPLIANT" 
-  currentStateMessage: "Cluster endpoint public access does not allow all IP addresses." 
+  currentStateMessage: "The cluster endpoint public access does not allow access from all IP addresses."

@@ -1,0 +1,57 @@
+---
+inputType: "CA10__CaAwsLambdaFunction__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsLambdaFunction__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Lambda@Edge functions do not support VPC association."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__AWS_Lambda_Function_Versions__r"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Lambda function is not associated with a VPC."
+    check:
+      IS_EMPTY:
+        arg:
+          FIELD:
+            path: "CA10__vpcId__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Lambda function is associated with only one availability zone."
+    remediationMessage: "Update the Lambda function configuration to include subnets in at least two different AZs."
+    check:
+      LESS_THAN:
+        left:
+          RELATED_LIST_COUNT:
+            status: "COMPLIANT"
+            relationshipName: "CA10__AWS_Lambda_Function_Subnet_Links__r"
+        right:
+          NUMBER: 2.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Lambda function is associated with a VPC."
+relatedLists:
+  - relationshipName: "CA10__AWS_Lambda_Function_Versions__r"
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "This is a Lambda@Edge function."
+        check:
+          RELATED_LIST_HAS:
+            status: "COMPLIANT"
+            relationshipName: "CA10__AWS_CloudFront_Lambda_Func_Associations__r"
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "This function version does not have an association with CloudFront."
+    relatedLists:
+      - relationshipName: "CA10__AWS_CloudFront_Lambda_Func_Associations__r"
+        conditions: []
+        otherwise:
+          status: "COMPLIANT"
+          currentStateMessage: "This is a Lambda@Edge function."
+  - relationshipName: "CA10__AWS_Lambda_Function_Subnet_Links__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This is a subnet attached to the function."

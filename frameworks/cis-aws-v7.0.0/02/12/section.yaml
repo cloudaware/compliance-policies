@@ -1,0 +1,10 @@
+---
+name: 2.12 Ensure access keys are rotated every 90 days or less (Automated)
+description: >
+  Access keys consist of an access key ID and secret access key, which are used to sign
+  programmatic requests to AWS. IAM users require access keys to make programmatic
+  calls via the AWS CLI, SDKs, or APIs. It is recommended that all access keys be
+  rotated regularly and at least every 90 days.
+similar:
+  sections:
+    - /frameworks/cis-aws-v6.0.0/02/13

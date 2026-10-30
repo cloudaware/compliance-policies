@@ -1,6 +1,6 @@
 # Remediation
 
-## Encrypt existing EBS Snapshot
+## Encrypt an Existing EBS Snapshot
 
 ### **From Console**
 
@@ -24,17 +24,17 @@
    - Select the unencrypted snapshot.
    - Choose **Actions** → **Delete snapshot**.
    - Confirm the deletion.
-9. Repeat Steps 4–8 for all unencrypted EBS snapshots in the current AWS Region.
+9. Repeat Steps 4-8 for all unencrypted EBS snapshots in the current AWS Region.
 10. Switch AWS Regions and repeat the remediation process as needed.
 
 ### **From Command Line**
 
-1. Use the `copy-snapshot` command (OSX/Linux/UNIX) to create an encrypted copy of an unencrypted EBS snapshot:
+1. Use the `copy-snapshot` command to create an encrypted copy of an unencrypted EBS snapshot:
 
     ```sh
     aws ec2 copy-snapshot \
-        --region {{us-east-1}} \
-        --source-region {{us-east-1}} \
+        --region {{region-name}} \
+        --source-region {{source-region}} \
         --source-snapshot-id {{unencrypted-snapshot-id}} \
         --description "Encrypted copy of EBS snapshot" \
         --encrypted
@@ -44,6 +44,6 @@
 
     ```sh
     aws ec2 delete-snapshot \
-        --region {{us-east-1}} \
+        --region {{region-name}} \
         --snapshot-id {{unencrypted-snapshot-id}}
     ```

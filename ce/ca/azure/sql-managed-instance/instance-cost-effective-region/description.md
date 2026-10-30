@@ -1,6 +1,6 @@
 # Description
 
-This policy identifies Azure SQL Managed Instance that are provisioned in Azure regions known to have higher pricing compared to nearby alternatives.
+This policy identifies Azure SQL Managed Instances that are provisioned in Azure regions known to have higher pricing compared to nearby alternatives.
 
 ## Rationale
 

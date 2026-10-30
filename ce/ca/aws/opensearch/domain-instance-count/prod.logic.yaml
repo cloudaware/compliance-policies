@@ -17,8 +17,8 @@ conditions:
               arg:
                 EXTRACT: "CA10__clusterConfigZoneAwarenessEnabled__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Zone Awareness is disabled for this OpenSearch domain."
-    remediationMessage: "Enable Zone Awareness to distribute nodes across multiple Availability Zones."
+    currentStateMessage: "Zone awareness is disabled for this OpenSearch domain."
+    remediationMessage: "Enable zone awareness to distribute nodes across multiple availability zones."
     check:
       IS_EQUAL:
         left:
@@ -26,7 +26,7 @@ conditions:
         right:
           TEXT: "false"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The OpenSearch Domain has fewer than 3 instances."
+    currentStateMessage: "The OpenSearch domain has fewer than 3 instances."
     remediationMessage: "Increase the instance count to at least 3 for high availability."
     check:
       LESS_THAN:
@@ -35,7 +35,7 @@ conditions:
         right:
           NUMBER: 3.0
   - status: "COMPLIANT"
-    currentStateMessage: "The OpenSearch domain has at least 3 instances and Zone Awareness is enabled."
+    currentStateMessage: "The OpenSearch domain has at least 3 instances and zone awareness is enabled."
     check:
       AND:
         args:

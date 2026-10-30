@@ -1,0 +1,20 @@
+---
+names:
+  full: "AWS Cognito Identity Pool allows unauthenticated identities"
+  contextual: "Identity Pool allows unauthenticated identities"
+description: >
+  Ensure that Amazon Cognito identity pools do not allow unauthenticated
+  identities. When guest access is enabled, Amazon Cognito can issue temporary
+  AWS credentials to users who have not authenticated with a trusted identity
+  provider, increasing the risk of unintended access to downstream AWS
+  resources.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/secure-access"
+  - "/frameworks/aws-fsbp-v1.0.0/cognito/02"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Cognito.2] Cognito identity pools should not allow unauthenticated identities"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/cognito-controls.html#cognito-2"

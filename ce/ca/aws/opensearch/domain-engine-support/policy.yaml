@@ -1,0 +1,14 @@
+---
+names:
+  full: AWS OpenSearch Domain engine is outside standard support
+  contextual: Domain engine is outside standard support
+description: >
+  Ensure Amazon OpenSearch Service domains use engine versions within AWS standard
+  support to retain routine fixes and avoid extended support charges. Distinguish
+  extended support from the final published support cutoff.
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization
+

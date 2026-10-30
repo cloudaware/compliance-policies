@@ -2,7 +2,7 @@
 
 It is recommended to evaluate and restrict the configuration of AWS EC2 security groups to prevent unrestricted NetBIOS traffic (TCP: 137, 139, UDP: 137, 138). NetBIOS is often used in legacy systems for file sharing and network management in Windows environments, but exposing these ports publicly can pose significant security risks.
 
-## Rational
+## Rationale
 
 Restricting NetBIOS traffic in security groups reduces the attack surface of your EC2 instances, enhancing the overall security posture. NetBIOS is known to be vulnerable to exploitation and is rarely required in modern cloud-based applications. Addressing this configuration minimizes the risk of unauthorized access, data exfiltration, and the spread of malicious payloads.
 

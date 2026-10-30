@@ -13,13 +13,16 @@
 
 ## From Command Line
 
-1. To enable `object-level` data events logging for S3 buckets within your AWS account, run `put-event-selectors` command using the name of the trail that you want to reconfigure as identifier:
+1. To enable `object-level` data events logging for S3 buckets within your AWS account, run the `put-event-selectors` command using the name of the trail that you want to reconfigure as the identifier:
 
-```sh
-aws cloudtrail put-event-selectors --region <region-name> --trail-name <trail-name> --event-selectors '[{ "ReadWriteType": "WriteOnly", "IncludeManagementEvents":true, "DataResources": [{ "Type": "AWS::S3::Object", "Values": ["arn:aws:s3:::<s3-bucket-name>/"] }] }]'
-```
+    ```sh
+    aws cloudtrail put-event-selectors \
+        --region {{region-name}} \
+        --trail-name {{trail-name}} \
+        --event-selectors '[{ "ReadWriteType": "WriteOnly", "IncludeManagementEvents":true, "DataResources": [{ "Type": "AWS::S3::Object", "Values": ["arn:aws:s3:::{{s3-bucket-name}}/"] }] }]'
+    ```
 
 2. The command output will be `object-level` event trail configuration.
-3. If you want to enable it for all buckets at once then change Values parameter to `["arn:aws:s3"]` in the previous command.
-4. Repeat step 1 for each s3 bucket to update `object-level` logging of write events.
+3. If you want to enable it for all buckets at once, change the Values parameter to `["arn:aws:s3"]` in the previous command.
+4. Repeat step 1 for each S3 bucket to update `object-level` logging of write events.
 5. Change the AWS region by updating the `--region` command parameter and perform the process for other regions.

@@ -1,6 +1,6 @@
 ---
 name: "6.2 Ensure that Resource Locks are set for Mission-Critical Azure Resources (Manual)"
-description: >
+description: |-
   Resource Manager Locks provide a way for administrators to lock down Azure 
   resources to prevent deletion of, or modifications to, a resource. These 
   locks sit outside of the Role Based Access Controls (RBAC) hierarchy and, 
@@ -17,3 +17,4 @@ similar:
   sections:
     - "/frameworks/cis-azure-v3.0.0/10/01"
     - "/frameworks/cis-azure-v4.0.0/07/02"
+    - "/frameworks/cis-azure-v6.0.0/06/02"

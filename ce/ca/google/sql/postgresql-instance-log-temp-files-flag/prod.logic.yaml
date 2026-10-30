@@ -26,5 +26,8 @@ conditions:
           TEXT: "0"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "The log_temp_files database flag isn't set to 0."
+  currentStateMessage: "The log_temp_files database flag is not set to 0."
   remediationMessage: "Set log_temp_files database flag to 0."
+
+
+

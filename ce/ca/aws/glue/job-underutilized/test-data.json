@@ -1,0 +1,994 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "699",
+      "conditionText": "extract('CA10__avgAllCpuSystemLoad14d__c') < number(20.0) && extract('CA10__avgAllJvmHeapUsage14d__c') < number(20.0) && extract('CA10__avgDriverCpuSystemLoad14d__c') < number(20.0) && extract('CA10__avgDriverJvmHeapUsage14d__c') < number(20.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "low-utilization",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgAllCpuSystemLoad14d__c-20",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 20,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgAllCpuSystemLoad14d__c-100",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 100,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "401",
+      "conditionText": "CA10__avgAllCpuSystemLoad14d__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgAllCpuSystemLoad14d__c-None",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": null,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__avgAllCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgAllCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgAllJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgAllJvmHeapUsage14d__c') > number(100.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') > number(100.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgAllCpuSystemLoad14d__c--1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": -1,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__avgAllCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgAllCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgAllJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgAllJvmHeapUsage14d__c') > number(100.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') > number(100.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgAllCpuSystemLoad14d__c-101",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 101,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgAllJvmHeapUsage14d__c-20",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 20,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgAllJvmHeapUsage14d__c-100",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 100,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "402",
+      "conditionText": "CA10__avgAllJvmHeapUsage14d__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgAllJvmHeapUsage14d__c-None",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": null,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__avgAllCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgAllCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgAllJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgAllJvmHeapUsage14d__c') > number(100.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') > number(100.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgAllJvmHeapUsage14d__c--1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": -1,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__avgAllCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgAllCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgAllJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgAllJvmHeapUsage14d__c') > number(100.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') > number(100.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgAllJvmHeapUsage14d__c-101",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 101,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgDriverCpuSystemLoad14d__c-20",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 20,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgDriverCpuSystemLoad14d__c-100",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 100,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "403",
+      "conditionText": "CA10__avgDriverCpuSystemLoad14d__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgDriverCpuSystemLoad14d__c-None",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": null,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__avgAllCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgAllCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgAllJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgAllJvmHeapUsage14d__c') > number(100.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') > number(100.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgDriverCpuSystemLoad14d__c--1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": -1,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__avgAllCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgAllCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgAllJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgAllJvmHeapUsage14d__c') > number(100.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') > number(100.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgDriverCpuSystemLoad14d__c-101",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 101,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgDriverJvmHeapUsage14d__c-20",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 20,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgDriverJvmHeapUsage14d__c-100",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 100,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "404",
+      "conditionText": "CA10__avgDriverJvmHeapUsage14d__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgDriverJvmHeapUsage14d__c-None",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": null,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__avgAllCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgAllCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgAllJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgAllJvmHeapUsage14d__c') > number(100.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') > number(100.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgDriverJvmHeapUsage14d__c--1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": -1,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__avgAllCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgAllCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgAllJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgAllJvmHeapUsage14d__c') > number(100.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') > number(100.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgDriverJvmHeapUsage14d__c-101",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 101,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "301",
+      "conditionText": "CA10__numCompletedTasksSum14d__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "tasks-None",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": null,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__numCompletedTasksSum14d__c') <= number(0.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "tasks-0",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 0,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__numCompletedTasksSum14d__c') <= number(0.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "tasks--1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": -1,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__commandName__c') != 'glueetl'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "command-pythonshell",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__commandName__c') != 'glueetl'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "command-gluestreaming",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "gluestreaming",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "101",
+      "conditionText": "CA10__commandName__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "command-None",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": null,
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "not(extract('CA10__createdOn__c').beyondLastDays(14))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "created-2026-10-12T00:00:00Z",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-10-12T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "not(extract('CA10__createdOn__c').beyondLastDays(14))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "created-2026-09-29T00:00:00Z",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-09-29T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "201",
+      "conditionText": "CA10__createdOn__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "created-None",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": null,
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "disappeared",
+    "CA10__disappearanceTime__c": "2026-10-12T00:00:00Z",
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__avgAllCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgAllCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgAllJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgAllJvmHeapUsage14d__c') > number(100.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') > number(100.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "sample-one-task-zero-executor-cpu",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 1,
+    "CA10__avgAllCpuSystemLoad14d__c": 0,
+    "CA10__avgAllJvmHeapUsage14d__c": 3.4702069312334065,
+    "CA10__avgDriverCpuSystemLoad14d__c": 2.517354516327376,
+    "CA10__avgDriverJvmHeapUsage14d__c": 4.574851865569751,
+    "CA10__workerType__c": "G.1X",
+    "CA10__numberOfWorkers__c": 2,
+    "CA10__numCompletedTasksSum7d__c": 1
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "699",
+      "conditionText": "extract('CA10__avgAllCpuSystemLoad14d__c') < number(20.0) && extract('CA10__avgAllJvmHeapUsage14d__c') < number(20.0) && extract('CA10__avgDriverCpuSystemLoad14d__c') < number(20.0) && extract('CA10__avgDriverJvmHeapUsage14d__c') < number(20.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "sample-high-task-count-auto-scaling",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 19417430,
+    "CA10__avgAllCpuSystemLoad14d__c": 7.212892001124691,
+    "CA10__avgAllJvmHeapUsage14d__c": 5.552194605252455,
+    "CA10__avgDriverCpuSystemLoad14d__c": 6.932769307905659,
+    "CA10__avgDriverJvmHeapUsage14d__c": 2.954946758152317,
+    "CA10__workerType__c": "G.4X",
+    "CA10__numberOfWorkers__c": 10,
+    "CA10__defaultArguments__c": "--enable-auto-scaling: true\n--enable-metrics: true",
+    "CA10__numCompletedTasksSum7d__c": 9000000
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__avgAllCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgAllCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgAllJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgAllJvmHeapUsage14d__c') > number(100.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') > number(100.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "all-zero-averages-positive-tasks",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 0,
+    "CA10__avgAllJvmHeapUsage14d__c": 0,
+    "CA10__avgDriverCpuSystemLoad14d__c": 0,
+    "CA10__avgDriverJvmHeapUsage14d__c": 0,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "699",
+      "conditionText": "extract('CA10__avgAllCpuSystemLoad14d__c') < number(20.0) && extract('CA10__avgAllJvmHeapUsage14d__c') < number(20.0) && extract('CA10__avgDriverCpuSystemLoad14d__c') < number(20.0) && extract('CA10__avgDriverJvmHeapUsage14d__c') < number(20.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "created-just-before-utc-age-boundary",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-09-28T23:59:59Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "402",
+      "conditionText": "CA10__avgAllJvmHeapUsage14d__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "high-cpu-missing-heap-is-not-compliant",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 50,
+    "CA10__avgAllJvmHeapUsage14d__c": null,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "extract('CA10__numCompletedTasksSum7d__c') <= number(0.0) || extract('CA10__numCompletedTasksSum14d__c') <= extract('CA10__numCompletedTasksSum7d__c')",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "activity-only-in-earlier-week",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 0
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "extract('CA10__numCompletedTasksSum7d__c') <= number(0.0) || extract('CA10__numCompletedTasksSum14d__c') <= extract('CA10__numCompletedTasksSum7d__c')",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "activity-only-in-recent-week",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 100
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "extract('CA10__numCompletedTasksSum7d__c') <= number(0.0) || extract('CA10__numCompletedTasksSum14d__c') <= extract('CA10__numCompletedTasksSum7d__c')",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "negative-seven-day-tasks",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": -1
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "extract('CA10__numCompletedTasksSum7d__c') <= number(0.0) || extract('CA10__numCompletedTasksSum14d__c') <= extract('CA10__numCompletedTasksSum7d__c')",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "seven-day-tasks-exceed-fourteen-day-total",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 101
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "501",
+      "conditionText": "CA10__numCompletedTasksSum7d__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "missing-seven-day-tasks",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__avgAllCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgAllCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgAllJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgAllJvmHeapUsage14d__c') > number(100.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') > number(100.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgAllCpuSystemLoad14d__c-zero",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 0,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__avgAllCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgAllCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgAllJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgAllJvmHeapUsage14d__c') > number(100.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') > number(100.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgAllJvmHeapUsage14d__c-zero",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 0,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__avgAllCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgAllCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgAllJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgAllJvmHeapUsage14d__c') > number(100.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') > number(100.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgDriverCpuSystemLoad14d__c-zero",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 0,
+    "CA10__avgDriverJvmHeapUsage14d__c": 10,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__avgAllCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgAllCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgAllJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgAllJvmHeapUsage14d__c') > number(100.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') <= number(0.0) || extract('CA10__avgDriverCpuSystemLoad14d__c') > number(100.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') <= number(0.0) || extract('CA10__avgDriverJvmHeapUsage14d__c') > number(100.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "CA10__avgDriverJvmHeapUsage14d__c-zero",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 10,
+    "CA10__avgAllJvmHeapUsage14d__c": 10,
+    "CA10__avgDriverCpuSystemLoad14d__c": 10,
+    "CA10__avgDriverJvmHeapUsage14d__c": 0,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "699",
+      "conditionText": "extract('CA10__avgAllCpuSystemLoad14d__c') < number(20.0) && extract('CA10__avgAllJvmHeapUsage14d__c') < number(20.0) && extract('CA10__avgDriverCpuSystemLoad14d__c') < number(20.0) && extract('CA10__avgDriverJvmHeapUsage14d__c') < number(20.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "small-positive-utilization",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": 0.01,
+    "CA10__avgAllJvmHeapUsage14d__c": 0.01,
+    "CA10__avgDriverCpuSystemLoad14d__c": 0.01,
+    "CA10__avgDriverJvmHeapUsage14d__c": 0.01,
+    "CA10__numCompletedTasksSum7d__c": 50
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__commandName__c') != 'glueetl'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "unsupported-command-without-metrics",
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__createdOn__c": "2026-08-01T00:00:00Z",
+    "CA10__numCompletedTasksSum14d__c": 100,
+    "CA10__avgAllCpuSystemLoad14d__c": null,
+    "CA10__avgAllJvmHeapUsage14d__c": null,
+    "CA10__avgDriverCpuSystemLoad14d__c": null,
+    "CA10__avgDriverJvmHeapUsage14d__c": null,
+    "CA10__numCompletedTasksSum7d__c": 50
+  }
+]

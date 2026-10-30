@@ -6,7 +6,7 @@ importExtracts:
   - file: /types/CA10__CaGoogleGceInstance__c/object.extracts.yaml
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The instance is created by GKE."
+    currentStateMessage: "This instance was created by GKE."
     check:
       STARTS_WITH:
         arg:

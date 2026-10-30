@@ -1,6 +1,6 @@
 # Description
 
-Enable Transparent Data Encryption on every SQL server.
+Enable Transparent Data Encryption on every SQL Database.
 
 ## Rationale
 
@@ -16,10 +16,14 @@ Azure SQL Database transparent data encryption helps protect against the threat 
 
 ### From Azure CLI
 
-Ensure the output of the below command is `Enabled`:
+Ensure the output of the following command is `Enabled`:
 
 ```sh
-az sql db tde show --resource-group <resourceGroup> --server <dbServerName> --database <dbName> --query status
+az sql db tde show \
+    --resource-group {{resource-group-name}} \
+    --server {{server-name}} \
+    --database {{database-name}} \
+    --query status
 ```
 
 ### From PowerShell
@@ -33,13 +37,18 @@ Get-AzSqlServer
 For each server, list the databases:
 
 ```ps
-Get-AzSqlDatabase -ServerName <SQL Server Name> -ResourceGroupName <Resource Group Name>
+Get-AzSqlDatabase `
+    -ServerName {{sql-server-name}} `
+    -ResourceGroupName {{resource-group-name}}
 ```
 
 For each database not listed as a `Master` database, check for Transparent Data Encryption:
 
 ```ps
-Get-AzSqlDatabaseTransparentDataEncryption -ResourceGroupName <Resource Group Name> -ServerName <SQL Server Name> -DatabaseName <Database Name>
+Get-AzSqlDatabaseTransparentDataEncryption `
+    -ResourceGroupName {{resource-group-name}} `
+    -ServerName {{sql-server-name}} `
+    -DatabaseName {{database-name}}
 ```
 
 Make sure `DataEncryption` is `Enabled` for each database except the Master database.

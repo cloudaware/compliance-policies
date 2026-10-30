@@ -10,11 +10,17 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - "/frameworks/cloudaware/resource-security/threat-protection"
+  - "/frameworks/iso-iec-27001-2013/13/01/01"
+  - "/frameworks/pci-dss-v4.0.1/01/03/01"
+  - "/frameworks/pci-dss-v4.0.1/01/03/02"
+  - "/frameworks/cloudaware/resource-security/network-exposure"
+  - "/frameworks/iso-iec-27001-2013/09/04/01"
+  - "/frameworks/pci-dss-v4.0.1/01/04/01"
+  - "/frameworks/pci-dss-v4.0.1/01/04/02"
 similarPolicies:
   internal:
-    - dec-z-dbeeed9f
-    - dec-z-f778950c
+    - dec-x-5dc6b82a
+    - dec-x-892f536e
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EC2/unrestricted-dns-access.html
       name: Unrestricted DNS Access

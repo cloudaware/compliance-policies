@@ -1,0 +1,23 @@
+---
+names:
+  full: "AWS RDS Cluster Backup Retention Period is less than 7 days"
+  contextual: "Cluster Backup Retention Period is less than 7 days"
+description: >
+  Ensure that AWS RDS DB clusters retain automated backups for at least 7 days.
+  Adequate backup retention improves point-in-time recovery and reduces the risk
+  of data loss during operational failures or security incidents.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-protection-and-recovery"
+  - "/frameworks/aws-fsbp-v1.0.0/documentdb/02"
+  - "/frameworks/aws-fsbp-v1.0.0/neptune/05"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[RDS.50] RDS DB clusters should have enough backup retention period set"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-50"
+    - name: "[DocumentDB.2] Amazon DocumentDB clusters should have an adequate backup retention period"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/documentdb-controls.html#documentdb-2"
+    - name: "[Neptune.5] Neptune DB clusters should have automated backups enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/neptune-controls.html#neptune-5"

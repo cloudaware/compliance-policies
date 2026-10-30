@@ -14,7 +14,7 @@ conditions:
         right:
           TEXT: "Yes"
   - status: "COMPLIANT"
-    currentStateMessage: "The Bucket policy is public but the block public policy configuration is enabled."
+    currentStateMessage: "The bucket policy is public, but the block public policy setting is enabled."
     check:
       IS_EQUAL:
         left:
@@ -23,7 +23,7 @@ conditions:
           TEXT: "Yes"
   - status: "INCOMPLIANT"
     currentStateMessage: "The bucket policy grants public write access to the bucket data."
-    remediationMessage: "Consider removing the public write access from the bucket."
+    remediationMessage: "Remove the public write access from the bucket."
     check:
       AWS_POLICY_ALLOWS:
         widestAcceptableAccessLevel: "EXTERNAL_PRINCIPAL"
@@ -37,7 +37,7 @@ conditions:
           - "s3:PutBucketPolicy"
   - status: "INCOMPLIANT"
     currentStateMessage: "The bucket policy grants public read access to the bucket data."
-    remediationMessage: "Consider removing the public read access from the bucket."
+    remediationMessage: "Remove the public read access from the bucket."
     check:
       AWS_POLICY_ALLOWS:
         widestAcceptableAccessLevel: "EXTERNAL_PRINCIPAL"
@@ -48,4 +48,4 @@ conditions:
           - "s3:GetObjectVersion"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Bucket policy does not grant public read or write access to the bucket data."
+  currentStateMessage: "The bucket policy does not grant public read or write access to the bucket data."

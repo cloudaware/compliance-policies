@@ -23,22 +23,52 @@ conditions:
             arg:
               EXTRACT: "CA10__createTime__c"
   - status: UNDETERMINED
-    currentStateMessage: "There is not enough data in the CMDB to identify if the instance is overutilized."
+    currentStateMessage: "There is not enough data in the CMDB to determine whether the instance is overutilized."
     check:
-      IS_EMPTY:
-        arg:
-          EXTRACT: "CA10__averageCpuOneMonth__c"
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__averageCpuOneMonth__c"
+          - AND:
+              args:
+                - IS_EMPTY:
+                    arg:
+                      EXTRACT: "CA10__diskReadIopsAvg30d__c"
+                - IS_EMPTY:
+                    arg:
+                      EXTRACT: "CA10__diskWriteIopsAvg30d__c"
+                - IS_EMPTY:
+                    arg:
+                      EXTRACT: "CA10__databaseConnectionsMax30d__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The instance is overutilized with Average CPU Utilization > 90%"
-    remediationMessage: "Consider rightsizing the instance."
+    currentStateMessage: "The instance is overutilized with 30-day average CPU utilization above 90% and workload activity indicated by database connections or disk I/O."
+    remediationMessage: "Scale up the instance, tune the workload, or adjust capacity."
     check:
-      NOT:
-        arg:
-          LESS_THAN:
+      AND:
+        args:
+          - GREATER_THAN:
               left:
                 EXTRACT: "CA10__averageCpuOneMonth__c"
               right:
                 NUMBER: 90.0
+          - OR:
+              args:
+                - GREATER_THAN:
+                    left:
+                      EXTRACT: "CA10__databaseConnectionsMax30d__c"
+                    right:
+                      NUMBER: 0.0
+                - GREATER_THAN:
+                    left:
+                      EXTRACT: "CA10__diskReadIopsAvg30d__c"
+                    right:
+                      NUMBER: 50.0
+                - GREATER_THAN:
+                    left:
+                      EXTRACT: "CA10__diskWriteIopsAvg30d__c"
+                    right:
+                      NUMBER: 50.0
 otherwise:
   status: "COMPLIANT"
   currentStateMessage: "The instance is not overutilized."

@@ -5,23 +5,73 @@ testData:
 importExtracts:
   - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
 conditions:
-  - status: "INCOMPLIANT"
-    currentStateMessage: "Public Network Access is enabled."
-    remediationMessage: "Consider disabling Public Network Access."
-    check:
-      IS_EQUAL:
-        left:
-          EXTRACT: "CA10__publicNetworkAccessState__c"
-        right:
-          TEXT: "Enabled"
   - status: "COMPLIANT"
-    currentStateMessage: "Public Network Access is disabled."
+    currentStateMessage: "Public network access is disabled."
     check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__publicNetworkAccessState__c"
         right:
           TEXT: "Disabled"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Public network access is enabled for selected networks, and the trusted Azure services exception is enabled."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__publicNetworkAccessState__c"
+              right:
+                TEXT: "Enabled"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__networkAclsDefaultAction__c"
+              right:
+                TEXT: "Deny"
+          - CONTAINS:
+              arg:
+                EXTRACT: "CA10__networkAclsBypass__c"
+              search:
+                TEXT: "azureservices"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Public network access is enabled from all networks."
+    remediationMessage: "Disable public network access, or restrict default network access if public network access is required."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__publicNetworkAccessState__c"
+              right:
+                TEXT: "Enabled"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__networkAclsDefaultAction__c"
+              right:
+                TEXT: "Allow"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Public network access is enabled for selected networks, but the trusted Azure services exception is not enabled."
+    remediationMessage: "Disable public network access, or enable the trusted Azure services exception if public network access is required."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__publicNetworkAccessState__c"
+              right:
+                TEXT: "Enabled"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__networkAclsDefaultAction__c"
+              right:
+                TEXT: "Deny"
+          - NOT:
+              arg:
+                CONTAINS: 
+                  arg:
+                    EXTRACT: "CA10__networkAclsBypass__c"
+                  search:
+                    TEXT: "azureservices"
 otherwise:
   status: "UNDETERMINED"
   currentStateMessage: "Unexpected value in the field."

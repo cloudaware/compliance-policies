@@ -4,15 +4,15 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "This Security Group allows ICMP access from 0.0.0.0/0 or ::/0."
-    remediationMessage: "Consider changing the Security Group source field to a range other than 0.0.0.0/0 or delete the offending inbound rule."
+    currentStateMessage: "This security group allows ICMP access from 0.0.0.0/0 or ::/0."
+    remediationMessage: "Change the security group source to a range other than 0.0.0.0/0 or delete the offending inbound rule."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "This Security Group doesn't allow unrestricted ICMP access."
+  currentStateMessage: "This security group does not allow unrestricted ICMP access."
 relatedLists: 
   - relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
     importExtracts:
@@ -42,8 +42,8 @@ relatedLists:
                   right:
                     TEXT: "::/0"
       - status: "INCOMPLIANT"
-        currentStateMessage: "This Security Group allows ICMP access from 0.0.0.0/0 or ::/0."
-        remediationMessage: "Consider changing the source field to a range other\
+        currentStateMessage: "This security group allows ICMP access from 0.0.0.0/0 or ::/0."
+        remediationMessage: "Change the source field to a range other\
           \ than 0.0.0.0/0 or delete the offending inbound rule."
         check:
           IS_EQUAL:
@@ -53,4 +53,5 @@ relatedLists:
               TEXT: "icmp"
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "This Security Group doesn't allow unrestricted access."
+      currentStateMessage: "This security group does not allow unrestricted access."
+

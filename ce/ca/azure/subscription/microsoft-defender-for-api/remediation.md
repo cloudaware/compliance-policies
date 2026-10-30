@@ -16,7 +16,10 @@
 Run the following command to enable Defender for APIs:
 
 ```sh
-az security pricing create --name Api --tier Standard --subplan <subplan>
+az security pricing create \
+    --name Api \
+    --tier Standard \
+    --subplan {{subplan}}
 ```
 
 Valid subplan values: `P1`, `P2`, `P3`, `P4`, and `P5`.
@@ -26,7 +29,10 @@ Valid subplan values: `P1`, `P2`, `P3`, `P4`, and `P5`.
 Run the following command to enable Defender for APIs:
 
 ```ps
-Set-AzSecurityPricing -Name Api -PricingTier Standard -SubPlan <subplan>
+Set-AzSecurityPricing `
+    -Name Api `
+    -PricingTier Standard `
+    -SubPlan {{subplan}}
 ```
 
 Valid SubPlan values: `P1`, `P2`, `P3`, `P4`, and `P5`.

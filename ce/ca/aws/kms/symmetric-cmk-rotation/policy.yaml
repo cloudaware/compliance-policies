@@ -10,10 +10,10 @@ description: AWS KMS allows customers to rotate the backing key which is key mat
   that CMK key rotation be enabled for symmetric keys.
 type: COMPLIANCE_POLICY
 categories:
-  - SECURITY
-  - RELIABILITY
+  - "SECURITY"
+  - "RELIABILITY"
 frameworkMappings:
-  - "/frameworks/cis-aws-v6.0.0/04/06"
+  - "/frameworks/cis-aws-v7.0.0/04/06"
   - "/frameworks/cloudaware/secret-and-certificate-governance/expiration-management"
   - "/frameworks/aws-well-architected/sec/08/01"
   - "/frameworks/aws-well-architected/sec/09/01"

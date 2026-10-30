@@ -1,0 +1,23 @@
+---
+names:
+  full: "AWS Elastic Beanstalk Environment does not have managed platform updates enabled"
+  contextual: "Environment does not have managed platform updates enabled"
+description: >
+  Ensure that Managed Platform Updates are enabled for your AWS Elastic Beanstalk 
+  environments. This feature allows Elastic Beanstalk to automatically upgrade your 
+  environment to the latest version of the platform during a scheduled maintenance 
+  window, ensuring you receive timely security patches, bug fixes, and performance
+  improvements.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/infrastructure-modernization"
+  - "/frameworks/aws-fsbp-v1.0.0/elastic-beanstalk/02"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ElasticBeanstalk.2] Elastic Beanstalk managed platform updates should be enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/elasticbeanstalk-controls.html#elasticbeanstalk-2"
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/ElasticBeanstalk/managed-platform-updates.html"
+      name: Elastic Beanstalk Managed Platform Updates

@@ -4,13 +4,13 @@ BigQuery tables can contain sensitive data that for security purposes should be 
 
 ## Rationale
 
-Using a cloud service or 3rd party software to continuously monitor and automate the process of data discovery and classification for BigQuery tables is an important part of protecting the data.
+Using a cloud service or third-party software to continuously monitor and automate the process of data discovery and classification for BigQuery tables is an important part of protecting the data.
 
 Sensitive Data Protection is a fully managed data protection and data privacy platform that uses machine learning and pattern matching to discover and classify sensitive data in Google Cloud.
 
 ## Impact
 
-There is a cost associated with using Sensitive Data Protection. There is also typically a cost associated with 3rd party tools that perform similar processes and protection.
+There is a cost associated with using Sensitive Data Protection. There is also typically a cost associated with third-party tools that perform similar processes and protection.
 
 ## Audit
 

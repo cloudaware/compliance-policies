@@ -1,6 +1,6 @@
 # Description
 
-Restricting default network access helps to provide a new layer of security, since storage accounts accept connections from clients on any network. To limit access to selected networks, the default action must be changed.
+Restricting default network access provides an additional layer of security, since storage accounts accept connections from clients on any network. To limit access to selected networks, the default action must be changed.
 
 ## Rationale
 

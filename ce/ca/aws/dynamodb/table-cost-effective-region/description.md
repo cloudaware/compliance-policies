@@ -12,7 +12,7 @@ Migrating DynamoDB workloads to different regions requires careful planning to a
 
 ## Audit
 
-This policy flagged an *AWS DynamoDB Table* as `INCOMPLIANT` if it is **ACTIVE** in one of the following regions identified as less cost-efficient:
+This policy flags an *AWS DynamoDB Table* as `INCOMPLIANT` if it is **ACTIVE** in one of the following regions identified as less cost-efficient:
 
 | Region         | Recommended Alternative              |
 | -------------- | ------------------------------------ |

@@ -8,8 +8,8 @@ recordTypes:
   - "caWebDistribution"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "At least one CloudFront Distribution cache behavior allows unencrypted HTTP traffic."
-    remediationMessage: "Modify the Viewer Protocol Policy for all cache behaviors to either Redirect HTTP to HTTPS or HTTPS Only."
+    currentStateMessage: "At least one CloudFront distribution cache behavior allows unencrypted HTTP traffic."
+    remediationMessage: "Set the viewer protocol policy to Redirect HTTP to HTTPS or HTTPS Only for all cache behaviors."
     check:
       AND:
         args:
@@ -18,12 +18,12 @@ conditions:
               status: "INCOMPLIANT"
               relationshipName: "CA10__AWS_CloudFront_Cache_Behaviors__r"
   - status: "UNDETERMINED"
-    currentStateMessage: "The default CloudFront Distribution cache behavior is not present in the CMDB."
+    currentStateMessage: "The default CloudFront distribution cache behavior is not present in the CMDB."
     check:
       IS_EMPTY_LOOKUP: "CA10__defaultCacheBehavior__r"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The default CloudFront Distribution cache behavior allows unencrypted HTTP traffic."
-    remediationMessage: "Modify the Viewer Protocol Policy for the default cache behaviors to either Redirect HTTP to HTTPS or HTTPS Only."
+    currentStateMessage: "The default CloudFront distribution cache behavior allows unencrypted HTTP traffic."
+    remediationMessage: "Set the viewer protocol policy to Redirect HTTP to HTTPS or HTTPS Only for the default cache behavior."
     check:
       IS_EQUAL:
         left:
@@ -31,15 +31,15 @@ conditions:
         right:
           TEXT: "allow-all"
   - status: "INCOMPLIANT"
-    currentStateMessage: "At least one CloudFront Distribution cache behavior allows unencrypted HTTP traffic."
-    remediationMessage: "Modify the Viewer Protocol Policy for all cache behaviors to either Redirect HTTP to HTTPS or HTTPS Only."
+    currentStateMessage: "At least one CloudFront distribution cache behavior allows unencrypted HTTP traffic."
+    remediationMessage: "Set the viewer protocol policy to Redirect HTTP to HTTPS or HTTPS Only for all cache behaviors."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__AWS_CloudFront_Cache_Behaviors__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "All CloudFront Distribution cache behaviors enforce encrypted communications."
+  currentStateMessage: "All CloudFront distribution cache behaviors enforce encrypted communications."
 relatedLists:
   - relationshipName: "CA10__AWS_CloudFront_Cache_Behaviors__r"
     conditions:

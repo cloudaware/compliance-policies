@@ -8,7 +8,7 @@ Before performing any changes, review historical performance metrics to ensure t
 
 ```sh
 az sql elastic-pool update \
-    --resource-group {{resource-group}} \
+    --resource-group {{resource-group-name}} \
     --server {{server-name}} \
     --name {{pool-name}} \
     --edition {{Standard | GeneralPurpose}} \
@@ -39,7 +39,7 @@ az sql elastic-pool update \
 
 ```ps
 Set-AzSqlElasticPool `
-    -ResourceGroupName "{{resource-group}}" `
+    -ResourceGroupName "{{resource-group-name}}" `
     -ServerName "{{server-name}}" `
     -ElasticPoolName "{{pool-name}}" `
     -Edition "{{Standard | GeneralPurpose}}" `

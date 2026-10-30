@@ -5,14 +5,14 @@ A VPC comes with a default security group whose initial settings deny all inboun
 The default VPC in every region should have its default security group updated to
 comply with the following:
 
-- No inbound rules.s
+- No inbound rules.
 - No outbound rules.
 
 **NOTE**: When implementing this recommendation, VPC flow logging is invaluable in determining the least privilege port access required by systems to work properly because it can log all packet acceptances and rejections occurring under the current security groups. This dramatically reduces the primary barrier to least privilege engineering - discovering the minimum ports required by systems in the environment. Even if the VPC flow logging recommendation in this benchmark is not adopted as a permanent security measure, it should be used during any period of discovery and engineering for least privileged security groups.
 
 ## Rationale
 
-Configuring all VPC default security groups to restrict all traffic will encourage least privilege security group development and mindful placement of AWS resources into security groups which will in-turn reduce the exposure of those resources.
+Configuring all VPC default security groups to restrict all traffic will encourage least privilege security group development and mindful placement of AWS resources into security groups, which will in turn reduce the exposure of those resources.
 
 ## Impact
 
@@ -34,24 +34,24 @@ Perform the following to determine if the account is configured as prescribed:
 
 ### Security Group State
 
-1. Login to the AWS Management Console at <https://console.aws.amazon.com/vpc/home>.
+1. Log in to the AWS Management Console at <https://console.aws.amazon.com/vpc/home>.
 2. Repeat the next steps for all VPCs - including the default VPC in each AWS region:
 3. In the left pane, click `Security Groups`.
 4. For each default security group, perform the following:
    - Select the `default` security group.
    - Click the `Inbound Rules` tab.
-   - Ensure no rule exist.
+   - Ensure no rules exist.
    - Click the `Outbound Rules` tab.
    - Ensure no rules exist.
 
 ### Security Group Members
 
-1. Login to the AWS Management Console at <https://console.aws.amazon.com/vpc/home>.
+1. Log in to the AWS Management Console at <https://console.aws.amazon.com/vpc/home>.
 2. Repeat the next steps for all default groups in all VPCs - including the default VPC in each AWS region:
 3. In the left pane, click `Security Groups`.
-4. Copy the id of the default security group.
+4. Copy the ID of the default security group.
 5. Change to the EC2 Management Console at <https://console.aws.amazon.com/ec2/v2/home>.
-6. In the filter column type `Security Group ID : < security group id from #4 >`.
+6. In the filter column, enter `Security Group ID : < security group id from #4 >`.
 
 ## References
 

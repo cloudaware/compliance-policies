@@ -14,9 +14,9 @@
 For each workspace requiring remediation, run the following command to set `enableNoPublicIp` to `true`:
 
 ```sh
-az databricks workspace update /
-    --resource-group {{resource-group}} /
-    --name {{workspace}} /
+az databricks workspace update \
+    --resource-group {{resource-group-name}} \
+    --name {{workspace-name}} \
     --enable-no-public-ip true
 ```
 
@@ -26,7 +26,7 @@ For each workspace requiring remediation, run the following command to set `Enab
 
 ```ps
 Update-AzDatabricksWorkspace `
-    -ResourceGroupName {{resource-group}} `
-    -Name {{workspace}} `
-    -EnableNoPublicIP
+    -ResourceGroupName {{resource-group-name}} `
+    -Name {{workspace-name}} `
+    -EnableNoPublicIP $true
 ```

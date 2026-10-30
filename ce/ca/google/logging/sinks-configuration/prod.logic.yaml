@@ -5,7 +5,7 @@ testData:
   - file: test-data.json
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "Sinks are configured for all log entries"
+    currentStateMessage: "Log sinks are configured for all log entries."
     check:
       RELATED_LIST_HAS:
         status: "COMPLIANT"
@@ -13,14 +13,14 @@ conditions:
 otherwise:
   status: "INCOMPLIANT"
   currentStateMessage: "The project does not have sinks configured for all log entries."
-  remediationMessage: "It is recommended to create a sink that will export copies of all the log entries."
+  remediationMessage: "Create a sink that exports copies of all log entries."
 relatedLists:
   - relationshipName: "CA10__Google_Resource_Manager_Projects__r"
     importExtracts:
       - file: /types/CA10G1__CaGoogleLoggingLogSink__c/object.extracts.yaml
     conditions:
       - status: "COMPLIANT"
-        currentStateMessage: "Resource Manager Organization or Folder or Project with COMPLIANT Sink."
+        currentStateMessage: "Resource Manager organization, folder, or project has a compliant sink."
         check:
           OR:
             args:
@@ -35,7 +35,7 @@ relatedLists:
                   relationshipName: "CA10__resourceManagerOrganization__r.CA10G1__Google_Logging_Log_Sinks1__r"
     otherwise:
       status: "INCOMPLIANT"
-      currentStateMessage: "There is no COMPLIANT sink connected with project."
+      currentStateMessage: "No compliant sink is connected to the project."
     relatedLists:
         # # ORG level
       - relationshipName: "CA10__resourceManagerOrganization__r.CA10G1__Google_Logging_Log_Sinks1__r"
@@ -43,7 +43,7 @@ relatedLists:
           - "caGoogleLoggingLogSinkOrganization"
         conditions:
           - status: "COMPLIANT"
-            currentStateMessage: "Resource Manager Organization with COMPLIANT Sink"
+            currentStateMessage: "Resource Manager organization has a compliant sink."
             check:
               AND:
                 args:
@@ -62,7 +62,7 @@ relatedLists:
           - "caGoogleLoggingLogSinkFolder"
         conditions: 
           - status: "COMPLIANT"
-            currentStateMessage: "Resource Manager Folder with COMPLIANT Sink."
+            currentStateMessage: "Resource Manager folder has a compliant sink."
             check:
               AND:
                 args:
@@ -81,7 +81,7 @@ relatedLists:
           - "caGoogleLoggingLogSinkProject"
         conditions: 
           - status: "COMPLIANT"
-            currentStateMessage: "Resource Manager Project with COMPLIANT Sink."
+            currentStateMessage: "Resource Manager project has a compliant sink."
             check:
               AND:
                 args:
@@ -94,4 +94,6 @@ relatedLists:
         otherwise:
           status: "INCOMPLIANT"
           currentStateMessage: "Resource Manager Project does not have sinks configured for all log entries."
+
+
 

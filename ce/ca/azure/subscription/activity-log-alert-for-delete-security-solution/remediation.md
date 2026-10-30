@@ -1,6 +1,6 @@
 # Remediation
 
-## From Azure Console
+## From Azure Portal
 
 1. Navigate to the `Monitor` blade.
 2. Select `Alerts`.
@@ -23,12 +23,12 @@
 ## From Azure CLI
 
 ```sh
-az monitor activity-log alert create /
-    --resource-group {{resource-group-name}} /
-    --condition category=Administrative and operationName=Microsoft.Security/securitySolutions/delete and level={{verbose | information | warning | error | critical}} /
-    --scope /subscriptions/{{subscription-id}} /
-    --name {{activity-log-rule-name}} /
-    --subscription {{subscription-id}} /
+az monitor activity-log alert create \
+    --resource-group {{resource-group-name}} \
+    --condition category=Administrative and operationName=Microsoft.Security/securitySolutions/delete and level={{verbose | information | warning | error | critical}} \
+    --scope /subscriptions/{{subscription-id}} \
+    --name {{activity-log-rule-name}} \
+    --subscription {{subscription-id}} \
     --action-group {{action-group-id}}
 ```
 
@@ -66,19 +66,19 @@ $actionObject = New-AzActivityLogAlertActionGroupObject `
 Create the `Scope` object:
 
 ```ps
-$scope = /subscriptions/{{subscription-id}}
+$scope = "/subscriptions/{{subscription-id}}"
 ```
 
 Create the `Activity Log Alert Rule` for `Microsoft.Security/securitySolutions/delete`:
 
 ```ps
 New-AzActivityLogAlert `
--Name {{activity-log-alert-rule-name}} `
--ResourceGroupName {{resource-group-name}} `
--Condition $conditions `
--Scope $scope `
--Location global `
--Action $actionObject `
--Subscription {{subscription-id}} `
--Enabled $true
+    -Name {{activity-log-alert-rule-name}} `
+    -ResourceGroupName {{resource-group-name}} `
+    -Condition $conditions `
+    -Scope $scope `
+    -Location global `
+    -Action $actionObject `
+    -Subscription {{subscription-id}} `
+    -Enabled $true
 ```

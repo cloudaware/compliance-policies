@@ -2,9 +2,10 @@
 names:
   full: "AWS RDS Instance is overutilized"
   contextual: "Instance is overutilized"
-description: "Identify any AWS RDS Instances that appear to be overutilized.\
-  \ Instances are considered overutilized if its average\
-  \ CPU utilization is consistently above 90% over a 30-day period."
+description: "Identify AWS RDS instances that appear to be overutilized.\
+  \ Instances are considered overutilized when 30-day average CPU utilization\
+  \ is above 90% and database connection or disk I/O metrics indicate workload\
+  \ activity."
 type: "COMPLIANCE_POLICY"
 categories:
   - "COST"

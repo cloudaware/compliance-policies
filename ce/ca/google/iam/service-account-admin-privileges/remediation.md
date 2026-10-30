@@ -12,12 +12,15 @@
 
 ## From Google Cloud CLI
 
-    gcloud projects get-iam-policy PROJECT_ID --format json > iam.json
+```sh
+gcloud projects get-iam-policy {{project-id}} \
+    --format json > iam.json
+```
 
 1. Using a text editor, Remove Role which contains roles/*Admin or roles/*admin or matched roles/editor or matches 'roles/owner`. Add a role to the bindings array that defines the group members and the role for those members.
 
     For example, to grant the role roles/appengine.appViewer to the ServiceAccount which is roles/editor, you would change the example shown below as follows:
-         
+
     ```json
     {
         "bindings": [
@@ -31,4 +34,6 @@
 
 2. Update the project's IAM policy:
 
-    gcloud projects set-iam-policy PROJECT_ID iam.json
+    ```sh
+    gcloud projects set-iam-policy {{project-id}} iam.json
+    ```

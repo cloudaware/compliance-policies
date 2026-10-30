@@ -1,0 +1,9 @@
+---
+name: "8.3.9 Ensure Automatic Key Rotation is Enabled within Azure Key Vault (Automated)"
+description: >
+  Automated cryptographic key rotation in Key Vault allows users to configure Key Vault 
+  to automatically generate a new key version at a specified frequency. A key rotation 
+  policy can be defined for each individual key.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v5.0.0/08/03/09"

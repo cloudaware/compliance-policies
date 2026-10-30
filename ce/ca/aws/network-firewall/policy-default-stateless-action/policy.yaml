@@ -1,0 +1,22 @@
+---
+names:
+  full: "AWS Network Firewall Policy Stateless Default Action is not Drop or Forward"
+  contextual: "Policy Stateless Default Action is not Drop or Forward"
+description: >
+  Ensure that AWS Network Firewall policies are configured to either drop packets 
+  or forward them to the stateful engine when they do not match any stateless rules. 
+  Using a default action of 'Pass' for unmatched packets can allow unauthorized 
+  traffic to bypass deep packet inspection.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/network-firewall/04"
+  - "/frameworks/aws-fsbp-v1.0.0/network-firewall/05"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[NetworkFirewall.4] The default stateless action for Network Firewall policies should be drop or forward for full packets"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/networkfirewall-controls.html#networkfirewall-4"
+    - name: "[NetworkFirewall.5] The default stateless action for Network Firewall policies should be drop or forward for fragmented packets"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/networkfirewall-controls.html#networkfirewall-5"

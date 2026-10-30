@@ -1,0 +1,30 @@
+---
+extracts:
+# Values: ACTIVE | DELETING | ERROR. Not nullable. 
+  - name: CA10A2__ruleGroupStatus__c
+    value:
+      FIELD: 
+        path: CA10A2__ruleGroupStatus__c
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10A2__ruleGroupStatus__c"
+            currentStateMessage: "Firewall Rule Group Status cannot be empty. Possible permissions issue with networkfirewall:DescribeRuleGroup."
+# Not nullable
+  - name: CA10A2__statelessRulesJson__c
+    value:
+      FIELD: 
+        path: CA10A2__statelessRulesJson__c
+        # undeterminedIf:
+        #   noAccessDelegate:
+        #     path: "CA10A2__statelessRulesJson__c"
+        #     currentStateMessage: "Firewall Policy Stateless Default Actions cannot be empty. Possible permissions issue with networkfirewall:DescribeRuleGroup."
+# Values: STATELESS | STATEFUL
+# Not nullable
+  - name: CA10A2__type__c
+    value:
+      FIELD: 
+        path: CA10A2__type__c
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10A2__type__c"
+            currentStateMessage: "Firewall Rule Group Type cannot be empty. Possible permissions issue with networkfirewall:DescribeRuleGroup."

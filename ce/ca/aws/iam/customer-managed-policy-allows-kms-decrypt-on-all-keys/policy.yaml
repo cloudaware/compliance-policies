@@ -1,0 +1,19 @@
+---
+names:
+  full: AWS IAM Customer Managed Policy allows KMS decryption actions on all KMS keys
+  contextual: Customer Managed Policy allows KMS decryption actions on all KMS keys
+description: >
+  Customer managed IAM policies should grant AWS KMS decryption permissions only
+  for the specific KMS keys required by intended principals. Allowing
+  decryption actions on all KMS keys weakens least-privilege access control and
+  can expose encrypted data beyond the intended scope.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/identity-and-access-governance/rbac-management"
+  - "/frameworks/aws-fsbp-v1.0.0/kms/01"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[KMS.1] IAM customer managed policies should not allow decryption actions on all KMS keys"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/kms-controls.html#kms-1"

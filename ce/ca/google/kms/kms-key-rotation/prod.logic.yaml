@@ -7,7 +7,7 @@ importExtracts:
   - file: /types/CA10__CaGoogleCloudKmsCryptoKey__c/object.extracts.yaml
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "KMS encryption key is rotated within a period of 90 days."
+    currentStateMessage: "KMS key rotation is configured for a period of 90 days or less."
     check:
      AND:
       args:
@@ -22,5 +22,5 @@ conditions:
               DURATION: "P90D"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "KMS encryption key is not rotated within a period of 90 days."
-  remediationMessage: "Change KMS encryption key rotation period."
+  currentStateMessage: "KMS key rotation is not configured for a 90-day period."
+  remediationMessage: "Set the KMS key rotation period to 90 days or less."

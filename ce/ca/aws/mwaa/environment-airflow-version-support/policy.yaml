@@ -1,0 +1,13 @@
+---
+names:
+  full: AWS MWAA Environment Airflow version is unsupported
+  contextual: Environment Airflow version is unsupported
+description: >
+  Ensure that AWS MWAA environments use an Apache Airflow version that has not
+  reached the Amazon MWAA end-of-support date.
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+
+frameworkMappings:
+  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization

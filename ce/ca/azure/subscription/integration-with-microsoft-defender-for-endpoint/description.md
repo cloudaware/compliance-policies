@@ -2,10 +2,10 @@
 
 The Endpoint protection component enables Microsoft Defender for Endpoint (formerly 'Advanced Threat Protection' or 'ATP' or 'WDATP' - see additional info) to communicate with Microsoft Defender for Cloud.
 
-**IMPORTANT**: When enabling integration between DfE & DfC it needs to be taken into account that this will have some side effects that may be undesirable.
+**IMPORTANT**: When enabling integration between DfE and DfC, account for potential side effects that may be undesirable.
 
-1. For server 2019 & above if defender is installed (default for these server SKU's) this will trigger a deployment of the new unified agent and link to any of the extended configuration in the Defender portal.
-2. If the new unified agent is required for server SKU's of Win 2016 or Linux and lower there is additional integration that needs to be switched on and agents need to be aligned.
+1. For Server 2019 and above, if Defender is installed (default for these server SKUs), this triggers deployment of the new unified agent and links to any extended configuration in the Defender portal.
+2. If the new unified agent is required for server SKUs of Windows Server 2016 or Linux and lower, additional integration needs to be enabled and agents need to be aligned.
 
 ## Rationale
 
@@ -38,9 +38,9 @@ By default, Endpoint protection is `off`.
 
 ## Additional Information
 
-**IMPORTANT**: When enabling integration between DfE & DfC it needs to be taken into account that this will have some side effects that may be undesirable.
+**IMPORTANT**: When enabling integration between DfE and DfC, account for potential side effects that may be undesirable.
 
-1. For server 2019 & above if defender is installed (default for these server SKU's) this will trigger a deployment of the new unified agent and link to any of the extended configuration in the Defender portal.
-2. If the new unified agent is required for server SKU's of Win 2016 or Linux and lower there is additional integration that needs to be switched on and agents need to be aligned.
+1. For Server 2019 and above, if Defender is installed (default for these server SKUs), this triggers deployment of the new unified agent and links to any extended configuration in the Defender portal.
+2. If the new unified agent is required for server SKUs of Windows Server 2016 or Linux and lower, additional integration needs to be enabled and agents need to be aligned.
 
 **NOTE**: "Microsoft Defender for Endpoint (MDE)" was formerly known as "Windows Defender Advanced Threat Protection (WDATP)." There are a number of places (e.g. Azure CLI) where the "WDATP" acronym is still used within Azure.

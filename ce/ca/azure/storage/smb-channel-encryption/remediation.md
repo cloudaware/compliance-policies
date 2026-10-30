@@ -16,7 +16,10 @@
 For each storage account requiring remediation, run the following command to set the SMB channel encryption:
 
 ```sh
-az storage account file-service-properties update --resource-group <resource-group> --account-name <storage-account> --channel-encryption AES-256-GCM
+az storage account file-service-properties update \
+    --resource-group {{resource-group-name}} \
+    --account-name {{storage-account-name}} \
+    --channel-encryption AES-256-GCM
 ```
 
 ## From PowerShell
@@ -24,5 +27,8 @@ az storage account file-service-properties update --resource-group <resource-gro
 For each storage account requiring remediation, run the following command to set the SMB channel encryption:
 
 ```ps
-Update-AzStorageFileServiceProperty -ResourceGroupName <resource-group> -StorageAccountName <storage-account> -SmbChannelEncryption AES-256-GCM
+Update-AzStorageFileServiceProperty `
+    -ResourceGroupName {{resource-group-name}} `
+    -StorageAccountName {{storage-account-name}} `
+    -SmbChannelEncryption AES-256-GCM
 ```

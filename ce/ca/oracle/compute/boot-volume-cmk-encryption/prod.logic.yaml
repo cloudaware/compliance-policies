@@ -1,0 +1,27 @@
+---
+inputType: "CA10O1__CaOracleIaasVolume__c"
+recordTypes:
+  - "caOracleIaasBootVolume"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10O1__CaOracleIaasVolume__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The boot volume is not available."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10O1__lifecycleState__c"
+        right:
+          TEXT: "AVAILABLE"
+  - status: "COMPLIANT"
+    currentStateMessage: "The boot volume is encrypted with a customer managed key."
+    check:
+      NOT_EMPTY:
+        arg:
+          EXTRACT: "CA10O1__kmsKeyOcid__c"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The boot volume is not encrypted with a customer managed key."
+  remediationMessage: "Configure the boot volume to use a customer managed key from OCI Vault."

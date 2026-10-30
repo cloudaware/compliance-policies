@@ -1,0 +1,12 @@
+---
+names:
+  full: "Google Cloud folders are not structured by environment and sensitivity"
+  contextual: "Folders are not structured by environment and sensitivity"
+description: "Structure Google Cloud Resource Manager folders by environment and sensitivity so policies, IAM permissions, and guardrails can be inherited consistently."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+impossible: true
+frameworkMappings:
+  - /frameworks/cis-gcp-v5.0.0/01/01/03
+  - /frameworks/cloudaware/identity-and-access-governance/general-access-controls

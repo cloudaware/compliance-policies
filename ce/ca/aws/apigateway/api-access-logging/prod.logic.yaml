@@ -4,23 +4,23 @@ testData:
   - file: test-data.json
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "There is at least one related API Stage where CloudWatch Access Logs are not enabled."
-    remediationMessage: "Consider enabling CloudWatch Access Logs for the API Stage."
+    currentStateMessage: "At least one API stage does not have CloudWatch access logs enabled."
+    remediationMessage: "Enable CloudWatch access logs for the API stage."
     check:
       RELATED_LIST_HAS:
         relationshipName: "CA10__AWS_API_Gateway_Stages__r"
         status: "INCOMPLIANT"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "API is compliant"
+  currentStateMessage: "All API stages have CloudWatch access logs enabled."
 relatedLists:
   - relationshipName: "CA10__AWS_API_Gateway_Stages__r"
     conditions:
       - status: "INCOMPLIANT"
-        currentStateMessage: "CloudWatch Access Logs are not enabled for this API Stage."
-        remediationMessage: "Consider enabling CloudWatch Access Logs for this API Stage."
+        currentStateMessage: "CloudWatch access logs are not enabled for this API stage."
+        remediationMessage: "Enable CloudWatch access logs for this API stage."
         check:
           IS_EMPTY_LOOKUP: "CA10__accessLoggingDestination__r"
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "CloudWatch Access Logs are enabled."
+      currentStateMessage: "CloudWatch access logs are enabled for this API stage."

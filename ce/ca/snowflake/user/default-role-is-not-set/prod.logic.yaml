@@ -6,12 +6,12 @@ importExtracts:
   - file: "/types/CA10SN2__CaSnowflakeUser__c/object.extracts.yaml"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Default Role is not set for the Snowflake User."
-    remediationMessage: "Set the Default Role for the Snowflake User."
+    currentStateMessage: "The default role is not set for the Snowflake user."
+    remediationMessage: "Set a default role for the Snowflake user."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10SN2__defaultRoleName__c" 
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Default Role is set for the Snowflake User."
+  currentStateMessage: "The default role is set for the Snowflake user."

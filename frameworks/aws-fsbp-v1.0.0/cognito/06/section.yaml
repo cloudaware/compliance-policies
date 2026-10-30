@@ -1,0 +1,13 @@
+---
+name: "[Cognito.6] Cognito user pools should have deletion protection enabled"
+description: |-
+  This control checks whether an Amazon Cognito user pool has deletion protection enabled. 
+  The control fails if deletion protection is disabled for the user pool.
+
+  Deletion protection helps ensure that your user pool is not accidentally deleted. 
+  When you configure a user pool with deletion protection, the pool cannot be deleted 
+  by any user. Deletion protection prevents you from requesting the deletion of a 
+  user pool unless you first modify the pool and deactivate deletion protection.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/cognito-controls.html#cognito-6

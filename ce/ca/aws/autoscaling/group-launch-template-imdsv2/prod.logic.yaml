@@ -8,7 +8,7 @@ testData:
 conditions:
   - status: "INAPPLICABLE"
     currentStateMessage: "The Auto Scaling group uses a launch configuration."
-    remediationMessage: "Consider migrating the Auto Scaling group to launch template."
+    remediationMessage: "Migrate the Auto Scaling group to a launch template."
     check:
       NOT_EMPTY:
         arg:
@@ -39,7 +39,7 @@ conditions:
                 - IS_EMPTY_LOOKUP: "CA10A1__mixedInstancesLaunchTemplate__r.CA10A1__latestVersion__r"
   - status: "INCOMPLIANT"
     currentStateMessage: "Access to the HTTP endpoint of the instance metadata service is disabled."
-    remediationMessage: "Consider enabling access to the instance metadata."
+    remediationMessage: "Enable access to the instance metadata service."
     check:
       AND:
         args:
@@ -53,7 +53,7 @@ conditions:
                 TEXT: "disabled"
   - status: "INCOMPLIANT"
     currentStateMessage: "Access to the HTTP endpoint of the instance metadata service is disabled."
-    remediationMessage: "Consider enabling access to the instance metadata."
+    remediationMessage: "Enable access to the instance metadata service."
     check:
       AND:
         args:
@@ -94,4 +94,4 @@ conditions:
 otherwise:
   status: "INCOMPLIANT"
   currentStateMessage: "IMDSv2 is not required when requesting instance metadata."
-  remediationMessage: "Configure the template to only allow IMDSv2 calls."
+  remediationMessage: "Configure the template to require IMDSv2."

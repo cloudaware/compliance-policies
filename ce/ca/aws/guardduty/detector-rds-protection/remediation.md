@@ -11,7 +11,7 @@ In a multi-account environment, only the delegated GuardDuty administrator accou
 ```sh
 aws guardduty update-member-detectors \
     --detector-id {{detector-id}} \
-    --account-ids {{account-id1}} {{account-id2}} \
+    --account-ids {{account-id-1}} {{account-id-2}} \
     --region {{region}} \
     --features 'Name=RDS_LOGIN_EVENTS,Status=ENABLED'
 ```
@@ -36,3 +36,4 @@ aws guardduty update-detector \
     --region {{region}} \
     --features 'Name=RDS_LOGIN_EVENTS,Status=ENABLED'
 ```
+

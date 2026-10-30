@@ -13,14 +13,16 @@
         "Id": "test1",
         "CA10__disappearanceTime__c": "2025-12-05T02:07:04Z",
         "CA10__launchType__c": "EC2",
-        "CA10__status__c": "ACTIVE"
+        "CA10__status__c": "ACTIVE",
+        "CA10__AWS_ECS_Tasks__r": [],
+        "CA10__runningCount__c": 0
     },
     {
         "expectedResult": {
             "runtimeError": null,
-            "conditionText": "extract('CA10__launchType__c') != 'FARGATE'",
-            "conditionIndex": 299,
-            "status": "INAPPLICABLE"
+            "conditionText": "otherwise",
+            "conditionIndex": 1000,
+            "status": "COMPLIANT"
         },
         "context": {
             "snapshotTime": "2025-12-12T04:42:59Z"
@@ -29,13 +31,24 @@
         "Id": "test2",
         "CA10__disappearanceTime__c": null,
         "CA10__launchType__c": "",
-        "CA10__status__c": "ACTIVE"
+        "CA10__status__c": "ACTIVE",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "test2-task-0",
+                "CA10__service__c": "test2",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            }
+        ]
     },
     {
         "expectedResult": {
             "runtimeError": null,
-            "conditionText": "extract('CA10__platformVersion__c') == 'LATEST'",
-            "conditionIndex": 499,
+            "conditionText": "otherwise",
+            "conditionIndex": 1000,
             "status": "COMPLIANT"
         },
         "context": {
@@ -45,7 +58,18 @@
         "Id": "test3",
         "CA10__disappearanceTime__c": null,
         "CA10__launchType__c": "FARGATE",
-        "CA10__status__c": "ACTIVE"
+        "CA10__status__c": "ACTIVE",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "test3-task-0",
+                "CA10__service__c": "test3",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            }
+        ]
     },
     {
         "expectedResult": {
@@ -61,13 +85,15 @@
         "Id": "test4",
         "CA10__disappearanceTime__c": null,
         "CA10__launchType__c": "EC2",
-        "CA10__status__c": "INACTIVE"
+        "CA10__status__c": "INACTIVE",
+        "CA10__AWS_ECS_Tasks__r": [],
+        "CA10__runningCount__c": 0
     },
     {
         "expectedResult": {
             "runtimeError": null,
-            "conditionText": "extract('CA10__platformVersion__c') == '1.3.0'",
-            "conditionIndex": 399,
+            "conditionText": "setOfText(['1.1.0', '1.2.0', '1.3.0']).contains(extract('CA10__platformVersion__c'))",
+            "conditionIndex": 599,
             "status": "INCOMPLIANT"
         },
         "context": {
@@ -77,13 +103,15 @@
         "Id": "test5",
         "CA10__disappearanceTime__c": null,
         "CA10__launchType__c": "FARGATE",
-        "CA10__status__c": "ACTIVE"
+        "CA10__status__c": "ACTIVE",
+        "CA10__AWS_ECS_Tasks__r": [],
+        "CA10__runningCount__c": 0
     },
     {
         "expectedResult": {
             "runtimeError": null,
-            "conditionText": "extract('CA10__platformVersion__c') == '1.4.0'",
-            "conditionIndex": 599,
+            "conditionText": "otherwise",
+            "conditionIndex": 1000,
             "status": "COMPLIANT"
         },
         "context": {
@@ -93,6 +121,1477 @@
         "Id": "test6",
         "CA10__disappearanceTime__c": null,
         "CA10__launchType__c": "FARGATE",
-        "CA10__status__c": "ACTIVE"
+        "CA10__status__c": "ACTIVE",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "test6-task-0",
+                "CA10__service__c": "test6",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            }
+        ]
+    },
+    {
+        "Id": "capacity-provider-no-service-platform",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "",
+        "CA10__platformVersion__c": "",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "capacity-provider-no-service-platform-task-0",
+                "CA10__service__c": "capacity-provider-no-service-platform",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            }
+        ]
+    },
+    {
+        "Id": "missing-service-platform-with-runtime-proof",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": null,
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "missing-service-platform-with-runtime-proof-task-0",
+                "CA10__service__c": "missing-service-platform-with-runtime-proof",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            }
+        ]
+    },
+    {
+        "Id": "latest-older-task",
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 499,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.has(INCOMPLIANT)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "latest-older-task-task-0",
+                "CA10__service__c": "latest-older-task",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.3.0"
+            }
+        ]
+    },
+    {
+        "Id": "new-config-old-running-task",
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 499,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.has(INCOMPLIANT)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "1.4.0",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "new-config-old-running-task-task-0",
+                "CA10__service__c": "new-config-old-running-task",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.3.0"
+            }
+        ]
+    },
+    {
+        "Id": "mixed-deployment",
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 499,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.has(INCOMPLIANT)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 2,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "mixed-deployment-task-0",
+                "CA10__service__c": "mixed-deployment",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            },
+            {
+                "Id": "mixed-deployment-task-1",
+                "CA10__service__c": "mixed-deployment",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.3.0"
+            }
+        ]
+    },
+    {
+        "Id": "failure-wins-over-child-diagnostic",
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 499,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.has(INCOMPLIANT)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 2,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "failure-wins-over-child-diagnostic-task-0",
+                "CA10__service__c": "failure-wins-over-child-diagnostic",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": null
+            },
+            {
+                "Id": "failure-wins-over-child-diagnostic-task-1",
+                "CA10__service__c": "failure-wins-over-child-diagnostic",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.3.0"
+            }
+        ]
+    },
+    {
+        "Id": "failure-wins-over-missing-count",
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 499,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.has(INCOMPLIANT)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": null,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "failure-wins-over-missing-count-task-0",
+                "CA10__service__c": "failure-wins-over-missing-count",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.3.0"
+            }
+        ]
+    },
+    {
+        "Id": "failure-wins-over-unknown-service-version",
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 499,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.has(INCOMPLIANT)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "2.0.0",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "failure-wins-over-unknown-service-version-task-0",
+                "CA10__service__c": "failure-wins-over-unknown-service-version",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.3.0"
+            }
+        ]
+    },
+    {
+        "Id": "older-config-current-task",
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 599,
+            "conditionText": "setOfText(['1.1.0', '1.2.0', '1.3.0']).contains(extract('CA10__platformVersion__c'))"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "1.3.0",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "older-config-current-task-task-0",
+                "CA10__service__c": "older-config-current-task",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            }
+        ]
+    },
+    {
+        "Id": "older-config-wins-over-child-diagnostic",
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 599,
+            "conditionText": "setOfText(['1.1.0', '1.2.0', '1.3.0']).contains(extract('CA10__platformVersion__c'))"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "1.3.0",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "older-config-wins-over-child-diagnostic-task-0",
+                "CA10__service__c": "older-config-wins-over-child-diagnostic",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": null
+            }
+        ]
+    },
+    {
+        "Id": "older-config-110-no-tasks",
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 599,
+            "conditionText": "setOfText(['1.1.0', '1.2.0', '1.3.0']).contains(extract('CA10__platformVersion__c'))"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "1.1.0",
+        "CA10__runningCount__c": 0,
+        "CA10__AWS_ECS_Tasks__r": []
+    },
+    {
+        "Id": "older-config-120-no-tasks",
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 599,
+            "conditionText": "setOfText(['1.1.0', '1.2.0', '1.3.0']).contains(extract('CA10__platformVersion__c'))"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "1.2.0",
+        "CA10__runningCount__c": 0,
+        "CA10__AWS_ECS_Tasks__r": []
+    },
+    {
+        "Id": "1.1.0-older-than-current-target",
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 499,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.has(INCOMPLIANT)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "1.1.0",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "1.1.0-older-than-current-target-task-0",
+                "CA10__service__c": "1.1.0-older-than-current-target",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.1.0"
+            }
+        ]
+    },
+    {
+        "Id": "1.2.0-older-than-current-target",
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 499,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.has(INCOMPLIANT)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "1.2.0",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "1.2.0-older-than-current-target-task-0",
+                "CA10__service__c": "1.2.0-older-than-current-target",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.2.0"
+            }
+        ]
+    },
+    {
+        "Id": "1.3.0-older-than-current-target",
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 499,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.has(INCOMPLIANT)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "1.3.0",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "1.3.0-older-than-current-target-task-0",
+                "CA10__service__c": "1.3.0-older-than-current-target",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.3.0"
+            }
+        ]
+    },
+    {
+        "Id": "no-running-tasks",
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "runtimeError": null,
+            "conditionIndex": 999,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.hasNo(COMPLIANT)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 0,
+        "CA10__AWS_ECS_Tasks__r": []
+    },
+    {
+        "Id": "missing-task-collection",
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "runtimeError": null,
+            "conditionIndex": 999,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.hasNo(COMPLIANT)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": []
+    },
+    {
+        "Id": "partial-task-collection",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 2,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "partial-task-collection-task-0",
+                "CA10__service__c": "partial-task-collection",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            }
+        ]
+    },
+    {
+        "Id": "excess-stale-task-record",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "excess-stale-task-record-task-0",
+                "CA10__service__c": "excess-stale-task-record",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            },
+            {
+                "Id": "excess-stale-task-record-task-1",
+                "CA10__service__c": "excess-stale-task-record",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            }
+        ]
+    },
+    {
+        "Id": "stale-running-task-zero-count",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 0,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "stale-running-task-zero-count-task-0",
+                "CA10__service__c": "stale-running-task-zero-count",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            }
+        ]
+    },
+    {
+        "Id": "missing-running-count",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": null,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "missing-running-count-task-0",
+                "CA10__service__c": "missing-running-count",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            }
+        ]
+    },
+    {
+        "Id": "negative-running-count",
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "runtimeError": null,
+            "conditionIndex": 999,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.hasNo(COMPLIANT)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": -1,
+        "CA10__AWS_ECS_Tasks__r": []
+    },
+    {
+        "Id": "missing-task-version",
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "runtimeError": null,
+            "conditionIndex": 699,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.has(UNDETERMINED)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "missing-task-version-task-0",
+                "CA10__service__c": "missing-task-version",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": null
+            }
+        ]
+    },
+    {
+        "Id": "blank-task-version",
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "runtimeError": null,
+            "conditionIndex": 699,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.has(UNDETERMINED)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "blank-task-version-task-0",
+                "CA10__service__c": "blank-task-version",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "  "
+            }
+        ]
+    },
+    {
+        "Id": "unresolved-task-latest",
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "runtimeError": null,
+            "conditionIndex": 699,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.has(UNDETERMINED)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "unresolved-task-latest-task-0",
+                "CA10__service__c": "unresolved-task-latest",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "LATEST"
+            }
+        ]
+    },
+    {
+        "Id": "ambiguous-task-100",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "ambiguous-task-100-task-0",
+                "CA10__service__c": "ambiguous-task-100",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.0.0"
+            }
+        ]
+    },
+    {
+        "Id": "ambiguous-service-100",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "1.0.0",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "ambiguous-service-100-task-0",
+                "CA10__service__c": "ambiguous-service-100",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.0.0"
+            }
+        ]
+    },
+    {
+        "Id": "unknown-task-version",
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "runtimeError": null,
+            "conditionIndex": 699,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.has(UNDETERMINED)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "unknown-task-version-task-0",
+                "CA10__service__c": "unknown-task-version",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.5.0"
+            }
+        ]
+    },
+    {
+        "Id": "unknown-service-version",
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "runtimeError": null,
+            "conditionIndex": 899,
+            "conditionText": "extract('CA10__platformVersion__c').isNotEmpty() && not(setOfText(['1.0.0', '1.1.0', '1.2.0', '1.3.0', '1.4.0', 'LATEST']).contains(extract('CA10__platformVersion__c')))"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "1.5.0",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "unknown-service-version-task-0",
+                "CA10__service__c": "unknown-service-version",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            }
+        ]
+    },
+    {
+        "Id": "ambiguous-config-without-tasks",
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "runtimeError": null,
+            "conditionIndex": 999,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.hasNo(COMPLIANT)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "1.0.0",
+        "CA10__runningCount__c": 0,
+        "CA10__AWS_ECS_Tasks__r": []
+    },
+    {
+        "Id": "unknown-task-status",
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "runtimeError": null,
+            "conditionIndex": 999,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.hasNo(COMPLIANT)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "unknown-task-status-task-0",
+                "CA10__service__c": "unknown-task-status",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "UNKNOWN",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            }
+        ]
+    },
+    {
+        "Id": "missing-task-status",
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "runtimeError": null,
+            "conditionIndex": 699,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.has(UNDETERMINED)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "missing-task-status-task-0",
+                "CA10__service__c": "missing-task-status",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": null,
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            }
+        ]
+    },
+    {
+        "Id": "missing-task-launch",
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "runtimeError": null,
+            "conditionIndex": 699,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.has(UNDETERMINED)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "missing-task-launch-task-0",
+                "CA10__service__c": "missing-task-launch",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": null,
+                "CA10__platformVersion__c": "1.4.0"
+            }
+        ]
+    },
+    {
+        "Id": "unknown-task-launch",
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "runtimeError": null,
+            "conditionIndex": 699,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.has(UNDETERMINED)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "unknown-task-launch-task-0",
+                "CA10__service__c": "unknown-task-launch",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "UNKNOWN",
+                "CA10__platformVersion__c": "1.4.0"
+            }
+        ]
+    },
+    {
+        "Id": "mixed-task-launch-types",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 2,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "mixed-task-launch-types-task-0",
+                "CA10__service__c": "mixed-task-launch-types",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            },
+            {
+                "Id": "mixed-task-launch-types-task-1",
+                "CA10__service__c": "mixed-task-launch-types",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "EC2",
+                "CA10__platformVersion__c": ""
+            }
+        ]
+    },
+    {
+        "Id": "ignore-provisioning",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "ignore-provisioning-task-0",
+                "CA10__service__c": "ignore-provisioning",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            },
+            {
+                "Id": "ignore-provisioning-task-1",
+                "CA10__service__c": "ignore-provisioning",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "PROVISIONING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.3.0"
+            }
+        ]
+    },
+    {
+        "Id": "ignore-pending",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "ignore-pending-task-0",
+                "CA10__service__c": "ignore-pending",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            },
+            {
+                "Id": "ignore-pending-task-1",
+                "CA10__service__c": "ignore-pending",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "PENDING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.3.0"
+            }
+        ]
+    },
+    {
+        "Id": "ignore-activating",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "ignore-activating-task-0",
+                "CA10__service__c": "ignore-activating",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            },
+            {
+                "Id": "ignore-activating-task-1",
+                "CA10__service__c": "ignore-activating",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "ACTIVATING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.3.0"
+            }
+        ]
+    },
+    {
+        "Id": "ignore-deactivating",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "ignore-deactivating-task-0",
+                "CA10__service__c": "ignore-deactivating",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            },
+            {
+                "Id": "ignore-deactivating-task-1",
+                "CA10__service__c": "ignore-deactivating",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "DEACTIVATING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.3.0"
+            }
+        ]
+    },
+    {
+        "Id": "ignore-stopping",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "ignore-stopping-task-0",
+                "CA10__service__c": "ignore-stopping",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            },
+            {
+                "Id": "ignore-stopping-task-1",
+                "CA10__service__c": "ignore-stopping",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "STOPPING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.3.0"
+            }
+        ]
+    },
+    {
+        "Id": "ignore-deprovisioning",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "ignore-deprovisioning-task-0",
+                "CA10__service__c": "ignore-deprovisioning",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            },
+            {
+                "Id": "ignore-deprovisioning-task-1",
+                "CA10__service__c": "ignore-deprovisioning",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "DEPROVISIONING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.3.0"
+            }
+        ]
+    },
+    {
+        "Id": "ignore-stopped",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "ignore-stopped-task-0",
+                "CA10__service__c": "ignore-stopped",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            },
+            {
+                "Id": "ignore-stopped-task-1",
+                "CA10__service__c": "ignore-stopped",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "STOPPED",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.3.0"
+            }
+        ]
+    },
+    {
+        "Id": "ignore-deleted",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "ignore-deleted-task-0",
+                "CA10__service__c": "ignore-deleted",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            },
+            {
+                "Id": "ignore-deleted-task-1",
+                "CA10__service__c": "ignore-deleted",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "DELETED",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.3.0"
+            }
+        ]
+    },
+    {
+        "Id": "all-stopped",
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "runtimeError": null,
+            "conditionIndex": 999,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.hasNo(COMPLIANT)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 0,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "all-stopped-task-0",
+                "CA10__service__c": "all-stopped",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "STOPPED",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.3.0"
+            }
+        ]
+    },
+    {
+        "Id": "disappeared-task-ignored",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "disappeared-task-ignored-task-0",
+                "CA10__service__c": "disappeared-task-ignored",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            },
+            {
+                "Id": "disappeared-task-ignored-task-1",
+                "CA10__service__c": "disappeared-task-ignored",
+                "CA10__disappearanceTime__c": "2026-10-25T00:00:00Z",
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.3.0"
+            }
+        ]
+    },
+    {
+        "Id": "only-disappeared-task",
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "runtimeError": null,
+            "conditionIndex": 999,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.hasNo(COMPLIANT)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "only-disappeared-task-task-0",
+                "CA10__service__c": "only-disappeared-task",
+                "CA10__disappearanceTime__c": "2026-10-25T00:00:00Z",
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            }
+        ]
+    },
+    {
+        "Id": "service-draining",
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "runtimeError": null,
+            "conditionIndex": 199,
+            "conditionText": "extract('CA10__status__c') != 'ACTIVE'"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "DRAINING",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "service-draining-task-0",
+                "CA10__service__c": "service-draining",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.3.0"
+            }
+        ]
+    },
+    {
+        "Id": "service-ec2",
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "runtimeError": null,
+            "conditionIndex": 299,
+            "conditionText": "setOfText(['EC2', 'EXTERNAL', 'MANAGED_INSTANCES']).contains(extract('CA10__launchType__c'))"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "EC2",
+        "CA10__platformVersion__c": "",
+        "CA10__runningCount__c": 0,
+        "CA10__AWS_ECS_Tasks__r": []
+    },
+    {
+        "Id": "service-external",
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "runtimeError": null,
+            "conditionIndex": 299,
+            "conditionText": "setOfText(['EC2', 'EXTERNAL', 'MANAGED_INSTANCES']).contains(extract('CA10__launchType__c'))"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "EXTERNAL",
+        "CA10__platformVersion__c": "",
+        "CA10__runningCount__c": 0,
+        "CA10__AWS_ECS_Tasks__r": []
+    },
+    {
+        "Id": "service-managed_instances",
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "runtimeError": null,
+            "conditionIndex": 299,
+            "conditionText": "setOfText(['EC2', 'EXTERNAL', 'MANAGED_INSTANCES']).contains(extract('CA10__launchType__c'))"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "MANAGED_INSTANCES",
+        "CA10__platformVersion__c": "",
+        "CA10__runningCount__c": 0,
+        "CA10__AWS_ECS_Tasks__r": []
+    },
+    {
+        "Id": "unknown-service-status",
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "runtimeError": null,
+            "conditionIndex": 199,
+            "conditionText": "extract('CA10__status__c') != 'ACTIVE'"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "UNKNOWN",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "unknown-service-status-task-0",
+                "CA10__service__c": "unknown-service-status",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            }
+        ]
+    },
+    {
+        "Id": "missing-service-status",
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "runtimeError": null,
+            "conditionIndex": 101,
+            "conditionText": "CA10__status__c.isEmpty()"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": null,
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "missing-service-status-task-0",
+                "CA10__service__c": "missing-service-status",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            }
+        ]
+    },
+    {
+        "Id": "unknown-service-launch",
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "runtimeError": null,
+            "conditionIndex": 399,
+            "conditionText": "extract('CA10__launchType__c').isNotEmpty() && extract('CA10__launchType__c') != 'FARGATE'"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "UNKNOWN",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "unknown-service-launch-task-0",
+                "CA10__service__c": "unknown-service-launch",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            }
+        ]
+    },
+    {
+        "Id": "unclassified-service",
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "runtimeError": null,
+            "conditionIndex": 799,
+            "conditionText": "extract('CA10__launchType__c').isEmpty() && extract('CA10__platformVersion__c').isEmpty() && CA10__AWS_ECS_Tasks__r.hasNo(COMPLIANT)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "",
+        "CA10__platformVersion__c": "",
+        "CA10__runningCount__c": 0,
+        "CA10__AWS_ECS_Tasks__r": []
+    },
+    {
+        "Id": "china-current",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "china-current-task-0",
+                "CA10__service__c": "china-current",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            }
+        ],
+        "CA10__regionName__c": "cn-north-1"
+    },
+    {
+        "Id": "china-older-platform",
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 499,
+            "conditionText": "CA10__AWS_ECS_Tasks__r.has(INCOMPLIANT)"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "china-older-platform-task-0",
+                "CA10__service__c": "china-older-platform",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.3.0"
+            }
+        ],
+        "CA10__regionName__c": "cn-northwest-1"
+    },
+    {
+        "Id": "definition-and-image-versions-are-irrelevant",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "definition-and-image-versions-are-irrelevant-task-0",
+                "CA10__service__c": "definition-and-image-versions-are-irrelevant",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0",
+                "CA10__taskDefinitionArn__c": "arn:aws:ecs:us-east-1:111122223333:task-definition/example:130"
+            }
+        ],
+        "CA10__taskDefinitionArn__c": "arn:aws:ecs:us-east-1:111122223333:task-definition/example:140"
+    },
+    {
+        "Id": "normalized-native-text",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": " active ",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "normalized-native-text-task-0",
+                "CA10__service__c": "normalized-native-text",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "running",
+                "CA10__launchType__c": "fargate",
+                "CA10__platformVersion__c": " 1.4.0 "
+            }
+        ]
+    },
+    {
+        "Id": "supported-but-not-latest",
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 599,
+            "conditionText": "setOfText(['1.1.0', '1.2.0', '1.3.0']).contains(extract('CA10__platformVersion__c'))"
+        },
+        "context": {
+            "snapshotTime": "2026-06-14T12:00:00Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "1.3.0",
+        "CA10__runningCount__c": 0,
+        "CA10__AWS_ECS_Tasks__r": []
+    },
+    {
+        "Id": "ignore-unknown-non-running-task",
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "runtimeError": null,
+            "conditionIndex": 1000,
+            "conditionText": "otherwise"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "ACTIVE",
+        "CA10__launchType__c": "FARGATE",
+        "CA10__platformVersion__c": "LATEST",
+        "CA10__runningCount__c": 1,
+        "CA10__AWS_ECS_Tasks__r": [
+            {
+                "Id": "ignore-unknown-non-running-task-task-0",
+                "CA10__service__c": "ignore-unknown-non-running-task",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "RUNNING",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.4.0"
+            },
+            {
+                "Id": "ignore-unknown-non-running-task-task-1",
+                "CA10__service__c": "ignore-unknown-non-running-task",
+                "CA10__disappearanceTime__c": null,
+                "CA10__lastStatus__c": "UNKNOWN",
+                "CA10__launchType__c": "FARGATE",
+                "CA10__platformVersion__c": "1.3.0"
+            }
+        ]
     }
 ]

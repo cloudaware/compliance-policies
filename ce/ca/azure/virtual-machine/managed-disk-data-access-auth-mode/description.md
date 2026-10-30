@@ -1,14 +1,14 @@
 # Description
 
-Data Access Authentication Mode provides a method of uploading or exporting Virtual Machine Disks.
+Data Access Authentication Mode provides a way to upload or export Virtual Machine Disks.
 
 ## Rationale
 
-Enabling `data access authentication mode` adds a layer of protection using an Entra ID role to further restrict users from creating and using Secure Access Signature (SAS) tokens for exporting a detached managed disk or virtual machine state. Users will need the `Data operator for managed disk` role within Entra ID in order to download a VHD or VM Guest state using a secure URL.
+Enabling `data access authentication mode` adds a layer of protection using an Entra ID role to further restrict users from creating and using Secure Access Signature (SAS) tokens for exporting a detached managed disk or virtual machine state. Users need the `Data operator for managed disk` role in Entra ID to download a VHD or VM Guest state using a secure URL.
 
 ## Impact
 
-In order to apply this setting, the virtual machine to which the disk or disks are attached will need to be powered down and have their disk detached. Users without the `Data operator for managed disk` role within Entra ID will not be able to export VHD or VM Guest state using the secure download URL.
+To apply this setting, the virtual machine to which the disk or disks are attached must be powered down and the disks detached. Users without the `Data operator for managed disk` role in Entra ID cannot export a VHD or VM Guest state using the secure download URL.
 
 ## Audit
 
@@ -36,7 +36,7 @@ Repeat Parts A and B to evaluate all Disks in all VMs.
 Run the following command for each disk:
 
 ```sh
-az disk show --disk-name <disk_name> --resource-group <resource_group_name>
+az disk show --disk-name {{disk-name}} --resource-group {{resource-group-name}}
 ```
 
 Ensure the `dataAccessAuthMode` setting is set to `AzureActiveDirectory`.
@@ -46,7 +46,7 @@ Ensure the `dataAccessAuthMode` setting is set to `AzureActiveDirectory`.
 Run the following command for each disk:
 
 ```ps
-Get-AzDisk -ResourceGroupName <resource_group_name> -DiskName <disk_name>
+Get-AzDisk -ResourceGroupName {{resource-group-name}} -DiskName {{disk-name}}
 ```
 
 Ensure the `DataAccessAuthMode` setting displays `AzureActiveDirectory` next to it.

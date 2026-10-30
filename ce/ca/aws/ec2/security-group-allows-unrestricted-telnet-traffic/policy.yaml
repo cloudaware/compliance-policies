@@ -10,9 +10,22 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - "/frameworks/cloudaware/resource-security/threat-protection"
+  - "/frameworks/iso-iec-27001-2013/13/01/01"
+  - "/frameworks/cloudaware/resource-security/network-exposure"
   - "/frameworks/aws-fsbp-v1.0.0/ec2/19"
+  - "/frameworks/iso-iec-27001-2013/09/04/01"
+  - "/frameworks/pci-dss-v4.0.1/01/02/01"
+  - "/frameworks/pci-dss-v4.0.1/01/02/05"
+  - "/frameworks/pci-dss-v4.0.1/01/02/06"
+  - "/frameworks/pci-dss-v4.0.1/01/03/01"
+  - "/frameworks/pci-dss-v4.0.1/01/03/02"
+  - "/frameworks/pci-dss-v4.0.1/01/04/01"
+  - "/frameworks/pci-dss-v4.0.1/01/04/02"
+  - "/frameworks/pci-dss-v4.0.1/02/02/06"
+  - "/frameworks/pci-dss-v4.0.1/02/02/07"
 similarPolicies:
+  internal:
+    - dec-x-05aeca9a
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EC2/unrestricted-telnet-access.html
       name: Unrestricted Telnet Access

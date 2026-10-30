@@ -16,11 +16,22 @@
 ## From Azure CLI
 
 ```sh
-az storage account update --name <name of the storage account> --resource-group <resource group for a storage account> --encryption-key-source=Microsoft.Keyvault --encryption-key-vault <Key Vault URI> --encryption-key-name <KeyName> --encryption-key-version <Key Version>
+az storage account update \
+    --name {{storage-account-name}} \
+    --resource-group {{resource-group-name}} \
+    --encryption-key-source=Microsoft.Keyvault \
+    --encryption-key-vault {{key-vault-uri}} \
+    --encryption-key-name {{key-name}} \
+    --encryption-key-version {{key-version}}
 ```
 
 ## From PowerShell
 
 ```ps
-Set-AzStorageAccount -ResourceGroupName <resource group name> -Name <storage account name> -KeyvaultEncryption -KeyVaultUri <key vault URI> -KeyName <key name>
+Set-AzStorageAccount `
+    -ResourceGroupName {{resource-group-name}} `
+    -Name {{storage-account-name}} `
+    -KeyvaultEncryption `
+    -KeyVaultUri {{key-vault-uri}} `
+    -KeyName {{key-name}}
 ```

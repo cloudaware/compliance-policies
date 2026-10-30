@@ -15,7 +15,7 @@ conditions:
           TEXT: "BITBUCKET"
   - status: "INCOMPLIANT"
     currentStateMessage: "Bitbucket source repository URL contains credentials."
-    remediationMessage: "The repository URL should not contain credentials and use OAuth for authentication instead."
+    remediationMessage: "Remove credentials from the repository URL and use OAuth for authentication."
     check:
       CONTAINS:
         arg:

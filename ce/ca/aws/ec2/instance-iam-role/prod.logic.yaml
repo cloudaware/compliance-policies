@@ -6,12 +6,13 @@ importExtracts:
   - file: /types/CA10__CaAwsInstance__c/object.extracts.yaml
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "The instance has an IAM role attached."
+    currentStateMessage: "The instance has an IAM role attached through its instance profile."
     check:
       NOT_EMPTY:
         arg:
-          EXTRACT: "CA10__iamInstanceProfileArn__c"
+          FIELD:
+            path: "CA10A1__iamInstanceProfile__r.CA10A1__roleArn__c"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "The instance doesn't have an IAM role attached."
-  remediationMessage: "Consider attaching an IAM role to the instance."
+  currentStateMessage: "The instance does not have an IAM role attached."
+  remediationMessage: "Attach an IAM role to the instance."

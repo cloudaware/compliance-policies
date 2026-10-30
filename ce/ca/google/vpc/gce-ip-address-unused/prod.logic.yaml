@@ -6,7 +6,7 @@ importExtracts:
   - file: /types/CA10__CaGoogleGceStaticAddress__c/object.extracts.yaml
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "The GCE IP Address is not in Reserved status."
+    currentStateMessage: "The GCE IP address is not in RESERVED status."
     check:
       NOT_EQUAL:
         left:
@@ -14,9 +14,8 @@ conditions:
         right:
           TEXT: "RESERVED"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The External GCE IP Address is reserved but not in use."
-    remediationMessage: "Consider deleting the unused IP address to reduce costs,\
-      \ environment clutter, and security exposure."
+    currentStateMessage: "The external GCE IP address is reserved but not in use."
+    remediationMessage: "Delete unused IP addresses to reduce costs, environment clutter, and security exposure."
     check:
       IS_EQUAL:
         left:
@@ -24,9 +23,8 @@ conditions:
         right:
           TEXT: "EXTERNAL"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Internal GCE IP Address is reserved but not in use."
-    remediationMessage: "Consider deleting the unused IP address to reduce costs,\
-      \ environment clutter, and security exposure."
+    currentStateMessage: "The internal GCE IP address is reserved but not in use."
+    remediationMessage: "Delete unused IP addresses to reduce costs, environment clutter, and security exposure."
     check:
       IS_EQUAL:
         left:
@@ -34,9 +32,8 @@ conditions:
         right:
           TEXT: "INTERNAL"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The External GCE IP Address is reserved but not in use."
-    remediationMessage: "Consider deleting the unused IP address to reduce costs,\
-      \ environment clutter, and security exposure."
+    currentStateMessage: "The external GCE IP address is reserved but not in use."
+    remediationMessage: "Delete unused IP addresses to reduce costs, environment clutter, and security exposure."
     check:
       IS_EMPTY:
         arg:

@@ -1,0 +1,35 @@
+---
+inputType: "CA10__CaAwsLoadBalancer__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsLoadBalancer__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Connection draining is supported only for Classic Load Balancers."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__type__c"
+        right:
+          TEXT: "classic"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Load balancer connection draining is not enabled."
+    remediationMessage: "Enable load balancer connection draining."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__connectionDrainingEnabled__c"
+        right:
+          BOOLEAN: false
+  - status: "COMPLIANT"
+    currentStateMessage: "Load balancer connection draining is enabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__connectionDrainingEnabled__c"
+        right:
+          BOOLEAN: true
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

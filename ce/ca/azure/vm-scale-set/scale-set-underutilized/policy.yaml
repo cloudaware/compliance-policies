@@ -1,0 +1,12 @@
+---
+names:
+  full: "Azure Virtual Machine Scale Set is underutilized"
+  contextual: "VM Scale Set is underutilized"
+description: "Identify provisioned Azure VM Scale Sets with persistently low 30-day CPU and network utilization."
+categories:
+  - "COST"
+  - "PERFORMANCE"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-right-sizing"
+  - "/frameworks/cloudaware/resource-performance/workload-efficiency"

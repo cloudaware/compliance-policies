@@ -6,7 +6,7 @@ importExtracts:
   - file: /types/CA10__CaGoogleGceInstance__c/object.extracts.yaml
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This instance is created by GKE."
+    currentStateMessage: "This instance was created by GKE."
     check:
       STARTS_WITH:
         arg:
@@ -15,25 +15,25 @@ conditions:
           TEXT: 'gke-'
   - status: "INCOMPLIANT"
     currentStateMessage: "This instance has a public IP address."
-    remediationMessage: "Delete the public access config."
+    remediationMessage: "Remove the public IP configuration if it is not required."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__Google_GCE_Network_Interfaces__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The instance doesn't have a public IP address."
+  currentStateMessage: "The instance does not have a public IP address."
 relatedLists:
   - relationshipName: "CA10__Google_GCE_Network_Interfaces__r"
     importExtracts:
       - file: /types/CA10__CaGoogleGceNetworkInterface__c/object.extracts.yaml
     conditions: 
       - status: "INCOMPLIANT"
-        currentStateMessage: "The Network Interface has an External IP address attached."
+        currentStateMessage: "The network interface has an external IP address attached."
         check:
           NOT_EMPTY:
             arg:
               EXTRACT: "CA10__externalIp__c"
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "The Network Interface doesn't have an External IP address attached."
+      currentStateMessage: "The network interface does not have an external IP address attached."

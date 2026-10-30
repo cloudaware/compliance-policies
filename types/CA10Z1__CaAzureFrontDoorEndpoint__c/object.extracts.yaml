@@ -1,0 +1,7 @@
+---
+extracts:
+  - name: "CA10Z1__provisioningState__c"
+    value:
+      FIELD:
+        path: "CA10Z1__provisioningState__c"
+        undeterminedIf: {isEmpty: "The Front Door endpoint provisioning state is unavailable."}

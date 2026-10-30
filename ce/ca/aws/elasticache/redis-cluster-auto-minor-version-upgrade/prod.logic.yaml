@@ -6,7 +6,7 @@ importExtracts:
   - file: /types/CA10__CaAwsCacheCluster__c/object.extracts.yaml
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The policy only applicable to Redis Clusters."
+    currentStateMessage: "This policy is only applicable to Redis clusters."
     check:
       NOT:
         arg:
@@ -20,12 +20,12 @@ conditions:
             search:
               EXTRACT: "CA10__engine__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "ElastiCache Cluster Auto Minor Version Upgrade is not enabled."
-    remediationMessage: "Consider enabling Auto Minor Version Upgrade for this ElastiCache Cluster."    
+    currentStateMessage: "Auto minor version upgrades are not enabled for this ElastiCache cluster."
+    remediationMessage: "Enable auto minor version upgrades for this ElastiCache cluster."
     check: 
       NOT:
         arg:
           EXTRACT: CA10__autoMinorVersionUpgrade__c # autoMinorVersionUpgrade != true
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "ElastiCache Cluster Auto Minor Version Upgrade is enabled."
+  currentStateMessage: "Auto minor version upgrades are enabled for this ElastiCache cluster."

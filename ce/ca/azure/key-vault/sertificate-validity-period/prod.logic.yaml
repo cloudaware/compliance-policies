@@ -6,7 +6,7 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "The Key Vault Certificate Validity Period (in months) is less than or equal 12."
+    currentStateMessage: "The Key Vault certificate validity period is 12 months or less."
     check:
       LESS_THAN_EQUAL:
         left:
@@ -14,8 +14,8 @@ conditions:
         right:
           NUMBER: 12.0
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Key Vault Certificate Validity Period (in months) is greater than 12."
-    remediationMessage: "Restrict the validity period of certificates stored in Azure Key Vault to 12 months or less."
+    currentStateMessage: "The Key Vault certificate validity period is greater than 12 months."
+    remediationMessage: "Limit the certificate validity period to 12 months or less."
     check:
       GREATER_THAN:
         left:

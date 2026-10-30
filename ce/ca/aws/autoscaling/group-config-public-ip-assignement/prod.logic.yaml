@@ -8,13 +8,13 @@ testData:
   - file: "test-data.json"  
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The AGS is not associated with a Load Balancer."
+    currentStateMessage: "The ASG is not associated with a load balancer."
     check:
       RELATED_LIST_HAS_NO:
         relationshipName: "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r"
         status: "COMPLIANT"
   - status: "INAPPLICABLE"
-    currentStateMessage: "The AGS does not use a launch configuration."
+    currentStateMessage: "The ASG does not use a launch configuration."
     check:
       IS_EMPTY:
         arg:
@@ -24,10 +24,8 @@ conditions:
     check:
       IS_EMPTY_LOOKUP: "CA10__launchConfiguration__r"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Launch Configuration specifies to assign a public\
-      \ IPv4 address to the group's instances."
-    remediationMessage: "Consider disabling the option of assigning a public IP \
-      \ to instances behind a load balancer."
+    currentStateMessage: "The launch configuration assigns a public IPv4 address to the group's instances."
+    remediationMessage: "Disable public IP assignment for instances behind a load balancer."
     check:
       IS_EQUAL:
         left:
@@ -35,8 +33,7 @@ conditions:
         right:
           BOOLEAN: true
   - status: "COMPLIANT"
-    currentStateMessage: "Auto Scaling doesn't assign a public IP address\
-      \ to the group's instances behind a load balancer."
+    currentStateMessage: "The Auto Scaling group does not assign public IP addresses to instances behind a load balancer."
     check:
       IS_EQUAL:
         left:

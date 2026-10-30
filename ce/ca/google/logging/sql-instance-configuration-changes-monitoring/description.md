@@ -4,16 +4,16 @@ It is recommended that a metric filter and alarm be established for SQL instance
 
 ## Rationale
 
-Monitoring changes to SQL instance configuration changes may reduce the time needed to detect and correct misconfigurations done on the SQL server.
+Monitoring SQL instance configuration changes may reduce the time needed to detect and correct misconfigurations on the SQL server.
 
-Below are a few of the configurable options which may the impact security posture of an SQL instance:
+Below are a few configurable options that may impact the security posture of an SQL instance:
 
-    • Enable auto backups and high availability: Misconfiguration may adversely impact business continuity, disaster recovery, and high availability
-    • Authorize networks: Misconfiguration may increase exposure to untrusted networks
+- Enable auto backups and high availability: Misconfiguration may adversely impact business continuity, disaster recovery, and high availability.
+- Authorize networks: Misconfiguration may increase exposure to untrusted networks.
 
 ## Impact
 
-Enabling of logging may result in your project being charged for the additional logs usage. These charges could be significant depending on the size of the organization.
+Enabling logging may result in your project being charged for additional log usage. These charges could be significant depending on the size of the organization.
 
 ## Audit
 
@@ -22,9 +22,11 @@ Enabling of logging may result in your project being charged for the additional 
 Ensure the prescribed log metric is present:
 
 1. For each project that contains Cloud SQL instances, go to `Logging/Logs-based Metrics` by visiting <https://console.cloud.google.com/logs/metrics>.
-2. In the `User-defined Metrics` section, ensure that at least one metric `<Log_Metric_Name>` is present with the filter text:
+2. In the `User-defined Metrics` section, ensure that at least one metric `{{log-metric-name}}` is present with the filter text:
 
-            protoPayload.methodName="cloudsql.instances.update"
+    ```txt
+    protoPayload.methodName="cloudsql.instances.update"
+    ```
 
     Ensure that the prescribed alerting policy is present:
 
@@ -38,23 +40,31 @@ Ensure that the prescribed log metric is present:
 
 1. List the log metrics:
 
-            gcloud logging metrics list --format json
+    ```sh
+    gcloud logging metrics list \
+        --format=json
+    ```
 
-2. Ensure that the output contains at least one metric with the filter set to
+2. Ensure that the output contains at least one metric with the filter set to:
 
-            protoPayload.methodName="cloudsql.instances.update"
+    ```txt
+    protoPayload.methodName="cloudsql.instances.update"
+    ```
 
 3. Note the value of the property `metricDescriptor.type` for the identified metric, in the format `logging.googleapis.com/user/<Log Metric Name>`.
 
-    Ensure that the prescribed alerting policy is present:
+Ensure that the prescribed alerting policy is present:
 
-4. List the alerting policies:
+1. List the alerting policies:
 
-            gcloud alpha monitoring policies list --format json
+    ```sh
+    gcloud alpha monitoring policies list \
+        --format=json
+    ```
 
-5. Ensure that the output contains at least one alert policy where:
-• `conditions.conditionThreshold.filter` is set to `metric.type=\"logging.googleapis.com/user/<Log Metric Name>\"`
-• AND `enabled` is set to `true`
+2. Ensure that the output contains at least one alert policy where:
+    - `conditions.conditionThreshold.filter` is set to `metric.type=\"logging.googleapis.com/user/<Log Metric Name>\"`
+    - AND `enabled` is set to `true`
 
 ## References
 

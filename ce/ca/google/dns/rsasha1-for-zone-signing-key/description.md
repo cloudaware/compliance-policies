@@ -14,9 +14,12 @@ The algorithm used for key signing should be a recommended one and it should be 
 
 ### From Google Cloud CLI
 
-Ensure the property algorithm for keyType zone signing is not using RSASHA1.
+Ensure the `algorithm` property for the zone signing keyType is not using `RSASHA1`.
 
-            gcloud dns managed-zones describe --format="json(dnsName,dnssecConfig.state,dnssecConfig.defaultKeySpecs)"
+```sh
+gcloud dns managed-zones describe \
+    --format="json(dnsName,dnssecConfig.state,dnssecConfig.defaultKeySpecs)"
+```
 
 ## References
 

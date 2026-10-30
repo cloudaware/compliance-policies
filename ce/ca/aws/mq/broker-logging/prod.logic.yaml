@@ -1,0 +1,41 @@
+---
+inputType: "CA10__CaAwsMqBroker__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsMqBroker__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Audit logging is only supported for ActiveMQ brokers."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__engineType__c"
+        right:
+          TEXT: "ACTIVEMQ"
+  - status: "UNDETERMINED"
+    currentStateMessage: "Unable to determine audit logging status for this ActiveMQ broker."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__logsAudit__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Audit logging is disabled for this ActiveMQ broker."
+    remediationMessage: "Enable audit logging in the broker's log configuration settings."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__logsAudit__c"
+        right:
+          TEXT: "Disabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "Audit logging is enabled for the ActiveMQ broker."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__logsAudit__c"
+        right:
+          TEXT: "Enabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

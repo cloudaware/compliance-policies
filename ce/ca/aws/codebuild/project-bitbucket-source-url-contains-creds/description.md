@@ -8,6 +8,6 @@ Storing credentials directly in repository URLs is a critical security risk. The
 
 ## Audit
 
-This policy marks an *AWS CodeBuild Project* as `INCOMPLIANT` if the project's `Source Type` is set to **BITBUCKET** and the `Source Location` URL has an **@** character embedded credentials in the URL.
+This policy marks an *AWS CodeBuild Project* as `INCOMPLIANT` if the project's `Source Type` is set to **BITBUCKET** and the `Source Location` URL has an **@** character, indicating embedded credentials in the URL.
 
 Projects with any other `Source Type` are flagged as `INAPPLICABLE`.

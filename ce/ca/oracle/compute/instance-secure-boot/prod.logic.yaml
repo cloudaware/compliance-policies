@@ -1,0 +1,49 @@
+---
+inputType: "CA10O1__CaOracleIaasInstance__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10O1__CaOracleIaasInstance__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Secure Boot platform configuration is not available for this instance."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10O1__platformConfigJson__c"
+        right:
+          BYTES: "null"
+  - status: "COMPLIANT"
+    currentStateMessage: "Secure Boot is enabled for this instance."
+    check:
+      IS_EQUAL:
+        left:
+          JSON_QUERY_BOOLEAN:
+            arg:
+              EXTRACT: "caJsonFrom__platformConfigJson__c"
+            expression: "isSecureBootEnabled"
+            undeterminedIf:
+              evaluationError: "The platform configuration JSON query failed."
+              resultTypeMismatch: "The Secure Boot value in the platform configuration is not a boolean."
+              resultIsEmpty: "The platform configuration does not include a Secure Boot value."
+        right:
+          BOOLEAN: true
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Secure Boot is disabled for this instance."
+    remediationMessage: "Enable Secure Boot for this instance."
+    check:
+      IS_EQUAL:
+        left:
+          JSON_QUERY_BOOLEAN:
+            arg:
+              EXTRACT: "caJsonFrom__platformConfigJson__c"
+            expression: "isSecureBootEnabled"
+            undeterminedIf:
+              evaluationError: "The platform configuration JSON query failed."
+              resultTypeMismatch: "The Secure Boot value in the platform configuration is not a boolean."
+              resultIsEmpty: "The platform configuration does not include a Secure Boot value."
+        right:
+          BOOLEAN: false
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the Secure Boot platform configuration."

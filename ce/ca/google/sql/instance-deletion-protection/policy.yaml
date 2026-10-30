@@ -1,0 +1,12 @@
+---
+names:
+  full: "Google Cloud SQL Instance Deletion Protection is not enabled"
+  contextual: "Cloud SQL Instance Deletion Protection is not enabled"
+description: "Enable deletion protection for Cloud SQL instances to help prevent accidental or unauthorized database deletion."
+type: COMPLIANCE_POLICY
+categories:
+  - "RELIABILITY"
+impossible: true
+frameworkMappings:
+  - /frameworks/cis-gcp-v5.0.0/06/09
+  - /frameworks/cloudaware/resource-security/data-protection-and-recovery

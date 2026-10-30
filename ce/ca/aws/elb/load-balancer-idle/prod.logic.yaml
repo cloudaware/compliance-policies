@@ -9,7 +9,7 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This policy only applies to Application and Classic Load Balancers."
+    currentStateMessage: "This policy only applies to application and Classic load balancers."
     check:
       AND:
         args:
@@ -24,15 +24,15 @@ conditions:
               right:
                 TEXT: "classic"
   - status: "INAPPLICABLE"
-    currentStateMessage: "The Load Balancer has been created less than 30 days ago."
+    currentStateMessage: "The load balancer was created less than 30 days ago."
     check:
       IS_WITHIN_LAST_DAYS:
         offsetDays: 30
         arg:
           EXTRACT: "CA10__createdTime__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Load Balancer has received zero requests in the last 30 days."
-    remediationMessage: "Review the idle Load Balancer and consider deleting it to save costs."
+    currentStateMessage: "The load balancer has received zero requests in the last 30 days."
+    remediationMessage: "Review the idle load balancer and consider deleting it to reduce costs."
     check:
       OR:
         args:
@@ -46,4 +46,4 @@ conditions:
                 NUMBER: 0.0
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Application Load Balancer is actively processing requests."
+  currentStateMessage: "The load balancer is actively processing requests."

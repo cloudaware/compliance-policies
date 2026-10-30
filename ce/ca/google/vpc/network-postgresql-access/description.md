@@ -10,7 +10,7 @@ Exposing a PostgreSQL database directly to the public internet introduces a crit
 
 ## Impact
 
-All PostgreSQL connections from outside of the network to the concerned VPC(s) can be blocked. If there is a legitimate business requirement for external access, specific trusted source IP addresses should be defined in the firewall rules to whitelist access to the PostgreSQL port for the relevant VPC(s).
+All PostgreSQL connections from outside of the network to the concerned VPC(s) can be blocked. If there is a legitimate business requirement for external access, specific trusted source IP ranges should be defined in the firewall rules to whitelist access to the PostgreSQL port for the relevant VPC(s).
 
 ## Audit
 

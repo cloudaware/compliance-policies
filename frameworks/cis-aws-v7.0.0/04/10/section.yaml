@@ -1,0 +1,15 @@
+---
+name: 4.10 Ensure all AWS-managed web front-end services have access logging enabled (Manual)
+description: |-
+  Ensure that access logging is enabled for all AWS-managed web front-end services that
+  terminate or front HTTP(S) traffic, including Amazon CloudFront distributions,
+  Application Load Balancers (ALB), Network Load Balancers (NLB), and Amazon API
+  Gateway REST/HTTP API stages with public endpoints. Access logs must be enabled
+  with delivery to a designated S3 bucket or CloudWatch Logs destination that is
+  protected with appropriate access controls.
+  
+  This control requires logging of request details such as client IP address, timestamp,
+  HTTP method, requested URI, response status code, bytes transferred, and user agent
+  for every request processed by these services. CloudTrail provides management event
+  logging for these resources, but access logs are required to capture the actual HTTP
+  request/response activity at the network edge layers.

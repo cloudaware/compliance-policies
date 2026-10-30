@@ -1,0 +1,16 @@
+---
+names:
+  full: "Oracle IAAS Instance legacy IMDS endpoints are enabled"
+  contextual: "Oracle IAAS Instance legacy IMDS endpoints are enabled"
+description: >
+  Ensure that Oracle IAAS Instances have legacy Instance Metadata Service (IMDS) 
+  endpoints disabled. Legacy IMDS endpoints support older metadata access behavior 
+  and can increase the risk of metadata or credential exposure if software running 
+  on the instance is affected by SSRF, open proxy behavior, or similar request-forwarding 
+  vulnerabilities.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cis-oracle-v3.1.0/03/01"
+  - "/frameworks/cloudaware/resource-security/secure-access"

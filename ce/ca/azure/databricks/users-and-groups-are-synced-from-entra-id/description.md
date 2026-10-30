@@ -28,11 +28,11 @@ Verify SCIM provisioning is enabled:
     Check user sync status in Databricks:
 
 6. Go to `Admin Console > Identity and Access Management`.
-7. Confirm that Users and Groups match those assigned in Microsoft Entra ID.
+7. Confirm that users and groups match those assigned in Microsoft Entra ID.
 
     Ensure role-based access control (RBAC) mapping is correct:
 
-8. Verify that users are assigned appropriate Databricks roles (e.g. Admin, User, Contributor).
+8. Verify that users are assigned appropriate Databricks roles (e.g., Admin, User, Contributor).
 9. Confirm that groups are mapped to workspace access roles.
 
 ## Default Value

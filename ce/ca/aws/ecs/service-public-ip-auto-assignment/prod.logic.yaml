@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10__CaAwsEcsService__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The Service is not active."
+    currentStateMessage: "The service is not active."
     check:
       NOT_EQUAL:
         left:
@@ -14,8 +14,8 @@ conditions:
         right:
           TEXT: "ACTIVE"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The ECS Service is configured to automatically assign public IP addresses."
-    remediationMessage: "Update the Service network configuration to disable Auto-assign public IP."
+    currentStateMessage: "The ECS service is configured to automatically assign public IP addresses."
+    remediationMessage: "Update the service network configuration to disable auto-assign public IP."
     check:
       IS_EQUAL:
         left:
@@ -23,7 +23,7 @@ conditions:
         right:
           TEXT: "Enabled"
   - status: "COMPLIANT"
-    currentStateMessage: "The ECS Service is configured to not assign public IP addresses."
+    currentStateMessage: "The ECS service is configured not to assign public IP addresses."
     check:
       IS_EQUAL:
         left:

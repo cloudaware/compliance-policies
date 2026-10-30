@@ -8,9 +8,25 @@ type: "COMPLIANCE_POLICY"
 categories:
   - "SECURITY"
 frameworkMappings:
-  - "/frameworks/cis-gcp-v3.0.0/03/07"
-  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/cis-gcp-v5.0.0/03/07"
+  - "/frameworks/hipaa-security-rules/164-312/e-01"
+  - "/frameworks/iso-iec-27001-2013/09/04/01"
+  - "/frameworks/iso-iec-27001-2022/06/07"
+  - "/frameworks/iso-iec-27001-2022/08/01"
+  - "/frameworks/iso-iec-27001-2022/08/16"
+  - "/frameworks/iso-iec-27001-2022/08/22"
+  - "/frameworks/pci-dss-v4.0.1/01/02/05"
+  - "/frameworks/pci-dss-v4.0.1/01/02/06"
+  - "/frameworks/pci-dss-v4.0.1/01/03/01"
+  - "/frameworks/pci-dss-v4.0.1/01/03/02"
+  - "/frameworks/pci-dss-v4.0.1/01/04/01"
+  - "/frameworks/pci-dss-v4.0.1/01/04/02"
+  - "/frameworks/soc-2/cc6/01/07"
+  - "/frameworks/soc-2/cc6/06/01"
+  - "/frameworks/cloudaware/resource-security/network-exposure"
 similarPolicies:
+  internal:
+    - dec-x-a960c346
   cloudConformity:
     - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudVPC/unrestricted-rdp-access.html"
       name: "Check for Unrestricted RDP Access"

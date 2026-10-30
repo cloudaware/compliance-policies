@@ -8,12 +8,12 @@ recordTypes:
   - "restApiStage"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The stage is not associated with a WAF Web ACL."
-    remediationMessage: "Consider associating a WAF Web ACL with an API Gateway Stage"
+    currentStateMessage: "The stage is not associated with a WAF web ACL."
+    remediationMessage: "Associate a WAF web ACL with the API Gateway stage."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__webAclArn__c"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The stage is associated with a WAF Web ACL."
+  currentStateMessage: "The stage is associated with a WAF web ACL."

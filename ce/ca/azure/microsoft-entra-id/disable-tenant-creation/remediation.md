@@ -2,7 +2,7 @@
 
 ## From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. In the Azure portal, open the portal menu.
 2. Select `Microsoft Entra ID`.
 3. Under `Manage`, select `Users`.
 4. Under `Manage`, select `User settings`.
@@ -12,5 +12,9 @@
 ## From PowerShell
 
 ```ps
-Import-Module Microsoft.Graph.Identity.SignIns Connect-MgGraph -Scopes 'Policy.ReadWrite.Authorization' Select-MgProfile -Name beta $params = @{ DefaultUserRolePermissions = @{ AllowedToCreateTenants = $false } } Update-MgPolicyAuthorizationPolicy -AuthorizationPolicyId -BodyParameter $params
+Import-Module Microsoft.Graph.Identity.SignIns
+Connect-MgGraph -Scopes 'Policy.ReadWrite.Authorization'
+Select-MgProfile -Name beta
+$params = @{ DefaultUserRolePermissions = @{ AllowedToCreateTenants = $false } }
+Update-MgPolicyAuthorizationPolicy -AuthorizationPolicyId -BodyParameter $params
 ```

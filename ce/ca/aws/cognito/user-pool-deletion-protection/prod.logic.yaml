@@ -1,0 +1,27 @@
+---
+inputType: "CA10A1__CaAwsCognitoUserPool__c"
+importExtracts:
+  - file: "/types/CA10A1__CaAwsCognitoUserPool__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Deletion protection is enabled for the Cognito user pool."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10A1__deletionProtection__c"
+        right:
+          TEXT: "ACTIVE"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Deletion protection is not enabled for the Cognito user pool."
+    remediationMessage: "Enable deletion protection to require an explicit configuration change before the Cognito user pool can be deleted."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10A1__deletionProtection__c"
+        right:
+          TEXT: "INACTIVE"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the Cognito user pool deletion protection setting."

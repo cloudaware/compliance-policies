@@ -1,0 +1,21 @@
+---
+extracts:
+# Values: TLS, PLAINTEXT, TLS_PLAINTEXT. Not nullable. Can't have no access, retrieved via kafka:ListClusters
+  - name: "CA10__encryptionClientBroker__c"
+    value: 
+      FIELD:
+        path: "CA10__encryptionClientBroker__c"
+        undeterminedIf:
+          isEmpty: "Cluster Client Broker Encryption cannot be empty."
+  - name: "CA10__currentBrokerKafkaVersion__c"
+    value:
+      FIELD:
+        path: "CA10__currentBrokerKafkaVersion__c"
+        undeterminedIf:
+          isEmpty: "The MSK cluster's current broker Kafka version is not collected."
+  - name: "CA10__state__c"
+    value:
+      FIELD:
+        path: "CA10__state__c"
+        undeterminedIf:
+          isEmpty: "The MSK cluster state is not collected."

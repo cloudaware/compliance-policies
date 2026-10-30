@@ -44,7 +44,7 @@ aws ec2 run-instances \
     --instance-type {{instance-type}} \
     --key-name {{key-pair-name}} \
     --security-group-ids {{security-group-ids}} \
-    --subnet-id {{subnet-id}} \
+    --subnet-id {{subnet-id}}
 ```
 
 Ensure security groups, IAM roles, and networking configurations match or are adapted from the original instance.
@@ -53,18 +53,18 @@ Ensure security groups, IAM roles, and networking configurations match or are ad
 
 1. If the original instance had an Elastic IP, allocate a new Elastic IP in the destination region and associate it with the new instance:
 
-```sh
-aws ec2 allocate-address --domain vpc --region {{destination-region}}
-```
+    ```sh
+    aws ec2 allocate-address --domain vpc --region {{destination-region}}
+    ```
 
-```sh
-aws ec2 associate-address \
-    --instance-id {{new-instance-id}} \
-    --allocation-id {{allocation-id}} \
-    --region {{destination-region}}
-```
+    ```sh
+    aws ec2 associate-address \
+        --instance-id {{new-instance-id}} \
+        --allocation-id {{allocation-id}} \
+        --region {{destination-region}}
+    ```
 
-2. Update DNS records, load balancer target groups, or any configuration pointing to the old instance’s IP address or DNS name.
+2. Update DNS records, load balancer target groups, or any configuration pointing to the old instance's IP address or DNS name.
 3. Validate application functionality in the new region to confirm successful migration.
 
 ## Step 5: Decommission the Old Instance

@@ -1,0 +1,13 @@
+name: >
+  [S3.25] S3 directory buckets should have lifecycle configurations
+description: |-
+  In Amazon S3, a lifecycle configuration is a set of rules that define actions 
+  for Amazon S3 to apply to a group of objects in a bucket. For an S3 directory 
+  bucket, you can create a lifecycle rule that specifies when objects expire based 
+  on age (in days). You can also create a lifecycle rule that deletes incomplete 
+  multipart uploads. Unlike other types of S3 buckets, such as general purpose 
+  buckets, directory buckets do not support other types of actions for lifecycle 
+  rules, such as transitioning objects between storage classes.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/s3-controls.html#s3-25

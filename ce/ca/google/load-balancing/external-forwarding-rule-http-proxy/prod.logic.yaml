@@ -24,7 +24,7 @@ conditions:
               EXTRACT: "CA10__loadBalancingScheme__c"
   - status: "INCOMPLIANT"
     currentStateMessage: "The external forwarding rule uses an HTTP instead of an HTTPS proxy."
-    remediationMessage: "The forwarding rule should use a target HTTPS proxy to ensure traffic is encrypted."
+    remediationMessage: "Use a target HTTPS proxy to ensure traffic is encrypted."
     check:
       NOT_EMPTY:
         arg:

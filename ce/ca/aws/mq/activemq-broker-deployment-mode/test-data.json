@@ -1,0 +1,54 @@
+[
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__engineType__c') != 'ActiveMQ'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-01T00:50:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__deploymentMode__c": "CLUSTER_MULTI_AZ",
+    "Id": "001"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__deploymentMode__c') == 'ACTIVE_STANDBY_MULTI_AZ'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-01T00:50:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__deploymentMode__c": "ACTIVE_STANDBY_MULTI_AZ",
+    "Id": "002"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__deploymentMode__c') == 'SINGLE_INSTANCE'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-01T00:50:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__deploymentMode__c": "SINGLE_INSTANCE",
+    "Id": "003"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-01T00:50:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__deploymentMode__c": null,
+    "Id": "004"
+  }
+]

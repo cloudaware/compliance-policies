@@ -1,10 +1,10 @@
 # Description
 
-Periodically, older versions of Python may be deprecated and no longer supported. Using a supported version of Python for app services is recommended to avoid potential unpatched vulnerabilities.
+Periodically, older versions of Python may be deprecated and no longer supported. Using a supported version of Python for App Services is recommended to avoid potential unpatched vulnerabilities.
 
 ## Rationale
 
-Deprecated and unsupported versions of programming and scripting languages can present vulnerabilities which may not be addressed or may not be addressable.
+Deprecated and unsupported versions of programming and scripting languages can present vulnerabilities that may not be addressed or may not be addressable.
 
 ## Impact
 
@@ -16,22 +16,25 @@ Take note of the currently supported versions (given a status of "security") of 
 
 ### From Azure Portal
 
-1. From Azure Home open the Portal Menu in the top left.
+1. In the Azure portal, open the portal menu in the upper left.
 2. Go to `App Services`.
-3. Click on each App.
+3. Select each app.
 4. Under `Settings` section, click on `Configuration`.
-5. Click on the `General settings` pane, ensure that for a `Stack` of `Python` the `Major Version` and `Minor Version` reflect a currently supported release.
+5. Select the `General settings` pane and ensure that for a `Stack` of `Python`, the `Major Version` and `Minor Version` reflect a currently supported release.
 
-The latest stable version can be confirmed by going to php.net. Navigate to the downloads, and then find the most recent version that is marked by `Current Stable Python [version_number]`.
+The latest stable version can be confirmed on python.org. Navigate to the downloads page and find the most recent version marked as `Current Stable Python [version_number]`.
 
-**NOTE**: No action is required If `Python version` is set to `Off` as Python is not used by your web app.
+**Note**: No action is required if `Python version` is set to `Off`, as Python is not used by your web app.
 
 ### From Azure CLI
 
 To check Python version for an existing app, run the following command:
 
 ```sh
-az webapp config show --resource-group <RESOURCE_GROUP_NAME> --name <APP_NAME> --query "{LinuxFxVersion:linuxFxVersion,WindowsFxVersion:windowsFxVersion,PythonVersion:pythonVersion}"
+az webapp config show \
+    --resource-group {{resource-group-name}} \
+    --name {{app-name}} \
+    --query "{LinuxFxVersion:linuxFxVersion,WindowsFxVersion:windowsFxVersion,PythonVersion:pythonVersion}"
 ```
 
 The output should return a currently supported version of Python.
@@ -41,10 +44,14 @@ The output should return a currently supported version of Python.
 ### From PowerShell
 
 ```ps
-$app = Get-AzWebApp -Name <APP_NAME> -ResourceGroup <RESOURCE_GROUP_NAME> $app.SiteConfig |Select-Object LinuxFXVersion, WindowsFxVersion, PythonVersion
+$app = Get-AzWebApp `
+    -Name {{app-name}} `
+    -ResourceGroup {{resource-group-name}} `
+    $app.SiteConfig |
+    Select-Object LinuxFXVersion, WindowsFxVersion, PythonVersion
 ```
 
-Ensure the output of the above command shows a currently supported of Python.
+Ensure the output of the above command shows a currently supported version of Python.
 
 **NOTE**: No action is required if the output is empty, as Python is not used by your app.
 

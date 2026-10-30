@@ -17,7 +17,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "199",
-            "conditionText": "extract('CA10__publicNetworkAccess__c') == 'Disabled'",
+            "conditionText": "extract('CA10__publicNetworkAccess__c') == 'Enabled'",
             "runtimeError": null
         },
         "context": {
@@ -25,13 +25,13 @@
         },
         "Id": "test2",
         "CA10__disappearanceTime__c": null,
-        "CA10__publicNetworkAccess__c": "Disabled"
+        "CA10__publicNetworkAccess__c": "Enabled"
     },
     {
         "expectedResult": {
             "status": "COMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "extract('CA10__publicNetworkAccess__c') == 'Enabled'",
+            "conditionText": "extract('CA10__publicNetworkAccess__c') == 'Disabled'",
             "runtimeError": null
         },
         "context": {
@@ -39,7 +39,7 @@
         },
         "Id": "test3",
         "CA10__disappearanceTime__c": null,
-        "CA10__publicNetworkAccess__c": "Enabled"
+        "CA10__publicNetworkAccess__c": "Disabled"
     },
     {
         "expectedResult": {

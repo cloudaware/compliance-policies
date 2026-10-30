@@ -1,0 +1,61 @@
+---
+inputType: "CA10__CaAwsDbCluster__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsDbCluster__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The cluster is not available."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "available"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This policy does not apply to Neptune."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__engine__c"
+        right:
+          TEXT: "neptune"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This policy does not apply to DocumentDB."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__engine__c"
+        right:
+          TEXT: "docdb"          
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The RDS cluster has a default or insecure admin username."
+    remediationMessage: "Change the cluster admin username."
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: "TEXT"
+            items:
+              - "root"
+              - "admin"
+              - "administrator"
+              - "adminuser"
+              - "superuser"
+              - "sa"
+              - "sysadmin"
+              - "dbadmin"
+              - "user"
+              - "dbuser"
+              - "sys"
+              - "system"
+              - "awsuser"
+              - "mysql"
+              - "oracle"
+              - "postgres"
+        search:
+          EXTRACT: "CA10__masterUsername__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The RDS cluster has a custom admin username."

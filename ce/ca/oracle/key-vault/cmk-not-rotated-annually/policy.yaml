@@ -1,0 +1,18 @@
+---
+names:
+  full: "Oracle Key Vault Customer Managed Key is not rotated annually"
+  contextual: "Customer Managed Key is not rotated annually"
+description: >
+  Oracle Key Vault customer managed keys should be rotated at least annually or
+  have automatic rotation enabled. Periodic key rotation limits the amount of
+  data protected by one key version and reduces the impact of a potential key
+  compromise.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cis-oracle-v3.1.0/04/16"
+  - "/frameworks/cloudaware/secret-and-certificate-governance/expiration-management"
+similarPolicies:
+  internal:
+    - "dec-x-e467c0fb"

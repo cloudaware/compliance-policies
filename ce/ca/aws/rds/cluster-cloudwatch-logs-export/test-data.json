@@ -1,0 +1,178 @@
+[
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "conditionIndex": 99,
+      "status": "DISAPPEARED"
+    },
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__enabledCloudwatchLogsExports__c": "",
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-mysql",
+    "Id": "test1",
+    "CA10__disappearanceTime__c": "2026-01-20T22:12:18Z"
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__status__c') != 'available'",
+      "conditionIndex": 199,
+      "status": "INAPPLICABLE"
+    },
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__status__c": "creating",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__enabledCloudwatchLogsExports__c": "postgresql",
+    "Id": "test2",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__engine__c') != 'aurora-mysql' && extract('CA10__engine__c') != 'aurora-postgresql' && extract('CA10__engine__c') != 'docdb' && extract('CA10__engine__c') != 'neptune'",
+      "conditionIndex": 299,
+      "status": "INAPPLICABLE"
+    },
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__status__c": "available",
+    "CA10__engine__c": "mysql",
+    "CA10__enabledCloudwatchLogsExports__c": "",
+    "Id": "test3",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__engine__c') == 'aurora-mysql' && not(extract('CA10__enabledCloudwatchLogsExports__c').contains('audit'))",
+      "conditionIndex": 399,
+      "status": "INCOMPLIANT"
+    },
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-mysql",
+    "CA10__enabledCloudwatchLogsExports__c": "error\ngeneral",
+    "Id": "test4",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__engine__c') == 'aurora-mysql' && extract('CA10__enabledCloudwatchLogsExports__c').contains('audit')",
+      "conditionIndex": 499,
+      "status": "COMPLIANT"
+    },
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-mysql",
+    "CA10__enabledCloudwatchLogsExports__c": "audit\nerror",
+    "Id": "test5",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__engine__c') == 'aurora-postgresql' && not(extract('CA10__enabledCloudwatchLogsExports__c').contains('postgresql'))",
+      "conditionIndex": 599,
+      "status": "INCOMPLIANT"
+    },
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__enabledCloudwatchLogsExports__c": "instance",
+    "Id": "test6",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__engine__c') == 'aurora-postgresql' && extract('CA10__enabledCloudwatchLogsExports__c').contains('postgresql')",
+      "conditionIndex": 699,
+      "status": "COMPLIANT"
+    },
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__enabledCloudwatchLogsExports__c": "postgresql\ninstance",
+    "Id": "test7",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__engine__c') == 'docdb' && not(extract('CA10__enabledCloudwatchLogsExports__c').contains('audit'))",
+      "conditionIndex": 799,
+      "status": "INCOMPLIANT"
+    },
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__status__c": "available",
+    "CA10__engine__c": "docdb",
+    "CA10__enabledCloudwatchLogsExports__c": "",
+    "Id": "test8",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__engine__c') == 'docdb' && extract('CA10__enabledCloudwatchLogsExports__c').contains('audit')",
+      "conditionIndex": 899,
+      "status": "COMPLIANT"
+    },
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__status__c": "available",
+    "CA10__engine__c": "docdb",
+    "CA10__enabledCloudwatchLogsExports__c": "audit",
+    "Id": "test9",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__engine__c') == 'neptune' && not(extract('CA10__enabledCloudwatchLogsExports__c').contains('audit'))",
+      "conditionIndex": 999,
+      "status": "INCOMPLIANT"
+    },
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__status__c": "available",
+    "CA10__engine__c": "neptune",
+    "CA10__enabledCloudwatchLogsExports__c": "slowquery",
+    "Id": "test10",
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__engine__c') == 'neptune' && extract('CA10__enabledCloudwatchLogsExports__c').contains('audit')",
+      "conditionIndex": 1099,
+      "status": "COMPLIANT"
+    },
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__status__c": "available",
+    "CA10__engine__c": "neptune",
+    "CA10__enabledCloudwatchLogsExports__c": "audit",
+    "Id": "test11",
+    "CA10__disappearanceTime__c": null
+  }
+]

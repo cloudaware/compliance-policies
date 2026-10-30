@@ -6,7 +6,7 @@ importExtracts:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The EBS snapshot is publicly accessible."
-    remediationMessage: "Consider making the snapshot private or restricting access to specific AWS accounts."
+    remediationMessage: "Make the snapshot private or restrict access to specific AWS accounts."
     check:
       IS_EQUAL:
         left:

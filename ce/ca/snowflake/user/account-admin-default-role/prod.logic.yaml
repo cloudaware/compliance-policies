@@ -6,8 +6,8 @@ importExtracts:
   - file: "/types/CA10SN2__CaSnowflakeUser__c/object.extracts.yaml"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Default Role for this User is ACCOUNTADMIN."
-    remediationMessage: "Change the Default Role for the User to a less privileged role."
+    currentStateMessage: "The default role for this user is ACCOUNTADMIN."
+    remediationMessage: "Set a less privileged default role for the user."
     check:
       IS_EQUAL:
         left:
@@ -16,4 +16,4 @@ conditions:
           TEXT: "ACCOUNTADMIN"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Default Role for this User is not ACCOUNTADMIN."
+  currentStateMessage: "The default role for this user is not ACCOUNTADMIN."

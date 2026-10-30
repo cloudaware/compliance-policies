@@ -1,0 +1,60 @@
+---
+inputType: "CA10__CaAzureCosmosDbAccount__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureCosmosDbAccount__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Analytical storage is disabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__analyticalStorage__c"
+        right:
+          TEXT: "Disabled"
+  - status: "UNDETERMINED"
+    currentStateMessage: "Analytical storage or backup mode is unavailable."
+    check:
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__analyticalStorage__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__backupPolicyType__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Analytical storage uses periodic backup."
+    remediationMessage: "Migrate the account to continuous backup after assessing the impact."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__analyticalStorage__c"
+              right:
+                TEXT: "Enabled"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__backupPolicyType__c"
+              right:
+                TEXT: "Periodic"
+  - status: "COMPLIANT"
+    currentStateMessage: "Analytical storage uses continuous backup."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__analyticalStorage__c"
+              right:
+                TEXT: "Enabled"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__backupPolicyType__c"
+              right:
+                TEXT: "Continuous"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Analytical storage or backup mode has an unexpected value."

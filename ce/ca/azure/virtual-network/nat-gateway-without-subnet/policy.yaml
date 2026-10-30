@@ -1,0 +1,10 @@
+---
+names:
+  full: "Azure NAT Gateway has no subnet"
+  contextual: "NAT Gateway has no subnet"
+description: "Detect successfully provisioned Azure NAT Gateways with no active subnet association."
+categories:
+  - "COST"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"

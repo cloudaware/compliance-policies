@@ -12,10 +12,10 @@ description: "Resource Logs capture activity to the data access plane while the 
 impossible: true
 type: COMPLIANCE_POLICY
 categories:
-  - SECURITY
-  - RELIABILITY
+  - "SECURITY"
+  - "RELIABILITY"
 frameworkMappings:
-  - "/frameworks/cis-azure-v5.0.0/06/01/04"
+  - "/frameworks/cis-azure-v6.0.0/06/01/04"
   - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
 similarPolicies:
   cloudConformity:

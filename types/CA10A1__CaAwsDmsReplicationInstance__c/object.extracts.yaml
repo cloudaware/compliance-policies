@@ -10,3 +10,20 @@ extracts:
     value: 
       FIELD:
         path: CA10A1__minorVersionAutomaricUpdate__c
+# Checkbox. Values: true/false. Can't have no access, retrieved via dms:DescribeReplicationInstances
+  - name: CA10A1__multiAz__c
+    value: 
+      FIELD:
+        path: CA10A1__multiAz__c
+  # Text. Current engine version from dms:DescribeReplicationInstances, not a pending upgrade.
+  - name: CA10A1__engineVersion__c
+    value:
+      FIELD:
+        path: CA10A1__engineVersion__c
+        undeterminedIf:
+          isEmpty: The DMS replication instance engine version is missing from inventory.
+  # Text. ReplicationInstanceStatus from dms:DescribeReplicationInstances.
+  - name: CA10A1__status__c
+    value:
+      FIELD:
+        path: CA10A1__status__c

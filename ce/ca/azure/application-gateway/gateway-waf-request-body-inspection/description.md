@@ -13,7 +13,7 @@ Minor performance impact on the Web Application Firewall. Additional effort may 
 
 ## Audit
 
-This policy flags an *Azure Application Gateway* as `INCOMPLIANT` if any of its *WAF policy* has the `Request body inspection` property **Disabled**.
+This policy flags an *Azure Application Gateway* as `INCOMPLIANT` if any of its *WAF policies* have the `Request body inspection` property **Disabled**.
 
 ## Default Value
 

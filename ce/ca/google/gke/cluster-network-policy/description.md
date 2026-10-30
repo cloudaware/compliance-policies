@@ -17,17 +17,19 @@ By default, pods are non-isolated; they accept traffic from any source. Pods bec
 
 To check Network policy is enabled for an existing cluster, run the following command
 
-    ```sh
-        gcloud container clusters describe [CLUSTER_NAME] --zone [COMPUTE_ZONE] --format json | jq '.networkPolicy'
-    ```
+```sh
+gcloud container clusters describe [{{cluster-name}}] \
+    --zone [{{compute-zone}}] \
+    --format json | jq '.networkPolicy'
+```
 
 Ensure the output of the above command has JSON key attribute `enabled` set to `true`
 
-    ```sh
-        {
-        "enabled": true
-        }
-    ```
+```sh
+    {
+    "enabled": true
+    }
+```
 
 If Network policy is disabled above command output will return null.
 

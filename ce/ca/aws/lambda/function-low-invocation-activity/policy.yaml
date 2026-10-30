@@ -1,0 +1,15 @@
+---
+names:
+  full: "AWS Lambda Function has low invocation activity"
+  contextual: "Function has low invocation activity"
+
+description: >
+  Review Lambda functions with fewer than 10 invocations over the last 14 days
+  and no substantial recorded error or throttling activity to confirm ownership
+  and continued necessity. Decommission obsolete functions and review associated
+  resources to reduce maintenance burden and unnecessary costs.
+type: "BEST_PRACTICE"
+categories:
+  - "COST"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"

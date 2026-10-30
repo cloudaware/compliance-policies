@@ -1,0 +1,21 @@
+---
+name: 1.7 Ensure MFA is enabled for all users with a console password - Level 1 (Automated)
+description: |-
+  Multi-factor authentication is a method of authentication that requires the
+  use of more than one factor to verify a user's identity. 
+  
+  With MFA enabled in
+  the IAM service, when a user signs in to Oracle Cloud Infrastructure, they are
+  prompted for their user name and password, which is the first factor
+  (something that they know). The user is then prompted to provide a
+  verification code from a registered MFA device, which is the second factor
+  (something that they have). The two factors work together, requiring an extra
+  layer of security to verify the user's identity and complete the sign-in
+  process. 
+  
+  OCI IAM supports two-factor authentication using a password (first
+  factor) and a device that can generate a time-based one-time password (TOTP)
+  (second factor). See OCI documentation for more details.
+similar:
+  internal:
+    - dec-c-ebd94f9b

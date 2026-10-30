@@ -8,11 +8,11 @@ In GCP, **Firewall Rules** are defined at the **VPC Network** level. Each rule e
 
 The RDP port is used for remote administrative access to Windows-based virtual machines. Exposing this port to the public internet poses a significant security risk, as it becomes a prime target for automated scanners and attackers performing brute-force, credential-stuffing, and vulnerability-based attacks. A successful exploit could lead to unauthorized access or complete compromise of the affected virtual machine.
 
-To reduce risk, RDP access should be limited to specific administrative IP addresses or managed securely through Identity-Aware Proxy (IAP) or VPN access.
+To reduce risk, RDP access should be limited to specific administrative IP ranges or managed securely through Identity-Aware Proxy (IAP) or VPN access.
 
 ## Impact
 
-All Remote Desktop Protocol (RDP) connections from outside of the network to the concerned VPC(s) can be blocked. If external administrative access is required, firewall rules should be restricted to allow connections only from specific, trusted IP addresses that are explicitly authorized.
+All Remote Desktop Protocol (RDP) connections from outside of the network to the concerned VPC(s) can be blocked. If external administrative access is required, firewall rules should be restricted to allow connections only from specific, trusted IP ranges that are explicitly authorized.
 
 ## Audit
 

@@ -19,7 +19,7 @@ aws ec2 modify-snapshot-attribute \
     --snapshot-id {{snapshot-id}} \
     --attribute createVolumePermission \
     --operation-type add \
-    --user-ids {{123456789012}} {{111122223333}}
+    --user-ids {{user-id-1}} {{user-id-2}}
 ```
 
-Replace `{{user-ids}}` with the appropriate AWS account IDs.
+Replace `{{user-id-1}}` and `{{user-id-2}}` with the appropriate AWS account IDs.

@@ -1,0 +1,44 @@
+---
+extracts:
+  - name: CA10A2__status__c
+    value:
+      FIELD:
+        path: CA10A2__status__c
+        undeterminedIf:
+          isEmpty: The Provisioned Throughput status is unavailable.
+  - name: CA10A2__modelArn__c
+    value:
+      FIELD:
+        path: CA10A2__modelArn__c
+        returnType: BYTES
+        undeterminedIf:
+          isEmpty: The model ARN is unavailable.
+  # Optional ARN of the currently associated custom model.
+  - name: CA10A2__customModelArn__c
+    value:
+      FIELD:
+        path: CA10A2__customModelArn__c
+  # Classify the native route before requiring Model ARN, which CMDB can split into Custom Model ARN.
+  - name: caAwsBedrockUsesCustomModel
+    value:
+      OR:
+        args:
+          - CONTAINS:
+              arg:
+                FIELD:
+                  path: CA10A2__modelArn__c
+                  returnType: BYTES
+              search:
+                BYTES: ":custom-model/"
+          - AND:
+              args:
+                - IS_EMPTY:
+                    arg:
+                      FIELD:
+                        path: CA10A2__modelArn__c
+                        returnType: BYTES
+                - CONTAINS:
+                    arg:
+                      EXTRACT: CA10A2__customModelArn__c
+                    search:
+                      TEXT: ":custom-model/"

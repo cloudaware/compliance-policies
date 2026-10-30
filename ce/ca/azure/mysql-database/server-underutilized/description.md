@@ -1,6 +1,6 @@
 # Description
 
-This policy identifies Azure MySQL Servers that are potentially underutilized based on their performance metrics over the past 30 days. Underutilized servers are often provisioned at a higher tier than required, resulting in unnecessary cloud costs. A server is flagged as underutilized if its average CPU and I/O utilization are all below 20% and average memory is below 40%.
+This policy identifies Azure MySQL Servers that are potentially underutilized based on their performance metrics over the past 30 days. Underutilized servers are often provisioned at a higher tier than required, resulting in unnecessary cloud costs. A server is flagged as underutilized if its average CPU and I/O utilization are below 20% and average memory is below 40%.
 
 ## Rationale
 
@@ -12,7 +12,7 @@ Carefully review to confirm that the new configuration will accommodate peak dem
 
 ## Audit
 
-This policy evaluates an *Azure Azure MySQL Server* based on its 30-day performance metrics.
+This policy evaluates an *Azure MySQL Server* based on its 30-day performance metrics.
 
 The *Server* is marked as `INCOMPLIANT` if:
 

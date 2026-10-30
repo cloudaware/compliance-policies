@@ -22,7 +22,7 @@ conditions:
         right:
           NUMBER: 14.0
   - status: UNDETERMINED
-    currentStateMessage: "There is not enough data in the CMDB to identify if the instance is underutilized."
+    currentStateMessage: "There is not enough CMDB data to determine whether the instance is underutilized."
     check:
       OR:
         args:
@@ -32,11 +32,140 @@ conditions:
           - IS_EMPTY:
               arg:
                 EXTRACT: "CA10__maxCpuTwoWeeks__c"
+          - AND:
+              args:
+                - NOT_EMPTY:
+                    arg:
+                      EXTRACT: "CA10N__newRelicHost__c"
+                - IS_EMPTY:
+                    arg:
+                      EXTRACT: "CA10N__newRelicHostMemoryUsed14Day__c"
   - status: INAPPLICABLE
     currentStateMessage: "The instance is idle and considered by the 'AWS EC2 Instance is idle' policy."
     check:
       AND:
         args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10N__newRelicHost__c"
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10N__newRelicHostMemoryUsed14Day__c
+              right:
+                NUMBER: 20.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__averageCpuTwoWeeks__c
+              right:
+                NUMBER: 5.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__maxCpuTwoWeeks__c
+              right:
+                NUMBER: 15.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__sumTwoWeekNetworkInMb__c
+              right:
+                NUMBER: 100.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__sumTwoWeekNetworkOutMb__c
+              right:
+                NUMBER: 100.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10N__newRelicHostDiskReadUtilization__c
+              right:
+                NUMBER: 5.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10N__newRelicHostDiskWriteUtilization__c
+              right:
+                NUMBER: 5.0
+  - status: INAPPLICABLE
+    currentStateMessage: "The instance is idle and considered by the 'AWS EC2 Instance is idle' policy."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10N__newRelicHost__c"
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__averageMemoryUsedTwoWeeks__c
+              right:
+                NUMBER: 20.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__averageCpuTwoWeeks__c
+              right:
+                NUMBER: 5.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__maxCpuTwoWeeks__c
+              right:
+                NUMBER: 15.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__sumTwoWeekNetworkInMb__c
+              right:
+                NUMBER: 100.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__sumTwoWeekNetworkOutMb__c
+              right:
+                NUMBER: 100.0
+  - status: INAPPLICABLE
+    currentStateMessage: "The instance is idle and considered by the 'AWS EC2 Instance is idle' policy."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10N__newRelicHost__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__averageMemoryUsedTwoWeeks__c"
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__nagiosMemoryUtilization__c
+              right:
+                NUMBER: 20.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__averageCpuTwoWeeks__c
+              right:
+                NUMBER: 5.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__maxCpuTwoWeeks__c
+              right:
+                NUMBER: 15.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__sumTwoWeekNetworkInMb__c
+              right:
+                NUMBER: 100.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__sumTwoWeekNetworkOutMb__c
+              right:
+                NUMBER: 100.0
+  - status: INAPPLICABLE
+    currentStateMessage: "The instance is idle and considered by the 'AWS EC2 Instance is idle' policy."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10N__newRelicHost__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__averageMemoryUsedTwoWeeks__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__nagiosMemoryUtilization__c"
           - LESS_THAN:
               left:
                 EXTRACT: CA10__averageCpuTwoWeeks__c
@@ -58,12 +187,95 @@ conditions:
               right:
                 NUMBER: 100.0
   - status: "INCOMPLIANT"
-    currentStateMessage: "The instance is underutilized with Average CPU Utilization < 40%\
-      \ and Max CPU Utilization < 50%."
-    remediationMessage: "Consider rightsizing, consolidating or terminating the instance."
+    currentStateMessage: "The instance is underutilized with average CPU below 40%, memory below 40%, and maximum CPU below 50%."
+    remediationMessage: "Rightsize, consolidate, or terminate the instance."
     check:
       AND:
         args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10N__newRelicHost__c"
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__averageCpuTwoWeeks__c
+              right:
+                NUMBER: 40.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10N__newRelicHostMemoryUsed14Day__c
+              right:
+                NUMBER: 40.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__maxCpuTwoWeeks__c
+              right:
+                NUMBER: 50.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The instance is underutilized with average CPU below 40%, memory below 40%, and maximum CPU below 50%."
+    remediationMessage: "Rightsize, consolidate, or terminate the instance."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10N__newRelicHost__c"
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__averageCpuTwoWeeks__c
+              right:
+                NUMBER: 40.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__averageMemoryUsedTwoWeeks__c
+              right:
+                NUMBER: 40.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__maxCpuTwoWeeks__c
+              right:
+                NUMBER: 50.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The instance is underutilized with average CPU below 40%, memory below 40%, and maximum CPU below 50%."
+    remediationMessage: "Rightsize, consolidate, or terminate the instance."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10N__newRelicHost__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__averageMemoryUsedTwoWeeks__c"
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__nagiosMemoryUtilization__c
+              right:
+                NUMBER: 40.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__averageCpuTwoWeeks__c
+              right:
+                NUMBER: 40.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__maxCpuTwoWeeks__c
+              right:
+                NUMBER: 50.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The instance is underutilized with average CPU below 40% and maximum CPU below 50%."
+    remediationMessage: "Rightsize, consolidate, or terminate the instance."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10N__newRelicHost__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__averageMemoryUsedTwoWeeks__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__nagiosMemoryUtilization__c"
           - LESS_THAN:
               left:
                 EXTRACT: CA10__averageCpuTwoWeeks__c
@@ -76,4 +288,4 @@ conditions:
                 NUMBER: 50.0
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: 'The instance is not underutilized.'
+  currentStateMessage: "The instance is not underutilized."

@@ -1,6 +1,6 @@
 # Description
 
-AWS console defaults to no check boxes selected when creating a new IAM user. When creating the IAM User credentials you have to determine what type of access they require.
+The AWS console defaults to no checkboxes selected when creating a new IAM user. When creating IAM user credentials, you have to determine what type of access they require.
 
 Programmatic access: The IAM user might need to make API calls, use the AWS CLI, or use the Tools for Windows PowerShell. In that case, create an access key (access key ID and a secret access key) for that user.
 
@@ -8,9 +8,9 @@ AWS Management Console access: If the user needs to access the AWS Management Co
 
 ## Rationale
 
-Requiring the additional steps be taken by the user for programmatic access after their profile has been created will give a stronger indication of intent that access keys are `[a]` necessary for their work and `[b]` once the access key is established on an account that the keys may be in use somewhere in the organization.
+Requiring the additional steps to be taken by the user for programmatic access after their profile has been created provides a stronger indication of intent that access keys are (a) necessary for their work and (b) once the access key is established on an account, the keys may be in use somewhere in the organization.
 
-**Note**: Even if it is known the user will need access keys, require them to create the keys themselves or put in a support ticket to have them created as a separate step from user creation.
+**Note**: Even if it is known the user will need access keys, require them to create the keys themselves or submit a support ticket to have them created as a separate step from user creation.
 
 ## Audit
 
@@ -18,41 +18,40 @@ Perform the following to determine if access keys were created upon user creatio
 
 ### From Console
 
-1. Login to the AWS Management Console.
+1. Log in to the AWS Management Console.
 2. Click `Services`.
 3. Click `IAM`.
-4. Click on a User where column `Password age` and `Access key age` is not set to `None`.
-5. Click on `Security credentials` Tab.
+4. Click on a user where the `Password age` and `Access key age` columns are not set to `None`.
+5. Click the `Security credentials` tab.
 6. Compare the user `Creation time` to the Access Key `Created` date.
 7. For any that match, the key was created during initial user setup.
 
-- Keys that were created at the same time as the user profile and do not have a
-last used date should be deleted. Refer to the remediation below.
+- Keys that were created at the same time as the user profile and do not have a last used date should be deleted. Refer to the remediation below.
 
 ### From Command Line
 
-1. Run the following command (OSX/Linux/UNIX) to generate a list of all IAM users along with their access keys utilization:
+1. Run the following command to generate a list of all IAM users along with their access keys utilization:
 
-```sh
-aws iam generate-credential-report
-```
+    ```sh
+    aws iam generate-credential-report
+    ```
 
-```sh
-aws iam get-credential-report --query 'Content' --output text | base64 -d | cut -d, -f1,4,9,11,14,16
-```
+    ```sh
+    aws iam get-credential-report --query 'Content' --output text | base64 -d | cut -d, -f1,4,9,11,14,16
+    ```
 
 2. The output of this command will produce a table similar to the following:
 
-|user|password_enabled|access_key_1_active|access_key_1_last_used_date|access_key_2_active|access_key_2_last_used_date|
-|---|---|---|---|---|---|
-|elise|false|true|2015-04-16T15:14:00+00:00|false|N/A|
-|brandon|true|true|N/A|false|N/A|
-|rakesh|false|false|N/A|false|N/A|
-|helene|false|true|2015-11-18T17:47:00+00:00|false|N/A|
-|paras|true|true|2016-08-28T12:04:00+00:00|true|2016-03-04T10:11:00+00:00|
-|anitha|true|true|2016-06-08T11:43:00+00:00|true|N/A|
+    |user|password_enabled|access_key_1_active|access_key_1_last_used_date|access_key_2_active|access_key_2_last_used_date|
+    |---|---|---|---|---|---|
+    |elise|false|true|2015-04-16T15:14:00+00:00|false|N/A|
+    |brandon|true|true|N/A|false|N/A|
+    |rakesh|false|false|N/A|false|N/A|
+    |helene|false|true|2015-11-18T17:47:00+00:00|false|N/A|
+    |paras|true|true|2016-08-28T12:04:00+00:00|true|2016-03-04T10:11:00+00:00|
+    |anitha|true|true|2016-06-08T11:43:00+00:00|true|N/A|
 
-3. For any user having `password_enabled` set to `true` AND `access_key_last_used_date` set to `N/A` refer to the remediation.
+3. For any user with `password_enabled` set to `true` and `access_key_last_used_date` set to `N/A`, refer to the remediation.
 
 ## References
 
@@ -61,4 +60,4 @@ aws iam get-credential-report --query 'Content' --output text | base64 -d | cut 
 
 ## Additional Information
 
-Credential report does not appear to contain `Key Creation Date`.
+The credential report does not appear to contain `Key Creation Date`.

@@ -1,0 +1,12 @@
+---
+names:
+  full: "Google Cloud Organization Policies are not configured for centralized constraints"
+  contextual: "Organization Policies are not configured for centralized constraints"
+description: "Configure baseline Organization Policies at the organization or folder level to enforce centralized preventive constraints across Google Cloud resources."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+impossible: true
+frameworkMappings:
+  - /frameworks/cis-gcp-v5.0.0/01/01/04
+  - /frameworks/cloudaware/resource-security/secure-access

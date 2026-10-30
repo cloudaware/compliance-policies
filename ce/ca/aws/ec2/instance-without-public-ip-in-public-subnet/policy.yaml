@@ -11,7 +11,8 @@ description: "Migrate EC2 instances that don't need internet access to a private
   \ to be public."
 type: COMPLIANCE_POLICY
 categories:
-  - SECURITY
-  - RELIABILITY
+  - "SECURITY"
+  - "RELIABILITY"
 frameworkMappings:
   - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/cloudaware/resource-security/network-exposure"

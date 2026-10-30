@@ -1,0 +1,16 @@
+---
+name: "[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies"
+description: |-
+  This control checks whether an Amazon CloudFront distribution is configured to 
+  use trusted key groups for signed URL or signed cookie authentication. The control 
+  fails if the CloudFront distribution uses trusted signers, or if the distribution 
+  has no authentication configured.
+
+  To use signed URLs or signed cookies, you need a signer. A signer is either a 
+  trusted key group that you create in CloudFront, or an AWS account that contains 
+  a CloudFront key pair. We recommend that you use trusted key groups because with 
+  CloudFront key groups, you don't need to use the AWS account root user to manage 
+  the public keys for CloudFront signed URLs and signed cookies.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/cloudfront-controls.html#cloudfront-17

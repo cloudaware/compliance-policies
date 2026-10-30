@@ -1,0 +1,9 @@
+---
+name: 2.1.4 Ensure Organizational Units are structured by environment and sensitivity (Manual
+description: |-
+  Ensure that AWS Organizations Organizational Units (OUs) are structured primarily by
+  environment (for example, production, non-production, sandbox) and sensitivity (for
+  example, security, logging, shared services, regulated workloads), rather than mirroring
+  the corporate org chart. OUs should group accounts that share similar security
+  requirements and controls so that appropriate authorization policies and other guardrails
+  can be applied consistently at the OU level.

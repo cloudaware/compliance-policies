@@ -1,0 +1,13 @@
+---
+name: >
+  [S3.8] S3 general purpose buckets should block public access
+description: |-
+  Block Public Access at the S3 bucket level provides controls to ensure that objects 
+  never have public access. Public access is granted to buckets and objects through 
+  access control lists (ACLs), bucket policies, or both.
+
+  Unless you intend to have your S3 buckets publicly accessible, you should configure 
+  the bucket level Amazon S3 Block Public Access feature.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/s3-controls.html#s3-8

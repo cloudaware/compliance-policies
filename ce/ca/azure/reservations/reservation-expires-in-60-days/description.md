@@ -14,6 +14,6 @@ Organizations must carefully review reservation usage and align renewal or modif
 
 ## Audit
 
-This policy flags an *Azure Reservation* is `INCOMPLIANT` if its `Expiry Date` falls within the **next 60 days**.
+This policy flags an *Azure Reservation* as `INCOMPLIANT` if its `Expiry Date` falls within the **next 60 days**.
 
 The *Reservation* is marked as `INAPPLICABLE` if its `Provisioning State` is **not** equal to **Succeeded** or the `Expiry Date` is **empty**.

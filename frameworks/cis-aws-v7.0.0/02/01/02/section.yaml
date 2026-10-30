@@ -1,0 +1,12 @@
+---
+name: 2.1.2 Ensure authorization guardrails for all AWS Organization accounts (Manual)
+description: |-
+  Ensure that one or more baseline authorization policies such as Service Control Policies
+  (SCPs) and/or Resource Control Policies (RCPs) are attached to all member accounts
+  in AWS Organizations in accordance with organizational security requirements.
+  Authorization policies act as preventive permission guardrails: SCPs define the
+  maximum available permissions for IAM principals within accounts, while RCPs define
+  the maximum available permissions for resources within accounts. These policies can
+  enforce security invariants such as preventing disabling of key security services,
+  restricting use of unapproved AWS Regions, or blocking external access to sensitive
+  resources.

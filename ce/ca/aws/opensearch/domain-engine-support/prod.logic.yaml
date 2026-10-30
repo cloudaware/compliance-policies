@@ -1,0 +1,183 @@
+---
+inputType: CA10__CaAwsElasticsearchDomain__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsElasticsearchDomain__c/object.extracts.yaml
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: The OpenSearch domain is marked as deleted.
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__deleted__c
+        right:
+          TEXT: "true"
+  - status: INAPPLICABLE
+    currentStateMessage: The OpenSearch domain has not finished being created.
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__created__c
+        right:
+          TEXT: "false"
+  - status: UNDETERMINED
+    currentStateMessage: The domain's creation or deletion status is unclear.
+    check:
+      NOT:
+        arg:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: CA10__created__c
+                  right:
+                    TEXT: "true"
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: CA10__deleted__c
+                  right:
+                    TEXT: "false"
+  - status: INCOMPLIANT
+    currentStateMessage: AWS standard and extended support for this engine version ended on 7 November 2027.
+    remediationMessage: Migrate urgently to an engine version in AWS standard support after testing compatibility and confirming a recovery plan.
+    check:
+      AND:
+        args:
+          - CONTAINS:
+              arg:
+                SET:
+                  itemType: TEXT
+                  items:
+                    - "Elasticsearch_1.5"
+                    - "Elasticsearch_2.3"
+                    - "Elasticsearch_5.1"
+                    - "Elasticsearch_5.3"
+                    - "Elasticsearch_5.5"
+                    - "Elasticsearch_6.0"
+                    - "Elasticsearch_6.2"
+                    - "Elasticsearch_6.3"
+                    - "Elasticsearch_6.4"
+                    - "Elasticsearch_6.5"
+                    - "Elasticsearch_6.7"
+                    - "Elasticsearch_7.1"
+                    - "Elasticsearch_7.4"
+                    - "Elasticsearch_7.7"
+                    - "Elasticsearch_7.8"
+                    - "OpenSearch_1.0"
+                    - "OpenSearch_1.1"
+                    - "OpenSearch_1.2"
+                    - "OpenSearch_2.3"
+                    - "OpenSearch_2.5"
+                    - "OpenSearch_2.7"
+                    - "OpenSearch_2.9"
+              search:
+                EXTRACT: CA10__engineVersion__c
+          - IS_BEFORE_TODAY:
+              arg:
+                DATE_TIME: "2027-11-07T00:00:00Z"
+  - status: INCOMPLIANT
+    currentStateMessage: AWS standard and extended support for this engine version ended on 7 November 2028.
+    remediationMessage: Migrate urgently to an engine version in AWS standard support after testing compatibility and confirming a recovery plan.
+    check:
+      AND:
+        args:
+          - CONTAINS:
+              arg:
+                SET:
+                  itemType: TEXT
+                  items:
+                    - "Elasticsearch_5.6"
+                    - "Elasticsearch_7.9"
+                    - "OpenSearch_2.11"
+                    - "OpenSearch_2.13"
+                    - "OpenSearch_2.15"
+                    - "OpenSearch_2.17"
+              search:
+                EXTRACT: CA10__engineVersion__c
+          - IS_BEFORE_TODAY:
+              arg:
+                DATE_TIME: "2028-11-07T00:00:00Z"
+  - status: INCOMPLIANT
+    currentStateMessage: AWS standard and extended support for this engine version ended on 7 November 2030.
+    remediationMessage: Migrate urgently to an engine version in AWS standard support after testing compatibility and confirming a recovery plan.
+    check:
+      AND:
+        args:
+          - CONTAINS:
+              arg:
+                SET:
+                  itemType: TEXT
+                  items:
+                    - "Elasticsearch_6.8"
+                    - "Elasticsearch_7.10"
+                    - "OpenSearch_1.3"
+                    - "OpenSearch_2.19"
+              search:
+                EXTRACT: CA10__engineVersion__c
+          - IS_BEFORE_TODAY:
+              arg:
+                DATE_TIME: "2030-11-07T00:00:00Z"
+  - status: INCOMPLIANT
+    currentStateMessage: This engine version has been in AWS extended support since 7 November 2025, which adds support charges.
+    remediationMessage: Test and upgrade to an engine version in AWS standard support, or document a temporary exception with an upgrade deadline.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - "Elasticsearch_1.5"
+              - "Elasticsearch_2.3"
+              - "Elasticsearch_5.1"
+              - "Elasticsearch_5.3"
+              - "Elasticsearch_5.5"
+              - "Elasticsearch_6.0"
+              - "Elasticsearch_6.2"
+              - "Elasticsearch_6.3"
+              - "Elasticsearch_6.4"
+              - "Elasticsearch_6.5"
+              - "Elasticsearch_6.7"
+              - "Elasticsearch_7.1"
+              - "Elasticsearch_7.4"
+              - "Elasticsearch_7.7"
+              - "Elasticsearch_7.8"
+              - "OpenSearch_1.0"
+              - "OpenSearch_1.1"
+              - "OpenSearch_1.2"
+              - "OpenSearch_2.3"
+              - "OpenSearch_2.5"
+              - "OpenSearch_2.7"
+              - "OpenSearch_2.9"
+              - "Elasticsearch_5.6"
+        search:
+          EXTRACT: CA10__engineVersion__c
+  - status: INCOMPLIANT
+    currentStateMessage: This engine version has been in AWS extended support since 7 November 2027, which adds support charges.
+    remediationMessage: Test and upgrade to an engine version in AWS standard support, or document a temporary exception with an upgrade deadline.
+    check:
+      AND:
+        args:
+          - CONTAINS:
+              arg:
+                SET:
+                  itemType: TEXT
+                  items:
+                    - "Elasticsearch_6.8"
+                    - "Elasticsearch_7.9"
+                    - "Elasticsearch_7.10"
+                    - "OpenSearch_1.3"
+                    - "OpenSearch_2.11"
+                    - "OpenSearch_2.13"
+                    - "OpenSearch_2.15"
+                    - "OpenSearch_2.17"
+                    - "OpenSearch_2.19"
+              search:
+                EXTRACT: CA10__engineVersion__c
+          - IS_BEFORE_TODAY:
+              arg:
+                DATE_TIME: "2027-11-07T00:00:00Z"
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: No known AWS standard support deadline has passed for this engine version.
+

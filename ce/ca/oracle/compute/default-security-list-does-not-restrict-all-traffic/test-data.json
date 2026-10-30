@@ -1,0 +1,203 @@
+[
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "not(extract('Name').startsWith('Default Security List for '))",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "sec-list-custom-1",
+    "Name": "Custom Security List",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_IAAS_Virtual_Cloud_Networks__r": [],
+    "CA10O1__Oracle_IAAS_Security_List_Rules1__r": [
+      {
+        "Id": "rule-0",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__securityList__c": "sec-list-custom-1",
+        "CA10O1__direction__c": "Ingress",
+        "CA10O1__source__c": "0.0.0.0/0",
+        "CA10O1__destination__c": "",
+        "CA10O1__protocol__c": "TCP"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10O1__Oracle_IAAS_Security_List_Rules1__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "sec-list-default-1",
+    "Name": "Default Security List for vcn-1",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_IAAS_Virtual_Cloud_Networks__r": [
+      {
+        "Id": "vcn-1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__defaultSecurityList__c": "sec-list-default-1"
+      }
+    ],
+    "CA10O1__Oracle_IAAS_Security_List_Rules1__r": [
+      {
+        "Id": "rule-1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__securityList__c": "sec-list-default-1",
+        "CA10O1__direction__c": "Ingress",
+        "CA10O1__source__c": "0.0.0.0/0",
+        "CA10O1__destination__c": "",
+        "CA10O1__protocol__c": "TCP"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10O1__Oracle_IAAS_Security_List_Rules1__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "sec-list-default-2",
+    "Name": "Default Security List for vcn-2",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_IAAS_Virtual_Cloud_Networks__r": [
+      {
+        "Id": "vcn-2",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__defaultSecurityList__c": "sec-list-default-2"
+      }
+    ],
+    "CA10O1__Oracle_IAAS_Security_List_Rules1__r": [
+      {
+        "Id": "rule-2",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__securityList__c": "sec-list-default-2",
+        "CA10O1__direction__c": "Ingress",
+        "CA10O1__source__c": "10.0.0.0/24",
+        "CA10O1__destination__c": "",
+        "CA10O1__protocol__c": "ICMP"
+      },
+      {
+        "Id": "rule-3",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__securityList__c": "sec-list-default-2",
+        "CA10O1__direction__c": "Egress",
+        "CA10O1__source__c": "",
+        "CA10O1__destination__c": "0.0.0.0/0",
+        "CA10O1__protocol__c": "ALL"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "399",
+      "conditionText": "CA10O1__Oracle_IAAS_Security_List_Rules1__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "sec-list-default-3",
+    "Name": "Default Security List for vcn-3",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_IAAS_Virtual_Cloud_Networks__r": [
+      {
+        "Id": "vcn-3",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__defaultSecurityList__c": "sec-list-default-3"
+      }
+    ],
+    "CA10O1__Oracle_IAAS_Security_List_Rules1__r": [
+      {
+        "Id": "rule-4",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__securityList__c": "sec-list-default-3",
+        "CA10O1__direction__c": "Egress",
+        "CA10O1__source__c": "",
+        "CA10O1__destination__c": "",
+        "CA10O1__protocol__c": ""
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10O1__Oracle_IAAS_Security_List_Rules1__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "sec-list-default-4",
+    "Name": "Default Security List for vcn-4",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_IAAS_Virtual_Cloud_Networks__r": [
+      {
+        "Id": "vcn-4",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__defaultSecurityList__c": "sec-list-default-4"
+      }
+    ],
+    "CA10O1__Oracle_IAAS_Security_List_Rules1__r": [
+      {
+        "Id": "rule-5",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__securityList__c": "sec-list-default-4",
+        "CA10O1__direction__c": "Ingress",
+        "CA10O1__source__c": "10.0.0.0/24",
+        "CA10O1__destination__c": "",
+        "CA10O1__protocol__c": "TCP"
+      },
+      {
+        "Id": "rule-6",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__securityList__c": "sec-list-default-4",
+        "CA10O1__direction__c": "Egress",
+        "CA10O1__source__c": "",
+        "CA10O1__destination__c": "0.0.0.0/0",
+        "CA10O1__protocol__c": "TCP"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "sec-list-default-5",
+    "Name": "Default Security List for vcn-5",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_IAAS_Virtual_Cloud_Networks__r": [
+      {
+        "Id": "vcn-5",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__defaultSecurityList__c": "sec-list-default-5"
+      }
+    ],
+    "CA10O1__Oracle_IAAS_Security_List_Rules1__r": [
+      {
+        "Id": "rule-7",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__securityList__c": "sec-list-default-5",
+        "CA10O1__direction__c": "Ingress",
+        "CA10O1__source__c": "0.0.0.0/0",
+        "CA10O1__destination__c": "",
+        "CA10O1__protocol__c": "ICMP"
+      },
+      {
+        "Id": "rule-8",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__securityList__c": "sec-list-default-5",
+        "CA10O1__direction__c": "Egress",
+        "CA10O1__source__c": "",
+        "CA10O1__destination__c": "0.0.0.0/0",
+        "CA10O1__protocol__c": "ICMP"
+      }
+    ]
+  }
+]

@@ -1,0 +1,342 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:cloudformation:logical-id'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-cloudformation-logical-id",
+    "Name": "test-aws-cloudformation-logical-id",
+    "CA10__tagsJson__c": "{\"aws:cloudformation:logical-id\":\"LoadBalancer\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:cloudformation:stack-id'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-cloudformation-stack-id",
+    "Name": "test-aws-cloudformation-stack-id",
+    "CA10__tagsJson__c": "{\"aws:cloudformation:stack-id\":\"arn:aws:cloudformation:us-east-1:123456789012:stack/test/test\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:cloudformation:stack-name'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-cloudformation-stack-name",
+    "Name": "test-aws-cloudformation-stack-name",
+    "CA10__tagsJson__c": "{\"aws:cloudformation:stack-name\":\"test-stack\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('elbv2.k8s.aws/cluster')) && CA10__tagsJson__c.hasExact(bytes('ingress.k8s.aws/stack')) && CA10__tagsJson__c.hasExact(bytes('ingress.k8s.aws/resource'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-load-balancer-controller-ingress-tags",
+    "Name": "test-aws-load-balancer-controller-ingress-tags",
+    "CA10__tagsJson__c": "{\"elbv2.k8s.aws/cluster\":\"test-cluster\",\"ingress.k8s.aws/stack\":\"test-namespace/test-ingress\",\"ingress.k8s.aws/resource\":\"LoadBalancer\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "599",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('elbv2.k8s.aws/cluster')) && CA10__tagsJson__c.hasExact(bytes('service.k8s.aws/stack')) && CA10__tagsJson__c.hasExact(bytes('service.k8s.aws/resource'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-load-balancer-controller-service-tags",
+    "Name": "test-aws-load-balancer-controller-service-tags",
+    "CA10__tagsJson__c": "{\"elbv2.k8s.aws/cluster\":\"test-cluster\",\"service.k8s.aws/stack\":\"test-namespace/test-service\",\"service.k8s.aws/resource\":\"LoadBalancer\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "699",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:servicecatalog:portfolioArn'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-servicecatalog-portfolioarn",
+    "Name": "test-aws-servicecatalog-portfolioarn",
+    "CA10__tagsJson__c": "{\"aws:servicecatalog:portfolioArn\":\"arn:aws:catalog:us-east-1:123456789012:portfolio/port-abc123\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "799",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:servicecatalog:productArn'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-servicecatalog-productarn",
+    "Name": "test-aws-servicecatalog-productarn",
+    "CA10__tagsJson__c": "{\"aws:servicecatalog:productArn\":\"arn:aws:catalog:us-east-1:123456789012:product/prod-abc123\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "899",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:servicecatalog:provisioningPrincipalArn'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-servicecatalog-provisioningprincipalarn",
+    "Name": "test-aws-servicecatalog-provisioningprincipalarn",
+    "CA10__tagsJson__c": "{\"aws:servicecatalog:provisioningPrincipalArn\":\"arn:aws:iam::123456789012:role/provisioning-role\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "999",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:servicecatalog:provisionedProductArn'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-servicecatalog-provisionedproductarn",
+    "Name": "test-aws-servicecatalog-provisionedproductarn",
+    "CA10__tagsJson__c": "{\"aws:servicecatalog:provisionedProductArn\":\"arn:aws:servicecatalog:us-east-1:123456789012:stack/test/pp-abc123\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "1099",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:servicecatalog:provisioningArtifactIdentifier'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-servicecatalog-provisioningartifactidentifier",
+    "Name": "test-aws-servicecatalog-provisioningartifactidentifier",
+    "CA10__tagsJson__c": "{\"aws:servicecatalog:provisioningArtifactIdentifier\":\"pa-abc123\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "1199",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('elasticbeanstalk:environment-name')) && CA10__tagsJson__c.hasExact(bytes('elasticbeanstalk:environment-id'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-elasticbeanstalk-environment-tags",
+    "Name": "test-elasticbeanstalk-environment-tags",
+    "CA10__tagsJson__c": "{\"elasticbeanstalk:environment-name\":\"test-env\",\"elasticbeanstalk:environment-id\":\"e-abc123\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "1200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-no-automated-provisioning-tags",
+    "Name": "test-no-automated-provisioning-tags",
+    "CA10__tagsJson__c": "{\"Owner\":\"platform-team\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "1200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-service-eks-amazonaws-tags-not-supported",
+    "Name": "test-service-eks-amazonaws-tags-not-supported",
+    "CA10__tagsJson__c": "{\"service.eks.amazonaws.com/resource\":\"LoadBalancer\",\"service.eks.amazonaws.com/stack\":\"test-namespace/test-service\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "1200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-old-eks-service-managed-tags-not-supported",
+    "Name": "test-old-eks-service-managed-tags-not-supported",
+    "CA10__tagsJson__c": "{\"eks:eks-cluster-name\":\"test-cluster\",\"service.eks.amazonaws.com/resource\":\"LoadBalancer\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "1200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-standalone-load-balancer-controller-cluster-tag-not-enough",
+    "Name": "test-standalone-load-balancer-controller-cluster-tag-not-enough",
+    "CA10__tagsJson__c": "{\"elbv2.k8s.aws/cluster\":\"test-cluster\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "1200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-kubernetes-cluster-tag-not-standalone-evidence",
+    "Name": "test-kubernetes-cluster-tag-not-standalone-evidence",
+    "CA10__tagsJson__c": "{\"kubernetes.io/cluster/test-cluster\":\"owned\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "1200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-elasticbeanstalk-single-tag-not-enough",
+    "Name": "test-elasticbeanstalk-single-tag-not-enough",
+    "CA10__tagsJson__c": "{\"elasticbeanstalk:environment-name\":\"test-env\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  }
+]

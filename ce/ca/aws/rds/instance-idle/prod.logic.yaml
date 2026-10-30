@@ -23,7 +23,7 @@ conditions:
             arg:
               EXTRACT: "CA10__createTime__c"
   - status: UNDETERMINED
-    currentStateMessage: "There is not enough data in the CMDB to identify if the instance is idle."
+    currentStateMessage: "There is not enough data in the CMDB to determine whether the instance is idle."
     check:
       OR:
         args:
@@ -33,9 +33,18 @@ conditions:
           - IS_EMPTY:
               arg:
                 EXTRACT: "CA10__databaseConnectionsAvg30d__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__databaseConnectionsMax30d__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__diskReadIopsAvg30d__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__diskWriteIopsAvg30d__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The instance is idle with Average CPU Utilization < 5%, Average Database Connections = 0."
-    remediationMessage: "Consider terminating or down-sizing the instance."
+    currentStateMessage: "The instance is idle with 30-day average CPU utilization below 5%, zero average and maximum database connections, and near-zero disk I/O."
+    remediationMessage: "Stop, delete, or rightsize the instance after confirming it is no longer required."
     check:
       AND:
         args:
@@ -49,6 +58,21 @@ conditions:
                 EXTRACT: "CA10__databaseConnectionsAvg30d__c"
               right:
                 NUMBER: 0.0
+          - LESS_THAN_EQUAL:
+              left:
+                EXTRACT: "CA10__databaseConnectionsMax30d__c"
+              right:
+                NUMBER: 0.0
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__diskReadIopsAvg30d__c"
+              right:
+                NUMBER: 1.0
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__diskWriteIopsAvg30d__c"
+              right:
+                NUMBER: 1.0
 otherwise:
   status: "COMPLIANT"
   currentStateMessage: "The instance is not idle."

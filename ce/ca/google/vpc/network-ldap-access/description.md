@@ -12,7 +12,7 @@ Additionally, unencrypted LDAP traffic (port 389) transmits all data, including 
 
 ## Impact
 
-All LDAP connections from outside of the network to the concerned VPC(s) can be blocked. If there is a legitimate requirement for remote administrative access, trusted source IP addresses should be explicitly defined in firewall rules to whitelist access only to the necessary LDAP ports.
+All LDAP connections from outside of the network to the concerned VPC(s) can be blocked. If there is a legitimate requirement for remote administrative access, trusted source IP ranges should be explicitly defined in firewall rules to whitelist access only to the necessary LDAP ports.
 
 ## Audit
 

@@ -1,10 +1,10 @@
 # Description
 
-Associate AWS API Gateway REST API stages with a WAF Web ACL to provide enhanced security against web application threats. AWS WAF is a web application firewall designed to block, allow, or count web requests based on customizable rules and security conditions that you define. Linking your API Gateway stage with an AWS WAF Web ACL helps safeguard your APIs from common exploits, such as SQL injection and cross-site scripting (XSS), and other malicious activities targeting your APIs.
+Associate AWS API Gateway REST API stages with a WAF Web ACL to provide enhanced security against web application threats. AWS WAF is a web application firewall designed to block, allow, or count web requests based on customizable rules and security conditions that you configure. Linking your API Gateway stages to an AWS WAF Web ACL helps safeguard APIs from common exploits such as SQL injection and cross-site scripting (XSS), and other malicious activity targeting your APIs.
 
 ## Rationale
 
-Configuring AWS WAF Web ACLs for API Gateway stages improves overall security posture by implementing rule-based traffic filtering. This measure defends against automated attacks, unauthorized access, and other malicious web activities. It also enables security teams to monitor and audit traffic patterns, allowing proactive adjustments to security configurations. Without a WAF Web ACL in place, APIs are vulnerable to various attack vectors, which could lead to unauthorized access, data breaches, and disruption of services.
+Configuring AWS WAF Web ACLs for API Gateway stages improves security posture by implementing rule-based traffic filtering. This measure defends against automated attacks, unauthorized access, and other malicious web activities. It also enables security teams to monitor and audit traffic patterns, allowing proactive adjustments to security rules. Without a WAF Web ACL in place, APIs are vulnerable to various attack vectors that could lead to unauthorized access, data breaches, and service disruption.
 
 ## Impact
 

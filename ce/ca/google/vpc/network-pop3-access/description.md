@@ -10,7 +10,7 @@ POP3 is a legacy email retrieval protocol that transmits both authentication cre
 
 ## Impact
 
-All POP3 connections from outside of the network to the concerned VPC(s) can be blocked. If there is a legitimate business requirement for external access, specific trusted source IP addresses should be explicitly defined in firewall rules to whitelist access to the POP3 port for the relevant VPC(s).
+All POP3 connections from outside of the network to the concerned VPC(s) can be blocked. If there is a legitimate business requirement for external access, specific trusted source IP ranges should be explicitly defined in firewall rules to whitelist access to the POP3 port for the relevant VPC(s).
 
 ## Audit
 

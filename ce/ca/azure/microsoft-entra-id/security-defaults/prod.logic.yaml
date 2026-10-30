@@ -7,14 +7,14 @@ importExtracts:
 conditions:
       - status: "INCOMPLIANT"
         currentStateMessage: "Security defaults are not enabled for the Active Directory."
-        remediationMessage: "Enable Security defaults for Active Directory"
+        remediationMessage: "Enable security defaults for Microsoft Entra ID."
         check:
           IS_EMPTY:
             arg:
               EXTRACT: "CA10__securityDefaultsEnforcementPolicy__c"
       - status: "INCOMPLIANT"
         currentStateMessage: "Security defaults are disabled for the Active Directory."
-        remediationMessage: "Enable Security defaults for Active Directory"
+        remediationMessage: "Enable security defaults for Microsoft Entra ID."
         check:
           IS_EQUAL:
             left:

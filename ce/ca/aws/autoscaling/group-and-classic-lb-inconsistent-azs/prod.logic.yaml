@@ -4,22 +4,20 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The AGS is linked to a LB through the Target Group or\
-      \ the Classic Load Balancer is not present is the CMDB."
+    currentStateMessage: "The ASG is linked through a target group, or the classic load balancer is not present in the CMDB."
     check:
       RELATED_LIST_HAS:
         relationshipName: "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r"
         status: "INAPPLICABLE"
   - status: "INCOMPLIANT"
-    currentStateMessage: "There is at least one incompliant related Classic Load Balancer."
-    remediationMessage: "Consider updating the AZs for either the Load Balancer\
-      \ or the Auto Scaling Group."
+    currentStateMessage: "At least one related classic load balancer is non-compliant."
+    remediationMessage: "Align Availability Zones between the load balancer and the Auto Scaling group."
     check:
       RELATED_LIST_HAS:
         relationshipName: "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r"
         status: "INCOMPLIANT"
   - status: "COMPLIANT"
-    currentStateMessage: "Unable to determine if AZs match."
+    currentStateMessage: "Availability Zones match between the Auto Scaling group and the load balancer."
     check:
       RELATED_LIST_HAS:
         relationshipName: "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r"
@@ -32,7 +30,7 @@ conditions:
         status: "UNDETERMINED"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Auto Scaling Group is not linked to an active Load Balancer."
+  currentStateMessage: "The Auto Scaling group is not linked to an active load balancer."
 relatedLists:
   - relationshipName: "CA10__AWS_EC2_Auto_Scaling_Group_Tfc_Src_Links__r"
     importExtracts:
@@ -40,15 +38,13 @@ relatedLists:
       - file: /types/CA10__CaAwsLoadBalancer__c/object.extracts.yaml
     conditions:
       - status: "INAPPLICABLE"
-        currentStateMessage: "The AGS is linked to a LB through a Target Group or\
-          \ the Classic Load Balancer is not present is the CMDB."
+        currentStateMessage: "The ASG is linked through a target group, or the classic load balancer is not present in the CMDB."
         check:
           IS_EMPTY_LOOKUP: "CA10__loadBalancer__r"
       - status: "INCOMPLIANT"
         currentStateMessage: "The set of Availability Zones configured on the Auto\
           \ Scaling Group does not match the set configured on Load Balancer."
-        remediationMessage: "Adjust the set of Availability Zones either on the Auto\
-          \ Scaling Group or the Load Balancer to match."
+        remediationMessage: "Align the Availability Zones on the Auto Scaling group and the load balancer."
         check:
           NOT_EQUAL:
             left:

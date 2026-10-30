@@ -6,8 +6,8 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "App Service Authentication is disabled and Basic Auth Publishing Credentials are enabled."
-    remediationMessage: "Consider enabling App Service Authentication and disabling Basic Auth Publishing Credentials."
+    currentStateMessage: "App Service authentication is disabled and basic auth publishing credentials are enabled."
+    remediationMessage: "Enable App Service authentication and disabling basic auth publishing credentials."
     check:
       AND:
         args:
@@ -29,8 +29,8 @@ conditions:
                     right:
                       TEXT: "Enabled"
   - status: "INCOMPLIANT"
-    currentStateMessage: "App Service Authentication is disabled."
-    remediationMessage: "Consider enabling App Service Authentication."
+    currentStateMessage: "App Service authentication is disabled."
+    remediationMessage: "Enable App Service authentication."
     check:
       IS_EQUAL:
         left:
@@ -38,8 +38,8 @@ conditions:
         right:
           TEXT: "Disabled"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Basic Auth Publishing Credentials are enabled."
-    remediationMessage: "Consider disabling Basic Auth Publishing Credentials."
+    currentStateMessage: "Basic auth publishing credentials are enabled."
+    remediationMessage: "Disable basic auth publishing credentials."
     check:
       OR:
         args:
@@ -54,7 +54,7 @@ conditions:
               right:
                 TEXT: "Enabled"
   - status: "COMPLIANT"
-    currentStateMessage: "App Service Authentication is enabled and Basic Auth Publishing Credentials are disabled."
+    currentStateMessage: "App Service authentication is enabled and basic auth publishing credentials are disabled."
     check:
       AND:
         args:

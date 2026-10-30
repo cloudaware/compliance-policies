@@ -1,0 +1,154 @@
+<MdxCard>
+    [Back](index.md)
+
+    # Policy Run Trend
+
+    <MdxCustomView key="policy-run-trend" type="chart" viewSettings={{
+        keyPrefix: "CABQ0002",
+        sObjectName: "CABQ__CaCe2PolicyRun__c",
+        listViewPreset: {
+            filter: {
+                type: "condition",
+                operator: "equals",
+                field: "policyId__c",
+                value: "/ce/ca/aws/account/aws-support-role"
+            },
+            aggregateQuery: {
+                columns: [
+                    {
+                        label: "Run Time",
+                        name: "runTime__c",
+                        fieldNameOrPath: "runTime__c",
+                        type: "DATE_TIME",
+                        usage: "GROUPED",
+                        convertFunction: "YEAR_MONTH_DAY"
+                    },
+                    {
+                        label: "Disappeared",
+                        name: "disappeared__c",
+                        fieldNameOrPath: "disappeared__c",
+                        type: "DOUBLE",
+                        precision: 18,
+                        scale: 0,
+                        usage: "AGGREGATED",
+                        aggregateFunction: "AVG"
+                    },
+                    {
+                        label: "Compliant",
+                        name: "compliant__c",
+                        fieldNameOrPath: "compliant__c",
+                        type: "DOUBLE",
+                        precision: 18,
+                        scale: 0,
+                        usage: "AGGREGATED",
+                        aggregateFunction: "AVG"
+                    },
+                    {
+                        label: "Incompliant",
+                        name: "incompliant__c",
+                        fieldNameOrPath: "incompliant__c",
+                        type: "DOUBLE",
+                        precision: 18,
+                        scale: 0,
+                        usage: "AGGREGATED",
+                        aggregateFunction: "AVG"
+                    },
+                    {
+                        label: "Inapplicable",
+                        name: "inapplicable__c",
+                        fieldNameOrPath: "inapplicable__c",
+                        type: "DOUBLE",
+                        precision: 18,
+                        scale: 0,
+                        usage: "AGGREGATED",
+                        aggregateFunction: "AVG"
+                    },
+                    {
+                        label: "Undetermined",
+                        name: "undetermined__c",
+                        fieldNameOrPath: "undetermined__c",
+                        type: "DOUBLE",
+                        precision: 18,
+                        scale: 0,
+                        usage: "AGGREGATED",
+                        aggregateFunction: "AVG"
+                    }
+                ],
+                orderBy: []
+            },
+            chart: {
+                chartType: "line",
+                dimensions: [
+                    "runTime__c:YEAR_MONTH_DAY"
+                ],
+                measures: [
+                    "compliant__c:AVG",
+                    "incompliant__c:AVG",
+                    "inapplicable__c:AVG",
+                    "undetermined__c:AVG",
+                    "disappeared__c:AVG"
+                ]
+            },
+            columns: [
+                {
+                    label: "Run Time",
+                    name: "runTime__c",
+                    fieldNameOrPath: "runTime__c",
+                    type: "DATE_TIME",
+                    usage: "GROUPED",
+                    convertFunction: "YEAR_MONTH_DAY"
+                },
+                {
+                    label: "Disappeared",
+                    name: "disappeared__c",
+                    fieldNameOrPath: "disappeared__c",
+                    type: "DOUBLE",
+                    precision: 18,
+                    scale: 0,
+                    usage: "AGGREGATED",
+                    aggregateFunction: "AVG"
+                },
+                {
+                    label: "Compliant",
+                    name: "compliant__c",
+                    fieldNameOrPath: "compliant__c",
+                    type: "DOUBLE",
+                    precision: 18,
+                    scale: 0,
+                    usage: "AGGREGATED",
+                    aggregateFunction: "AVG"
+                },
+                {
+                    label: "Incompliant",
+                    name: "incompliant__c",
+                    fieldNameOrPath: "incompliant__c",
+                    type: "DOUBLE",
+                    precision: 18,
+                    scale: 0,
+                    usage: "AGGREGATED",
+                    aggregateFunction: "AVG"
+                },
+                {
+                    label: "Inapplicable",
+                    name: "inapplicable__c",
+                    fieldNameOrPath: "inapplicable__c",
+                    type: "DOUBLE",
+                    precision: 18,
+                    scale: 0,
+                    usage: "AGGREGATED",
+                    aggregateFunction: "AVG"
+                },
+                {
+                    label: "Undetermined",
+                    name: "undetermined__c",
+                    fieldNameOrPath: "undetermined__c",
+                    type: "DOUBLE",
+                    precision: 18,
+                    scale: 0,
+                    usage: "AGGREGATED",
+                    aggregateFunction: "AVG"
+                }
+            ]
+        }
+    }} />
+</MdxCard>

@@ -11,16 +11,16 @@ conditions:
         status: "COMPLIANT"
         relationshipName: "CA10__Google_Storage_Buckets__r"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The storage bucket logging is not enabled."
-    remediationMessage: "Enable logging for the Storage bucket."
+    currentStateMessage: "Storage bucket logging is not enabled."
+    remediationMessage: "Enable logging for the storage bucket."
     check:
       IS_EMPTY_LOOKUP: "CA10__loggingBucket__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Storage bucket logging is enabled"
+  currentStateMessage: "Storage bucket logging is enabled."
 relatedLists:
   - relationshipName: "CA10__Google_Storage_Buckets__r"
     conditions: []
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "This is a log source bucket." 
+      currentStateMessage: "This is a log source bucket."

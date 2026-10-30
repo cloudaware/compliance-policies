@@ -9,10 +9,10 @@ description: "CloudTrail log file validation creates a digitally signed digest f
   \ enabled on all CloudTrails."
 type: COMPLIANCE_POLICY
 categories:
-  - SECURITY
-  - RELIABILITY
+  - "SECURITY"
+  - "RELIABILITY"
 frameworkMappings:
-  - "/frameworks/cis-aws-v6.0.0/04/02"
+  - "/frameworks/cis-aws-v7.0.0/04/02"
   - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
   - "/frameworks/aws-fsbp-v1.0.0/cloudtrail/04"
 similarPolicies:

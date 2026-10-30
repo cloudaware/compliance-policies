@@ -6,8 +6,8 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Azure role-based access control is disabled."
-    remediationMessage: "Consider enabling role-based access control."
+    currentStateMessage: "Azure role-based access control (RBAC) is disabled."
+    remediationMessage: "Enable Azure RBAC for the Key Vault."
     check:
       IS_EQUAL:
         left:
@@ -15,7 +15,7 @@ conditions:
         right:
           TEXT: "Disabled"
   - status: "COMPLIANT"
-    currentStateMessage: "The Azure role-based access control is enabled."
+    currentStateMessage: "Azure role-based access control (RBAC) is enabled."
     check:
       IS_EQUAL:
         left:

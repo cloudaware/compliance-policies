@@ -13,7 +13,7 @@ conditions:
         right:
           TEXT: "ACTIVE"
   - status: "INAPPLICABLE"
-    currentStateMessage: "The DynamoDB Table uses On-Demand capacity mode, which scales automatically."
+    currentStateMessage: "The DynamoDB table uses on-demand capacity mode, which scales automatically."
     check:
       IS_EQUAL:
         left:
@@ -21,15 +21,15 @@ conditions:
         right:
           TEXT: "PAY_PER_REQUEST"
   - status: "COMPLIANT"
-    currentStateMessage: "The DynamoDB Table uses Provisioned capacity mode with Auto Scaling enabled."
+    currentStateMessage: "The DynamoDB table uses provisioned capacity mode with Auto Scaling enabled."
     check:
       RELATED_LIST_HAS:
         status: "COMPLIANT"
         relationshipName: "CA10__AWS_App_AutoScaling_Scalable_Targets__r"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "The DynamoDB Table uses Provisioned capacity mode without Auto Scaling configured."
-  remediationMessage: "Enable DynamoDB Auto Scaling for the Table or switch to On-Demand capacity mode."
+  currentStateMessage: "The DynamoDB table uses provisioned capacity mode without Auto Scaling configured."
+  remediationMessage: "Enable DynamoDB Auto Scaling for the table or switch to on-demand capacity mode."
 relatedLists:
   - relationshipName: "CA10__AWS_App_AutoScaling_Scalable_Targets__r"
     conditions: []

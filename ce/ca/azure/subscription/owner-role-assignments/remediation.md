@@ -4,7 +4,7 @@
 
 1. Go to `Subscriptions`.
 2. Click the name of a subscription.
-3. Click `Access Controls (IAM)`.
+3. Click `Access control (IAM)`.
 4. Click `Role assignments`.
 5. Click `Role : All`.
 6. Click the arrow next to `All`.
@@ -19,5 +19,5 @@
 Run the following command to delete role assignments by role assignment id:
 
 ```sh
-az role assignment delete --ids {{id1 id2}}
+az role assignment delete --ids {{role-assignment-id-1}} {{role-assignment-id-2}}
 ```

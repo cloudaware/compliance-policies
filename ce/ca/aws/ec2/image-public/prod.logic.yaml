@@ -6,7 +6,7 @@ importExtracts:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The EC2 Image is publicly accessible."
-    remediationMessage: "Consider restricting the image access to private or sharing only with specific AWS accounts."
+    remediationMessage: "Restrict the image to private access or share it only with specific AWS accounts."
     check:
       IS_EQUAL:
         left:
@@ -14,7 +14,7 @@ conditions:
         right:
           BOOLEAN: true
   - status: "COMPLIANT"
-    currentStateMessage: "The EC2 Image is not publicly accessible."
+    currentStateMessage: "The EC2 image is not publicly accessible."
     check:
       IS_EQUAL:
         left:

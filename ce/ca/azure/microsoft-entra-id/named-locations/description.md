@@ -1,20 +1,20 @@
 # Description
 
-Microsoft Entra ID Conditional Access allows an organization to configure `Named locations` and configure whether those locations are trusted or untrusted. These settings provide organizations the means to specify Geographical locations for use in conditional access policies, or define actual IP addresses and IP ranges and whether or not those IP addresses and/or ranges are trusted by the organization.
+Microsoft Entra ID Conditional Access allows an organization to configure `Named locations` and whether those locations are trusted or untrusted. These settings provide organizations the means to specify geographic locations for use in conditional access policies, or define actual IP addresses and IP ranges and whether those IP addresses or ranges are trusted by the organization.
 
 ## Rationale
 
 Defining trusted source IP addresses or ranges helps organizations create and enforce Conditional Access policies around those trusted or untrusted IP addresses and ranges. Users authenticating from trusted IP addresses and/or ranges may have less access restrictions or access requirements when compared to users that try to authenticate to Microsoft Entra ID from untrusted locations or untrusted source IP addresses/ranges.
 
-Note on Assessment Status: Because the determination of entities to be included or excluded is specific and unique to each organization, assessment status for this recommendation is considered 'Manual' even though some elements for automation (CLI, PowerShell) are provided.
+Note on Assessment Status: Because the determination of entities to be included or excluded is specific and unique to each organization, the assessment status for this recommendation is considered 'Manual' even though some elements for automation (CLI, PowerShell) are provided.
 
 ## Impact
 
 When configuring `Named locations`, the organization can create locations using Geographical location data or by defining source IP addresses or ranges. Configuring `Named locations` using a Country location does not provide the organization the ability to mark those locations as trusted, and any Conditional Access policy relying on those `Countries location` setting will not be able to use the `All trusted locations` setting within the Conditional Access policy. They instead will have to rely on the `Select locations` setting. This may add additional resource requirements when configuring, and will require thorough organizational testing.
 
-In general, Conditional Access policies may completely prevent users from authenticating to Microsoft Entra ID, and thorough testing is recommended. To avoid complete lockout, a 'Break Glass' account with full Global Administrator rights is recommended in the event all other administrators are locked out of authenticating to Microsoft Entra ID. This 'Break Glass' account should be excluded from Conditional Access Policies and should be configured with the longest pass phrase feasible. This account should only be used in the event of an emergency and complete administrator lockout.
+In general, Conditional Access policies may completely prevent users from authenticating to Microsoft Entra ID, and thorough testing is recommended. To avoid complete lockout, a break-glass account with full Global Administrator rights is recommended in the event all other administrators are locked out of authenticating to Microsoft Entra ID. This break-glass account should be excluded from Conditional Access Policies and should be configured with the longest passphrase feasible. This account should only be used in the event of an emergency and complete administrator lockout.
 
-**NOTE**: Starting July 2024, Microsoft will begin requiring MFA for All Users - including Break Glass Accounts. By the end of October 2024, this requirement will be enforced. Physical FIDO2 security keys, or a certificate kept on secure removable storage can fulfill this MFA requirement. If opting for a physical device, that device should be kept in a very secure, documented physical location.
+**Note**: Starting July 2024, Microsoft began requiring MFA for all users, including break-glass accounts. By the end of October 2024, this requirement was enforced. Physical FIDO2 security keys or a certificate kept on secure removable storage can fulfill this MFA requirement. If opting for a physical device, that device should be kept in a secure, documented physical location.
 
 ## Audit
 

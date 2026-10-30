@@ -27,7 +27,7 @@ Resources:
       AutoMinorVersionUpgrade: true
 ```
 
-**Note**: Ensure that the `ReplicationInstanceArn` parameter matches the target instance’s ARN.
+**Note**: Ensure that the `ReplicationInstanceIdentifier` parameter matches the target instance.
 
 ## From Command Line
 

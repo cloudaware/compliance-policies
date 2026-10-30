@@ -16,20 +16,36 @@ To be able turn on `Shielded VM` on an instance, your instance must use an image
 
 You can only enable Shielded VM options on instances that have Shielded VM support. For a list of Shielded VM public images, run the gcloud compute images list command with the following flags:
 
-            gcloud compute images list --project gce-uefi-images --no-standard-images
+```sh
+gcloud compute images list \
+    --project gce-uefi-images \
+    --no-standard-images
+```
 
 1. Stop the instance:
 
-            gcloud compute instances stop <INSTANCE_NAME>
+    ```sh
+    gcloud compute instances stop {{instance-name}}
+    ```
 
 2. Update the instance:
 
-            gcloud compute instances update <INSTANCE_NAME> --shielded-vtpm --shielded-vm-integrity-monitoring
+    ```sh
+    gcloud compute instances update {{instance-name}} \
+        --shielded-vtpm \
+        --shielded-vm-integrity-monitoring
+    ```
 
 3. Optionally, if you do not use any custom or unsigned drivers on the instance, also turn on secure boot.
 
-            gcloud compute instances update <INSTANCE_NAME> --shielded-vm-secure-boot
+    ```sh
+    gcloud compute images list \
+        --project gce-uefi-images \
+        --no-standard-images
+    ```
 
 4. Restart the instance:
 
-            gcloud compute instances start <INSTANCE_NAME>
+    ```sh
+    gcloud compute instances start {{instance-name}}
+    ```

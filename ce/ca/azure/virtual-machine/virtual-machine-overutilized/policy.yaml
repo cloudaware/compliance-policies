@@ -5,8 +5,8 @@ names:
 description: "Identify Azure Virtual Machines that appear to be overutilized and upgrade \
   \ (resize) them in order to help your Azure-hosted applications to handle the workload  \
   \ better and improve the response time. By default, an Azure Virtual Machine is considered \
-  \ overutilized if their average CPU utilization exceeds 80% and maximum CPU utilization consistently \ 
-  \ spikes above 95% over a 14-day period"
+  \ overutilized if their average CPU utilization exceeds 80%, maximum CPU utilization consistently \
+  \ spikes above 95% over a 14-day period, and, when available, memory utilization exceeds 80%."
 categories:
   - "COST"
   - "PERFORMANCE"

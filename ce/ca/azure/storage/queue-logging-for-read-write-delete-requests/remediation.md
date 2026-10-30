@@ -12,8 +12,13 @@
 
 ## From Azure CLI
 
-Use the below command to enable the Storage Logging for Queue service:
+Use the following command to enable Storage Logging for the Queue service:
 
 ```sh
-az storage logging update --account-name <storageAccountName> --account-key <storageAccountKey> --services q --log rwd --retention 90
+az storage logging update \
+    --account-name {{storage-account-name}} \
+    --account-key {{storage-account-key}} \
+    --services q \
+    --log rwd \
+    --retention 90
 ```

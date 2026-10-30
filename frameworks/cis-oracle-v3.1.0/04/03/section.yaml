@@ -1,0 +1,10 @@
+---
+name: 4.3 Ensure a notification is configured for Identity Provider changes - Level 1 (Automated)
+description: >
+  It is recommended to setup an Event Rule and Notification that gets triggered
+  when Identity Providers are created, updated or deleted. Event Rules are
+  compartment scoped and will detect events in child compartments. It is
+  recommended to create the Event rule at the root compartment level.
+similar:
+  internal:
+    - dec-c-05f063d8

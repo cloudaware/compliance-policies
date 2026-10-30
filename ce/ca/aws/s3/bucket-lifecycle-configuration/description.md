@@ -1,8 +1,8 @@
 # Description
 
-Configure Amazon S3 Lifecycle in order to ensure the automation of object lifecycle management, storage costs optimization, and compliance with data retention policies.
+Configure Amazon S3 Lifecycle to ensure automated object lifecycle management, storage cost optimization, and compliance with data retention policies.
 
-## Rational
+## Rationale
 
 An S3 Lifecycle configuration consists of rules that define actions to be taken on a group of objects. These actions include:
 
@@ -18,6 +18,6 @@ Organizations may accumulate outdated or irrelevant data, resulting in cluttered
 
 The object is marked as `INCOMPLIANT` if the `Lifecycle Rules JSON` field is empty or **none** of the Lifecycle rules in `Lifecycle Rules JSON` have `"status": "Enabled"`.
 
-Lifecycle configuration on MFA-enabled buckets is not supported therefore if the `Versioning MFA Delete Enabled` field is set to `true`, the policy marks the object as `INAPPLICABLE`.
+Lifecycle configuration on MFA-enabled buckets is not supported, therefore if the `Versioning MFA Delete Enabled` field is set to `true`, the policy marks the object as `INAPPLICABLE`.
 
 `UNDETERMINED` status indicates a possible permission issue with `s3:GetLifecycleConfiguration` API call.

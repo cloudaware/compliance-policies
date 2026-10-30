@@ -1,0 +1,144 @@
+<MdxCard>
+    [Back](index.md)
+
+    # Affected Resources
+
+    <MdxCustomView key="affected-resources" type="list" viewSettings={{
+    keyPrefix: "CABQ0001",
+    sObjectName: "CABQ__CaCe2PolicyOutput__c",
+    listViewPreset: {
+        filter: {
+            type: "groupCondition",
+            operator: "and",
+            conditions: [
+                {
+                    type: "condition",
+                    field: "policyId__c",
+                    operator: "equals",
+                    value: "/ce/ca/aws/account/aws-support-role"
+                },
+                {
+                    type: "condition",
+                    field: "status__c",
+                    operator: "equals",
+                    value: "INCOMPLIANT"
+                }
+            ]
+        },
+        aggregateQuery: {
+            columns: [
+                {
+                    label: "Object External ID",
+                    fieldNameOrPath: "objectExternalId__c"
+                },
+                {
+                    label: "Object Type Name",
+                    fieldNameOrPath: "objectTypeName__c"
+                },
+                {
+                    label: "Incompliant Start Date",
+                    fieldNameOrPath: "incompliantStartDate__c"
+                },
+                {
+                    label: "Master Name",
+                    fieldNameOrPath: "masterName__c"
+                },
+                {
+                    label: "Master External ID",
+                    fieldNameOrPath: "masterExternalId__c"
+                },
+                {
+                    label: "Current State Message",
+                    fieldNameOrPath: "currentStateMessage__c"
+                },
+                {
+                    label: "Remediation Message",
+                    fieldNameOrPath: "remediationMessage__c"
+                },
+                {
+                    label: "Billing: Cost, 30-Day",
+                    fieldNameOrPath: "billingCost30Day__c",
+                    aggregateFunction: "SUM"
+                },
+                {
+                    label: "Application Tier Unique Name",
+                    fieldNameOrPath: "applicationTierUniqueName__c"
+                },
+                {
+                    label: "Name",
+                    fieldNameOrPath: "Name",
+                    aggregateFunction: "COUNT"
+                }
+            ]
+        },
+        chart: {
+            showLegend: true
+        },
+        label: "Affected Resources",
+        columns: [
+            {
+                label: "Object External ID",
+                name: "objectExternalId__c",
+                fieldNameOrPath: "objectExternalId__c",
+                type: "TEXT"
+            },
+            {
+                label: "Object Type Name",
+                name: "objectTypeName__c",
+                fieldNameOrPath: "objectTypeName__c",
+                type: "TEXT"
+            },
+            {
+                label: "Incompliant Start Date",
+                name: "incompliantStartDate__c",
+                fieldNameOrPath: "incompliantStartDate__c",
+                type: "DATE_TIME"
+            },
+            {
+                label: "Master Name",
+                name: "masterName__c",
+                fieldNameOrPath: "masterName__c",
+                type: "TEXT"
+            },
+            {
+                label: "Master External ID",
+                name: "masterExternalId__c",
+                fieldNameOrPath: "masterExternalId__c",
+                type: "TEXT"
+            },
+            {
+                label: "Current State Message",
+                name: "currentStateMessage__c",
+                fieldNameOrPath: "currentStateMessage__c",
+                type: "TEXT"
+            },
+            {
+                label: "Remediation Message",
+                name: "remediationMessage__c",
+                fieldNameOrPath: "remediationMessage__c",
+                type: "TEXT"
+            },
+            {
+                label: "Billing: Cost, 30-Day",
+                name: "billingCost30Day__c",
+                fieldNameOrPath: "billingCost30Day__c",
+                type: "CURRENCY",
+                precision: 18,
+                scale: 2
+            },
+            {
+                label: "Application Tier Unique Name",
+                name: "applicationTierUniqueName__c",
+                fieldNameOrPath: "applicationTierUniqueName__c",
+                type: "TEXT"
+            },
+            {
+                label: "Name",
+                name: "Name",
+                fieldNameOrPath: "Name",
+                type: "TEXT"
+            }
+        ]
+    }
+}} />
+</MdxCard>

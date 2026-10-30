@@ -8,7 +8,7 @@
 
 #### **Prerequisites**
 
-- Verify that the root device of the instance is an EBS volume. You can't stop instances with instance store root device.
+- Verify that the root device of the instance is an EBS volume. You can't stop instances with an instance store root device.
 
 - **Warning**: When you stop an instance, the data on any instance store volumes is erased. Before you stop an instance, verify that you've copied any data that you need from the instance store volumes to persistent storage, such as Amazon EBS or Amazon S3.
 
@@ -18,7 +18,7 @@ Stop idle instances to retain their configurations for potential future use:
 aws ec2 stop-instances --instance-ids {{instance-id}}
 ```
 
-If applicable, initiate hibernation using the `--hibernate` flag for On-Demand or Spot Instances. Hibernation is supported only for EBS-backed instances that are enabled for hibernation and meet the prerequisites. Hibernation saves the contents of the RAM to the Amazon EBS root volume.
+If applicable, initiate hibernation using the `--hibernate` flag for On-Demand or Spot Instances. Hibernation is supported only for EBS-backed instances that are enabled for hibernation and meet the prerequisites. It saves the contents of RAM to the Amazon EBS root volume.
 
 ### Terminate Idle Instances (If No Longer Needed)
 

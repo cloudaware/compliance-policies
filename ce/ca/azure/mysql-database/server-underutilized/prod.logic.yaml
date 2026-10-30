@@ -28,8 +28,8 @@ conditions:
               arg:
                 EXTRACT: "CA10Z1__monitorIoConsumptionPercentAvg30Day__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The server is underutilized with Average CPU and IO < 20%, and Memory Utilization < 40%."
-    remediationMessage: "Consider rightsizing, the server."
+    currentStateMessage: "The server is underutilized with average CPU and I/O < 20% and memory utilization < 40%."
+    remediationMessage: "Rightsize the server."
     check:
       AND:
         args:

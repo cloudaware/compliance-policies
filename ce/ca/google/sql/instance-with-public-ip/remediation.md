@@ -10,10 +10,16 @@
 
 ## From Google Cloud CLI
 
-1. For every instance remove its public IP and assign a private IP instead:
+1. For every instance, remove its public IP and assign a private IP instead:
 
-            gcloud sql instances patch <INSTANCE_NAME> --network=<VPC_NETWORK_NAME> --no-assign-ip
+    ```sh
+    gcloud sql instances patch {{instance-name}} \
+        --network={{vpc-network-name}} \
+        --no-assign-ip
+    ```
 
 2. Confirm the changes using the following command:
 
-            gcloud sql instances describe <INSTANCE_NAME>
+    ```sh
+    gcloud sql instances describe {{instance-name}}
+    ```

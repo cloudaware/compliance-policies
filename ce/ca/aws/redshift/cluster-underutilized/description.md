@@ -1,6 +1,6 @@
 # Description
 
-This policy identifies AWS Redshift Clusters that are consistently operating with low CPU utilization and disk I/O over the last 30 days, which may indicate that they are oversized for their current workload. A cluster is flagged as underutilized if it meets the following conditions:
+This policy identifies AWS Redshift Clusters that consistently operate with low CPU utilization and disk I/O over the last 30 days, which may indicate they are oversized for their current workload. A cluster is flagged as underutilized if it meets the following conditions:
 
 1. Average CPU utilization has been below 20%.
 2. Average disk read IOPS has been under 50.

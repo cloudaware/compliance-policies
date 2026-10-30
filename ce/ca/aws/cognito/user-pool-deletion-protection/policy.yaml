@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS Cognito User Pool Deletion Protection is not enabled"
+  contextual: "User Pool Deletion Protection is not enabled"
+description: >
+  Ensure that Amazon Cognito user pools have deletion protection enabled.
+  Deletion protection helps prevent accidental removal of a user pool and
+  reduces the risk of authentication outages and recovery work caused by
+  unintended deletion.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/cognito/06"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Cognito.6] Cognito user pools should have deletion protection enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/cognito-controls.html#cognito-6"

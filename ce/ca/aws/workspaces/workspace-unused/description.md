@@ -4,7 +4,7 @@ This policy identifies AWS WorkSpaces that are considered unused. A WorkSpace is
 
 ## Rationale
 
-AWS WorkSpaces incur costs whether they are actively used, or automatically stopped (which still generates a stopped-instance fee). Maintaining idle WorkSpaces unnecessarily increases expenses. Furthermore, unused but running WorkSpaces may not be regularly patched or monitored, creating potential security vulnerabilities and expanding the attack surface of the environment.
+Amazon WorkSpaces incur costs whether they are actively used or stopped, which still generates a stopped-instance fee. Maintaining idle WorkSpaces increases expenses. In addition, unused but running WorkSpaces may not be regularly patched or monitored, creating potential security risks and expanding the attack surface.
 
 ## Audit
 

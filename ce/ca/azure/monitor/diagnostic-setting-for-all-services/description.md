@@ -1,18 +1,18 @@
 # Description
 
-Resource Logs capture activity to the data access plane while the Activity log is a subscription-level log for the control plane. Resource-level diagnostic logs provide insight into operations that were performed within that resource itself; for example, reading or updating a secret from a Key Vault. Currently, 95 Azure resources support Azure Monitoring (See the more information section for a complete list), including Network Security Groups, Load Balancers, Key Vault, AD, Logic Apps, and CosmosDB. The content of these logs varies by resource type.
+Resource Logs capture activity in the data access plane while the Activity log is a subscription-level log for the control plane. Resource-level diagnostic logs provide insight into operations performed within a resource itself, for example, reading or updating a secret in Key Vault. Currently, 95 Azure resources support Azure Monitor (see the References section for a complete list), including Network Security Groups, Load Balancers, Key Vault, AD, Logic Apps, and CosmosDB. The content of these logs varies by resource type.
 
-A number of back-end services were not configured to log and store Resource Logs for certain activities or for a sufficient length. It is crucial that monitoring is correctly configured to log all relevant activities and retain those logs for a sufficient length of time. Given that the mean time to detection in an enterprise is 240 days, a minimum retention period of two years is recommended.
+In many environments, back-end services are not configured to log and store Resource Logs for certain activities or for a sufficient length of time. It is crucial that monitoring is configured to log all relevant activities and retain those logs for an appropriate duration. Given that the mean time to detection in an enterprise is 240 days, a minimum retention period of two years is recommended.
 
 While an automated assessment procedure exists for this recommendation, the assessment status remains manual. Determining whether resource logging should be enabled for specific resources depends on the context and requirements of each organization and environment.
 
 ## Rationale
 
-A lack of monitoring reduces the visibility into the data plane, and therefore an organization's ability to detect reconnaissance, authorization attempts or other malicious activity. Unlike Activity Logs, Resource Logs are not enabled by default. Specifically, without monitoring it would be impossible to tell which entities had accessed a data store that was breached. In addition, alerts for failed attempts to access APIs for Web Services or Databases are only possible when logging is enabled.
+A lack of monitoring reduces visibility into the data plane, and therefore an organization's ability to detect reconnaissance, authorization attempts, or other malicious activity. Unlike Activity Logs, Resource Logs are not enabled by default. Without monitoring, it can be impossible to determine which entities accessed a data store that was breached. In addition, alerts for failed attempts to access APIs for web services or databases are only possible when logging is enabled.
 
 ## Impact
 
-Costs for monitoring varies with Log Volume. Not every resource needs to have logging enabled. It is important to determine the security classification of the data being processed by the given resource and adjust the logging based on which events need to be tracked. This is typically determined by governance and compliance requirements.
+Costs for monitoring vary with log volume. Not every resource needs logging enabled. Determine the security classification of the data being processed by a resource and adjust logging based on the events that need to be tracked. This is typically determined by governance and compliance requirements.
 
 ## Audit
 
@@ -31,13 +31,13 @@ The specific steps for configuring resources within the Azure console vary depen
 List all `resources` for a subscription:
 
 ```sh
-az resource list --subscription <subscription id>
+az resource list --subscription {{subscription-id}}
 ```
 
 For each `resource` run the following:
 
 ```sh
-az monitor diagnostic-settings list --resource <resource ID>
+az monitor diagnostic-settings list --resource {{resource-id}}
 ```
 
 An empty result means a `diagnostic settings` is not configured for that resource. An error message means a `diagnostic settings` is not supported for that resource.
@@ -53,7 +53,7 @@ $resources = Get-AzResource
 Loop through each `resource` to determine if a diagnostic setting is configured or not:
 
 ```ps
-foreach ($resource in $resources) {$diagnosticSetting = Get-AzDiagnosticSetting -ResourceId $resource.id -ErrorAction "SilentlyContinue"; if ([string]::IsNullOrEmpty($diagnosticSetting)) {$message = "Diagnostic Settings not configured for resource: " + $resource.Name;Write-Output $message}else{$diagnosticSetting}}
+foreach ($resource in $resources) {$diagnosticSetting = Get-AzDiagnosticSetting -ResourceId $resource.id -ErrorAction "SilentlyContinue"; if ([string]::IsNullOrEmpty($diagnosticSetting)) {$message = "Diagnostic Settings not configured for resource: " + $resource.Name; Write-Output $message} else {$diagnosticSetting}}
 ```
 
 A result of `Diagnostic Settings not configured for resource: <resource name>` means a `diagnostic settings` is not configured for that resource. Otherwise, the output of the above command will show configured `Diagnostic Settings` for a resource.

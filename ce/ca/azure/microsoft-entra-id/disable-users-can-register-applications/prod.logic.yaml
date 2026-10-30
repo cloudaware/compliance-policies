@@ -5,7 +5,7 @@ testData:
 conditions:
       - status: "INCOMPLIANT"
         currentStateMessage: "The default user role can create applications."
-        remediationMessage: "Consider restricting the default user role from creating applications."
+        remediationMessage: "Prevent the default user role from creating applications."
         check:
           RELATED_LIST_HAS:
             status: "INCOMPLIANT"
@@ -32,7 +32,7 @@ relatedLists:
     conditions:
       - status: "INCOMPLIANT"
         currentStateMessage: "The default user role can create applications."
-        remediationMessage: "Consider restricting the default user role from creating applications."
+        remediationMessage: "Prevent the default user role from creating applications."
         check:
           IS_EQUAL:
             left:

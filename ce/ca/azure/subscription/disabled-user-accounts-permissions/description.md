@@ -44,13 +44,13 @@ Get-AzureADUser
 Run the following command to get a user:
 
 ```ps
-$user = Get-AzureADUser -ObjectId <object-id>
+$user = Get-AzureADUser -ObjectId {{object-id}}
 ```
 
 Run the following command to get the AccountEnabled setting for the user:
 
 ```ps
- $user.AccountEnabled
+$user.AccountEnabled
 ```
 
 If AccountEnabled is False, run the following command to get the role assignments for the user:

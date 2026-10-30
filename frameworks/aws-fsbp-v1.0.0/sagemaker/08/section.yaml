@@ -1,0 +1,11 @@
+name: >
+  [SageMaker.8] SageMaker notebook instances should run on supported platforms
+description: |-
+  If the platform for an Amazon SageMaker AI notebook instance is no longer supported, 
+  it might not receive security patches, bug fixes, or other types of updates. 
+  Notebook instances might continue to function, but they won't receive SageMaker 
+  AI security updates or critical bug fixes. You assume the risks associated with 
+  using an unsupported platform.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/sagemaker-controls.html#sagemaker-8

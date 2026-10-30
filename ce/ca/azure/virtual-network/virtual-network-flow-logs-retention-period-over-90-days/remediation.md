@@ -17,7 +17,7 @@
 Run the following command update the retention policy for a flow log in a network watcher, setting `retention` to `0`, `90`, or a number greater than 90:
 
 ```sh
-az network watcher flow-log update --location <location> --name <flow-log> --retention <number-of-days>
+az network watcher flow-log update --location {{location}} --name {{flow-log}} --retention {{number-of-days}}
 ```
 
 Repeat for each virtual network flow log requiring remediation.

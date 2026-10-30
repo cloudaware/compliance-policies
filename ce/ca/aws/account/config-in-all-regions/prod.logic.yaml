@@ -5,7 +5,7 @@ testData:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "AWS Config is not enabled in all regions."
-    remediationMessage: "Consider configuring AWS Config for all regions."
+    remediationMessage: "Configure AWS Config in all regions."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
@@ -17,8 +17,8 @@ conditions:
         status: "COMPLIANT"
         relationshipName: "CA10__AWS_Config_Settings__r"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The AWS Config doesn't have a recorder configured to include global resource types."
-    remediationMessage: "Ensure that at least one AWS Config Recorder is configured to include global resource types."
+    currentStateMessage: "AWS Config does not have a recorder configured to include global resource types."
+    remediationMessage: "Configure at least one AWS Config recorder to include global resource types."
     check:
       RELATED_LIST_HAS:
         status: "INAPPLICABLE"
@@ -27,15 +27,15 @@ conditions:
 otherwise:
   status: "INCOMPLIANT"
   currentStateMessage: "AWS Config is not enabled."
-  remediationMessage: "Consider enabling AWS Config for all regions."
+  remediationMessage: "Enable AWS Config in all regions."
 relatedLists:
   - relationshipName: "CA10__AWS_Config_Settings__r"
     importExtracts:
     - file: "/types/CA10__CaAwsConfigRecorder__c/object.extracts.yaml"
     conditions:
       - status: "INCOMPLIANT"
-        currentStateMessage: "This AWS Config Recorder is not configured properly."
-        remediationMessage: "Consider reconfiguring the AWS Config Recorder."
+        currentStateMessage: "This AWS Config recorder is not configured correctly."
+        remediationMessage: "Reconfigure at least one AWS Config recorder to include global resource types."
         check:
           OR:
             args:
@@ -56,7 +56,7 @@ relatedLists:
                     TEXT: "SUCCESS"
 # At least one recorder has to have a CA10__includeGlobalResourceTypes__c enabled 
       - status: "COMPLIANT"
-        currentStateMessage: "This AWS Config Recorder is configured to include global resource types."
+        currentStateMessage: "This AWS Config recorder is configured to include global resource types."
         check:
           IS_EQUAL:
             left:
@@ -65,4 +65,4 @@ relatedLists:
               BOOLEAN: true             
     otherwise:
       status: "INAPPLICABLE"
-      currentStateMessage: "This AWS Config Recorder is configured properly."
+      currentStateMessage: "This AWS Config recorder is configured correctly."

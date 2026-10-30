@@ -1,0 +1,14 @@
+---
+names:
+  full: "Oracle IAAS Instance in-transit encryption is disabled"
+  contextual: "Instance in-transit encryption is disabled"
+description: >
+  Ensure that Oracle IAAS Instances use in-transit encryption for their boot volume
+  attachment. In-transit encryption helps protect storage traffic between compute
+  instances and boot volumes from unauthorized interception.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cis-oracle-v3.1.0/03/03"
+  - "/frameworks/cloudaware/resource-security/data-encryption"

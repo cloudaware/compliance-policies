@@ -1,0 +1,21 @@
+---
+names:
+  full: "AWS CloudFront Web Distribution is not integrated with AWS WAF"
+  contextual: "Web Distribution is not integrated with AWS WAF"
+description: >
+  Ensure that AWS CloudFront Web Distributions are integrated with AWS WAF (Web Application Firewall). 
+  AWS WAF helps protect your web applications from common web exploits that could 
+  affect application availability, compromise security, or consume excessive resources.
+categories:
+  - "SECURITY"
+type: "BEST_PRACTICE"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+  - "/frameworks/aws-fsbp-v1.0.0/cloudfront/06"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[CloudFront.6] CloudFront distributions should have WAF enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/cloudfront-controls.html#cloudfront-6"
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/CloudFront/cloudfront-integrated-with-waf.html
+      name: CloudFront Integrated With WAF

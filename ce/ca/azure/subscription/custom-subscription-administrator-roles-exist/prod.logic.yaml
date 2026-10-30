@@ -4,23 +4,22 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "This subscription has a custom role with owner permissions\ 
-     \ and assignable scope is set to subscription."
-    remediationMessage: "Consider removing the custom role."
+    currentStateMessage: "This subscription has a custom role with owner permissions and a subscription-level assignable scope."
+    remediationMessage: "Remove the custom role."
     check:
       RELATED_LIST_HAS:
         relationshipName: "CA10__Azure_Authorization_Role_Definitions__r"
         status: "INCOMPLIANT"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "This subscription doesn't have a custom role with owner permissions."
+  currentStateMessage: "This subscription does not have a custom role with owner permissions."
 relatedLists:
   - relationshipName: "CA10__Azure_Authorization_Role_Definitions__r"
     importExtracts:
       - file: "/types/CA10__CaAzureAuthorizationRole__c/object.extracts.yaml"
     conditions:
       - status: "INAPPLICABLE"
-        currentStateMessage: "This is not a Custom role."
+        currentStateMessage: "This is not a custom role."
         check:
           NOT_EQUAL:
             left:
@@ -28,7 +27,7 @@ relatedLists:
             right:
               TEXT: "CustomRole"
       - status: "INAPPLICABLE"
-        currentStateMessage: "Permissions do not have * actions."
+        currentStateMessage: "Permissions do not include '*' actions."
         check:
 # Returns true if permissions' actions have "*" action
           NOT:
@@ -46,7 +45,7 @@ relatedLists:
                   resultTypeMismatch: "JSON query did not return boolean type."
       - status: "INCOMPLIANT"
         currentStateMessage: "This custom role has owner permissions and subscription scopes."
-        remediationMessage: "Consider removing this role."
+        remediationMessage: "Remove this role."
         check:
 # JSON_QUERY_NUMBER returns the number of scopes that fall into the filter:
 # the scope start with '/subscriptions/' and does not contain 'resourceGroups'
@@ -68,3 +67,4 @@ relatedLists:
     otherwise:
       status: "INAPPLICABLE"
       currentStateMessage: "A role has owner permissions without subscription scopes."
+

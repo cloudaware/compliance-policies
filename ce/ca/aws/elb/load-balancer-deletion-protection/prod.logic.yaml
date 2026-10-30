@@ -1,0 +1,47 @@
+---
+inputType: "CA10__CaAwsLoadBalancer__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsLoadBalancer__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Deletion protection only supports Application, Network, and Gateway Load Balancers."
+    check:
+      AND:
+        args:
+          - NOT_EQUAL:
+              left:
+                EXTRACT: "CA10__type__c"
+              right:
+                TEXT: "application"
+          - NOT_EQUAL:
+              left:
+                EXTRACT: "CA10__type__c"
+              right:
+                TEXT: "gateway"
+          - NOT_EQUAL:
+              left:
+                EXTRACT: "CA10__type__c"
+              right:
+                TEXT: "network"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Load balancer deletion protection is not enabled."
+    remediationMessage: "Enable load balancer deletion protection."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "caSetFrom_additionalAttributes__c"
+        search:
+          TEXT: "deletion_protection.enabled: false"
+  - status: "COMPLIANT"
+    currentStateMessage: "Load balancer deletion protection is enabled."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "caSetFrom_additionalAttributes__c"
+        search:
+          TEXT: "deletion_protection.enabled: true"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the field."

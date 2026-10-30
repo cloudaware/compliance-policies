@@ -4,29 +4,28 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Load Balancer has at least one Listener with an insecure protocol."
-    remediationMessage: "Update the Listener to use HTTPS or TLS."
+    currentStateMessage: "The load balancer has at least one listener with an insecure protocol."
+    remediationMessage: "Update the listener to use HTTPS or TLS."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__AWS_EC2_Load_Balancer_Listeners__r"
   - status: "COMPLIANT"
-    currentStateMessage: "All active Listeners are using secure protocols."
+    currentStateMessage: "All active listeners are using secure protocols."
     check:
       RELATED_LIST_HAS:
         status: "COMPLIANT"
         relationshipName: "CA10__AWS_EC2_Load_Balancer_Listeners__r"
 otherwise:
   status: "INAPPLICABLE"
-  currentStateMessage: "The Load Balancer doesn't have any Listeners."
+  currentStateMessage: "The load balancer does not have any listeners."
 relatedLists:
   - relationshipName: "CA10__AWS_EC2_Load_Balancer_Listeners__r"
     importExtracts:
     - file: "/types/CA10__CaAwsLoadBalancerListener__c/object.extracts.yaml"
     conditions:
       - status: "COMPLIANT"
-        currentStateMessage: "The Listener is configured to pass encrypted traffic to\
-          \ the targets without the load balancer decrypting it."
+        currentStateMessage: "The listener is configured to pass encrypted traffic to the targets without the load balancer decrypting it."
         check:
           AND:
             args:
@@ -41,7 +40,7 @@ relatedLists:
                   right:
                     TEXT: "TCP"
       - status: "COMPLIANT"
-        currentStateMessage: "The Listener uses a secure protocol."
+        currentStateMessage: "The listener uses a secure protocol."
         check:
           CONTAINS_ANY:
             arg:
@@ -57,5 +56,5 @@ relatedLists:
                   - "TCP_QUIC"
     otherwise:
       status: "INCOMPLIANT" 
-      currentStateMessage: "The Listener uses insecure protocol."
-      remediationMessage: "Update the Listener to use a secure protocol."
+      currentStateMessage: "The listener uses an insecure protocol."
+      remediationMessage: "Update the listener to use a secure protocol."

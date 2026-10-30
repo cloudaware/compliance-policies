@@ -6,8 +6,8 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The load balancer is registered in only one Availability Zone."
-    remediationMessage: "Add at least one more Availability Zone to the load balancer to improve fault tolerance."
+    currentStateMessage: "The load balancer is registered in only one availability zone."
+    remediationMessage: "Add at least one more availability zone to the load balancer to improve fault tolerance."
     check:
       LESS_THAN:
         left:
@@ -18,4 +18,4 @@ conditions:
           NUMBER: 2
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The load balancer is registered across multiple Availability Zones."
+  currentStateMessage: "The load balancer is registered in at least two availability zones."

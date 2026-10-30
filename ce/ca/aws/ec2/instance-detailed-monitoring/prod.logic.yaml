@@ -15,7 +15,7 @@ conditions:
           TEXT: "running"
   - status: "INCOMPLIANT"
     currentStateMessage: "The instance is running without detailed monitoring enabled."
-    remediationMessage: "Consider enabling detailed monitoring for the instance."
+    remediationMessage: "Enable detailed monitoring for the instance."
     check:
       IS_EQUAL:
         left:

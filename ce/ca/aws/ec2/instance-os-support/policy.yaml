@@ -1,0 +1,13 @@
+---
+names:
+  full: AWS EC2 Instance OS is no longer maintained or is past ordinary EOL
+  contextual: Instance OS is no longer maintained or is past ordinary EOL
+description: >
+  Ensure that the installed operating system release remains before its ordinary
+  end of life and is maintained. Catalog extended support availability does not establish
+  that an instance has the required support entitlement.
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization

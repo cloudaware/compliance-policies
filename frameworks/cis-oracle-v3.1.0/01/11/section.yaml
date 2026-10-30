@@ -1,0 +1,15 @@
+---
+name: 1.11 Ensure user IAM Database Passwords rotate within 90 days - Level 1 (Manual)
+description: |-
+  Users can create and manage their database password in their IAM user profile
+  and use that password to authenticate to databases in their tenancy. An IAM
+  database password is a different password than an OCI Console password.
+  Setting an IAM database password allows an authorized IAM user to sign in to
+  one or more Autonomous Databases in their tenancy. 
+  
+  An IAM database password is a different password than an OCI Console password. 
+  Setting an IAM database password allows an authorized IAM user to sign in to 
+  one or more Autonomous Databases in their tenancy.
+similar:
+  internal:
+    - dec-c-99ad7bc9

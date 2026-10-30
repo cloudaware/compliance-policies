@@ -2,8 +2,8 @@
 
 ## From Google Cloud CLI
 
-1. Login to Google Cloud console
-2. Go to Computer Engine
+1. Log in to the Google Cloud Console
+2. Go to Compute Engine
 3. Go to VM instances
 4. Click on the Specific VM
 5. Click `EDIT`
@@ -12,9 +12,18 @@
 
 ## From Google Cloud Console
 
-Use the below command to disable
+Use the following command to disable.
 
-            gcloud compute instances add-metadata <INSTANCE_NAME> --zone=<ZONE> --metadata=serial-port-enable=false
+```sh
+gcloud compute instances add-metadata {{instance-name}} \
+    --zone={{zone}} \
+    --metadata=serial-port-enable=false
+```
+
 or
 
-            gcloud compute instances add-metadata <INSTANCE_NAME> --zone=<ZONE> --metadata=serial-port-enable=0
+```sh
+gcloud compute instances add-metadata {{instance-name}} \
+    --zone={{zone}} \
+    --metadata=serial-port-enable=0
+```

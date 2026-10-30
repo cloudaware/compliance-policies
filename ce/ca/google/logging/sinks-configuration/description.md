@@ -1,10 +1,10 @@
 # Description
 
-It is recommended to create a sink that will export copies of all the log entries. This can help aggregate logs from multiple projects and export them to a Security Information and Event Management (SIEM).
+It is recommended to create a sink that exports copies of all log entries. This can help aggregate logs from multiple projects and export them to a Security Information and Event Management (SIEM) system.
 
 ## Rationale
 
-Log entries are held in Cloud Logging. To aggregate logs, export them to a SIEM. To keep them longer, it is recommended to set up a log sink. Exporting involves writing a filter that selects the log entries to export, and choosing a destination in Cloud Storage, BigQuery, or Cloud Pub/Sub. The filter and destination are held in an object called a sink. To ensure all log entries are exported to sinks, ensure that there is no filter configured for a sink. Sinks can be created in projects, organizations, folders, and billing accounts.
+Log entries are held in Cloud Logging. To aggregate logs, export them to a SIEM. To retain them longer, set up a log sink. Exporting involves writing a filter that selects the log entries to export and choosing a destination in Cloud Storage, BigQuery, or Cloud Pub/Sub. The filter and destination are held in an object called a sink. To ensure all log entries are exported, make sure no filter is configured for the sink. Sinks can be created in projects, organizations, folders, and billing accounts.
 
 ## Impact
 
@@ -21,9 +21,14 @@ There are no costs or limitations in Cloud Logging for exporting logs, but the e
 
 ### From Google Cloud CLI
 
-1. Ensure that a sink with an `empty filter` exists. List the sinks for the project, folder or organization. If sinks are configured at a folder or organization level, they do not need to be configured for each project:
+1. Ensure that a sink with an `empty filter` exists. List the sinks for the project, folder, or organization. If sinks are configured at a folder or organization level, they do not need to be configured for each project:
 
-        gcloud logging sinks list --folder=FOLDER_ID | --organization=ORGANIZATION_ID | --project=PROJECT_ID
+    ```sh
+    gcloud logging sinks list \
+        --folder={{folder-id}} | \
+        --organization={{organization-id}} | \
+        --project={{project-id}}
+    ```
 
     The output should list at least one sink with an `empty filter`.
 
@@ -47,4 +52,4 @@ By default, there are no sinks configured.
 
 ## Additional Information
 
-For Command-Line Audit and Remediation, the sink destination of type `Cloud Storage Bucket` is considered. However, the destination could be configured to `Cloud Storage Bucket` or `BigQuery` or `Cloud Pub\Sub` or `Custom Destination`. Command Line Interface commands would change accordingly.
+For command-line audit and remediation, the sink destination of type `Cloud Storage Bucket` is considered. However, the destination could be configured to `Cloud Storage Bucket`, `BigQuery`, `Cloud Pub/Sub`, or `Custom Destination`. CLI commands would change accordingly.

@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10__CaAzureVirtualNetworkGateway__c/object.extracts.yaml"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "Virtual Network Gateway hasn't been successfully provisioned."
+    currentStateMessage: "The virtual network gateway has not been successfully provisioned."
     check:
       IS_EQUAL:
         left:
@@ -14,7 +14,7 @@ conditions:
         right:
           TEXT: "Failed"
   - status: "COMPLIANT"
-    currentStateMessage: "Azure Virtual Network Gateway has at least one connection."
+    currentStateMessage: "The virtual network gateway has at least one connection."
     check:
       OR:
         args:
@@ -26,8 +26,8 @@ conditions:
               relationshipName: "CA10__Azure_Virtual_Network_Gateway_Connects1__r"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "Azure Virtual Network Gateway has no connections."
-  remediationMessage: "Consider deleting Virtual Network Gateway."
+  currentStateMessage: "The virtual network gateway has no connections."
+  remediationMessage: "Remove the virtual network gateway if it is not needed."
 relatedLists:
   - relationshipName: "CA10__Azure_Virtual_Network_Gateway_Connects__r"
     conditions: []

@@ -13,7 +13,7 @@ conditions:
         relationshipName: "CA10__Google_CloudKSM_Crypto_Keys__r"
   - status: "INCOMPLIANT"
     currentStateMessage: "The project contains cryptographic keys and has a principal with Owner permissions."
-    remediationMessage: "Assign more granular predefined or custom roles instead."
+    remediationMessage: "Replace the Owner role with a more granular predefined or custom role."
     check:
       AND:
         args:
@@ -25,7 +25,7 @@ conditions:
               relationshipName: "CA10__Google_CloudKSM_Crypto_Keys__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The project either does not have any principals with the Owner role."
+  currentStateMessage: "The project does not have any principals with the Owner role."
 relatedLists:
   - relationshipName: "CA10__Google_IAM_Policy_Bindings__r"
     importExtracts:
@@ -40,7 +40,7 @@ relatedLists:
            IS_EMPTY_LOOKUP: "CA10__iamRole__r"
        - status: "INCOMPLIANT"
          currentStateMessage: "This principal is assigned the Owner role at the project level."
-         remediationMessage: "Remove the binding."
+         remediationMessage: "Remove the Owner role binding."
          check: 
            IS_EQUAL:
             left:
@@ -56,4 +56,4 @@ relatedLists:
     conditions: []
     otherwise:
       status: "INCOMPLIANT"
-      currentStateMessage: "The Project with KMS Crypto Key."
+      currentStateMessage: "Project contains a KMS cryptographic key."

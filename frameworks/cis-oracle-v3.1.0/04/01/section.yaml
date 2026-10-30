@@ -1,0 +1,17 @@
+---
+name: 4.1 Ensure default tags are used on resources - Level 1 (Automated)
+description: >
+  Using default tags is a way to ensure all resources that support tags are
+  tagged during creation. Tags can be based on static or computed values. It is
+  recommended to set up default tags early after root compartment creation to
+  ensure all created resources will get tagged. Tags are scoped to Compartments
+  and are inherited by Child Compartments. The recommendation is to create
+  default tags like "CreatedBy" at the Root Compartment level to ensure all
+  resources get tagged. When using Tags it is important to ensure that Tag
+  Namespaces are protected by IAM Policies otherwise this will allow users to
+  change tags or tag values. Depending on the age of the OCI Tenancy there may
+  already be Tag defaults setup at the Root Level and no need for further action
+  to implement this action.
+similar:
+  internal:
+    - dec-c-8eb42d13

@@ -7,13 +7,13 @@ importExtracts:
   - file: "/types/CA10__CaAwsKmsKey__c/object.extracts.yaml"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "AWS CloudTrail is not encrypted with KMS CMK."
-    remediationMessage: "Ensure that CloudTrail is referencing an active S3 bucket."
+    currentStateMessage: "CloudTrail is not encrypted with a KMS CMK."
+    remediationMessage: "Configure CloudTrail to use an active KMS CMK."
     check:
       IS_EMPTY_LOOKUP: "CA10__kmsKey__r"
   - status: "INCOMPLIANT"
-    currentStateMessage: "AWS CloudTrail KMS CMK is not enabled."
-    remediationMessage: "Ensure that CloudTrail is referencing an enabled KMS CMK."
+    currentStateMessage: "The CloudTrail KMS CMK is not enabled."
+    remediationMessage: "Configure CloudTrail to use an enabled KMS CMK."
     check:
       NOT_EQUAL:
         left:
@@ -21,7 +21,7 @@ conditions:
         right:
           TEXT: "Enabled"
   - status: "COMPLIANT"
-    currentStateMessage: "AWS CloudTrail is encrypted with KMS CMK."
+    currentStateMessage: "CloudTrail is encrypted with a KMS CMK."
     check:
       IS_EQUAL:
         left:

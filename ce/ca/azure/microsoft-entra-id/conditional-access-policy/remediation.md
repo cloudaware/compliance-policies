@@ -8,21 +8,21 @@
 4. Give your policy a name.
 5. Under `Assignments`, select `Users or workload identities`.
     1. Under `Include`, select the users or groups to apply this policy.
-    2. Under `Exclude`, select Users and groups and choose your organization's emergency access or break-glass accounts (if applicable).
-6. Under `Target resources` > `Resources` > `Include` > `Select resources`
+    2. Under `Exclude`, select Users and groups and choose your organization's emergency access or break-glass accounts, if applicable.
+6. Under `Target resources` > `Resources` > `Include` > `Select resources`:
     1. Under `Select`, select the following applications:
         1. Office 365 Exchange Online
         2. Office 365 SharePoint Online
-    2. Choose `Select`
+    2. Select `Select`.
 7. Under `Conditions`:
-    1. Under `Device platforms`
+    1. Under `Device platforms`:
         1. Set `Configure` to `Yes`.
         2. `Include` > `Select device platforms` > `Windows`.
         3. Select `Done`.
     2. Under `Client apps`:
-        1. Set `Configure` to `Yes`
-        2. Under Modern authentication clients, only select `Mobile apps and desktop clients`.
-        3. Select `Done`
-8. Under `Access controls` > `Session`, select `Require token protection for sign-in sessions` and select `Select`.
+        1. Set `Configure` to `Yes`.
+        2. Under Modern authentication clients, select only `Mobile apps and desktop clients`.
+        3. Select `Done`.
+8. Under `Access controls` > `Session`, select `Require token protection for sign-in sessions`, then select `Select`.
 9. Confirm your settings and set Enable policy to `On`.
 10. Select `Create` to enable your policy.

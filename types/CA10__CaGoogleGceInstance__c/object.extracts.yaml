@@ -62,7 +62,7 @@ extracts:
       JSON_QUERY_TEXT:
         arg:
           EXTRACT: "caJsonFrom__metadataJson__c"
-        expression: "to_string(items[?key=='enable-oslogin'].value)"
+        expression: "to_string(items[?key=='enable-oslogin'].value[] | [0])"
         undeterminedIf:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return a text."
@@ -105,6 +105,25 @@ extracts:
     value: 
       FIELD:
         path: "CA10__creationDate__c"
+  - name: "CA10N__newRelicHost__c"
+    value:
+      FIELD:
+        path: "CA10N__newRelicHost__c"
+# Nullable
+  - name: "CA10N__newRelicHostMemoryUsed14Day__c"
+    value:
+      FIELD:
+        path: "CA10N__newRelicHostMemoryUsed14Day__c"
+# Nullable
+  - name: "CA10N__newRelicHostDiskReadUtilization__c"
+    value:
+      FIELD:
+        path: "CA10N__newRelicHostDiskReadUtilization__c"
+# Nullable
+  - name: "CA10N__newRelicHostDiskWriteUtilization__c"
+    value:
+      FIELD:
+        path: "CA10N__newRelicHostDiskWriteUtilization__c"
 # Text
   - name: "CA10__regionName__c"
     value: 

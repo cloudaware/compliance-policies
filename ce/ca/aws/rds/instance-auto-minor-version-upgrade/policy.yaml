@@ -8,11 +8,9 @@ description: "Ensure that RDS database instances have the Auto Minor Version Upg
   \ fixes, and security patches for their database engines."
 type: COMPLIANCE_POLICY
 categories:
-  - SECURITY
-  - RELIABILITY
-  - PERFORMANCE
+  - "RELIABILITY"
 frameworkMappings:
-  - "/frameworks/cis-aws-v6.0.0/03/02/02"
+  - "/frameworks/cis-aws-v7.0.0/03/02/02"
   - "/frameworks/cloudaware/resource-reliability/infrastructure-modernization"
   - "/frameworks/aws-fsbp-v1.0.0/rds/13"
   - "/frameworks/aws-well-architected/ops/05/05"

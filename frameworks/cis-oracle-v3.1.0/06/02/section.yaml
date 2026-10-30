@@ -1,0 +1,10 @@
+---
+name: 6.2 Ensure no resources are created in the root compartment - Level 1 (Automated)
+description: >
+  When you create a cloud resource such as an instance, block volume, or cloud
+  network, you must specify to which compartment you want the resource to
+  belong. Placing resources in the root compartment makes it difficult to
+  organize and isolate those resources.
+similar:
+  internal:
+    - dec-c-c0727d67

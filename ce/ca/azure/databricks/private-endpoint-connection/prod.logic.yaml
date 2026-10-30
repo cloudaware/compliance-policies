@@ -6,14 +6,14 @@ importExtracts:
   - file: "/types/CA10Z1__CaAzureDatabricksWorkspace__c/object.extracts.yaml"
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "Databricks Workspace with the Approved Private Endpoint Connection."
+    currentStateMessage: "The Databricks workspace has an approved private endpoint connection."
     check:
       RELATED_LIST_HAS:
         status: "COMPLIANT"
         relationshipName: "CA10Z1__Azure_Private_Endpoint_Connections__r"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "Databricks Workspace without an Approved Private Endpoint Connection."
+  currentStateMessage: "The Databricks workspace does not have an approved private endpoint connection."
 relatedLists:
   - relationshipName: "CA10Z1__Azure_Private_Endpoint_Connections__r"
     recordTypes:
@@ -22,7 +22,7 @@ relatedLists:
     - file: "/types/CA10Z1__CaAzurePrivateEndpointConnection__c/object.extracts.yaml"
     conditions:
       - status: "COMPLIANT"
-        currentStateMessage: "Private Endpoint Connection with a connection state of Approved."
+        currentStateMessage: "The private endpoint connection state is Approved."
         check:
           IS_EQUAL:
             left:
@@ -31,4 +31,4 @@ relatedLists:
               TEXT: "Approved"
     otherwise:
       status: "INCOMPLIANT"
-      currentStateMessage: "Private Endpoint Connection without a connection state of Approved."
+      currentStateMessage: "The private endpoint connection state is not Approved."

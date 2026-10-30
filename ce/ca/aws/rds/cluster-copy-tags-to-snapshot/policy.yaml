@@ -1,0 +1,28 @@
+---
+names:
+  full: "AWS RDS Cluster is not configured to copy all tags to snapshots"
+  contextual: "Cluster is not configured to copy all tags to snapshots"
+description: >
+  Ensure that RDS DB clusters have the Copy Tags to Snapshots setting enabled. 
+  This ensures that database backups inherit the same metadata as the source cluster, 
+  which is critical for accurate cost allocation, security labeling, and maintaining 
+  access control boundaries.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/16"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/47"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/48"
+  - "/frameworks/aws-fsbp-v1.0.0/neptune/08"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[RDS.16] Aurora DB clusters should be configured to copy tags to DB snapshots"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-16"
+    - name: "[RDS.47] RDS for PostgreSQL DB clusters should be configured to copy tags to DB snapshots"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-47"
+    - name: "[RDS.48] RDS for MySQL DB clusters should be configured to copy tags to DB snapshots"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-48"
+    - name: "[Neptune.8] Neptune DB clusters should be configured to copy tags to snapshots"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/neptune-controls.html#neptune-8"

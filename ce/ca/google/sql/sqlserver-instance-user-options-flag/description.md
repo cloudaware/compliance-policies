@@ -1,6 +1,6 @@
 # Description
 
-It is recommended that, `user options` database flag for Cloud SQL SQL Server instance should not be configured.
+It is recommended that the `user options` database flag for a Cloud SQL SQL Server instance not be configured.
 
 ## Rationale
 
@@ -17,20 +17,23 @@ Setting custom flags via command line on certain instances will cause all omitte
 ### From Google Cloud Console
 
 1. Go to the Cloud SQL Instances page in the Google Cloud Console by visiting <https://console.cloud.google.com/sql/instances>.
-2. Select the instance to open its `Instance Overview` page
+2. Select the instance to open its `Instance Overview` page.
 3. Ensure the database flag `user options` that has been set is not listed under the `Database flags` section.
 
 ### From Google Cloud CLI
 
-1. Ensure the below command returns empty result for every Cloud SQL SQL Server database instance
+1. Ensure the following command returns an empty result for every Cloud SQL SQL Server database instance:
 
-            gcloud sql instances describe <INSTANCE_NAME> --format=json | jq '.settings.databaseFlags[] | select(.name=="user options")|.value'
+    ```sh
+    gcloud sql instances describe {{instance-name}} \
+        --format=json | jq '.settings.databaseFlags[] | select(.name=="user options") | .value'
+    ```
 
 In the output, database flags are listed under the `settings` as the collection `databaseFlags`.
 
 ## Default Value
 
-By default `user options` is not configured.
+By default, `user options` is not configured.
 
 ## References
 

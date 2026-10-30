@@ -12,13 +12,13 @@ For any accounts assigned the Global Administrator role, at least one strong aut
 
 Implementing this recommendation may require changes in administrative workflows or the redistribution of roles and responsibilities. Adequate training and awareness should be provided to all Global Administrators.
 
-NOTE: If an organization's tenant is using a third-party identity provider, the audit and remediation procedures presented here may not be relevant. The principle of the recommendation is still relevant, and compensating controls that are relevant to the third-party identity provider should be implemented.
+**Note**: If an organization's tenant is using a third-party identity provider, the audit and remediation procedures presented here may not be relevant. The principle of the recommendation is still relevant, and compensating controls relevant to the third-party identity provider should be implemented.
 
 ## Audit
 
 ### From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. In the Azure portal, open the portal menu.
 2. Select `Microsoft Entra ID`.
 3. Under `Manage`, select `Roles and administrators`.
 4. Under `Administrative Roles`, select `Global Administrator`.

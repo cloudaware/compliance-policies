@@ -13,7 +13,7 @@ Create an S3 bucket to store load balancer access logs:
 ```sh
 aws s3api create-bucket \
     --bucket {{access-logs-bucket-name}} \
-    --region {{aws-region}}
+    --region {{region-name}}
 ```
 
 #### 2. Configure the S3 bucket policy
@@ -31,7 +31,7 @@ Grant the load balancer permission to write access logs to the S3 bucket. Create
         "Service": "logdelivery.elasticloadbalancing.amazonaws.com"
       },
       "Action": "s3:PutObject",
-      "Resource": "arn:aws:s3:::{{access-logs-bucket-name}}/{{logging-prefix}}/AWSLogs/{{123456789012}}/*"
+      "Resource": "arn:aws:s3:::{{access-logs-bucket-name}}/{{logging-prefix}}/AWSLogs/{{account-id}}/*"
     }
   ]
 }

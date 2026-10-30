@@ -1,0 +1,10 @@
+name: "[ECS.18] ECS Task Definitions should use in-transit encryption for EFS volumes"
+description: |-
+  Amazon EFS volumes provide simple, scalable, and persistent shared file storage 
+  for use with your Amazon ECS tasks. Amazon EFS supports encryption of data in 
+  transit with Transport Layer Security (TLS). When encryption of data in transit 
+  is declared as a mount option for your EFS file system, Amazon EFS establishes 
+  a secure TLS connection with your EFS file system upon mounting your file system.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ecs-controls.html#ecs-18

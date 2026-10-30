@@ -2,10 +2,10 @@
 
 ## From Azure CLI
 
-Run the following command to set `oid` to be the `OID` of the signed-in user:
+Run the following command to set `oid` to the `OID` of the signed-in user:
 
 ```sh
-$oid = az ad signed-in-user show --query id -o tsv
+oid=$(az ad signed-in-user show --query id -o tsv)
 ```
 
 Alternatively, prepare a space-separated list of OIDs to be provided as the `administrators` of the HSM.
@@ -13,7 +13,11 @@ Alternatively, prepare a space-separated list of OIDs to be provided as the `adm
 Run the following command to create a Managed HSM:
 
 ```sh
-az keyvault create --resource-group <resource-group> --hsm-name <hsm-name> --retention-days <retention-days> --administrators $oid
+az keyvault create \
+    --resource-group {{resource-group-name}} \
+    --hsm-name {{managed-hsm-name}} \
+    --retention-days {{retention-days}} \
+    --administrators "$oid"
 ```
 
 The command can take several minutes to complete.
@@ -27,7 +31,11 @@ openssl req -newkey rsa:2048 -nodes -keyout cert_1.key -x509 -days 365 -out cert
 Run the following command to download the security domain and activate the Managed HSM:
 
 ```sh
-az keyvault security-domain download --hsm-name <managed-hsm> --sd-wrapping-keys <key-1> <key-2> <key-3> --sd-quorum <quorum> --security-domain-file <managed-hsm-security-domain>.json
+az keyvault security-domain download \
+    --hsm-name {{managed-hsm-name}} \
+    --sd-wrapping-keys {{key-1}} {{key-2}} {{key-3}} \
+    --sd-quorum {{quorum}} \
+    --security-domain-file {{managed-hsm-security-domain}}.json
 ```
 
 Store the security domain file and the RSA key pairs securely. They will be required for disaster recovery or for creating another Managed HSM that shares the same security domain so that the two can share keys.

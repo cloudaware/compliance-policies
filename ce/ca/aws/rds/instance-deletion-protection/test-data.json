@@ -1,0 +1,87 @@
+[
+    {
+        "CA10__deletionProtection__c": false,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "context": {
+            "snapshotTime": "2026-01-28T13:34:38Z"
+        },
+        "CA10__engine__c": "sqlserver-se",
+        "Id": "001",
+        "CA10__disappearanceTime__c": "2025-08-15T02:09:15Z",
+        "CA10__clusterArn__c": "",
+        "CA10__status__c": "deleting"
+    },
+    {
+        "CA10__deletionProtection__c": false,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__status__c') != 'available'",
+            "conditionIndex": 199,
+            "status": "INAPPLICABLE"
+        },
+        "context": {
+            "snapshotTime": "2026-01-28T13:34:38Z"
+        },
+        "CA10__engine__c": "postgres",
+        "Id": "002",
+        "CA10__disappearanceTime__c": null,
+        "CA10__clusterArn__c": "",
+        "CA10__status__c": "stopped"
+    },
+    {
+        "CA10__deletionProtection__c": false,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__clusterArn__c').isNotEmpty()",
+            "conditionIndex": 299,
+            "status": "INAPPLICABLE"
+        },
+        "context": {
+            "snapshotTime": "2026-01-28T13:34:38Z"
+        },
+        "CA10__engine__c": "aurora-postgresql",
+        "Id": "003",
+        "CA10__disappearanceTime__c": null,
+        "CA10__clusterArn__c": "clusterArn",
+        "CA10__status__c": "available"
+    },
+    {
+        "CA10__deletionProtection__c": true,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__deletionProtection__c') == true",
+            "conditionIndex": 599,
+            "status": "COMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2026-01-28T13:34:38Z"
+        },
+        "CA10__engine__c": "postgres",
+        "Id": "004",
+        "CA10__disappearanceTime__c": null,
+        "CA10__clusterArn__c": "",
+        "CA10__status__c": "available"
+    },
+    {
+        "CA10__deletionProtection__c": false,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "otherwise",
+            "conditionIndex": 600,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2026-01-28T13:34:38Z"
+        },
+        "CA10__engine__c": "sqlserver-se",
+        "Id": "005",
+        "CA10__disappearanceTime__c": null,
+        "CA10__clusterArn__c": "",
+        "CA10__status__c": "available"
+    }
+]

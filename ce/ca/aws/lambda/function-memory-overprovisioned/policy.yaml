@@ -1,0 +1,13 @@
+---
+names:
+  full: "AWS Lambda Function memory is overprovisioned"
+  contextual: "Function memory is overprovisioned"
+description: >
+  Identify AWS Lambda functions with Compute Optimizer memory overprovisioning
+  recommendations that match the current $LATEST configuration and propose a smaller
+  memory size. Review and benchmark these candidates to reduce unnecessary compute costs.
+type: "BEST_PRACTICE"
+categories:
+  - "COST"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-right-sizing"

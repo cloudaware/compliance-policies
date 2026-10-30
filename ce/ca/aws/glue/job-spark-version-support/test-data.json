@@ -1,0 +1,543 @@
+[
+  {
+    "Id": "supported-3.0",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": "3.0"
+  },
+  {
+    "Id": "supported-streaming-3.0",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "gluestreaming",
+    "CA10__glueVersion__c": "3.0"
+  },
+  {
+    "Id": "supported-4.0",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": "4.0"
+  },
+  {
+    "Id": "supported-streaming-4.0",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "gluestreaming",
+    "CA10__glueVersion__c": "4.0"
+  },
+  {
+    "Id": "supported-5.0",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": "5.0"
+  },
+  {
+    "Id": "supported-streaming-5.0",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "gluestreaming",
+    "CA10__glueVersion__c": "5.0"
+  },
+  {
+    "Id": "supported-5.1",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": "5.1"
+  },
+  {
+    "Id": "supported-streaming-5.1",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "gluestreaming",
+    "CA10__glueVersion__c": "5.1"
+  },
+  {
+    "Id": "supported-6.0",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": "6.0"
+  },
+  {
+    "Id": "supported-streaming-6.0",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "gluestreaming",
+    "CA10__glueVersion__c": "6.0"
+  },
+  {
+    "Id": "eol-0.9",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "conditionText": "setOfText(['0.9', '1.0', '2.0']).contains(extract('CA10__glueVersion__c'))",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": "0.9"
+  },
+  {
+    "Id": "eol-streaming-0.9",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "conditionText": "setOfText(['0.9', '1.0', '2.0']).contains(extract('CA10__glueVersion__c'))",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "gluestreaming",
+    "CA10__glueVersion__c": "0.9"
+  },
+  {
+    "Id": "eol-1.0",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "conditionText": "setOfText(['0.9', '1.0', '2.0']).contains(extract('CA10__glueVersion__c'))",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "eol-streaming-1.0",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "conditionText": "setOfText(['0.9', '1.0', '2.0']).contains(extract('CA10__glueVersion__c'))",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "gluestreaming",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "eol-2.0",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "conditionText": "setOfText(['0.9', '1.0', '2.0']).contains(extract('CA10__glueVersion__c'))",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": "2.0"
+  },
+  {
+    "Id": "eol-streaming-2.0",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "conditionText": "setOfText(['0.9', '1.0', '2.0']).contains(extract('CA10__glueVersion__c'))",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "gluestreaming",
+    "CA10__glueVersion__c": "2.0"
+  },
+  {
+    "Id": "unknown-version-1",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": "1"
+  },
+  {
+    "Id": "unknown-version-2",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": "2"
+  },
+  {
+    "Id": "unknown-version-2.0.1",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": "2.0.1"
+  },
+  {
+    "Id": "unknown-version-2.1",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": "2.1"
+  },
+  {
+    "Id": "unknown-version-3.1",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": "3.1"
+  },
+  {
+    "Id": "unknown-version-5.10",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": "5.10"
+  },
+  {
+    "Id": "unknown-version-7.0",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": "7.0"
+  },
+  {
+    "Id": "unknown-version-unknown",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": "unknown"
+  },
+  {
+    "Id": "unknown-version-",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 301,
+      "conditionText": "CA10__glueVersion__c.isEmpty()",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": ""
+  },
+  {
+    "Id": "null-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 301,
+      "conditionText": "CA10__glueVersion__c.isEmpty()",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": null
+  },
+  {
+    "Id": "whitespace-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 301,
+      "conditionText": "CA10__glueVersion__c.isEmpty()",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": "  "
+  },
+  {
+    "Id": "normalized-version",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": " 5.1 "
+  },
+  {
+    "Id": "shell-old-glue",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['pythonshell', 'glueray']).contains(extract('CA10__commandName__c'))",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__glueVersion__c": "0.9"
+  },
+  {
+    "Id": "shell-missing-glue",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['pythonshell', 'glueray']).contains(extract('CA10__commandName__c'))",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__glueVersion__c": null
+  },
+  {
+    "Id": "ray-old-glue",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['pythonshell', 'glueray']).contains(extract('CA10__commandName__c'))",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueray",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "unknown-command",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 299,
+      "conditionText": "not(setOfText(['glueetl', 'gluestreaming']).contains(extract('CA10__commandName__c')))",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "TransformData",
+    "CA10__glueVersion__c": "5.0"
+  },
+  {
+    "Id": "null-command",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 101,
+      "conditionText": "CA10__commandName__c.isEmpty()",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": null,
+    "CA10__glueVersion__c": "5.0"
+  },
+  {
+    "Id": "empty-command",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 101,
+      "conditionText": "CA10__commandName__c.isEmpty()",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "deleted-legacy-job",
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": 99,
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": "2026-10-22T00:00:00Z",
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "streaming-null-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 301,
+      "conditionText": "CA10__glueVersion__c.isEmpty()",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "gluestreaming",
+    "CA10__glueVersion__c": null
+  },
+  {
+    "Id": "streaming-missing-version-field",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 301,
+      "conditionText": "CA10__glueVersion__c.isEmpty()",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "gluestreaming"
+  },
+  {
+    "Id": "streaming-unknown-version",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "gluestreaming",
+    "CA10__glueVersion__c": "7.0"
+  },
+  {
+    "Id": "ray-missing-glue",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['pythonshell', 'glueray']).contains(extract('CA10__commandName__c'))",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueray",
+    "CA10__glueVersion__c": null
+  },
+  {
+    "Id": "unknown-command-retired-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 299,
+      "conditionText": "not(setOfText(['glueetl', 'gluestreaming']).contains(extract('CA10__commandName__c')))",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "TransformData",
+    "CA10__glueVersion__c": "2.0"
+  },
+  {
+    "Id": "whitespace-command",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 101,
+      "conditionText": "CA10__commandName__c.isEmpty()",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": " \t ",
+    "CA10__glueVersion__c": "5.0"
+  },
+  {
+    "Id": "deleted-missing-configuration",
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": 99,
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": "2026-10-22T00:00:00Z",
+    "CA10__commandName__c": null,
+    "CA10__glueVersion__c": null
+  },
+  {
+    "Id": "retired-glue10-python-field-ignored",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['0.9', '1.0', '2.0']).contains(extract('CA10__glueVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": "1.0",
+    "CA10__commandPythonVersion__c": "2"
+  },
+  {
+    "Id": "supported-spark-python-field-ignored",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__glueVersion__c": "5.0",
+    "CA10__commandPythonVersion__c": "2"
+  },
+  {
+    "Id": "normalized-retired-streaming",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "conditionText": "setOfText(['0.9', '1.0', '2.0']).contains(extract('CA10__glueVersion__c'))",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": " GLUESTREAMING\t",
+    "CA10__glueVersion__c": " 2.0\n"
+  }
+]

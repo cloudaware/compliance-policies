@@ -1,0 +1,26 @@
+---
+name: 1.3 Ensure IAM administrators cannot update tenancy Administrators group - Level 1 (Automated)
+description: |-
+  Tenancy administrators can create more users, groups, and policies to provide
+  other service administrators access to OCI resources. 
+  
+  For example, an IAM administrator will need to have access to manage resources 
+  like compartments, users, groups, dynamic-groups, policies, identity-providers, 
+  tenancy tag-namespaces, tag-definitions in the tenancy. 
+  
+  The policy that gives IAM-Administrators or any other group full access to 'groups' 
+  resources should not allow access to the tenancy 'Administrators' group. 
+  
+  The policy statements would look like - 
+  
+  ```txt
+  Allow group IAMAdmins to inspect users in tenancy 
+  Allow group IAMAdmins to use users in tenancy where target.group.name != 'Administrators' 
+  Allow group IAMAdmins to inspect groups in tenancy 
+  Allow group IAMAdmins to use groups in tenancy where target.group.name != 'Administrators' 
+  ```
+  **Note**: You must include separate statements for 'inspect' access, because the target.group.name 
+  variable is not used by the ListUsers and ListGroups operations
+similar:
+  internal:
+    - dec-c-ad9f97d7

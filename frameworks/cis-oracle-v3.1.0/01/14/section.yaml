@@ -1,0 +1,13 @@
+---
+name: 1.14 Ensure Instance Principal authentication is used for OCI instances, OCI Cloud Databases and OCI Functions to make API calls - Level 1 (Manual)
+description: |-
+  OCI instances, OCI database and OCI functions can access other OCI resources
+  either via an OCI API key associated to a user or via Instance Principal.
+  Instance Principal authentication can be achieved by inclusion in a Dynamic
+  Group that has an IAM policy granting it the required access or using an OCI
+  IAM policy that has `request.principal` added to the `where` clause. Access to OCI
+  Resources refers to making API calls to another OCI resource like Object
+  Storage, OCI Vaults, etc.
+similar:
+  internal:
+    - dec-c-6048dba6

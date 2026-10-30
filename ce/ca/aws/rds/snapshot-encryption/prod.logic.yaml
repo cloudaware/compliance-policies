@@ -6,7 +6,7 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The Snapshot is not in available status."
+    currentStateMessage: "The snapshot is not in the available status."
     check:
       NOT_EQUAL:
         left:
@@ -14,12 +14,12 @@ conditions:
         right:
           TEXT: "available"
   - status: "INAPPLICABLE"
-    currentStateMessage: "The RDS Snapshot is not encrypted."
-    remediationMessage: "Consider encrypting the snapshot by creating an encrypted copy and deleting the original."
+    currentStateMessage: "The RDS snapshot is not encrypted."
+    remediationMessage: "Create an encrypted copy of the snapshot and delete the original."
     check:
       NOT:
         arg:
           EXTRACT: "CA10__encrypted__c"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Snapshot is not encrypted."
+  currentStateMessage: "The snapshot is encrypted."

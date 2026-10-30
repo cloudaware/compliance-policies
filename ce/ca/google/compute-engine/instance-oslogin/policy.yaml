@@ -1,13 +1,13 @@
 ---
 names: 
-  full: "Google GCE Instance OS Login is not enabled"
-  contextual: "Instance OS Login is not enabled"
+  full: "Google GCE Project OS Login is not enabled"
+  contextual: "Project OS Login is not enabled"
 description: "Enabling OS login binds SSH certificates to IAM users and facilitates effective SSH certificate management."
 type: COMPLIANCE_POLICY
 categories:
   - "SECURITY"
 frameworkMappings:
-  - /frameworks/cis-gcp-v3.0.0/04/04
+  - /frameworks/cis-gcp-v5.0.0/04/04
   - /frameworks/cloudaware/resource-security/secure-access
   - /frameworks/iso-iec-27001-2022/05/15
   - /frameworks/nist-sp-800-53-r5/ac/02

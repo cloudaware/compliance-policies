@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS Lambda Function is not in multiple Availability Zones"
+  contextual: "Function is not in multiple Availability Zones"
+description: >
+  Ensure that AWS Lambda functions configured with a VPC are associated with subnets 
+  in at least two Availability Zones. Spanning multiple AZs provides high availability 
+  in the event of a service disruption in a single zone.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/lambda/05"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Lambda.5] VPC Lambda functions should operate in multiple Availability Zones"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/lambda-controls.html#lambda-5"

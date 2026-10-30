@@ -1,0 +1,186 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10O1__Oracle_IAAS_Security_List_Rules1__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test1",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_IAAS_Security_List_Rules1__r": [
+      {
+        "Id": "test1_1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__securityList__c": "test1",
+        "CA10O1__direction__c": "Ingress",
+        "CA10O1__source__c": "0.0.0.0/0",
+        "CA10O1__protocol__c": "TCP",
+        "CA10O1__destinationPortMin__c": 3389,
+        "CA10O1__destinationPortMax__c": 3389
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10O1__Oracle_IAAS_Security_List_Rules1__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test2",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_IAAS_Security_List_Rules1__r": [
+      {
+        "Id": "test2_1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__securityList__c": "test2",
+        "CA10O1__direction__c": "Ingress",
+        "CA10O1__source__c": "0.0.0.0/0",
+        "CA10O1__protocol__c": "TCP",
+        "CA10O1__destinationPortMin__c": 3380,
+        "CA10O1__destinationPortMax__c": 3390
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10O1__Oracle_IAAS_Security_List_Rules1__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test3",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_IAAS_Security_List_Rules1__r": [
+      {
+        "Id": "test3_1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__securityList__c": "test3",
+        "CA10O1__direction__c": "Ingress",
+        "CA10O1__source__c": "::/0",
+        "CA10O1__protocol__c": "ALL",
+        "CA10O1__destinationPortMin__c": null,
+        "CA10O1__destinationPortMax__c": null
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test4",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_IAAS_Security_List_Rules1__r": [
+      {
+        "Id": "test4_1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__securityList__c": "test4",
+        "CA10O1__direction__c": "Ingress",
+        "CA10O1__source__c": "10.0.0.0/24",
+        "CA10O1__protocol__c": "TCP",
+        "CA10O1__destinationPortMin__c": 3389,
+        "CA10O1__destinationPortMax__c": 3389
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test5",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_IAAS_Security_List_Rules1__r": [
+      {
+        "Id": "test5_1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__securityList__c": "test5",
+        "CA10O1__direction__c": "Ingress",
+        "CA10O1__source__c": "0.0.0.0/0",
+        "CA10O1__protocol__c": "TCP",
+        "CA10O1__destinationPortMin__c": 80,
+        "CA10O1__destinationPortMax__c": 80
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test6",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_IAAS_Security_List_Rules1__r": [
+      {
+        "Id": "test6_1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__securityList__c": "test6",
+        "CA10O1__direction__c": "Egress",
+        "CA10O1__source__c": "0.0.0.0/0",
+        "CA10O1__protocol__c": "TCP",
+        "CA10O1__destinationPortMin__c": 3389,
+        "CA10O1__destinationPortMax__c": 3389
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10O1__Oracle_IAAS_Security_List_Rules1__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test7",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_IAAS_Security_List_Rules1__r": [
+      {
+        "Id": "test7_1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__securityList__c": "test7",
+        "CA10O1__direction__c": "Ingress",
+        "CA10O1__source__c": "0.0.0.0/0",
+        "CA10O1__protocol__c": "TCP",
+        "CA10O1__destinationPortMin__c": null,
+        "CA10O1__destinationPortMax__c": null
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test8",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_IAAS_Security_List_Rules1__r": [
+      {
+        "Id": "test8_1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__securityList__c": "test8",
+        "CA10O1__direction__c": "Ingress",
+        "CA10O1__source__c": "0.0.0.0/0",
+        "CA10O1__protocol__c": "UDP",
+        "CA10O1__destinationPortMin__c": 3389,
+        "CA10O1__destinationPortMax__c": 3389
+      }
+    ]
+  }
+]

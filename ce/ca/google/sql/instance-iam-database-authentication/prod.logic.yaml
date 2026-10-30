@@ -1,0 +1,59 @@
+---
+
+inputType: "CA10__CaGoogleSqlInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaGoogleSqlInstance__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "IAM database authentication is applicable only to Cloud SQL for MySQL and PostgreSQL instances."
+    check:
+      NOT:
+        arg:
+          OR:
+            args:
+              - CONTAINS:
+                  arg:
+                    EXTRACT: "CA10__databaseVersion__c"
+                  search:
+                    TEXT: "MYSQL"
+              - CONTAINS:
+                  arg:
+                    EXTRACT: "CA10__databaseVersion__c"
+                  search:
+                    TEXT: "POSTGRES"
+  - status: "COMPLIANT"
+    currentStateMessage: "IAM database authentication is enabled for this Cloud SQL PostgreSQL instance."
+    check:
+      AND:
+        args:
+          - CONTAINS:
+              arg:
+                EXTRACT: "CA10__databaseVersion__c"
+              search:
+                TEXT: "POSTGRES"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "caJsonText__databaseFlagsCloudsqlIamAuthenticationFlagValue__c"
+              right:
+                TEXT: "on"
+  - status: "COMPLIANT"
+    currentStateMessage: "IAM database authentication is enabled for this Cloud SQL MySQL instance."
+    check:
+      AND:
+        args:
+          - CONTAINS:
+              arg:
+                EXTRACT: "CA10__databaseVersion__c"
+              search:
+                TEXT: "MYSQL"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "caJsonText__databaseFlagsCloudsqlIamAuthenticationMysqlFlagValue__c"
+              right:
+                TEXT: "on"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "IAM database authentication is not enabled for this Cloud SQL instance."
+  remediationMessage: "Enable IAM database authentication for the Cloud SQL instance."

@@ -1,0 +1,13 @@
+---
+names:
+  full: AWS MQ Broker engine version is outside Amazon MQ support
+  contextual: Broker engine version is outside Amazon MQ support
+description: >
+  Identify Amazon MQ brokers using engine minor versions known to have reached
+  end of support so that owners can plan a tested upgrade.
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization
+

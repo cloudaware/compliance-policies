@@ -1,0 +1,21 @@
+---
+names:
+  full: "AWS Redshift Cluster Master Username is a default values"
+  contextual: "Cluster Master Username is a default values"
+description: >
+  Identify AWS Redshift Clusters that use default master usernames (i.e., 'awsuser'). 
+  Using non-default usernames enhances security by making brute-force attacks more 
+  difficult and reducing predictability for unauthorized actors.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+  - "/frameworks/aws-fsbp-v1.0.0/redshift/08"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Redshift.8] Amazon Redshift clusters should not use the default Admin username"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/redshift-controls.html#redshift-8"
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/Redshift/master-username.html"
+      name: Redshift Cluster Default Master Username

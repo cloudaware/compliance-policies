@@ -1,11 +1,10 @@
 # Description
 
-Customer-managed keys introduce additional depth to security by providing a means to manage access control for encryption keys. Where compliance and security frameworks indicate the need, and organizational capacity allows, sensitive data at rest can be encrypted using customer-managed keys (CMK) rather than Microsoft-managed keys.
+Customer-managed keys introduce additional security depth by providing a way to manage access control for encryption keys. Where compliance and security frameworks indicate the need and organizational capacity allows, sensitive data at rest can be encrypted using customer-managed keys (CMK) rather than Microsoft-managed keys.
 
 ## Rationale
 
-Organizations with stricter needs for control of encryption keys should enable customer-managed keys (CMK) for greater control over data encryption, auditing, and regulatory compliance. Azure Key Vault should be used to store and manage CMKs.
-Enforcing encryption at rest and in transit in Azure Databricks:
+Organizations with stricter needs for control of encryption keys should enable customer-managed keys (CMK) for greater control over data encryption, auditing, and regulatory compliance. Azure Key Vault should be used to store and manage CMKs. Enforcing encryption at rest and in transit in Azure Databricks:
 
 - Protects sensitive data from unauthorized access.
 - Ensures regulatory compliance (ISO 27001, GDPR, HIPAA, SOC 2).
@@ -25,7 +24,7 @@ This policy flags an *Azure Databricks Workspace* as `INCOMPLIANT` if the `Encry
 
 ## Default Value
 
-By default, encryption type is set to Microsoft-managed keys.
+By default, the encryption type is set to Microsoft-managed keys.
 
 ## References
 

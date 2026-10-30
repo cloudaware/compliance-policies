@@ -14,11 +14,15 @@
 Ensure the output of the below command is `Standard`:
 
 ```sh
-az security pricing create -n StorageAccounts --tier 'standard'
+az security pricing create \
+    -n StorageAccounts \
+    --tier Standard
 ```
 
 ## From PowerShell
 
 ```ps
-Set-AzSecurityPricing -Name 'StorageAccounts' -PricingTier 'Standard'
+Set-AzSecurityPricing `
+    -Name "StorageAccounts" `
+    -PricingTier "Standard"
 ```

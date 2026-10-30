@@ -6,12 +6,12 @@ importExtracts:
   - file: /types/CA10__CaAwsServerCertificate__c/object.extracts.yaml
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "IAM Server Certificate is expired"
-    remediationMessage: "Delete the expired IAM Server Certificate."
+    currentStateMessage: "The IAM server certificate is expired."
+    remediationMessage: "Delete the expired IAM server certificate."
     check:
       IS_BEFORE_TODAY: 
         arg:
           EXTRACT: CA10__expiration__c
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "IAM Server Certificate not expired"
+  currentStateMessage: "The IAM server certificate is not expired."

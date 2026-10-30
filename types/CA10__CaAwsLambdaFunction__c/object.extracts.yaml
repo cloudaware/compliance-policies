@@ -1,0 +1,60 @@
+---
+extracts:
+# Nullable. Text.
+  - name: "CA10__runtime__c"
+    value: 
+      FIELD:
+        path: "CA10__runtime__c"
+# Values: PassThrough | Active. Not nullable. Text.
+  - name: "CA10__tracingConfigResponseMode__c"
+    value: 
+      FIELD:
+        path: "CA10__tracingConfigResponseMode__c"
+        undeterminedIf:
+          isEmpty: "The function tracing config cannot be empty. Possible data corruption."
+# Values: Zip | Image. Not nullable. Text.
+  - name: "CA10__packageType__c"
+    value: 
+      FIELD:
+        path: "CA10__packageType__c"
+        undeterminedIf:
+          isEmpty: "The function package type cannot be empty. Possible data corruption."
+# Nullable. Can't have no access, retrieved via lambda:ListFunctions
+  - name: "CA10__vpcId__c"
+    value: 
+      FIELD:
+        path: "CA10__vpcId__c"
+  - name: "CA10__iamPolicyExt__c"
+    value: 
+        FIELD:
+          path: "CA10__iamPolicyExt__c"
+  - name: CreatedDate
+    value:
+      FIELD:
+        path: CreatedDate
+        undeterminedIf:
+          isEmpty: The function CMDB creation date is unavailable.
+  - name: CA10__sumTwoWeekInvocationCount__c
+    value:
+      FIELD:
+        path: CA10__sumTwoWeekInvocationCount__c
+        undeterminedIf:
+          isEmpty: The 14-day invocation count is unavailable.
+  - name: CA10__version__c
+    value:
+      FIELD:
+        path: CA10__version__c
+        undeterminedIf:
+          isEmpty: The function version is unavailable.
+  - name: CA10__lastModified__c
+    value:
+      FIELD:
+        path: CA10__lastModified__c
+        undeterminedIf:
+          isEmpty: The function last modification date is unavailable.
+  - name: CA10__memorySizeMb__c
+    value:
+      FIELD:
+        path: CA10__memorySizeMb__c
+        undeterminedIf:
+          isEmpty: The configured function memory size is unavailable.

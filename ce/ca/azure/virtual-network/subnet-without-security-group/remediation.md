@@ -16,9 +16,9 @@
 For each subnet requiring remediation, run the following command to associate it with a network security group:
 
 ``` sh
-az network vnet subnet update /
-    --resource-group {{resource-group}} /
-    --vnet-name {{virtual-network}} /
-    --name {{subnet}} /
-    --network-security-group {{network-security-group}}
+az network vnet subnet update \
+    --resource-group {{resource-group-name}} \
+    --vnet-name {{virtual-network-name}} \
+    --name {{subnet-name}} \
+    --network-security-group {{network-security-group-name}}
 ```

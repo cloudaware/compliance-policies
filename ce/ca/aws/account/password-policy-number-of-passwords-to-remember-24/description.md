@@ -1,6 +1,6 @@
 # Description
 
-IAM password policies can prevent the reuse of a given password by the same user. It is recommended that the password policy prevent the reuse of passwords.
+IAM password policies can prevent the reuse of a given password by the same user. It is recommended that the password policy prevent password reuse.
 
 ## Rationale
 

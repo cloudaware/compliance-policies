@@ -1,6 +1,6 @@
 # Description
 
-AWS Config is a web service that performs configuration management of supported AWS resources within your account and delivers log files to you. The recorded information includes the configuration item (AWS resource), relationships between configuration items (AWS resources), any configuration changes between resources. It is recommended AWS Config be enabled in all regions.
+AWS Config is a web service that performs configuration management of supported AWS resources within your account and delivers log files to you. The recorded information includes the configuration item (AWS resource), relationships between configuration items (AWS resources), and configuration changes between resources. It is recommended that AWS Config be enabled in all regions.
 
 ## Rationale
 
@@ -37,7 +37,7 @@ aws configservice describe-configuration-recorders
 
 2. Evaluate the output to ensure that all recorders have a `recordingGroup` object which includes `"allSupported": true`. Additionally, ensure that at least one recorder has `"includeGlobalResourceTypes": true`.
 
-**Note**: There is one more parameter `"ResourceTypes"` in recordingGroup object. We don't need to check the same as whenever we set `"allSupported": true`, AWS enforces resource types to be empty (`"ResourceTypes":[]`).
+**Note**: There is one more parameter, `"ResourceTypes"`, in the recordingGroup object. You do not need to check it because when `"allSupported": true` is set, AWS enforces `ResourceTypes` to be empty (`"ResourceTypes":[]`).
 
 Sample Output:
 

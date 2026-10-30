@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10__CaAwsBucket__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The bucket doesn't store objects in Intelligent Tiering."
+    currentStateMessage: "The bucket does not store objects in Intelligent Tiering."
     check:
       AND:
         args:
@@ -17,7 +17,7 @@ conditions:
               arg:
                 EXTRACT: "caJsonFrom__lifecycleRulesJson__c"
   - status: "INAPPLICABLE"
-    currentStateMessage: "The bucket doesn't store objects in Intelligent Tiering."
+    currentStateMessage: "The bucket does not store objects in Intelligent Tiering."
     check:
       AND:
         args:
@@ -37,15 +37,15 @@ conditions:
               right:
                 NUMBER: 0.0 
   - status: "INCOMPLIANT"
-    currentStateMessage: "The bucket doesn't have an Intelligent Tiering configuration."
-    remediationMessage: "Consider creating an S3 Intelligent Tiering configuration for the bucket."
+    currentStateMessage: "The bucket does not have an Intelligent Tiering configuration."
+    remediationMessage: "Create an S3 Intelligent Tiering configuration for the bucket."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "caJsonFrom__intelligentTieringConfigurationsJson__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The bucket doesn't have an Intelligent Tiering configuration."
-    remediationMessage: "Consider creating an S3 Intelligent Tiering configuration for the bucket."
+    currentStateMessage: "The bucket does not have an Intelligent Tiering configuration."
+    remediationMessage: "Create an S3 Intelligent Tiering configuration for the bucket."
     check:
       IS_EQUAL:
         left:
@@ -60,7 +60,7 @@ conditions:
           NUMBER: 0.0 
   - status: "INCOMPLIANT"
     currentStateMessage: "The bucket Intelligent Tiering configuration is disabled."
-    remediationMessage: "Consider enabling an S3 Intelligent Tiering configuration for the bucket."
+    remediationMessage: "Enable an S3 Intelligent Tiering configuration for the bucket."
     check:
       IS_EQUAL:
         left:

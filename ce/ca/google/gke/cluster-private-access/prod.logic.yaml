@@ -12,7 +12,7 @@ conditions:
     check:
       IS_EMPTY_LOOKUP: "CA10G1__subnetwork__r"
   - status: "COMPLIANT"
-    currentStateMessage: "Private Google Access is enabled for the cluster's subnetwork."
+    currentStateMessage: "Private Google Access is enabled for the cluster subnetwork."
     check:
       IS_EQUAL:
         left:
@@ -21,5 +21,5 @@ conditions:
           TEXT: "Enabled"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "Private Google Access is not enabled for the cluster's subnetwork."
-  remediationMessage: "Enable Private Google Access on the subnetwork used by the GKE cluster."
+  currentStateMessage: "Private Google Access is not enabled for the cluster subnetwork."
+  remediationMessage: "Enable Private Google Access on the cluster subnetwork."

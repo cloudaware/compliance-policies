@@ -9,18 +9,26 @@
 
 ## From Azure CLI
 
-Use the below command to enable `Transparent data encryption` for SQL DB instance:
+Use the following command to enable `Transparent data encryption` for a SQL database:
 
 ```sh
-az sql db tde set --resource-group <resourceGroup> --server <dbServerName> --database <dbName> --status Enabled
+az sql db tde set \
+    --resource-group {{resource-group-name}} \
+    --server {{server-name}} \
+    --database {{database-name}} \
+    --status Enabled
 ```
 
 ## From PowerShell
 
-Use the below command to enable Transparent data encryption for SQL DB instance:
+Use the following command to enable Transparent data encryption for a SQL database:
 
 ```ps
-Set-AzSqlDatabaseTransparentDataEncryption -ResourceGroupName <Resource Group Name> -ServerName <SQL Server Name> -DatabaseName <Database Name> -State 'Enabled'
+Set-AzSqlDatabaseTransparentDataEncryption `
+    -ResourceGroupName {{resource-group-name}} `
+    -ServerName {{sql-server-name}} `
+    -DatabaseName {{database-name}} `
+    -State "Enabled"
 ```
 
 **Note**:

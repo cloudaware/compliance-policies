@@ -1,0 +1,18 @@
+---
+extracts:
+  - name: "CA10O1__publicAccessType__c"
+    value:
+      FIELD:
+        path: "CA10O1__publicAccessType__c"
+        undeterminedIf:
+          isEmpty: "The bucket Public Access Type is empty."
+  - name: "CA10O1__versioning__c"
+    value:
+      FIELD:
+        path: "CA10O1__versioning__c"
+        undeterminedIf:
+          isEmpty: "The bucket Versioning field is empty."
+  - name: "CA10O1__kmsKeyOcid__c"
+    value:
+      FIELD:
+        path: "CA10O1__kmsKeyOcid__c"

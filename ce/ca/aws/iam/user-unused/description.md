@@ -18,7 +18,7 @@ This policy marks an *AWS IAM User* as `INCOMPLIANT` if all of the following `Cr
 * **access_key_1_active**
 * **access_key_2_active**
 
-If any of these attributes are set to **true**, the user’s credentials are evaluated by the policy
+If any of these attributes are set to **true**, the user's credentials are evaluated by the policy
 [`AWS IAM User with credentials unused for 45 days or more is not disabled`](../disable-user-with-unused-credentials-45-days-and-more/).
 
 An *AWS IAM User* is marked as `INAPPLICABLE` if its **Create Date** is within the last 30 days, providing a grace period for initial setup.

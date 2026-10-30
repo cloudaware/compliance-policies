@@ -1,0 +1,154 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10A1__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": "2026-04-15T12:00:00Z",
+    "CA10A1__passwordPolicyMinimumLength__c": 12,
+    "CA10A1__passwordPolicyIsRequireLowercase__c": "true",
+    "CA10A1__passwordPolicyIsRequireUppercase__c": "true",
+    "CA10A1__passwordPolicyIsRequireNumbers__c": "true",
+    "CA10A1__passwordPolicyIsRequireSymbols__c": "true",
+    "CA10A1__passwordPolicyTemporaryValidityDays__c": 7,
+    "Id": "test1"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10A1__passwordPolicyMinimumLength__c') < number(8.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__passwordPolicyMinimumLength__c": 6,
+    "CA10A1__passwordPolicyIsRequireLowercase__c": "true",
+    "CA10A1__passwordPolicyIsRequireUppercase__c": "true",
+    "CA10A1__passwordPolicyIsRequireNumbers__c": "true",
+    "CA10A1__passwordPolicyIsRequireSymbols__c": "true",
+    "CA10A1__passwordPolicyTemporaryValidityDays__c": 7,
+    "Id": "test2"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10A1__passwordPolicyIsRequireLowercase__c') != 'true'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__passwordPolicyMinimumLength__c": 12,
+    "CA10A1__passwordPolicyIsRequireLowercase__c": "false",
+    "CA10A1__passwordPolicyIsRequireUppercase__c": "true",
+    "CA10A1__passwordPolicyIsRequireNumbers__c": "true",
+    "CA10A1__passwordPolicyIsRequireSymbols__c": "true",
+    "CA10A1__passwordPolicyTemporaryValidityDays__c": 7,
+    "Id": "test3"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10A1__passwordPolicyIsRequireUppercase__c') != 'true'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__passwordPolicyMinimumLength__c": 12,
+    "CA10A1__passwordPolicyIsRequireLowercase__c": "true",
+    "CA10A1__passwordPolicyIsRequireUppercase__c": "false",
+    "CA10A1__passwordPolicyIsRequireNumbers__c": "true",
+    "CA10A1__passwordPolicyIsRequireSymbols__c": "true",
+    "CA10A1__passwordPolicyTemporaryValidityDays__c": 7,
+    "Id": "test4"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10A1__passwordPolicyIsRequireNumbers__c') != 'true'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__passwordPolicyMinimumLength__c": 12,
+    "CA10A1__passwordPolicyIsRequireLowercase__c": "true",
+    "CA10A1__passwordPolicyIsRequireUppercase__c": "true",
+    "CA10A1__passwordPolicyIsRequireNumbers__c": "false",
+    "CA10A1__passwordPolicyIsRequireSymbols__c": "true",
+    "CA10A1__passwordPolicyTemporaryValidityDays__c": 7,
+    "Id": "test5"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "599",
+      "conditionText": "extract('CA10A1__passwordPolicyIsRequireSymbols__c') != 'true'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__passwordPolicyMinimumLength__c": 12,
+    "CA10A1__passwordPolicyIsRequireLowercase__c": "true",
+    "CA10A1__passwordPolicyIsRequireUppercase__c": "true",
+    "CA10A1__passwordPolicyIsRequireNumbers__c": "true",
+    "CA10A1__passwordPolicyIsRequireSymbols__c": "false",
+    "CA10A1__passwordPolicyTemporaryValidityDays__c": 7,
+    "Id": "test6"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "699",
+      "conditionText": "extract('CA10A1__passwordPolicyTemporaryValidityDays__c') > number(7.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__passwordPolicyMinimumLength__c": 12,
+    "CA10A1__passwordPolicyIsRequireLowercase__c": "true",
+    "CA10A1__passwordPolicyIsRequireUppercase__c": "true",
+    "CA10A1__passwordPolicyIsRequireNumbers__c": "true",
+    "CA10A1__passwordPolicyIsRequireSymbols__c": "true",
+    "CA10A1__passwordPolicyTemporaryValidityDays__c": 30,
+    "Id": "test7"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "799",
+      "conditionText": "extract('CA10A1__passwordPolicyMinimumLength__c') >= number(8.0) && extract('CA10A1__passwordPolicyIsRequireLowercase__c') == 'true' && extract('CA10A1__passwordPolicyIsRequireUppercase__c') == 'true' && extract('CA10A1__passwordPolicyIsRequireNumbers__c') == 'true' && extract('CA10A1__passwordPolicyIsRequireSymbols__c') == 'true' && extract('CA10A1__passwordPolicyTemporaryValidityDays__c') <= number(7.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__passwordPolicyMinimumLength__c": 12,
+    "CA10A1__passwordPolicyIsRequireLowercase__c": "true",
+    "CA10A1__passwordPolicyIsRequireUppercase__c": "true",
+    "CA10A1__passwordPolicyIsRequireNumbers__c": "true",
+    "CA10A1__passwordPolicyIsRequireSymbols__c": "true",
+    "CA10A1__passwordPolicyTemporaryValidityDays__c": 7,
+    "Id": "test8"
+  }
+]

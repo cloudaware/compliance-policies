@@ -445,7 +445,7 @@ For ad-hoc questions not directly related to an existing compliance policy.
 2. **Find CMDB API Names**: Find the precise API names for the object and its fields by searching locally available type information in the `types` directory.
     - **Hint**: Cloudaware CMDB names often mirror the original cloud provider's names. Use variations of the user's terms in your search.
     - **Search Strategy**: To find a candidate object API name, you must search the master list of types in `types/types.json`. To find the API names for specific fields, you must search the object's definition file (e.g., `types/CA10__CaAwsVpc__c/type.json`).
-    - **IMPORTANT**: Both `types.json` and the individual `type.json` files can be very large. Do NOT read them into your context. You MUST use the `jq` command-line tool to query them directly.
+    - **IMPORTANT**: Both `types.json` and the individual `type.json` files can be very large. NEVER read them directly, you MUST use the `jq`/`grep` command-line tool to query them directly.
         - *Example: To find an object's API name in `types.json` by its label:*
 
             ```bash

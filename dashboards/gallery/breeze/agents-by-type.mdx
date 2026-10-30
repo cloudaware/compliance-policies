@@ -1,0 +1,120 @@
+<MdxCard>
+    [Back to Index](index.md)
+
+    # Agents By Type
+
+    <MdxCustomView key="chart1" type="chart" viewSettings={
+        {
+            keyPrefix: "CABQ0000",
+            sObjectName: "CABQ__CaCe2Policy__c",
+            listViewPreset: {
+                filter: {
+                    type: "condition",
+                    operator: "like",
+                    field: "policyId__c",
+                    value: "/ce/ca/breeze/coverage/%"
+                },
+                aggregateQuery: {
+                    columns: [
+                        {
+                            label: "Object Type Label",
+                            name: "objectTypeLabel__c",
+                            fieldNameOrPath: "objectTypeLabel__c",
+                            type: "TEXT",
+                            usage: "GROUPED"
+                        },
+                        {
+                            label: "Latest Run: Compliant",
+                            name: "latestRunCompliant__c",
+                            fieldNameOrPath: "latestRunCompliant__c",
+                            type: "DOUBLE",
+                            precision: 18,
+                            scale: 0,
+                            order: "DESC",
+                            usage: "AGGREGATED",
+                            aggregateFunction: "SUM"
+                        },
+                        {
+                            label: "Latest Run: Incompliant",
+                            name: "latestRunIncompliant__c",
+                            fieldNameOrPath: "latestRunIncompliant__c",
+                            type: "DOUBLE",
+                            precision: 18,
+                            scale: 0,
+                            usage: "AGGREGATED",
+                            aggregateFunction: "SUM"
+                        }
+                    ],
+                    orderBy: [
+                        {
+                            column: {
+                                label: "Latest Run: Compliant",
+                                name: "latestRunCompliant__c",
+                                fieldNameOrPath: "latestRunCompliant__c",
+                                type: "DOUBLE",
+                                precision: 18,
+                                scale: 0,
+                                order: "DESC",
+                                usage: "AGGREGATED",
+                                aggregateFunction: "SUM"
+                            },
+                            direction: "DESC"
+                        }
+                    ]
+                },
+                chart: {
+                    chartType: "bar",
+                    dimensions: [
+                        "objectTypeLabel__c"
+                    ],
+                    measures: [
+                        "latestRunCompliant__c:SUM",
+                        "latestRunIncompliant__c:SUM"
+                    ]
+                },
+                columns: [
+                    {
+                        label: "Object Type Label",
+                        name: "objectTypeLabel__c",
+                        fieldNameOrPath: "objectTypeLabel__c",
+                        type: "TEXT"
+                    },
+                    {
+                        label: "Name",
+                        name: "Name",
+                        fieldNameOrPath: "Name",
+                        type: "TEXT"
+                    },
+                    {
+                        label: "Policy ID",
+                        name: "policyId__c",
+                        fieldNameOrPath: "policyId__c",
+                        type: "TEXT"
+                    },
+                    {
+                        label: "Policy Description",
+                        name: "policyDescription__c",
+                        fieldNameOrPath: "policyDescription__c",
+                        type: "TEXT"
+                    },
+                    {
+                        label: "Latest Run: Compliant",
+                        name: "latestRunCompliant__c",
+                        fieldNameOrPath: "latestRunCompliant__c",
+                        type: "DOUBLE",
+                        precision: 18,
+                        scale: 0
+                    },
+                    {
+                        label: "Latest Run: Incompliant",
+                        name: "latestRunIncompliant__c",
+                        fieldNameOrPath: "latestRunIncompliant__c",
+                        type: "DOUBLE",
+                        precision: 18,
+                        scale: 0
+                    }
+                ]
+            }
+        }
+    } />
+</MdxCard>

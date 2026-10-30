@@ -1,0 +1,6 @@
+---
+name: 1.16 Ensure OCI IAM credentials unused for 45 days or more are disabled (Automated)
+description: >
+  OCI IAM Local users can access OCI resources using different credentials, such
+  as passwords or API keys. It is recommended that credentials that have been
+  unused for 45 days or more be deactivated or removed.

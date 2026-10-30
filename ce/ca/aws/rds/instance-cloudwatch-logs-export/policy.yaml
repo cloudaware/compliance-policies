@@ -1,0 +1,27 @@
+---
+names:
+  full: "AWS RDS Instance database logging is not enabled"
+  contextual: "Instance database logging is not enabled"
+description: >
+  Amazon RDS can export various database engine logs to CloudWatch Logs. Enabling 
+  these exports provides persistent storage for logs and allows you to use CloudWatch 
+  Alarms to monitor database activity and troubleshoot performance issues.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/09"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/36"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/40"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/42"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[RDS.9] RDS DB instances should publish logs to CloudWatch Logs"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-9"
+    - name: "[RDS.36] RDS for PostgreSQL DB instances should publish logs to CloudWatch Logs"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-36"
+    - name: "[RDS.40] RDS for SQL Server DB instances should publish logs to CloudWatch Logs"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-40"
+    - name: "[RDS.42] RDS for MariaDB DB instances should publish logs to CloudWatch Logs"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-42"

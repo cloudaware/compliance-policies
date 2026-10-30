@@ -8,10 +8,10 @@ description: "VPC Flow Logs is a feature that enables you to capture information
   \ It is recommended that VPC Flow Logs be enabled for packet 'Rejects' for VPCs."
 type: COMPLIANCE_POLICY
 categories:
-  - SECURITY
-  - RELIABILITY
+  - "SECURITY"
+  - "RELIABILITY"
 frameworkMappings:
-  - "/frameworks/cis-aws-v6.0.0/04/07"
+  - "/frameworks/cis-aws-v7.0.0/04/07"
   - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
   - "/frameworks/aws-fsbp-v1.0.0/ec2/06"
 similarPolicies:

@@ -1,0 +1,17 @@
+---
+names:
+  full: "Oracle IAM User MFA is disabled"
+  contextual: "IAM User MFA is disabled"
+description: >
+  OCI IAM users should have multifactor authentication (MFA) activated to
+  strengthen console sign-in protection and reduce the risk of unauthorized
+  access from compromised passwords.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cis-oracle-v3.1.0/01/07"
+  - "/frameworks/cloudaware/identity-and-access-governance/mfa-implementation"
+similarPolicies:
+  internal:
+    - "dec-x-b92b08f4"

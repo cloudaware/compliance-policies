@@ -12,7 +12,7 @@ When `Log Analytics agent for Azure VMs` is turned on, Microsoft Defender for Cl
 
 ### From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. From Azure Home, select the Portal Menu.
 2. Select `Microsoft Defender for Cloud`.
 3. Under `Management`, select `Environment Settings`.
 4. Select a subscription.
@@ -26,13 +26,14 @@ Repeat the above for any additional subscriptions.
 Ensure the output of the below command is `On`:
 
 ```sh
-az account get-access-token --query "{subscription:subscription,accessToken:accessToken}" --out tsv | xargs -L1 bash -c 'curl -X GET -H "Authorization: Bearer $1" -H "Content-Type: application/json" https://management.azure.com/subscriptions/<subscriptionID>/providers/Microsoft.Security/autoProvisioningSettings?api-version=2017-08-01-preview' | jq '.|.value[] | select(.name=="default")'|jq '.properties.autoProvision'
+az account get-access-token --query "{subscription:subscription,accessToken:accessToken}" --out tsv | xargs -L1 bash -c 'curl -X GET -H "Authorization: Bearer $1" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{{subscription-id}}/providers/Microsoft.Security/autoProvisioningSettings?api-version=2017-08-01-preview' | jq '.|.value[] | select(.name=="default")' | jq '.properties.autoProvision'
 ```
 
 ### From PowerShell
 
 ```ps
-Connect-AzAccount Get-AzSecurityAutoProvisioningSetting | Select-Object Name, AutoProvision
+Connect-AzAccount
+Get-AzSecurityAutoProvisioningSetting | Select-Object Name, AutoProvision
 ```
 
 Ensure output for `Id`, `Name`, `AutoProvision` is `/subscriptions/providers/Microsoft.Security/autoProvisioningSettings/default`, `default`, `On`.

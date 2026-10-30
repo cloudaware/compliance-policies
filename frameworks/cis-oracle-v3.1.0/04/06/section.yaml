@@ -1,0 +1,10 @@
+---
+name: 4.6 Ensure a notification is configured for IAM policy changes - Level 1 (Automated)
+description: >
+  It is recommended to setup an Event Rule and Notification that gets triggered
+  when IAM Policies are created, updated or deleted. Event Rules are compartment
+  scoped and will detect events in child compartments, it is recommended to
+  create the Event rule at the root compartment level.
+similar:
+  internal:
+    - dec-c-d8610b09

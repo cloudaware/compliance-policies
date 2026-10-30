@@ -1,5 +1,11 @@
 ---
 extracts:
+  - name: "CA10__kind__c"
+    value: {FIELD: {path: "CA10__kind__c"}}
+  - name: "CA10__currentSkuTier__c"
+    value: {FIELD: {path: "CA10__currentSkuTier__c"}}
+  - name: "CA10__autoPauseDelay__c"
+    value: {FIELD: {path: "CA10__autoPauseDelay__c"}}
 # Not Nullable. Can't have no access, retrieved via Microsoft.Sql/servers/databases/read
   - name: "CA10__name__c"
     value: 

@@ -1,0 +1,106 @@
+---
+inputType: "CA10A1__CaAwsSecretsManagerSecret__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10A1__CaAwsSecretsManagerSecret__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This secret is not active."
+    check:
+      NOT_EMPTY:
+        arg:
+          EXTRACT: "CA10A1__deletedDate__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Automatic rotation is enabled for this secret."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10A1__rotationEnabled__c"
+        right:
+          BOOLEAN: true
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The current secret version was created more than 90 days ago."
+    remediationMessage: "Rotate the secret at least every 90 days."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10A1__AWS_Secrets_Manager_Secret_Versions__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "The current secret version was created within the last 90 days."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10A1__AWS_Secrets_Manager_Secret_Versions__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The secret was last rotated more than 90 days ago."
+    remediationMessage: "Rotate the secret at least every 90 days."
+    check:
+      AND:
+        args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10A1__lastRotatedDate__c"
+          - IS_BEYOND_LAST_DAYS:
+              offsetDays: 90
+              arg:
+                EXTRACT: "CA10A1__lastRotatedDate__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The secret has no recorded rotation date."
+    remediationMessage: "Rotate the secret at least every 90 days."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10A1__lastRotatedDate__c"
+  - status: "COMPLIANT"
+    currentStateMessage: "The secret was rotated within the last 90 days."
+    check:
+      AND:
+        args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10A1__lastRotatedDate__c"
+          - IS_WITHIN_LAST_DAYS:
+              offsetDays: 90
+              arg:
+                EXTRACT: "CA10A1__lastRotatedDate__c"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "There is not enough data to determine the secret rotation status."
+relatedLists:
+  - relationshipName: "CA10A1__AWS_Secrets_Manager_Secret_Versions__r"
+    importExtracts:
+      - file: "/types/CA10A1__CaAwsSecretsManagerSecretVersion__c/object.extracts.yaml"
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "This is the current secret version and it was created within the last 90 days."
+        check:
+          AND:
+            args:
+              - CONTAINS:
+                  arg:
+                    EXTRACT: "CA10A1__versionStages__c"
+                  search:
+                    TEXT: "AWSCURRENT"
+              - IS_WITHIN_LAST_DAYS:
+                  offsetDays: 90
+                  arg:
+                    EXTRACT: "CA10A1__createdDate__c"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "This is the current secret version and it was created more than 90 days ago."
+        remediationMessage: "Rotate the secret at least every 90 days."
+        check:
+          AND:
+            args:
+              - CONTAINS:
+                  arg:
+                    EXTRACT: "CA10A1__versionStages__c"
+                  search:
+                    TEXT: "AWSCURRENT"
+              - IS_BEYOND_LAST_DAYS:
+                  offsetDays: 90
+                  arg:
+                    EXTRACT: "CA10A1__createdDate__c"
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "This secret version is not the current version."

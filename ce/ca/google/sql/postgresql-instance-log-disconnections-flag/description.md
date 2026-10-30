@@ -4,7 +4,7 @@ Enabling the `log_disconnections` setting logs the end of each session, includin
 
 ## Rationale
 
-PostgreSQL does not log session details such as duration and session end by default. Enabling the `log_disconnections` setting will create log entries at the end of each session which can be useful in troubleshooting issues and determine any unusual activity across a time period. The `log_disconnections` and `log_connections` work hand in hand and generally, the pair would be enabled/disabled together. This recommendation is applicable to PostgreSQL database instances.
+PostgreSQL does not log session details such as duration and session end by default. Enabling the `log_disconnections` setting creates log entries at the end of each session, which can be useful for troubleshooting issues and identifying unusual activity over time. The `log_disconnections` and `log_connections` settings work hand in hand and are generally enabled or disabled together. This recommendation is applicable to PostgreSQL database instances.
 
 ## Impact
 
@@ -15,19 +15,22 @@ Turning on logging will increase the required storage over time. Mismanaged logs
 ### From Google Cloud Console
 
 1. Go to the Cloud SQL Instances page in the Google Cloud Console by visiting <https://console.cloud.google.com/sql/instances>.
-2. Select the instance to open its `Instance Overview` page
+2. Select the instance to open its `Instance Overview` page.
 3. Go to the `Configuration` card.
-4. Under `Database flags`, check the value of `log_disconnections` flag is configured as expected.
+4. Under `Database flags`, check that the value of the `log_disconnections` flag is configured as expected.
 
 ### From Google Cloud CLI
 
-1. Ensure the below command returns `on` for every Cloud SQL PostgreSQL database instance:
+1. Ensure the following command returns `on` for every Cloud SQL PostgreSQL database instance:
 
-            gcloud sql instances list --format=json | jq '.[].settings.databaseFlags[] | select(.name=="log_disconnections")|.value'
+    ```sh
+    gcloud sql instances describe {{instance-name}} \
+        --format=json | jq '.settings.databaseFlags[] | select(.name=="log_disconnections") | .value'
+    ```
 
 ## Default Value
 
-By default `log_disconnections` is off.
+By default, `log_disconnections` is `off`.
 
 ## References
 

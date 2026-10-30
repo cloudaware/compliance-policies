@@ -1,0 +1,18 @@
+---
+inputType: "CA10__CaAwsDistribution__c"
+testData:
+  - file: "test-data.json"  
+recordTypes:
+  - "caWebDistribution"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The CloudFront web distribution isn't integrated with either AWS WAF Classic or AWS WAF web ACLs."
+    remediationMessage: "Associate a WAF web ACL with the CloudFront distribution."
+    check:
+      AND:
+        args:
+          - IS_EMPTY_LOOKUP: "CA10__wafV2WebAcl__r"
+          - IS_EMPTY_LOOKUP: "CA10__webAcl__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The CloudFront distribution is integrated with AWS WAF."

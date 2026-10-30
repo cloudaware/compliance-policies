@@ -1,0 +1,278 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10Z1__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-15T00:00:00Z"
+    },
+    "Id": "gone",
+    "RecordType": {
+      "Id": "savings-plan"
+    },
+    "RecordTypeId": "savings-plan",
+    "CA10Z1__disappearanceTime__c": "2026-09-14T00:00:00Z",
+    "CA10Z1__provisioningState__c": "Succeeded",
+    "CA10Z1__CaAzureSavingsPlanUtilization__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10Z1__provisioningState__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-15T00:00:00Z"
+    },
+    "Id": "missing-state",
+    "RecordType": {
+      "Id": "savings-plan"
+    },
+    "RecordTypeId": "savings-plan",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "",
+    "CA10Z1__CaAzureSavingsPlanUtilization__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10Z1__provisioningState__c') != 'Succeeded'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-15T00:00:00Z"
+    },
+    "Id": "expired",
+    "RecordType": {
+      "Id": "savings-plan"
+    },
+    "RecordTypeId": "savings-plan",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "Expired",
+    "CA10Z1__CaAzureSavingsPlanUtilization__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "399",
+      "conditionText": "CA10Z1__CaAzureSavingsPlanUtilization__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-15T00:00:00Z"
+    },
+    "Id": "fresh-incomplete",
+    "RecordType": {
+      "Id": "savings-plan"
+    },
+    "RecordTypeId": "savings-plan",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "Succeeded",
+    "CA10Z1__CaAzureSavingsPlanUtilization__r": [
+      {
+        "Id": "util-missing-average",
+        "RecordType": {
+          "Id": "utilization"
+        },
+        "RecordTypeId": "utilization",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__benefit__c": "fresh-incomplete",
+        "CA10Z1__usageDate__c": "2026-09-01",
+        "CA10Z1__avgUtilizationPercentage__c": null
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "399",
+      "conditionText": "CA10Z1__CaAzureSavingsPlanUtilization__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-15T00:00:00Z"
+    },
+    "Id": "missing-usage-date",
+    "RecordType": {
+      "Id": "savings-plan"
+    },
+    "RecordTypeId": "savings-plan",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "Succeeded",
+    "CA10Z1__CaAzureSavingsPlanUtilization__r": [
+      {
+        "Id": "util-missing-date",
+        "RecordType": {
+          "Id": "utilization"
+        },
+        "RecordTypeId": "utilization",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__benefit__c": "missing-usage-date",
+        "CA10Z1__usageDate__c": null,
+        "CA10Z1__avgUtilizationPercentage__c": 50
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "600",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-15T00:00:00Z"
+    },
+    "Id": "stale-incomplete",
+    "RecordType": {
+      "Id": "savings-plan"
+    },
+    "RecordTypeId": "savings-plan",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "Succeeded",
+    "CA10Z1__CaAzureSavingsPlanUtilization__r": [
+      {
+        "Id": "util-stale-missing-average",
+        "RecordType": {
+          "Id": "utilization"
+        },
+        "RecordTypeId": "utilization",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__benefit__c": "stale-incomplete",
+        "CA10Z1__usageDate__c": "2026-08-01",
+        "CA10Z1__avgUtilizationPercentage__c": null
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10Z1__CaAzureSavingsPlanUtilization__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-05T00:00:00Z"
+    },
+    "Id": "mixed-recent-periods",
+    "RecordType": {
+      "Id": "savings-plan"
+    },
+    "RecordTypeId": "savings-plan",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "Succeeded",
+    "CA10Z1__CaAzureSavingsPlanUtilization__r": [
+      {
+        "Id": "util-low",
+        "RecordType": {
+          "Id": "utilization"
+        },
+        "RecordTypeId": "utilization",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__benefit__c": "mixed-recent-periods",
+        "CA10Z1__usageDate__c": "2026-08-01",
+        "CA10Z1__avgUtilizationPercentage__c": 70
+      },
+      {
+        "Id": "util-high",
+        "RecordType": {
+          "Id": "utilization"
+        },
+        "RecordTypeId": "utilization",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__benefit__c": "mixed-recent-periods",
+        "CA10Z1__usageDate__c": "2026-09-01",
+        "CA10Z1__avgUtilizationPercentage__c": 95
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10Z1__CaAzureSavingsPlanUtilization__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-15T00:00:00Z"
+    },
+    "Id": "below",
+    "RecordType": {
+      "Id": "savings-plan"
+    },
+    "RecordTypeId": "savings-plan",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "Succeeded",
+    "CA10Z1__CaAzureSavingsPlanUtilization__r": [
+      {
+        "Id": "util-below",
+        "RecordType": {
+          "Id": "utilization"
+        },
+        "RecordTypeId": "utilization",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__benefit__c": "below",
+        "CA10Z1__usageDate__c": "2026-09-01",
+        "CA10Z1__avgUtilizationPercentage__c": 79.99
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "599",
+      "conditionText": "CA10Z1__CaAzureSavingsPlanUtilization__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-15T00:00:00Z"
+    },
+    "Id": "boundary",
+    "RecordType": {
+      "Id": "savings-plan"
+    },
+    "RecordTypeId": "savings-plan",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "Succeeded",
+    "CA10Z1__CaAzureSavingsPlanUtilization__r": [
+      {
+        "Id": "util-stale-missing-average",
+        "RecordType": {
+          "Id": "utilization"
+        },
+        "RecordTypeId": "utilization",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__benefit__c": "boundary",
+        "CA10Z1__usageDate__c": "2026-08-01",
+        "CA10Z1__avgUtilizationPercentage__c": null
+      },
+      {
+        "Id": "util-gone-low",
+        "RecordType": {
+          "Id": "utilization"
+        },
+        "RecordTypeId": "utilization",
+        "CA10Z1__disappearanceTime__c": "2026-09-14T00:00:00Z",
+        "CA10Z1__benefit__c": "boundary",
+        "CA10Z1__usageDate__c": "2026-09-01",
+        "CA10Z1__avgUtilizationPercentage__c": 1
+      },
+      {
+        "Id": "util-boundary",
+        "RecordType": {
+          "Id": "utilization"
+        },
+        "RecordTypeId": "utilization",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__benefit__c": "boundary",
+        "CA10Z1__usageDate__c": "2026-09-01",
+        "CA10Z1__avgUtilizationPercentage__c": 80
+      }
+    ]
+  }
+]

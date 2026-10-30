@@ -6,7 +6,7 @@ testData:
   - file: 'test-data.json'
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The Instance is not running."
+    currentStateMessage: "The instance is not running."
     check:
       NOT_EQUAL:
         left:
@@ -23,7 +23,7 @@ conditions:
             arg:
               EXTRACT: "CA10__createTime__c"
   - status: "UNDETERMINED"
-    currentStateMessage: "There is not enough data in the CMDB to identify if the instance is idle."
+    currentStateMessage: "There is not enough data in the CMDB to determine whether the instance is idle."
     check:
       OR:
         args:
@@ -36,7 +36,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The instance is idle with Average CPU Utilization < 5% and\
       \ zero Average Connections."
-    remediationMessage: "Consider stopping, terminating, or rightsizing the instance."
+    remediationMessage: "Stop, terminate, or rightsize the instance."
     check:
       AND:
         args:
@@ -53,3 +53,7 @@ conditions:
 otherwise:
   status: "COMPLIANT"
   currentStateMessage: "The instance is not idle."
+
+
+
+

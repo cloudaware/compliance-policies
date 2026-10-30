@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS SQS Queue policy allows public access"
+  contextual: "Queue policy allows public access"
+description: >
+  Ensure that Amazon SQS queue policies do not grant public access. A queue
+  policy that allows anonymous or overly broad external principals can expose
+  queued data, permit unauthorized message injection, and allow destructive
+  administrative actions against the queue.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/public-data-access"
+  - "/frameworks/aws-fsbp-v1.0.0/sqs/03"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[SQS.3] SQS queue access policies should not allow public access"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/sqs-controls.html#sqs-3"

@@ -1,6 +1,6 @@
 # Remediation
 
-## From Azure Console
+## From Azure Portal
 
 1. Go to `Storage Accounts`.
 2. For each storage account, under `Security + networking`, click `Networking`.
@@ -11,8 +11,11 @@
 
 ## From Azure CLI
 
-Use the below command to update `default-action` to `Deny`:
+Use the following command to update `default-action` to `Deny`:
 
 ```sh
-az storage account update --name <StorageAccountName> --resource-group <resourceGroupName> --default-action Deny
+az storage account update \
+    --name {{storage-account-name}} \
+    --resource-group {{resource-group-name}} \
+    --default-action Deny
 ```

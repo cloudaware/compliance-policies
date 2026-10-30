@@ -14,10 +14,15 @@
 
 1. List all Cloud SQL database instances using the following command:
 
-            gcloud sql instances list
+    ```sh
+    gcloud sql instances list
+    ```
 
-2. Configure the `log_min_duration_statement` flag for every Cloud SQL PosgreSQL database instance using the below command:
+2. Configure the `log_min_duration_statement` flag for every Cloud SQL PostgreSQL database instance using the following command:
 
-            gcloud sql instances patch <INSTANCE_NAME> --database-flags log_min_duration_statement=-1
+    ```sh
+    gcloud sql instances patch {{instance-name}} \
+        --database-flags log_min_duration_statement=-1
+    ```
 
 Note: This command will overwrite all database flags previously set. To keep those and add new ones, include the values for all flags to be set on the instance; any flag not specifically included is set to its default value. For flags that do not take a value, specify the flag name followed by an equals sign ("=").

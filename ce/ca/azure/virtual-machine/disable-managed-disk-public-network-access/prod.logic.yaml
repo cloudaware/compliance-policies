@@ -6,9 +6,8 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Managed Disk data is publicly accessible on the internet 
-      and can be exported or uploaded to from any network."
-    remediationMessage: "Consider restricting the Managed Disk Public Access."
+    currentStateMessage: "Managed disk data is publicly accessible from the Internet and can be exported or uploaded from any network."
+    remediationMessage: "Restrict managed disk public access."
     check:
       AND:
         args:
@@ -23,8 +22,8 @@ conditions:
             right:
               TEXT: "Enabled"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Managed Disk Public Access is not disabled."
-    remediationMessage: "Consider disabling the Managed Disk Public Access."
+    currentStateMessage: "Managed disk public access is not disabled."
+    remediationMessage: "Disable managed disk public access."
     check:
       NOT_EQUAL:
         left:
@@ -32,8 +31,8 @@ conditions:
         right:
           TEXT: "Disabled"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Managed Disk Network Access Policy allows access from any network."
-    remediationMessage: "Consider restricting the Managed Disk Network Access Policy."
+    currentStateMessage: "The managed disk network access policy allows access from any network."
+    remediationMessage: "Restrict the managed disk network access policy."
     check:
       IS_EQUAL:
         left:
@@ -41,7 +40,7 @@ conditions:
         right:
           TEXT: "AllowAll"
   - status: "COMPLIANT"
-    currentStateMessage: "The Managed Disk Public Access is restricted."
+    currentStateMessage: "Managed disk public access is restricted."
     check:
       AND:
         args:

@@ -1,0 +1,15 @@
+---
+names:
+  full: AWS Glue Job is underutilized
+  contextual: Job is underutilized
+description: >
+  Identify recurring Apache Spark batch ETL jobs with positive workload activity
+  and 14-day average driver and executor CPU and JVM heap utilization below 20%
+  for a performance and cost-optimization review.
+type: BEST_PRACTICE
+categories:
+  - COST
+  - PERFORMANCE
+frameworkMappings:
+  - /frameworks/cloudaware/cost-efficiency-and-optimization/resource-right-sizing
+  - /frameworks/cloudaware/resource-performance/workload-efficiency

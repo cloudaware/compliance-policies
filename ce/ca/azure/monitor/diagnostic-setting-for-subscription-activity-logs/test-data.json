@@ -1,0 +1,103 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__Azure_Diagnostic_Settings__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-27T00:00:00Z"
+    },
+    "Id": "sub-001",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Diagnostic_Settings__r": [
+      {
+        "Id": "diag-001",
+        "RecordTypeId": "rt-subscription",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "sub-001",
+        "CA10__logsJson__c": "[]",
+        "CA10__workspaceId__c": "/subscriptions/sub-001/resourceGroups/rg/providers/Microsoft.OperationalInsights/workspaces/workspace",
+        "CA10__storageAccountId__c": "",
+        "CA10__eventHubAuthorizationRuleId__c": "",
+        "RecordType": {
+          "DeveloperName": "caDiagnosticSettingOnAzureSubscription",
+          "Id": "rt-subscription"
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-27T00:00:00Z"
+    },
+    "Id": "sub-002",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Diagnostic_Settings__r": [
+      {
+        "Id": "diag-002",
+        "RecordTypeId": "rt-subscription",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "sub-002",
+        "CA10__logsJson__c": "[]",
+        "CA10__workspaceId__c": "",
+        "CA10__storageAccountId__c": "",
+        "CA10__eventHubAuthorizationRuleId__c": "",
+        "RecordType": {
+          "DeveloperName": "caDiagnosticSettingOnAzureSubscription",
+          "Id": "rt-subscription"
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-27T00:00:00Z"
+    },
+    "Id": "sub-003",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Diagnostic_Settings__r": [
+      {
+        "Id": "diag-003",
+        "RecordTypeId": "rt-resource",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "sub-003",
+        "CA10__logsJson__c": "[]",
+        "CA10__workspaceId__c": "/subscriptions/sub-003/resourceGroups/rg/providers/Microsoft.OperationalInsights/workspaces/workspace",
+        "CA10__storageAccountId__c": "",
+        "CA10__eventHubAuthorizationRuleId__c": "",
+        "RecordType": {
+          "DeveloperName": "caDiagnosticSettingOnAzureResource",
+          "Id": "rt-resource"
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-27T00:00:00Z"
+    },
+    "Id": "sub-004",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Diagnostic_Settings__r": []
+  }
+]

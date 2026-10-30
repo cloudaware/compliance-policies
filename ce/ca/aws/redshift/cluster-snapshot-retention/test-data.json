@@ -1,0 +1,41 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__automatedSnapshotRetentionPeriod__c') > number(0.0)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-21T23:51:55Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__automatedSnapshotRetentionPeriod__c": 15,
+    "Id": "001"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-21T23:51:55Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__automatedSnapshotRetentionPeriod__c": 0,
+    "Id": "002"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-21T23:51:55Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__automatedSnapshotRetentionPeriod__c": null,
+    "Id": "002"
+  }
+]

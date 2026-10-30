@@ -1,10 +1,10 @@
 # Description
 
-At the Amazon S3 bucket level, you can configure permissions through a bucket policy making the objects accessible only through HTTPS.
+At the Amazon S3 bucket level, you can configure permissions through a bucket policy, making objects accessible only through HTTPS.
 
 ## Rationale
 
-By default, Amazon S3 allows both HTTP and HTTPS requests. To achieve only allowing access to Amazon S3 objects through HTTPS you also have to explicitly deny access to HTTP requests. Bucket policies that allow HTTPS requests without explicitly denying HTTP requests will not comply with this recommendation.
+By default, Amazon S3 allows both HTTP and HTTPS requests. To allow access to Amazon S3 objects only through HTTPS, you must explicitly deny access to HTTP requests. Bucket policies that allow HTTPS requests without explicitly denying HTTP requests do not comply with this recommendation.
 
 ## Audit
 
@@ -18,9 +18,9 @@ policy to deny any version lower than the one you wish to require, using the con
 
 ## From Console
 
-1. Login to AWS Management Console and open the Amazon S3 console using <https://console.aws.amazon.com/s3/>.
-2. Select the Check box next to the Bucket.
-3. Click on `Permissions`, then Click on `Bucket Policy`.
+1. Log in to AWS Management Console and open the Amazon S3 console using <https://console.aws.amazon.com/s3/>.
+2. Select the checkbox next to the bucket.
+3. Click `Permissions`, then click `Bucket Policy`.
 4. Ensure that a policy is listed that matches either:
 
 ```json
@@ -60,30 +60,30 @@ or
 
 `<optional>` and `<bucket_name>` will be specific to your account.
 
-5. Repeat for all the buckets in your AWS account.
+1. Repeat for all the buckets in your AWS account.
 
 ## From Command Line
 
 1. List all of the S3 Buckets:
 
-```sh
-aws s3 ls
-```
+    ```sh
+    aws s3 ls
+    ```
 
 2. Using the list of buckets run this command on each of them:
 
-```sh
-aws s3api get-bucket-policy --bucket <bucket_name> | grep aws:SecureTransport
-```
+    ```sh
+    aws s3api get-bucket-policy --bucket <bucket_name> | grep aws:SecureTransport
+    ```
 
-**NOTE** : If Error being thrown by CLI, it means no Policy has been configured for specified S3 bucket and by default it's allowing both HTTP and HTTPS requests.
+    **NOTE**: If the CLI throws an error, it means no policy has been configured for the specified S3 bucket and, by default, it allows both HTTP and HTTPS requests.
 
 3. Confirm that `aws:SecureTransport` is set to false `aws:SecureTransport:false`.
-4. Confirm that the policy line has `Effect`set to Deny `Effect:Deny`.
+4. Confirm that the policy line has `Effect` set to Deny `Effect:Deny`.
 
 ## Default Value
 
-Both HTTP and HTTPS Request are allowed.
+Both HTTP and HTTPS requests are allowed.
 
 ## References
 

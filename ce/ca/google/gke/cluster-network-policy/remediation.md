@@ -10,6 +10,8 @@
 
 To enable Network policy for an existing cluster, run the following command:
 
-    ```sh
-        gcloud container clusters update [CLUSTER_NAME] --zone [COMPUTE_ZONE] --enable-network-policy
-    ```
+  ```sh
+gcloud container clusters update [{{cluster-name}}] \
+    --zone [{{compute-zone}}] \
+    --enable-network-policy
+  ```

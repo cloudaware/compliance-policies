@@ -41,7 +41,9 @@ To set an S3 Lifecycle configuration on a bucket using the AWS CLI, follow these
 - Execute the following AWS CLI command to set the Lifecycle configuration on your S3 bucket. Replace `{{your--bucket-name}}` with the actual name of your S3 bucket:
 
 ```sh
-aws s3api put-bucket-lifecycle-configuration --bucket {{your-bucket-name}} --lifecycle-configuration file://lifecycle.json
+aws s3api put-bucket-lifecycle-configuration \
+    --bucket {{your-bucket-name}} \
+    --lifecycle-configuration file://lifecycle.json
 ```
 
 This command uploads the Lifecycle configuration from the `lifecycle.json` file to the specified S3 bucket.

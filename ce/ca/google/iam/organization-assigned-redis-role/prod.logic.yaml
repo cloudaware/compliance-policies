@@ -5,14 +5,14 @@ testData:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The organization has at least one Redis IAM role assigned to a principal."
-    remediationMessage: "Remove the predefined Redis IAM role binding from the organization level."
+    remediationMessage: "Remove the predefined Redis IAM role binding at the organization level."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__Google_IAM_Policy_Bindings__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "Organization doesn't have a predefined Redis IAM role assigned."
+  currentStateMessage: "The organization does not have a predefined Redis IAM role assigned."
 relatedLists:
   - relationshipName: "CA10__Google_IAM_Policy_Bindings__r"
     importExtracts:

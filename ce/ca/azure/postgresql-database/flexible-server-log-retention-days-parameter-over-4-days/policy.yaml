@@ -6,8 +6,8 @@ description: Ensure log_retention_days on PostgreSQL Servers is set to an approp
   value.
 type: COMPLIANCE_POLICY
 categories:
-  - RELIABILITY
-  - PERFORMANCE
+  - "RELIABILITY"
+  - "PERFORMANCE"
 frameworkMappings:
   - "/frameworks/cis-azure-v3.0.0/05/02/04"
   - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"

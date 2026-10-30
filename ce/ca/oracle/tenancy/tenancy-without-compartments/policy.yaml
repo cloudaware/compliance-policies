@@ -1,0 +1,14 @@
+---
+names:
+  full: "Oracle Tenancy has no active customer-managed compartments"
+  contextual: "Tenancy has no active customer-managed compartments"
+description: >
+  Ensure that each OCI tenancy contains at least one active customer-managed
+  compartment to support resource isolation, delegated administration,
+  least-privilege IAM policy scoping, and clear tenancy governance boundaries.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/identity-and-access-governance/general-access-controls"
+  - "/frameworks/cis-oracle-v3.1.0/06/01"

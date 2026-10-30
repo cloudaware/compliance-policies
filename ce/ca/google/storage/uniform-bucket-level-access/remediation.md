@@ -11,6 +11,8 @@
 
 ## From Google Cloud CLI
 
-Use the on option in a uniformbucketlevelaccess set command:
+Use the `on` option in a `uniformbucketlevelaccess` set command:
 
-            gsutil uniformbucketlevelaccess set on gs://BUCKET_NAME/
+```sh
+gsutil uniformbucketlevelaccess set on gs://{{bucket-name}}/
+```

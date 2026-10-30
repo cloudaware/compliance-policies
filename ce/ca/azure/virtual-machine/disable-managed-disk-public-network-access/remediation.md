@@ -27,13 +27,21 @@ Repeat Parts A and B to remediate all Disks in all VMs.
 To configure a disk to allow private access only, run the following command making sure you have the `Disk Access ID` from a private disk access end point:
 
 ```sh
-az disk update --name <managed disk name> --resource-group <resource group name> --network-access-policy AllowPrivate --disk-access <disk access ID>
+az disk update \
+    --name {{managed disk name}} \
+    --resource-group {{resource group name}} \
+    --network-access-policy AllowPrivate \
+    --disk-access {{disk access ID}}
 ```
 
 To completely disable public and private access for a disk, run the following command (still in preview) for each disk:
 
 ```sh
-az disk update --name <managed disk name> --resource-group <resource group name> --public-network-access Disabled --network-access-policy DenyAll
+az disk update \
+    --name {{managed disk name}} \
+    --resource-group {{resource group name}} \
+    --public-network-access Disabled \
+    --network-access-policy DenyAll
 ```
 
 ## From PowerShell
@@ -41,11 +49,11 @@ az disk update --name <managed disk name> --resource-group <resource group name>
 To disable `PublicNetworkAccess` and to set a `DenyAll` setting for the disk's `NetworkAccessPolicy` for each managed disk, run the following command:
 
 ```ps
-$disk = Get-AzDisk -ResourceGroupName ‘<resource group name>’ -DiskName ‘<disk name>’ $disk.NetworkAccessPolicy = 'DenyAll' $disk.PublicNetworkAccess = 'Disabled' Update-AzDisk -ResourceGroup '<resource group name> -DiskName $disk.Name -Disk $disk
+$disk = Get-AzDisk -ResourceGroupName ‘{{resource group name}}’ -DiskName ‘{{disk name}}’ $disk.NetworkAccessPolicy = 'DenyAll' $disk.PublicNetworkAccess = 'Disabled' Update-AzDisk -ResourceGroup '{{resource group name}} -DiskName $disk.Name -Disk $disk
 ```
 
 To disable `PublicNetworkAccess` and to set an `AllowPrivate` setting for the disk's `NetworkAccessPolicy` for each managed disk, run the following command:
 
 ```ps
-$disk = Get-AzDisk -ResourceGroupName ‘<resource group name>’ -DiskName ‘<disk name>’ $disk.NetworkAccessPolicy = 'AllowPrivate' $disk.PublicNetworkAccess = 'Disabled' $disk.DiskAccessId = '/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Compute/diskAccesses/<private disk access name> Update-AzDisk -ResourceGroup '<resource group name> -DiskName $disk.Name -Disk $disk
+$disk = Get-AzDisk -ResourceGroupName ‘{{resource group name}}’ -DiskName ‘{{disk name}}’ $disk.NetworkAccessPolicy = 'AllowPrivate' $disk.PublicNetworkAccess = 'Disabled' $disk.DiskAccessId = '/subscriptions/{{subscription ID}}/resourceGroups/{{resource group name}}/providers/Microsoft.Compute/diskAccesses/{{private disk access name}} Update-AzDisk -ResourceGroup '{{resource group name}} -DiskName $disk.Name -Disk $disk
 ```

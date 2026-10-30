@@ -1,12 +1,12 @@
 # Description
 
-This recommendation ensures that users accessing the Windows Azure Service Management API (i.e. Azure Powershell, Azure CLI, Azure Resource Manager API, etc.) are required to use multi-factor authentication (MFA) credentials when accessing resources through the Windows Azure Service Management API.
+This recommendation ensures that users accessing the Windows Azure Service Management API (e.g., Azure PowerShell, Azure CLI, Azure Resource Manager API) are required to use multi-factor authentication (MFA) when accessing resources through the Windows Azure Service Management API.
 
 ## Rationale
 
-Administrative access to the Windows Azure Service Management API should be secured with a higher level of scrutiny to authenticating mechanisms. Enabling multi-factor authentication is recommended to reduce the potential for abuse of Administrative actions, and to prevent intruders or compromised admin credentials from changing administrative settings.
+Administrative access to the Windows Azure Service Management API should be secured with a higher level of scrutiny for authentication mechanisms. Enabling multi-factor authentication is recommended to reduce the potential for abuse of administrative actions and to prevent intruders or compromised admin credentials from changing administrative settings.
 
-**IMPORTANT**: While this recommendation allows exceptions to specific Users or Groups, they should be very carefully tracked and reviewed for necessity on a regular interval through an Access Review process. It is important that this rule be built to include "All Users" to ensure that all users not specifically excepted will be required to use MFA to access the Azure Service Management API.
+**Important**: While this recommendation allows exceptions to specific users or groups, they should be carefully tracked and reviewed for necessity on a regular interval through an access review process. It is important that this rule includes `All Users` to ensure that all users not specifically excepted are required to use MFA to access the Azure Service Management API.
 
 ## Impact
 
@@ -41,4 +41,4 @@ MFA is not enabled by default for administrative actions.
 
 ## Additional Information
 
-These policies should be tested by using the What If tool in the References. Setting these can and will create issues with administrators changing settings until they use an MFA device linked to their accounts. An emergency access account is recommended for this eventuality if all administrators are locked out. Please see the documentation in the references for further information. Similarly further testing can also be done via the insights and reporting resource in References which monitors Azure sign ins.
+These policies should be tested by using the What If tool in the References. Setting these can create issues with administrators changing settings until they use an MFA device linked to their accounts. An emergency access account is recommended for this eventuality if all administrators are locked out. See the documentation in the references for further information. Further testing can also be done via the insights and reporting resource in References, which monitors Azure sign-ins.

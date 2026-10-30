@@ -6,8 +6,8 @@ importExtracts:
   - file: "/types/CA10__CaAzureCosmosDbAccount__c/object.extracts.yaml"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "Cosmos DB Account Virtual Network Filter is disabled."
-    remediationMessage: "Consider enabling Cosmos DB Account Virtual Network Filter."
+    currentStateMessage: "The Cosmos DB account virtual network filter is disabled."
+    remediationMessage: "Enable the Cosmos DB account virtual network filter."
     check:
       IS_EQUAL:
         left:
@@ -15,7 +15,7 @@ conditions:
         right:
           TEXT: "Disabled"
   - status: "COMPLIANT"
-    currentStateMessage: "Cosmos DB Account Virtual Network Filter is enabled."
+    currentStateMessage: "The Cosmos DB account virtual network filter is enabled."
     check:
       IS_EQUAL:
         left:

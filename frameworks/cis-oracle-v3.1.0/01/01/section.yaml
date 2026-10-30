@@ -1,0 +1,11 @@
+---
+name: 1.1 Ensure service level admins are created to manage resources of particular services - Level 1 (Manual)
+description: >
+  To apply least-privilege security principle, one can create service-level
+  administrators in corresponding groups and assigning specific users to each
+  service-level administrative group in a tenancy. This limits administrative
+  access in a tenancy. It means service-level administrators can only manage
+  resources of a specific service.
+similar:
+  internal:
+    - dec-c-18e73a46

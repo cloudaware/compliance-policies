@@ -3,7 +3,7 @@
 ## From Azure Portal
 
 1. Go to `Application gateways`.
-2. Click the name of an application gateway.
+2. Select the name of an application gateway.
 3. Under `Settings`, click `Web application firewall`.
 4. Under `Associated web application firewall policy`, click the policy name.
 5. Under `Settings`, click `Managed rules`.
@@ -19,9 +19,9 @@
 For each firewall policy requiring remediation, run the following command to enable bot protection:
 
 ```sh
-az network application-gateway waf-policy managed-rule rule-set add 
---resource-group {{resource-group}} 
---policy-name {{firewall-policy}} 
---type Microsoft_BotManagerRuleSet 
---version {{0.1|1.0|1.1}}
+az network application-gateway waf-policy managed-rule rule-set add \
+    --resource-group {{resource-group-name}} \
+    --policy-name {{waf-policy-name}} \
+    --type Microsoft_BotManagerRuleSet \
+    --version {{0.1|1.0|1.1}}
 ```

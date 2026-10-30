@@ -1,0 +1,85 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10O1__Oracle_IAM_User_API_Keys__r.count(COMPLIANT) > number(1.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-12T00:00:00Z"
+    },
+    "Id": "test1",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__userStatus__c": "Active",
+    "CA10O1__Oracle_IAM_User_API_Keys__r": [
+      {
+        "Id": "test1_1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__user__c": "test1"
+      },
+      {
+        "Id": "test1_2",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__user__c": "test1"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-12T00:00:00Z"
+    },
+    "Id": "test2",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__userStatus__c": "Active",
+    "CA10O1__Oracle_IAM_User_API_Keys__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-12T00:00:00Z"
+    },
+    "Id": "test3",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__userStatus__c": "Active",
+    "CA10O1__Oracle_IAM_User_API_Keys__r": [
+      {
+        "Id": "test3_1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__user__c": "test3"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10O1__userStatus__c') != 'Active'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-12T00:00:00Z"
+    },
+    "Id": "test4",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__userStatus__c": "Inactive",
+    "CA10O1__Oracle_IAM_User_API_Keys__r": [
+      {
+        "Id": "test4_1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__user__c": "test4"
+      }
+    ]
+  }
+]

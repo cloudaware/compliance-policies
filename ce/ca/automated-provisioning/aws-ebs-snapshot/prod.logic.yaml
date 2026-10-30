@@ -1,0 +1,49 @@
+---
+inputType: "CA10__CaAwsSnapshot__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is AWS Backup."
+    check:
+      TAG_EXISTS:
+        name:
+          BYTES: "aws:backup:source-resource"
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is AWS Application Migration Service."
+    check:
+      IS_EQUAL:
+        left:
+          TAG_VALUE_TEXT:
+            name:
+              BYTES: "AWSApplicationMigrationServiceManaged"
+        right:
+          TEXT: "mgn.amazonaws.com"
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is AWS Elastic Disaster Recovery."
+    check:
+      IS_EQUAL:
+        left:
+          TAG_VALUE_TEXT:
+            name:
+              BYTES: "AWSElasticDisasterRecoveryManaged"
+        right:
+          TEXT: "drs.amazonaws.com"
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is Amazon Data Lifecycle Manager."
+    check:
+      AND:
+        args:
+          - TAG_EXISTS:
+              name:
+                BYTES: "aws:dlm:lifecycle-policy-id"
+          - TAG_EXISTS:
+              name:
+                BYTES: "aws:dlm:lifecycle-schedule-name"
+          - TAG_EXISTS:
+              name:
+                BYTES: "dlm:managed"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The automated provisioning source is not identified by supported AWS-managed tag signals."
+  remediationMessage: "Review the automated provisioning source, ownership, and expected management workflow."

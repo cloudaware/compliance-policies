@@ -4,22 +4,22 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "This AWS Account has a CloudTrail with object-level logging for write events for all S3 buckets."
+    currentStateMessage: "This AWS account has a CloudTrail with object-level logging for write events enabled for all S3 buckets."
     check:
       RELATED_LIST_HAS:
         status: "COMPLIANT"
         relationshipName: "CA10__AWS_CloudTrail_Trails__r"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "This AWS Account doesn't have a CloudTrail with object-level logging for write events for all S3 buckets."
-  remediationMessage: "Consider creating a new CloudTrail or updating an existing one with object-level logging for write events for all S3 buckets."
+  currentStateMessage: "This AWS account does not have a CloudTrail with object-level logging for write events enabled for all S3 buckets."
+  remediationMessage: "Create a new CloudTrail or update an existing one to enable object-level logging for write events for all S3 buckets."
 relatedLists:
   - relationshipName: "CA10__AWS_CloudTrail_Trails__r"
     importExtracts:
      - file: "/types/CA10__CaAwsCloudTrailTrail__c/object.extracts.yaml"
     conditions:
       - status: "COMPLIANT"
-        currentStateMessage: "CloudTrail with object-level logging for write events for all S3 buckets."
+        currentStateMessage: "CloudTrail with object-level logging for write events enabled for all S3 buckets."
         check:
           AND:
             args:
@@ -64,4 +64,4 @@ relatedLists:
                           TEXT: "WriteOnly"
     otherwise:
       status: "INAPPLICABLE"
-      currentStateMessage: "Unrelated CloudTrail."
+      currentStateMessage: "Unrelated CloudTrail configuration."

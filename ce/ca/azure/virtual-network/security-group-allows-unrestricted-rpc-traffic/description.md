@@ -2,7 +2,7 @@
 
 Ensure that Azure Network Security Groups are not configured to allow unrestricted inbound access to the Remote Procedure Call (RPC) port (TCP 135). Network Security Group (NSG) rules should explicitly restrict inbound traffic to this port to only trusted IP ranges to enhance security posture and prevent unauthorized communication.
 
-## Rational
+## Rationale
 
 RPC (port 135) is frequently targeted by threat actors due to its role in enabling remote administration and inter-process communication between distributed systems. Unrestricted access to this port can lead to unauthorized system access, remote code execution, and lateral movement across the network. Restricting inbound RPC traffic to known, trusted sources helps mitigate risks associated with protocol exploitation, unauthorized data exposure, and the propagation of malware within the environment.
 
@@ -20,6 +20,6 @@ This policy flags an *Azure Network Security Group* as `INCOMPLIANT` if it conta
 - `Source Address Prefix` is either **Internet**, `*` **0.0.0.0**, **/0**, or **Any**.
 - `Destination Port` is **135**.
 
-If the `Direction`, `Access`, `Protocol`, or `Source Address Prefix` fields do not match the criteria above, the VM is marked as `INAPPLICABLE`.
+If the `Direction`, `Access`, `Protocol`, or `Source Address Prefix` fields do not match the criteria above, the Network Security Group is marked as `INAPPLICABLE`.
 
-If the `Destination Port` does not match, the VM is considered `COMPLIANT`.
+If the `Destination Port` does not match, the Network Security Group is considered `COMPLIANT`.

@@ -4,7 +4,7 @@ testData:
   - file: test-data.json
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Virtual Machine has a Network Interface with a NSG that allows UDP access from the Internet."
+    currentStateMessage: "The virtual machine has a network interface with an NSG that allows UDP access from the Internet."
     remediationMessage: "Restrict inbound UDP access from the Internet."
     check:
       RELATED_LIST_HAS:
@@ -12,21 +12,21 @@ conditions:
         relationshipName: "CA10__Azure_Network_Interfaces__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Virtual Machine doesn't allow UDP access from the Internet." 
+  currentStateMessage: "The virtual machine does not allow UDP access from the Internet."
 relatedLists:
   - relationshipName: "CA10__Azure_Network_Interfaces__r"
     importExtracts:
       - file: "/types/CA10__CaAzureNetworkSecurityGroupRule__c/object.extracts.yaml"
     conditions:
       - status: "INCOMPLIANT"
-        currentStateMessage: "Network Interface with publicly accessible Network Security Group"
+        currentStateMessage: "Network interface with a publicly accessible network security group."
         check:
           RELATED_LIST_HAS:
             status: "INCOMPLIANT"
             relationshipName:  "CA10__networkSecurityGroup__r.CA10__Azure_Network_Security_Group_Rules__r"
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "Network Interface is not publicly accessible"
+      currentStateMessage: "Network interface is not publicly accessible."
     relatedLists:
       - relationshipName: "CA10__networkSecurityGroup__r.CA10__Azure_Network_Security_Group_Rules__r"
         importExtracts:
@@ -34,7 +34,7 @@ relatedLists:
         conditions:
 # sort public group rules
           - status: "INAPPLICABLE"
-            currentStateMessage: "NSG Outbound Rule."
+            currentStateMessage: "NSG outbound rule."
             check:
               NOT_EQUAL:
                 left:
@@ -42,7 +42,7 @@ relatedLists:
                 right:
                   TEXT: "Inbound"
           - status: "INAPPLICABLE"
-            currentStateMessage: "NSG Deny Rule."
+            currentStateMessage: "NSG deny rule."
             check:
               NOT_EQUAL:
                 left:
@@ -50,7 +50,7 @@ relatedLists:
                 right:
                   TEXT: "Allow"
           - status: "INAPPLICABLE"
-            currentStateMessage: "NSG Rule source is not any address."
+            currentStateMessage: "NSG rule source is not any address."
             check:
               NOT:
                 arg:
@@ -91,4 +91,7 @@ relatedLists:
                   TEXT: "Udp"
         otherwise:
           status: "COMPLIANT"
-          currentStateMessage: "NSG rule without public access on UDP"
+          currentStateMessage: "NSG rule without public access on UDP."
+
+
+

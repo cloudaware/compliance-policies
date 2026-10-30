@@ -8,10 +8,9 @@ description: "Service Account keys consist of a key ID (Private_key_Id) and Priv
 type: COMPLIANCE_POLICY
 categories:
   - "SECURITY"
-  - "RELIABILITY"
 frameworkMappings:
-  - /frameworks/cis-gcp-v3.0.0/01/07
-  - /frameworks/cloudaware/secret-and-certificate-governance/expiration-management
+  - "/frameworks/cis-gcp-v5.0.0/01/08"
+  - "/frameworks/cloudaware/secret-and-certificate-governance/expiration-management"
 similarPolicies:
   cloudConformity:
     - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/CloudIAM/rotate-service-account-user-managed-keys.html"

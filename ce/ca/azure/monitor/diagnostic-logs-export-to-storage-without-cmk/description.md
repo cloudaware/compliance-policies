@@ -8,7 +8,7 @@ Configuring the storage account with the activity log export container to use CM
 
 ## Impact
 
-**NOTE**: You must have your key vault setup to utilize this. All Audit Logs will be encrypted with a key you provide. You will need to set up customer managed keys separately, and you will select which key to use via the instructions here. You will be responsible for the lifecycle of the keys, and will need to manually replace them at your own determined intervals to keep the data secure.
+**Note**: You must have your Key Vault set up to use this. All audit logs will be encrypted with a key you provide. You will need to set up customer-managed keys separately and select which key to use via the instructions here. You are responsible for the lifecycle of the keys and must replace them at your chosen intervals to keep the data secure.
 
 ## Audit
 
@@ -16,7 +16,7 @@ This policy flags an *Azure Subscription Diagnostic Setting* as `INCOMPLIANT` if
 
 ## Default Value
 
-By default, for a storage account `keySource` is set to `Microsoft.Storage` allowing encryption with vendor Managed key and not a Customer Managed Key.
+By default, a storage account `keySource` is set to `Microsoft.Storage`, allowing encryption with a vendor-managed key rather than a customer-managed key.
 
 ## References
 

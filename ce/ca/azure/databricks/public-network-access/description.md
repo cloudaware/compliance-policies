@@ -8,21 +8,21 @@ Disabling public network access improves security by ensuring that Azure Databri
 
 ## Impact
 
-**NOTE**: Prior to disabling public network access, it is strongly recommended that, for each workspace, either:
+**Note**: Before disabling public network access, it is strongly recommended that, for each workspace, either:
 
 - virtual network integration is completed as described in **"Ensure that Azure Databricks is deployed in a customer-managed virtual network (VNet)"**
 
 OR
 
-- private endpoints/links are set up as described in **"Ensure private endpoints are used to access Azure Databricks workspaces."**
+- private endpoints or links are set up as described in **"Ensure private endpoints are used to access Azure Databricks workspaces."**
 
-Disabling public network access restricts access to the service. This enhances security but will require the configuration of a virtual network and/or private endpoints for any services or users needing access within trusted networks.
+Disabling public network access restricts access to the service. This enhances security but requires the configuration of a virtual network and/or private endpoints for any services or users needing access within trusted networks.
 
-Before public network access can be disabled, Azure Databricks workspaces must be deployed in a customer-managed virtual network (VNet injection)—refer to the recommendation `Ensure that Azure Databricks is deployed in a customer-managed virtual network (VNet)`, and `requiredNsgRules` must be set to a value other than `AllRules`.
+Before public network access can be disabled, Azure Databricks workspaces must be deployed in a customer-managed virtual network (VNet injection). Refer to the recommendation `Ensure that Azure Databricks is deployed in a customer-managed virtual network (VNet)`, and ensure `requiredNsgRules` is set to a value other than `AllRules`.
 
 ## Audit
 
-This policy flags an *Azure Databricks Workspace* as `INCOMPLAINT` if the `Allow Public Network Access` field is set on **Enabled** or empty.
+This policy flags an *Azure Databricks Workspace* as `INCOMPLIANT` if the `Allow Public Network Access` field is set to **Enabled** or empty.
 
 ## Default Value
 

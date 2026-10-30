@@ -1,17 +1,23 @@
 # Remediation
 
-## Start Service Software Update
+## Install the Latest Service Software Update
+
+Before starting the update:
+
+- confirm the domain is healthy and no conflicting configuration changes are in progress;
+- schedule the change during a low-traffic maintenance window;
+- notify application owners if the domain supports production workloads.
 
 ### **From AWS CLI**
 
-Use the following command to initiate a service software update for an OpenSearch domain:
+Use the following command to start the service software update immediately:
 
 ```sh
 aws opensearch start-service-software-update \
   --domain-name {{domain-name}} \
-  --schedule-at "NOW"
+  --schedule-at NOW
 ```
 
-The `--schedule-at` parameter allows you to queue the update immediately.
+Monitor the domain until the update completes and CloudAware no longer reports `Service Software: Update Available` as **true**.
 
-If the command fails with a `BaseException`, the specified time slot may be unavailable due to capacity constraints. In such cases, review the alternate time slot suggestions provided in the response and resubmit the request with an available time.
+If the request fails because the selected time slot is not available, review the alternate scheduling information returned by AWS and resubmit the update for an available window.

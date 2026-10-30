@@ -15,5 +15,9 @@
 For each virtual network requiring remediation, run the following command to enable DDoS protection:
 
     ```sh
-    az network vnet update --resource-group <resource-group> --name <virtual-network> --ddos-protection true --ddos-protection-plan <ddos-protection-plan>
+    az network vnet update \
+        --resource-group {{resource-group-name}} \
+        --name {{virtual-network-name}} \
+        --ddos-protection true \
+        --ddos-protection-plan {{ddos-protection-plan-id}}
     ```

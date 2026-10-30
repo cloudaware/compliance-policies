@@ -14,4 +14,6 @@ Enable the Cloud Asset API:
 
 1. Enable the Cloud Asset API through the services interface:
 
-            gcloud services enable cloudasset.googleapis.com
+    ```sh
+    gcloud services enable cloudasset.googleapis.com
+    ```

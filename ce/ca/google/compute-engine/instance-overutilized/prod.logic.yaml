@@ -1,0 +1,88 @@
+---
+inputType: "CA10__CaGoogleGceInstance__c"
+importExtracts:
+  - file: "/types/CA10__CaGoogleGceInstance__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The instance is not running."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "RUNNING"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The instance has been running for less than 14 days."
+    check:
+      IS_WITHIN_LAST_DAYS:
+        offsetDays: 14
+        arg:
+          EXTRACT: "CA10__creationDate__c"
+  - status: "UNDETERMINED"
+    currentStateMessage: "There is not enough data in the CMDB to determine whether the instance is overutilized."
+    check:
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__averageCpuTwoWeeks__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__maxCpuTwoWeeks__c"
+          - AND:
+              args:
+                - NOT_EMPTY:
+                    arg:
+                      EXTRACT: "CA10N__newRelicHost__c"
+                - IS_EMPTY:
+                    arg:
+                      EXTRACT: "CA10N__newRelicHostMemoryUsed14Day__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The instance is overutilized with average CPU utilization\
+      \ > 80%, max CPU utilization > 95%, and memory utilization > 80%."
+    remediationMessage: "Scale up the instance or implement autoscaling."
+    check:
+      AND:
+        args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10N__newRelicHost__c"
+          - GREATER_THAN:
+              left:
+                EXTRACT: "CA10__averageCpuTwoWeeks__c"
+              right:
+                NUMBER: 80.0
+          - GREATER_THAN:
+              left:
+                EXTRACT: "CA10__maxCpuTwoWeeks__c"
+              right:
+                NUMBER: 95.0
+          - GREATER_THAN:
+              left:
+                EXTRACT: "CA10N__newRelicHostMemoryUsed14Day__c"
+              right:
+                NUMBER: 80.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The instance is overutilized with Average CPU Utilization > 80% and Max CPU Utilization > 95%."
+    remediationMessage: "Scale up the instance or implement autoscaling."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10N__newRelicHost__c"
+          - GREATER_THAN:
+              left:
+                EXTRACT: "CA10__averageCpuTwoWeeks__c"
+              right:
+                NUMBER: 80.0
+          - GREATER_THAN:
+              left:
+                EXTRACT: "CA10__maxCpuTwoWeeks__c"
+              right:
+                NUMBER: 95.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The instance is not overutilized."

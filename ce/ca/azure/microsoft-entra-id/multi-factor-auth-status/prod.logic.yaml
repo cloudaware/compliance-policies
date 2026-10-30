@@ -6,15 +6,15 @@ importExtracts:
   - file: "/types/CA10__CaAzureActiveDirectoryUser__c/object.extracts.yaml"
 conditions:
       - status: "INCOMPLIANT"
-        currentStateMessage: "MFA is not enabled for the Active Directory User."
-        remediationMessage: "Enable MFA for the Active Directory User."
+        currentStateMessage: "MFA is not enabled for the Active Directory user."
+        remediationMessage: "Enable MFA for the user."
         check:
           IS_EMPTY:
             arg:
               EXTRACT: "CA10__mfaState__c"
       - status: "INCOMPLIANT"
-        currentStateMessage: "MFA is disabled for the Active Directory User."
-        remediationMessage: "Enable MFA for the Active Directory User."
+        currentStateMessage: "MFA is disabled for the Active Directory user."
+        remediationMessage: "Enable MFA for the user."
         check:
           IS_EQUAL:
             left:
@@ -22,7 +22,7 @@ conditions:
             right:
               TEXT: "disabled"
       - status: "COMPLIANT"
-        currentStateMessage: "MFA is enabled for the Active Directory User."
+        currentStateMessage: "MFA is enabled for the Active Directory user."
         check:
           IS_EQUAL:
             left:

@@ -1,5 +1,32 @@
 # Changelog
 
+## 2.3.21
+
+- Updated with `cloudaware-mcp` v1.0.12
+
+## 2.3.20
+
+- Added `repo-manager docs serve` with `--cors` and other options to serve repository on a local HTTP server.
+- Updated `policy.yaml.mdx` generation for Cloudaware renderer
+
+## 2.3.19
+
+- Timeout increase
+
+## 2.3.18
+
+- Updated with `cloudaware-mcp` v1.0.11
+
+## 2.3.17
+
+- Fixed `repo-manager policies generate` now supports `-o`/`--output-file` parameter
+- Updated with `cloudaware-mcp` v1.0.10
+
+## 2.3.16
+
+- Fixed `repo-manager policies capture-test-data` ignoring errors in responses
+- Updated with `cloudaware-mcp` v1.0.9
+
 ## 2.3.15
 
 - Improved error messages

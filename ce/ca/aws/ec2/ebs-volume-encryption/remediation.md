@@ -26,9 +26,9 @@ Wait until the snapshot status is `completed` before proceeding.
 
 ### Create a New Encrypted Volume from the Snapshot
 
-```bash
-aws ec2 create-volume 
-    --snapshot-id {{snapshot-id}}
-    --availability-zone {{us-east-1a}}
+```sh
+aws ec2 create-volume \
+    --snapshot-id {{snapshot-id}} \
+    --availability-zone {{availability-zone}} \
     --encrypted
 ```

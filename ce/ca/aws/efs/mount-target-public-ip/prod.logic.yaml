@@ -6,12 +6,12 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "UNDETERMINED"
-    currentStateMessage: "Unable to determine the subnet configuration for the EFS Mount Target."
+    currentStateMessage: "Unable to determine the subnet configuration for the EFS mount target."
     check:
       IS_EMPTY_LOOKUP: CA10__subnet__r
   - status: "INCOMPLIANT"
-    currentStateMessage: "The EFS Mount Target is in a subnet configured to automatically assign public IP addresses."
-    remediationMessage: "Move the EFS Mount Target to a private subnet or disable the 'Auto-assign public IPv4 address' setting on the current subnet."
+    currentStateMessage: "The EFS mount target is in a subnet configured to automatically assign public IP addresses."
+    remediationMessage: "Move the EFS mount target to a private subnet or disable the 'Auto-assign public IPv4 address' setting on the current subnet."
     check:
       IS_EQUAL:
         left:
@@ -20,4 +20,4 @@ conditions:
           BOOLEAN: true
 otherwise:
   status: COMPLIANT
-  currentStateMessage: "The EFS Mount Target is in a subnet that does not automatically assign public IP addresses."
+  currentStateMessage: "The EFS mount target is in a subnet that does not automatically assign public IP addresses."

@@ -1,0 +1,1192 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "499",
+      "conditionText": "setOfText(['emr-4.0.0', 'emr-4.1.0', 'emr-4.2.0', 'emr-4.3.0', 'emr-4.4.0', 'emr-4.5.0', 'emr-4.6.0', 'emr-4.6.1', 'emr-4.7.0', 'emr-4.7.1', 'emr-4.7.2', 'emr-4.7.3', 'emr-4.7.4', 'emr-4.8.0', 'emr-4.8.1', 'emr-4.8.2', 'emr-4.8.3', 'emr-4.8.4', 'emr-4.8.5', 'emr-4.9.1', 'emr-4.9.2', 'emr-4.9.3', 'emr-4.9.4', 'emr-4.9.5', 'emr-4.9.6', 'emr-5.0.0', 'emr-5.0.1', 'emr-5.0.2', 'emr-5.0.3', 'emr-5.1.0', 'emr-5.1.1', 'emr-5.2.0', 'emr-5.2.1', 'emr-5.2.2', 'emr-5.2.3', 'emr-5.3.0', 'emr-5.3.1', 'emr-5.3.2', 'emr-5.4.0', 'emr-5.4.1', 'emr-5.5.0', 'emr-5.5.1', 'emr-5.5.2', 'emr-5.5.3', 'emr-5.5.4', 'emr-5.6.0', 'emr-5.6.1', 'emr-5.7.0', 'emr-5.7.1', 'emr-5.8.0', 'emr-5.8.1', 'emr-5.8.2', 'emr-5.8.3', 'emr-5.9.0', 'emr-5.9.1', 'emr-5.10.0', 'emr-5.10.1', 'emr-5.11.0', 'emr-5.11.1', 'emr-5.11.2', 'emr-5.11.3', 'emr-5.11.4', 'emr-5.12.0', 'emr-5.12.1', 'emr-5.12.2', 'emr-5.12.3', 'emr-5.13.0', 'emr-5.13.1', 'emr-5.14.0', 'emr-5.14.1', 'emr-5.14.2', 'emr-5.15.0', 'emr-5.15.1', 'emr-5.16.0', 'emr-5.16.1', 'emr-5.17.0', 'emr-5.17.1', 'emr-5.17.2', 'emr-5.18.0', 'emr-5.18.1', 'emr-5.19.0', 'emr-5.19.1', 'emr-5.20.0', 'emr-5.20.1', 'emr-5.21.0', 'emr-5.21.1', 'emr-5.21.2', 'emr-5.22.0', 'emr-5.23.0', 'emr-5.23.1', 'emr-5.24.0', 'emr-5.24.1', 'emr-5.25.0', 'emr-5.26.0', 'emr-5.27.0', 'emr-5.27.1', 'emr-5.28.0', 'emr-5.28.1', 'emr-5.29.0', 'emr-5.30.0', 'emr-5.30.1', 'emr-5.30.2', 'emr-5.31.0', 'emr-5.31.1', 'emr-5.32.0', 'emr-5.32.1', 'emr-5.33.0', 'emr-5.33.1', 'emr-5.34.0', 'emr-5.35.0', 'emr-6.0.0', 'emr-6.0.1', 'emr-6.1.0', 'emr-6.1.1', 'emr-6.2.0', 'emr-6.2.1', 'emr-6.3.0', 'emr-6.3.1', 'emr-6.4.0', 'emr-6.5.0']).contains(extract('CA10__releaseLabel__c'))"
+    },
+    "context": {
+      "snapshotTime": "2027-08-31T23:59:59Z"
+    },
+    "Id": "old-EOL-day-before",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-6.5.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "499",
+      "conditionText": "setOfText(['emr-4.0.0', 'emr-4.1.0', 'emr-4.2.0', 'emr-4.3.0', 'emr-4.4.0', 'emr-4.5.0', 'emr-4.6.0', 'emr-4.6.1', 'emr-4.7.0', 'emr-4.7.1', 'emr-4.7.2', 'emr-4.7.3', 'emr-4.7.4', 'emr-4.8.0', 'emr-4.8.1', 'emr-4.8.2', 'emr-4.8.3', 'emr-4.8.4', 'emr-4.8.5', 'emr-4.9.1', 'emr-4.9.2', 'emr-4.9.3', 'emr-4.9.4', 'emr-4.9.5', 'emr-4.9.6', 'emr-5.0.0', 'emr-5.0.1', 'emr-5.0.2', 'emr-5.0.3', 'emr-5.1.0', 'emr-5.1.1', 'emr-5.2.0', 'emr-5.2.1', 'emr-5.2.2', 'emr-5.2.3', 'emr-5.3.0', 'emr-5.3.1', 'emr-5.3.2', 'emr-5.4.0', 'emr-5.4.1', 'emr-5.5.0', 'emr-5.5.1', 'emr-5.5.2', 'emr-5.5.3', 'emr-5.5.4', 'emr-5.6.0', 'emr-5.6.1', 'emr-5.7.0', 'emr-5.7.1', 'emr-5.8.0', 'emr-5.8.1', 'emr-5.8.2', 'emr-5.8.3', 'emr-5.9.0', 'emr-5.9.1', 'emr-5.10.0', 'emr-5.10.1', 'emr-5.11.0', 'emr-5.11.1', 'emr-5.11.2', 'emr-5.11.3', 'emr-5.11.4', 'emr-5.12.0', 'emr-5.12.1', 'emr-5.12.2', 'emr-5.12.3', 'emr-5.13.0', 'emr-5.13.1', 'emr-5.14.0', 'emr-5.14.1', 'emr-5.14.2', 'emr-5.15.0', 'emr-5.15.1', 'emr-5.16.0', 'emr-5.16.1', 'emr-5.17.0', 'emr-5.17.1', 'emr-5.17.2', 'emr-5.18.0', 'emr-5.18.1', 'emr-5.19.0', 'emr-5.19.1', 'emr-5.20.0', 'emr-5.20.1', 'emr-5.21.0', 'emr-5.21.1', 'emr-5.21.2', 'emr-5.22.0', 'emr-5.23.0', 'emr-5.23.1', 'emr-5.24.0', 'emr-5.24.1', 'emr-5.25.0', 'emr-5.26.0', 'emr-5.27.0', 'emr-5.27.1', 'emr-5.28.0', 'emr-5.28.1', 'emr-5.29.0', 'emr-5.30.0', 'emr-5.30.1', 'emr-5.30.2', 'emr-5.31.0', 'emr-5.31.1', 'emr-5.32.0', 'emr-5.32.1', 'emr-5.33.0', 'emr-5.33.1', 'emr-5.34.0', 'emr-5.35.0', 'emr-6.0.0', 'emr-6.0.1', 'emr-6.1.0', 'emr-6.1.1', 'emr-6.2.0', 'emr-6.2.1', 'emr-6.3.0', 'emr-6.3.1', 'emr-6.4.0', 'emr-6.5.0']).contains(extract('CA10__releaseLabel__c'))"
+    },
+    "context": {
+      "snapshotTime": "2027-09-01T00:00:00Z"
+    },
+    "Id": "old-EOL-boundary",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-4.9.6"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "499",
+      "conditionText": "setOfText(['emr-4.0.0', 'emr-4.1.0', 'emr-4.2.0', 'emr-4.3.0', 'emr-4.4.0', 'emr-4.5.0', 'emr-4.6.0', 'emr-4.6.1', 'emr-4.7.0', 'emr-4.7.1', 'emr-4.7.2', 'emr-4.7.3', 'emr-4.7.4', 'emr-4.8.0', 'emr-4.8.1', 'emr-4.8.2', 'emr-4.8.3', 'emr-4.8.4', 'emr-4.8.5', 'emr-4.9.1', 'emr-4.9.2', 'emr-4.9.3', 'emr-4.9.4', 'emr-4.9.5', 'emr-4.9.6', 'emr-5.0.0', 'emr-5.0.1', 'emr-5.0.2', 'emr-5.0.3', 'emr-5.1.0', 'emr-5.1.1', 'emr-5.2.0', 'emr-5.2.1', 'emr-5.2.2', 'emr-5.2.3', 'emr-5.3.0', 'emr-5.3.1', 'emr-5.3.2', 'emr-5.4.0', 'emr-5.4.1', 'emr-5.5.0', 'emr-5.5.1', 'emr-5.5.2', 'emr-5.5.3', 'emr-5.5.4', 'emr-5.6.0', 'emr-5.6.1', 'emr-5.7.0', 'emr-5.7.1', 'emr-5.8.0', 'emr-5.8.1', 'emr-5.8.2', 'emr-5.8.3', 'emr-5.9.0', 'emr-5.9.1', 'emr-5.10.0', 'emr-5.10.1', 'emr-5.11.0', 'emr-5.11.1', 'emr-5.11.2', 'emr-5.11.3', 'emr-5.11.4', 'emr-5.12.0', 'emr-5.12.1', 'emr-5.12.2', 'emr-5.12.3', 'emr-5.13.0', 'emr-5.13.1', 'emr-5.14.0', 'emr-5.14.1', 'emr-5.14.2', 'emr-5.15.0', 'emr-5.15.1', 'emr-5.16.0', 'emr-5.16.1', 'emr-5.17.0', 'emr-5.17.1', 'emr-5.17.2', 'emr-5.18.0', 'emr-5.18.1', 'emr-5.19.0', 'emr-5.19.1', 'emr-5.20.0', 'emr-5.20.1', 'emr-5.21.0', 'emr-5.21.1', 'emr-5.21.2', 'emr-5.22.0', 'emr-5.23.0', 'emr-5.23.1', 'emr-5.24.0', 'emr-5.24.1', 'emr-5.25.0', 'emr-5.26.0', 'emr-5.27.0', 'emr-5.27.1', 'emr-5.28.0', 'emr-5.28.1', 'emr-5.29.0', 'emr-5.30.0', 'emr-5.30.1', 'emr-5.30.2', 'emr-5.31.0', 'emr-5.31.1', 'emr-5.32.0', 'emr-5.32.1', 'emr-5.33.0', 'emr-5.33.1', 'emr-5.34.0', 'emr-5.35.0', 'emr-6.0.0', 'emr-6.0.1', 'emr-6.1.0', 'emr-6.1.1', 'emr-6.2.0', 'emr-6.2.1', 'emr-6.3.0', 'emr-6.3.1', 'emr-6.4.0', 'emr-6.5.0']).contains(extract('CA10__releaseLabel__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "old-current",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-5.30.1"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "699",
+      "conditionText": "setOfText(['emr-5.36.0', 'emr-5.36.1', 'emr-5.36.2', 'emr-6.6.0', 'emr-6.7.0', 'emr-6.8.0', 'emr-6.8.1', 'emr-6.9.0', 'emr-6.9.1', 'emr-6.10.0', 'emr-6.10.1', 'emr-6.11.0', 'emr-6.11.1', 'emr-6.12.0', 'emr-6.13.0', 'emr-6.14.0', 'emr-6.15.0']).contains(extract('CA10__releaseLabel__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "emr-5.36.2-extension-current",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-5.36.2"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "699",
+      "conditionText": "setOfText(['emr-5.36.0', 'emr-5.36.1', 'emr-5.36.2', 'emr-6.6.0', 'emr-6.7.0', 'emr-6.8.0', 'emr-6.8.1', 'emr-6.9.0', 'emr-6.9.1', 'emr-6.10.0', 'emr-6.10.1', 'emr-6.11.0', 'emr-6.11.1', 'emr-6.12.0', 'emr-6.13.0', 'emr-6.14.0', 'emr-6.15.0']).contains(extract('CA10__releaseLabel__c'))"
+    },
+    "context": {
+      "snapshotTime": "2027-06-30T23:59:59Z"
+    },
+    "Id": "emr-5.36.2-extension-last-day",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-5.36.2"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "599",
+      "conditionText": "setOfText(['emr-5.36.0', 'emr-5.36.1', 'emr-5.36.2', 'emr-6.6.0', 'emr-6.7.0', 'emr-6.8.0', 'emr-6.8.1', 'emr-6.9.0', 'emr-6.9.1', 'emr-6.10.0', 'emr-6.10.1', 'emr-6.11.0', 'emr-6.11.1', 'emr-6.12.0', 'emr-6.13.0', 'emr-6.14.0', 'emr-6.15.0']).contains(extract('CA10__releaseLabel__c')) && '2027-06-30T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2027-07-01T00:00:00Z"
+    },
+    "Id": "emr-5.36.2-extension-over",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-5.36.2"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "599",
+      "conditionText": "setOfText(['emr-5.36.0', 'emr-5.36.1', 'emr-5.36.2', 'emr-6.6.0', 'emr-6.7.0', 'emr-6.8.0', 'emr-6.8.1', 'emr-6.9.0', 'emr-6.9.1', 'emr-6.10.0', 'emr-6.10.1', 'emr-6.11.0', 'emr-6.11.1', 'emr-6.12.0', 'emr-6.13.0', 'emr-6.14.0', 'emr-6.15.0']).contains(extract('CA10__releaseLabel__c')) && '2027-06-30T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2028-07-01T00:00:00Z"
+    },
+    "Id": "emr-5.36.2-EOL",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-5.36.2"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "699",
+      "conditionText": "setOfText(['emr-5.36.0', 'emr-5.36.1', 'emr-5.36.2', 'emr-6.6.0', 'emr-6.7.0', 'emr-6.8.0', 'emr-6.8.1', 'emr-6.9.0', 'emr-6.9.1', 'emr-6.10.0', 'emr-6.10.1', 'emr-6.11.0', 'emr-6.11.1', 'emr-6.12.0', 'emr-6.13.0', 'emr-6.14.0', 'emr-6.15.0']).contains(extract('CA10__releaseLabel__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "emr-6.6.0-extension-current",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-6.6.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "699",
+      "conditionText": "setOfText(['emr-5.36.0', 'emr-5.36.1', 'emr-5.36.2', 'emr-6.6.0', 'emr-6.7.0', 'emr-6.8.0', 'emr-6.8.1', 'emr-6.9.0', 'emr-6.9.1', 'emr-6.10.0', 'emr-6.10.1', 'emr-6.11.0', 'emr-6.11.1', 'emr-6.12.0', 'emr-6.13.0', 'emr-6.14.0', 'emr-6.15.0']).contains(extract('CA10__releaseLabel__c'))"
+    },
+    "context": {
+      "snapshotTime": "2027-06-30T23:59:59Z"
+    },
+    "Id": "emr-6.6.0-extension-last-day",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-6.6.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "599",
+      "conditionText": "setOfText(['emr-5.36.0', 'emr-5.36.1', 'emr-5.36.2', 'emr-6.6.0', 'emr-6.7.0', 'emr-6.8.0', 'emr-6.8.1', 'emr-6.9.0', 'emr-6.9.1', 'emr-6.10.0', 'emr-6.10.1', 'emr-6.11.0', 'emr-6.11.1', 'emr-6.12.0', 'emr-6.13.0', 'emr-6.14.0', 'emr-6.15.0']).contains(extract('CA10__releaseLabel__c')) && '2027-06-30T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2027-07-01T00:00:00Z"
+    },
+    "Id": "emr-6.6.0-extension-over",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-6.6.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "599",
+      "conditionText": "setOfText(['emr-5.36.0', 'emr-5.36.1', 'emr-5.36.2', 'emr-6.6.0', 'emr-6.7.0', 'emr-6.8.0', 'emr-6.8.1', 'emr-6.9.0', 'emr-6.9.1', 'emr-6.10.0', 'emr-6.10.1', 'emr-6.11.0', 'emr-6.11.1', 'emr-6.12.0', 'emr-6.13.0', 'emr-6.14.0', 'emr-6.15.0']).contains(extract('CA10__releaseLabel__c')) && '2027-06-30T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2028-07-01T00:00:00Z"
+    },
+    "Id": "emr-6.6.0-EOL",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-6.6.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "699",
+      "conditionText": "setOfText(['emr-5.36.0', 'emr-5.36.1', 'emr-5.36.2', 'emr-6.6.0', 'emr-6.7.0', 'emr-6.8.0', 'emr-6.8.1', 'emr-6.9.0', 'emr-6.9.1', 'emr-6.10.0', 'emr-6.10.1', 'emr-6.11.0', 'emr-6.11.1', 'emr-6.12.0', 'emr-6.13.0', 'emr-6.14.0', 'emr-6.15.0']).contains(extract('CA10__releaseLabel__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "emr-6.15.0-extension-current",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-6.15.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "699",
+      "conditionText": "setOfText(['emr-5.36.0', 'emr-5.36.1', 'emr-5.36.2', 'emr-6.6.0', 'emr-6.7.0', 'emr-6.8.0', 'emr-6.8.1', 'emr-6.9.0', 'emr-6.9.1', 'emr-6.10.0', 'emr-6.10.1', 'emr-6.11.0', 'emr-6.11.1', 'emr-6.12.0', 'emr-6.13.0', 'emr-6.14.0', 'emr-6.15.0']).contains(extract('CA10__releaseLabel__c'))"
+    },
+    "context": {
+      "snapshotTime": "2027-06-30T23:59:59Z"
+    },
+    "Id": "emr-6.15.0-extension-last-day",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-6.15.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "599",
+      "conditionText": "setOfText(['emr-5.36.0', 'emr-5.36.1', 'emr-5.36.2', 'emr-6.6.0', 'emr-6.7.0', 'emr-6.8.0', 'emr-6.8.1', 'emr-6.9.0', 'emr-6.9.1', 'emr-6.10.0', 'emr-6.10.1', 'emr-6.11.0', 'emr-6.11.1', 'emr-6.12.0', 'emr-6.13.0', 'emr-6.14.0', 'emr-6.15.0']).contains(extract('CA10__releaseLabel__c')) && '2027-06-30T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2027-07-01T00:00:00Z"
+    },
+    "Id": "emr-6.15.0-extension-over",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-6.15.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "599",
+      "conditionText": "setOfText(['emr-5.36.0', 'emr-5.36.1', 'emr-5.36.2', 'emr-6.6.0', 'emr-6.7.0', 'emr-6.8.0', 'emr-6.8.1', 'emr-6.9.0', 'emr-6.9.1', 'emr-6.10.0', 'emr-6.10.1', 'emr-6.11.0', 'emr-6.11.1', 'emr-6.12.0', 'emr-6.13.0', 'emr-6.14.0', 'emr-6.15.0']).contains(extract('CA10__releaseLabel__c')) && '2027-06-30T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2028-07-01T00:00:00Z"
+    },
+    "Id": "emr-6.15.0-EOL",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-6.15.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "899",
+      "conditionText": "setOfText(['emr-7.0.0', 'emr-7.1.0', 'emr-7.2.0', 'emr-7.3.0']).contains(extract('CA10__releaseLabel__c')) || (extract('CA10__releaseLabel__c') == 'emr-7.4.0' && '2026-11-13T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.5.0' && '2026-11-21T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.6.0' && '2027-01-10T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.7.0' && '2027-02-06T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.8.0' && '2027-03-07T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.9.0' && '2027-05-19T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.10.0' && '2027-08-15T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "emr-7.0.0-extension-current",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.0.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "899",
+      "conditionText": "setOfText(['emr-7.0.0', 'emr-7.1.0', 'emr-7.2.0', 'emr-7.3.0']).contains(extract('CA10__releaseLabel__c')) || (extract('CA10__releaseLabel__c') == 'emr-7.4.0' && '2026-11-13T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.5.0' && '2026-11-21T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.6.0' && '2027-01-10T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.7.0' && '2027-02-06T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.8.0' && '2027-03-07T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.9.0' && '2027-05-19T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.10.0' && '2027-08-15T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "emr-7.1.0-extension-current",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.1.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "899",
+      "conditionText": "setOfText(['emr-7.0.0', 'emr-7.1.0', 'emr-7.2.0', 'emr-7.3.0']).contains(extract('CA10__releaseLabel__c')) || (extract('CA10__releaseLabel__c') == 'emr-7.4.0' && '2026-11-13T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.5.0' && '2026-11-21T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.6.0' && '2027-01-10T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.7.0' && '2027-02-06T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.8.0' && '2027-03-07T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.9.0' && '2027-05-19T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.10.0' && '2027-08-15T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "emr-7.2.0-extension-current",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.2.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "899",
+      "conditionText": "setOfText(['emr-7.0.0', 'emr-7.1.0', 'emr-7.2.0', 'emr-7.3.0']).contains(extract('CA10__releaseLabel__c')) || (extract('CA10__releaseLabel__c') == 'emr-7.4.0' && '2026-11-13T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.5.0' && '2026-11-21T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.6.0' && '2027-01-10T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.7.0' && '2027-02-06T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.8.0' && '2027-03-07T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.9.0' && '2027-05-19T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.10.0' && '2027-08-15T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "emr-7.3.0-extension-current",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.3.0"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1500",
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-11-13T23:59:59.999Z"
+    },
+    "Id": "emr-7.4.0-standard-last-day",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.4.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "899",
+      "conditionText": "setOfText(['emr-7.0.0', 'emr-7.1.0', 'emr-7.2.0', 'emr-7.3.0']).contains(extract('CA10__releaseLabel__c')) || (extract('CA10__releaseLabel__c') == 'emr-7.4.0' && '2026-11-13T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.5.0' && '2026-11-21T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.6.0' && '2027-01-10T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.7.0' && '2027-02-06T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.8.0' && '2027-03-07T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.9.0' && '2027-05-19T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.10.0' && '2027-08-15T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-11-14T00:00:00Z"
+    },
+    "Id": "emr-7.4.0-standard-boundary",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.4.0"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1500",
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-11-21T23:59:59.999Z"
+    },
+    "Id": "emr-7.5.0-standard-last-day",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.5.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "899",
+      "conditionText": "setOfText(['emr-7.0.0', 'emr-7.1.0', 'emr-7.2.0', 'emr-7.3.0']).contains(extract('CA10__releaseLabel__c')) || (extract('CA10__releaseLabel__c') == 'emr-7.4.0' && '2026-11-13T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.5.0' && '2026-11-21T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.6.0' && '2027-01-10T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.7.0' && '2027-02-06T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.8.0' && '2027-03-07T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.9.0' && '2027-05-19T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.10.0' && '2027-08-15T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-11-22T00:00:00Z"
+    },
+    "Id": "emr-7.5.0-standard-boundary",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.5.0"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1500",
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2027-01-10T23:59:59.999Z"
+    },
+    "Id": "emr-7.6.0-standard-last-day",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.6.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "899",
+      "conditionText": "setOfText(['emr-7.0.0', 'emr-7.1.0', 'emr-7.2.0', 'emr-7.3.0']).contains(extract('CA10__releaseLabel__c')) || (extract('CA10__releaseLabel__c') == 'emr-7.4.0' && '2026-11-13T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.5.0' && '2026-11-21T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.6.0' && '2027-01-10T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.7.0' && '2027-02-06T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.8.0' && '2027-03-07T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.9.0' && '2027-05-19T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.10.0' && '2027-08-15T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2027-01-11T00:00:00Z"
+    },
+    "Id": "emr-7.6.0-standard-boundary",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.6.0"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1500",
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2027-02-06T23:59:59.999Z"
+    },
+    "Id": "emr-7.7.0-standard-last-day",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.7.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "899",
+      "conditionText": "setOfText(['emr-7.0.0', 'emr-7.1.0', 'emr-7.2.0', 'emr-7.3.0']).contains(extract('CA10__releaseLabel__c')) || (extract('CA10__releaseLabel__c') == 'emr-7.4.0' && '2026-11-13T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.5.0' && '2026-11-21T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.6.0' && '2027-01-10T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.7.0' && '2027-02-06T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.8.0' && '2027-03-07T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.9.0' && '2027-05-19T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.10.0' && '2027-08-15T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2027-02-07T00:00:00Z"
+    },
+    "Id": "emr-7.7.0-standard-boundary",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.7.0"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1500",
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2027-03-07T23:59:59.999Z"
+    },
+    "Id": "emr-7.8.0-standard-last-day",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.8.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "899",
+      "conditionText": "setOfText(['emr-7.0.0', 'emr-7.1.0', 'emr-7.2.0', 'emr-7.3.0']).contains(extract('CA10__releaseLabel__c')) || (extract('CA10__releaseLabel__c') == 'emr-7.4.0' && '2026-11-13T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.5.0' && '2026-11-21T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.6.0' && '2027-01-10T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.7.0' && '2027-02-06T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.8.0' && '2027-03-07T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.9.0' && '2027-05-19T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.10.0' && '2027-08-15T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2027-03-08T00:00:00Z"
+    },
+    "Id": "emr-7.8.0-standard-boundary",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.8.0"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1500",
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2027-05-19T23:59:59.999Z"
+    },
+    "Id": "emr-7.9.0-standard-last-day",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.9.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "899",
+      "conditionText": "setOfText(['emr-7.0.0', 'emr-7.1.0', 'emr-7.2.0', 'emr-7.3.0']).contains(extract('CA10__releaseLabel__c')) || (extract('CA10__releaseLabel__c') == 'emr-7.4.0' && '2026-11-13T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.5.0' && '2026-11-21T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.6.0' && '2027-01-10T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.7.0' && '2027-02-06T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.8.0' && '2027-03-07T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.9.0' && '2027-05-19T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.10.0' && '2027-08-15T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2027-05-20T00:00:00Z"
+    },
+    "Id": "emr-7.9.0-standard-boundary",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.9.0"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1500",
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2027-08-15T23:59:59.999Z"
+    },
+    "Id": "emr-7.10.0-standard-last-day",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.10.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "899",
+      "conditionText": "setOfText(['emr-7.0.0', 'emr-7.1.0', 'emr-7.2.0', 'emr-7.3.0']).contains(extract('CA10__releaseLabel__c')) || (extract('CA10__releaseLabel__c') == 'emr-7.4.0' && '2026-11-13T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.5.0' && '2026-11-21T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.6.0' && '2027-01-10T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.7.0' && '2027-02-06T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.8.0' && '2027-03-07T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.9.0' && '2027-05-19T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.10.0' && '2027-08-15T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2027-08-16T00:00:00Z"
+    },
+    "Id": "emr-7.10.0-standard-boundary",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.10.0"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1500",
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2027-11-03T23:59:59.999Z"
+    },
+    "Id": "emr-7.11.0-standard-last-day",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.11.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "999",
+      "conditionText": "extract('CA10__releaseLabel__c') == 'emr-7.11.0' && '2027-11-03T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2027-11-04T00:00:00Z"
+    },
+    "Id": "emr-7.11.0-standard-boundary",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.11.0"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1500",
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2027-11-21T23:59:59.999Z"
+    },
+    "Id": "emr-7.12.0-standard-last-day",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.12.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1099",
+      "conditionText": "extract('CA10__releaseLabel__c') == 'emr-7.12.0' && '2027-11-21T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2027-11-22T00:00:00Z"
+    },
+    "Id": "emr-7.12.0-standard-boundary",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.12.0"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1500",
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2028-04-20T23:59:59.999Z"
+    },
+    "Id": "emr-7.13.0-standard-last-day",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.13.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1199",
+      "conditionText": "extract('CA10__releaseLabel__c') == 'emr-7.13.0' && '2028-04-20T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2028-04-21T00:00:00Z"
+    },
+    "Id": "emr-7.13.0-standard-boundary",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.13.0"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1500",
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2028-09-08T23:59:59.999Z"
+    },
+    "Id": "emr-7.14.0-standard-last-day",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.14.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1299",
+      "conditionText": "extract('CA10__releaseLabel__c') == 'emr-7.14.0' && '2028-09-08T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2028-09-09T00:00:00Z"
+    },
+    "Id": "emr-7.14.0-standard-boundary",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.14.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "899",
+      "conditionText": "setOfText(['emr-7.0.0', 'emr-7.1.0', 'emr-7.2.0', 'emr-7.3.0']).contains(extract('CA10__releaseLabel__c')) || (extract('CA10__releaseLabel__c') == 'emr-7.4.0' && '2026-11-13T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.5.0' && '2026-11-21T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.6.0' && '2027-01-10T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.7.0' && '2027-02-06T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.8.0' && '2027-03-07T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.9.0' && '2027-05-19T00:00:00Z'.beforeToday()) || (extract('CA10__releaseLabel__c') == 'emr-7.10.0' && '2027-08-15T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2027-08-31T23:59:59Z"
+    },
+    "Id": "7-conditional-last-day",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.0.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "799",
+      "conditionText": "setOfText(['emr-7.0.0', 'emr-7.1.0', 'emr-7.2.0', 'emr-7.3.0', 'emr-7.4.0', 'emr-7.5.0', 'emr-7.6.0', 'emr-7.7.0', 'emr-7.8.0', 'emr-7.9.0', 'emr-7.10.0']).contains(extract('CA10__releaseLabel__c')) && '2027-08-31T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2027-09-01T00:00:00Z"
+    },
+    "Id": "7-conditional-over",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.3.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "799",
+      "conditionText": "setOfText(['emr-7.0.0', 'emr-7.1.0', 'emr-7.2.0', 'emr-7.3.0', 'emr-7.4.0', 'emr-7.5.0', 'emr-7.6.0', 'emr-7.7.0', 'emr-7.8.0', 'emr-7.9.0', 'emr-7.10.0']).contains(extract('CA10__releaseLabel__c')) && '2027-08-31T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2028-08-31T00:00:00Z"
+    },
+    "Id": "7-conditional-EOL",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.10.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "999",
+      "conditionText": "extract('CA10__releaseLabel__c') == 'emr-7.11.0' && '2027-11-03T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2028-11-04T00:00:00Z"
+    },
+    "Id": "emr-7.11.0-EOL",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.11.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1099",
+      "conditionText": "extract('CA10__releaseLabel__c') == 'emr-7.12.0' && '2027-11-21T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2028-11-22T00:00:00Z"
+    },
+    "Id": "emr-7.12.0-EOL",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.12.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1199",
+      "conditionText": "extract('CA10__releaseLabel__c') == 'emr-7.13.0' && '2028-04-20T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2029-04-21T00:00:00Z"
+    },
+    "Id": "emr-7.13.0-EOL",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.13.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1299",
+      "conditionText": "extract('CA10__releaseLabel__c') == 'emr-7.14.0' && '2028-09-08T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2029-09-08T00:00:00Z"
+    },
+    "Id": "emr-7.14.0-EOL",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.14.0"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1500",
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2028-05-19T23:59:59Z"
+    },
+    "Id": "spark8-standard",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-spark-8.0.0"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1500",
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2028-05-20T00:00:00Z"
+    },
+    "Id": "spark8-standard-last-day",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-spark-8.0.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1399",
+      "conditionText": "extract('CA10__releaseLabel__c') == 'emr-spark-8.0.0' && '2028-05-20T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2029-05-21T00:00:00Z"
+    },
+    "Id": "spark8-final-table-EOL",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-spark-8.0.0"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1500",
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2029-09-07T23:59:59Z"
+    },
+    "Id": "spark81-LTS-last-day",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-spark-8.1.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1499",
+      "conditionText": "extract('CA10__releaseLabel__c') == 'emr-spark-8.1.0' && '2029-09-07T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2029-09-08T00:00:00Z"
+    },
+    "Id": "spark81-LTS-EOL",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-spark-8.1.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__releaseLabel__c').isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "missing",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__releaseLabel__c').isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "empty",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__releaseLabel__c').isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "whitespace",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "   "
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1500",
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "unverified-patch",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.13.99"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1500",
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "unknown-major",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-9.0.0"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1500",
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "unknown-minor",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.99.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__releaseLabel__c').isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "legacy-AMI-unverified",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "",
+    "CA10__runningAmiVersion__c": "3.11.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": "199",
+      "conditionText": "setOfText(['TERMINATED', 'TERMINATED_WITH_ERRORS']).contains(extract('CA10__status__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "TERMINATED",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "TERMINATED",
+    "CA10__releaseLabel__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": "199",
+      "conditionText": "setOfText(['TERMINATED', 'TERMINATED_WITH_ERRORS']).contains(extract('CA10__status__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "TERMINATED_WITH_ERRORS",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "TERMINATED_WITH_ERRORS",
+    "CA10__releaseLabel__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "499",
+      "conditionText": "setOfText(['emr-4.0.0', 'emr-4.1.0', 'emr-4.2.0', 'emr-4.3.0', 'emr-4.4.0', 'emr-4.5.0', 'emr-4.6.0', 'emr-4.6.1', 'emr-4.7.0', 'emr-4.7.1', 'emr-4.7.2', 'emr-4.7.3', 'emr-4.7.4', 'emr-4.8.0', 'emr-4.8.1', 'emr-4.8.2', 'emr-4.8.3', 'emr-4.8.4', 'emr-4.8.5', 'emr-4.9.1', 'emr-4.9.2', 'emr-4.9.3', 'emr-4.9.4', 'emr-4.9.5', 'emr-4.9.6', 'emr-5.0.0', 'emr-5.0.1', 'emr-5.0.2', 'emr-5.0.3', 'emr-5.1.0', 'emr-5.1.1', 'emr-5.2.0', 'emr-5.2.1', 'emr-5.2.2', 'emr-5.2.3', 'emr-5.3.0', 'emr-5.3.1', 'emr-5.3.2', 'emr-5.4.0', 'emr-5.4.1', 'emr-5.5.0', 'emr-5.5.1', 'emr-5.5.2', 'emr-5.5.3', 'emr-5.5.4', 'emr-5.6.0', 'emr-5.6.1', 'emr-5.7.0', 'emr-5.7.1', 'emr-5.8.0', 'emr-5.8.1', 'emr-5.8.2', 'emr-5.8.3', 'emr-5.9.0', 'emr-5.9.1', 'emr-5.10.0', 'emr-5.10.1', 'emr-5.11.0', 'emr-5.11.1', 'emr-5.11.2', 'emr-5.11.3', 'emr-5.11.4', 'emr-5.12.0', 'emr-5.12.1', 'emr-5.12.2', 'emr-5.12.3', 'emr-5.13.0', 'emr-5.13.1', 'emr-5.14.0', 'emr-5.14.1', 'emr-5.14.2', 'emr-5.15.0', 'emr-5.15.1', 'emr-5.16.0', 'emr-5.16.1', 'emr-5.17.0', 'emr-5.17.1', 'emr-5.17.2', 'emr-5.18.0', 'emr-5.18.1', 'emr-5.19.0', 'emr-5.19.1', 'emr-5.20.0', 'emr-5.20.1', 'emr-5.21.0', 'emr-5.21.1', 'emr-5.21.2', 'emr-5.22.0', 'emr-5.23.0', 'emr-5.23.1', 'emr-5.24.0', 'emr-5.24.1', 'emr-5.25.0', 'emr-5.26.0', 'emr-5.27.0', 'emr-5.27.1', 'emr-5.28.0', 'emr-5.28.1', 'emr-5.29.0', 'emr-5.30.0', 'emr-5.30.1', 'emr-5.30.2', 'emr-5.31.0', 'emr-5.31.1', 'emr-5.32.0', 'emr-5.32.1', 'emr-5.33.0', 'emr-5.33.1', 'emr-5.34.0', 'emr-5.35.0', 'emr-6.0.0', 'emr-6.0.1', 'emr-6.1.0', 'emr-6.1.1', 'emr-6.2.0', 'emr-6.2.1', 'emr-6.3.0', 'emr-6.3.1', 'emr-6.4.0', 'emr-6.5.0']).contains(extract('CA10__releaseLabel__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "STARTING",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "STARTING",
+    "CA10__releaseLabel__c": "emr-5.28.1"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "499",
+      "conditionText": "setOfText(['emr-4.0.0', 'emr-4.1.0', 'emr-4.2.0', 'emr-4.3.0', 'emr-4.4.0', 'emr-4.5.0', 'emr-4.6.0', 'emr-4.6.1', 'emr-4.7.0', 'emr-4.7.1', 'emr-4.7.2', 'emr-4.7.3', 'emr-4.7.4', 'emr-4.8.0', 'emr-4.8.1', 'emr-4.8.2', 'emr-4.8.3', 'emr-4.8.4', 'emr-4.8.5', 'emr-4.9.1', 'emr-4.9.2', 'emr-4.9.3', 'emr-4.9.4', 'emr-4.9.5', 'emr-4.9.6', 'emr-5.0.0', 'emr-5.0.1', 'emr-5.0.2', 'emr-5.0.3', 'emr-5.1.0', 'emr-5.1.1', 'emr-5.2.0', 'emr-5.2.1', 'emr-5.2.2', 'emr-5.2.3', 'emr-5.3.0', 'emr-5.3.1', 'emr-5.3.2', 'emr-5.4.0', 'emr-5.4.1', 'emr-5.5.0', 'emr-5.5.1', 'emr-5.5.2', 'emr-5.5.3', 'emr-5.5.4', 'emr-5.6.0', 'emr-5.6.1', 'emr-5.7.0', 'emr-5.7.1', 'emr-5.8.0', 'emr-5.8.1', 'emr-5.8.2', 'emr-5.8.3', 'emr-5.9.0', 'emr-5.9.1', 'emr-5.10.0', 'emr-5.10.1', 'emr-5.11.0', 'emr-5.11.1', 'emr-5.11.2', 'emr-5.11.3', 'emr-5.11.4', 'emr-5.12.0', 'emr-5.12.1', 'emr-5.12.2', 'emr-5.12.3', 'emr-5.13.0', 'emr-5.13.1', 'emr-5.14.0', 'emr-5.14.1', 'emr-5.14.2', 'emr-5.15.0', 'emr-5.15.1', 'emr-5.16.0', 'emr-5.16.1', 'emr-5.17.0', 'emr-5.17.1', 'emr-5.17.2', 'emr-5.18.0', 'emr-5.18.1', 'emr-5.19.0', 'emr-5.19.1', 'emr-5.20.0', 'emr-5.20.1', 'emr-5.21.0', 'emr-5.21.1', 'emr-5.21.2', 'emr-5.22.0', 'emr-5.23.0', 'emr-5.23.1', 'emr-5.24.0', 'emr-5.24.1', 'emr-5.25.0', 'emr-5.26.0', 'emr-5.27.0', 'emr-5.27.1', 'emr-5.28.0', 'emr-5.28.1', 'emr-5.29.0', 'emr-5.30.0', 'emr-5.30.1', 'emr-5.30.2', 'emr-5.31.0', 'emr-5.31.1', 'emr-5.32.0', 'emr-5.32.1', 'emr-5.33.0', 'emr-5.33.1', 'emr-5.34.0', 'emr-5.35.0', 'emr-6.0.0', 'emr-6.0.1', 'emr-6.1.0', 'emr-6.1.1', 'emr-6.2.0', 'emr-6.2.1', 'emr-6.3.0', 'emr-6.3.1', 'emr-6.4.0', 'emr-6.5.0']).contains(extract('CA10__releaseLabel__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "BOOTSTRAPPING",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "BOOTSTRAPPING",
+    "CA10__releaseLabel__c": "emr-5.28.1"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "499",
+      "conditionText": "setOfText(['emr-4.0.0', 'emr-4.1.0', 'emr-4.2.0', 'emr-4.3.0', 'emr-4.4.0', 'emr-4.5.0', 'emr-4.6.0', 'emr-4.6.1', 'emr-4.7.0', 'emr-4.7.1', 'emr-4.7.2', 'emr-4.7.3', 'emr-4.7.4', 'emr-4.8.0', 'emr-4.8.1', 'emr-4.8.2', 'emr-4.8.3', 'emr-4.8.4', 'emr-4.8.5', 'emr-4.9.1', 'emr-4.9.2', 'emr-4.9.3', 'emr-4.9.4', 'emr-4.9.5', 'emr-4.9.6', 'emr-5.0.0', 'emr-5.0.1', 'emr-5.0.2', 'emr-5.0.3', 'emr-5.1.0', 'emr-5.1.1', 'emr-5.2.0', 'emr-5.2.1', 'emr-5.2.2', 'emr-5.2.3', 'emr-5.3.0', 'emr-5.3.1', 'emr-5.3.2', 'emr-5.4.0', 'emr-5.4.1', 'emr-5.5.0', 'emr-5.5.1', 'emr-5.5.2', 'emr-5.5.3', 'emr-5.5.4', 'emr-5.6.0', 'emr-5.6.1', 'emr-5.7.0', 'emr-5.7.1', 'emr-5.8.0', 'emr-5.8.1', 'emr-5.8.2', 'emr-5.8.3', 'emr-5.9.0', 'emr-5.9.1', 'emr-5.10.0', 'emr-5.10.1', 'emr-5.11.0', 'emr-5.11.1', 'emr-5.11.2', 'emr-5.11.3', 'emr-5.11.4', 'emr-5.12.0', 'emr-5.12.1', 'emr-5.12.2', 'emr-5.12.3', 'emr-5.13.0', 'emr-5.13.1', 'emr-5.14.0', 'emr-5.14.1', 'emr-5.14.2', 'emr-5.15.0', 'emr-5.15.1', 'emr-5.16.0', 'emr-5.16.1', 'emr-5.17.0', 'emr-5.17.1', 'emr-5.17.2', 'emr-5.18.0', 'emr-5.18.1', 'emr-5.19.0', 'emr-5.19.1', 'emr-5.20.0', 'emr-5.20.1', 'emr-5.21.0', 'emr-5.21.1', 'emr-5.21.2', 'emr-5.22.0', 'emr-5.23.0', 'emr-5.23.1', 'emr-5.24.0', 'emr-5.24.1', 'emr-5.25.0', 'emr-5.26.0', 'emr-5.27.0', 'emr-5.27.1', 'emr-5.28.0', 'emr-5.28.1', 'emr-5.29.0', 'emr-5.30.0', 'emr-5.30.1', 'emr-5.30.2', 'emr-5.31.0', 'emr-5.31.1', 'emr-5.32.0', 'emr-5.32.1', 'emr-5.33.0', 'emr-5.33.1', 'emr-5.34.0', 'emr-5.35.0', 'emr-6.0.0', 'emr-6.0.1', 'emr-6.1.0', 'emr-6.1.1', 'emr-6.2.0', 'emr-6.2.1', 'emr-6.3.0', 'emr-6.3.1', 'emr-6.4.0', 'emr-6.5.0']).contains(extract('CA10__releaseLabel__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "RUNNING",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "RUNNING",
+    "CA10__releaseLabel__c": "emr-5.28.1"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "499",
+      "conditionText": "setOfText(['emr-4.0.0', 'emr-4.1.0', 'emr-4.2.0', 'emr-4.3.0', 'emr-4.4.0', 'emr-4.5.0', 'emr-4.6.0', 'emr-4.6.1', 'emr-4.7.0', 'emr-4.7.1', 'emr-4.7.2', 'emr-4.7.3', 'emr-4.7.4', 'emr-4.8.0', 'emr-4.8.1', 'emr-4.8.2', 'emr-4.8.3', 'emr-4.8.4', 'emr-4.8.5', 'emr-4.9.1', 'emr-4.9.2', 'emr-4.9.3', 'emr-4.9.4', 'emr-4.9.5', 'emr-4.9.6', 'emr-5.0.0', 'emr-5.0.1', 'emr-5.0.2', 'emr-5.0.3', 'emr-5.1.0', 'emr-5.1.1', 'emr-5.2.0', 'emr-5.2.1', 'emr-5.2.2', 'emr-5.2.3', 'emr-5.3.0', 'emr-5.3.1', 'emr-5.3.2', 'emr-5.4.0', 'emr-5.4.1', 'emr-5.5.0', 'emr-5.5.1', 'emr-5.5.2', 'emr-5.5.3', 'emr-5.5.4', 'emr-5.6.0', 'emr-5.6.1', 'emr-5.7.0', 'emr-5.7.1', 'emr-5.8.0', 'emr-5.8.1', 'emr-5.8.2', 'emr-5.8.3', 'emr-5.9.0', 'emr-5.9.1', 'emr-5.10.0', 'emr-5.10.1', 'emr-5.11.0', 'emr-5.11.1', 'emr-5.11.2', 'emr-5.11.3', 'emr-5.11.4', 'emr-5.12.0', 'emr-5.12.1', 'emr-5.12.2', 'emr-5.12.3', 'emr-5.13.0', 'emr-5.13.1', 'emr-5.14.0', 'emr-5.14.1', 'emr-5.14.2', 'emr-5.15.0', 'emr-5.15.1', 'emr-5.16.0', 'emr-5.16.1', 'emr-5.17.0', 'emr-5.17.1', 'emr-5.17.2', 'emr-5.18.0', 'emr-5.18.1', 'emr-5.19.0', 'emr-5.19.1', 'emr-5.20.0', 'emr-5.20.1', 'emr-5.21.0', 'emr-5.21.1', 'emr-5.21.2', 'emr-5.22.0', 'emr-5.23.0', 'emr-5.23.1', 'emr-5.24.0', 'emr-5.24.1', 'emr-5.25.0', 'emr-5.26.0', 'emr-5.27.0', 'emr-5.27.1', 'emr-5.28.0', 'emr-5.28.1', 'emr-5.29.0', 'emr-5.30.0', 'emr-5.30.1', 'emr-5.30.2', 'emr-5.31.0', 'emr-5.31.1', 'emr-5.32.0', 'emr-5.32.1', 'emr-5.33.0', 'emr-5.33.1', 'emr-5.34.0', 'emr-5.35.0', 'emr-6.0.0', 'emr-6.0.1', 'emr-6.1.0', 'emr-6.1.1', 'emr-6.2.0', 'emr-6.2.1', 'emr-6.3.0', 'emr-6.3.1', 'emr-6.4.0', 'emr-6.5.0']).contains(extract('CA10__releaseLabel__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "WAITING",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-5.28.1"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "499",
+      "conditionText": "setOfText(['emr-4.0.0', 'emr-4.1.0', 'emr-4.2.0', 'emr-4.3.0', 'emr-4.4.0', 'emr-4.5.0', 'emr-4.6.0', 'emr-4.6.1', 'emr-4.7.0', 'emr-4.7.1', 'emr-4.7.2', 'emr-4.7.3', 'emr-4.7.4', 'emr-4.8.0', 'emr-4.8.1', 'emr-4.8.2', 'emr-4.8.3', 'emr-4.8.4', 'emr-4.8.5', 'emr-4.9.1', 'emr-4.9.2', 'emr-4.9.3', 'emr-4.9.4', 'emr-4.9.5', 'emr-4.9.6', 'emr-5.0.0', 'emr-5.0.1', 'emr-5.0.2', 'emr-5.0.3', 'emr-5.1.0', 'emr-5.1.1', 'emr-5.2.0', 'emr-5.2.1', 'emr-5.2.2', 'emr-5.2.3', 'emr-5.3.0', 'emr-5.3.1', 'emr-5.3.2', 'emr-5.4.0', 'emr-5.4.1', 'emr-5.5.0', 'emr-5.5.1', 'emr-5.5.2', 'emr-5.5.3', 'emr-5.5.4', 'emr-5.6.0', 'emr-5.6.1', 'emr-5.7.0', 'emr-5.7.1', 'emr-5.8.0', 'emr-5.8.1', 'emr-5.8.2', 'emr-5.8.3', 'emr-5.9.0', 'emr-5.9.1', 'emr-5.10.0', 'emr-5.10.1', 'emr-5.11.0', 'emr-5.11.1', 'emr-5.11.2', 'emr-5.11.3', 'emr-5.11.4', 'emr-5.12.0', 'emr-5.12.1', 'emr-5.12.2', 'emr-5.12.3', 'emr-5.13.0', 'emr-5.13.1', 'emr-5.14.0', 'emr-5.14.1', 'emr-5.14.2', 'emr-5.15.0', 'emr-5.15.1', 'emr-5.16.0', 'emr-5.16.1', 'emr-5.17.0', 'emr-5.17.1', 'emr-5.17.2', 'emr-5.18.0', 'emr-5.18.1', 'emr-5.19.0', 'emr-5.19.1', 'emr-5.20.0', 'emr-5.20.1', 'emr-5.21.0', 'emr-5.21.1', 'emr-5.21.2', 'emr-5.22.0', 'emr-5.23.0', 'emr-5.23.1', 'emr-5.24.0', 'emr-5.24.1', 'emr-5.25.0', 'emr-5.26.0', 'emr-5.27.0', 'emr-5.27.1', 'emr-5.28.0', 'emr-5.28.1', 'emr-5.29.0', 'emr-5.30.0', 'emr-5.30.1', 'emr-5.30.2', 'emr-5.31.0', 'emr-5.31.1', 'emr-5.32.0', 'emr-5.32.1', 'emr-5.33.0', 'emr-5.33.1', 'emr-5.34.0', 'emr-5.35.0', 'emr-6.0.0', 'emr-6.0.1', 'emr-6.1.0', 'emr-6.1.1', 'emr-6.2.0', 'emr-6.2.1', 'emr-6.3.0', 'emr-6.3.1', 'emr-6.4.0', 'emr-6.5.0']).contains(extract('CA10__releaseLabel__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "TERMINATING",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "TERMINATING",
+    "CA10__releaseLabel__c": "emr-5.28.1"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": "101",
+      "conditionText": "CA10__status__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "status-",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "",
+    "CA10__releaseLabel__c": "emr-7.13.0"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": "101",
+      "conditionText": "CA10__status__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "status-null",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": null,
+    "CA10__releaseLabel__c": "emr-7.13.0"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": "299",
+      "conditionText": "not(setOfText(['STARTING', 'BOOTSTRAPPING', 'RUNNING', 'WAITING', 'TERMINATING']).contains(extract('CA10__status__c')))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "status-UNKNOWN",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "UNKNOWN",
+    "CA10__releaseLabel__c": "emr-7.13.0"
+  },
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "runtimeError": null,
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "disappeared",
+    "CA10__disappearanceTime__c": "2026-10-22T00:00:00Z",
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-5.30.1"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1500",
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2028-05-20T23:59:59.999Z"
+    },
+    "Id": "spark8-standard-last-day-end",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-spark-8.0.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1399",
+      "conditionText": "extract('CA10__releaseLabel__c') == 'emr-spark-8.0.0' && '2028-05-20T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2028-05-21T00:00:00Z"
+    },
+    "Id": "spark8-EOS-boundary",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-spark-8.0.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1399",
+      "conditionText": "extract('CA10__releaseLabel__c') == 'emr-spark-8.0.0' && '2028-05-20T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2028-05-21T23:59:59Z"
+    },
+    "Id": "spark8-EOS-later-same-day",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-spark-8.0.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1399",
+      "conditionText": "extract('CA10__releaseLabel__c') == 'emr-spark-8.0.0' && '2028-05-20T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2028-12-01T00:00:00Z"
+    },
+    "Id": "spark8-EOS-later-year",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-spark-8.0.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "499",
+      "conditionText": "setOfText(['emr-4.0.0', 'emr-4.1.0', 'emr-4.2.0', 'emr-4.3.0', 'emr-4.4.0', 'emr-4.5.0', 'emr-4.6.0', 'emr-4.6.1', 'emr-4.7.0', 'emr-4.7.1', 'emr-4.7.2', 'emr-4.7.3', 'emr-4.7.4', 'emr-4.8.0', 'emr-4.8.1', 'emr-4.8.2', 'emr-4.8.3', 'emr-4.8.4', 'emr-4.8.5', 'emr-4.9.1', 'emr-4.9.2', 'emr-4.9.3', 'emr-4.9.4', 'emr-4.9.5', 'emr-4.9.6', 'emr-5.0.0', 'emr-5.0.1', 'emr-5.0.2', 'emr-5.0.3', 'emr-5.1.0', 'emr-5.1.1', 'emr-5.2.0', 'emr-5.2.1', 'emr-5.2.2', 'emr-5.2.3', 'emr-5.3.0', 'emr-5.3.1', 'emr-5.3.2', 'emr-5.4.0', 'emr-5.4.1', 'emr-5.5.0', 'emr-5.5.1', 'emr-5.5.2', 'emr-5.5.3', 'emr-5.5.4', 'emr-5.6.0', 'emr-5.6.1', 'emr-5.7.0', 'emr-5.7.1', 'emr-5.8.0', 'emr-5.8.1', 'emr-5.8.2', 'emr-5.8.3', 'emr-5.9.0', 'emr-5.9.1', 'emr-5.10.0', 'emr-5.10.1', 'emr-5.11.0', 'emr-5.11.1', 'emr-5.11.2', 'emr-5.11.3', 'emr-5.11.4', 'emr-5.12.0', 'emr-5.12.1', 'emr-5.12.2', 'emr-5.12.3', 'emr-5.13.0', 'emr-5.13.1', 'emr-5.14.0', 'emr-5.14.1', 'emr-5.14.2', 'emr-5.15.0', 'emr-5.15.1', 'emr-5.16.0', 'emr-5.16.1', 'emr-5.17.0', 'emr-5.17.1', 'emr-5.17.2', 'emr-5.18.0', 'emr-5.18.1', 'emr-5.19.0', 'emr-5.19.1', 'emr-5.20.0', 'emr-5.20.1', 'emr-5.21.0', 'emr-5.21.1', 'emr-5.21.2', 'emr-5.22.0', 'emr-5.23.0', 'emr-5.23.1', 'emr-5.24.0', 'emr-5.24.1', 'emr-5.25.0', 'emr-5.26.0', 'emr-5.27.0', 'emr-5.27.1', 'emr-5.28.0', 'emr-5.28.1', 'emr-5.29.0', 'emr-5.30.0', 'emr-5.30.1', 'emr-5.30.2', 'emr-5.31.0', 'emr-5.31.1', 'emr-5.32.0', 'emr-5.32.1', 'emr-5.33.0', 'emr-5.33.1', 'emr-5.34.0', 'emr-5.35.0', 'emr-6.0.0', 'emr-6.0.1', 'emr-6.1.0', 'emr-6.1.1', 'emr-6.2.0', 'emr-6.2.1', 'emr-6.3.0', 'emr-6.3.1', 'emr-6.4.0', 'emr-6.5.0']).contains(extract('CA10__releaseLabel__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "actual-release-overrides-AMI-metadata",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-5.30.1",
+    "CA10__runningAmiVersion__c": "7.13.0",
+    "CA10__requestedAmiVersion__c": "7.14.0"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "499",
+      "conditionText": "setOfText(['emr-4.0.0', 'emr-4.1.0', 'emr-4.2.0', 'emr-4.3.0', 'emr-4.4.0', 'emr-4.5.0', 'emr-4.6.0', 'emr-4.6.1', 'emr-4.7.0', 'emr-4.7.1', 'emr-4.7.2', 'emr-4.7.3', 'emr-4.7.4', 'emr-4.8.0', 'emr-4.8.1', 'emr-4.8.2', 'emr-4.8.3', 'emr-4.8.4', 'emr-4.8.5', 'emr-4.9.1', 'emr-4.9.2', 'emr-4.9.3', 'emr-4.9.4', 'emr-4.9.5', 'emr-4.9.6', 'emr-5.0.0', 'emr-5.0.1', 'emr-5.0.2', 'emr-5.0.3', 'emr-5.1.0', 'emr-5.1.1', 'emr-5.2.0', 'emr-5.2.1', 'emr-5.2.2', 'emr-5.2.3', 'emr-5.3.0', 'emr-5.3.1', 'emr-5.3.2', 'emr-5.4.0', 'emr-5.4.1', 'emr-5.5.0', 'emr-5.5.1', 'emr-5.5.2', 'emr-5.5.3', 'emr-5.5.4', 'emr-5.6.0', 'emr-5.6.1', 'emr-5.7.0', 'emr-5.7.1', 'emr-5.8.0', 'emr-5.8.1', 'emr-5.8.2', 'emr-5.8.3', 'emr-5.9.0', 'emr-5.9.1', 'emr-5.10.0', 'emr-5.10.1', 'emr-5.11.0', 'emr-5.11.1', 'emr-5.11.2', 'emr-5.11.3', 'emr-5.11.4', 'emr-5.12.0', 'emr-5.12.1', 'emr-5.12.2', 'emr-5.12.3', 'emr-5.13.0', 'emr-5.13.1', 'emr-5.14.0', 'emr-5.14.1', 'emr-5.14.2', 'emr-5.15.0', 'emr-5.15.1', 'emr-5.16.0', 'emr-5.16.1', 'emr-5.17.0', 'emr-5.17.1', 'emr-5.17.2', 'emr-5.18.0', 'emr-5.18.1', 'emr-5.19.0', 'emr-5.19.1', 'emr-5.20.0', 'emr-5.20.1', 'emr-5.21.0', 'emr-5.21.1', 'emr-5.21.2', 'emr-5.22.0', 'emr-5.23.0', 'emr-5.23.1', 'emr-5.24.0', 'emr-5.24.1', 'emr-5.25.0', 'emr-5.26.0', 'emr-5.27.0', 'emr-5.27.1', 'emr-5.28.0', 'emr-5.28.1', 'emr-5.29.0', 'emr-5.30.0', 'emr-5.30.1', 'emr-5.30.2', 'emr-5.31.0', 'emr-5.31.1', 'emr-5.32.0', 'emr-5.32.1', 'emr-5.33.0', 'emr-5.33.1', 'emr-5.34.0', 'emr-5.35.0', 'emr-6.0.0', 'emr-6.0.1', 'emr-6.1.0', 'emr-6.1.1', 'emr-6.2.0', 'emr-6.2.1', 'emr-6.3.0', 'emr-6.3.1', 'emr-6.4.0', 'emr-6.5.0']).contains(extract('CA10__releaseLabel__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "custom-AMI-does-not-extend-release-support",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-5.30.1",
+    "CA10__customAmiId__c": "ami-synthetic-example"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1500",
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T00:00:00Z"
+    },
+    "Id": "supported-release-need-not-be-latest",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-7.13.0",
+    "CA10__runningAmiVersion__c": "3.11.0"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "1500",
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2035-01-01T00:00:00Z"
+    },
+    "Id": "future-release-without-catalog-update",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "WAITING",
+    "CA10__releaseLabel__c": "emr-10.0.0"
+  }
+]

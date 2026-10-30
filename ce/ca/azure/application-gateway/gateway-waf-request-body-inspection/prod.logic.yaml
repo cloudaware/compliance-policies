@@ -4,8 +4,8 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "Application Gateway has a WAF Policy with Disabled requestBodyCheck feature."
-    remediationMessage: "Enable the WAF Policy request body inspection."
+    currentStateMessage: "The Application Gateway has a WAF policy with request body inspection disabled."
+    remediationMessage: "Enable request body inspection in the WAF policy."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
@@ -18,14 +18,14 @@ conditions:
         relationshipName: "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r"
 otherwise:
   status: "UNDETERMINED"
-  currentStateMessage: "Application Gateway has a WAF Policy without populated requestBodyCheck feature." 
+  currentStateMessage: "The Application Gateway has a WAF policy without a populated requestBodyCheck setting."
 relatedLists:
   - relationshipName: "CA10Z1__Azure_App_Gateway_WAF_Policy_Links__r"
     importExtracts:
       - file: /types/CA10Z1__CaAzureApplicationGatewayWafPolicy__c/object.extracts.yaml
     conditions:
       - status: "INCOMPLIANT"
-        currentStateMessage: "WAF Policy with Disabled requestBodyCheck."
+        currentStateMessage: "The WAF policy has requestBodyCheck disabled."
         check:
           IS_EQUAL:
             left:
@@ -33,7 +33,7 @@ relatedLists:
             right:
               BOOLEAN: false
       - status: "COMPLIANT"
-        currentStateMessage: "WAF Policy with Enabled requestBodyCheck."
+        currentStateMessage: "The WAF policy has requestBodyCheck enabled."
         check:
           IS_EQUAL:
             left:
@@ -42,4 +42,4 @@ relatedLists:
               BOOLEAN: true
     otherwise:
       status: "UNDETERMINED"
-      currentStateMessage: "WAF Policy `requestBodyCheck` value is undetermined." 
+      currentStateMessage: "The WAF policy requestBodyCheck value is undetermined."

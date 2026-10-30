@@ -1,0 +1,129 @@
+<MdxCard>
+[Back to Index](index.md)
+
+# MdxCustomView
+
+```jsx
+<MdxCustomView
+  componentKey="bucket_requests"
+  type="view"
+  viewSettings={{
+    keyPrefix: "a04",
+    sObjectName: "CA10__CaAwsBucket__c",
+    listViewPreset: {
+      filter: {
+        type: "condition",
+        field: "CA10__getObjectRequestsMtd__c",
+        operator: "notEquals",
+        value: "0",
+      },
+      columns: [
+        {
+          label: "Created Date",
+          name: "CreatedDate",
+          fieldNameOrPath: "CreatedDate",
+          type: "DATE_TIME",
+        },
+        {
+          label: "Requests: GetObject, MTD",
+          name: "CA10__getObjectRequestsMtd__c",
+          fieldNameOrPath: "CA10__getObjectRequestsMtd__c",
+          type: "DOUBLE",
+        },
+      ],
+      aggregateQuery: {
+        columns: [
+          {
+            label: "day",
+            fieldNameOrPath: "CreatedDate",
+            convertFunction: "DAY",
+          },
+          {
+            label: "Requests: GetObject, MTD",
+            fieldNameOrPath: "CA10__getObjectRequestsMtd__c",
+            aggregateFunction: "AVG",
+          },
+        ],
+        orderBy: [
+          {
+            column: {
+              label: "day",
+              fieldNameOrPath: "CreatedDate",
+              convertFunction: "DAY",
+            },
+            direction: "ASC",
+          },
+        ],
+      },
+      chart: {
+        title: "pie chart",
+        chartType: "pie",
+        dimensions: ["CreatedDate:DAY"],
+        measures: ["CA10__getObjectRequestsMtd__c:AVG"],
+      },
+    },
+  }}
+/>
+```
+
+## componentKey
+
+- `componentKey="my_view"`
+- Unique key for the view instance.
+
+## type
+
+- `type="list"` - [MdxCustomListView](MdxCustomListView.mdx)
+- `type="aggregateList"` - [MdxCustomAggregateListView](MdxCustomAggregateListView.mdx)
+- `type="chart"` - [MdxAggregateChartView](MdxAggregateChartView.mdx)
+- `type="view"`
+
+## viewSettings.sObjectName
+
+- `sObjectName="Account"`
+- `sObjectName="Opportunity"`
+- Salesforce object API name.
+
+## viewSettings.keyPrefix
+
+- `keyPrefix="001"`
+- `keyPrefix="006"`
+- Salesforce object key prefix.
+
+## viewSettings.listViewPreset.columns
+
+- `{ label: "Name", name: "Name", fieldNameOrPath: "Name", type: "TEXT" }`
+- `{ label: "Industry", name: "Industry", fieldNameOrPath: "Industry", type: "TEXT" }`
+- `{ label: "Annual Revenue", name: "AnnualRevenue", fieldNameOrPath: "AnnualRevenue", type: "DOUBLE" }`
+
+## viewSettings.listViewPreset.aggregateQuery.columns
+
+- Group column: `{ label: "Stage", fieldNameOrPath: "StageName" }`
+- Aggregate column: `{ label: "Amount", fieldNameOrPath: "Amount", aggregateFunction: "SUM" }`
+- Converted group column: `{ label: "Close Date", fieldNameOrPath: "CloseDate", convertFunction: "YEAR_MONTH" }`
+- `aggregateFunction`: `COUNT`, `SUM`, `MIN`, `MAX`, `AVG`
+- `convertFunction`: `YEAR`, `YEAR_QUARTER`, `YEAR_MONTH`, `YEAR_WEEK`, `YEAR_MONTH_DAY`, `QUARTER`, `MONTH`, `DAY`, `HOUR`, `MINUTE`, `DAY_OF_WEEK`
+
+## viewSettings.listViewPreset.aggregateQuery.orderBy
+
+- Optional aggregate sort settings.
+- `direction`: `ASC`, `DESC`
+
+## viewSettings.listViewPreset.chart
+
+- Open ListView edit page
+- Open `Visualization` tab
+- Click `COPY CHART SETTINGS`
+- Paste result into `viewSettings.listViewPreset.chart`
+
+## viewSettings.listViewPreset.filter
+
+- Optional ListView filter. Omit `filter` when no filter is needed.
+- Condition: `{ type: "condition", field: "Name", operator: "equals", value: "Example" }`
+- Group condition: `{ type: "groupCondition", operator: "and", conditions: [] }`
+- JSON condition: `{ type: "jsonCondition", field: "Field__c", jsonPath: "path.to.value", operator: "equals", value: "Example" }`
+- `operator`: `equals`, `notEquals`, `greaterThan`, `greaterThanOrEqualTo`, `lessThan`, `lessThanOrEqualTo`, `contains`, `notContains`
+- `groupCondition.operator`: `and`, `or`
+- `negation`: boolean flag for inverted condition.
+
+</MdxCard>

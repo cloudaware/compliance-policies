@@ -1,0 +1,11 @@
+name: >
+  [RDS.43] RDS DB proxies should require TLS encryption for connections
+description: |-
+  Amazon RDS Proxy can act as an additional layer of security between client 
+  applications and underlying RDS DB instances. For example, you can connect to 
+  an RDS proxy using TLS 1.3, even if the underlying DB instance supports an older 
+  version of TLS. By using RDS Proxy, you can enforce strong authentication 
+  requirements for database applications.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-43

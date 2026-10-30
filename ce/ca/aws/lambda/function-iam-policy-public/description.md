@@ -21,3 +21,5 @@ This policy flags an *AWS Lambda Function* as `INCOMPLIANT` if its resource-base
 - `lambda:GetPolicy`
 
 to all principals (that is, `*`) without appropriate access restrictions.
+
+A function is `COMPLIANT` when it has no resource-based policy that allows external access. In this case, the extended IAM policy field may be empty.

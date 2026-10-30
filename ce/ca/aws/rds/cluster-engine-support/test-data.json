@@ -1,0 +1,1264 @@
+[
+  {
+    "Id": "standard-enrolled",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 999,
+      "conditionText": "not(extract('caDateTimeFrom__clusterEngineStandardEnd').beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-02-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "standard-start-boundary",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 999,
+      "conditionText": "not(extract('caDateTimeFrom__clusterEngineStandardEnd').beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2021-08-26T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "standard-end-boundary",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 999,
+      "conditionText": "not(extract('caDateTimeFrom__clusterEngineStandardEnd').beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-02-28T23:59:59.999Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "extended-start-boundary",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1300,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-03-01T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "extended-current",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1300,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "extended-end-boundary",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1300,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2029-02-28T23:59:59.999Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "final-support-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1199,
+      "conditionText": "extract('caDateTimeFrom__clusterEngineExtendedEnd').beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2029-03-01T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "reordered-phases",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1300,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "standard-enrollment-disabled",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 999,
+      "conditionText": "not(extract('caDateTimeFrom__clusterEngineStandardEnd').beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-02-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support-disabled",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "extended-enrollment-disabled",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1300,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support-disabled",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "standard-only-supported",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 999,
+      "conditionText": "not(extract('caDateTimeFrom__clusterEngineStandardEnd').beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-mysql",
+    "CA10__engineVersion__c": "8.4.7",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportStartDate\":\"2026-01-01T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2032-04-30T23:59:59.999Z\"}]"
+  },
+  {
+    "Id": "standard-only-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1099,
+      "conditionText": "extract('caJsonQueryNumber__clusterEngineExtendedPhaseCount') == number(0.0)"
+    },
+    "context": {
+      "snapshotTime": "2032-05-01T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-mysql",
+    "CA10__engineVersion__c": "8.4.7",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportStartDate\":\"2026-01-01T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2032-04-30T23:59:59.999Z\"}]"
+  },
+  {
+    "Id": "future-standard-start",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "extract('caDateTimeFrom__clusterEngineStandardStart').afterToday()"
+    },
+    "context": {
+      "snapshotTime": "2021-08-25T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "missing-calendar",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__engineVersion__c').isNotEmpty() && (extract('CA10A2__engineLifecycleSupportInfo__c').isEmpty() || extract('caJsonQueryBoolean__clusterEngineCalendarEmpty'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": null
+  },
+  {
+    "Id": "empty-calendar",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__engineVersion__c').isNotEmpty() && (extract('CA10A2__engineLifecycleSupportInfo__c').isEmpty() || extract('caJsonQueryBoolean__clusterEngineCalendarEmpty'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[]"
+  },
+  {
+    "Id": "malformed-json",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": "Expected property name or '}' in JSON at position 1 (line 1 column 2)",
+      "conditionIndex": 303,
+      "conditionText": "extract('CA10A2__engineLifecycleSupportInfo__c').asJson().isInvalid()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "{"
+  },
+  {
+    "Id": "wrong-root-type",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "not(extract('caJsonQueryBoolean__clusterEngineCalendarValid'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "{}"
+  },
+  {
+    "Id": "duplicate-standard",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "not(extract('caJsonQueryBoolean__clusterEngineCalendarValid'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "duplicate-extended",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "not(extract('caJsonQueryBoolean__clusterEngineCalendarValid'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "unknown-phase",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "not(extract('caJsonQueryBoolean__clusterEngineCalendarValid'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"unknown\"}]"
+  },
+  {
+    "Id": "missing-date",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "not(extract('caJsonQueryBoolean__clusterEngineCalendarValid'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "invalid-date",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "not(extract('caJsonQueryBoolean__clusterEngineCalendarValid'))"
+    },
+    "context": {
+      "snapshotTime": "2026-02-01T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-13-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "invalid-extended-date-during-standard",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 516,
+      "conditionText": "extract('caJsonFrom__clusterEngineLifecycle').jsonQueryText('[?LifecycleSupportName == \\'open-source-rds-extended-support\\'] | [0].LifecycleSupportEndDate').checkIso8601()"
+    },
+    "context": {
+      "snapshotTime": "2026-02-01T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-13-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "inverted-standard-range",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "not(extract('caJsonQueryBoolean__clusterEngineCalendarValid'))"
+    },
+    "context": {
+      "snapshotTime": "2026-02-01T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2027-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "overlapping-extended-range",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "not(extract('caJsonQueryBoolean__clusterEngineCalendarValid'))"
+    },
+    "context": {
+      "snapshotTime": "2026-02-01T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-02-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "unexpected-intraday-end",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 899,
+      "conditionText": "not(extract('caJsonQueryBoolean__clusterEngineCalendarWholeDays'))"
+    },
+    "context": {
+      "snapshotTime": "2026-02-28T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T12:00:00.000Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "missing-engine",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 201,
+      "conditionText": "CA10__engine__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": null,
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "missing-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 301,
+      "conditionText": "CA10__engineVersion__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": null,
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "missing-status",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 101,
+      "conditionText": "CA10__status__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": null,
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "deleting",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "extract('CA10__status__c') == 'deleting'"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "deleting",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": null
+  },
+  {
+    "Id": "stopped-still-assessed",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1300,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "stopped",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "neptune-excluded",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "not(setOfText(['aurora-mysql', 'aurora-postgresql', 'mysql', 'postgres']).contains(extract('CA10__engine__c')))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "neptune",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": null
+  },
+  {
+    "Id": "documentdb-excluded",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "not(setOfText(['aurora-mysql', 'aurora-postgresql', 'mysql', 'postgres']).contains(extract('CA10__engine__c')))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "docdb",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": null
+  },
+  {
+    "Id": "disappeared",
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "runtimeError": null,
+      "conditionIndex": 99,
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": "2026-10-22T00:00:00Z",
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": null
+  },
+  {
+    "Id": "valid-leap-day-standard-end",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 999,
+      "conditionText": "not(extract('caDateTimeFrom__clusterEngineStandardEnd').beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2028-02-29T23:59:59.999Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2028-02-29T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2028-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "gap-before-extended-support",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1299,
+      "conditionText": "extract('caDateTimeFrom__clusterEngineExtendedStart').afterToday()"
+    },
+    "context": {
+      "snapshotTime": "2026-03-01T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-04-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "aurora-mysql-standard",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 999,
+      "conditionText": "not(extract('caDateTimeFrom__clusterEngineStandardEnd').beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-02-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-mysql",
+    "CA10__engineVersion__c": "8.0.mysql_aurora.3.10.3",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "intraday-extended-end-retains-standard-eos",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 799,
+      "conditionText": "extract('caDateTimeFrom__clusterEngineStandardEnd').beforeToday() && not(extract('caJsonQueryBoolean__clusterEngineCalendarWholeDays'))"
+    },
+    "context": {
+      "snapshotTime": "2029-02-28T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T12:00:00.000Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "unexpected-engine-enum",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "not(setOfText(['aurora-mysql', 'aurora-postgresql', 'mysql', 'postgres']).contains(extract('CA10__engine__c')))"
+    },
+    "context": {
+      "snapshotTime": "2026-02-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "future-db",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "new-aurora-postgresql-18-calendar-unavailable",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__engineVersion__c').isNotEmpty() && (extract('CA10A2__engineLifecycleSupportInfo__c').isEmpty() || extract('caJsonQueryBoolean__clusterEngineCalendarEmpty'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "18.6",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[]"
+  },
+  {
+    "Id": "empty-array-with-whitespace",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__engineVersion__c').isNotEmpty() && (extract('CA10A2__engineLifecycleSupportInfo__c').isEmpty() || extract('caJsonQueryBoolean__clusterEngineCalendarEmpty'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": " [ \n ] "
+  },
+  {
+    "Id": "missing-version-and-empty-array",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 301,
+      "conditionText": "CA10__engineVersion__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": null,
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[]"
+  },
+  {
+    "Id": "missing-version-and-missing-calendar",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 301,
+      "conditionText": "CA10__engineVersion__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": ""
+  },
+  {
+    "Id": "unexpected-status",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1300,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "unexpected-status",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "upgrading-current-version-still-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1300,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "upgrading",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "backing-up-current-version-still-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1300,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "backing-up",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "creating-missing-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 301,
+      "conditionText": "CA10__engineVersion__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "creating",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": null,
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "mariadb-is-not-a-cluster-engine",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "not(setOfText(['aurora-mysql', 'aurora-postgresql', 'mysql', 'postgres']).contains(extract('CA10__engine__c')))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "mariadb",
+    "CA10__engineVersion__c": "10.6.24",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "commercial-instance-engine-on-cluster",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "not(setOfText(['aurora-mysql', 'aurora-postgresql', 'mysql', 'postgres']).contains(extract('CA10__engine__c')))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "oracle-ee",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]"
+  },
+  {
+    "Id": "legacy-aurora-excluded",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "not(setOfText(['aurora-mysql', 'aurora-postgresql', 'mysql', 'postgres']).contains(extract('CA10__engine__c')))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": ""
+  },
+  {
+    "Id": "multi-az-mysql-standard-final-day",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 999,
+      "conditionText": "not(extract('caDateTimeFrom__clusterEngineStandardEnd').beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-07-31T23:59:59.999Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "mysql",
+    "CA10__engineVersion__c": "8.0.46",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportStartDate\":\"2018-10-23T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2026-07-31T23:59:59.999Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportStartDate\":\"2026-08-01T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2029-07-31T23:59:59.999Z\"}]"
+  },
+  {
+    "Id": "multi-az-mysql-extended-first-day",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1300,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-08-01T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "mysql",
+    "CA10__engineVersion__c": "8.0.46",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportStartDate\":\"2018-10-23T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2026-07-31T23:59:59.999Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportStartDate\":\"2026-08-01T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2029-07-31T23:59:59.999Z\"}]"
+  },
+  {
+    "Id": "multi-az-mysql-final-support-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1199,
+      "conditionText": "extract('caDateTimeFrom__clusterEngineExtendedEnd').beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2029-08-01T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "mysql",
+    "CA10__engineVersion__c": "8.0.46",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportStartDate\":\"2018-10-23T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2026-07-31T23:59:59.999Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportStartDate\":\"2026-08-01T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2029-07-31T23:59:59.999Z\"}]"
+  },
+  {
+    "Id": "aurora-postgresql-16.8-standard",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 999,
+      "conditionText": "not(extract('caDateTimeFrom__clusterEngineStandardEnd').beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "16.8",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportStartDate\":\"2024-01-31T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportStartDate\":\"2029-03-01T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2032-02-29T23:59:59.999Z\"}]"
+  },
+  {
+    "Id": "aurora-postgresql-16.11-standard",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 999,
+      "conditionText": "not(extract('caDateTimeFrom__clusterEngineStandardEnd').beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "16.11",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportStartDate\":\"2024-01-31T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportStartDate\":\"2029-03-01T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2032-02-29T23:59:59.999Z\"}]"
+  },
+  {
+    "Id": "multi-az-postgresql-standard",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 999,
+      "conditionText": "not(extract('caDateTimeFrom__clusterEngineStandardEnd').beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "postgres",
+    "CA10__engineVersion__c": "16.11",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportStartDate\":\"2023-11-09T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportStartDate\":\"2029-03-01T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2032-02-29T23:59:59.999Z\"}]"
+  },
+  {
+    "Id": "recoverable-cluster-still-assessed",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 999,
+      "conditionText": "not(extract('caDateTimeFrom__clusterEngineStandardEnd').beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "inaccessible-encryption-credentials-recoverable",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "16.11",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportStartDate\":\"2024-01-31T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportStartDate\":\"2029-03-01T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2032-02-29T23:59:59.999Z\"}]"
+  },
+  {
+    "Id": "serverless-cluster-still-assessed",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1300,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]",
+    "CA10__engineMode__c": "serverless"
+  },
+  {
+    "Id": "auto-minor-upgrade-does-not-resolve-major-eos",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1300,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportEndDate\":\"2026-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2021-08-26T00:00:00.000Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\",\"LifecycleSupportStartDate\":\"2026-03-01T00:00:00.000Z\"}]",
+    "CA10__autoMinorVersionUpgrade__c": "Yes"
+  },
+  {
+    "Id": "aurora-mysql-2-extended-before-charging-starts",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1300,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2024-11-15T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-mysql",
+    "CA10__engineVersion__c": "5.7.mysql_aurora.2.11.5",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportStartDate\":\"2018-02-06T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2024-10-31T23:59:59.999Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportStartDate\":\"2024-11-01T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2029-06-30T23:59:59.999Z\"}]"
+  },
+  {
+    "Id": "aurora-mysql-2-extended-last-day",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1300,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2029-06-30T23:59:59.999Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-mysql",
+    "CA10__engineVersion__c": "5.7.mysql_aurora.2.11.5",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportStartDate\":\"2018-02-06T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2024-10-31T23:59:59.999Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportStartDate\":\"2024-11-01T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2029-06-30T23:59:59.999Z\"}]"
+  },
+  {
+    "Id": "aurora-mysql-2-final-support-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1199,
+      "conditionText": "extract('caDateTimeFrom__clusterEngineExtendedEnd').beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2029-07-01T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-mysql",
+    "CA10__engineVersion__c": "5.7.mysql_aurora.2.11.5",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportStartDate\":\"2018-02-06T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2024-10-31T23:59:59.999Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportStartDate\":\"2024-11-01T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2029-06-30T23:59:59.999Z\"}]"
+  },
+  {
+    "Id": "calendar-json-null-is-invalid-enrichment",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "not(extract('caJsonQueryBoolean__clusterEngineCalendarValid'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "13.23",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "null"
+  },
+  {
+    "Id": "rebooting-multi-az-cluster-still-assessed",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1300,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-08-01T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "rebooting",
+    "CA10__engine__c": "mysql",
+    "CA10__engineVersion__c": "8.0.46",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportStartDate\":\"2018-10-23T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2026-07-31T23:59:59.999Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportStartDate\":\"2026-08-01T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2029-07-31T23:59:59.999Z\"}]"
+  },
+  {
+    "Id": "future-aurora-postgresql-version-standard",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 999,
+      "conditionText": "not(extract('caDateTimeFrom__clusterEngineStandardEnd').beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2030-02-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "99.1",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportStartDate\":\"2030-01-01T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2034-12-31T23:59:59.999Z\"}]"
+  },
+  {
+    "Id": "future-postgres-version-standard",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 999,
+      "conditionText": "not(extract('caDateTimeFrom__clusterEngineStandardEnd').beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2030-02-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "postgres",
+    "CA10__engineVersion__c": "99.1",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportStartDate\":\"2030-01-01T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2034-12-31T23:59:59.999Z\"}]"
+  },
+  {
+    "Id": "future-aurora-mysql-version-standard",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 999,
+      "conditionText": "not(extract('caDateTimeFrom__clusterEngineStandardEnd').beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2030-02-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-mysql",
+    "CA10__engineVersion__c": "99.0.1",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportStartDate\":\"2030-01-01T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2034-12-31T23:59:59.999Z\"}]"
+  },
+  {
+    "Id": "future-mysql-version-standard",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 999,
+      "conditionText": "not(extract('caDateTimeFrom__clusterEngineStandardEnd').beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2030-02-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "mysql",
+    "CA10__engineVersion__c": "99.0.1",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportStartDate\":\"2030-01-01T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2034-12-31T23:59:59.999Z\"}]"
+  },
+  {
+    "Id": "future-version-still-fails-after-standard-support-ends",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 1099,
+      "conditionText": "extract('caJsonQueryNumber__clusterEngineExtendedPhaseCount') == number(0.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2035-01-01T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "mysql",
+    "CA10__engineVersion__c": "99.0.1",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportStartDate\":\"2030-01-01T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2034-12-31T23:59:59.999Z\"}]"
+  },
+  {
+    "Id": "unlisted-status-with-standard-support",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 999,
+      "conditionText": "not(extract('caDateTimeFrom__clusterEngineStandardEnd').beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "future-status",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__engineVersion__c": "16.8",
+    "CA10__engineLifecycleSupport__c": "open-source-rds-extended-support",
+    "CA10A2__engineLifecycleSupportInfo__c": "[{\"LifecycleSupportName\":\"open-source-rds-standard-support\",\"LifecycleSupportStartDate\":\"2024-01-31T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2029-02-28T23:59:59.999Z\"},{\"LifecycleSupportName\":\"open-source-rds-extended-support\",\"LifecycleSupportStartDate\":\"2029-03-01T00:00:00.000Z\",\"LifecycleSupportEndDate\":\"2032-02-29T23:59:59.999Z\"}]"
+  }
+]

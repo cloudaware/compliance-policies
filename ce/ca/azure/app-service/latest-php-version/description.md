@@ -1,10 +1,10 @@
 # Description
 
-Periodically, older versions of PHP may be deprecated and no longer supported. Using a supported version of PHP for app services is recommended to avoid potential unpatched vulnerabilities.
+Periodically, older versions of PHP may be deprecated and no longer supported. Using a supported version of PHP for App Services is recommended to avoid potential unpatched vulnerabilities.
 
 ## Rationale
 
-Deprecated and unsupported versions of programming and scripting languages can present vulnerabilities which may not be addressed or may not be addressable.
+Deprecated and unsupported versions of programming and scripting languages can present vulnerabilities that may not be addressed or may not be addressable.
 
 ## Impact
 
@@ -14,22 +14,25 @@ If your app is written using version-dependent features or libraries, they may n
 
 Take note of the currently supported versions of PHP here: <https://www.php.net/supported-versions.php>
 
-### From Azure Console
+### From Azure Portal
 
-1. From Azure Home open the Portal Menu in the top left.
+1. In the Azure portal, open the portal menu in the upper left.
 2. Go to `App Services`.
-3. Click on each App.
+3. Select each app.
 4. Under `Settings` section, click on `Configuration`.
-5. Click on the `General settings` pane, ensure that for a `Stack` of `PHP` the `Major Version` and `Minor Version` reflect a currently supported release.
+5. Select the `General settings` pane and ensure that for a `Stack` of `PHP`, the `Major Version` and `Minor Version` reflect a currently supported release.
 
-**NOTE**: No action is required if `PHP version` is set to `Off`, as PHP is not used by your web app.
+**Note**: No action is required if `PHP version` is set to `Off`, as PHP is not used by your web app.
 
 ### From Azure CLI
 
 To check PHP version for an existing app, run the following command:
 
 ```sh
-az webapp config show --resource-group <RESOURCE_GROUP_NAME> --name <APP_NAME> --query "{LinuxFxVersion:linuxFxVersion,PHP_Version:phpVersion}"
+az webapp config show \
+    --resource-group {{resource-group-name}} \
+    --name {{app-name}} \
+    --query "{LinuxFxVersion:linuxFxVersion,PHP_Version:phpVersion}"
 ```
 
 The output should return a currently supported version of PHP. Any other version of PHP would be considered a finding.
@@ -39,12 +42,16 @@ The output should return a currently supported version of PHP. Any other version
 ### From PowerShell
 
 ```ps
-$application = Get-AzWebApp -ResourceGroupName <RESOURCE_GROUP_NAME> -Name <APP_NAME> $application.SiteConfig | select-object LinuxFXVersion, phpVersion
+$application = Get-AzWebApp `
+    -ResourceGroupName {{resource-group-name}} `
+    -Name {{app-name}} `
+    $application.SiteConfig |
+    Select-Object LinuxFXVersion, phpVersion
 ```
 
 The output should return a currently supported version of PHP. Any other version of PHP would be considered a finding.
 
-**NOTE**: No action is required if the output is empty, as PHP is not used by your app.
+**Note**: No action is required if the output is empty, as PHP is not used by your app.
 
 ### From Azure Policy
 

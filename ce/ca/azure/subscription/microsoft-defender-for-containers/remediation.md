@@ -20,7 +20,13 @@
 Run the below command to enable the Microsoft Defender for Containers plan and its components:
 
 ```sh
-az security pricing create -n 'Containers' --tier 'standard' --extensions name=ContainerRegistriesVulnerabilityAssessments isEnabled=True --extensions name=AgentlessDiscoveryForKubernetes isEnabled=True --extensions name=AgentlessVmScanning isEnabled=True --extensions name=ContainerSensor isEnabled=True
+az security pricing create \
+    -n Containers \
+    --tier Standard \
+    --extensions name=ContainerRegistriesVulnerabilityAssessments isEnabled=True \
+    --extensions name=AgentlessDiscoveryForKubernetes isEnabled=True \
+    --extensions name=AgentlessVmScanning isEnabled=True \
+    --extensions name=ContainerSensor isEnabled=True
 ```
 
 ## From PowerShell
@@ -30,5 +36,8 @@ az security pricing create -n 'Containers' --tier 'standard' --extensions name=C
 Run the below command to enable the Microsoft Defender for Containers plan and its components:
 
 ```ps
-Set-AzSecurityPricing -Name 'Containers' -PricingTier 'Standard' -Extension '[{"name":"ContainerRegistriesVulnerabilityAssessments","isEnabled":"True"},{"name":"AgentlessDiscoveryForKubernetes","isEnabled":"True"},{"name":"AgentlessVmScanning","isEnabled":"True"},{"name":"ContainerSensor","isEnabled":"True"}]'
+Set-AzSecurityPricing `
+    -Name "Containers" `
+    -PricingTier "Standard" `
+    -Extension '[{"name":"ContainerRegistriesVulnerabilityAssessments","isEnabled":"True"},{"name":"AgentlessDiscoveryForKubernetes","isEnabled":"True"},{"name":"AgentlessVmScanning","isEnabled":"True"},{"name":"ContainerSensor","isEnabled":"True"}]'
 ```

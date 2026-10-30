@@ -20,62 +20,62 @@ If you are using CloudTrails and CloudWatch, perform the following to ensure tha
 
 1. Identify the log group name configured for use with active multi-region CloudTrail:
 
-- List all CloudTrails:
+    - List all CloudTrails:
 
-```sh
-aws cloudtrail describe-trails
-```
+    ```sh
+    aws cloudtrail describe-trails
+    ```
 
-- Identify Multi region Cloudtrails: Trails with `IsMultiRegionTrail` set to `true`.
-- From value associated with CloudWatchLogsLogGroupArn note `<cloudtrail_log_group_name>`.
+    - Identify Multi region Cloudtrails: Trails with `IsMultiRegionTrail` set to `true`.
+    - From value associated with CloudWatchLogsLogGroupArn note `<cloudtrail_log_group_name>`.
 
-Example: for CloudWatchLogsLogGroupArn that looks like `arn:aws:logs:<region>:<aws_account_number>:log-group:NewGroup:*`, `<cloudtrail_log_group_name>` would be `NewGroup`.
+    Example: for CloudWatchLogsLogGroupArn that looks like `arn:aws:logs:<region>:<aws_account_number>:log-group:NewGroup:*`, `<cloudtrail_log_group_name>` would be `NewGroup`.
 
-- Ensure Identified Multi region CloudTrail is active:
+    - Ensure Identified Multi region CloudTrail is active:
 
-```sh
-aws cloudtrail get-trail-status --name <Name of a Multi-region CloudTrail>
-```
+    ```sh
+    aws cloudtrail get-trail-status --name <Name of a Multi-region CloudTrail>
+    ```
 
-Ensure `IsLogging` is set to `TRUE`.
+    Ensure `IsLogging` is set to `TRUE`.
 
-- Ensure identified Multi-region Cloudtrail captures all Management Events:
+    - Ensure identified Multi-region Cloudtrail captures all Management Events:
 
-```sh
-aws cloudtrail get-event-selectors --trail-name <trailname shown in describe-trails>
-```
+    ```sh
+    aws cloudtrail get-event-selectors --trail-name <trailname shown in describe-trails>
+    ```
 
-Ensure there is at least one Event Selector for a Trail with `IncludeManagementEvents` set to `true` and `ReadWriteType` set to `All`.
+    Ensure there is at least one Event Selector for a Trail with `IncludeManagementEvents` set to `true` and `ReadWriteType` set to `All`.
 
 2. Get a list of all associated metric filters for this `<cloudtrail_log_group_name>`:
 
-```sh
-aws logs describe-metric-filters --log-group-name "<cloudtrail_log_group_name>"
-```
+    ```sh
+    aws logs describe-metric-filters --log-group-name "<cloudtrail_log_group_name>"
+    ```
 
 3. Ensure the output from the above command contains the following:
 
-```json
-"filterPattern": "{($.eventSource = kms.amazonaws.com) && (($.eventName=DisableKey)||($.eventName=ScheduleKeyDeletion)) }"
-```
+    ```json
+    "filterPattern": "{($.eventSource = kms.amazonaws.com) && (($.eventName=DisableKey)||($.eventName=ScheduleKeyDeletion)) }"
+    ```
 
 4. Note the `<disable_or_delete_cmk_changes_metric>` value associated with the filterPattern found in step 3.
 5. Get a list of CloudWatch alarms and filter on the `<disable_or_delete_cmk_changes_metric>` captured in step 4:
 
-```sh
-aws cloudwatch describe-alarms --query 'MetricAlarms[?MetricName== `<disable_or_delete_cmk_changes_metric>`]'
-```
+    ```sh
+    aws cloudwatch describe-alarms --query 'MetricAlarms[?MetricName== `<disable_or_delete_cmk_changes_metric>`]'
+    ```
 
 6. Note the `AlarmActions` value - this will provide the SNS topic ARN value.
 7. Ensure there is at least one active subscriber to the SNS topic:
 
-```sh
-aws sns list-subscriptions-by-topic --topic-arn <sns_topic_arn>
-```
+    ```sh
+    aws sns list-subscriptions-by-topic --topic-arn <sns_topic_arn>
+    ```
 
-At least one subscription should have `SubscriptionArn` with valid aws ARN.
+    At least one subscription should have `SubscriptionArn` with valid aws ARN.
 
-Example of valid `SubscriptionArn`: `arn:aws:sns:<region>:<aws_account_number>:<SnsTopicName>:<SubscriptionID>`.
+    Example of valid `SubscriptionArn`: `arn:aws:sns:<region>:<aws_account_number>:<SnsTopicName>:<SubscriptionID>`.
 
 ## References
 

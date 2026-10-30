@@ -1,0 +1,81 @@
+---
+inputType: "CA10O1__CaOracleIaasSecurityList__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10O1__CaOracleIaasSecurityList__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is not a default security list."
+    check:
+      NOT:
+        arg:
+          STARTS_WITH:
+            arg:
+              EXTRACT: "Name"
+            search:
+              TEXT: "Default Security List for "
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The default security list allows non-ICMP traffic to or from the internet."
+    remediationMessage: "Remove non-ICMP ingress from 0.0.0.0/0 and non-ICMP egress to 0.0.0.0/0."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10O1__Oracle_IAAS_Security_List_Rules1__r"
+  - status: "UNDETERMINED"
+    currentStateMessage: "The default security list has rules with incomplete data required to evaluate internet access."
+    check:
+      RELATED_LIST_HAS:
+        status: "UNDETERMINED"
+        relationshipName: "CA10O1__Oracle_IAAS_Security_List_Rules1__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The default security list does not allow non-ICMP traffic to or from the internet."
+relatedLists:
+  - relationshipName: "CA10O1__Oracle_IAAS_Security_List_Rules1__r"
+    importExtracts:
+      - file: /types/CA10O1__CaOracleIaasSecurityListRule__c/object.extracts.yaml
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This is an ICMP rule."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10O1__protocol__c"
+            right:
+              TEXT: "ICMP"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "This ingress rule allows non-ICMP traffic from 0.0.0.0/0."
+        remediationMessage: "Remove this rule or restrict the source CIDR to approved addresses."
+        check:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10O1__direction__c"
+                  right:
+                    TEXT: "Ingress"
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10O1__source__c"
+                  right:
+                    TEXT: "0.0.0.0/0"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "This egress rule allows non-ICMP traffic to 0.0.0.0/0."
+        remediationMessage: "Remove this rule or restrict the destination CIDR."
+        check:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10O1__direction__c"
+                  right:
+                    TEXT: "Egress"
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10O1__destination__c"
+                  right:
+                    TEXT: "0.0.0.0/0"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This rule does not allow non-ICMP internet access covered by this policy."

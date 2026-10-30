@@ -6,12 +6,12 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The DMS Replication Instance Auto Minor Version Upgrade is not enabled."
-    remediationMessage: "Enable the Auto Minor Version Upgrade feature for this DMS Replication Instance."    
+    currentStateMessage: "Auto minor version upgrade is not enabled for the DMS replication instance."
+    remediationMessage: "Enable auto minor version upgrade for this DMS replication instance."
     check:
       NOT:
         arg:
           EXTRACT: "CA10A1__minorVersionAutomaricUpdate__c"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The DMS Replication Instance Auto Minor Version Upgrade is enabled."
+  currentStateMessage: "Auto minor version upgrade is enabled for the DMS replication instance."

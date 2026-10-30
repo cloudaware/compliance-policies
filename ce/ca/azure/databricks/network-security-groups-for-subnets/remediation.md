@@ -8,7 +8,7 @@
 
     ```sh
     az network nsg create \
-        --resource-group {{resource-group}} \
+        --resource-group {{resource-group-name}} \
         --name {{nsg-name}} \
         --location {{location}}
     ```
@@ -17,7 +17,7 @@
 
     ```sh
     az network vnet subnet update \
-        --resource-group {{resource-group}} \
+        --resource-group {{resource-group-name}} \
         --vnet-name {{vnet-name}} \
         --name {{databricks-subnet-name}} \
         --network-security-group {{nsg-name}}
@@ -28,7 +28,7 @@ Repeat this step for both the private and public Databricks subnets, if applicab
 ### From PowerShell
 
 ```ps
-$sampleRule = New-AzNetworkSecurityRuleConfig `
+$rdpRule = New-AzNetworkSecurityRuleConfig `
     -Name {{rdp-rule}}`
     -Description "Allow RDP" `
     -Access Allow `
@@ -42,17 +42,17 @@ $sampleRule = New-AzNetworkSecurityRuleConfig `
 
 $nsg = New-AzNetworkSecurityGroup `
     -Name "{{nsg-name}}" `
-    -ResourceGroupName "{{resource-group}}" `
+    -ResourceGroupName "{{resource-group-name}}" `
     -Location "{{location}}" `
     -SecurityRules $rdpRule
 
 $vnet = Get-AzVirtualNetwork `
-    -Name "{{databricks-vnet-name}}" `
-    -ResourceGroupName "{{resource-group}}"
+    -Name "{{vnet-name}}" `
+    -ResourceGroupName "{{resource-group-name}}"
 
-Set-AzVirtualNetworkSubnetConfig 
-    -Name  {{subnet-name}}
-    -VirtualNetwork $vnet 
+Set-AzVirtualNetworkSubnetConfig `
+    -Name {{subnet-name}} `
+    -VirtualNetwork $vnet `
     -NetworkSecurityGroupId $nsg.Id
 
 $vnet | Set-AzVirtualNetwork

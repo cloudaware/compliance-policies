@@ -1,0 +1,2364 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "overprovisioned",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "overprovisioned-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "overprovisioned",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "overprovisioned",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:overprovisioned"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:overprovisioned",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:overprovisioned"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "no-recommendations",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:no-recommendations"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "699",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "underprovisioned",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "underprovisioned-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "underprovisioned",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "underprovisioned",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:underprovisioned"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryUnderprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:underprovisioned",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":768}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:underprovisioned"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "699",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "optimized",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "optimized-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "optimized",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "optimized",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:optimized"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "Optimized",
+        "CA10A2__findingReasonCodes__c": "",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:optimized",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":512}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:optimized"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "optimized-with-reason",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "optimized-with-reason-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "optimized-with-reason",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "optimized-with-reason",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:optimized-with-reason"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "Optimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:optimized-with-reason",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":512}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:optimized-with-reason"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "unavailable",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "unavailable-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "unavailable",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "unavailable",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:unavailable"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "Unavailable",
+        "CA10A2__findingReasonCodes__c": "InsufficientData",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:unavailable",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:unavailable"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "unknown-finding",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "unknown-finding-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "unknown-finding",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "unknown-finding",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:unknown-finding"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "Unknown",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:unknown-finding",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:unknown-finding"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "unknown-reason",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "unknown-reason-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "unknown-reason",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "unknown-reason",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:unknown-reason"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "Unknown",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:unknown-reason",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:unknown-reason"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "combined-reasons",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "combined-reasons-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "combined-reasons",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "combined-reasons",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:combined-reasons"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned,MemoryUnderprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:combined-reasons",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:combined-reasons"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "missing-reason",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "missing-reason-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "missing-reason",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "missing-reason",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-reason"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": null,
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-reason",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-reason"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "old-refresh-timestamp-ignored",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "old-refresh-timestamp-ignored-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "old-refresh-timestamp-ignored",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "old-refresh-timestamp-ignored",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:old-refresh-timestamp-ignored"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-10T23:59:59Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:old-refresh-timestamp-ignored",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:old-refresh-timestamp-ignored"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "short-lookback",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "short-lookback-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "short-lookback",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "short-lookback",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:short-lookback"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 13,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:short-lookback",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:short-lookback"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "mismatched-memory",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "mismatched-memory-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "mismatched-memory",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "mismatched-memory",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:mismatched-memory"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 256,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:mismatched-memory",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:mismatched-memory"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "published-version",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "published-version-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "published-version",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "published-version",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:published-version"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "7",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:published-version",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:published-version"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "deleted-recommendation",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "deleted-recommendation-recommendation-0",
+        "CA10A2__disappearanceTime__c": "2026-10-12T00:00:00Z",
+        "CA10A2__lambdaFunction__c": "deleted-recommendation",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "deleted-recommendation",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:deleted-recommendation"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:deleted-recommendation",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:deleted-recommendation"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "missing-parent",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "missing-parent-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": null,
+        "CA10A2__lambdaFunction__r": {
+          "Id": null,
+          "CA10__disappearanceTime__c": null,
+          "CA10__memorySizeMb__c": null
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-parent",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-parent"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "missing-CA10A2__lambdaFunctionVersion__c",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "missing-CA10A2__lambdaFunctionVersion__c-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "missing-CA10A2__lambdaFunctionVersion__c",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "missing-CA10A2__lambdaFunctionVersion__c",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10A2__lambdaFunctionVersion__c"
+        },
+        "CA10A2__lambdaFunctionVersion__c": null,
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10A2__lambdaFunctionVersion__c",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10A2__lambdaFunctionVersion__c"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "missing-CA10A2__lastRefreshTimestamp__c",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "missing-CA10A2__lastRefreshTimestamp__c-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "missing-CA10A2__lastRefreshTimestamp__c",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "missing-CA10A2__lastRefreshTimestamp__c",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10A2__lastRefreshTimestamp__c"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": null,
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10A2__lastRefreshTimestamp__c",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10A2__lastRefreshTimestamp__c"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "missing-CA10A2__lookbackPeriodInDays__c",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "missing-CA10A2__lookbackPeriodInDays__c-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "missing-CA10A2__lookbackPeriodInDays__c",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "missing-CA10A2__lookbackPeriodInDays__c",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10A2__lookbackPeriodInDays__c"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": null,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10A2__lookbackPeriodInDays__c",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10A2__lookbackPeriodInDays__c"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "missing-CA10A2__currentMemorySize__c",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "missing-CA10A2__currentMemorySize__c-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "missing-CA10A2__currentMemorySize__c",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "missing-CA10A2__currentMemorySize__c",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10A2__currentMemorySize__c"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": null,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10A2__currentMemorySize__c",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10A2__currentMemorySize__c"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "missing-CA10A2__finding__c",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "missing-CA10A2__finding__c-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "missing-CA10A2__finding__c",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "missing-CA10A2__finding__c",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10A2__finding__c"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": null,
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10A2__finding__c",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10A2__finding__c"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "101",
+      "conditionText": "CA10__version__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "missing-CA10__version__c",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": null,
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "missing-CA10__version__c-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "missing-CA10__version__c",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "missing-CA10__version__c",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": null,
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10__version__c"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10__version__c",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10__version__c"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "201",
+      "conditionText": "CA10__memorySizeMb__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "missing-CA10__memorySizeMb__c",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": null,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "missing-CA10__memorySizeMb__c-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "missing-CA10__memorySizeMb__c",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "missing-CA10__memorySizeMb__c",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": null,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10__memorySizeMb__c"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10__memorySizeMb__c",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10__memorySizeMb__c"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "missing-CA10__lastModified__c",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": null,
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "missing-CA10__lastModified__c-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "missing-CA10__lastModified__c",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "missing-CA10__lastModified__c",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": null,
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10__lastModified__c"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10__lastModified__c",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-CA10__lastModified__c"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "new-configuration",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-10-12T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "new-configuration-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "new-configuration",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "new-configuration",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-10-12T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:new-configuration"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:new-configuration",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:new-configuration"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__memorySizeMb__c') > number(1792.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "unsupported-memory",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 1793,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "unsupported-memory-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "unsupported-memory",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "unsupported-memory",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 1793,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:unsupported-memory"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:unsupported-memory",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:unsupported-memory"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__memorySizeMb__c') < number(128.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "invalid-memory",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 0,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "invalid-memory-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "invalid-memory",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "invalid-memory",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 0,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:invalid-memory"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:invalid-memory",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:invalid-memory"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__version__c') != '$LATEST'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "non-latest-root",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "7",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "non-latest-root-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "non-latest-root",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "non-latest-root",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "7",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:non-latest-root"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:non-latest-root",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:non-latest-root"
+  },
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "deleted-function",
+    "CA10__disappearanceTime__c": "2026-10-12T00:00:00Z",
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "deleted-function-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "deleted-function",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "deleted-function",
+          "CA10__disappearanceTime__c": "2026-10-12T00:00:00Z",
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:deleted-function"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:deleted-function",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:deleted-function"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "overrides-uncertainty",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "overrides-uncertainty-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "overrides-uncertainty",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "overrides-uncertainty",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:overrides-uncertainty"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-09-01T00:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:overrides-uncertainty",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      },
+      {
+        "Id": "overrides-uncertainty-recommendation-1",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "overrides-uncertainty",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "overrides-uncertainty",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:overrides-uncertainty"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:overrides-uncertainty",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:overrides-uncertainty"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "confirmed-overprovisioning-precedes-optimized-evidence",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "confirmed-overprovisioning-precedes-optimized-evidence-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "confirmed-overprovisioning-precedes-optimized-evidence",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "confirmed-overprovisioning-precedes-optimized-evidence",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:confirmed-overprovisioning-precedes-optimized-evidence"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-09-01T00:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:confirmed-overprovisioning-precedes-optimized-evidence",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      },
+      {
+        "Id": "confirmed-overprovisioning-precedes-optimized-evidence-recommendation-1",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "confirmed-overprovisioning-precedes-optimized-evidence",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "confirmed-overprovisioning-precedes-optimized-evidence",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:confirmed-overprovisioning-precedes-optimized-evidence"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "Optimized",
+        "CA10A2__findingReasonCodes__c": "",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:confirmed-overprovisioning-precedes-optimized-evidence",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":512}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:confirmed-overprovisioning-precedes-optimized-evidence"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "clock-independent-recommendation",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "clock-independent-recommendation-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "clock-independent-recommendation",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "clock-independent-recommendation",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:clock-independent-recommendation"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-15T00:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:clock-independent-recommendation",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:clock-independent-recommendation"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)"
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "long-lookback",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "long-lookback-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "long-lookback",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "long-lookback",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:long-lookback"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 15,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:long-lookback",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:long-lookback"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)"
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "missing-memory-options",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "missing-memory-options-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "missing-memory-options",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "missing-memory-options",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-memory-options"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-memory-options",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": null,
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-memory-options"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)"
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "empty-memory-options",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "empty-memory-options-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "empty-memory-options",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "empty-memory-options",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:empty-memory-options"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:empty-memory-options",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:empty-memory-options"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)"
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "malformed-memory-options",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "malformed-memory-options-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "malformed-memory-options",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "malformed-memory-options",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:malformed-memory-options"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:malformed-memory-options",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "invalid-json",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:malformed-memory-options"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)"
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "missing-recommended-memory",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "missing-recommended-memory-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "missing-recommended-memory",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "missing-recommended-memory",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-recommended-memory"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-recommended-memory",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-recommended-memory"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)"
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "nonnumeric-recommended-memory",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "nonnumeric-recommended-memory-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "nonnumeric-recommended-memory",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "nonnumeric-recommended-memory",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:nonnumeric-recommended-memory"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:nonnumeric-recommended-memory",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":\"416\"}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:nonnumeric-recommended-memory"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)"
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "below-minimum-recommended-memory",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "below-minimum-recommended-memory-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "below-minimum-recommended-memory",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "below-minimum-recommended-memory",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:below-minimum-recommended-memory"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:below-minimum-recommended-memory",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":127}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:below-minimum-recommended-memory"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)"
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "unchanged-recommended-memory",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "unchanged-recommended-memory-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "unchanged-recommended-memory",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "unchanged-recommended-memory",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:unchanged-recommended-memory"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:unchanged-recommended-memory",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":512}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:unchanged-recommended-memory"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)"
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "larger-recommended-memory",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "larger-recommended-memory-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "larger-recommended-memory",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "larger-recommended-memory",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:larger-recommended-memory"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:larger-recommended-memory",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":768}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:larger-recommended-memory"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)"
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "missing-top-ranked-option",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "missing-top-ranked-option-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "missing-top-ranked-option",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "missing-top-ranked-option",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-top-ranked-option"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-top-ranked-option",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":2,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-top-ranked-option"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "499",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(INCOMPLIANT)"
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "top-ranked-option-not-first",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "top-ranked-option-not-first-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "top-ranked-option-not-first",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "top-ranked-option-not-first",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:top-ranked-option-not-first"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:top-ranked-option-not-first",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":2,\"memorySize\":768},{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:top-ranked-option-not-first"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "499",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(INCOMPLIANT)"
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "minimum-recommended-memory",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "minimum-recommended-memory-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "minimum-recommended-memory",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "minimum-recommended-memory",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:minimum-recommended-memory"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:minimum-recommended-memory",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":128}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:minimum-recommended-memory"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": "499",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(INCOMPLIANT)"
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "eligibility-memory-boundary",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 1792,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "eligibility-memory-boundary-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "eligibility-memory-boundary",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "eligibility-memory-boundary",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 1792,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:eligibility-memory-boundary"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 1792,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:eligibility-memory-boundary",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 100
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:eligibility-memory-boundary"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "missing-analyzed-invocations",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "missing-analyzed-invocations-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "missing-analyzed-invocations",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "missing-analyzed-invocations",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-analyzed-invocations"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-analyzed-invocations",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": null
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:missing-analyzed-invocations"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "insufficient-analyzed-invocations",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "insufficient-analyzed-invocations-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "insufficient-analyzed-invocations",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "insufficient-analyzed-invocations",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:insufficient-analyzed-invocations"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:insufficient-analyzed-invocations",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 49
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:insufficient-analyzed-invocations"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "zero-analyzed-invocations",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "zero-analyzed-invocations-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "zero-analyzed-invocations",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "zero-analyzed-invocations",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:zero-analyzed-invocations"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:zero-analyzed-invocations",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 0
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:zero-analyzed-invocations"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "invocation-eligibility-boundary",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "invocation-eligibility-boundary-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "invocation-eligibility-boundary",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "invocation-eligibility-boundary",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:invocation-eligibility-boundary"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:invocation-eligibility-boundary",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 50
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:invocation-eligibility-boundary"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "rolling-count-does-not-replace-analyzed-count",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "rolling-count-does-not-replace-analyzed-count-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "rolling-count-does-not-replace-analyzed-count",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "rolling-count-does-not-replace-analyzed-count",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:rolling-count-does-not-replace-analyzed-count"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:rolling-count-does-not-replace-analyzed-count",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416}]",
+        "CA10A2__numberOfInvocations__c": 50
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:rolling-count-does-not-replace-analyzed-count",
+    "CA10__sumTwoWeekInvocationCount__c": 1
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "699",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "observed-optimized-0",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 256,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "observed-optimized-0-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "observed-optimized-0",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "observed-optimized-0",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 256,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:observed-optimized-0"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 256,
+        "CA10A2__finding__c": "Optimized",
+        "CA10A2__findingReasonCodes__c": "",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:observed-optimized-0",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":256,\"projectedUtilizationMetrics\":[{\"name\":\"Duration\",\"statistic\":\"LowerBound\",\"value\":1972.1611911201194},{\"name\":\"Duration\",\"statistic\":\"Expected\",\"value\":2070.7692506761255},{\"name\":\"Duration\",\"statistic\":\"UpperBound\",\"value\":2174.307713209932}]}]",
+        "CA10A2__numberOfInvocations__c": 5317061,
+        "CA10A2__utilizationMetricsJson__c": "[{\"name\":\"Duration\",\"statistic\":\"Average\",\"value\":2070.7692506761255},{\"name\":\"Duration\",\"statistic\":\"Maximum\",\"value\":300000.0},{\"name\":\"Memory\",\"statistic\":\"Average\",\"value\":210.849442361004},{\"name\":\"Memory\",\"statistic\":\"Maximum\",\"value\":224.0}]"
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:observed-optimized-0"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "699",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "observed-optimized-1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 256,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "observed-optimized-1-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "observed-optimized-1",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "observed-optimized-1",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 256,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:observed-optimized-1"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 256,
+        "CA10A2__finding__c": "Optimized",
+        "CA10A2__findingReasonCodes__c": "",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:observed-optimized-1",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":256,\"projectedUtilizationMetrics\":[{\"name\":\"Duration\",\"statistic\":\"LowerBound\",\"value\":893.3064660207517},{\"name\":\"Duration\",\"statistic\":\"Expected\",\"value\":937.9717893217893},{\"name\":\"Duration\",\"statistic\":\"UpperBound\",\"value\":984.8703787878788}]}]",
+        "CA10A2__numberOfInvocations__c": 27720,
+        "CA10A2__utilizationMetricsJson__c": "[{\"name\":\"Duration\",\"statistic\":\"Average\",\"value\":937.9717893217893},{\"name\":\"Duration\",\"statistic\":\"Maximum\",\"value\":147100.46875},{\"name\":\"Memory\",\"statistic\":\"Average\",\"value\":142.76150793650794},{\"name\":\"Memory\",\"statistic\":\"Maximum\",\"value\":222.0}]"
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:observed-optimized-1"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "observed-overprovisioned-2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "observed-overprovisioned-2-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "observed-overprovisioned-2",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "observed-overprovisioned-2",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:observed-overprovisioned-2"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:observed-overprovisioned-2",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416,\"projectedUtilizationMetrics\":[{\"name\":\"Duration\",\"statistic\":\"LowerBound\",\"value\":1531.5176222635448},{\"name\":\"Duration\",\"statistic\":\"Expected\",\"value\":1608.093503376722},{\"name\":\"Duration\",\"statistic\":\"UpperBound\",\"value\":1688.4981785455582}],\"savingsOpportunity\":{\"savingsOpportunityPercentage\":13.238,\"estimatedMonthlySavings\":{\"currency\":\"USD\",\"value\":0.378}},\"savingsOpportunityAfterDiscounts\":{\"savingsOpportunityPercentage\":13.238,\"estimatedMonthlySavings\":{\"currency\":\"USD\",\"value\":0.378}}}]",
+        "CA10A2__numberOfInvocations__c": 98002,
+        "CA10A2__utilizationMetricsJson__c": "[{\"name\":\"Duration\",\"statistic\":\"Average\",\"value\":1585.4589090018571},{\"name\":\"Duration\",\"statistic\":\"Maximum\",\"value\":15532.16015625},{\"name\":\"Memory\",\"statistic\":\"Average\",\"value\":197.3647884737046},{\"name\":\"Memory\",\"statistic\":\"Maximum\",\"value\":239.0}]"
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:observed-overprovisioned-2"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "observed-overprovisioned-3",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 1024,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "observed-overprovisioned-3-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "observed-overprovisioned-3",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "observed-overprovisioned-3",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 1024,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:observed-overprovisioned-3"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 1024,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:observed-overprovisioned-3",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":848,\"projectedUtilizationMetrics\":[{\"name\":\"Duration\",\"statistic\":\"LowerBound\",\"value\":58575.652987646194},{\"name\":\"Duration\",\"statistic\":\"Expected\",\"value\":61504.43563702851},{\"name\":\"Duration\",\"statistic\":\"UpperBound\",\"value\":64579.657418879935}],\"savingsOpportunity\":{\"savingsOpportunityPercentage\":13.033,\"estimatedMonthlySavings\":{\"currency\":\"USD\",\"value\":12.358}},\"savingsOpportunityAfterDiscounts\":{\"savingsOpportunityPercentage\":13.033,\"estimatedMonthlySavings\":{\"currency\":\"USD\",\"value\":12.358}}}]",
+        "CA10A2__numberOfInvocations__c": 42573,
+        "CA10A2__utilizationMetricsJson__c": "[{\"name\":\"Duration\",\"statistic\":\"Average\",\"value\":61495.700279519886},{\"name\":\"Duration\",\"statistic\":\"Maximum\",\"value\":62801.71875},{\"name\":\"Memory\",\"statistic\":\"Average\",\"value\":90.78871585277054},{\"name\":\"Memory\",\"statistic\":\"Maximum\",\"value\":93.0}]"
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:observed-overprovisioned-3"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "699",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "observed-underprovisioned-4",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 128,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "observed-underprovisioned-4-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "observed-underprovisioned-4",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "observed-underprovisioned-4",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 128,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:observed-underprovisioned-4"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 128,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryUnderprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:observed-underprovisioned-4",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":160,\"projectedUtilizationMetrics\":[{\"name\":\"Duration\",\"statistic\":\"LowerBound\",\"value\":384.67256173026846},{\"name\":\"Duration\",\"statistic\":\"Expected\",\"value\":403.9061898167819},{\"name\":\"Duration\",\"statistic\":\"UpperBound\",\"value\":424.101499307621}]}]",
+        "CA10A2__numberOfInvocations__c": 467723,
+        "CA10A2__utilizationMetricsJson__c": "[{\"name\":\"Duration\",\"statistic\":\"Average\",\"value\":484.4153655047966},{\"name\":\"Duration\",\"statistic\":\"Maximum\",\"value\":3000.0},{\"name\":\"Memory\",\"statistic\":\"Average\",\"value\":97.26925552089591},{\"name\":\"Memory\",\"statistic\":\"Maximum\",\"value\":106.0}]"
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:observed-underprovisioned-4"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "699",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "observed-underprovisioned-5",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 128,
+    "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "observed-underprovisioned-5-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "observed-underprovisioned-5",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "observed-underprovisioned-5",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 128,
+          "CA10__lastModified__c": "2026-08-01T00:00:00Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:observed-underprovisioned-5"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 128,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryUnderprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:observed-underprovisioned-5",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":160,\"projectedUtilizationMetrics\":[{\"name\":\"Duration\",\"statistic\":\"LowerBound\",\"value\":1003.4978622069079},{\"name\":\"Duration\",\"statistic\":\"Expected\",\"value\":1053.6727553172534},{\"name\":\"Duration\",\"statistic\":\"UpperBound\",\"value\":1106.356393083116}]}]",
+        "CA10A2__numberOfInvocations__c": 90908,
+        "CA10A2__utilizationMetricsJson__c": "[{\"name\":\"Duration\",\"statistic\":\"Average\",\"value\":1290.73604083249},{\"name\":\"Duration\",\"statistic\":\"Maximum\",\"value\":16597.8203125},{\"name\":\"Memory\",\"statistic\":\"Average\",\"value\":106.45368944427334},{\"name\":\"Memory\",\"statistic\":\"Maximum\",\"value\":116.0}]"
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:observed-underprovisioned-5"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-13T12:00:00Z"
+    },
+    "Id": "observed-overprovisioned-zero-savings",
+    "CA10__disappearanceTime__c": null,
+    "CA10__version__c": "$LATEST",
+    "CA10__memorySizeMb__c": 512,
+    "CA10__lastModified__c": "2026-10-12T20:12:32Z",
+    "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r": [
+      {
+        "Id": "observed-overprovisioned-zero-savings-recommendation-0",
+        "CA10A2__disappearanceTime__c": null,
+        "CA10A2__lambdaFunction__c": "observed-overprovisioned-zero-savings",
+        "CA10A2__lambdaFunction__r": {
+          "Id": "observed-overprovisioned-zero-savings",
+          "CA10__disappearanceTime__c": null,
+          "CA10__version__c": "$LATEST",
+          "CA10__memorySizeMb__c": 512,
+          "CA10__lastModified__c": "2026-10-12T20:12:32Z",
+          "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:observed-overprovisioned-zero-savings"
+        },
+        "CA10A2__lambdaFunctionVersion__c": "$LATEST",
+        "CA10A2__lastRefreshTimestamp__c": "2026-10-12T12:00:00Z",
+        "CA10A2__lookbackPeriodInDays__c": 14,
+        "CA10A2__currentMemorySize__c": 512,
+        "CA10A2__finding__c": "NotOptimized",
+        "CA10A2__findingReasonCodes__c": "MemoryOverprovisioned",
+        "CA10A2__lambdaFunctionArn__c": "arn:aws:lambda:us-east-1:123456789012:function:observed-overprovisioned-zero-savings",
+        "CA10A2__memorySizeRecommendationOptionsJson__c": "[{\"rank\":1,\"memorySize\":416,\"projectedUtilizationMetrics\":[{\"name\":\"Duration\",\"statistic\":\"LowerBound\",\"value\":336.27555316810805},{\"name\":\"Duration\",\"statistic\":\"Expected\",\"value\":353.08933082651345},{\"name\":\"Duration\",\"statistic\":\"UpperBound\",\"value\":370.74379736783914}],\"savingsOpportunity\":{\"savingsOpportunityPercentage\":0.0,\"estimatedMonthlySavings\":{\"currency\":\"USD\",\"value\":0.0}},\"savingsOpportunityAfterDiscounts\":{\"savingsOpportunityPercentage\":0.0,\"estimatedMonthlySavings\":{\"currency\":\"USD\",\"value\":0.0}}}]",
+        "CA10A2__numberOfInvocations__c": 937
+      }
+    ],
+    "CA10__arn__c": "arn:aws:lambda:us-east-1:123456789012:function:observed-overprovisioned-zero-savings"
+  }
+]

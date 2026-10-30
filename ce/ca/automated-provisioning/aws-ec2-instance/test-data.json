@@ -1,0 +1,502 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-disappeared-ec2-instance",
+    "Name": "test-disappeared-ec2-instance",
+    "CA10__tagsJson__c": "{\"Owner\":\"platform-team\"}",
+    "CA10__disappearanceTime__c": "2026-06-22T00:00:00Z",
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:cloudformation:logical-id'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-cloudformation-logical-id",
+    "Name": "test-aws-cloudformation-logical-id",
+    "CA10__tagsJson__c": "{\"aws:cloudformation:logical-id\":\"Instance\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:cloudformation:stack-id'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-cloudformation-stack-id",
+    "Name": "test-aws-cloudformation-stack-id",
+    "CA10__tagsJson__c": "{\"aws:cloudformation:stack-id\":\"arn:aws:cloudformation:us-east-1:123456789012:stack/test/test\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:cloudformation:stack-name'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-cloudformation-stack-name",
+    "Name": "test-aws-cloudformation-stack-name",
+    "CA10__tagsJson__c": "{\"aws:cloudformation:stack-name\":\"test-stack\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:autoscaling:groupName'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-autoscaling-group-name",
+    "Name": "test-aws-autoscaling-group-name",
+    "CA10__tagsJson__c": "{\"aws:autoscaling:groupName\":\"test-asg\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "599",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:elasticmapreduce:job-flow-id')) && CA10__tagsJson__c.hasExact(bytes('aws:elasticmapreduce:instance-group-role'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-emr-system-tags",
+    "Name": "test-emr-system-tags",
+    "CA10__tagsJson__c": "{\"aws:elasticmapreduce:job-flow-id\":\"j-12345678\",\"aws:elasticmapreduce:instance-group-role\":\"CORE\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "699",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('eks:cluster-name')) && CA10__tagsJson__c.hasExact(bytes('eks:nodegroup-name'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-eks-managed-node-group-tags",
+    "Name": "test-eks-managed-node-group-tags",
+    "CA10__tagsJson__c": "{\"eks:cluster-name\":\"test-cluster\",\"eks:nodegroup-name\":\"test-nodegroup\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "799",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:servicecatalog:portfolioArn'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-servicecatalog-portfolioarn",
+    "Name": "test-aws-servicecatalog-portfolioarn",
+    "CA10__tagsJson__c": "{\"aws:servicecatalog:portfolioArn\":\"arn:aws:catalog:us-east-1:123456789012:portfolio/port-abc123\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "899",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:servicecatalog:productArn'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-servicecatalog-productarn",
+    "Name": "test-aws-servicecatalog-productarn",
+    "CA10__tagsJson__c": "{\"aws:servicecatalog:productArn\":\"arn:aws:catalog:us-east-1:123456789012:product/prod-abc123\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "999",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:servicecatalog:provisioningPrincipalArn'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-servicecatalog-provisioningprincipalarn",
+    "Name": "test-aws-servicecatalog-provisioningprincipalarn",
+    "CA10__tagsJson__c": "{\"aws:servicecatalog:provisioningPrincipalArn\":\"arn:aws:iam::123456789012:role/provisioning-role\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "1099",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:servicecatalog:provisionedProductArn'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-servicecatalog-provisionedproductarn",
+    "Name": "test-aws-servicecatalog-provisionedproductarn",
+    "CA10__tagsJson__c": "{\"aws:servicecatalog:provisionedProductArn\":\"arn:aws:servicecatalog:us-east-1:123456789012:stack/test/pp-abc123\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "1199",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:servicecatalog:provisioningArtifactIdentifier'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-servicecatalog-provisioningartifactidentifier",
+    "Name": "test-aws-servicecatalog-provisioningartifactidentifier",
+    "CA10__tagsJson__c": "{\"aws:servicecatalog:provisioningArtifactIdentifier\":\"pa-abc123\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "1299",
+      "conditionText": "CA10__tagsJson__c.getExact(bytes('AWSApplicationMigrationServiceManaged')) == 'mgn.amazonaws.com'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-application-migration-service-managed",
+    "Name": "test-aws-application-migration-service-managed",
+    "CA10__tagsJson__c": "{\"AWSApplicationMigrationServiceManaged\":\"mgn.amazonaws.com\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "1399",
+      "conditionText": "CA10__tagsJson__c.getExact(bytes('AWSElasticDisasterRecoveryManaged')) == 'drs.amazonaws.com'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-elastic-disaster-recovery-managed",
+    "Name": "test-aws-elastic-disaster-recovery-managed",
+    "CA10__tagsJson__c": "{\"AWSElasticDisasterRecoveryManaged\":\"drs.amazonaws.com\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "1499",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('elasticbeanstalk:environment-name')) && CA10__tagsJson__c.hasExact(bytes('elasticbeanstalk:environment-id'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-elasticbeanstalk-environment-tags",
+    "Name": "test-elasticbeanstalk-environment-tags",
+    "CA10__tagsJson__c": "{\"elasticbeanstalk:environment-name\":\"test-env\",\"elasticbeanstalk:environment-id\":\"e-abc123\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "1700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-emr-single-tag-not-enough",
+    "Name": "test-emr-single-tag-not-enough",
+    "CA10__tagsJson__c": "{\"aws:elasticmapreduce:job-flow-id\":\"j-12345678\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "1700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-eks-single-tag-not-enough",
+    "Name": "test-eks-single-tag-not-enough",
+    "CA10__tagsJson__c": "{\"eks:cluster-name\":\"test-cluster\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "1700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-elasticbeanstalk-single-tag-not-enough",
+    "Name": "test-elasticbeanstalk-single-tag-not-enough",
+    "CA10__tagsJson__c": "{\"elasticbeanstalk:environment-name\":\"test-env\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "1700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-mgn-unexpected-value-not-enough",
+    "Name": "test-mgn-unexpected-value-not-enough",
+    "CA10__tagsJson__c": "{\"AWSApplicationMigrationServiceManaged\":\"unexpected\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "1700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-eks-cost-tag-not-standalone-evidence",
+    "Name": "test-aws-eks-cost-tag-not-standalone-evidence",
+    "CA10__tagsJson__c": "{\"aws:eks:cluster-name\":\"test-cluster\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "1599",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:ec2launchtemplate:id')) && CA10__tagsJson__c.hasExact(bytes('aws:ec2launchtemplate:version'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-launch-template-system-tags",
+    "Name": "test-launch-template-system-tags",
+    "CA10__tagsJson__c": "{\"aws:ec2launchtemplate:id\":\"lt-0123456789abcdef0\",\"aws:ec2launchtemplate:version\":\"3\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "1699",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:ec2:fleet-id'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-ec2-fleet-tag",
+    "Name": "test-ec2-fleet-tag",
+    "CA10__tagsJson__c": "{\"aws:ec2:fleet-id\":\"fleet-0123456789abcdef0\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "1700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-batch-tag-not-standalone-evidence",
+    "Name": "test-aws-batch-tag-not-standalone-evidence",
+    "CA10__tagsJson__c": "{\"AWSBatchServiceTag\":\"batch\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "1700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-cloud9-system-tags-not-standalone-evidence",
+    "Name": "test-cloud9-system-tags-not-standalone-evidence",
+    "CA10__tagsJson__c": "{\"aws:cloud9:environment\":\"env-0123456789abcdef0\",\"aws:cloud9:owner\":\"AIDAEXAMPLE\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "1700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-no-supported-provisioning-tags",
+    "Name": "test-no-supported-provisioning-tags",
+    "CA10__tagsJson__c": "{\"Owner\":\"platform-team\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  }
+]

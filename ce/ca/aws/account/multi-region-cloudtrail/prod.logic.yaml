@@ -4,21 +4,21 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "This AWS Account has a CloudTrail enabled in all regions."
+    currentStateMessage: "This AWS account has a multi-Region CloudTrail enabled."
     check:
       RELATED_LIST_HAS:
         status: "COMPLIANT"
         relationshipName: "CA10__AWS_CloudTrail_Trails__r"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "This Account doesn't have a CloudTrail enabled in all regions."
+  currentStateMessage: "This AWS account does not have a multi-Region CloudTrail enabled."
 relatedLists:
   - relationshipName: "CA10__AWS_CloudTrail_Trails__r"
     importExtracts:
     - file: "/types/CA10__CaAwsCloudTrailTrail__c/object.extracts.yaml"
     conditions:
       - status: "COMPLIANT"
-        currentStateMessage: "This CloudTrail is enabled in all regions."
+        currentStateMessage: "This CloudTrail is multi-Region and logging."
         check:
           AND:
             args:
@@ -44,5 +44,5 @@ relatedLists:
                     BOOLEAN: true
     otherwise:
       status: "INCOMPLIANT"
-      currentStateMessage: "This CloudTrail is not enabled in all regions."
-      remediationMessage: "Consider enabling this CloudTrail in all regions."
+      currentStateMessage: "This CloudTrail is not multi-Region or not logging."
+      remediationMessage: "Enable this CloudTrail as a multi-Region trail."

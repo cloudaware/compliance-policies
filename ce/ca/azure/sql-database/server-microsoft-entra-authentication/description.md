@@ -1,6 +1,6 @@
 # Description
 
-Use Microsoft Entra authentication for authentication with SQL Database to manage credentials in a single place.
+Use Microsoft Entra authentication to manage SQL Database credentials in a single place.
 
 ## Rationale
 
@@ -18,7 +18,7 @@ Microsoft Entra authentication is a mechanism to connect to Microsoft Azure SQL 
 
 ## Impact
 
-This will create administrative overhead with user account and permission management. For further security on these administrative accounts, you may want to consider licensing which supports features like Multi Factor Authentication.
+This creates administrative overhead with user account and permission management. For further security on these administrative accounts, consider licensing that supports features like Multi-Factor Authentication.
 
 ## Audit
 
@@ -33,7 +33,9 @@ This will create administrative overhead with user account and permission manage
 To list SQL Server Admins on a specific server:
 
 ```sh
-az sql server ad-admin list --resource-group <resource-group> --server <server>
+az sql server ad-admin list \
+    --resource-group {{resource-group-name}} \
+    --server {{server-name}}
 ```
 
 ### From PowerShell
@@ -47,7 +49,9 @@ Get-AzSqlServer
 Audit a list of Administrators on a Specific Server:
 
 ```ps
-Get-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName <resource group name> -ServerName <server name>
+Get-AzSqlServerActiveDirectoryAdministrator `
+    -ResourceGroupName {{resource-group-name}} `
+    -ServerName {{server-name}}
 ```
 
 Ensure Output shows `DisplayName` set to `AD account`.
@@ -72,4 +76,4 @@ Entra ID Authentication for SQL Database/Server is not enabled by default.
 
 ## Additional Information
 
-**NOTE** - Assigning an Administrator in Entra ID is just the first step. When using Entra ID for central authentication there are many other groups and roles that need to be configured base on the needs of your organization. The How-to Guides should be used to determine what roles should be assigned and what groups should be created to manage permissions and access to resources.
+**NOTE** - Assigning an Administrator in Entra ID is just the first step. When using Entra ID for central authentication there are many other groups and roles that need to be configured based on the needs of your organization. The How-to Guides should be used to determine what roles should be assigned and what groups should be created to manage permissions and access to resources.

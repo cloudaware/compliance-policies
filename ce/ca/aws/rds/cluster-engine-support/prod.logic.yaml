@@ -1,0 +1,140 @@
+---
+inputType: CA10__CaAwsDbCluster__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsDbCluster__c/object.extracts.yaml
+  - file: /types/CA10__CaAwsDbCluster__c/cluster-engine-support.extracts.yaml
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: The DB cluster is being deleted.
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__status__c
+        right:
+          TEXT: deleting
+  - status: INAPPLICABLE
+    currentStateMessage: This policy does not assess support for this cluster's database engine.
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              SET:
+                itemType: TEXT
+                items:
+                  - aurora-mysql
+                  - aurora-postgresql
+                  - mysql
+                  - postgres
+            search:
+              EXTRACT: CA10__engine__c
+  - status: INAPPLICABLE
+    currentStateMessage: Support dates are unavailable for this cluster's engine major version.
+    check:
+      AND:
+        args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: CA10__engineVersion__c
+          - OR:
+              args:
+                - IS_EMPTY:
+                    arg:
+                      EXTRACT: CA10A2__engineLifecycleSupportInfo__c
+                - EXTRACT: caJsonQueryBoolean__clusterEngineCalendarEmpty
+  - status: UNDETERMINED
+    currentStateMessage: The engine support information is incomplete or inconsistent, so support status cannot be assessed.
+    check:
+      NOT:
+        arg:
+          EXTRACT: caJsonQueryBoolean__clusterEngineCalendarValid
+  # Parse every published date before making a support claim, including future Extended Support dates.
+  - status: UNDETERMINED
+    currentStateMessage: A required engine support date is missing or invalid.
+    check:
+      NOT:
+        arg:
+          AND:
+            args:
+              - NOT_EMPTY:
+                  arg:
+                    EXTRACT: caDateTimeFrom__clusterEngineStandardStart
+              - NOT_EMPTY:
+                  arg:
+                    EXTRACT: caDateTimeFrom__clusterEngineStandardEnd
+              - OR:
+                  args:
+                    - IS_EQUAL:
+                        left:
+                          EXTRACT: caJsonQueryNumber__clusterEngineExtendedPhaseCount
+                        right:
+                          NUMBER: 0
+                    - AND:
+                        args:
+                          - NOT_EMPTY:
+                              arg:
+                                EXTRACT: caDateTimeFrom__clusterEngineExtendedStart
+                          - NOT_EMPTY:
+                              arg:
+                                EXTRACT: caDateTimeFrom__clusterEngineExtendedEnd
+  - status: UNDETERMINED
+    currentStateMessage: The reported standard support period for this engine version has not started.
+    check:
+      IS_AFTER_TODAY:
+        arg:
+          EXTRACT: caDateTimeFrom__clusterEngineStandardStart
+  - status: INCOMPLIANT
+    currentStateMessage: AWS standard support has ended for this engine version, but its Extended Support status could not be confirmed.
+    remediationMessage: Plan a tested engine upgrade and verify any temporary Extended Support coverage with AWS.
+    check:
+      AND:
+        args:
+          - IS_BEFORE_TODAY:
+              arg:
+                EXTRACT: caDateTimeFrom__clusterEngineStandardEnd
+          - NOT:
+              arg:
+                EXTRACT: caJsonQueryBoolean__clusterEngineCalendarWholeDays
+  - status: UNDETERMINED
+    currentStateMessage: Standard support for this engine version cannot be confirmed from the reported dates.
+    check:
+      NOT:
+        arg:
+          EXTRACT: caJsonQueryBoolean__clusterEngineCalendarWholeDays
+  - status: COMPLIANT
+    currentStateMessage: The cluster's engine major version is within AWS standard support.
+    check:
+      NOT:
+        arg:
+          IS_BEFORE_TODAY:
+            arg:
+              EXTRACT: caDateTimeFrom__clusterEngineStandardEnd
+  - status: INCOMPLIANT
+    currentStateMessage: AWS standard support has ended for this engine version, and no Extended Support period is listed.
+    remediationMessage: Test and upgrade the cluster to an engine major version within AWS standard support.
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: caJsonQueryNumber__clusterEngineExtendedPhaseCount
+        right:
+          NUMBER: 0
+  - status: INCOMPLIANT
+    currentStateMessage: The cluster's engine major version is past the end of AWS support, including Extended Support.
+    remediationMessage: Prioritize a tested engine upgrade and confirm the cluster's current version and support status with AWS.
+    check:
+      IS_BEFORE_TODAY:
+        arg:
+          EXTRACT: caDateTimeFrom__clusterEngineExtendedEnd
+  - status: INCOMPLIANT
+    currentStateMessage: AWS standard support has ended for this engine version, and its listed Extended Support period has not started.
+    remediationMessage: Test and upgrade to an engine major version within AWS standard support, and confirm support coverage with AWS.
+    check:
+      IS_AFTER_TODAY:
+        arg:
+          EXTRACT: caDateTimeFrom__clusterEngineExtendedStart
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: The cluster's engine major version is outside AWS standard support but within the published RDS Extended Support period.
+  remediationMessage: Plan a tested engine upgrade or approve a temporary exception after verifying Extended Support enrollment and costs.

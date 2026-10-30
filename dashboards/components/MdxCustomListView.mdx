@@ -1,0 +1,63 @@
+<MdxCard>
+[Back to Index](index.md)
+
+# MdxCustomListView
+
+```jsx
+<MdxCustomListView
+  componentKey="accounts_list"
+  viewSettings={{
+    sObjectName: "Account",
+    keyPrefix: "001",
+    listViewPreset: {
+      columns: [
+        { label: "Name", name: "Name", fieldNameOrPath: "Name", type: "TEXT" },
+        {
+          label: "Industry",
+          name: "Industry",
+          fieldNameOrPath: "Industry",
+          type: "TEXT",
+        },
+        {
+          label: "Annual Revenue",
+          name: "AnnualRevenue",
+          fieldNameOrPath: "AnnualRevenue",
+          type: "DOUBLE",
+        },
+      ],
+      filter: {},
+    },
+  }}
+/>
+```
+
+## componentKey
+
+- `componentKey="my_list"`
+- Unique key for the view instance.
+
+## viewSettings.sObjectName
+
+- `sObjectName="Account"`
+- `sObjectName="Opportunity"`
+- See [MdxCustomView](MdxCustomView.mdx).
+
+## viewSettings.keyPrefix
+
+- `keyPrefix="001"`
+- `keyPrefix="006"`
+- See [MdxCustomView](MdxCustomView.mdx).
+
+## viewSettings.listViewPreset.columns
+
+- `{ label: "Name", name: "Name", fieldNameOrPath: "Name", type: "TEXT" }`
+- `{ label: "Industry", name: "Industry", fieldNameOrPath: "Industry", type: "TEXT" }`
+- `{ label: "Annual Revenue", name: "AnnualRevenue", fieldNameOrPath: "AnnualRevenue", type: "DOUBLE" }`
+- See [MdxCustomView](MdxCustomView.mdx).
+
+## viewSettings.listViewPreset.filter
+
+- Optional ListView filter.
+- See [MdxCustomView](MdxCustomView.mdx).
+
+</MdxCard>

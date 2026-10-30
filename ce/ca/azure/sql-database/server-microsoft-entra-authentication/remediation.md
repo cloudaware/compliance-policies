@@ -3,7 +3,7 @@
 ## From Azure Portal
 
 1. Go to `SQL servers`.
-2. For each SQL server, under Settings, click `Microsoft Entra admin`.
+2. For each SQL server, under `Settings`, click `Microsoft Entra admin`.
 3. Click on `Set admin`.
 4. Select an admin.
 5. Click `Select`.
@@ -12,13 +12,17 @@
 ## From Azure CLI
 
 ```sh
-az ad user show --id
+az ad user show --id {{user-principal-id}}
 ```
 
 For each Server, set AD Admin:
 
 ```sh
-az sql server ad-admin create --resource-group <resource group name> --server <server name> --display-name <display name> --object-id <object id of user>
+az sql server ad-admin create \
+    --resource-group {{resource-group-name}} \
+    --server {{server-name}} \
+    --display-name {{display-name}} \
+    --object-id {{object-id}}
 ```
 
 ## From PowerShell
@@ -26,5 +30,8 @@ az sql server ad-admin create --resource-group <resource group name> --server <s
 For each Server, set Entra ID Admin:
 
 ```ps
-Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName <resource group name> -ServerName <server name> -DisplayName "<Display name of AD account to set as DB administrator>"
+Set-AzSqlServerActiveDirectoryAdministrator `
+    -ResourceGroupName {{resource-group-name}} `
+    -ServerName {{server-name}} `
+    -DisplayName "{{display-name}}"
 ```

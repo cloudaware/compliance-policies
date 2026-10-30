@@ -1,0 +1,9 @@
+---
+name: 2.1 Ensure no security lists allow ingress from 0.0.0.0/0 to port 22 - Level 1 (Automated)
+description: >
+  Security lists provide stateful and stateless filtering of ingress and egress
+  network traffic to OCI resources on a subnet level. It is recommended that no
+  security list allows unrestricted ingress access to port 22.
+similar:
+  internal:
+    - dec-c-cb274607

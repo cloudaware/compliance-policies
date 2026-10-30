@@ -1,0 +1,82 @@
+[
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "conditionIndex": 99,
+      "status": "DISAPPEARED"
+    },
+    "CA10__multiAZ__c": false,
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__engine__c": "aurora-postgresql",
+    "Id": "test1",
+    "CA10__disappearanceTime__c": "2026-01-20T22:12:18Z",
+    "CA10__status__c": "stopped"
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__status__c') != 'available'",
+      "conditionIndex": 199,
+      "status": "INAPPLICABLE"
+    },
+    "CA10__multiAZ__c": false,
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__engine__c": "aurora-postgresql",
+    "Id": "test2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "stopped"
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__multiAZ__c') == false",
+      "conditionIndex": 399,
+      "status": "INCOMPLIANT"
+    },
+    "CA10__multiAZ__c": false,
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__engine__c": "aurora-postgresql",
+    "Id": "test3",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available"
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__multiAZ__c') == true",
+      "conditionIndex": 499,
+      "status": "COMPLIANT"
+    },
+    "CA10__multiAZ__c": true,
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__engine__c": "aurora-postgresql",
+    "Id": "test4",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available"
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "not(extract('CA10__engine__c').contains('aurora'))",
+      "conditionIndex": 299,
+      "status": "INAPPLICABLE"
+    },
+    "CA10__multiAZ__c": true,
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__engine__c": "postgresql",
+    "Id": "test5",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available"
+  }
+]

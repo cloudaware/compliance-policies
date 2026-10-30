@@ -1,0 +1,101 @@
+---
+inputType: "CA10A1__CaAwsCognitoUserPool__c"
+importExtracts:
+  - file: "/types/CA10A1__CaAwsCognitoUserPool__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Cognito user pool password policy minimum length is less than 8 characters."
+    remediationMessage: "Set the Cognito user pool password policy minimum length to at least 8 characters."
+    check:
+      LESS_THAN:
+        left:
+          EXTRACT: "CA10A1__passwordPolicyMinimumLength__c"
+        right:
+          NUMBER: 8.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Cognito user pool password policy does not require lowercase letters."
+    remediationMessage: "Require at least one lowercase letter in the Cognito user pool password policy."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10A1__passwordPolicyIsRequireLowercase__c"
+        right:
+          TEXT: "true"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Cognito user pool password policy does not require uppercase letters."
+    remediationMessage: "Require at least one uppercase letter in the Cognito user pool password policy."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10A1__passwordPolicyIsRequireUppercase__c"
+        right:
+          TEXT: "true"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Cognito user pool password policy does not require numbers."
+    remediationMessage: "Require at least one number in the Cognito user pool password policy."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10A1__passwordPolicyIsRequireNumbers__c"
+        right:
+          TEXT: "true"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Cognito user pool password policy does not require symbols."
+    remediationMessage: "Require at least one symbol in the Cognito user pool password policy."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10A1__passwordPolicyIsRequireSymbols__c"
+        right:
+          TEXT: "true"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Cognito user pool temporary password validity period is greater than 7 days."
+    remediationMessage: "Set the Cognito user pool temporary password validity period to 7 days or fewer."
+    check:
+      GREATER_THAN:
+        left:
+          EXTRACT: "CA10A1__passwordPolicyTemporaryValidityDays__c"
+        right:
+          NUMBER: 7.0
+  - status: "COMPLIANT"
+    currentStateMessage: "The Cognito user pool password policy requires a minimum\
+      \ length of at least 8 characters, requires uppercase and lowercase letters,\
+      \ numbers, and symbols, and limits temporary passwords to 7 days or fewer."
+    check:
+      AND:
+        args:
+          - GREATER_THAN_EQUAL:
+              left:
+                EXTRACT: "CA10A1__passwordPolicyMinimumLength__c"
+              right:
+                NUMBER: 8.0
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10A1__passwordPolicyIsRequireLowercase__c"
+              right:
+                TEXT: "true"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10A1__passwordPolicyIsRequireUppercase__c"
+              right:
+                TEXT: "true"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10A1__passwordPolicyIsRequireNumbers__c"
+              right:
+                TEXT: "true"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10A1__passwordPolicyIsRequireSymbols__c"
+              right:
+                TEXT: "true"
+          - LESS_THAN_EQUAL:
+              left:
+                EXTRACT: "CA10A1__passwordPolicyTemporaryValidityDays__c"
+              right:
+                NUMBER: 7.0
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values were found in the Cognito user pool password policy settings."

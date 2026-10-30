@@ -1,0 +1,82 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": "2026-04-15T12:00:00Z",
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-mysql",
+    "CA10__backtrackWindow__c": 3600,
+    "Id": "test1"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__status__c') != 'available'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "creating",
+    "CA10__engine__c": "aurora-mysql",
+    "CA10__backtrackWindow__c": 3600,
+    "Id": "test2"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__engine__c') != 'aurora-mysql'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__backtrackWindow__c": 3600,
+    "Id": "test3"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__backtrackWindow__c') > number(0.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-mysql",
+    "CA10__backtrackWindow__c": 3600,
+    "Id": "test4"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__backtrackWindow__c') <= number(0.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-mysql",
+    "CA10__backtrackWindow__c": 0,
+    "Id": "test5"
+  }
+]

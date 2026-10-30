@@ -224,18 +224,12 @@ If your policy needs to check related objects (e.g., volumes attached to instanc
      "fromType": "CA10__CaAwsVolume__c",
      "toType": "CA10__CaAwsInstance__c",
      "lookupFieldApiName": "CA10__attachmentInstance2__c",
-     "lookupFieldLabel": "Attachment Instance"
+     "lookupFieldLabel": "Attachment Instance",
+     "relatedListApiName": "CA10__AWS_EBS_Volumes__r"
    }
    ```
 
-3. **Find the Relationship Name**: Now search the instance type.json for the relationship name:
-   ```bash
-   # Find the relationship name that points to volumes
-   grep -i "CA10__CaAwsVolume__c" /types/CA10__CaAwsInstance__c/type.json | grep relationshipName
-   # Returns something like: "relationshipName": "CA10__AWS_EBS_Volumes__r"
-   ```
-
-4. **Read Related List Operations Guide**:
+3. **Read Related List Operations Guide**:
    ```bash
    cat /guides/developer/operations/related-list-count.md
    ```

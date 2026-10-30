@@ -6,7 +6,9 @@ description: >
   Identify and address idle Azure Virtual Machines to optimize costs by stopping, 
   terminating, or downscaling VMs with low utilization. VMs are 
   considered idle if their average CPU utilization is below 5%, maximum CPU 
-  utilization is below 15%, and average network I/O is below 100 MB over a 14-day period.
+  utilization is below 15%, average network I/O is below 100 MB over a 14-day period,
+  and, when available, memory utilization is below 20%, disk read utilization is below 5%,
+  and disk write utilization is below 5%.
 categories:
   - "COST"
   - "PERFORMANCE"

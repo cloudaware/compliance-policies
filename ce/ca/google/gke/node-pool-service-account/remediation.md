@@ -14,7 +14,7 @@
 2. **Capture the service account email**
 
     ```sh
-    export NODE_SA_EMAIL=$(gcloud iam service-accounts list \
+    export {{node-sa-email}}=$(gcloud iam service-accounts list \
         --format='value(email)' \
         --filter='displayName:GKE Node Service Account')
     ```
@@ -22,22 +22,22 @@
 3. **Capture the project ID**
 
     ```sh
-    export PROJECT_ID=$(gcloud config get-value project)
+    export {{project-id}}=$(gcloud config get-value project)
     ```
 
 4. **Grant the required roles to the service account**
 
     ```sh
-    gcloud projects add-iam-policy-binding $PROJECT_ID \
-        --member serviceAccount:$NODE_SA_EMAIL \
+    gcloud projects add-iam-policy-binding ${{project-id}} \
+        --member serviceAccount:${{node-sa-email}} \
         --role roles/monitoring.metricWriter
 
-    gcloud projects add-iam-policy-binding $PROJECT_ID \
-        --member serviceAccount:$NODE_SA_EMAIL \
+    gcloud projects add-iam-policy-binding ${{project-id}} \
+        --member serviceAccount:${{node-sa-email}} \
         --role roles/monitoring.viewer
 
-    gcloud projects add-iam-policy-binding $PROJECT_ID \
-        --member serviceAccount:$NODE_SA_EMAIL \
+    gcloud projects add-iam-policy-binding ${{project-id}} \
+        --member serviceAccount:${{node-sa-email}} \
         --role roles/logging.logWriter
     ```
 
@@ -45,7 +45,7 @@
 
     ```sh
     gcloud container node-pools create {{node-pool}} \
-        --service-account=$NODE_SA_EMAIL \
+        --service-account=${{node-sa-email}} \
         --cluster={{cluster-name}} \
         --zone {{compute-zone}}
     ```

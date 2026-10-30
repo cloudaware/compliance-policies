@@ -1,0 +1,911 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__engineType__c') == 'ActiveMQ' && (setOfText(['5.15', '5.16', '5.17']).contains(extract('CA10__engineVersion__c')) || extract('CA10__engineVersion__c').startsWith('5.15.') || extract('CA10__engineVersion__c').startsWith('5.16.') || extract('CA10__engineVersion__c').startsWith('5.17.'))"
+    },
+    "Id": "ActiveMQ-5.15-minor",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.15"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__engineType__c') == 'ActiveMQ' && (setOfText(['5.15', '5.16', '5.17']).contains(extract('CA10__engineVersion__c')) || extract('CA10__engineVersion__c').startsWith('5.15.') || extract('CA10__engineVersion__c').startsWith('5.16.') || extract('CA10__engineVersion__c').startsWith('5.17.'))"
+    },
+    "Id": "ActiveMQ-5.16-minor",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.16"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__engineType__c') == 'ActiveMQ' && (setOfText(['5.15', '5.16', '5.17']).contains(extract('CA10__engineVersion__c')) || extract('CA10__engineVersion__c').startsWith('5.15.') || extract('CA10__engineVersion__c').startsWith('5.16.') || extract('CA10__engineVersion__c').startsWith('5.17.'))"
+    },
+    "Id": "ActiveMQ-5.17-minor",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.17"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "extract('CA10__engineType__c') == 'RabbitMQ' && (setOfText(['3.11', '3.12']).contains(extract('CA10__engineVersion__c')) || extract('CA10__engineVersion__c').startsWith('3.11.') || extract('CA10__engineVersion__c').startsWith('3.12.'))"
+    },
+    "Id": "RabbitMQ-3.11-minor",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": "3.11"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "extract('CA10__engineType__c') == 'RabbitMQ' && (setOfText(['3.11', '3.12']).contains(extract('CA10__engineVersion__c')) || extract('CA10__engineVersion__c').startsWith('3.11.') || extract('CA10__engineVersion__c').startsWith('3.12.'))"
+    },
+    "Id": "RabbitMQ-3.12-minor",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": "3.12"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "ActiveMQ-supported-5.18.8",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.18.8"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "ActiveMQ-supported-5.19",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.19"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "ActiveMQ-supported-5.19.1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.19.1"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "RabbitMQ-supported-3.13",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": "3.13"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "RabbitMQ-supported-3.13.7",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": "3.13.7"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "RabbitMQ-supported-4.2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": "4.2"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "RabbitMQ-supported-4.3",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": "4.3"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "RabbitMQ-supported-4.3.1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": "4.3.1"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 302,
+      "conditionText": "CA10__engineVersion__c.isEmpty()"
+    },
+    "Id": "malformed-0",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 302,
+      "conditionText": "CA10__engineVersion__c.isEmpty()"
+    },
+    "Id": "malformed-1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 302,
+      "conditionText": "CA10__engineVersion__c.isEmpty()"
+    },
+    "Id": "malformed-2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "  "
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "malformed-3",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "malformed-4",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.18."
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "malformed-5",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.18.bad"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "malformed-6",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.18.1-rc1"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "malformed-7",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5..18"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "malformed-8",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.18.1.1"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "malformed-9",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.18 .1"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "malformed-10",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.18. 1"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "malformed-11",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": ".5.18"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "unknown-40",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "UnknownMQ",
+    "CA10__engineVersion__c": "5.18"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "unknown-41",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.20"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "unknown-42",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": "4.4"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "unknown-43",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": "5.18"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "unknown-44",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "3.13"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "unknown-45",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.180.1"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "Id": "unknown-46",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": "3.8.27"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 301,
+      "conditionText": "CA10__engineType__c.isEmpty()"
+    },
+    "Id": "unknown-47",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": null,
+    "CA10__engineVersion__c": "5.18"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__engineType__c') == 'ActiveMQ' && (setOfText(['5.15', '5.16', '5.17']).contains(extract('CA10__engineVersion__c')) || extract('CA10__engineVersion__c').startsWith('5.15.') || extract('CA10__engineVersion__c').startsWith('5.16.') || extract('CA10__engineVersion__c').startsWith('5.17.'))"
+    },
+    "Id": "REBOOT_IN_PROGRESS",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "REBOOT_IN_PROGRESS",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.17.6"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__engineType__c') == 'ActiveMQ' && (setOfText(['5.15', '5.16', '5.17']).contains(extract('CA10__engineVersion__c')) || extract('CA10__engineVersion__c').startsWith('5.15.') || extract('CA10__engineVersion__c').startsWith('5.16.') || extract('CA10__engineVersion__c').startsWith('5.17.'))"
+    },
+    "Id": "CRITICAL_ACTION_REQUIRED",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "CRITICAL_ACTION_REQUIRED",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.17.6"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__engineType__c') == 'ActiveMQ' && (setOfText(['5.15', '5.16', '5.17']).contains(extract('CA10__engineVersion__c')) || extract('CA10__engineVersion__c').startsWith('5.15.') || extract('CA10__engineVersion__c').startsWith('5.16.') || extract('CA10__engineVersion__c').startsWith('5.17.'))"
+    },
+    "Id": "REPLICA",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "REPLICA",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.17.6"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['DELETION_IN_PROGRESS', 'CREATION_FAILED', 'CREATION_IN_PROGRESS']).contains(extract('CA10__state__c'))"
+    },
+    "Id": "DELETION_IN_PROGRESS",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "DELETION_IN_PROGRESS",
+    "CA10__engineType__c": null,
+    "CA10__engineVersion__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['DELETION_IN_PROGRESS', 'CREATION_FAILED', 'CREATION_IN_PROGRESS']).contains(extract('CA10__state__c'))"
+    },
+    "Id": "CREATION_FAILED",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "CREATION_FAILED",
+    "CA10__engineType__c": null,
+    "CA10__engineVersion__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['DELETION_IN_PROGRESS', 'CREATION_FAILED', 'CREATION_IN_PROGRESS']).contains(extract('CA10__state__c'))"
+    },
+    "Id": "unknown-state-53",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "CREATION_IN_PROGRESS",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.18.8"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 101,
+      "conditionText": "CA10__state__c.isEmpty()"
+    },
+    "Id": "unknown-state-54",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": null,
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.18.8"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 101,
+      "conditionText": "CA10__state__c.isEmpty()"
+    },
+    "Id": "unknown-state-55",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.18.8"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": "299",
+      "conditionText": "not(setOfText(['RUNNING', 'REBOOT_IN_PROGRESS', 'CRITICAL_ACTION_REQUIRED', 'REPLICA']).contains(extract('CA10__state__c')))"
+    },
+    "Id": "unknown-state-56",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "UNKNOWN",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.18.8"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__engineType__c') == 'ActiveMQ' && (setOfText(['5.15', '5.16', '5.17']).contains(extract('CA10__engineVersion__c')) || extract('CA10__engineVersion__c').startsWith('5.15.') || extract('CA10__engineVersion__c').startsWith('5.16.') || extract('CA10__engineVersion__c').startsWith('5.17.'))"
+    },
+    "Id": "pending-upgrade-does-not-remediate",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.17.6",
+    "CA10__pendingEngineVersion__c": "5.18.8"
+  },
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "runtimeError": null,
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)"
+    },
+    "Id": "disappeared",
+    "CA10__disappearanceTime__c": "2026-10-22T00:00:00Z",
+    "CA10__state__c": null,
+    "CA10__engineType__c": null,
+    "CA10__engineVersion__c": null
+  },
+  {
+    "Id": "activemq-single-instance-china",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.18.8",
+    "CA10__deploymentMode__c": "SINGLE_INSTANCE",
+    "CA10__regionName__c": "cn-north-1",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "rabbitmq-supported-cluster",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": "3.13",
+    "CA10__deploymentMode__c": "CLUSTER_MULTI_AZ",
+    "CA10__regionName__c": "eu-west-1",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "rabbitmq-supported-single-instance-china",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": "3.13",
+    "CA10__deploymentMode__c": "SINGLE_INSTANCE",
+    "CA10__regionName__c": "cn-northwest-1",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "rabbitmq-eos-cluster",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": "3.12.13",
+    "CA10__deploymentMode__c": "CLUSTER_MULTI_AZ",
+    "CA10__regionName__c": "us-east-1",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "extract('CA10__engineType__c') == 'RabbitMQ' && (setOfText(['3.11', '3.12']).contains(extract('CA10__engineVersion__c')) || extract('CA10__engineVersion__c').startsWith('3.11.') || extract('CA10__engineVersion__c').startsWith('3.12.'))"
+    }
+  },
+  {
+    "Id": "rabbitmq-eos-single-instance-china",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": "3.12.13",
+    "CA10__deploymentMode__c": "SINGLE_INSTANCE",
+    "CA10__regionName__c": "cn-north-1",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "extract('CA10__engineType__c') == 'RabbitMQ' && (setOfText(['3.11', '3.12']).contains(extract('CA10__engineVersion__c')) || extract('CA10__engineVersion__c').startsWith('3.11.') || extract('CA10__engineVersion__c').startsWith('3.12.'))"
+    }
+  },
+  {
+    "Id": "api-uppercase-activemq",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ACTIVEMQ",
+    "CA10__engineVersion__c": "5.18.8",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "api-uppercase-rabbitmq",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RABBITMQ",
+    "CA10__engineVersion__c": "4.2.1",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "missing-both-engine-fields",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": null,
+    "CA10__engineVersion__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 301,
+      "conditionText": "CA10__engineType__c.isEmpty()"
+    }
+  },
+  {
+    "Id": "missing-rabbitmq-version",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 402,
+      "conditionText": "CA10__engineVersion__c.isEmpty()"
+    }
+  },
+  {
+    "Id": "empty-engine-type",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "",
+    "CA10__engineVersion__c": "5.18.8",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 301,
+      "conditionText": "CA10__engineType__c.isEmpty()"
+    }
+  },
+  {
+    "Id": "deleting-without-engine-fields",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "DELETION_IN_PROGRESS",
+    "CA10__engineType__c": null,
+    "CA10__engineVersion__c": null,
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['DELETION_IN_PROGRESS', 'CREATION_FAILED', 'CREATION_IN_PROGRESS']).contains(extract('CA10__state__c'))"
+    }
+  },
+  {
+    "Id": "rabbitmq-3.9-unverified-deadline",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": "3.9.27",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "rabbitmq-3.10-unverified-deadline",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": "3.10.25",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "supported-current-version-pending-different-version",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.18.8",
+    "CA10__pendingEngineVersion__c": "5.19",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__engineType__c') == 'ActiveMQ' && (setOfText(['5.15', '5.16', '5.17']).contains(extract('CA10__engineVersion__c')) || extract('CA10__engineVersion__c').startsWith('5.15.') || extract('CA10__engineVersion__c').startsWith('5.16.') || extract('CA10__engineVersion__c').startsWith('5.17.'))"
+    },
+    "Id": "ActiveMQ-5.15-patch",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.15.1"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__engineType__c') == 'ActiveMQ' && (setOfText(['5.15', '5.16', '5.17']).contains(extract('CA10__engineVersion__c')) || extract('CA10__engineVersion__c').startsWith('5.15.') || extract('CA10__engineVersion__c').startsWith('5.16.') || extract('CA10__engineVersion__c').startsWith('5.17.'))"
+    },
+    "Id": "ActiveMQ-5.16-patch",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.16.1"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__engineType__c') == 'ActiveMQ' && (setOfText(['5.15', '5.16', '5.17']).contains(extract('CA10__engineVersion__c')) || extract('CA10__engineVersion__c').startsWith('5.15.') || extract('CA10__engineVersion__c').startsWith('5.16.') || extract('CA10__engineVersion__c').startsWith('5.17.'))"
+    },
+    "Id": "ActiveMQ-5.17-patch",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.17.1"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "extract('CA10__engineType__c') == 'RabbitMQ' && (setOfText(['3.11', '3.12']).contains(extract('CA10__engineVersion__c')) || extract('CA10__engineVersion__c').startsWith('3.11.') || extract('CA10__engineVersion__c').startsWith('3.12.'))"
+    },
+    "Id": "RabbitMQ-3.11-patch",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": "3.11.1"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "extract('CA10__engineType__c') == 'RabbitMQ' && (setOfText(['3.11', '3.12']).contains(extract('CA10__engineVersion__c')) || extract('CA10__engineVersion__c').startsWith('3.11.') || extract('CA10__engineVersion__c').startsWith('3.12.'))"
+    },
+    "Id": "RabbitMQ-3.12-patch",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": "3.12.1"
+  },
+  {
+    "Id": "ActiveMQ-future-major",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "6.0",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "RabbitMQ-future-major",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": "5.0",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "ActiveMQ-nonmatching-boundary-5.150.1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "5.150.1",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "ActiveMQ-nonmatching-boundary-15.15.1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "ActiveMQ",
+    "CA10__engineVersion__c": "15.15.1",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "RabbitMQ-nonmatching-boundary-3.120.1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": "3.120.1",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "RabbitMQ-nonmatching-boundary-13.12.1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "RUNNING",
+    "CA10__engineType__c": "RabbitMQ",
+    "CA10__engineVersion__c": "13.12.1",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    }
+  }
+]

@@ -15,9 +15,7 @@ extracts:
       FIELD:
         path: "CA10__status__c"
         undeterminedIf:
-          noAccessDelegate:
-            path: "CA10__status__c"
-            currentStateMessage: "Service status cannot be empty. Possible permission issue with ecs:DescribeServices"
+          isEmpty: "Service status cannot be empty. Possible data collection issue."
 # Values: EC2 | FARGATE | EXTERNAL | MANAGED_INSTANCES
 # Nullable
   - name: "CA10__launchType__c"

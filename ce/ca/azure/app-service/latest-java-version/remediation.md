@@ -2,13 +2,13 @@
 
 ## From Azure Portal
 
-1. Login to Azure Portal using <https://portal.azure.com>.
+1. Log in to the Azure portal using <https://portal.azure.com>.
 2. Go to `App Services`.
-3. Click on each App.
+3. Select each app.
 4. Under `Settings` section, click on `Configuration`.
-5. Click on the `General settings` pane and ensure that for a `Stack` of `Java` the `Major Version` and `Minor Version` reflect a currently supported release, and that the `Java web server version` is set to the `auto-update` option.
+5. Select the `General settings` pane and ensure that for a `Stack` of `Java`, the `Major Version` and `Minor Version` reflect a currently supported release, and that the `Java web server version` is set to the `auto-update` option.
 
-**NOTE**: No action is required if `Java version` is set to `Off`, as Java is not used by your web app.
+**Note**: No action is required if `Java version` is set to `Off`, as Java is not used by your web app.
 
 ## From Azure CLI
 
@@ -21,13 +21,28 @@ az webapp list-runtimes
 To set a currently supported Java version for an existing app, run the following command:
 
 ```sh
-az webapp config set --resource-group <RESOURCE_GROUP_NAME> --name <APP_NAME> --java-version <JAVA_VERSION> --java-container <JAVA_CONTAINER> --java-container-version <JAVA_CONTAINER_VERSION> --windows-fx-version <JAVA_RUNTIME_VERSION> --linux-fx-version <JAVA_RUNTIME_VERSION>
+az webapp config set \
+    --resource-group {{resource-group-name}} \
+    --name {{app-name}} \
+    --java-version {{java-version}} \
+    --java-container {{java-container}} \
+    --java-container-version {{java-container-version}} \
+    --windows-fx-version {{java-runtime-version}} \
+    --linux-fx-version {{java-runtime-version}}
 ```
 
-If creating a new application to use a currently supported version of Java, run the following commands. To create an app service plan:
+If creating a new application to use a currently supported version of Java, run the following commands. To create an App Service plan:
 
 ```sh
-az appservice plan create --resource-group <RESOURCE_GROUP_NAME> --name <PLAN_NAME> --location <LOCATION> --is-linux --number-of-workers <INT> --sku <PRICING_TIER> --hyper-v --sku <PRICING_TIER>
+az appservice plan create \
+    --resource-group {{resource-group-name}} \
+    --name {{plan-name}} \
+    --location {{location}} \
+    --is-linux \
+    --number-of-workers {{number-of-workers}} \
+    --sku {{pricing-tier}} \
+    --hyper-v \
+    --sku {{pricing-tier}}
 ```
 
 Get the app service plan ID:
@@ -36,10 +51,15 @@ Get the app service plan ID:
 az appservice plan list --query "[].{Name:name, ID:id, SKU:sku, Location:location}"
 ```
 
-To create a new Java web application using the retrieved app service ID:
+To create a new Java web application using the retrieved App Service ID:
 
 ```sh
-az webapp create --resource-group <RESOURCE_GROUP_NAME> --plan <APP_SERVICE_PLAN_ID> --name <app name> --linux-fx-version <JAVA_RUNTIME_VERSION> --windows-fx-version <JAVA_RUNTIME_VERSION>
+az webapp create \
+    --resource-group {{resource-group-name}} \
+    --plan {{app-service-plan-id}} \
+    --name {{app-name}} \
+    --linux-fx-version {{java-runtime-version}} \
+    --windows-fx-version {{java-runtime-version}}
 ```
 
 ## From PowerShell

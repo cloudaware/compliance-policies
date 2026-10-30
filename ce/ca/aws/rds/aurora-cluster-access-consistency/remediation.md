@@ -4,7 +4,7 @@
 
 ### From Console
 
-1. Log in to the AWS management console and navigate to the RDS dashboard at [AWS RDS Console](https://console.aws.amazon.com/rds/).
+1. Log in to the AWS Management Console and navigate to the RDS dashboard at [AWS RDS Console](https://console.aws.amazon.com/rds/).
 
 2. In the left navigation panel, choose `Databases`.
 
@@ -16,11 +16,11 @@
     - `Yes`: The database instance is publicly accessible.
     - `No`: The instance is not publicly accessible.
 
-6. If the verified cluster database instances have different values for the `Public Accessibility` attribute, the instances within the selected Amazon Aurora database cluster do not have the same accessibility. In case of failover, the connectivity to the cluster will be lost.
+6. If the verified cluster database instances have different values for the `Public Accessibility` attribute, the instances within the selected Amazon Aurora database cluster do not have the same accessibility. In a failover, connectivity to the cluster can be lost.
 
-7. Repeat the above steps for each Amazon Aurora database cluster available within the current AWS region.
+7. Repeat these steps for each Amazon Aurora database cluster in the current AWS region.
 
-8. Change the AWS cloud region from the navigation bar and repeat the process for other regions.
+8. Change the AWS Region from the navigation bar and repeat the process for other regions.
 
 ### From Command Line
 
@@ -29,10 +29,10 @@
 - Run the following command to list the names of all AWS Aurora database clusters in the selected AWS region:
 
 ```sh
-aws rds describe-db-clusters 
---region us-east-1 
---output table 
---query 'DBClusters[*].DBClusterIdentifier'
+aws rds describe-db-clusters \
+    --region {{region}} \
+    --output table \
+    --query 'DBClusters[*].DBClusterIdentifier'
 ```
 
 - The command output should return a table with the requested cluster identifiers:
@@ -49,10 +49,10 @@ aws rds describe-db-clusters
 - Run the following command to list the names of the database instances within the selected Aurora database cluster:
 
 ```sh
-aws rds describe-db-clusters 
---region us-east-1 
---db-cluster-identifier {{cc-aurora-mysql-cluster}} 
---query 'DBClusters[*].DBClusterMembers[*].DBInstanceIdentifier[]'
+aws rds describe-db-clusters \
+    --region {{region}} \
+    --db-cluster-identifier {{cc-aurora-mysql-cluster}} \
+    --query 'DBClusters[*].DBClusterMembers[*].DBInstanceIdentifier[]'
 ```
 
 - The command output should return a list of instance identifiers:
@@ -69,7 +69,10 @@ aws rds describe-db-clusters
 - Run the following command to describe the `PubliclyAccessible` attribute value for each database instance within the selected cluster:
 
 ```sh
-aws rds describe-db-instances --region us-east-1 --db-instance-identifier {{cc-aurora-mysql-cluster-instance-1}} --query 'DBInstances[*].PubliclyAccessible'
+aws rds describe-db-instances \
+    --region us-east-1 \
+    --db-instance-identifier {{cc-aurora-mysql-cluster-instance-1}} \
+    --query 'DBInstances[*].PubliclyAccessible'
 ```
 
 - The command output should return the accessibility status of the instance:
@@ -82,15 +85,15 @@ aws rds describe-db-instances --region us-east-1 --db-instance-identifier {{cc-a
 
 - If the verified cluster database instances (writer and reader) have different values for the `PubliclyAccessible` attribute, the instances within the selected Amazon Aurora database cluster do not have the same accessibility. In case of failover, the connectivity to the cluster will be lost.
 
-- Repeat the above steps for each Amazon Aurora database cluster available in the selected AWS region.
+- Repeat the above steps for each Amazon Aurora database cluster in the selected AWS region.
 
-- Change the AWS cloud region by updating the `--region` command parameter value and repeat the audit process for other regions.
+- Change the AWS Region by updating the `--region` command parameter value and repeat the audit process for other regions.
 
 ## Remediate AWS RDS Aurora Clusters
 
 ### From Console
 
-1. Log in to the AWS management console and navigate to the RDS dashboard at [AWS RDS Console](https://console.aws.amazon.com/rds/).
+1. Log in to the AWS Management Console and navigate to the RDS dashboard at [AWS RDS Console](https://console.aws.amazon.com/rds/).
 
 2. In the left navigation panel, choose `Databases`.
 
@@ -106,7 +109,7 @@ aws rds describe-db-instances --region us-east-1 --db-instance-identifier {{cc-a
 
 5. Repeat the above steps for each database instance that you want to reconfigure within the selected Aurora cluster.
 
-6. Change the AWS cloud region from the navigation bar and repeat the remediation process for other regions.
+6. Change the AWS Region from the navigation bar and repeat the remediation process for other regions.
 
 ### From Command Line
 
@@ -114,10 +117,10 @@ aws rds describe-db-instances --region us-east-1 --db-instance-identifier {{cc-a
 
 ```sh
 aws rds modify-db-instance 
---region us-east-1 
---db-instance-identifier {{cc-aurora-mysql-cluster-instance-2}} 
---publicly-accessible 
---apply-immediately
+    --region {{region}}  
+    --db-instance-identifier {{cc-aurora-mysql-cluster-instance-2}} 
+    --publicly-accessible 
+    --apply-immediately
 ```
 
 The example uses the `--apply-immediately` parameter to apply configuration changes asynchronously and as soon as possible. This request also applies any changes available in the pending modifications queue. If any pending modifications require downtime, choosing this option can cause unexpected downtime for your Aurora database application. If you omit the `--apply-immediately` parameter from the command request, Amazon Aurora will apply your changes during the next maintenance window.
@@ -140,7 +143,7 @@ Use the `--no-publicly-accessible` parameter to make the instance privately acce
 
 - Repeat the above steps for each database instance that you want to reconfigure within the selected Aurora cluster.
 
-- Change the AWS cloud region by updating the `--region` command parameter value and repeat the remediation process for other regions.
+- Change the AWS Region by updating the `--region` command parameter value and repeat the remediation process for other regions.
 
 # References
 

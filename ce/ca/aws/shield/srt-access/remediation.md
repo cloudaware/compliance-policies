@@ -2,7 +2,7 @@
 
 ## Configure SRT Access for AWS Shield Advanced
 
-To allow the **AWS Shield Response Team (SRT)** to assist in mitigating DDoS events, you must create or configure an IAM role that grants the necessary permissions using the managed policy **`AWSShieldDRTAccessPolicy`**.
+To allow the **AWS Shield Response Team (SRT)** to assist in mitigating DDoS events, create or configure an IAM role that grants the necessary permissions using the managed policy **`AWSShieldDRTAccessPolicy`**.
 
 ### **From Command Line**
 

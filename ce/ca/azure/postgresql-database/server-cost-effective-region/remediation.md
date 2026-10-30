@@ -4,7 +4,7 @@
 
 ### **Workflow Summary**
 
-1. Create a read replica in the target region via the Azure portal.
+1. Create a read replica in the target region in the Azure portal.
 2. Configure firewall rules and virtual network settings for the read replica.
 3. Monitor replication status to ensure data synchronization.
 4. Promote the read replica to become the new primary cluster in the target region.
@@ -24,7 +24,7 @@
 
 ### **3. Monitor Replication Status**
 
-- Use the Azure portal to monitor **Read Replica Lag** and confirm that data is synchronizing properly.
+- Use the Azure portal to monitor **Read Replica Lag** and confirm that data is synchronizing.
 - Ensure CPU and RAM utilization on the read replica remain within acceptable limits.
 
 ### **4. Promote the Read Replica**
@@ -35,7 +35,7 @@
 
 ### **5. Decommission the Original Primary Cluster**
 
-- After ensuring the new primary cluster is fully operational, decommission the source primary cluster.
+- After the new primary cluster is fully operational, decommission the source primary cluster.
 - In the Azure portal, navigate to the original primary cluster and select **Delete**.
 - Confirm deletion to stop billing for the source cluster.
 

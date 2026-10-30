@@ -1,0 +1,17 @@
+---
+names:
+  full: "Oracle Cloud Guard is not enabled in the root compartment"
+  contextual: "Cloud Guard is not enabled in the root compartment"
+description: >
+  Oracle Cloud Guard should be enabled with an active target for the root
+  compartment to provide tenancy-wide security posture monitoring and threat
+  detection coverage.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/threat-protection"
+  - "/frameworks/cis-oracle-v3.1.0/04/14"
+similarPolicies:
+  internal:
+    - "dec-x-dcb56f35"

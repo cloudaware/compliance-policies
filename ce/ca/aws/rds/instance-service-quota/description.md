@@ -1,6 +1,6 @@
 # Description
 
-This policy identifies AWS Accounts where service quotas for RDS Instances exceeds the service limit for your organization for the deployed RDS workloads. By default, CloudAware enforces a threshold of 90% of the maximum allowed number of provisioned database instances.
+This policy identifies AWS Accounts where service quotas for RDS Instances exceed the service limit for your organization’s deployed RDS workloads. By default, CloudAware enforces a threshold of 90% of the maximum allowed number of provisioned database instances.
 
 ## Rationale
 

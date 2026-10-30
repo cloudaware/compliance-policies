@@ -1,0 +1,86 @@
+---
+inputType: "CA10__CaAwsLoadBalancer__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsLoadBalancer__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This policy only applies to application and network load balancers."
+    check:
+      AND:
+        args:
+          - NOT_EQUAL:
+              left:
+                EXTRACT: "CA10__type__c"
+              right:
+                TEXT: "application"
+          - NOT_EQUAL:
+              left:
+                EXTRACT: "CA10__type__c"
+              right:
+                TEXT: "network"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The load balancer has at least one listener using an outdated security policy."
+    remediationMessage: "Update the listener to use a recommended security policy."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__AWS_EC2_Load_Balancer_Listeners__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "All listeners are using recommended security policies."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__AWS_EC2_Load_Balancer_Listeners__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "No HTTPS or TLS listeners are configured for this load balancer."
+relatedLists:
+  - relationshipName: "CA10__AWS_EC2_Load_Balancer_Listeners__r"
+    importExtracts:
+      - file: "/types/CA10__CaAwsLoadBalancerListener__c/object.extracts.yaml"
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "The listener uses a recommended security policy."
+        check:
+          AND:
+            args:
+              - CONTAINS_ANY:
+                  arg:
+                    EXTRACT: "CA10__policyName__c"
+                  search:
+                    SET:
+                      itemType: "TEXT"
+                      items:
+                        - "ELBSecurityPolicy-TLS13-1-2-2021-06"
+                        - "ELBSecurityPolicy-TLS13-1-2-FIPS-2023-04"
+                        - "ELBSecurityPolicy-TLS13-1-3-2021-06"
+                        - "ELBSecurityPolicy-TLS13-1-3-FIPS-2023-04"
+                        - "ELBSecurityPolicy-TLS13-1-2-Res-2021-06 "
+                        - "ELBSecurityPolicy-TLS13-1-2-Res-FIPS-2023-04"
+              - CONTAINS_ANY:
+                  arg:
+                    EXTRACT: "CA10__protocol__c"
+                  search:
+                    SET:
+                      itemType: "TEXT"
+                      items:
+                        - "HTTPS"
+                        - "TLS"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The listener uses an outdated security policy."
+        remediationMessage: "Update the listener's security policy."
+        check:
+          CONTAINS_ANY:
+            arg:
+              EXTRACT: "CA10__protocol__c"
+            search:
+              SET:
+                itemType: "TEXT"
+                items:
+                  - "HTTPS"
+                  - "TLS"
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "This is not an HTTPS or TLS listener."

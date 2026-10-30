@@ -2,7 +2,7 @@
 
 Evaluate and remove Azure Public IP Addresses that are not currently associated with any Azure resource to minimize unnecessary costs and reduce resource clutter.
 
-## Rational
+## Rationale
 
 Unassociated Public IP Addresses in Azure incur charges on an hourly basis despite not being attached to any active service. Proactively identifying and deallocating these unused IPs is an effective cost-optimization strategy.
 

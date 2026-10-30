@@ -1,0 +1,53 @@
+<MdxCard>
+[Back to Index](index.md)
+
+# MdxTable
+
+<MdxTable
+  items={[
+    { id: "1", fields: { name: "Root Item", status: "Active" } },
+    {
+      id: "2",
+      parentId: "1",
+      fields: { name: "Child Item", status: "Inactive" },
+    },
+  ]}
+/>
+
+## items
+
+- `items={[{ id: "1", fields: { name: "Item" } }]}`: <MdxTable items={[{ id: "1", fields: { name: "Item" } }]} />
+
+## items.id
+
+- `id: "1"`: unique row identifier
+
+## items.parentId
+
+- `parentId: "1"`: <MdxTable items={[{ id: "1", fields: { name: "Parent" } }, { id: "2", parentId: "1", fields: { name: "Child" } }]} />
+
+## items.isCollapsed
+
+- `isCollapsed: true`: <MdxTable items={[{ id: "1", isCollapsed: true, fields: { name: "Parent" } }, { id: "2", parentId: "1", fields: { name: "Child" } }]} />
+- `isCollapsed: false`: <MdxTable items={[{ id: "1", isCollapsed: false, fields: { name: "Parent" } }, { id: "2", parentId: "1", fields: { name: "Child" } }]} />
+
+## items.fields
+
+Each key creates a column.
+
+- `fields: { name: "Item", count: 3 }`: <MdxTable items={[{ id: "1", fields: { name: "Item", count: 3 } }]} />
+
+## items.fields.\*
+
+Supports strings, numbers, and JSX.
+
+- `name: <strong>Item</strong>`: <MdxTable items={[{ id: "1", fields: { name: <strong>Item</strong> } }]} />
+
+## items.fields.icon
+
+Accepts an icon name or [Icon](../Icon.mdx) props.
+
+- `icon: "stars"`: <MdxTable items={[{ id: "1", fields: { icon: "stars", name: "String icon" } }]} />
+- `icon: { icon: "stars", color: "primary" }`: <MdxTable items={[{ id: "1", fields: { icon: { icon: "stars", color: "primary" }, name: "Object icon" } }]} />
+
+</MdxCard>

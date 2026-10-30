@@ -7,10 +7,14 @@
 3. Set `Allow Blob Anonymous Access` to `Disabled`.
 4. Click `Save`.
 
-## From Powershell
+## From PowerShell
 
 For every storage account in scope, run the following:
 
 ```ps
-$storageAccount = Get-AzStorageAccount -ResourceGroupName "<yourResourceGroup>" -Name "<yourStorageAccountName>" $storageAccount.AllowBlobPublicAccess = $false Set-AzStorageAccount -InputObject $storageAccount
+$storageAccount = Get-AzStorageAccount `
+    -ResourceGroupName "{{resource-group-name}}" `
+    -Name "{{storage-account-name}}"
+$storageAccount.AllowBlobPublicAccess = $false
+Set-AzStorageAccount -InputObject $storageAccount
 ```

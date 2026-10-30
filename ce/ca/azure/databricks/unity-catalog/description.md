@@ -6,7 +6,7 @@ Unity Catalog is a centralized governance model for managing and securing data i
 
 - Enforces centralized access control policies and reduces data security risks.
 - Enables identity-based authentication via Microsoft Entra ID.
-- Improves compliance with industry regulations (e.g. GDPR, HIPAA, SOC 2) by providing audit logs and access visibility.
+- Improves compliance with industry regulations (e.g., GDPR, HIPAA, SOC 2) by providing audit logs and access visibility.
 - Prevents unauthorized data access through table-, row-, and column-level security (RLS & CLS).
 
 ## Impact
@@ -16,13 +16,13 @@ Unity Catalog is a centralized governance model for managing and securing data i
 
 ## Audit
 
-**Method 1:** Verify unity catalog deployment:
+**Method 1:** Verify Unity Catalog deployment:
 
-1. As an Azure Databricks account admin, log into the account console.
-2. Click Workspaces.
-3. Find your workspace and check the Metastore column. If a metastore name is present, your workspace is attached to a Unity Catalog metastore and therefore enabled for Unity Catalog.
+1. As an Azure Databricks account admin, log in to the account console.
+2. Select `Workspaces`.
+3. Find your workspace and check the `Metastore` column. If a metastore name is present, your workspace is attached to a Unity Catalog metastore and therefore enabled for Unity Catalog.
 
-**Method 2:** Run a SQL query to confirm Unity Catalog enablement
+**Method 2:** Run a SQL query to confirm Unity Catalog enablement:
 
 Run the following SQL query in the SQL query editor or a notebook that is attached to a Unity Catalog-enabled compute resource. No admin role is required.
 

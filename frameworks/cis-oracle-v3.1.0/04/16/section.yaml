@@ -1,0 +1,10 @@
+---
+name: 4.16 Ensure customer created Customer Managed Key (CMK) is rotated at least annually - Level 1 (Automated)
+description: >
+  Oracle Cloud Infrastructure Vault securely stores master encryption keys that
+  protect your encrypted data. You can use the Vault service to rotate keys to
+  generate new cryptographic material. Periodically rotating keys limits the
+  amount of data encrypted by one key version.
+similar:
+  internal:
+    - dec-c-f4e6466f

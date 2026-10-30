@@ -6,8 +6,8 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "CloudWatch Metrics are not enabled for the Athena Workgroup."
-    remediationMessage: "Consider enabling CloudWatch Metrics for the Athena Workgroup."
+    currentStateMessage: "CloudWatch metrics are not enabled for the Athena workgroup."
+    remediationMessage: "Enable CloudWatch metrics for the Athena workgroup."
     check:
       IS_EQUAL:
         left:
@@ -15,7 +15,7 @@ conditions:
         right:
           TEXT: "Disabled"
   - status: "COMPLIANT"
-    currentStateMessage: "CloudWatch Metrics are enabled for the Athena Workgroup."
+    currentStateMessage: "CloudWatch metrics are enabled for the Athena workgroup."
     check:
       IS_EQUAL:
         left:
@@ -24,4 +24,4 @@ conditions:
           TEXT: "Enabled"
 otherwise:
   status: "UNDETERMINED"
-  currentStateMessage: "Unable to determine CloudWatch Metrics status for the Athena Workgroup."
+  currentStateMessage: "Unable to determine the CloudWatch metrics status for the Athena workgroup."

@@ -1,6 +1,6 @@
 # Description
 
-AWS API Gateway should have API Execution Logging enabled in CloudWatch to support effective monitoring and troubleshooting. Enabling execution logging in CloudWatch provides insight into API requests, error rates, and latency, helping detect and respond to issues promptly.
+AWS API Gateway APIs should have execution logging enabled in CloudWatch to support effective monitoring and troubleshooting. Enabling execution logging in CloudWatch provides insight into API requests, error rates, and latency, helping detect and respond to issues promptly.
 
 ## Rationale
 
@@ -12,6 +12,6 @@ Enabling CloudWatch logging may increase CloudWatch costs due to additional logg
 
 ## Audit
 
-This policy will mark an *AWS API Gateway API* as `INCOMPLIANT` if the `CloudWatch Logging Level` field in a related *API Stage* object is either **empty** or set to **OFF**.
+This policy marks an *AWS API Gateway API* as `INCOMPLIANT` if the `CloudWatch Logging Level` field in a related *API Stage* object is either **empty** or set to **OFF**.
 
-For *API Gateway HTTP APIs* (identified by the `Protocol Type` field set to **HTTP**), the policy object will be marked as `INAPPLICABLE` because HTTP APIs do not support execution logging.
+For *API Gateway HTTP APIs* (identified by the `Protocol Type` field set to **HTTP**), the policy object is marked as `INAPPLICABLE` because HTTP APIs do not support execution logging.

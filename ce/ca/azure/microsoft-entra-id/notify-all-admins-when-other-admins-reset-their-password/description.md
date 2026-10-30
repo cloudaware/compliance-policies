@@ -4,7 +4,7 @@ Ensure that all Global Administrators are notified if any other administrator re
 
 ## Rationale
 
-Global Administrator accounts are sensitive. Any password reset activity notification, when sent to all Global Administrators, ensures that all Global administrators can passively confirm if such a reset is a common pattern within their group. For example, if all Global Administrators change their password every 30 days, any password reset activity before that may require administrator(s) to evaluate any unusual activity and confirm its origin.
+Global Administrator accounts are sensitive. Password reset activity notifications, when sent to all Global Administrators, allow administrators to confirm whether a reset is part of a normal pattern. For example, if all Global Administrators change their passwords every 30 days, any password reset activity before that may require administrators to evaluate unusual activity and confirm its origin.
 
 ## Impact
 
@@ -14,7 +14,7 @@ All Global Administrators will receive a notification from Azure every time a pa
 
 ### From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. In the Azure portal, open the portal menu.
 2. Select `Microsoft Entra ID`.
 3. Under `Manage`, select `Users`.
 4. Under `Manage`, select `Password reset`.

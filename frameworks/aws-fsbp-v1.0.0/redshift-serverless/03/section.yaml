@@ -1,0 +1,12 @@
+name: >
+  [RedshiftServerless.3] Redshift Serverless workgroups should prohibit public access
+description: |-
+  The public access (publiclyAccessible) setting for an Amazon Redshift Serverless 
+  workgroup specifies whether the workgroup can be accessed from a public network. 
+  If public access is enabled (true) for a workgroup, Amazon Redshift creates an 
+  Elastic IP address that makes the workgroup publicly accessible from outside 
+  the VPC. If you don't want a workgroup to be publicly accessible, disable 
+  public access for it.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/redshiftserverless-controls.html#redshiftserverless-3

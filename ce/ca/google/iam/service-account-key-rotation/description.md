@@ -1,6 +1,6 @@
 # Description
 
-Service Account keys consist of a key ID (Private_key_Id) and Private key, which are used to sign programmatic requests users make to Google cloud services accessible to that particular service account. It is recommended that all Service Account keys are regularly rotated.
+Service Account keys consist of a key ID (Private_key_Id) and Private key, which are used to sign programmatic requests users make to Google Cloud services accessible to that particular service account. It is recommended that all Service Account keys are regularly rotated.
 
 ## Rationale
 
@@ -25,11 +25,17 @@ Rotating service account keys will break communication for dependent application
 
 1. List all Service accounts from a project.
 
+     ```sh
      gcloud iam service-accounts list
+     ```
 
 2. For every service account list service account keys.
 
-     gcloud iam service-accounts keys list --iam-account [Service_Account_Email_Id] --format=json
+     ```sh
+     gcloud iam service-accounts keys list \
+         --iam-account {{service-account-email-id}} \
+         --format=json
+     ```
 
 3. Ensure every service account key for a service account has a `"validAfterTime"` value within the past 90 days.
 

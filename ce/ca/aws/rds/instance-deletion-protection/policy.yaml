@@ -1,0 +1,21 @@
+---
+names:
+  full: AWS RDS Instance Deletion Protection is not enabled
+  contextual: Instance Deletion Protection is not enabled
+description: >
+  Deletion protection prevents an RDS instance from being accidentally deleted. 
+  When enabled, the instance cannot be deleted by any user until the protection 
+  is specifically disabled by modifying the instance.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-protection-and-recovery"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/08"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[RDS.8] RDS DB instances should have deletion protection enabled"
+      url: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-8
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/RDS/instance-deletion-protection.html
+      name: Instance Deletion Protection

@@ -12,7 +12,7 @@ There is no charge for creating activity log alert rules.
 
 ## Audit
 
-This policy evaluates *Azure Subscriptions* for the presence of an *Azure Activity Log Alert* that captures **Service Health** events. A subscription is marked as `INCOMPLIANT` if it does **not** have an *Activity Log Alert* whose `Condition JSON` filters on the **ServiceHealth** operation and the `Scope` is set to subscription.
+This policy flags an *Azure Subscription* as `INCOMPLIANT` if it does **not** have an enabled related *Azure Activity Log Alert* scoped to the subscription whose `Condition JSON` filters on **ServiceHealth**.
 
 ## Default Value
 

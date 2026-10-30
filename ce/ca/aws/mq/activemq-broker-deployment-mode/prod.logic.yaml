@@ -1,0 +1,35 @@
+---
+inputType: "CA10__CaAwsMqBroker__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsMqBroker__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This policy applies only to ActiveMQ brokers."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: CA10__engineType__c
+        right:
+          TEXT: "ActiveMQ"
+  - status: "COMPLIANT"
+    currentStateMessage: "The ActiveMQ broker is using the active/standby deployment mode."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__deploymentMode__c
+        right:
+          TEXT: "ACTIVE_STANDBY_MULTI_AZ"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The ActiveMQ broker is using the single-instance deployment mode."
+    remediationMessage: "Migrate to the active/standby deployment mode."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__deploymentMode__c
+        right:
+          TEXT: "SINGLE_INSTANCE"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected Amazon MQ ActiveMQ broker deployment mode value."

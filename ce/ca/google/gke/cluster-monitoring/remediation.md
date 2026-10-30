@@ -9,5 +9,5 @@ To ensure visibility into cluster performance, uptime, and overall health, Cloud
     ```sh
     gcloud container clusters update {{cluster-name}} \
         --location {{location}} \
-        --monitoring=SYSTEM,API_SERVER,POD
+        --monitoring=SYSTEM,{{api-server}},POD
     ```

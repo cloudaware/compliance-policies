@@ -1,0 +1,18 @@
+---
+inputType: "CA10O1__CaOracleIamUserApiKey2__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10O1__CaOracleIamUserApiKey2__c/object.extracts.yaml
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This Oracle IAM API key is older than 90 days."
+    remediationMessage: "Rotate this Oracle IAM API key and delete the stale key after dependent workloads are updated."
+    check:
+      IS_BEYOND_LAST_DAYS:
+        arg:
+          EXTRACT: "CA10O1__timeCreated__c"
+        offsetDays: 90
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "This Oracle IAM API key was created within the last 90 days."

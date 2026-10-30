@@ -1,6 +1,6 @@
 # Description
 
-Use private endpoints for your Azure Storage accounts to allow clients and services to securely access data located over a network via an encrypted Private Link. To do this, the private endpoint uses an IP address from the VNet for each service. Network traffic between disparate services securely traverses encrypted over the VNet. This VNet can also link addressing space, extending your network and accessing resources on it. Similarly, it can be a tunnel through public networks to connect remote infrastructures together. This creates further security through segmenting network traffic and preventing outside sources from accessing it.
+Use private endpoints for your Azure Storage accounts to allow clients and services to securely access data over an encrypted Private Link. The private endpoint uses an IP address from the VNet for each service. Network traffic between services traverses the VNet and is encrypted in transit. This VNet can also link address space, extending your network and accessing resources on it. It can also act as a tunnel through public networks to connect remote infrastructure. This creates additional security by segmenting network traffic and preventing outside sources from accessing it.
 
 ## Rationale
 

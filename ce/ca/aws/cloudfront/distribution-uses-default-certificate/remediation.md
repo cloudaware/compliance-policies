@@ -4,7 +4,7 @@
 
 ### Prerequisites
 
-Before updating your CloudFront distribution to include an alternate domain name, complete the following:
+Before updating your CloudFront distribution to include alternate domain names, complete the following:
 
 - Register the desired domain name with Amazon Route 53 or a third‑party registrar.
 - Get a valid TLS certificate from an approved Certificate Authority (CA) that covers your domain. Add the certificate to your distribution to validate that you are authorized to use the domain.

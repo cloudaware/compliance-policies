@@ -26,7 +26,9 @@ Secure Boot helps ensure that the system only runs authentic software by verifyi
 
 1. For each instance in your project, get its metadata:
 
-            gcloud compute instances list --format=json | jq -r '. | "vTPM: \(.[].shieldedInstanceConfig.enableVtpm) IntegrityMonitoring: \(.[].shieldedInstanceConfig.enableIntegrityMonitoring) Name: \(.[].name)"'
+    ```sh
+    gcloud compute instances list --format=json | jq -r '. | "vTPM: \(.[].shieldedInstanceConfig.enableVtpm) IntegrityMonitoring: \(.[].shieldedInstanceConfig.enableIntegrityMonitoring) Name: \(.[].name)"'
+    ```
 
 2. Ensure that there is a `shieldedInstanceConfig` configuration and that configuration has the `enableIntegrityMonitoring` and `enableVtpm` set to `true`. If the VM is not a Shield VM image, you will not see a `shieldedInstanceConfig` in the output.
 

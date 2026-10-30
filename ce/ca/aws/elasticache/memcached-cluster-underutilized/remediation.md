@@ -17,7 +17,7 @@ You can modify an existing cluster's node type using the `modify-cache-cluster` 
 ```bash
 aws elasticache modify-cache-cluster \
     --cache-cluster-id {{cache-cluster-id}} \
-    --cache-node-type {{new-node-type}} \
+    --cache-node-type {{new-node-type}}
 ```
 
 The `--apply-immediately` flag applies the change immediately; omit it to apply during the next maintenance window.

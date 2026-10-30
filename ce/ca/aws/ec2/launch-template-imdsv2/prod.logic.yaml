@@ -1,0 +1,32 @@
+---
+inputType: "CA10A1__CaAwsEc2LaunchTemplate__c"
+importExtracts:
+  - file: "/types/CA10A1__CaAwsEc2LaunchTemplateVersion__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "The latest launch template version is not present in the CMDB."
+    check:
+      IS_EMPTY_LOOKUP: "CA10A1__latestVersion__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The latest launch template version disables the instance metadata service HTTP endpoint."
+    remediationMessage: "Publish a new launch template version with the instance metadata service HTTP endpoint enabled and IMDSv2 required."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10A1__latestVersion__r.CA10A1__metadataHttpEndpoint__c"
+        right:
+          TEXT: "disabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "The latest launch template version requires IMDSv2."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10A1__latestVersion__r.CA10A1__metadataHttpTokens__c"
+        right:
+          TEXT: "required"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The latest launch template version does not require IMDSv2."
+  remediationMessage: "Publish a new launch template version that requires IMDSv2."

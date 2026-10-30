@@ -1,13 +1,13 @@
 # Remediation
 
-**Note:** Azure CLI and PowerShell use the ISO8601 duration format for time spans. The format is `P<timespanInISO8601Format>(Y,M,D)`. The leading P is required and is referred to as `period`. The `(Y,M,D)` are for the duration of Year, Month, and Day, respectively. A time frame of 2 years, 2 months, 2 days would be `P2Y2M2D`. For Azure CLI and PowerShell, it is easiest to supply the policy flags in a `.json file`, for example:
+**Note:** Azure CLI and PowerShell use the ISO8601 duration format for time spans. The format is `P{{timespanInISO8601Format}}(Y,M,D)`. The leading P is required and is referred to as `period`. The `(Y,M,D)` are for the duration of Year, Month, and Day, respectively. A time frame of 2 years, 2 months, 2 days would be `P2Y2M2D`. For Azure CLI and PowerShell, it is easiest to supply the policy flags in a `.json file`, for example:
 
 ```json
 { 
     "lifetimeActions": [ 
         { 
             "trigger": { 
-                "timeAfterCreate": "P<timespanInISO8601Format>(Y,M,D)",
+                "timeAfterCreate": "P{{timespanInISO8601Format}}(Y,M,D)",
                 "timeBeforeExpiry" : null 
             }, 
             "action": { 
@@ -16,7 +16,7 @@
         }, 
         { 
             "trigger": { 
-                "timeBeforeExpiry" : "P<timespanInISO8601Format>(Y,M,D)" 
+                "timeBeforeExpiry" : "P{{timespanInISO8601Format}}(Y,M,D)" 
             }, 
             "action": { 
                 "type": "Notify" 
@@ -24,7 +24,7 @@
         } 
     ], 
     "attributes": { 
-        "expiryTime": "P<timespanInISO8601Format>(Y,M,D)" 
+        "expiryTime": "P{{timespanInISO8601Format}}(Y,M,D)" 
     } 
 }
 ```
@@ -48,7 +48,7 @@
 Run the following command for each key to enable automatic rotation:
 
 ```sh
-az keyvault key rotation-policy update --vault-name <vault-name> --name <key-name> --value <path/to/policy.json>
+az keyvault key rotation-policy update --vault-name {{vault-name}} --name {{key-name}} --value {{path/to/policy.json}}
 ```
 
 ## From PowerShell
@@ -56,5 +56,5 @@ az keyvault key rotation-policy update --vault-name <vault-name> --name <key-nam
 Run the following command for each key to enable automatic rotation:
 
 ```ps
-Set-AzKeyVaultKeyRotationPolicy -VaultName <vault-name> -Name <key-name> -PolicyPath <path/to/policy.json>
+Set-AzKeyVaultKeyRotationPolicy -VaultName {{vault-name}} -Name {{key-name}} -PolicyPath {{path/to/policy.json}}
 ```

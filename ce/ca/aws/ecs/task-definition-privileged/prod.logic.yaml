@@ -7,7 +7,7 @@ importExtracts:
   - file: "/types/CA10__CaAwsEcsContainerDefinition__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The Task Definition is not active."
+    currentStateMessage: "The task definition is not active."
     check:
       NOT_EQUAL:
         left:
@@ -15,15 +15,15 @@ conditions:
         right:
           TEXT: "ACTIVE"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Task Definition contains at least one container configured to run in privileged mode."
-    remediationMessage: "Create a new revision of the Task Definition with 'privileged' set to false for all containers."
+    currentStateMessage: "The task definition contains at least one container configured to run in privileged mode."
+    remediationMessage: "Create a new task definition revision with 'privileged' set to false for all containers."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__AWS_ECS_Container_Definitions__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "No containers in the Task Definition are configured to run in privileged mode."
+  currentStateMessage: "No containers in the task definition are configured to run in privileged mode."
 relatedLists:
   - relationshipName: "CA10__AWS_ECS_Container_Definitions__r"
     conditions:

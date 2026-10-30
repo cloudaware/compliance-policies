@@ -1,6 +1,6 @@
 # Description
 
-Ensure to use AWS ACM single domain name certificates rather than wildcard certificates. Single domain certificates provide a unique private key for each domain or subdomain, which improves security by limiting the impact of any potential compromise.
+Use AWS ACM single domain name certificates rather than wildcard certificates. Single domain certificates provide a unique private key for each domain or subdomain, which improves security by limiting the impact of any potential compromise.
 
 ## Rationale
 
@@ -10,6 +10,6 @@ By employing single domain name certificates, organizations can minimize their a
 
 ## Audit
 
-This policy will mark a certificate as `INCOMPLIANT` if the `Status` is `ISSUED` and the `Domain Name` starts with an asterisk (`*`), indicating a wildcard certificate.
+This policy flags an *AWS ACM Certificate* as `INCOMPLIANT` if the `Status` is **ISSUED** and the `Domain Name` starts with an asterisk (`*`), indicating a wildcard certificate.
 
-If the `Status` field is empty, this might indicate a permission issue with the `acm:DescribeCertificate` API call, and the certificate will be marked as `UNDETERMINED`.
+If the `Status` field is empty, this may indicate a permission issue with the `acm:DescribeCertificate` API call, and the certificate will be marked as `UNDETERMINED`.

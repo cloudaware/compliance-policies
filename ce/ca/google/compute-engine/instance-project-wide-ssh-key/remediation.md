@@ -14,4 +14,7 @@
 
 To block project-wide public SSH keys, set the metadata value to `TRUE`:
 
-            gcloud compute instances add-metadata <INSTANCE_NAME> --metadata block-project-ssh-keys=TRUE
+```sh
+gcloud compute instances add-metadata {{instance-name}} \
+    --metadata block-project-ssh-keys=TRUE
+```

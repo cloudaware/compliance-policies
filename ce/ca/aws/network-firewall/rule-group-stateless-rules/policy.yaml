@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS Network Firewall Rule Group Stateless Rules are empty"
+  contextual: "Rule Group Stateless Rules are empty"
+description: >
+  Ensure that each AWS Network Firewall stateless rule group contains at least one 
+  rule. Empty rule groups do not provide any traffic filtering or inspection and 
+  may represent incomplete security configurations.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/network-firewall/06"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[NetworkFirewall.6] Stateless Network Firewall rule group should not be empty"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/networkfirewall-controls.html#networkfirewall-6"

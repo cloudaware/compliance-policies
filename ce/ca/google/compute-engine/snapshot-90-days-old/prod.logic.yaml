@@ -14,8 +14,8 @@ conditions:
         right:
           TEXT: "READY"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The GCE Snapshot is 90 days old or more."
-    remediationMessage: "Consider deleting or archiving the snapshot."
+    currentStateMessage: "The snapshot is 90 days old or more."
+    remediationMessage: "Delete or archive the snapshot if it is no longer needed."
     check:
       IS_BEYOND_LAST_DAYS:
         offsetDays: 90
@@ -23,4 +23,4 @@ conditions:
           EXTRACT: "CA10__creationDate__c"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The GCE Snapshot is less than 90 days old."
+  currentStateMessage: "The snapshot is less than 90 days old."

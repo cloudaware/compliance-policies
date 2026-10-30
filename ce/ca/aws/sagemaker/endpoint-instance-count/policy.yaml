@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS SageMaker Endpoint has less than 2 instances"
+  contextual: "Endpoint has less than 2 instances"
+description: >
+  Ensure that AWS SageMaker endpoints are configured with at least two instances. 
+  A multi-instance deployment provides higher availability and resilience by ensuring 
+  that traffic can be served even if an individual instance or Availability Zone fails.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/sagemaker/04"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[SageMaker.4] SageMaker endpoint production variants should have an initial instance count greater than 1"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/sagemaker-controls.html#sagemaker-4"

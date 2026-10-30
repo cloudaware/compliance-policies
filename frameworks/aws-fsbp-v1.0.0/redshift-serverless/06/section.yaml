@@ -1,0 +1,12 @@
+name: >
+  [RedshiftServerless.6] Redshift Serverless namespaces should export logs to CloudWatch Logs
+description: |-
+  If you configure Amazon Redshift Serverless to export connection log (connectionlog) 
+  and user log (userlog) data to a log group in Amazon CloudWatch Logs, you can 
+  collect and store your log records in durable storage, which can support security, 
+  access, and availability reviews and audits. With CloudWatch Logs, you can also 
+  perform real-time analysis of log data and use CloudWatch to create alarms and 
+  review metrics.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/redshiftserverless-controls.html#redshiftserverless-6

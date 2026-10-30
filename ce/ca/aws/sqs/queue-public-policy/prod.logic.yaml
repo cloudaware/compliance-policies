@@ -1,0 +1,44 @@
+---
+inputType: "CA10__CaAwsQueue__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsQueue__c/object.extracts.yaml"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "The SQS queue has no resource-based policy that allows external access."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__policyExt__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The queue policy grants public administrative access to the SQS queue."
+    remediationMessage: "Update the queue policy to remove public administrative permissions."
+    check:
+      AWS_POLICY_ALLOWS:
+        policyExtField: "CA10__policyExt__c"
+        widestAcceptableAccessLevel: "EXTERNAL_PRINCIPAL"
+        actions:
+          - "sqs:SetQueueAttributes"
+          - "sqs:DeleteQueue"
+          - "sqs:AddPermission"
+          - "sqs:RemovePermission"
+          - "sqs:PurgeQueue"
+          - "sqs:TagQueue"
+          - "sqs:UntagQueue"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The queue policy grants public access to queue messages or metadata."
+    remediationMessage: "Update the queue policy to restrict message and metadata access to trusted principals."
+    check:
+      AWS_POLICY_ALLOWS:
+        policyExtField: "CA10__policyExt__c"
+        widestAcceptableAccessLevel: "EXTERNAL_PRINCIPAL"
+        actions:
+          - "sqs:ReceiveMessage"
+          - "sqs:SendMessage"
+          - "sqs:DeleteMessage"
+          - "sqs:ChangeMessageVisibility"
+          - "sqs:GetQueueAttributes"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The queue policy does not allow public access."

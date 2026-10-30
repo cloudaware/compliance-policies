@@ -17,13 +17,17 @@ Once these are captured, save the configuration and the account will be encrypte
 Create the Key Vault:
 
 ```sh
-az keyvault create --name <name> --resource-group <resourceGroup> --location <location> --enabled-for-disk-encryption
+az keyvault create \
+    --name {{name}} \
+    --resource-group {{resourceGroup}} \
+    --location {{location}} \
+    --enabled-for-disk-encryption
 ```
 
 Encrypt the disk and store the key in Key Vault:
 
 ```sh
-az vm encryption enable -g <resourceGroup> --name <name> --disk-encryption-keyvault myKV
+az vm encryption enable -g {{resourceGroup}} --name {{name}} --disk-encryption-keyvault myKV
 ```
 
 ## From PowerShell
@@ -33,12 +37,12 @@ This process uses a Key Vault to store the keys.
 Create the Key Vault:
 
 ```ps
-New-AzKeyvault -name <name> -ResourceGroupName <resourceGroup> -Location <location> -EnabledForDiskEncryption
+New-AzKeyvault -name {{name}} -ResourceGroupName {{resourceGroup}} -Location {{location}} -EnabledForDiskEncryption
 ```
 
 Encrypt the disk and store the key in Key Vault:
 
 ```ps
-$KeyVault = Get-AzKeyVault -VaultName <name> -ResourceGroupName <resourceGroup>
-Set-AzVMDiskEncryptionExtension -ResourceGroupName <resourceGroup> -VMName <name> -DiskEncryptionKeyVaultUrl $KeyVault.VaultUri -DiskEncryptionKeyVaultId $KeyVault.ResourceId
+$KeyVault = Get-AzKeyVault -VaultName {{name}} -ResourceGroupName {{resourceGroup}}
+Set-AzVMDiskEncryptionExtension -ResourceGroupName {{resourceGroup}} -VMName {{name}} -DiskEncryptionKeyVaultUrl $KeyVault.VaultUri -DiskEncryptionKeyVaultId $KeyVault.ResourceId
 ```

@@ -23,7 +23,7 @@ conditions:
           TEXT: "INELIGIBLE"
   - status: "INCOMPLIANT"
     currentStateMessage: "The certificate is ineligible for automatic renewal and expires in 7 days or less."
-    remediationMessage: "Consider reissuing the expiring certificate."
+    remediationMessage: "Reissue the certificate before it expires."
     check:
       IS_WITHIN_NEXT_DAYS:
         offsetDays: 7
@@ -31,4 +31,4 @@ conditions:
           EXTRACT: CA10__notAfter__c
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The certificate is not expiring."
+  currentStateMessage: "The certificate is not expiring within 7 days."

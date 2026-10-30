@@ -16,7 +16,9 @@
 Run the following command:
 
 ```sh
-az security pricing create -n SqlServerVirtualMachines --tier 'standard'
+az security pricing create \
+    -n SqlServerVirtualMachines \
+    --tier Standard
 ```
 
 ## From PowerShell
@@ -24,5 +26,7 @@ az security pricing create -n SqlServerVirtualMachines --tier 'standard'
 Run the following command:
 
 ```ps
-Set-AzSecurityPricing -Name 'SqlServerVirtualMachines' -PricingTier 'Standard'
+Set-AzSecurityPricing `
+    -Name "SqlServerVirtualMachines" `
+    -PricingTier "Standard"
 ```

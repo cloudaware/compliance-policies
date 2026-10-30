@@ -26,5 +26,8 @@ conditions:
           TEXT: "on"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "3625 (trace flag) database flag isn't set to on."
+  currentStateMessage: "The 3625 (trace flag) database flag is not set to on."
   remediationMessage: "Set 3625 (trace flag) database flag to on."
+
+
+

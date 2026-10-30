@@ -12,7 +12,7 @@ Enabling security alert emails can cause alert fatigue, increasing the risk of m
 
 ## Audit
 
-This policy flags an *Azure Subscription* as `INCOMPLIANT` if the `Security Center: Contacts` configuration does **not** include a **default** contact where `alertNotifications` is set to **On** and `alertNotificationsMinimalSeverity` is set to **High** or **Critical**.
+This policy flags an *Azure Subscription* as `INCOMPLIANT` if the `Security Center: Contacts` configuration does **not** include a **default** contact where `alertNotifications` is set to **On** and `alertNotificationsMinimalSeverity` is set to **High**, **Medium**, or **Low**.
 
 ### From Azure Policy
 

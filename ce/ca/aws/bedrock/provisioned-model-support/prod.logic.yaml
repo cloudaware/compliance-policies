@@ -1,0 +1,84 @@
+---
+inputType: CA10A2__CaAwsBedrockProvisionedModelThroughput__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10A2__CaAwsBedrockProvisionedModelThroughput__c/object.extracts.yaml
+  - file: /types/CA10A2__CaAwsBedrockFoundationModel__c/object.extracts.yaml
+conditions:
+  - status: UNDETERMINED
+    currentStateMessage: The Provisioned Throughput status is unrecognized.
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              SET:
+                itemType: TEXT
+                items:
+                  - Creating
+                  - InService
+                  - Updating
+                  - Failed
+            search:
+              EXTRACT: CA10A2__status__c
+  - status: INAPPLICABLE
+    currentStateMessage: The Provisioned Throughput is being created or has failed; assess deployment health separately.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - Creating
+              - Failed
+        search:
+          EXTRACT: CA10A2__status__c
+  # Classify custom routes before reading the required model ARN; original/desired fields never establish scope.
+  - status: INAPPLICABLE
+    currentStateMessage: The current model uses a custom-model route outside the foundation-model lifecycle scope.
+    check:
+      EXTRACT: caAwsBedrockUsesCustomModel
+  - status: UNDETERMINED
+    currentStateMessage: The current model ARN is missing or does not identify a foundation model.
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              EXTRACT: CA10A2__modelArn__c
+            search:
+              BYTES: "::foundation-model/"
+  - status: UNDETERMINED
+    currentStateMessage: The current foundation model lookup is missing, unresolved, or disappeared.
+    check:
+      IS_EMPTY_LOOKUP: CA10A2__model__r
+  # modelArn is current; foundationModelArn describes the original base and desiredModelArn can be pending.
+  - status: UNDETERMINED
+    currentStateMessage: The related foundation model ARN does not match the current model ARN.
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: CA10A2__modelArn__c
+        right:
+          EXTRACT: CA10A2__model__r.CA10A2__modelArn__c
+  - status: COMPLIANT
+    currentStateMessage: The current foundation model is Active in its AWS Region.
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10A2__model__r.CA10A2__modelLifecycleStatus__c
+        right:
+          TEXT: ACTIVE
+  - status: INCOMPLIANT
+    currentStateMessage: The current foundation model is Legacy and scheduled for retirement.
+    remediationMessage: Test an Active replacement model and migrate inference callers before the regional model retirement date.
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10A2__model__r.CA10A2__modelLifecycleStatus__c
+        right:
+          TEXT: LEGACY
+otherwise:
+  status: UNDETERMINED
+  currentStateMessage: The current foundation model lifecycle status is missing or unrecognized; verify its regional status in Amazon Bedrock.

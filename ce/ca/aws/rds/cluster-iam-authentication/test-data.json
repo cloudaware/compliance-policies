@@ -1,0 +1,86 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-17T04:44:14Z" },
+    "CA10__disappearanceTime__c": "2025-12-10T00:01:47Z",
+    "CA10__iamDatabaseAuthenticationEnabled__c": false,
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__status__c": "available",
+    "Id": "001"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__status__c') != 'available'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-17T04:44:14Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__iamDatabaseAuthenticationEnabled__c": true,
+    "CA10__engine__c": "neptune",
+    "CA10__status__c": "creating",
+    "Id": "002"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "not(setOfText(['aurora-postgresql', 'aurora-mysql', 'neptune']).contains(extract('CA10__engine__c')))",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-17T04:44:14Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__iamDatabaseAuthenticationEnabled__c": false,
+    "CA10__engine__c": "docdb",
+    "CA10__status__c": "available",
+    "Id": "003"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__iamDatabaseAuthenticationEnabled__c') == true",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-17T04:44:14Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__iamDatabaseAuthenticationEnabled__c": true,
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__status__c": "available",
+    "Id": "004"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__iamDatabaseAuthenticationEnabled__c') == true",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-17T04:44:14Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__iamDatabaseAuthenticationEnabled__c": true,
+    "CA10__engine__c": "neptune",
+    "CA10__status__c": "available",
+    "Id": "005"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-17T04:44:14Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__iamDatabaseAuthenticationEnabled__c": false,
+    "CA10__engine__c": "neptune",
+    "CA10__status__c": "available",
+    "Id": "006"
+  }
+]

@@ -2,7 +2,7 @@
 
 Ensure that AWS EC2 instances are not configured with the legacy paravirtual (PV) virtualization type. Hardware Virtual Machine (HVM) is the current standard and provides significant performance and compatibility advantages.
 
-## Rational
+## Rationale
 
 HVM AMIs offer full hardware virtualization, allowing guest operating systems to run as if they were on native hardware. This reduces overhead, improves efficiency, and delivers superior performance. Additionally, many modern EC2 instance families and AWS features, such as Enhanced Networking and GPU support, are only available with HVM AMIs.
 

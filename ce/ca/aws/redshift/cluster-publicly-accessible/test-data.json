@@ -1,0 +1,62 @@
+[
+    {
+        "CA10__publiclyAccessible__c": "Yes",
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "context": {
+            "snapshotTime": "2026-02-01T22:39:15Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2026-02-01T22:39:15Z",
+        "CA10__status__c": "paused"
+    },
+    {
+        "CA10__publiclyAccessible__c": "Yes",
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__status__c') != 'available'",
+            "conditionIndex": 199,
+            "status": "INAPPLICABLE"
+        },
+        "context": {
+            "snapshotTime": "2026-02-01T22:39:15Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "paused"
+    },
+    {
+        "CA10__publiclyAccessible__c": "Yes",
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__publiclyAccessible__c') == 'Yes'",
+            "conditionIndex": 299,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2026-02-01T22:39:15Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "available"
+    },
+    {
+        "CA10__publiclyAccessible__c": "No",
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__publiclyAccessible__c') == 'No'",
+            "conditionIndex": 399,
+            "status": "COMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2026-02-01T22:39:15Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "available"
+    }
+]

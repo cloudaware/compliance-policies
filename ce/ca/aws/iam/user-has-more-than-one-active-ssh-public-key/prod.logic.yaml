@@ -4,7 +4,7 @@ testData:
   - file: test-data.json
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The user doesn't have active SSH Public keys."
+    currentStateMessage: "The user does not have active SSH public keys."
     check:
       IS_EQUAL:
         left:
@@ -26,7 +26,7 @@ conditions:
           NUMBER: 1.0
 otherwise:
   status:  "COMPLIANT"
-  currentStateMessage: "This IAM user has only one active SSH Public key."
+  currentStateMessage: "This IAM user has only one active SSH public key."
 relatedLists:
   - relationshipName: "CA10__AWS_IAM_SSH_Public_Keys__r"
     importExtracts:

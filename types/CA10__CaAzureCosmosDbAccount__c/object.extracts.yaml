@@ -1,17 +1,33 @@
 ---
 extracts:
+  - name: "CA10__kind__c"
+    value:
+      FIELD:
+        path: "CA10__kind__c"
+  - name: "CA10__apiServerVersion__c"
+    value:
+      FIELD:
+        path: "CA10__apiServerVersion__c"
+  - name: "CA10__analyticalStorage__c"
+    value:
+      FIELD:
+        path: "CA10__analyticalStorage__c"
+  - name: "CA10__backupPolicyType__c"
+    value:
+      FIELD:
+        path: "CA10__backupPolicyType__c"
 # Values: Enabled, Disabled. Not Nullable. Can't have no access, retrieved via Microsoft.DocumentDB/databaseAccounts
   - name: "CA10__virtualNetworkFilterState__c"
-    value: 
+    value:
       FIELD:
         path: "CA10__virtualNetworkFilterState__c"
         undeterminedIf:
           isEmpty: "Corrupted Data. Cosmos DB Account Virtual Network Filter cannot be empty."
   - name: "CA10__monitorTotalRequestUnitsSum30Day__c"
-    value: 
+    value:
       FIELD:
         path: "CA10__monitorTotalRequestUnitsSum30Day__c"
   - name: "CA10__capabilities__c"
-    value: 
+    value:
       FIELD:
         path: "CA10__capabilities__c"

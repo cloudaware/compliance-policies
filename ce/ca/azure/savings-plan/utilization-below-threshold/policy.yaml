@@ -1,0 +1,10 @@
+---
+names:
+  full: "Azure Savings Plan utilization is below 80%"
+  contextual: "Savings Plan utilization is below 80%"
+description: "Identify successfully provisioned Azure Savings Plans with utilization below 80% in the last 40 days."
+categories:
+  - "COST"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-optimization"

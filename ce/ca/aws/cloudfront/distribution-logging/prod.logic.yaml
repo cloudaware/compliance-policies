@@ -6,8 +6,8 @@ testData:
   - file: "test-data.json"  
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The CloudFront Distribution standard logging is not enabled."
-    remediationMessage: "Consider enabling standard logging for the CloudFront Distribution."
+    currentStateMessage: "Standard logging is not enabled for the CloudFront distribution."
+    remediationMessage: "Enable standard logging for the CloudFront distribution."
     check:
       IS_EQUAL:
         left:
@@ -16,4 +16,4 @@ conditions:
           BOOLEAN: false
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The CloudFront Distribution standard logging is enabled."
+  currentStateMessage: "Standard logging is enabled for the CloudFront distribution."

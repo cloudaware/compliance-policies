@@ -1,6 +1,6 @@
 # Description
 
-Ensure that AWS VPC Transit Gateways are not configured to automatically accept cross-account VPC attachments. This requires that all cross-account attachment requests be manually reviewed and approved.
+This policy identifies AWS VPC Transit Gateways that are configured to automatically accept cross-account VPC attachments. Cross-account attachment requests should be manually reviewed and approved.
 
 ## Rationale
 
@@ -17,4 +17,4 @@ If auto-accept is enabled, an untrusted or compromised AWS account could attach 
 
 ## Audit
 
-This policy flags an *AWS VPC Transit Gateway* as `INCOMPLIANT` if `Auto Accept Shared Attachments` field is set to **enable**.
+This policy flags an *AWS VPC Transit Gateway* as `INCOMPLIANT` if `Auto Accept Shared Attachments` is set to **enabled**.

@@ -1,6 +1,6 @@
 # Description
 
-This policy identifies AWS Kinesis Stream that do not have server-side encryption enabled.
+This policy identifies AWS Kinesis Streams that do not have server-side encryption enabled.
 
 ## Rationale
 

@@ -7,14 +7,14 @@ importExtracts:
 conditions:
    - status: "INCOMPLIANT"
      currentStateMessage: "The Service Account User or Service Account Token Creator roles are assigned at the Project level."
-     remediationMessage: "It is recommended to assign these roles to a user for a specific service account."
+     remediationMessage: "Assign these roles at the service account level."
      check:
        RELATED_LIST_HAS:
          status: "INCOMPLIANT"
          relationshipName: "CA10__Google_IAM_Policy_Bindings__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Service Account User or Service Account Token Creator roles are not  assigned at the Project level."
+  currentStateMessage: "The Service Account User or Service Account Token Creator roles are not assigned at the project level."
 relatedLists:
   - relationshipName: "CA10__Google_IAM_Policy_Bindings__r"
     importExtracts:
@@ -28,7 +28,7 @@ relatedLists:
          check:
            IS_EMPTY_LOOKUP: "CA10__iamRole__r"
        - status: "INCOMPLIANT"
-         currentStateMessage: "Binding with the specified role."
+         currentStateMessage: "Binding with a service account user role."
          remediationMessage: "Remove the binding."
          check: 
            OR:

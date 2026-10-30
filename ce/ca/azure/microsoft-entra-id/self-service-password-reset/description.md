@@ -8,13 +8,13 @@ A Self-service Password Reset (SSPR) through Azure Multi-factor Authentication (
 
 ## Impact
 
-There may be administrative overhead, as users who lose access to their secondary authentication methods will need an administrator with permissions to remove it. There will also need to be organization-wide security policies and training to teach administrators to verify the identity of the requesting user so that social engineering can not render this setting useless.
+There may be administrative overhead, as users who lose access to their secondary authentication methods will need an administrator with permissions to remove it. There will also need to be organization-wide security policies and training to teach administrators to verify the identity of the requesting user so that social engineering cannot render this setting useless.
 
 ## Audit
 
 ### From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. In the Azure portal, open the portal menu.
 2. Select `Microsoft Entra ID`.
 3. Under `Manage`, select `Users`.
 4. Under `Manage`, select `Password reset`.

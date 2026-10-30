@@ -1,0 +1,162 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:backup:source-resource'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-backup-source-resource",
+    "Name": "test-aws-backup-source-resource",
+    "CA10__tagsJson__c": "{\"aws:backup:source-resource\":\"arn:aws:ec2:us-east-1:123456789012:volume/vol-0123456789abcdef0\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__tagsJson__c.getExact(bytes('AWSApplicationMigrationServiceManaged')) == 'mgn.amazonaws.com'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-application-migration-service-managed",
+    "Name": "test-aws-application-migration-service-managed",
+    "CA10__tagsJson__c": "{\"AWSApplicationMigrationServiceManaged\":\"mgn.amazonaws.com\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "CA10__tagsJson__c.getExact(bytes('AWSElasticDisasterRecoveryManaged')) == 'drs.amazonaws.com'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-elastic-disaster-recovery-managed",
+    "Name": "test-aws-elastic-disaster-recovery-managed",
+    "CA10__tagsJson__c": "{\"AWSElasticDisasterRecoveryManaged\":\"drs.amazonaws.com\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:dlm:lifecycle-policy-id')) && CA10__tagsJson__c.hasExact(bytes('aws:dlm:lifecycle-schedule-name')) && CA10__tagsJson__c.hasExact(bytes('dlm:managed'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-dlm-snapshot-tags",
+    "Name": "test-aws-dlm-snapshot-tags",
+    "CA10__tagsJson__c": "{\"aws:dlm:lifecycle-policy-id\":\"policy-0123456789abcdef0\",\"aws:dlm:lifecycle-schedule-name\":\"Daily backups\",\"dlm:managed\":\"true\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "500",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-no-automated-provisioning-tags",
+    "Name": "test-no-automated-provisioning-tags",
+    "CA10__tagsJson__c": "{\"Owner\":\"platform-team\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "500",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-backup-managed-resource-not-supported",
+    "Name": "test-aws-backup-managed-resource-not-supported",
+    "CA10__tagsJson__c": "{\"AWSBackupManagedResource\":\"2026-06-23T00:00:00Z\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "500",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-application-migration-service-wrong-value",
+    "Name": "test-aws-application-migration-service-wrong-value",
+    "CA10__tagsJson__c": "{\"AWSApplicationMigrationServiceManaged\":\"true\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "500",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-dlm-incomplete-tags",
+    "Name": "test-aws-dlm-incomplete-tags",
+    "CA10__tagsJson__c": "{\"aws:dlm:lifecycle-policy-id\":\"policy-0123456789abcdef0\",\"aws:dlm:lifecycle-schedule-name\":\"Daily backups\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  }
+]

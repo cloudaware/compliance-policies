@@ -14,7 +14,9 @@ If an organization administrator loses access to their security key, the user co
 
 1. Identify users with Organization Administrator privileges:
 
-     gcloud organizations get-iam-policy ORGANIZATION_ID
+     ```sh
+     gcloud organizations get-iam-policy {{organization-id}}
+     ```
 
 Look for members granted the role `roles/resourcemanager.organizationAdmin`.
 2. Manually verify that Security Key Enforcement has been enabled for each account.

@@ -1,0 +1,10 @@
+---
+name: 3.1 Ensure Compute Instance Legacy Metadata service endpoint is disabled - Level 2 (Automated)
+description: >
+  Compute Instances that utilize Legacy MetaData service endpoints (IMDSv1) are
+  susceptible to potential SSRF attacks. To bolster security measures, it is
+  strongly advised to reconfigure Compute Instances to adopt Instance Metadata
+  Service v2, aligning with the industry's best security practices.
+similar:
+  internal:
+    - dec-c-90b5a251

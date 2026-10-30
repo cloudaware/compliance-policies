@@ -28,12 +28,13 @@
 For each subscription requiring remediation, run the following command to create a `ServiceHealth` alert rule for a subscription:
 
 ```sh
-az monitor activity-log alert create /
-    --subscription {{subscription-id}} /
-    --resource-group {{resource-group}} /
-    --name {{alert-rule}} /
-    --condition category=ServiceHealth and properties.incidentType=Incident --scope /subscriptions/{{subscription-id}} /
-    --action-group {{action-group}}
+az monitor activity-log alert create \
+    --subscription {{subscription-id}} \
+    --resource-group {{resource-group-name}} \
+    --name {{alert-rule-name}} \
+    --condition category=ServiceHealth and properties.incidentType=Incident \
+    --scope /subscriptions/{{subscription-id}} \
+    --action-group {{action-group-id}}
 ```
 
 ## From PowerShell
@@ -55,7 +56,9 @@ $conditions += New-AzActivityLogAlertAlertRuleAnyOfOrLeafConditionObject `
 Retrieve the `Action Group` information and store in a variable:
 
 ```ps
-$actionGroup = Get-AzActionGroup -ResourceGroupName {{resource-group}} -Name {{action-group}}
+$actionGroup = Get-AzActionGroup `
+    -ResourceGroupName {{resource-group-name}} `
+    -Name {{action-group-name}}
 ```
 
 Create the `Actions` object:
@@ -74,8 +77,8 @@ Create the `Activity Log Alert Rule`:
 
 ```ps
 New-AzActivityLogAlert `
-    -Name {{alert-rule}} `
-    -ResourceGroupName {{resource-group}} `
+    -Name {{alert-rule-name}} `
+    -ResourceGroupName {{resource-group-name}} `
     -Condition $conditions `
     -Scope $scope `
     -Location global `

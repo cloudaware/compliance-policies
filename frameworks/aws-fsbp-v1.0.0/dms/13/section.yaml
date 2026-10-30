@@ -1,0 +1,15 @@
+---
+name: "[DMS.13] DMS replication instances should be configured to use multiple Availability Zones"
+description: |-
+  This control checks whether an AWS Database Migration Service (AWS DMS) replication 
+  instance is configured to use multiple Availability Zones (Multi-AZ deployment). 
+  The control fails if the AWS DMS replication instance isn't configured to use a Multi-AZ deployment.
+
+  In a Multi-AZ deployment, AWS DMS automatically provisions and maintains a standby 
+  replica of a replication instance in a different Availability Zone (AZ). 
+  The primary replication instance is then synchronously replicated to the standby 
+  replica. If the primary replication instance fails or becomes unresponsive, the 
+  standby resumes any running tasks with minimal interruption.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/dms-controls.html#dms-13

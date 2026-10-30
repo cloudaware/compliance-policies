@@ -9,11 +9,11 @@ For virtual network flow logs, consider applying the policy [`Azure Virtual Netw
 
 ## Rationale
 
-Flow logs enable capturing information about IP traffic flowing in and out of network security groups. Logs can be used to check for anomalies and give insight into suspected breaches.
+Flow logs capture information about IP traffic flowing in and out of network security groups. Logs can be used to check for anomalies and provide insight into suspected breaches.
 
 ## Impact
 
-This will keep IP traffic logs for longer than 90 days. First determine your need to retain data, then apply your selection here. As this is data stored for longer, your monthly storage costs will increase depending on your data use.
+This keeps IP traffic logs for longer than 90 days. First determine your need to retain data, then apply your selection here. As data is stored longer, monthly storage costs will increase depending on usage.
 
 ## Audit
 

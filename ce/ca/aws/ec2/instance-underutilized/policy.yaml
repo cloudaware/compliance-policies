@@ -5,7 +5,7 @@ names:
 description: >
   Identify and address underutilized Amazon EC2 instances to optimize costs and 
   improve efficiency. Instances are considered underutilized if their average 
-  CPU utilization is consistently below 40% and maximum CPU 
+  CPU and memory utilization is consistently below 40% and maximum CPU 
   utilization does not spike above 50% over a 14-day period. These instances 
   might be oversized for their workload.
 type: "COMPLIANCE_POLICY"

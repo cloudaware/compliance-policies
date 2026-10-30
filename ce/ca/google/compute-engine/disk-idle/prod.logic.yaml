@@ -6,45 +6,47 @@ testData:
   - file: 'test-data.json'
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The Disk has been created less than 30 days ago."
+    currentStateMessage: "The disk was created less than 30 days ago."
     check:
       IS_WITHIN_LAST_DAYS:
         offsetDays: 30
         arg:
           EXTRACT: "CA10__creationDate__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Disk hasn't been attached to a VM since creation."
+    currentStateMessage: "The disk has not been attached to a VM since creation."
+    remediationMessage: "Delete or attach the disk if it is not needed."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__lastAttach__c"
   - status: "INAPPLICABLE"
-    currentStateMessage: "The Disk is not persistent."
+    currentStateMessage: "The disk is not persistent."
     check:
       RELATED_LIST_HAS:
         status: "INAPPLICABLE"
         relationshipName: "CA10__Google_GCE_Attached_Disks__r"
   - status: "COMPLIANT"
-    currentStateMessage: "The Disk is attached to a VM."
+    currentStateMessage: "The disk is attached to a VM."
     check:
       RELATED_LIST_HAS:
         status: "COMPLIANT"
         relationshipName: "CA10__Google_GCE_Attached_Disks__r"
   - status: "COMPLIANT"
-    currentStateMessage: "The Disk is attached to a VM."
+    currentStateMessage: "The disk is attached to a VM."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__lastDetach__c"
   - status: "COMPLIANT"
-    currentStateMessage: "The Disk was detached within the last 30 days."
+    currentStateMessage: "The disk was detached within the last 30 days."
     check:
       IS_WITHIN_LAST_DAYS:
         offsetDays: 30
         arg:
           EXTRACT: "CA10__lastDetach__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Disk was detached more than 30 days ago."
+    currentStateMessage: "The disk was detached more than 30 days ago."
+    remediationMessage: "Delete or reattach the disk if it is not needed."
     check:
       IS_BEYOND_LAST_DAYS:
         offsetDays: 30
@@ -59,7 +61,7 @@ relatedLists:
       - file: "/types/CA10__CaGoogleGceAttachedDisk__c/object.extracts.yaml"
     conditions:
       - status: "INAPPLICABLE"
-        currentStateMessage: "The Disk is not persistent."
+        currentStateMessage: "The disk is not persistent."
         check:
           NOT_EQUAL:
             left:
@@ -68,4 +70,4 @@ relatedLists:
               TEXT: "PERSISTENT"
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "The Disk is attached to a VM."
+      currentStateMessage: "The disk is attached to a VM."

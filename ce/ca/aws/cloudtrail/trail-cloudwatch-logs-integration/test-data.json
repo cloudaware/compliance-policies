@@ -1,0 +1,152 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2026-01-10T10:42:39Z",
+        "CA10__cloudWatchLogsLogGroupArn__c": "arn:aws:logs:us-east-1:123456789012:log-group:trail",
+        "CA10__cloudWatchLogsRoleArn__c": "arn:aws:iam::123456789012:role/CloudTrailLogsRole",
+        "CA10__cloudWatchLogsLogGroup__c": "test1_lg",
+        "CA10__cloudWatchLogsLogGroup__r": {
+            "Id": "test1_lg",
+            "CA10__disappearanceTime__c": null
+        },
+        "CA10__cloudWatchLogsRole__c": "test1_role",
+        "CA10__cloudWatchLogsRole__r": {
+            "Id": "test1_role",
+            "CA10__disappearanceTime__c": null
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__cloudWatchLogsLogGroupArn__c.isEmpty() || CA10__cloudWatchLogsRoleArn__c.isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__cloudWatchLogsLogGroupArn__c": "",
+        "CA10__cloudWatchLogsRoleArn__c": "arn:aws:iam::123456789012:role/CloudTrailLogsRole",
+        "CA10__cloudWatchLogsLogGroup__c": "",
+        "CA10__cloudWatchLogsLogGroup__r": {
+            "Id": null,
+            "CA10__disappearanceTime__c": null
+        },
+        "CA10__cloudWatchLogsRole__c": "test2_role",
+        "CA10__cloudWatchLogsRole__r": {
+            "Id": "test2_role",
+            "CA10__disappearanceTime__c": null
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "CA10__cloudWatchLogsLogGroupArn__c.isEmpty() || CA10__cloudWatchLogsRoleArn__c.isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__cloudWatchLogsLogGroupArn__c": "arn:aws:logs:us-east-1:123456789012:log-group:trail",
+        "CA10__cloudWatchLogsRoleArn__c": "",
+        "CA10__cloudWatchLogsLogGroup__c": "test3_lg",
+        "CA10__cloudWatchLogsLogGroup__r": {
+            "Id": "test3_lg",
+            "CA10__disappearanceTime__c": null
+        },
+        "CA10__cloudWatchLogsRole__c": "",
+        "CA10__cloudWatchLogsRole__r": {
+            "Id": null,
+            "CA10__disappearanceTime__c": null
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "isEmptyLookup('CA10__cloudWatchLogsLogGroup__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__cloudWatchLogsLogGroupArn__c": "arn:aws:logs:us-east-1:123456789012:log-group:trail",
+        "CA10__cloudWatchLogsRoleArn__c": "arn:aws:iam::123456789012:role/CloudTrailLogsRole",
+        "CA10__cloudWatchLogsLogGroup__c": "test4_lg",
+        "CA10__cloudWatchLogsLogGroup__r": {
+            "Id": "test4_lg",
+            "CA10__disappearanceTime__c": "2026-01-10T10:42:39Z"
+        },
+        "CA10__cloudWatchLogsRole__c": "test4_role",
+        "CA10__cloudWatchLogsRole__r": {
+            "Id": "test4_role",
+            "CA10__disappearanceTime__c": null
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "isEmptyLookup('CA10__cloudWatchLogsRole__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__cloudWatchLogsLogGroupArn__c": "arn:aws:logs:us-east-1:123456789012:log-group:trail",
+        "CA10__cloudWatchLogsRoleArn__c": "arn:aws:iam::123456789012:role/CloudTrailLogsRole",
+        "CA10__cloudWatchLogsLogGroup__c": "test5_lg",
+        "CA10__cloudWatchLogsLogGroup__r": {
+            "Id": "test5_lg",
+            "CA10__disappearanceTime__c": null
+        },
+        "CA10__cloudWatchLogsRole__c": "test5_role",
+        "CA10__cloudWatchLogsRole__r": {
+            "Id": "test5_role",
+            "CA10__disappearanceTime__c": "2026-01-10T10:42:39Z"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "notEmptyLookup('CA10__cloudWatchLogsLogGroup__r') && notEmptyLookup('CA10__cloudWatchLogsRole__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__cloudWatchLogsLogGroupArn__c": "arn:aws:logs:us-east-1:123456789012:log-group:trail",
+        "CA10__cloudWatchLogsRoleArn__c": "arn:aws:iam::123456789012:role/CloudTrailLogsRole",
+        "CA10__cloudWatchLogsLogGroup__c": "test6_lg",
+        "CA10__cloudWatchLogsLogGroup__r": {
+            "Id": "test6_lg",
+            "CA10__disappearanceTime__c": null
+        },
+        "CA10__cloudWatchLogsRole__c": "test6_role",
+        "CA10__cloudWatchLogsRole__r": {
+            "Id": "test6_role",
+            "CA10__disappearanceTime__c": null
+        }
+    }
+]

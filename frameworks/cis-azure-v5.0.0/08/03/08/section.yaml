@@ -1,6 +1,6 @@
 ---
 name: "8.3.8 Ensure Private Endpoints are used to access Azure Key Vault (Automated)"
-description: >
+description: |-
   Use private endpoints to allow clients and services to securely access data located over 
   a network via an encrypted Private Link. To do this, the private endpoint uses an IP 
   address from the VNet for each service. Network traffic between disparate services 
@@ -15,3 +15,4 @@ similar:
   sections:
     - "/frameworks/cis-azure-v3.0.0/03/03/07"
     - "/frameworks/cis-azure-v4.0.0/09/03/08"
+    - "/frameworks/cis-azure-v6.0.0/08/03/08"

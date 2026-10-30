@@ -16,10 +16,16 @@
 
 1. Configure oslogin on the project:
 
-            gcloud compute project-info add-metadata --metadata enable-oslogin=TRUE
+    ```sh
+    gcloud compute project-info add-metadata \
+        --metadata enable-oslogin=TRUE
+    ```
 
 2. Remove instance metadata that overrides the project setting.
 
-            gcloud compute instances remove-metadata <INSTANCE_NAME> --keys=enable-oslogin
+    ```sh
+    gcloud compute instances remove-metadata {{instance-name}} \
+        --keys=enable-oslogin
+    ```
 
 Optionally, you can enable two factor authentication for OS login. For more information, see: <https://cloud.google.com/compute/docs/oslogin/setup-two-factor-authentication>.

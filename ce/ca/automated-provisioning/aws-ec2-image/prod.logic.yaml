@@ -1,0 +1,59 @@
+---
+inputType: "CA10__CaAwsImage__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is AWS Backup."
+    check:
+      TAG_EXISTS:
+        name:
+          BYTES: "aws:backup:source-resource"
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is Amazon Data Lifecycle Manager."
+    check:
+      AND:
+        args:
+          - TAG_EXISTS:
+              name:
+                BYTES: "aws:dlm:lifecycle-policy-id"
+          - TAG_EXISTS:
+              name:
+                BYTES: "aws:dlm:lifecycle-schedule-name"
+          - TAG_EXISTS:
+              name:
+                BYTES: "dlm:managed"
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is AWS Service Catalog."
+    check:
+      TAG_EXISTS:
+        name:
+          BYTES: "aws:servicecatalog:portfolioArn"
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is AWS Service Catalog."
+    check:
+      TAG_EXISTS:
+        name:
+          BYTES: "aws:servicecatalog:productArn"
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is AWS Service Catalog."
+    check:
+      TAG_EXISTS:
+        name:
+          BYTES: "aws:servicecatalog:provisioningPrincipalArn"
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is AWS Service Catalog."
+    check:
+      TAG_EXISTS:
+        name:
+          BYTES: "aws:servicecatalog:provisionedProductArn"
+  - status: "COMPLIANT"
+    currentStateMessage: "The automated provisioning source is AWS Service Catalog."
+    check:
+      TAG_EXISTS:
+        name:
+          BYTES: "aws:servicecatalog:provisioningArtifactIdentifier"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The automated provisioning source is not identified by supported AWS-managed tag signals."
+  remediationMessage: "Review the automated provisioning source, ownership, and expected management workflow."

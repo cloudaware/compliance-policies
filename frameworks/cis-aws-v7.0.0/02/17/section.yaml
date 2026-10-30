@@ -1,0 +1,15 @@
+---
+name: 2.17 Ensure that all expired SSL/TLS certificates stored in AWS IAM are removed (Automated)
+description: >
+  To enable HTTPS connections to your website or application in AWS, you need an
+  SSL/TLS server certificate. You should use AWS Certificate Manager (ACM) to store
+  and deploy server certificates, as storing certificates in IAM is no longer recommended.
+  Use IAM only when you must support HTTPS connections in a region or service that is
+  not supported by ACM. IAM securely encrypts your private keys and stores the
+  encrypted version in IAM SSL certificate storage. IAM supports deploying server
+  certificates in all regions, but you must obtain your certificate from an external provider
+  for use with AWS. You cannot upload an ACM certificate to IAM. Additionally, you
+  cannot manage your certificates from the IAM Console.
+similar:
+  sections:
+    - /frameworks/cis-aws-v6.0.0/02/18

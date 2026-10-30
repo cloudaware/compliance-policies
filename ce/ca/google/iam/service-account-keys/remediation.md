@@ -11,4 +11,7 @@
 
 To delete a user managed Service Account Key:
 
-    gcloud iam service-accounts keys delete --iam-account=<user-managed-service-account-EMAIL> <KEY-ID>
+```sh
+gcloud iam service-accounts keys delete \
+    --iam-account={{user-managed-service-account-email}} {{key-id}}
+```

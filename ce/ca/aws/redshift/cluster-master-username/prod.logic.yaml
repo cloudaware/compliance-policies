@@ -1,0 +1,27 @@
+---
+inputType: "CA10__CaAwsRedshiftCluster__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsRedshiftCluster__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The cluster is not available."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "available"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Redshift cluster has a default master username."
+    remediationMessage: "Recreate the cluster using a unique, non-default master username."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__masterUsername__c"
+        right:
+          TEXT: "awsuser"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Redshift cluster has a custom master username."

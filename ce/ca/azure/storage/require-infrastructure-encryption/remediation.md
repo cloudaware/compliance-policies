@@ -6,18 +6,30 @@
 
 ## From Azure CLI
 
-Replace the information within `<>` with appropriate values:
+Replace the information within `{{}}` with appropriate values:
 
 ```sh
-az storage account create \ --name <storage-account> \ --resource-group <resource-group> \ --location <location> \ --sku Standard_RAGRS \ --kind StorageV2 \ --require-infrastructure-encryption
+az storage account create \
+    --name {{storage-account-name}} \
+    --resource-group {{resource-group-name}} \
+    --location {{location}} \
+    --sku Standard_RAGRS \
+    --kind StorageV2 \
+    --require-infrastructure-encryption
 ```
 
 ## From PowerShell
 
-Replace the information within `<>` with appropriate values:
+Replace the information within `{{}}` with appropriate values:
 
 ```ps
-New-AzStorageAccount -ResourceGroupName <resource_group> ` -AccountName <storage-account> ` -Location <location> ` -SkuName "Standard_RAGRS" ` -Kind StorageV2 ` -RequireInfrastructureEncryption
+New-AzStorageAccount `
+    -ResourceGroupName {{resource-group-name}} `
+    -AccountName {{storage-account-name}} `
+    -Location {{location}} `
+    -SkuName "Standard_RAGRS" `
+    -Kind StorageV2 `
+    -RequireInfrastructureEncryption
 ```
 
 ## Enabling Infrastructure Encryption after Storage Account Creation

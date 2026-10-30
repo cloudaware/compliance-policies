@@ -1,0 +1,9 @@
+---
+name: 6.3.3 Ensure 'user Connections' Database Flag for Cloud SQL SQL Server Instance Is Set to a Non-limiting Value - Level 1 (Automated)
+description: >
+  It is recommended to check the `user connections` for a Cloud SQL SQL Server instance to ensure
+  that it is not artificially limiting connections.
+similar:
+  sections:
+    - /frameworks/cis-gcp-v5.0.0/06/03/03
+    - /frameworks/cis-gcp-v3.0.0/06/03/03

@@ -6,8 +6,8 @@ importExtracts:
   - file: "/types/CA10Z1__CaAzurePostgreSqlServer__c/object.extracts.yaml"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "PostgreSQL Single Server Infrastructure Encryption is disabled."
-    remediationMessage: "Consider enabling PostgreSQL Single Server Infrastructure Encryption."
+    currentStateMessage: "PostgreSQL single server infrastructure encryption is disabled."
+    remediationMessage: "Enable infrastructure encryption on the PostgreSQL server."
     check:
       IS_EQUAL:
         left:
@@ -15,7 +15,7 @@ conditions:
         right:
           TEXT: "Disabled"
   - status: "COMPLIANT"
-    currentStateMessage: "PostgreSQL Single Server Infrastructure Encryption is enabled."
+    currentStateMessage: "PostgreSQL single server infrastructure encryption is enabled."
     check:
       IS_EQUAL:
         left:

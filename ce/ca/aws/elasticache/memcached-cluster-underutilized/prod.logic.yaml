@@ -6,7 +6,7 @@ testData:
   - file: 'test-data.json'
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The policy only applicable to Memcached Clusters."
+    currentStateMessage: "This policy is only applicable to Memcached clusters."
     check:
       NOT_EQUAL:
         left:
@@ -22,7 +22,7 @@ conditions:
         right:
           TEXT: "available"
   - status: "INAPPLICABLE"
-    currentStateMessage: "The cluster has been created for less than 30 days."
+    currentStateMessage: "The cluster was created less than 30 days ago."
     check:
       NOT:
         arg:
@@ -31,14 +31,14 @@ conditions:
             arg:
               EXTRACT: "CA10__createTime__c"
   - status: UNDETERMINED
-    currentStateMessage: "There is not enough data in the CMDB to identify if the cluster is underutilized."
+    currentStateMessage: "There is not enough data in the CMDB to determine whether the cluster is underutilized."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__cpuUtilizationAvg30d__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The cluster is underutilized with Average CPU Utilization < 40%"
-    remediationMessage: "Consider rightsizing, consolidating or terminating the instance."
+    currentStateMessage: "The cluster is underutilized with average CPU utilization below 40%."
+    remediationMessage: "Rightsize, consolidate, or terminate the cluster."
     check:
       LESS_THAN:
         left:
@@ -47,4 +47,4 @@ conditions:
           NUMBER: 40.0
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: 'The cluster is not underutilized.'
+  currentStateMessage: "The cluster is not underutilized."

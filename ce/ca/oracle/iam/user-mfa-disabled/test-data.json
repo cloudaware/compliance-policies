@@ -1,0 +1,54 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10O1__mfaStatus__c') == 'Activated'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test1",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__userStatus__c": "Active",
+    "CA10O1__mfaStatus__c": "Activated"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10O1__mfaStatus__c') == 'Deactivated'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test2",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__userStatus__c": "Active",
+    "CA10O1__mfaStatus__c": "Deactivated"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10O1__userStatus__c') != 'Active'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test3",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__userStatus__c": "INActive",
+    "CA10O1__mfaStatus__c": "Deactivated"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "201",
+      "conditionText": "CA10O1__mfaStatus__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test4",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__userStatus__c": "Active",
+    "CA10O1__mfaStatus__c": null
+  }
+]

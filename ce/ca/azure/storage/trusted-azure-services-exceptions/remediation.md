@@ -10,8 +10,11 @@
 
 ## From Azure CLI
 
-Use the below command to update `bypass` to `Azure services`:
+Use the following command to update `bypass` to `Azure services`:
 
 ```sh
-az storage account update --name <StorageAccountName> --resource-group <resourceGroupName> --bypass AzureServices
+az storage account update \
+    --name {{storage-account-name}} \
+    --resource-group {{resource-group-name}} \
+    --bypass AzureServices
 ```

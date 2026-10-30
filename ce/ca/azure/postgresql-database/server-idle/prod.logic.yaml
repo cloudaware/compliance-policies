@@ -25,8 +25,8 @@ conditions:
               arg:
                 EXTRACT: "CA10Z1__monitorIoConsumptionPercentAvg30Day__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The server is idle with Average CPU < 5%, and IO = 0%."
-    remediationMessage: "Consider stopping, terminating, or rightsizing the server."
+    currentStateMessage: "The server is idle with average CPU < 5% and I/O = 0%."
+    remediationMessage: "Stop, terminate, or rightsize the server."
     check:
       AND:
         args:

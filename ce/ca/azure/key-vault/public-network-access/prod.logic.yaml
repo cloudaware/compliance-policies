@@ -15,5 +15,5 @@ conditions:
           TEXT: "Disabled"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "Public network access is not disabled."
-  remediationMessage: "Consider disabling public network access."
+  currentStateMessage: "Public network access is enabled."
+  remediationMessage: "Disable public network access."

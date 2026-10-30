@@ -11,8 +11,8 @@
 7. Click on the `+` sign.
 8. Add an IP Address Range in CIDR notation inside the text box that appears.
 9. Click on the `Add` button.
-10. Repeat steps 7 through 9 for each IP Range that needs to be added.
-11. If the information entered are trusted ranges, select the `Mark as trusted location` check box.
+10. Repeat steps 7 through 9 for each IP range that needs to be added.
+11. If the information entered is for trusted ranges, select the `Mark as trusted location` check box.
 12. Once finished, click on `Create`.
 
 ## From PowerShell
@@ -20,11 +20,15 @@
 Create a new trusted IP-based Named location policy:
 
 ```ps
-[System.Collections.Generic.List`1[Microsoft.Open.MSGraph.Model.IpRange]]$ipRanges = @() $ipRanges.Add("<first IP range in CIDR notation>") $ipRanges.Add("<second IP range in CIDR notation>") $ipRanges.Add("<third IP range in CIDR notation>") New-MgIdentityConditionalAccessNamedLocation -dataType "#microsoft.graph.ipNamedLocation" -DisplayName "<name of IP Named location policy>" -IsTrusted $true -IpRanges $ipRanges
+[System.Collections.Generic.List`1[Microsoft.Open.MSGraph.Model.IpRange]]$ipRanges = @()
+$ipRanges.Add("{{first IP range in CIDR notation}}")
+$ipRanges.Add("{{second IP range in CIDR notation}}")
+$ipRanges.Add("{{third IP range in CIDR notation}}")
+New-MgIdentityConditionalAccessNamedLocation -dataType "#microsoft.graph.ipNamedLocation" -DisplayName "{{name of IP Named location policy}}" -IsTrusted $true -IpRanges $ipRanges
 ```
 
 Set an existing IP-based Named location policy to trusted:
 
 ```ps
-Update-MgIdentityConditionalAccessNamedLocation -PolicyId "<ID of the policy>" -dataType "#microsoft.graph.ipNamedLocation" -IsTrusted $true
+Update-MgIdentityConditionalAccessNamedLocation -PolicyId "{{ID of the policy}}" -dataType "#microsoft.graph.ipNamedLocation" -IsTrusted $true
 ```

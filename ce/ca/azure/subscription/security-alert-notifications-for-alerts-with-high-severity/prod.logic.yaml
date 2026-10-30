@@ -6,16 +6,16 @@ importExtracts:
   - file: "/types/CA10__CaAzureAccount__c/object.extracts.yaml"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "Security notifications emailing is not enabled."
-    remediationMessage: "Consider enabling security notifications emailing to the subscription owner or other designated security contact."
+    currentStateMessage: "Security notification emails are not enabled."
+    remediationMessage: "Enable security notification emails for the subscription owner or a designated security contact."
 # Extract only for the default contact
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "caJsonText__securityCenterContactsDefaultAlertNotifications__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Security notifications emailing is not enabled."
-    remediationMessage: "Consider enabling security notifications emailing to the subscription owner or other designated security contact."
+    currentStateMessage: "Security notification emails are not enabled."
+    remediationMessage: "Enable security notification emails for the subscription owner or a designated security contact."
 # Extract only for the default contact
     check:
       NOT_EQUAL:
@@ -24,8 +24,8 @@ conditions:
         right: 
           TEXT: "On"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Security notifications for alerts with High or Critical severity is not set."
-    remediationMessage: "Consider enabling security notifications for alerts with High severity."
+    currentStateMessage: "Security notifications do not include high severity alerts."
+    remediationMessage: "Set the notification severity threshold to High, Medium, or Low."
 # Extract only for the default contact
     check:
       NOT:
@@ -35,12 +35,13 @@ conditions:
               SET:
                 itemType: TEXT
                 items:
+                  - "Low"
+                  - "Medium"
                   - "High"
-                  - "Critical"
             search:
               EXTRACT: "caJsonText__securityCenterContactsDefaultAlertNotificationsSeverity__c"
   - status: "COMPLIANT"
-    currentStateMessage: "Security alerts emailing is enabled."
+    currentStateMessage: "Security notification emails are enabled."
 # Extract only for the default contact
     check:
       AND:
@@ -50,8 +51,9 @@ conditions:
                 SET:
                   itemType: TEXT
                   items:
+                    - "Low"
+                    - "Medium"
                     - "High"
-                    - "Critical"
               search:
                 EXTRACT: "caJsonText__securityCenterContactsDefaultAlertNotificationsSeverity__c"
           - IS_EQUAL:
@@ -61,4 +63,5 @@ conditions:
                 TEXT: "On"
 otherwise:
   status: "UNDETERMINED"
-  currentStateMessage: "Unexpected values in the fields." 
+  currentStateMessage: "Unexpected values in the fields."
+

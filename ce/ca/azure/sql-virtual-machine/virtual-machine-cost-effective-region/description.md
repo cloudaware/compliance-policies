@@ -1,10 +1,10 @@
 # Description
 
-This policy identifies Azure SQL Virtual Machines that are provisioned in Azure regions known to have higher pricing compared to nearby alternatives.
+This policy identifies Azure SQL Virtual Machines provisioned in Azure regions known to have higher pricing compared to nearby alternatives.
 
 ## Rationale
 
-Selecting the appropriate Azure region is essential for optimizing both cost and performance. Service pricing can vary across regions due to factors such as infrastructure expenses, energy costs, and local taxes. Deploying workloads in cost-efficient regions can result in substantial savings on monthly Azure expenditures.
+Selecting the appropriate Azure region is essential for optimizing cost and performance. Service pricing can vary across regions due to factors such as infrastructure expenses, energy costs, and local taxes. Deploying workloads in cost-efficient regions can result in substantial savings on monthly Azure expenditures.
 
 ## Impact
 

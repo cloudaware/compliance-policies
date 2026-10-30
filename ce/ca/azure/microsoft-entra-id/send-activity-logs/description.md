@@ -4,7 +4,7 @@ Ensure that a Microsoft Entra diagnostic setting is configured to send Microsoft
 
 ## Rationale
 
-Microsoft Entra activity logs enables you to assess many aspects of your Microsoft Entra tenant. Configuring diagnostic settings in Microsoft Entra ensures these logs are collected and sent to an appropriate destination for monitoring, analysis, and retention.
+Microsoft Entra activity logs enable you to assess many aspects of your Microsoft Entra tenant. Configuring diagnostic settings in Microsoft Entra ensures these logs are collected and sent to an appropriate destination for monitoring, analysis, and retention.
 
 ## Impact
 

@@ -1,0 +1,10 @@
+---
+name: 2.8 Ensure IAM password policy requires minimum length of 14 or greater (Automated)
+description: >
+  Password policies are used, in part, to enforce password complexity requirements. IAM
+  password policies can ensure that passwords meet a minimum length. It is
+  recommended that the password policy require a minimum password length of 14
+  characters.
+similar:
+  sections:
+    - /frameworks/cis-aws-v6.0.0/02/07

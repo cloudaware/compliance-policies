@@ -1,7 +1,7 @@
 ---
 names:
   full: AWS ELB Application Load Balancer is idle
-  contextual: ELB Application Load Balancer is idle
+  contextual: Application Load Balancer is idle
 description: >
   Identify AWS Application Load Balancers (ALBs) that have received no requests 
   over the last 30 days. Idle ALBs incur costs without providing value and should 

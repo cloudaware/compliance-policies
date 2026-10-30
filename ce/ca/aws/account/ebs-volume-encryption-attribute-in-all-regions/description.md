@@ -1,23 +1,23 @@
 # Description
 
-Elastic Compute Cloud (EC2) supports encryption at rest when using the Elastic Block Store (EBS) service. While disabled by default, forcing encryption at EBS volume creation is supported.
+Elastic Block Store (EBS) encryption by default should be enabled in every active AWS Region so new EBS volumes are encrypted automatically at creation.
 
 ## Rationale
 
-Encrypting data at rest reduces the likelihood that it is unintentionally exposed and can nullify the impact of disclosure if the encryption remains unbroken.
+Encrypting EBS volumes at rest reduces the likelihood that stored data is unintentionally exposed and can reduce the impact of unauthorized access to the underlying storage.
 
 ## Impact
 
-Losing access or removing the KMS key in use by the EBS volumes will result in no longer being able to access the volumes.
+Losing access to or deleting the KMS key used by EBS volumes can make the volumes inaccessible.
 
 ## Audit
 
 ### From Console
 
-1. Login to AWS Management Console and open the Amazon EC2 console using <https://console.aws.amazon.com/ec2/>.
+1. Sign in to the AWS Management Console and open the Amazon EC2 console using <https://console.aws.amazon.com/ec2/>.
 2. Under `Account attributes`, click `EBS encryption`.
 3. Verify `Always encrypt new EBS volumes` displays `Enabled`.
-4. Review every region in-use.
+4. Review every active region.
 
 **Note**: EBS volume encryption is configured per region.
 
@@ -25,12 +25,12 @@ Losing access or removing the KMS key in use by the EBS volumes will result in n
 
 1. Run:
 
-```sh
-aws --region <region> ec2 get-ebs-encryption-by-default
-```
+    ```sh
+    aws --region {{region-name}} ec2 get-ebs-encryption-by-default
+    ```
 
 2. Verify that `"EbsEncryptionByDefault": true` is displayed.
-3. Review every region in-use.
+3. Review every active region.
 
 **Note**: EBS volume encryption is configured per region.
 

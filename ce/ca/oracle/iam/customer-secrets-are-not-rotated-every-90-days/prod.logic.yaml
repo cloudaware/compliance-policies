@@ -1,0 +1,18 @@
+---
+inputType: "CA10O1__CaOracleIamCustomerSecretKey2__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10O1__CaOracleIamCustomerSecretKey2__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This Oracle IAM customer secret key was created more than 90 days ago."
+    remediationMessage: "Create a replacement customer secret key, update dependent workloads, and delete this stale key."
+    check:
+      IS_BEYOND_LAST_DAYS:
+        arg:
+          EXTRACT: "CA10O1__timeCreated__c"
+        offsetDays: 90
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "This Oracle IAM customer secret key is not more than 90 days old."

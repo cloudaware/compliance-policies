@@ -1,0 +1,142 @@
+[
+  {
+    "CA10__blobLoggingReadState__c": "Disabled",
+    "CA10__tableLoggingDeleteState__c": "Disabled",
+    "CA10__tableLoggingRetentionPolicyState__c": "Disabled",
+    "CA10__tableLoggingReadState__c": "Disabled",
+    "CA10__tableLoggingWriteState__c": "Disabled",
+    "CA10__blobLoggingDeleteState__c": "Disabled",
+    "CA10__blobLoggingRetentionPolicyState__c": "Disabled",
+    "CA10__blobLoggingRetentionPolicyDays__c": null,
+    "CA10__blobLoggingWriteState__c": "Disabled",
+    "CA10__queueLoggingDeleteState__c": "Disabled",
+    "CA10__queueLoggingReadState__c": "Disabled",
+    "RecordType": {
+      "Id": "RecordType1"
+    },
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "not(extract('CA10__blobLoggingReadState__c') == 'Enabled' || extract('CA10__blobLoggingWriteState__c') == 'Enabled' || extract('CA10__blobLoggingDeleteState__c') == 'Enabled') && not(extract('CA10__queueLoggingReadState__c') == 'Enabled' || extract('CA10__queueLoggingWriteState__c') == 'Enabled' || extract('CA10__queueLoggingDeleteState__c') == 'Enabled') && not(extract('CA10__tableLoggingReadState__c') == 'Enabled' || extract('CA10__tableLoggingWriteState__c') == 'Enabled' || extract('CA10__tableLoggingDeleteState__c') == 'Enabled')",
+      "conditionIndex": 199,
+      "status": "INAPPLICABLE"
+    },
+    "CA10__queueLoggingRetentionPolicyState__c": "Disabled",
+    "CA10__queueLoggingRetentionPolicyDays__c": null,
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "RecordTypeId": "RecordType1",
+    "CA10__queueLoggingWriteState__c": "Disabled",
+    "Id": "001",
+    "CA10__disappearanceTime__c": null,
+    "CA10__tableLoggingRetentionPolicyDays__c": null
+  },
+  {
+    "RecordType": {
+      "Id": "RecordType1"
+    },
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "conditionIndex": 99,
+      "status": "DISAPPEARED"
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "gone",
+    "CA10__disappearanceTime__c": "2026-09-09T00:00:00Z",
+    "CA10__blobLoggingReadState__c": "Enabled",
+    "CA10__blobLoggingWriteState__c": "Disabled",
+    "CA10__blobLoggingDeleteState__c": "Disabled",
+    "CA10__blobLoggingRetentionPolicyState__c": "Enabled",
+    "CA10__blobLoggingRetentionPolicyDays__c": 30,
+    "CA10__queueLoggingReadState__c": "Disabled",
+    "CA10__queueLoggingWriteState__c": "Disabled",
+    "CA10__queueLoggingDeleteState__c": "Disabled",
+    "CA10__tableLoggingReadState__c": "Disabled",
+    "CA10__tableLoggingWriteState__c": "Disabled",
+    "CA10__tableLoggingDeleteState__c": "Disabled"
+  },
+  {
+    "RecordType": {
+      "Id": "RecordType1"
+    },
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "((extract('CA10__blobLoggingReadState__c') == 'Enabled' || extract('CA10__blobLoggingWriteState__c') == 'Enabled' || extract('CA10__blobLoggingDeleteState__c') == 'Enabled') && (extract('CA10__blobLoggingRetentionPolicyState__c').isEmpty() || extract('CA10__blobLoggingRetentionPolicyDays__c').isEmpty())) || ((extract('CA10__queueLoggingReadState__c') == 'Enabled' || extract('CA10__queueLoggingWriteState__c') == 'Enabled' || extract('CA10__queueLoggingDeleteState__c') == 'Enabled') && (extract('CA10__queueLoggingRetentionPolicyState__c').isEmpty() || extract('CA10__queueLoggingRetentionPolicyDays__c').isEmpty())) || ((extract('CA10__tableLoggingReadState__c') == 'Enabled' || extract('CA10__tableLoggingWriteState__c') == 'Enabled' || extract('CA10__tableLoggingDeleteState__c') == 'Enabled') && (extract('CA10__tableLoggingRetentionPolicyState__c').isEmpty() || extract('CA10__tableLoggingRetentionPolicyDays__c').isEmpty()))",
+      "conditionIndex": 299,
+      "status": "UNDETERMINED"
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "missing",
+    "CA10__disappearanceTime__c": null,
+    "CA10__blobLoggingReadState__c": "Enabled",
+    "CA10__blobLoggingWriteState__c": "Disabled",
+    "CA10__blobLoggingDeleteState__c": "Disabled",
+    "CA10__blobLoggingRetentionPolicyState__c": null,
+    "CA10__blobLoggingRetentionPolicyDays__c": null,
+    "CA10__queueLoggingReadState__c": "Disabled",
+    "CA10__queueLoggingWriteState__c": "Disabled",
+    "CA10__queueLoggingDeleteState__c": "Disabled",
+    "CA10__tableLoggingReadState__c": "Disabled",
+    "CA10__tableLoggingWriteState__c": "Disabled",
+    "CA10__tableLoggingDeleteState__c": "Disabled"
+  },
+  {
+    "RecordType": {
+      "Id": "RecordType1"
+    },
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "((extract('CA10__blobLoggingReadState__c') == 'Enabled' || extract('CA10__blobLoggingWriteState__c') == 'Enabled' || extract('CA10__blobLoggingDeleteState__c') == 'Enabled') && (extract('CA10__blobLoggingRetentionPolicyState__c') == 'Disabled' || extract('CA10__blobLoggingRetentionPolicyDays__c') <= number(0.0))) || ((extract('CA10__queueLoggingReadState__c') == 'Enabled' || extract('CA10__queueLoggingWriteState__c') == 'Enabled' || extract('CA10__queueLoggingDeleteState__c') == 'Enabled') && (extract('CA10__queueLoggingRetentionPolicyState__c') == 'Disabled' || extract('CA10__queueLoggingRetentionPolicyDays__c') <= number(0.0))) || ((extract('CA10__tableLoggingReadState__c') == 'Enabled' || extract('CA10__tableLoggingWriteState__c') == 'Enabled' || extract('CA10__tableLoggingDeleteState__c') == 'Enabled') && (extract('CA10__tableLoggingRetentionPolicyState__c') == 'Disabled' || extract('CA10__tableLoggingRetentionPolicyDays__c') <= number(0.0)))",
+      "conditionIndex": 399,
+      "status": "INCOMPLIANT"
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "unbounded",
+    "CA10__disappearanceTime__c": null,
+    "CA10__blobLoggingReadState__c": "Enabled",
+    "CA10__blobLoggingWriteState__c": "Disabled",
+    "CA10__blobLoggingDeleteState__c": "Disabled",
+    "CA10__blobLoggingRetentionPolicyState__c": "Disabled",
+    "CA10__blobLoggingRetentionPolicyDays__c": 0,
+    "CA10__queueLoggingReadState__c": "Disabled",
+    "CA10__queueLoggingWriteState__c": "Disabled",
+    "CA10__queueLoggingDeleteState__c": "Disabled",
+    "CA10__tableLoggingReadState__c": "Disabled",
+    "CA10__tableLoggingWriteState__c": "Disabled",
+    "CA10__tableLoggingDeleteState__c": "Disabled"
+  },
+  {
+    "RecordType": {
+      "Id": "RecordType1"
+    },
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "otherwise",
+      "conditionIndex": 400,
+      "status": "COMPLIANT"
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "bounded",
+    "CA10__disappearanceTime__c": null,
+    "CA10__blobLoggingReadState__c": "Enabled",
+    "CA10__blobLoggingWriteState__c": "Disabled",
+    "CA10__blobLoggingDeleteState__c": "Disabled",
+    "CA10__blobLoggingRetentionPolicyState__c": "Enabled",
+    "CA10__blobLoggingRetentionPolicyDays__c": 30,
+    "CA10__queueLoggingReadState__c": "Disabled",
+    "CA10__queueLoggingWriteState__c": "Disabled",
+    "CA10__queueLoggingDeleteState__c": "Disabled",
+    "CA10__tableLoggingReadState__c": "Disabled",
+    "CA10__tableLoggingWriteState__c": "Disabled",
+    "CA10__tableLoggingDeleteState__c": "Disabled"
+  }
+]

@@ -4,18 +4,18 @@ testData:
   - file: test-data.json
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "API Keys exist for a project."
-    remediationMessage: "To avoid the security risk in using API keys, it is recommended to use standard authentication flow instead."
+    currentStateMessage: "API keys exist for the project."
+    remediationMessage: "Use standard authentication instead of API keys where possible."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10G1__Google_API_Keys__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "API keys are not created for a project."
+  currentStateMessage: "No API keys are created for the project."
 relatedLists:
   - relationshipName: "CA10G1__Google_API_Keys__r"
     conditions: []
     otherwise:
       status: "INCOMPLIANT"
-      currentStateMessage: "API Key exists."
+      currentStateMessage: "API key exists."

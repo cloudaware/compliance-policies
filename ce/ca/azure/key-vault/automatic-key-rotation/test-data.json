@@ -1,200 +1,121 @@
 [
-    {
-        "expectedResult": {
-            "status": "DISAPPEARED",
-            "conditionIndex": "99",
-            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-11-12T19:14:41Z"
-        },
-        "Id": "test1",
-        "CA10__disappearanceTime__c": "2024-11-12T19:14:41Z",
-        "CA10__Azure_Key_Vault_Keys__r": [
-            {
-                "Id": "test1_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__lifetimeActions__c": "",
-                "CA10__created__c": "2024-03-27T14:50:58Z",
-                "CA10__keyVault__c": "test1"
-            }
-        ]
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
     },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "199",
-            "conditionText": "CA10__Azure_Key_Vault_Keys__r.has(INCOMPLIANT)",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-11-12T19:14:41Z"
-        },
-        "Id": "test2",
-        "CA10__disappearanceTime__c": null,
-        "CA10__Azure_Key_Vault_Keys__r": [
-            {
-                "Id": "test2_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__lifetimeActions__c": "",
-                "CA10__created__c": "2024-03-27T14:50:58Z",
-                "CA10__keyVault__c": "test2"
-            }
-        ]
+    "context": {
+      "snapshotTime": "2024-11-12T19:14:41Z"
     },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "199",
-            "conditionText": "CA10__Azure_Key_Vault_Keys__r.has(INCOMPLIANT)",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-11-12T19:14:41Z"
-        },
-        "Id": "test3",
-        "CA10__disappearanceTime__c": null,
-        "CA10__Azure_Key_Vault_Keys__r": [
-            {
-                "Id": "test3_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__lifetimeActions__c": "{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"NOTIFY\"}}",
-                "CA10__created__c": "2024-03-27T14:50:58Z",
-                "CA10__keyVault__c": "test3"
-            }
-        ]
+    "Id": "test1",
+    "CA10__disappearanceTime__c": "2024-11-12T19:14:41Z",
+    "CA10__enabledStatus__c": "Enabled",
+    "CA10__lifetimeActions__c": "",
+    "CA10__created__c": "2024-03-27T14:50:58Z",
+    "CA10__keyVault__c": "test-key-vault"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__lifetimeActions__c').isEmpty()",
+      "runtimeError": null
     },
-    {
-        "expectedResult": {
-            "status": "COMPLIANT",
-            "conditionIndex": "299",
-            "conditionText": "CA10__Azure_Key_Vault_Keys__r.has(COMPLIANT)",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-11-12T19:14:41Z"
-        },
-        "Id": "test4",
-        "CA10__disappearanceTime__c": null,
-        "CA10__Azure_Key_Vault_Keys__r": [
-            {
-                "Id": "test4_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__lifetimeActions__c": "{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"ROTATE\"}}",
-                "CA10__created__c": "2024-03-27T14:50:58Z",
-                "CA10__keyVault__c": "test4"
-            }
-        ]
+    "context": {
+      "snapshotTime": "2024-11-12T19:14:41Z"
     },
-    {
-        "expectedResult": {
-            "status": "COMPLIANT",
-            "conditionIndex": "299",
-            "conditionText": "CA10__Azure_Key_Vault_Keys__r.has(COMPLIANT)",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-11-12T19:14:41Z"
-        },
-        "Id": "test5",
-        "CA10__disappearanceTime__c": null,
-        "CA10__Azure_Key_Vault_Keys__r": [
-            {
-                "Id": "test5_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__lifetimeActions__c": "{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"ROTATE\"}}\n{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"NOTIFY\"}}",
-                "CA10__created__c": "2024-03-27T14:50:58Z",
-                "CA10__keyVault__c": "test5"
-            }
-        ]
+    "Id": "test2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__enabledStatus__c": "Enabled",
+    "CA10__lifetimeActions__c": "",
+    "CA10__created__c": "2024-03-27T14:50:58Z",
+    "CA10__keyVault__c": "test-key-vault"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "not(extract('CA10__lifetimeActions__c').contains('Rotate'))",
+      "runtimeError": null
     },
-    {
-        "expectedResult": {
-            "status": "COMPLIANT",
-            "conditionIndex": "400",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-11-12T19:14:41Z"
-        },
-        "Id": "test6",
-        "CA10__disappearanceTime__c": null,
-        "CA10__Azure_Key_Vault_Keys__r": []
+    "context": {
+      "snapshotTime": "2024-11-12T19:14:41Z"
     },
-    {
-        "expectedResult": {
-            "status": "COMPLIANT",
-            "conditionIndex": "400",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-11-12T19:14:41Z"
-        },
-        "Id": "test7",
-        "CA10__disappearanceTime__c": null,
-        "CA10__Azure_Key_Vault_Keys__r": [
-            {
-                "Id": "test7_1",
-                "CA10__disappearanceTime__c": "2024-11-12T19:14:41Z",
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__lifetimeActions__c": "{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"ROTATE\"}}",
-                "CA10__created__c": "2024-03-27T14:50:58Z",
-                "CA10__keyVault__c": "test7"
-            }
-        ]
+    "Id": "test3",
+    "CA10__disappearanceTime__c": null,
+    "CA10__enabledStatus__c": "Enabled",
+    "CA10__lifetimeActions__c": "{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"NOTIFY\"}}",
+    "CA10__created__c": "2024-03-27T14:50:58Z",
+    "CA10__keyVault__c": "test-key-vault"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "599",
+      "conditionText": "extract('CA10__lifetimeActions__c').contains('Rotate')",
+      "runtimeError": null
     },
-    {
-        "expectedResult": {
-            "status": "COMPLIANT",
-            "conditionIndex": "400",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-11-12T19:14:41Z"
-        },
-        "Id": "test8",
-        "CA10__disappearanceTime__c": null,
-        "CA10__Azure_Key_Vault_Keys__r": [
-            {
-                "Id": "test8_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Disabled",
-                "CA10__lifetimeActions__c": "{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"ROTATE\"}}",
-                "CA10__created__c": "2024-03-27T14:50:58Z",
-                "CA10__keyVault__c": "test8"
-            }
-        ]
+    "context": {
+      "snapshotTime": "2024-11-12T19:14:41Z"
     },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "199",
-            "conditionText": "CA10__Azure_Key_Vault_Keys__r.has(INCOMPLIANT)",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-11-12T19:14:41Z"
-        },
-        "Id": "test9",
-        "CA10__disappearanceTime__c": null,
-        "CA10__Azure_Key_Vault_Keys__r": [
-            {
-                "Id": "test9_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__lifetimeActions__c": "{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"ROTATE\"}}\n{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"NOTIFY\"}}",
-                "CA10__created__c": "2022-11-02T19:14:41Z",
-                "CA10__keyVault__c": "test9"
-            }
-        ]
-    }
+    "Id": "test4",
+    "CA10__disappearanceTime__c": null,
+    "CA10__enabledStatus__c": "Enabled",
+    "CA10__lifetimeActions__c": "{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"ROTATE\"}}",
+    "CA10__created__c": "2024-03-27T14:50:58Z",
+    "CA10__keyVault__c": "test-key-vault"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "599",
+      "conditionText": "extract('CA10__lifetimeActions__c').contains('Rotate')",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-11-12T19:14:41Z"
+    },
+    "Id": "test5",
+    "CA10__disappearanceTime__c": null,
+    "CA10__enabledStatus__c": "Enabled",
+    "CA10__lifetimeActions__c": "{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"ROTATE\"}}\n{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"NOTIFY\"}}",
+    "CA10__created__c": "2024-03-27T14:50:58Z",
+    "CA10__keyVault__c": "test-key-vault"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__enabledStatus__c') != 'Enabled'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-11-12T19:14:41Z"
+    },
+    "Id": "test6",
+    "CA10__disappearanceTime__c": null,
+    "CA10__enabledStatus__c": "Disabled",
+    "CA10__lifetimeActions__c": "{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"ROTATE\"}}",
+    "CA10__created__c": "2024-03-27T14:50:58Z",
+    "CA10__keyVault__c": "test-key-vault"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__created__c').beyondLastDays(730)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-11-12T19:14:41Z"
+    },
+    "Id": "test7",
+    "CA10__disappearanceTime__c": null,
+    "CA10__enabledStatus__c": "Enabled",
+    "CA10__lifetimeActions__c": "{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"ROTATE\"}}\n{\"trigger\":{\"timeBeforeExpiry\":\"P30D\"},\"action\":{\"type\":\"NOTIFY\"}}",
+    "CA10__created__c": "2022-11-02T19:14:41Z",
+    "CA10__keyVault__c": "test-key-vault"
+  }
 ]

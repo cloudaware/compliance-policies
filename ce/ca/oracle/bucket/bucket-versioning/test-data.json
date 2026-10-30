@@ -1,0 +1,62 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10O1__versioning__c') == 'Enabled'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test1",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__versioning__c": "Enabled"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10O1__versioning__c') == 'Disabled'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test2",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__versioning__c": "Disabled"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10O1__versioning__c') == 'Suspended'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test3",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__versioning__c": "Suspended"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "101",
+      "conditionText": "CA10O1__versioning__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test4",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__versioning__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test5",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__versioning__c": "Unknown"
+  }
+]

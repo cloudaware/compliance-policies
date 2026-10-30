@@ -11,8 +11,8 @@ Perform the following to configure CloudTrail to use SSE-KMS:
 5. Click `Advanced`.
 6. Select an existing CMK from the `KMS key Id` drop-down menu.
 
-- **Note**: Ensure the CMK is located in the same region as the S3 bucket.
-- **Note**: You will need to apply a KMS Key policy on the selected CMK in order for CloudTrail as a service to encrypt and decrypt log files using the CMK provided. Steps are provided [here](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-kms-key-policy-for-cloudtrail.html) for editing the selected CMK Key policy.
+    - **Note**: Ensure the CMK is located in the same region as the S3 bucket.
+    - **Note**: You will need to apply a KMS Key policy on the selected CMK in order for CloudTrail as a service to encrypt and decrypt log files using the CMK provided. Steps are provided [here](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-kms-key-policy-for-cloudtrail.html) for editing the selected CMK Key policy.
 
 7. Click `Save`.
 8. You will see a notification message stating that you need to have decrypt permissions on the specified KMS key to decrypt log files.
@@ -23,11 +23,11 @@ Perform the following to configure CloudTrail to use SSE-KMS:
 Run the following command to specify a KMS key ID to use with a trail:
 
 ```sh
-aws cloudtrail update-trail --name <trail-name> --kms-id <cloudtrail-kmskey>
+aws cloudtrail update-trail --name {{trail-name}} --kms-id {{cloudtrail-kmskey}}
 ```
 
 Run the following command to attach a key policy to a specified KMS key:
 
 ```sh
-aws kms put-key-policy --key-id <cloudtrail-kms-key> --policy <cloudtrailkms-key-policy>
+aws kms put-key-policy --key-id {{cloudtrail-kms-key}} --policy {{cloudtrailkms-key-policy}}
 ```

@@ -20,6 +20,6 @@ This policy flags an *Azure VM Scale Set Instance* as `INCOMPLIANT` if it is ass
 - `Source Address Prefix` is either **Internet**, `*` **0.0.0.0**, **/0**, or **Any**.
 - `Destination Port` is **445**.
 
-If the `Direction`, `Access`, `Protocol`, or `Source Address Prefix` fields do not match the criteria above, the VM is marked as `INAPPLICABLE`.
+If the `Direction`, `Access`, `Protocol`, or `Source Address Prefix` fields do not match the criteria above, the Azure VM Scale Set Instance is marked as `INAPPLICABLE`.
 
-If the `Destination Port` does not match, the VM is considered `COMPLIANT`.
+If the `Destination Port` does not match, the Azure VM Scale Set Instance is considered `COMPLIANT`.

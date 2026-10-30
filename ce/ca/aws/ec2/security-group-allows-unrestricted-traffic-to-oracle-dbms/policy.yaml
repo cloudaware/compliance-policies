@@ -10,10 +10,13 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - "/frameworks/cloudaware/resource-security/threat-protection"
+  - "/frameworks/iso-iec-27001-2013/13/01/01"
+  - "/frameworks/pci-dss-v4.0.1/01/03/01"
+  - "/frameworks/pci-dss-v4.0.1/01/03/02"
+  - "/frameworks/cloudaware/resource-security/network-exposure"
 similarPolicies:
   internal:
-    - dec-z-c82c9f97
+    - dec-x-bb3a0851
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/EC2/unrestricted-oracle-access.html
       name: Unrestricted Oracle Access

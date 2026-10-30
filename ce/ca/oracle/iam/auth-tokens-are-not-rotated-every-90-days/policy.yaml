@@ -1,0 +1,18 @@
+---
+names:
+  full: "Oracle IAM Auth Tokens are not rotated every 90 days"
+  contextual: "IAM Auth Tokens are not rotated every 90 days"
+description: >
+  Oracle IAM auth tokens should be rotated at least every 90 days. Stale
+  auth tokens increase the exposure window for compromised long-term
+  credentials used by services that do not support OCI signature-based
+  authentication.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cis-oracle-v3.1.0/01/10"
+  - "/frameworks/cloudaware/identity-and-access-governance/credential-lifecycle-management"
+similarPolicies:
+  internal:
+    - "dec-x-2e85e7c5"

@@ -13,8 +13,8 @@ conditions:
         search:
           TEXT: "dax.r3."
   - status: "INCOMPLIANT"
-    currentStateMessage: "The DAX Cluster is not encrypted at rest."
-    remediationMessage: "Consider enabling server-side encryption for the DAX cluster."
+    currentStateMessage: "The DAX cluster is not encrypted at rest."
+    remediationMessage: "Enable server-side encryption for the DAX cluster."
     check:
       IS_EQUAL:
         left:
@@ -22,7 +22,7 @@ conditions:
         right:
           TEXT: "DISABLED"
   - status: "COMPLIANT"
-    currentStateMessage: "The DAX Cluster is encrypted at rest."
+    currentStateMessage: "The DAX cluster is encrypted at rest."
     check:
       IS_EQUAL:
         left:

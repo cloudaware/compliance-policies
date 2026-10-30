@@ -6,7 +6,7 @@ Amazon S3 Access Points simplify managing data access at scale for shared datase
 
 ## Rationale
 
-Keeping  Block Public Access settings enabled for S3 Access Points ensures that, regardless of the underlying bucket policies or object ACLs, the access point will reject all public requests. This helps prevent data leaks caused by misconfigurations and enforces a strict boundary against unauthorized public access.
+Keeping Block Public Access settings enabled for S3 Access Points ensures that, regardless of the underlying bucket policies or object ACLs, the access point rejects all public requests. This helps prevent data leaks caused by misconfigurations and enforces a strict boundary against unauthorized public access.
 
 ## Audit
 

@@ -10,6 +10,6 @@ However, if only one tunnel is active and it fails (e.g., due to internet connec
 
 ## Audit
 
-This policy flags an *AWS VPC VPN Connection* as `INCOMPLIANT` if fewer than 2 related *AWS VPC VPN Gateway Telemetries* have a `Status` of **UP**.
+This policy flags an *AWS VPC VPN Connection* as `INCOMPLIANT` if fewer than two related *AWS VPC VPN Gateway Telemetries* have a `Status` of **UP**.
 
 A *VPN Connection* is marked as `INAPPLICABLE` if its `State` is not **available**.

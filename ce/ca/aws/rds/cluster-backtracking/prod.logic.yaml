@@ -1,0 +1,43 @@
+---
+inputType: "CA10__CaAwsDbCluster__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsDbCluster__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The cluster is not available."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "available"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This policy applies only to Amazon Aurora MySQL DB clusters."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__engine__c"
+        right:
+          TEXT: "aurora-mysql"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Aurora backtracking is not enabled for the DB cluster."
+    remediationMessage: "Set the Aurora MySQL DB cluster backtrack window to a value greater than 0 seconds."
+    check:
+      LESS_THAN_EQUAL:
+        left:
+          EXTRACT: "CA10__backtrackWindow__c"
+        right:
+          NUMBER: 0.0
+  - status: "COMPLIANT"
+    currentStateMessage: "Aurora backtracking is enabled for the DB cluster."
+    check:
+      GREATER_THAN:
+        left:
+          EXTRACT: "CA10__backtrackWindow__c"
+        right:
+          NUMBER: 0.0
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values were found in the cluster status, engine, or backtrack window."

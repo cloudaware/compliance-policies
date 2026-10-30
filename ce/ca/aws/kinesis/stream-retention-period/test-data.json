@@ -32,7 +32,7 @@
   {
     "expectedResult": {
       "runtimeError": null,
-      "conditionText": "CA10__retentionPeriodHours__c < number(168.0)",
+      "conditionText": "extract('CA10__retentionPeriodHours__c') < number(168.0)",
       "conditionIndex": 299,
       "status": "INCOMPLIANT"
     },

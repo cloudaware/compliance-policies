@@ -1,6 +1,6 @@
 # Description
 
-SQL Server Audit Retention should be configured to be greater than 90 days.
+SQL Server audit retention should be configured to be greater than 90 days.
 
 ## Rationale
 
@@ -26,7 +26,9 @@ Get-AzSqlServer
 For each Server:
 
 ```ps
-Get-AzSqlServerAudit -ResourceGroupName <resource group name> -ServerName <server name>
+Get-AzSqlServerAudit `
+    -ResourceGroupName {{resource-group-name}} `
+    -ServerName {{sql-server-name}}
 ```
 
 Ensure that `RetentionInDays` is set to `more than 90`.
@@ -34,7 +36,7 @@ Ensure that `RetentionInDays` is set to `more than 90`.
 **Note**: If the SQL server is set with `LogAnalyticsTargetState` setting set to `Enabled`, run the following additional command:
 
 ```ps
-Get-AzOperationalInsightsWorkspace | Where-Object {$_.ResourceId -eq <SQL Server WorkSpaceResourceId>}
+Get-AzOperationalInsightsWorkspace | Where-Object {$_.ResourceId -eq {{sql-server-workspace-resource-id}}}
 ```
 
 Ensure that `RetentionInDays` is set to `more than 90`.

@@ -24,4 +24,9 @@
 
 1. To update all services in an entire project, run the following command from an account that has permissions as an 'Approver for Access Approval Requests'
 
-            gcloud access-approval settings update --project=<project name> --enrolled_services=all --notification_emails='<email recipient for access approval requests>@<domain name>'
+    ```sh
+    gcloud access-approval settings update \
+        --project={{project name}} \
+        --enrolled_services=all \
+        --notification_emails='{{email recipient for access approval requests}}@{{domain name}}'
+    ```

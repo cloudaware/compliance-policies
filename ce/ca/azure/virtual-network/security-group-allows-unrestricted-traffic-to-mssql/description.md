@@ -2,7 +2,7 @@
 
 Ensure that Azure Network Security Groups hosting Microsoft SQL Server (MSSQL) are not configured to allow unrestricted inbound access to the default MSSQL port (1433). Network Security Group (NSG) rules should be reviewed and adjusted to restrict inbound traffic on port 1433 to authorized IP addresses or trusted networks, thereby minimizing the risk of unauthorized access and potential exploitation of the database.
 
-## Rational
+## Rationale
 
 Unrestricted access to MSSQL on port 1433 significantly increases the attack surface of the database server. This exposure can lead to security threats such as brute-force attacks, unauthorized data access, and data exfiltration. MSSQL servers are often targeted by malicious actors, particularly when weak authentication or unpatched vulnerabilities exist. By limiting access to trusted sources, you can mitigate these risks and ensure that only authorized systems and users can interact with the database, thereby enhancing its overall security posture.
 
@@ -20,6 +20,6 @@ This policy flags an *Azure Network Security Group* as `INCOMPLIANT` if it conta
 - `Source Address Prefix` is either **Internet**, `*` **0.0.0.0**, **/0**, or **Any**.
 - `Destination Port` is **1433**.
 
-If the `Direction`, `Access`, `Protocol`, or `Source Address Prefix` fields do not match the criteria above, the VM is marked as `INAPPLICABLE`.
+If the `Direction`, `Access`, `Protocol`, or `Source Address Prefix` fields do not match the criteria above, the Network Security Group is marked as `INAPPLICABLE`.
 
-If the `Destination Port` does not match, the VM is considered `COMPLIANT`.
+If the `Destination Port` does not match, the Network Security Group is considered `COMPLIANT`.

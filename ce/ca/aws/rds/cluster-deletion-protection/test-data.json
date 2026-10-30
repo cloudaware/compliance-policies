@@ -1,0 +1,44 @@
+[
+    {
+        "CA10__deletionProtection__c": false,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "context": {
+            "snapshotTime": "2026-01-29T05:20:53Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2026-01-20T22:12:18Z"
+    },
+    {
+        "CA10__deletionProtection__c": false,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "CA10__deletionProtection__c == false",
+            "conditionIndex": 199,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2026-01-29T05:20:53Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null
+    },
+    {
+        "CA10__deletionProtection__c": true,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "CA10__deletionProtection__c == true",
+            "conditionIndex": 299,
+            "status": "COMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2026-01-29T05:20:53Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null
+    }
+]

@@ -1,0 +1,44 @@
+---
+extracts:
+  # Checkbox.
+  - name: CA10__publiclyAccessible__c
+    value: 
+      FIELD:
+        path: CA10__publiclyAccessible__c
+  # Checkbox.
+  - name: CA10__autoMinorVersionUpgrade__c
+    value: 
+      FIELD:
+        path: CA10__autoMinorVersionUpgrade__c
+  # Text.
+  - name: CA10__deploymentMode__c
+    value: 
+      FIELD:
+        path: CA10__deploymentMode__c
+# Values: Enabled | Disabled. Nullable.
+  - name: "CA10__logsAudit__c"
+    value: 
+      FIELD:
+        path: "CA10__logsAudit__c"
+# Values: ACTIVEMQ | RABBITMQ.
+  - name: "CA10__engineType__c"
+    value: 
+      FIELD:
+        path: "CA10__engineType__c"
+        undeterminedIf:
+          isEmpty: The broker engine type is not collected.
+  # Text.
+  - name: CA10__engineVersion__c
+    value:
+      FIELD:
+        path: CA10__engineVersion__c
+        undeterminedIf:
+          isEmpty: The current broker engine version is not collected.
+  # Text. RUNNING, REBOOT_IN_PROGRESS, CRITICAL_ACTION_REQUIRED, REPLICA,
+  # CREATION_IN_PROGRESS, CREATION_FAILED, DELETION_IN_PROGRESS.
+  - name: CA10__state__c
+    value:
+      FIELD:
+        path: CA10__state__c
+        undeterminedIf:
+          isEmpty: The broker state is not collected.

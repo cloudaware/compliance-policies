@@ -11,7 +11,7 @@ Perform the following to implement the prescribed state:
 
 ## Security Group State
 
-1. Login to the AWS Management Console at <https://console.aws.amazon.com/vpc/home>.
+1. Log in to the AWS Management Console at <https://console.aws.amazon.com/vpc/home>.
 2. Repeat the next steps for all VPCs - including the default VPC in each AWS region:
 3. In the left pane, click `Security Groups`.
 4. For each default security group, perform the following:
@@ -20,8 +20,8 @@ Perform the following to implement the prescribed state:
     - Click the `Inbound Rules` tab.
     - Remove any inbound rules.
     - Click the `Outbound Rules` tab.
-    - Remove any Outbound rules.
+    - Remove any outbound rules.
 
 ## Recommended
 
-IAM groups allow you to edit the `name` field. After remediating default groups rules for all VPCs in all regions, edit this field to add text similar to `DO NOT USE. DO NOT ADD RULES`.
+IAM groups allow you to edit the `name` field. After remediating default group rules for all VPCs in all regions, edit this field to add text similar to `DO NOT USE. DO NOT ADD RULES`.

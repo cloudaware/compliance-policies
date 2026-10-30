@@ -12,7 +12,7 @@
 From the audit command identify the unapproved extensions, and use the below CLI command to remove an unapproved extension attached to VM:
 
 ```sh
-az vm extension delete --resource-group <resourceGroupName> --vm-name <vmName> --name <extensionName>
+az vm extension delete --resource-group {{resourceGroupName}} --vm-name {{vmName}} --name {{extensionName}}
 ```
 
 ## From PowerShell
@@ -20,5 +20,5 @@ az vm extension delete --resource-group <resourceGroupName> --vm-name <vmName> -
 For each VM and each insecure extension from the Audit Procedure run the following command:
 
 ```ps
-Remove-AzVMExtension -ResourceGroupName <ResourceGroupName> -Name <ExtensionName> -VMName <VirtualMachineName>
+Remove-AzVMExtension -ResourceGroupName {{ResourceGroupName}} -Name {{ExtensionName}} -VMName {{VirtualMachineName}}
 ```

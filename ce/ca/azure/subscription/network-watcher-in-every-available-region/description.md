@@ -1,6 +1,6 @@
 # Description
 
-Enable Network Watcher for physical regions in Azure subscriptions.
+Enable Network Watcher for physical regions in Azure subscriptions where network resources are in use.
 
 ## Rationale
 
@@ -12,7 +12,7 @@ There are additional costs per transaction to run and store network data. For hi
 
 ## Audit
 
-This policy marks an *Azure Subscription* as `INCOMPLIANT` if the number of `Available Locations` is not equal to the total number of enabled *Azure Network Watchers* in that subscription.
+Review the Network Watcher service and confirm that a Network Watcher exists with `provisioningState` set to `Succeeded` for each Azure region in use by the subscription.
 
 ## Default Value
 

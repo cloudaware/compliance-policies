@@ -36,9 +36,7 @@ extracts:
       FIELD:
         path: "CA10__stateName__c"
         undeterminedIf:
-          noAccessDelegate:
-            path: "CA10__stateName__c"
-            currentStateMessage: "Unable to determine EC2 Instances State Name. Possible permission issue with ec2:DescribeInstanceStatus"
+          isEmpty: "Corrupted data. EC2 Instance State Name cannot be empty."
 # Number of Days. Nullable. Can't have no access, retrieved via ec2:DescribeInstances
   - name: "CA10__currentRunningTime__c"
     value: 
@@ -64,7 +62,47 @@ extracts:
     value: 
       FIELD:
         path: "CA10__sumTwoWeekNetworkInMb__c" 
-# Nullable.
+  # Nullable.
+  - name: "CA10N__newRelicHost__c"
+    value:
+      FIELD:
+        path: "CA10N__newRelicHost__c"
+  # Nullable. 
+  - name: "CA10N__newRelicHostCpuUsed__c"
+    value:
+      FIELD:
+        path: "CA10N__newRelicHostCpuUsed__c"
+  # Nullable.
+  - name: "CA10N__newRelicHostMemoryUsed14Day__c"
+    value:
+      FIELD:
+        path: "CA10N__newRelicHostMemoryUsed14Day__c"
+  # Nullable.
+  - name: "CA10__averageMemoryUsedTwoWeeks__c"
+    value:
+      FIELD:
+        path: "CA10__averageMemoryUsedTwoWeeks__c"
+  # Nullable.
+  - name: "CA10__nagiosMemoryUtilization__c"
+    value:
+      FIELD:
+        path: "CA10__nagiosMemoryUtilization__c"
+  # Nullable.
+  - name: "CA10N__newRelicHostDiskUtilization__c"
+    value:
+      FIELD:
+        path: "CA10N__newRelicHostDiskUtilization__c"
+  # Nullable.
+  - name: "CA10N__newRelicHostDiskReadUtilization__c"
+    value:
+      FIELD:
+        path: "CA10N__newRelicHostDiskReadUtilization__c"
+  # Nullable.
+  - name: "CA10N__newRelicHostDiskWriteUtilization__c"
+    value:
+      FIELD:
+        path: "CA10N__newRelicHostDiskWriteUtilization__c"
+ # Nullable.
   - name: "CA10__regionName__c"
     value:
       FIELD:
@@ -76,3 +114,25 @@ extracts:
         path: "CA10__virtualizationType__c"
         undeterminedIf:
           isEmpty: "Corrupted data. EC2 Instances Virtualization Type cannot be empty."
+  # Nullable when OS lifecycle enrichment is unavailable.
+  - name: CA10__osInfoSource__c
+    value:
+      FIELD:
+        path: CA10__osInfoSource__c
+  # Nullable
+  - name: CA10__osInfoMaintained__c
+    value:
+      FIELD:
+        path: CA10__osInfoMaintained__c
+        undeterminedIf:
+          isEmpty: The OS lifecycle maintained indicator is missing.
+  # Nullable
+  - name: CA10__osInfoEolFrom__c
+    value:
+      FIELD:
+        path: CA10__osInfoEolFrom__c
+  # Nullable
+  - name: CA10__osInfoEoesFrom__c
+    value:
+      FIELD:
+        path: CA10__osInfoEoesFrom__c

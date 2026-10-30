@@ -1,7 +1,5 @@
 # Remediation
 
-F
-
 ## From Console
 
 1. Sign in to the AWS Management Console and navigate to EC2 dashboard at <https://console.aws.amazon.com/ec2/>.
@@ -17,22 +15,28 @@ F
 
 ## From Command Line
 
-1. Run the `describe-instances` command to list all EC2 instance IDs, available in the selected AWS region:
+1. Run the `describe-instances` command to list all EC2 instance IDs in the selected AWS region:
 
-```sh
-aws ec2 describe-instances --region <region-name> --query 'Reservations[*].Instances[*].InstanceId'
-```
+    ```sh
+    aws ec2 describe-instances --region {{region-name}} --query 'Reservations[*].Instances[*].InstanceId'
+    ```
 
-2. Run the `associate-iam-instance-profile` command to attach an instance profile (which is attached to an IAM role) to the EC2 instance:
+2. Run the `associate-iam-instance-profile` command to attach an instance profile (which contains an IAM role) to the EC2 instance:
 
-```sh
-aws ec2 associate-iam-instance-profile --region <region-name> --instance-id <Instance-ID> --iam-instance-profile Name="Instance-Profile-Name"
-```
+    ```sh
+    aws ec2 associate-iam-instance-profile \
+        --region {{region-name}} \
+        --instance-id {{Instance-ID}} \
+        --iam-instance-profile Name="Instance-Profile-Name"
+    ```
 
 3. Run the `describe-instances` command again for the recently modified EC2 instance. The command output should return the instance profile ARN and ID:
 
-```sh
-aws ec2 describe-instances --region <region-name> --instance-id <Instance-ID> --query 'Reservations[*].Instances[*].IamInstanceProfile'
-```
+    ```sh
+    aws ec2 describe-instances \
+        --region {{region-name}} \
+        --instance-id {{Instance-ID}} \
+        --query 'Reservations[*].Instances[*].IamInstanceProfile'
+    ```
 
 4. Repeat steps 2 to 3 for each EC2 instance in your AWS account that requires an IAM role to be attached.

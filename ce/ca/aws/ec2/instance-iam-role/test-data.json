@@ -11,13 +11,23 @@
     },
     "Id": "a01",
     "CA10__disappearanceTime__c": "2024-06-18T13:02:29Z",
-    "CA10__iamInstanceProfileArn__c": ""
+    "CA10__iamInstanceProfileArn__c": "",
+    "CA10A1__iamInstanceProfile__c": null,
+    "CA10A1__iamInstanceProfile__r": {
+      "Id": null,
+      "CA10A1__disappearanceTime__c": null,
+      "CA10A1__role__c": null,
+      "CA10A1__role__r": {
+        "Id": null,
+        "CA10__disappearanceTime__c": null
+      }
+    }
   },
   {
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "199",
-      "conditionText": "extract('CA10__iamInstanceProfileArn__c').isNotEmpty()",
+      "conditionText": "CA10A1__iamInstanceProfile__r.CA10A1__roleArn__c.isNotEmpty()",
       "runtimeError": null
     },
     "context": {
@@ -25,7 +35,18 @@
     },
     "Id": "a02",
     "CA10__disappearanceTime__c": null,
-    "CA10__iamInstanceProfileArn__c": "arn:aws:iam::1234567890:instance-profile/ProfileArn"
+    "CA10__iamInstanceProfileArn__c": "arn:aws:iam::1234567890:instance-profile/ProfileArn",
+    "CA10A1__iamInstanceProfile__c": "profile1",
+    "CA10A1__iamInstanceProfile__r": {
+      "Id": "profile1",
+      "CA10A1__disappearanceTime__c": null,
+      "CA10A1__role__c": "role1",
+      "CA10A1__roleArn__c": "arn:aws:iam::1234567890:role/role1",
+      "CA10A1__role__r": {
+        "Id": "role1",
+        "CA10__disappearanceTime__c": null
+      }
+    }
   },
   {
     "expectedResult": {
@@ -39,6 +60,42 @@
     },
     "Id": "a03",
     "CA10__disappearanceTime__c": null,
-    "CA10__iamInstanceProfileArn__c": ""
+    "CA10__iamInstanceProfileArn__c": "arn:aws:iam::1234567890:instance-profile/ProfileWithoutRoleArn",
+    "CA10A1__iamInstanceProfile__c": "profile2",
+    "CA10A1__iamInstanceProfile__r": {
+      "Id": "profile2",
+      "CA10A1__disappearanceTime__c": null,
+      "CA10A1__role__c": null,
+      "CA10A1__roleArn__c": "",
+      "CA10A1__role__r": {
+        "Id": null,
+        "CA10__disappearanceTime__c": null
+      }
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-06-19T07:55:48Z"
+    },
+    "Id": "a04",
+    "CA10__disappearanceTime__c": null,
+    "CA10__iamInstanceProfileArn__c": "",
+    "CA10A1__iamInstanceProfile__c": null,
+    "CA10A1__iamInstanceProfile__r": {
+      "Id": null,
+      "CA10A1__disappearanceTime__c": null,
+      "CA10A1__role__c": null,
+      "CA10A1__roleArn__c": "",
+      "CA10A1__role__r": {
+        "Id": null,
+        "CA10__disappearanceTime__c": null
+      }
+    }
   }
 ]

@@ -20,6 +20,6 @@ This policy flags an *Azure Network Security Group* as `INCOMPLIANT` if it conta
 - `Source Address Prefix` is either **Internet**, `*` **0.0.0.0**, **/0**, or **Any**.
 - `Destination Port` is **20** or **21**.
 
-If the `Direction`, `Access`, `Protocol`, or `Source Address Prefix` fields do not match the criteria above, the VM is marked as `INAPPLICABLE`.
+If the `Direction`, `Access`, `Protocol`, or `Source Address Prefix` fields do not match the criteria above, the Network Security Group is marked as `INAPPLICABLE`.
 
-If the `Destination Port` does not match, the VM is considered `COMPLIANT`.
+If the `Destination Port` does not match, the Network Security Group is considered `COMPLIANT`.

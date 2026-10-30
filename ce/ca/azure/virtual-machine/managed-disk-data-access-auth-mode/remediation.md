@@ -24,7 +24,10 @@ Repeat Parts A and B to remediate all Disks in all VMs.
 Ensure that each disk is detached from its associated `Virtual Machine` before proceeding. Once detached, run the following for each disk:
 
 ```sh
-az disk update --name <disk_name> --resource-group <resource_group_name> --data-access-auth-mode AzureActiveDirectory
+az disk update \
+    --name {{disk_name}} \
+    --resource-group {{resource_group_name}} \
+    --data-access-auth-mode AzureActiveDirectory
 ```
 
 ## From PowerShell
@@ -32,5 +35,5 @@ az disk update --name <disk_name> --resource-group <resource_group_name> --data-
 Ensure that each disk is detached from its associated `Virtual Machine` before proceeding. Once detached, run the following for each disk:
 
 ```ps
-$disk = Get-AzDisk -ResourceGroupName '<resource_group_name>' -DiskName '<disk_name>' $disk.DataAccessAuthMode = 'AzureActiveDirectory' Update-AzDisk -ResourceGroup '<resource_group_name>' -DiskName $disk.Name -Disk $disk
+$disk = Get-AzDisk -ResourceGroupName '{{resource_group_name}}' -DiskName '{{disk_name}}' $disk.DataAccessAuthMode = 'AzureActiveDirectory' Update-AzDisk -ResourceGroup '{{resource_group_name}}' -DiskName $disk.Name -Disk $disk
 ```

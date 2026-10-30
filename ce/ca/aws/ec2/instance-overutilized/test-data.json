@@ -14,7 +14,10 @@
         "CA10__stateName__c": "running",
         "CA10__currentRunningTime__c": 100.0,
         "CA10__averageCpuTwoWeeks__c": 90.0,
-        "CA10__maxCpuTwoWeeks__c": 100
+        "CA10__maxCpuTwoWeeks__c": 100.0,
+        "CA10N__newRelicHostMemoryUsed14Day__c": null,
+        "CA10__averageMemoryUsedTwoWeeks__c": null,
+        "CA10__nagiosMemoryUtilization__c": null
     },
     {
         "expectedResult": {
@@ -31,7 +34,10 @@
         "CA10__stateName__c": "stopped",
         "CA10__currentRunningTime__c": 100.0,
         "CA10__averageCpuTwoWeeks__c": 90.0,
-        "CA10__maxCpuTwoWeeks__c": 100
+        "CA10__maxCpuTwoWeeks__c": 100.0,
+        "CA10N__newRelicHostMemoryUsed14Day__c": null,
+        "CA10__averageMemoryUsedTwoWeeks__c": null,
+        "CA10__nagiosMemoryUtilization__c": null
     },
     {
         "expectedResult": {
@@ -48,13 +54,16 @@
         "CA10__stateName__c": "running",
         "CA10__currentRunningTime__c": 1.0,
         "CA10__averageCpuTwoWeeks__c": 90.0,
-        "CA10__maxCpuTwoWeeks__c": 100
+        "CA10__maxCpuTwoWeeks__c": 100.0,
+        "CA10N__newRelicHostMemoryUsed14Day__c": null,
+        "CA10__averageMemoryUsedTwoWeeks__c": null,
+        "CA10__nagiosMemoryUtilization__c": null
     },
     {
         "expectedResult": {
             "status": "UNDETERMINED",
             "conditionIndex": "399",
-            "conditionText": "extract('CA10__averageCpuTwoWeeks__c').isEmpty() || extract('CA10__maxCpuTwoWeeks__c').isEmpty()",
+            "conditionText": "extract('CA10__averageCpuTwoWeeks__c').isEmpty() || extract('CA10__maxCpuTwoWeeks__c').isEmpty() || (extract('CA10N__newRelicHost__c').isNotEmpty() && extract('CA10N__newRelicHostMemoryUsed14Day__c').isEmpty())",
             "runtimeError": null
         },
         "context": {
@@ -65,13 +74,16 @@
         "CA10__stateName__c": "running",
         "CA10__currentRunningTime__c": 100.0,
         "CA10__averageCpuTwoWeeks__c": null,
-        "CA10__maxCpuTwoWeeks__c": null
+        "CA10__maxCpuTwoWeeks__c": 100.0,
+        "CA10N__newRelicHostMemoryUsed14Day__c": 90.0,
+        "CA10__averageMemoryUsedTwoWeeks__c": null,
+        "CA10__nagiosMemoryUtilization__c": null
     },
     {
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "499",
-            "conditionText": "extract('CA10__averageCpuTwoWeeks__c') > number(80.0) && extract('CA10__maxCpuTwoWeeks__c') > number(95.0)",
+            "conditionText": "extract('CA10N__newRelicHost__c').isNotEmpty() && extract('CA10__averageCpuTwoWeeks__c') > number(80.0) && extract('CA10__maxCpuTwoWeeks__c') > number(95.0) && extract('CA10N__newRelicHostMemoryUsed14Day__c') > number(80.0)",
             "runtimeError": null
         },
         "context": {
@@ -82,13 +94,17 @@
         "CA10__stateName__c": "running",
         "CA10__currentRunningTime__c": 100.0,
         "CA10__averageCpuTwoWeeks__c": 90.0,
-        "CA10__maxCpuTwoWeeks__c": 100
+        "CA10__maxCpuTwoWeeks__c": 100.0,
+        "CA10N__newRelicHost__c": "newRelicHost",
+        "CA10N__newRelicHostMemoryUsed14Day__c": 90.0,
+        "CA10__averageMemoryUsedTwoWeeks__c": 70.0,
+        "CA10__nagiosMemoryUtilization__c": 70.0
     },
     {
         "expectedResult": {
-            "status": "COMPLIANT",
-            "conditionIndex": "500",
-            "conditionText": "otherwise",
+            "status": "INCOMPLIANT",
+            "conditionIndex": "599",
+            "conditionText": "extract('CA10N__newRelicHost__c').isEmpty() && extract('CA10__averageCpuTwoWeeks__c') > number(80.0) && extract('CA10__maxCpuTwoWeeks__c') > number(95.0) && extract('CA10__averageMemoryUsedTwoWeeks__c') > number(80.0)",
             "runtimeError": null
         },
         "context": {
@@ -98,7 +114,90 @@
         "CA10__disappearanceTime__c": null,
         "CA10__stateName__c": "running",
         "CA10__currentRunningTime__c": 100.0,
-        "CA10__averageCpuTwoWeeks__c": 60.0,
-        "CA10__maxCpuTwoWeeks__c": 70
+        "CA10__averageCpuTwoWeeks__c": 90.0,
+        "CA10__maxCpuTwoWeeks__c": 100.0,
+        "CA10N__newRelicHostMemoryUsed14Day__c": null,
+        "CA10__averageMemoryUsedTwoWeeks__c": 90.0,
+        "CA10__nagiosMemoryUtilization__c": 70.0
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "699",
+            "conditionText": "extract('CA10N__newRelicHost__c').isEmpty() && extract('CA10__averageMemoryUsedTwoWeeks__c').isEmpty() && extract('CA10__averageCpuTwoWeeks__c') > number(80.0) && extract('CA10__maxCpuTwoWeeks__c') > number(95.0) && extract('CA10__nagiosMemoryUtilization__c') > number(80.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-20T20:12:30Z"
+        },
+        "Id": "test7",
+        "CA10__disappearanceTime__c": null,
+        "CA10__stateName__c": "running",
+        "CA10__currentRunningTime__c": 100.0,
+        "CA10__averageCpuTwoWeeks__c": 90.0,
+        "CA10__maxCpuTwoWeeks__c": 100.0,
+        "CA10N__newRelicHostMemoryUsed14Day__c": null,
+        "CA10__averageMemoryUsedTwoWeeks__c": null,
+        "CA10__nagiosMemoryUtilization__c": 90.0
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "799",
+            "conditionText": "extract('CA10N__newRelicHost__c').isEmpty() && extract('CA10__averageMemoryUsedTwoWeeks__c').isEmpty() && extract('CA10__nagiosMemoryUtilization__c').isEmpty() && extract('CA10__averageCpuTwoWeeks__c') > number(80.0) && extract('CA10__maxCpuTwoWeeks__c') > number(95.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-20T20:12:30Z"
+        },
+        "Id": "test8",
+        "CA10__disappearanceTime__c": null,
+        "CA10__stateName__c": "running",
+        "CA10__currentRunningTime__c": 100.0,
+        "CA10__averageCpuTwoWeeks__c": 90.0,
+        "CA10__maxCpuTwoWeeks__c": 100.0,
+        "CA10N__newRelicHostMemoryUsed14Day__c": null,
+        "CA10__averageMemoryUsedTwoWeeks__c": null,
+        "CA10__nagiosMemoryUtilization__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "599",
+            "conditionText": "extract('CA10N__newRelicHost__c').isEmpty() && extract('CA10__averageCpuTwoWeeks__c') > number(80.0) && extract('CA10__maxCpuTwoWeeks__c') > number(95.0) && extract('CA10__averageMemoryUsedTwoWeeks__c') > number(80.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-20T20:12:30Z"
+        },
+        "Id": "test9",
+        "CA10__disappearanceTime__c": null,
+        "CA10__stateName__c": "running",
+        "CA10__currentRunningTime__c": 100.0,
+        "CA10__averageCpuTwoWeeks__c": 90.0,
+        "CA10__maxCpuTwoWeeks__c": 100.0,
+        "CA10N__newRelicHostMemoryUsed14Day__c": 70.0,
+        "CA10__averageMemoryUsedTwoWeeks__c": 90.0,
+        "CA10__nagiosMemoryUtilization__c": 90.0
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "800",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-11-20T20:12:30Z"
+        },
+        "Id": "test10",
+        "CA10__disappearanceTime__c": null,
+        "CA10__stateName__c": "running",
+        "CA10__currentRunningTime__c": 100.0,
+        "CA10__averageCpuTwoWeeks__c": 90.0,
+        "CA10__maxCpuTwoWeeks__c": 90.0,
+        "CA10N__newRelicHostMemoryUsed14Day__c": 90.0,
+        "CA10__averageMemoryUsedTwoWeeks__c": null,
+        "CA10__nagiosMemoryUtilization__c": null
     }
 ]

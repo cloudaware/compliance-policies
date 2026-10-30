@@ -1,0 +1,26 @@
+---
+inputType: "CA10__CaAzureStorageAccount__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAzureStorageAccount__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "The storage account is configured to use geo-redundant storage."
+    check:
+      OR:
+        args:
+          - ENDS_WITH:
+              arg:
+                EXTRACT: "CA10__skuName__c"
+              search:
+                TEXT: "GRS"
+          - ENDS_WITH:
+              arg:
+                EXTRACT: "CA10__skuName__c"
+              search:
+                TEXT: "GZRS"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The storage account is not configured to use geo-redundant storage."
+  remediationMessage: "Change redundancy to GRS, RA-GRS, GZRS, or RA-GZRS."

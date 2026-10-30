@@ -1,0 +1,126 @@
+---
+inputType: "CA10__CaAzureAccount__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "At least two eligible Front Door profiles each have exactly one successfully provisioned endpoint."
+    remediationMessage: "Review the profiles to determine whether compatible workloads can be consolidated safely."
+    check:
+      GREATER_THAN_EQUAL:
+        left:
+          RELATED_LIST_COUNT:
+            status: "COMPLIANT"
+            relationshipName: "CA10Z1__Azure_Front_Door_Profiles__r"
+        right:
+          NUMBER: 2
+  - status: "UNDETERMINED"
+    currentStateMessage: "Profile or endpoint data is incomplete, so the subscription cannot be evaluated."
+    check:
+      RELATED_LIST_HAS:
+        status: "UNDETERMINED"
+        relationshipName: "CA10Z1__Azure_Front_Door_Profiles__r"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The subscription has fewer than two eligible Standard or Premium Front Door profiles."
+    check:
+      OR:
+        args:
+          - AND:
+              args:
+                - RELATED_LIST_HAS_NO:
+                    status: "COMPLIANT"
+                    relationshipName: "CA10Z1__Azure_Front_Door_Profiles__r"
+                - RELATED_LIST_HAS_NO:
+                    status: "INCOMPLIANT"
+                    relationshipName: "CA10Z1__Azure_Front_Door_Profiles__r"
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      RELATED_LIST_COUNT:
+                        status: "COMPLIANT"
+                        relationshipName: "CA10Z1__Azure_Front_Door_Profiles__r"
+                    right:
+                      NUMBER: 1
+                - RELATED_LIST_HAS_NO:
+                    status: "INCOMPLIANT"
+                    relationshipName: "CA10Z1__Azure_Front_Door_Profiles__r"
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      RELATED_LIST_COUNT:
+                        status: "INCOMPLIANT"
+                        relationshipName: "CA10Z1__Azure_Front_Door_Profiles__r"
+                    right:
+                      NUMBER: 1
+                - RELATED_LIST_HAS_NO:
+                    status: "COMPLIANT"
+                    relationshipName: "CA10Z1__Azure_Front_Door_Profiles__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Fewer than two eligible Front Door profiles have exactly one successfully provisioned endpoint."
+relatedLists:
+  - relationshipName: "CA10Z1__Azure_Front_Door_Profiles__r"
+    importExtracts:
+      - file: "/types/CA10Z1__CaAzureFrontDoorProfile__c/object.extracts.yaml"
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "The profile is not a successfully provisioned Standard or Premium Front Door profile."
+        check:
+          OR:
+            args:
+              - NOT_EQUAL:
+                  left:
+                    EXTRACT: "CA10Z1__provisioningState__c"
+                  right:
+                    TEXT: "Succeeded"
+              - NOT:
+                  arg:
+                    OR:
+                      args:
+                        - IS_EQUAL:
+                            left:
+                              EXTRACT: "CA10Z1__skuName__c"
+                            right:
+                              TEXT: "Standard_AzureFrontDoor"
+                        - IS_EQUAL:
+                            left:
+                              EXTRACT: "CA10Z1__skuName__c"
+                            right:
+                              TEXT: "Premium_AzureFrontDoor"
+      - status: "UNDETERMINED"
+        currentStateMessage: "Endpoint data is incomplete, so the profile cannot be evaluated."
+        check:
+          RELATED_LIST_HAS:
+            status: "UNDETERMINED"
+            relationshipName: "CA10Z1__Azure_Front_Door_Endpoints__r"
+      - status: "COMPLIANT"
+        currentStateMessage: "The profile has exactly one successfully provisioned endpoint."
+        check:
+          IS_EQUAL:
+            left:
+              RELATED_LIST_COUNT:
+                status: "COMPLIANT"
+                relationshipName: "CA10Z1__Azure_Front_Door_Endpoints__r"
+            right:
+              NUMBER: 1
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "The profile does not have exactly one successfully provisioned endpoint."
+    relatedLists:
+      - relationshipName: "CA10Z1__Azure_Front_Door_Endpoints__r"
+        importExtracts:
+          - file: "/types/CA10Z1__CaAzureFrontDoorEndpoint__c/object.extracts.yaml"
+        conditions:
+          - status: "INAPPLICABLE"
+            currentStateMessage: "The endpoint is not successfully provisioned."
+            check:
+              NOT_EQUAL:
+                left:
+                  EXTRACT: "CA10Z1__provisioningState__c"
+                right:
+                  TEXT: "Succeeded"
+        otherwise:
+          status: "COMPLIANT"
+          currentStateMessage: "The endpoint is successfully provisioned."

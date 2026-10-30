@@ -9,7 +9,7 @@ Amazon RDS event notifications use Amazon SNS to inform you of changes to the co
 
 ## Rationale
 
-Monitoring RDS security groups is critical for maintaining the security posture of your database instances. Event notifications provide immediate awareness when a security group's configuration is modified—which could introduce unauthorized access—or when a failure occurs related to the security group.
+Monitoring RDS security groups is critical for maintaining the security posture of your database instances. Event notifications provide immediate awareness when a security group's configuration is modified, which could introduce unauthorized access, or when a failure occurs related to the security group.
 
 ## Audit
 

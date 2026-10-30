@@ -1,0 +1,146 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-24T01:44:28Z"
+        },
+        "Id": "gone",
+        "CA10__disappearanceTime__c": "2025-04-23T00:00:00Z",
+        "CA10__kind__c": "v12.0,user,serverless",
+        "CA10__currentSkuTier__c": "GeneralPurpose",
+        "CA10__autoPauseDelay__c": -1
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__kind__c').contains('system')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-24T01:44:28Z"
+        },
+        "Id": "system",
+        "CA10__disappearanceTime__c": null,
+        "CA10__kind__c": "v12.0,system",
+        "CA10__currentSkuTier__c": "GeneralPurpose",
+        "CA10__autoPauseDelay__c": -1
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__kind__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-24T01:44:28Z"
+        },
+        "Id": "missing-kind",
+        "CA10__disappearanceTime__c": null,
+        "CA10__kind__c": null,
+        "CA10__currentSkuTier__c": null,
+        "CA10__autoPauseDelay__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "499",
+            "conditionText": "extract('CA10__currentSkuTier__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-24T01:44:28Z"
+        },
+        "Id": "missing-sku-tier",
+        "CA10__disappearanceTime__c": null,
+        "CA10__kind__c": "v12.0,user,vcore,serverless",
+        "CA10__currentSkuTier__c": null,
+        "CA10__autoPauseDelay__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "399",
+            "conditionText": "not(extract('CA10__kind__c').contains('serverless'))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-24T01:44:28Z"
+        },
+        "Id": "not-serverless",
+        "CA10__disappearanceTime__c": null,
+        "CA10__kind__c": "v12.0,user,vcore",
+        "CA10__currentSkuTier__c": "GeneralPurpose",
+        "CA10__autoPauseDelay__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "599",
+            "conditionText": "extract('CA10__currentSkuTier__c') != 'GeneralPurpose'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-24T01:44:28Z"
+        },
+        "Id": "not-general-purpose",
+        "CA10__disappearanceTime__c": null,
+        "CA10__kind__c": "v12.0,user,vcore,serverless",
+        "CA10__currentSkuTier__c": "BusinessCritical",
+        "CA10__autoPauseDelay__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "699",
+            "conditionText": "extract('CA10__autoPauseDelay__c').isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-24T01:44:28Z"
+        },
+        "Id": "missing-delay",
+        "CA10__disappearanceTime__c": null,
+        "CA10__kind__c": "v12.0,user,vcore,serverless",
+        "CA10__currentSkuTier__c": "GeneralPurpose",
+        "CA10__autoPauseDelay__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "799",
+            "conditionText": "extract('CA10__autoPauseDelay__c') == number(-1.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-24T01:44:28Z"
+        },
+        "Id": "disabled",
+        "CA10__disappearanceTime__c": null,
+        "CA10__kind__c": "v12.0,user,vcore,serverless",
+        "CA10__currentSkuTier__c": "GeneralPurpose",
+        "CA10__autoPauseDelay__c": -1
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "800",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-24T01:44:28Z"
+        },
+        "Id": "enabled",
+        "CA10__disappearanceTime__c": null,
+        "CA10__kind__c": "v12.0,user,vcore,serverless",
+        "CA10__currentSkuTier__c": "GeneralPurpose",
+        "CA10__autoPauseDelay__c": 60
+    }
+]

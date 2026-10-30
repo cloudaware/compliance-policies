@@ -10,7 +10,7 @@ Memcached is a high-performance, in-memory key-value store, typically used for c
 
 ## Impact
 
-All Memcached connections from outside of the network to the concerned VPC(s) can be blocked. If there is a legitimate operational requirement for remote access, specific trusted source IP addresses should be explicitly defined in firewall rules to whitelist access to the required Memcached ports.
+All Memcached connections from outside of the network to the concerned VPC(s) can be blocked. If there is a legitimate operational requirement for remote access, specific trusted source IP ranges should be explicitly defined in firewall rules to whitelist access to the required Memcached ports.
 
 ## Audit
 

@@ -1,0 +1,54 @@
+---
+inputType: "CA10O1__CaOracleIamUser2__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10O1__CaOracleIamUser2__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This Oracle IAM user is not active."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10O1__userStatus__c"
+        right:
+          TEXT: "Active"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This active Oracle IAM user is not a member of the tenancy Administrators group."
+    check:
+      RELATED_LIST_HAS_NO:
+        status: "COMPLIANT"
+        relationshipName: "CA10O1__Oracle_IAM_Group_Members__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This active tenancy administrator user has an API key."
+    remediationMessage: "Delete active API keys from this tenancy administrator user, or move required automation to a least-privileged identity."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10O1__Oracle_IAM_User_API_Keys__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "This active tenancy administrator user does not have API keys."
+relatedLists:
+  - relationshipName: "CA10O1__Oracle_IAM_Group_Members__r"
+    importExtracts:
+      - file: /types/CA10O1__CaOracleIamGroup2__c/object.extracts.yaml
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "This group membership grants membership in the tenancy Administrators group."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "CA10O1__group__r.Name"
+            right:
+              TEXT: "Administrators"
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "This group membership does not grant membership in the tenancy Administrators group."
+  - relationshipName: "CA10O1__Oracle_IAM_User_API_Keys__r"
+    importExtracts:
+      - file: /types/CA10O1__CaOracleIamUserApiKey2__c/object.extracts.yaml
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "An Oracle IAM API key exists."

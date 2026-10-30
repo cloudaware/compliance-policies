@@ -1,0 +1,152 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__resource__r.CA10__Azure_Diagnostic_Settings__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-27T00:00:00Z"
+    },
+    "Id": "kv-001",
+    "CA10__disappearanceTime__c": null,
+    "CA10__resource__c": "resource-001",
+    "CA10__resource__r": {
+      "Id": "resource-001",
+      "CA10__Azure_Diagnostic_Settings__r": [
+        {
+          "Id": "diag-001",
+          "RecordTypeId": "rt-resource",
+          "CA10__disappearanceTime__c": null,
+          "CA10__monitoredResource__c": "resource-001",
+          "CA10__logsJson__c": "[{\"categoryGroup\":\"audit\",\"enabled\":true},{\"categoryGroup\":\"allLogs\",\"enabled\":true}]",
+          "CA10__workspaceId__c": "/subscriptions/sub-001/resourceGroups/rg/providers/Microsoft.OperationalInsights/workspaces/workspace",
+          "CA10__storageAccountId__c": "",
+          "CA10__eventHubAuthorizationRuleId__c": "",
+          "RecordType": {
+            "DeveloperName": "caDiagnosticSettingOnAzureResource",
+            "Id": "rt-resource"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__resource__r.CA10__Azure_Diagnostic_Settings__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-27T00:00:00Z"
+    },
+    "Id": "kv-002",
+    "CA10__disappearanceTime__c": null,
+    "CA10__resource__c": "resource-002",
+    "CA10__resource__r": {
+      "Id": "resource-002",
+      "CA10__Azure_Diagnostic_Settings__r": [
+        {
+          "Id": "diag-002",
+          "RecordTypeId": "rt-resource",
+          "CA10__disappearanceTime__c": null,
+          "CA10__monitoredResource__c": "resource-002",
+          "CA10__logsJson__c": "[{\"category\":\"AuditEvent\",\"enabled\":true}]",
+          "CA10__workspaceId__c": "",
+          "CA10__storageAccountId__c": "/subscriptions/sub-001/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/logs",
+          "CA10__eventHubAuthorizationRuleId__c": "",
+          "RecordType": {
+            "DeveloperName": "caDiagnosticSettingOnAzureResource",
+            "Id": "rt-resource"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-27T00:00:00Z"
+    },
+    "Id": "kv-003",
+    "CA10__disappearanceTime__c": null,
+    "CA10__resource__c": "resource-003",
+    "CA10__resource__r": {
+      "Id": "resource-003",
+      "CA10__Azure_Diagnostic_Settings__r": [
+        {
+          "Id": "diag-003",
+          "RecordTypeId": "rt-resource",
+          "CA10__disappearanceTime__c": null,
+          "CA10__monitoredResource__c": "resource-003",
+          "CA10__logsJson__c": "[{\"categoryGroup\":\"audit\",\"enabled\":true},{\"categoryGroup\":\"allLogs\",\"enabled\":false}]",
+          "CA10__workspaceId__c": "/subscriptions/sub-001/resourceGroups/rg/providers/Microsoft.OperationalInsights/workspaces/workspace",
+          "CA10__storageAccountId__c": "",
+          "CA10__eventHubAuthorizationRuleId__c": "",
+          "RecordType": {
+            "DeveloperName": "caDiagnosticSettingOnAzureResource",
+            "Id": "rt-resource"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-27T00:00:00Z"
+    },
+    "Id": "kv-004",
+    "CA10__disappearanceTime__c": null,
+    "CA10__resource__c": "resource-004",
+    "CA10__resource__r": {
+      "Id": "resource-004",
+      "CA10__Azure_Diagnostic_Settings__r": [
+        {
+          "Id": "diag-004",
+          "RecordTypeId": "rt-resource",
+          "CA10__disappearanceTime__c": null,
+          "CA10__monitoredResource__c": "resource-004",
+          "CA10__logsJson__c": "[{\"category\":\"AuditEvent\",\"enabled\":true}]",
+          "CA10__workspaceId__c": "",
+          "CA10__storageAccountId__c": "",
+          "CA10__eventHubAuthorizationRuleId__c": "",
+          "RecordType": {
+            "DeveloperName": "caDiagnosticSettingOnAzureResource",
+            "Id": "rt-resource"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-27T00:00:00Z"
+    },
+    "Id": "kv-005",
+    "CA10__disappearanceTime__c": null,
+    "CA10__resource__c": "resource-005",
+    "CA10__resource__r": {
+      "Id": "resource-005",
+      "CA10__Azure_Diagnostic_Settings__r": []
+    }
+  }
+]

@@ -9,8 +9,10 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - "/frameworks/cloudaware/resource-security/threat-protection"
+  - "/frameworks/cloudaware/resource-security/network-exposure"
   - "/frameworks/aws-fsbp-v1.0.0/ec2/19"
+  - "/frameworks/pci-dss-v4.0.1/01/04/01"
+  - "/frameworks/pci-dss-v4.0.1/01/04/02"
 similarPolicies:
   internal:
     - dec-x-f12d78aa

@@ -7,9 +7,7 @@ description: "Ensure that SMB file shares are configured to use the latest suppo
   \ which may contain vulnerabilities and lack essential security controls."
 type: BEST_PRACTICE
 categories:
-  - SECURITY
-  - RELIABILITY
+  - "SECURITY"
 frameworkMappings:
-  - "/frameworks/cis-azure-v5.0.0/09/01/02"
-  - "/frameworks/cloudaware/resource-security/threat-protection"
-  - "/frameworks/cloudaware/resource-reliability/infrastructure-modernization"
+  - "/frameworks/cis-azure-v6.0.0/09/01/02"
+  - "/frameworks/cloudaware/secret-and-certificate-governance/cryptographic-configuration"

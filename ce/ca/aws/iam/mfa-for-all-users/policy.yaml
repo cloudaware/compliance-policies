@@ -1,0 +1,18 @@
+---
+names:
+  full: AWS IAM User MFA is not enabled for all users
+  contextual: User MFA is not enabled for all users
+description: >
+  Ensure that Multi-Factor Authentication (MFA) is enabled for all IAM users 
+  within your account in order to secure your AWS environment and adhere to 
+  IAM security best practices.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/identity-and-access-governance/mfa-implementation"
+  - "/frameworks/aws-well-architected/sec/02/01"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[IAM.19] MFA should be enabled for all IAM users"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/iam-controls.html#iam-19"

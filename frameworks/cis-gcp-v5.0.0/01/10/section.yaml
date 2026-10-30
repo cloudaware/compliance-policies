@@ -1,0 +1,8 @@
+---
+name: 1.10 Ensure That Cloud KMS Cryptokeys Are Not Anonymously or Publicly Accessible - Level 1 (Automated)
+description: >
+  It is recommended that the IAM policy on Cloud KMS `cryptokeys` should restrict anonymous and/or
+  public access.
+similar:
+  sections:
+    - /frameworks/cis-gcp-v4.0.0/01/09

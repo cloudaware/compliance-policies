@@ -14,8 +14,8 @@ conditions:
         right:
           TEXT: "ISSUED"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The certificate key length is smaller than 2,048 bits."
-    remediationMessage: "Consider deleting the certificate with a key length smaller than 2,048 bits."
+    currentStateMessage: "The certificate key length is less than 2,048 bits."
+    remediationMessage: "Replace certificates with RSA key lengths smaller than 2,048 bits."
     check:
       IS_EQUAL:
         left:

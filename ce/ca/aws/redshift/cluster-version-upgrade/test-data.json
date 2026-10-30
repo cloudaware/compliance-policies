@@ -1,0 +1,41 @@
+[
+    {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__status__c') != 'available'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-01-13T09:41:32Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "paused",
+    "CA10__versionUpgrade__c": "Allowed",
+    "Id": "001"
+    },
+    {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__versionUpgrade__c') == 'Allowed'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-01-13T05:10:00Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__versionUpgrade__c": "Allowed",
+    "Id": "002"
+    },
+    {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-01-13T05:10:00Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__versionUpgrade__c": null,
+    "Id": "003"
+    }
+]

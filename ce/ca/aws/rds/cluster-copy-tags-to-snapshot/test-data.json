@@ -1,0 +1,98 @@
+[
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "context": {
+            "snapshotTime": "2026-01-30T10:53:34Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2026-01-20T22:12:18Z",
+        "CA10__copyTagsToSnapshot__c": true,
+        "CA10__engine__c": "mysql",
+        "CA10__status__c": "stopped"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__status__c') != 'available'",
+            "conditionIndex": 199,
+            "status": "INAPPLICABLE"
+        },
+        "context": {
+            "snapshotTime": "2026-01-30T10:53:34Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__copyTagsToSnapshot__c": false,
+        "CA10__engine__c": "postgres",
+        "CA10__status__c": "stopped"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__engine__c') == 'docdb'",
+            "conditionIndex": 299,
+            "status": "INAPPLICABLE"
+        },
+        "context": {
+            "snapshotTime": "2026-01-30T10:53:34Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__copyTagsToSnapshot__c": false,
+        "CA10__engine__c": "docdb",
+        "CA10__status__c": "available"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "CA10__copyTagsToSnapshot__c == false",
+            "conditionIndex": 399,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2026-01-30T10:53:34Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__copyTagsToSnapshot__c": false,
+        "CA10__engine__c": "mysql",
+        "CA10__status__c": "available"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "CA10__copyTagsToSnapshot__c == true",
+            "conditionIndex": 499,
+            "status": "COMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2026-01-30T10:53:34Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__copyTagsToSnapshot__c": true,
+        "CA10__engine__c": "postgres",
+        "CA10__status__c": "available"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "CA10__copyTagsToSnapshot__c == true",
+            "conditionIndex": 499,
+            "status": "COMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2026-01-30T10:53:34Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__copyTagsToSnapshot__c": true,
+        "CA10__engine__c": "aurora-postgresql",
+        "CA10__status__c": "available"
+    }
+]

@@ -6,9 +6,9 @@ Instead, it is strongly recommended to configure a separate IAM role exclusively
 
 ## Rationale
 
-The Amazon VPC CNI plugin automatically creates and manages a service account named `aws-node`. By default, this service account is bound to the node IAM role, which often includes the `AmazonEKS_CNI_Policy`. This setup grants the plugin’s pods full access to all permissions attached to the node IAM role.
+The Amazon VPC CNI plugin automatically creates and manages a service account named `aws-node`. By default, this service account is bound to the node IAM role, which often includes the `AmazonEKS_CNI_Policy`. This setup grants the plugin's pods full access to all permissions attached to the node IAM role.
 
-To follow the principle of least privilege, it is recommended to create a dedicated IAM role specifically for the `aws-node` service account and attach only the `AmazonEKS_CNI_Policy` to it using **IAM Roles for Service Accounts (IRSA)**.
+To follow the principle of least privilege, create a dedicated IAM role for the `aws-node` service account and attach only the `AmazonEKS_CNI_Policy` to it using **IAM Roles for Service Accounts (IRSA)**.
 
 ## Impact
 

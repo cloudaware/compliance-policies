@@ -47,7 +47,9 @@ Determine if OS Config API is Enabled for the Project
 
 1. In each project you wish to enable run the following command
 
-            gcloud services list
+    ```sh
+    gcloud services list
+    ```
 
 2. If osconfig.googleapis.com is in the left hand column it is enabled for this project.
 
@@ -55,14 +57,18 @@ Determine if VM Manager is Enabled for the Project
 
 1. Within the project run the following command:
 
-            gcloud compute instances os-inventory describe VM-NAME \ --zone=ZONE
+    ```sh
+    gcloud compute instances os-inventory describe {{vm-name}} \ --zone=ZONE
+    ```
 
-The output will look like
+    The output will look like
 
-            INSTANCE_ID         INSTANCE_NAME   OS                                      OSCONFIG_AGENT_VERSION          UPDATE_TIME 
-            29255009728795105   centos7         CentOS Linux 7 (Core)                       20210217.00-g1.el7        2021-04-12T22:19:36.559Z 
-            5138980234596718741 rhel-8          Red Hat Enterprise Linux 8.3 (Ootpa)        20210316.00-g1.el8        2021-09-16T17:19:24Z 
-            7127836223366142250 windows         Microsoft Windows Server 2019 Datacenter    20210316.00.0+win@1       2021-09-16T17:13:18Z
+    ```txt
+    INSTANCE_ID         INSTANCE_NAME   OS                                      OSCONFIG_AGENT_VERSION          UPDATE_TIME 
+    29255009728795105   centos7         CentOS Linux 7 (Core)                       20210217.00-g1.el7        2021-04-12T22:19:36.559Z 
+    5138980234596718741 rhel-8          Red Hat Enterprise Linux 8.3 (Ootpa)        20210316.00-g1.el8        2021-09-16T17:19:24Z 
+    7127836223366142250 windows         Microsoft Windows Server 2019 Datacenter    20210316.00.0+win@1       2021-09-16T17:13:18Z
+    ```
 
 Determine if VM Instances have correct metadata tags for OSConfig parsing
 
@@ -78,7 +84,10 @@ From Google Cloud Console
 
 Run the following command to view instance data
 
-            gcloud compute instances list --format="table(name,status,tags.list())"
+```sh
+gcloud compute instances os-inventory describe {{vm-name}} \ \
+    --zone=ZONE
+```
 
 On each instance it should have a tag of `enable-osconfig` set to `true`
 
@@ -98,19 +107,25 @@ Determine if Instances can connect to public update hosting
 Linux
 Debian Based Operating Systems
 
-            sudo apt update
+```sh
+sudo apt update
+```
 
 The output should have a numbered list of lines with Hit: URL of updates.
 
 Redhat Based Operating Systems
 
-            yum check-update
+```sh
+yum check-update
+```
 
 The output should show a list of packages that have updates available.
 
 Windows
 
-            ping http://windowsupdate.microsoft.com/
+```sh
+ping http://windowsupdate.microsoft.com/
+```
 
 The ping should successfully be delivered and received.
 

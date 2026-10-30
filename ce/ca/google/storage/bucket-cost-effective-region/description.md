@@ -1,6 +1,6 @@
 # Description
 
-This policy identifies Google Storage Buckets that are provisioned in Google regions known to have higher pricing compared to nearby alternatives.
+This policy identifies Google Cloud Storage Buckets that are provisioned in Google regions known to have higher pricing compared to nearby alternatives.
 
 ## Rationale
 
@@ -12,7 +12,7 @@ Migrating workloads to different regions requires careful planning to avoid serv
 
 ## Audit
 
-This policy flagged an *Google Storage Bucket* as `INCOMPLIANT` if it is **running** in one of the following regions identified as less cost-efficient:
+This policy flags a *Google Storage Bucket* as `INCOMPLIANT` if it is **running** in one of the following regions identified as less cost-efficient:
 
 | Region                                                  | Recommended Alternative               |
 | ------------------------------------------------------- | ------------------------------------- |

@@ -8,12 +8,10 @@ description: Azure App Service Authentication is a feature that can prevent anon
   ensures legacy authentication methods are disabled within the application.
 type: COMPLIANCE_POLICY
 categories:
-  - RELIABILITY
-  - SECURITY
+  - "SECURITY"
 frameworkMappings:
   - "/frameworks/cis-azure-v2.1.0/09/01"
   - "/frameworks/cis-azure-v3.0.0/09/02"
-  - "/frameworks/cloudaware/resource-reliability/system-configuration"
   - "/frameworks/cloudaware/resource-security/secure-access"
 similarPolicies:
   internal:

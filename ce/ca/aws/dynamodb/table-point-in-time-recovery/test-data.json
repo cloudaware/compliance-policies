@@ -1,62 +1,194 @@
 [
-    {
-        "expectedResult": {
-            "status": "DISAPPEARED",
-            "conditionIndex": "99",
-            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2025-07-21T14:37:53Z"
-        },
-        "Id": "test1",
-        "CA10__disappearanceTime__c": "2025-07-14T20:30:40Z",
-        "CA10__tableStatus__c": "ACTIVE",
-        "CA10__pointInTimeRecoveryStatus__c": "ENABLED"
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "399",
+      "conditionText": "CA10__AWS_DynamoDB_Backups__r.has(COMPLIANT) || CA10A1__AWS_Backup_Recovery_Points__r.has(COMPLIANT)",
+      "runtimeError": null
     },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "299",
-            "conditionText": "extract('CA10__pointInTimeRecoveryStatus__c') == 'DISABLED'",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2025-07-21T14:37:53Z"
-        },
-        "Id": "test2",
+    "context": { "snapshotTime": "2026-01-28T23:10:46Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__tableStatus__c": "ACTIVE",
+    "CA10__pointInTimeRecoveryStatus__c": "DISABLED",
+    "Id": "test1",
+    "CA10__AWS_DynamoDB_Backups__r": [
+      {
         "CA10__disappearanceTime__c": null,
-        "CA10__tableStatus__c": "ACTIVE",
-        "CA10__pointInTimeRecoveryStatus__c": "DISABLED"
+        "CA10__status__c": "AVAILABLE",
+        "CA10__creationDateTime__c": "2022-11-04T15:29:39Z",
+        "CA10__table__c": "test1",
+        "Id": "test1_1"
+      }
+    ],
+    "CA10A1__AWS_Backup_Recovery_Points__r": [
+      {
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__status__c": "COMPLETED",
+        "CA10A1__creationDate__c": "2026-01-20T23:10:46Z",
+        "CA10A1__dynamoDbTable__c": "test1",
+        "Id": "test1_2"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__pointInTimeRecoveryStatus__c') == 'DISABLED'",
+      "runtimeError": null
     },
-    {
-        "expectedResult": {
-            "status": "COMPLIANT",
-            "conditionIndex": "399",
-            "conditionText": "extract('CA10__pointInTimeRecoveryStatus__c') == 'ENABLED'",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2025-07-21T14:37:53Z"
-        },
-        "Id": "test3",
-        "CA10__disappearanceTime__c": null,
-        "CA10__tableStatus__c": "ACTIVE",
-        "CA10__pointInTimeRecoveryStatus__c": "ENABLED"
+    "context": { "snapshotTime": "2026-01-28T23:10:46Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__tableStatus__c": "ACTIVE",
+    "CA10__pointInTimeRecoveryStatus__c": "DISABLED",
+    "Id": "test2",
+    "CA10__AWS_DynamoDB_Backups__r": [],
+    "CA10A1__AWS_Backup_Recovery_Points__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__tableStatus__c') != 'ACTIVE'",
+      "runtimeError": null
     },
-    {
-        "expectedResult": {
-            "status": "INAPPLICABLE",
-            "conditionIndex": "199",
-            "conditionText": "extract('CA10__tableStatus__c') != 'ACTIVE'",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2025-07-21T14:37:53Z"
-        },
-        "Id": "test4",
+    "context": { "snapshotTime": "2026-01-28T23:10:46Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__tableStatus__c": "DELETING",
+    "CA10__pointInTimeRecoveryStatus__c": "DISABLED",
+    "Id": "test3",
+    "CA10__AWS_DynamoDB_Backups__r": [
+      {
         "CA10__disappearanceTime__c": null,
-        "CA10__tableStatus__c": "DELETING",
-        "CA10__pointInTimeRecoveryStatus__c": "ENABLED"
-    }
+        "CA10__status__c": "AVAILABLE",
+        "CA10__creationDateTime__c": "2022-11-04T15:29:39Z",
+        "CA10__table__c": "test3",
+        "Id": "test3_1"
+      }
+    ],
+    "CA10A1__AWS_Backup_Recovery_Points__r": [
+      {
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__status__c": "COMPLETED",
+        "CA10A1__creationDate__c": "2025-12-21T05:00:00Z",
+        "CA10A1__dynamoDbTable__c": "test3",
+        "Id": "test3_2"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__pointInTimeRecoveryStatus__c') == 'ENABLED'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-01-28T23:10:46Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__tableStatus__c": "ACTIVE",
+    "CA10__pointInTimeRecoveryStatus__c": "ENABLED",
+    "Id": "test4",
+    "CA10__AWS_DynamoDB_Backups__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "AVAILABLE",
+        "CA10__creationDateTime__c": "2022-11-04T15:29:39Z",
+        "CA10__table__c": "test4",
+        "Id": "test4_1"
+      }
+    ],
+    "CA10A1__AWS_Backup_Recovery_Points__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "399",
+      "conditionText": "CA10__AWS_DynamoDB_Backups__r.has(COMPLIANT) || CA10A1__AWS_Backup_Recovery_Points__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-01-28T23:10:46Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__tableStatus__c": "ACTIVE",
+    "CA10__pointInTimeRecoveryStatus__c": "DISABLED",
+    "Id": "test5",
+    "CA10__AWS_DynamoDB_Backups__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "AVAILABLE",
+        "CA10__creationDateTime__c": "2026-01-20T23:10:46Z",
+        "CA10__table__c": "test5",
+        "Id": "test5_1"
+      }
+    ],
+    "CA10A1__AWS_Backup_Recovery_Points__r": [
+      {
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__status__c": "COMPLETED",
+        "CA10A1__creationDate__c": "2025-12-21T05:00:00Z",
+        "CA10A1__dynamoDbTable__c": "test5",
+        "Id": "test5_2"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "201",
+      "conditionText": "CA10__pointInTimeRecoveryStatus__c.delegatedTo(CA10__pointInTimeRecoveryStatus__c).isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-01-28T23:10:46Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__tableStatus__c": "ACTIVE",
+    "CA10__pointInTimeRecoveryStatus__c": "",
+    "Id": "test6",
+    "CA10__AWS_DynamoDB_Backups__r": [],
+    "CA10A1__AWS_Backup_Recovery_Points__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "101",
+      "conditionText": "CA10__tableStatus__c.delegatedTo(CA10__tableStatus__c).isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-01-28T23:10:46Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__tableStatus__c": "",
+    "CA10__pointInTimeRecoveryStatus__c": "DISABLED",
+    "Id": "test7",
+    "CA10__AWS_DynamoDB_Backups__r": [],
+    "CA10A1__AWS_Backup_Recovery_Points__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__pointInTimeRecoveryStatus__c') == 'DISABLED'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-01-28T23:10:46Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__tableStatus__c": "ACTIVE",
+    "CA10__pointInTimeRecoveryStatus__c": "DISABLED",
+    "Id": "test8",
+    "CA10__AWS_DynamoDB_Backups__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "AVAILABLE",
+        "CA10__creationDateTime__c": "2022-01-28T23:10:46Z",
+        "CA10__table__c": "test8",
+        "Id": "test8_1"
+      }
+    ],
+    "CA10A1__AWS_Backup_Recovery_Points__r": [
+      {
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__status__c": "COMPLETED",
+        "CA10A1__creationDate__c": "2022-01-28T23:10:46Z",
+        "CA10A1__dynamoDbTable__c": "test8",
+        "Id": "test8_2"
+      }
+    ]
+  }
 ]

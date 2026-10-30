@@ -6,9 +6,9 @@ Ensure that the latest OS patches for all virtual machines are applied.
 
 Windows and Linux virtual machines should be kept updated to:
 
-- Address a specific bug or flaw
-- Improve an OS or application’s general stability
-- Fix a security vulnerability
+- Address a specific bug or flaw.
+- Improve an OS or application's general stability.
+- Fix a security vulnerability.
 
 Microsoft Defender for Cloud retrieves a list of available security and critical updates from Windows Update or Windows Server Update Services (WSUS), depending on which service is configured on a Windows VM. The security center also checks for the latest updates in Linux systems. If a VM is missing a system update, the security center will recommend system updates be applied.
 
@@ -20,12 +20,12 @@ Running Microsoft Defender for Cloud incurs additional charges for each resource
 
 ### From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. In the Azure portal, open the portal menu.
 2. Select `Microsoft Defender for Cloud`.
 3. Then the `Recommendations` blade.
 4. Ensure that there are no recommendations for `Apply system updates`.
 
-Alternatively, you can employ your own patch assessment and management tool to periodically assess, report and install the required security patches for your OS.
+Alternatively, you can employ your own patch assessment and management tool to periodically assess, report, and install the required security patches for your OS.
 
 ### From Azure Policy
 

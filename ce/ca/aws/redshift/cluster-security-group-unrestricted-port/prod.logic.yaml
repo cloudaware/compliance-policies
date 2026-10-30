@@ -1,0 +1,126 @@
+---
+inputType: "CA10__CaAwsRedshiftCluster__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsRedshiftCluster__c/object.extracts.yaml"
+  - file: "/types/CA10__CaAwsSecurityGroupRule2__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The cluster is not available."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "available"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This policy only applies to the default port (TCP 5439)."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__endpointPort2__c"
+        right:
+          NUMBER: 5439
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The cluster is associated with a security group that\
+      \ allows unrestricted inbound access to the Redshift port (TCP 5439)."
+    remediationMessage: "Restrict inbound access to TCP 5439 by removing 0.0.0.0/0\
+      \ and ::/0 rules or scoping them to trusted CIDRs only."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__AWS_Redshift_Cluster_VPC_SG_Links__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The cluster does not allow unrestricted inbound access\
+    \ to the Redshift port (TCP 5439)."
+relatedLists:
+  - relationshipName: "CA10__AWS_Redshift_Cluster_VPC_SG_Links__r"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "This security group allows unrestricted inbound\
+          \ access to the Redshift port (TCP 5439)."
+        remediationMessage: "Remove or scope down the noncompliant inbound rule to trusted CIDRs."
+        check:
+          RELATED_LIST_HAS:
+            status: "INCOMPLIANT"
+            relationshipName: "CA10__securityGroup__r.CA10__AWS_EC2_Security_Group_Rules1__r"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This security group does not allow unrestricted inbound\
+        \ access to the Redshift port."
+    relatedLists:
+      - relationshipName: "CA10__securityGroup__r.CA10__AWS_EC2_Security_Group_Rules1__r"
+        conditions:
+          - status: "INAPPLICABLE"
+            currentStateMessage: "This is an outbound security group rule."
+            check:
+              NOT_EQUAL:
+                left:
+                  EXTRACT: "CA10__direction__c"
+                right:
+                  TEXT: "Inbound"
+          - status: "INAPPLICABLE"
+            currentStateMessage: "This is not an IP source based security group rule."
+            check:
+              NOT_EQUAL:
+                left:
+                  EXTRACT: "CA10__source__c"
+                right:
+                  TEXT: "IP"
+          - status: "INAPPLICABLE"
+            currentStateMessage: "This security group rule does not allow unrestricted access."
+            check:
+              AND:
+                args:
+                  - NOT_EQUAL:
+                      left:
+                        EXTRACT: "CA10__sourceIpRange__c"
+                      right:
+                        TEXT: "0.0.0.0/0"
+                  - NOT_EQUAL:
+                      left:
+                        EXTRACT: "CA10__sourceIpRange__c"
+                      right:
+                        TEXT: "::/0"
+          - status: "INAPPLICABLE"
+            currentStateMessage: "This security group rule protocol is not All or TCP."
+            check:
+              NOT:
+                arg:
+                  OR:
+                    args:
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__protocol__c"
+                          right:
+                            TEXT: "All"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__protocol__c"
+                          right:
+                            TEXT: "tcp"
+          - status: "INCOMPLIANT"
+            currentStateMessage: "This security group rule allows unrestricted access\
+              \ (0.0.0.0/0 or ::/0) to Redshift on TCP 5439."
+            remediationMessage: "Remove the rule or restrict the source CIDR(s)\
+              \ to trusted networks only."
+            check:
+              AND:
+                args:
+                  - LESS_THAN_EQUAL:
+                      left:
+                        EXTRACT: "CA10__fromPort__c"
+                      right:
+                        NUMBER: 5439.0
+                  - GREATER_THAN_EQUAL:
+                      left:
+                        EXTRACT: "CA10__toPort__c"
+                      right:
+                        NUMBER: 5439.0
+        otherwise:
+          status: "COMPLIANT"
+          currentStateMessage: "This security group rule does not allow unrestricted\
+            \ access to TCP 5439."
+

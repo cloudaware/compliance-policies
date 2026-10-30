@@ -23,17 +23,21 @@ The dataset is not publicly accessible. Explicit modification of IAM privileges 
 
 List the name of all datasets.
 
-            bq ls
+```sh
+bq ls
+```
 
-Retrieve each dataset details using the following command:
+Retrieve each dataset's details using the following command:
 
-            bq show PROJECT_ID:DATASET_NAME
+```sh
+bq show {{project-id}}:{{dataset-name}}
+```
 
 Ensure that `allUsers` and `allAuthenticatedUsers` have not been granted access to the dataset.
 
 ## Prevention
 
- You can prevent Bigquery dataset from becoming publicly accessible by setting up the `Domain restricted sharing` organization policy at: <https://console.cloud.google.com/iam-admin/orgpolicies/iam-allowedPolicyMemberDomains>.
+You can prevent BigQuery datasets from becoming publicly accessible by setting up the `Domain restricted sharing` organization policy at: <https://console.cloud.google.com/iam-admin/orgpolicies/iam-allowedPolicyMemberDomains>.
 
 ## Default Value
 

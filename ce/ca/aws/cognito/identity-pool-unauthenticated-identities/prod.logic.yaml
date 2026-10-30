@@ -1,0 +1,27 @@
+---
+inputType: "CA10A1__CaAwsCognitoIdentityPool__c"
+importExtracts:
+  - file: "/types/CA10A1__CaAwsCognitoIdentityPool__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Cognito identity pool allows unauthenticated identities."
+    remediationMessage: "Disable unauthenticated identities for the Cognito identity pool."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10A1__allowUnauthenticatedIdentities__c"
+        right:
+          TEXT: "true"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Cognito identity pool does not allow unauthenticated identities."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10A1__allowUnauthenticatedIdentities__c"
+        right:
+          TEXT: "false"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value was found in the Cognito identity pool unauthenticated identities setting."

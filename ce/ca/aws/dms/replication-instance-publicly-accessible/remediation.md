@@ -1,6 +1,6 @@
 # Remediation
 
-You cannot modify the `PubliclyAccessible` attribute of an existing DMS replication instance in‑place, you must delete the incompliant instance and recreate it with the correct setting.
+You cannot modify the `PubliclyAccessible` attribute of an existing DMS replication instance in place. You must delete the incompliant instance and recreate it with the correct setting.
 
 ## From Command Line
 
@@ -14,7 +14,7 @@ aws dms describe-replication-instances \
 
 ### Generate a CLI payload with `PubliclyAccessible: false`
 
-Use `jq` to extract all mutable parameters, override the public‑access flag, and produce a JSON file for creation:
+Use `jq` to extract all mutable parameters, override the public-access flag, and produce a JSON file for creation:
 
 ```sh
 jq '
@@ -64,7 +64,7 @@ jq '
 ' describe.json > cf_template.json
 ```
 
-**Note**: Adjust the list inside `| { … }` to include any other mutable fields you need. Leave out `ReplicationInstanceArn`, `Status`, `EndpointArn` and other read‑only attributes.
+**Note**: Adjust the list inside `| { … }` to include any other mutable fields you need. Leave out `ReplicationInstanceArn`, `Status`, `EndpointArn` and other read-only attributes.
 
 ### Provision the new replication instance
 
@@ -73,7 +73,7 @@ aws dms create-replication-instance \
     --cli-input-json file://{{create-instance}}.json
 ```
 
-This will spin up a new DMS replication instance that mirrors the original configuration, except with public accessibility disabled.
+This will provision a new DMS replication instance that mirrors the original configuration, except with public accessibility disabled.
 
 ### Delete the incompliant instance
 

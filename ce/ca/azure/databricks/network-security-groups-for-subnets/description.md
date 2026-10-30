@@ -16,7 +16,7 @@ Implementing NSGs with clearly defined allow and deny rules provides transparenc
 
 ## Audit
 
-This policy flags an *Azure Databricks Workspace* as `INCOMPLAINT` if the Databricks' `Private and Public Network Subnets` and do not have *Network Security Groups (NSGs)* assigned.
+This policy flags an *Azure Databricks Workspace* as `INCOMPLIANT` if the Databricks `Private and Public Network Subnets` do not have *Network Security Groups (NSGs)* assigned.
 
 ## Default Value
 

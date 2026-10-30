@@ -1,0 +1,53 @@
+---
+inputType: "CA10O1__CaOracleKeyVaultKey__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10O1__CaOracleKeyVaultKey__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This Oracle Key Vault key is not enabled."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10O1__lifecycleState__c"
+        right:
+          TEXT: "ENABLED"
+  - status: "COMPLIANT"
+    currentStateMessage: "Automatic rotation is enabled for this Oracle Key Vault key."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10O1__autoRotationStatus__c"
+        right:
+          TEXT: "Enabled"
+  - status: "UNDETERMINED"
+    currentStateMessage: "Unable to determine the automatic rotation status for this stale Oracle Key Vault key."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10O1__autoRotationStatus__c"
+          - IS_BEYOND_LAST_DAYS:
+              arg:
+                EXTRACT: "CA10O1__timeCreated__c"
+              offsetDays: 365
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This Oracle Key Vault key is older than 365 days and automatic rotation is not enabled."
+    remediationMessage: "Rotate this Oracle Key Vault key or enable automatic key rotation."
+    check:
+      IS_BEYOND_LAST_DAYS:
+        arg:
+          EXTRACT: "CA10O1__timeCreated__c"
+        offsetDays: 365
+  - status: "COMPLIANT"
+    currentStateMessage: "This Oracle Key Vault key is enabled and was created within the last 365 days."
+    check:
+      IS_WITHIN_LAST_DAYS:
+        arg:
+          EXTRACT: "CA10O1__timeCreated__c"
+        offsetDays: 365
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unable to determine whether this Oracle Key Vault key is rotated annually."

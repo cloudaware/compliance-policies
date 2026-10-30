@@ -85,7 +85,7 @@ curl -XGET -u {{master-username}}:{{password}} \
 
 #### 5. Validate VPC Configuration
 
-Confirm the domain is properly configured within in VPC:
+Confirm the domain is properly configured within the VPC:
 
 ```sh
 aws opensearch describe-domain \

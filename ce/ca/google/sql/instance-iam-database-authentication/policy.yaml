@@ -1,0 +1,11 @@
+---
+names:
+  full: "Google Cloud SQL Instance IAM Database Authentication is not enabled"
+  contextual: "Cloud SQL Instance IAM Database Authentication is not enabled"
+description: "Enable IAM database authentication for Cloud SQL for MySQL and PostgreSQL instances to reduce reliance on static database passwords."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - /frameworks/cis-gcp-v5.0.0/06/06
+  - /frameworks/cloudaware/resource-security/secure-access

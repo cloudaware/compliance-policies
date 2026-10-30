@@ -1,0 +1,21 @@
+---
+names:
+  full: "AWS Lambda Function Runtime is deprecated"
+  contextual: "Function Runtime is deprecated"
+description: >
+  Ensure that AWS Lambda functions are using supported runtimes. AWS periodically 
+  deprecates runtimes that reach the end of their community support, after which 
+  they no longer receive security updates or technical support.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/aws-fsbp-v1.0.0/lambda/02"
+  - "/frameworks/cloudaware/resource-reliability/infrastructure-modernization"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Lambda.2] Lambda functions should use supported runtimes"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/lambda-controls.html#lambda-2"
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/Lambda/supported-runtime-environment.html
+      name: Lambda Using Supported Runtime Environment

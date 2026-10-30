@@ -6,13 +6,13 @@ importExtracts:
   - file: "/types/CA10__CaAwsElasticsearchDomain__c/object.extracts.yaml"
 conditions:
   - status: "UNDETERMINED"
-    currentStateMessage: "The Enforce HTTPS endpoint option is not populated in the CMDB."
+    currentStateMessage: "The enforce HTTPS endpoint option is not populated in the CMDB."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__endpointOptionsEnforceHttps__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Enforce HTTPS endpoint option is not enabled."
+    currentStateMessage: "The enforce HTTPS endpoint option is not enabled."
     check:
       IS_EQUAL:
         left:
@@ -20,8 +20,8 @@ conditions:
         right:
           TEXT: "false"  
   - status: "INCOMPLIANT"
-    currentStateMessage: "The OpenSearch Domain is using an outdated TLS security policy."
-    remediationMessage: "Update the Domain to the latest TLS security policy."
+    currentStateMessage: "The OpenSearch domain is using an outdated TLS security policy."
+    remediationMessage: "Update the domain to the latest TLS security policy."
     check:
       CONTAINS:
         arg:

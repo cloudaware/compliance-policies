@@ -1,0 +1,162 @@
+---
+inputType: CA10__CaAwsDbInstance__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsDbInstance__c/object.extracts.yaml
+  - file: /types/CA10__CaAwsDbInstance__c/instance-engine-support.extracts.yaml
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: This instance belongs to a DB cluster; assess engine support once on the cluster.
+    check:
+      OR:
+        args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: CA10__cluster__c
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: CA10__clusterArn__c
+  - status: INAPPLICABLE
+    currentStateMessage: The DB instance is being deleted.
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__status__c
+        right:
+          TEXT: deleting
+  - status: INAPPLICABLE
+    currentStateMessage: This policy only assesses MySQL, PostgreSQL, and MariaDB engines.
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              SET:
+                itemType: TEXT
+                items:
+                  - mysql
+                  - postgres
+                  - mariadb
+            search:
+              EXTRACT: CA10__engine__c
+  - status: INAPPLICABLE
+    currentStateMessage: The optional native engine lifecycle calendar is not populated; this policy excludes engines without collected calendar enrichment.
+    check:
+      AND:
+        args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: CA10__engineVersion__c
+          - IS_EMPTY:
+              arg:
+                EXTRACT: CA10A2__engineLifecycleSupportInfo__c
+  - status: UNDETERMINED
+    currentStateMessage: The engine support calendar is missing named phases, has duplicate or unknown phases, or has invalid UTC date ranges.
+    check:
+      NOT:
+        arg:
+          EXTRACT: caJsonQueryBoolean__instanceEngineCalendarValid
+  - status: UNDETERMINED
+    currentStateMessage: The MariaDB support calendar contains an Extended Support phase, which AWS does not offer for this engine.
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10__engine__c
+              right:
+                TEXT: mariadb
+          - NOT_EQUAL:
+              left:
+                EXTRACT: caJsonQueryNumber__instanceEngineExtendedPhaseCount
+              right:
+                NUMBER: 0
+  # Parse every published date before making a support claim, including future Extended Support dates.
+  - status: UNDETERMINED
+    currentStateMessage: The engine support calendar contains an invalid date.
+    check:
+      NOT:
+        arg:
+          AND:
+            args:
+              - NOT_EMPTY:
+                  arg:
+                    EXTRACT: caDateTimeFrom__instanceEngineStandardStart
+              - NOT_EMPTY:
+                  arg:
+                    EXTRACT: caDateTimeFrom__instanceEngineStandardEnd
+              - OR:
+                  args:
+                    - IS_EQUAL:
+                        left:
+                          EXTRACT: caJsonQueryNumber__instanceEngineExtendedPhaseCount
+                        right:
+                          NUMBER: 0
+                    - AND:
+                        args:
+                          - NOT_EMPTY:
+                              arg:
+                                EXTRACT: caDateTimeFrom__instanceEngineExtendedStart
+                          - NOT_EMPTY:
+                              arg:
+                                EXTRACT: caDateTimeFrom__instanceEngineExtendedEnd
+  - status: UNDETERMINED
+    currentStateMessage: The engine standard support period has not started; verify the collected engine version and calendar.
+    check:
+      IS_AFTER_TODAY:
+        arg:
+          EXTRACT: caDateTimeFrom__instanceEngineStandardStart
+  - status: INCOMPLIANT
+    currentStateMessage: AWS standard support has ended; the calendar timestamp precision does not establish the later Extended Support phase on this evaluation day.
+    remediationMessage: Upgrade to an engine version within AWS standard support and verify any temporary Extended Support arrangement with AWS.
+    check:
+      AND:
+        args:
+          - IS_BEFORE_TODAY:
+              arg:
+                EXTRACT: caDateTimeFrom__instanceEngineStandardEnd
+          - NOT:
+              arg:
+                EXTRACT: caJsonQueryBoolean__instanceEngineCalendarWholeDays
+  - status: INAPPLICABLE
+    currentStateMessage: This calendar uses timestamps outside the verified UTC whole-day encoding; the evaluation day is excluded because no standard-support expiry is established.
+    check:
+      NOT:
+        arg:
+          EXTRACT: caJsonQueryBoolean__instanceEngineCalendarWholeDays
+  - status: COMPLIANT
+    currentStateMessage: The instance engine major version is within AWS standard support according to its published support calendar.
+    check:
+      NOT:
+        arg:
+          IS_BEFORE_TODAY:
+            arg:
+              EXTRACT: caDateTimeFrom__instanceEngineStandardEnd
+  - status: INCOMPLIANT
+    currentStateMessage: AWS standard support has ended and the calendar publishes no Extended Support period for this engine major version.
+    remediationMessage: Upgrade the instance to an engine version within AWS standard support after compatibility testing.
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: caJsonQueryNumber__instanceEngineExtendedPhaseCount
+        right:
+          NUMBER: 0
+  - status: INCOMPLIANT
+    currentStateMessage: The instance engine major version is past the final published AWS support end date, including Extended Support.
+    remediationMessage: Prioritize a tested upgrade to a version within AWS standard support and verify the current instance state with AWS.
+    check:
+      IS_BEFORE_TODAY:
+        arg:
+          EXTRACT: caDateTimeFrom__instanceEngineExtendedEnd
+  - status: INCOMPLIANT
+    currentStateMessage: AWS standard support has ended and the published Extended Support period has not started.
+    remediationMessage: Upgrade the instance to a version within AWS standard support and verify support coverage with AWS.
+    check:
+      IS_AFTER_TODAY:
+        arg:
+          EXTRACT: caDateTimeFrom__instanceEngineExtendedStart
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: The instance engine major version is outside AWS standard support and within the published RDS Extended Support period; this calendar does not establish enrollment or entitlement.
+  remediationMessage: Plan a tested instance engine upgrade; if temporarily retaining this version, verify Extended Support enrollment and charges and record a time-limited exception.

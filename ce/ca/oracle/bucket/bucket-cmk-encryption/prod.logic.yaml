@@ -1,0 +1,17 @@
+---
+inputType: "CA10O1__CaOracleStorageBucket__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10O1__CaOracleStorageBucket__c/object.extracts.yaml"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "The bucket is encrypted with a customer managed key."
+    check:
+      NOT_EMPTY:
+        arg:
+          EXTRACT: "CA10O1__kmsKeyOcid__c"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "The bucket is not encrypted with a customer managed key."
+  remediationMessage: "Configure the bucket to use a customer managed key from OCI Vault."

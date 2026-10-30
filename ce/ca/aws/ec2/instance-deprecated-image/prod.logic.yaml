@@ -1,0 +1,56 @@
+---
+inputType: CA10__CaAwsInstance__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsInstance__c/object.extracts.yaml
+  - file: /types/CA10__CaAwsImage__c/object.extracts.yaml
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: The EC2 instance is terminated or shutting down.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - terminated
+              - shutting-down
+        search:
+          EXTRACT: CA10__stateName__c
+  # A missing or disappeared AMI is not evidence of an absent optional deprecation date.
+  - status: UNDETERMINED
+    currentStateMessage: The source AMI lookup is unresolved or the AMI has disappeared.
+    check:
+      IS_EMPTY_LOOKUP: CA10__image__r
+  - status: INAPPLICABLE
+    currentStateMessage: The source AMI is not available.
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: CA10__image__r.CA10__state__c
+        right:
+          TEXT: available
+  # shortcut: native TODAY checks use UTC calendar days, use exact-time checks if the engine adds them.
+  - status: INCOMPLIANT
+    currentStateMessage: The source AMI deprecation time is before the current day.
+    remediationMessage: Test a maintained replacement AMI and replace the instance through its deployment process.
+    check:
+      IS_BEFORE_TODAY:
+        arg:
+          EXTRACT: CA10__image__r.CA10__deprecationTime__c
+  - status: COMPLIANT
+    currentStateMessage: The resolved source AMI has no scheduled deprecation date.
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: CA10__image__r.CA10__deprecationTime__c
+  - status: COMPLIANT
+    currentStateMessage: The source AMI deprecation time is after the current day.
+    check:
+      IS_AFTER_TODAY:
+        arg:
+          EXTRACT: CA10__image__r.CA10__deprecationTime__c
+otherwise:
+  status: INAPPLICABLE
+  currentStateMessage: The source AMI deprecation falls on the current day, outside the date predicates' precision; verify its exact time in AWS.

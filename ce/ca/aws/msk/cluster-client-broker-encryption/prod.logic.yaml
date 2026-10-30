@@ -1,0 +1,34 @@
+---
+inputType: "CA10__CaAwsMskCluster__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsMskCluster__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The MSK cluster allows unencrypted communication (PLAINTEXT or TLS_PLAINTEXT)."
+    remediationMessage: "Update the cluster configuration to require TLS for client-broker communication."
+    check:
+      OR:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__encryptionClientBroker__c"
+              right:
+                TEXT: "PLAINTEXT"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__encryptionClientBroker__c"
+              right:
+                TEXT: "TLS_PLAINTEXT"
+  - status: "COMPLIANT"
+    currentStateMessage: "The MSK cluster enforces TLS for all client-broker connections."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__encryptionClientBroker__c"
+        right:
+          TEXT: "TLS"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

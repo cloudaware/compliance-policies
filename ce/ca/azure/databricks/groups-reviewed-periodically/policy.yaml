@@ -1,0 +1,12 @@
+---
+names:
+  full: Azure Databricks groups are not reviewed periodically
+  contextual: Databricks groups are not reviewed periodically
+description: "Azure Databricks group and role assignments should be reviewed periodically to ensure access remains accurate and appropriate for current business needs."
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cis-azure-v6.0.0/02/01/12"
+  - "/frameworks/cloudaware/identity-and-access-governance/rbac-management"

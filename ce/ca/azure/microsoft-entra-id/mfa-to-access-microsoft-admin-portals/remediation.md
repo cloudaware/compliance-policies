@@ -11,13 +11,13 @@
 7. Click the blue text under `Users`.
 8. Under `Include`, select `All users`.
 9. Under `Exclude`, check `Users and groups`.
-10. Select users or groups to be exempted from this policy (e.g. break-glass emergency accounts, and non-interactive service accounts) then click the `Select` button.
+10. Select users or groups to be exempted from this policy (e.g., break-glass emergency accounts and non-interactive service accounts), then click `Select`.
 11. Click the blue text under `Target Resources`.
 12. Under `Include`, click the `Select apps` radio button.
 13. Click the blue text under `Select`.
-14. Check the box next to `Microsoft Admin Portals` then click the `Select` button.
+14. Check the box next to `Microsoft Admin Portals`, then click `Select`.
 15. Click the blue text under `Grant`.
-16. Under `Grant access` check the box for `Require multifactor authentication` then click the `Select` button.
+16. Under `Grant access`, check the box for `Require multifactor authentication`, then click `Select`.
 17. Before creating, set `Enable policy` to `Report-only`.
 18. Click `Create`.
 

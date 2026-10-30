@@ -4,7 +4,7 @@ Ensure that the number of days before users are asked to re-confirm their authen
 
 ## Rationale
 
-This setting is necessary if you have setup 'Require users to register when signing in option'. If authentication re-confirmation is disabled, registered users will never be prompted to re-confirm their existing authentication information. If the authentication information for a user changes, such as a phone number or email, then the password reset information for that user reverts to the previously registered authentication information.
+This setting is necessary if you have set up the `Require users to register when signing in` option. If authentication reconfirmation is disabled, registered users will never be prompted to reconfirm their existing authentication information. If a user's authentication information changes, such as a phone number or email, then the password reset information for that user reverts to the previously registered authentication information.
 
 ## Impact
 
@@ -14,7 +14,7 @@ Users will be prompted for their multifactor authentication at the duration set 
 
 ### From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. In the Azure portal, open the portal menu.
 2. Select `Microsoft Entra ID`.
 3. Under `Manage`, select `Users`.
 4. Under `Manage`, select `Password reset`.

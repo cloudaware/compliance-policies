@@ -6,15 +6,15 @@ testData:
   - file: ../test-data-ca10v.json
 conditions:
   - status: INCOMPLIANT
-    currentStateMessage: Virtual machine never had breeze agent installed
-    remediationMessage: Install breeze agent on the virtual machine
+    currentStateMessage: "The virtual machine has never had the breeze agent installed."
+    remediationMessage: "Install the breeze agent on the virtual machine."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: breezeLastUpdate
   - status: INCOMPLIANT
-    currentStateMessage: Virtual machine latest breeze report was more than a day ago
-    remediationMessage: Re-install breeze agent on the virtual machine and make sure it is reporting
+    currentStateMessage: "The latest breeze report for this virtual machine is more than a day old."
+    remediationMessage: "Reinstall the breeze agent on the virtual machine and confirm it is reporting."
     check:
       IS_BEYOND_LAST_DAYS:
         offsetDays: 1
@@ -22,4 +22,5 @@ conditions:
           EXTRACT: breezeLastUpdate
 otherwise:
   status: COMPLIANT
-  currentStateMessage: Virtual machine has breeze agent installed and has a recent report
+  currentStateMessage: "The breeze agent is installed on the virtual machine and has a recent report."
+

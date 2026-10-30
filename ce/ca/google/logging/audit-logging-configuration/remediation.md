@@ -7,31 +7,40 @@
 
 ## From Google Cloud CLI
 
-1. To read the project's IAM policy and store it in a file run a command:
+1. To read the project's IAM policy and store it in a file, run:
 
-        gcloud projects get-iam-policy PROJECT_ID > /tmp/project_policy.yaml
+    ```sh
+    gcloud projects get-iam-policy {{project-id}} > /tmp/project_policy.yaml
+    ```
 
-    Alternatively, the policy can be set at the organization or folder level. If setting the policy at the organization level, it is not necessary to also set it for each folder or project.
+    Alternatively, the policy can be set at the organization or folder level. If you set the policy at the organization level, it is not necessary to also set it for each folder or project.
 
-        gcloud organizations get-iam-policy ORGANIZATION_ID > /tmp/org_policy.yaml
-    
-        gcloud resource-manager folders get-iam-policy FOLDER_ID > /tmp/folder_policy.yaml
+    ```sh
+    gcloud organizations get-iam-policy {{organization-id}} > /tmp/org_policy.yaml
+    ```
 
-2. Edit policy in /tmp/policy.yaml, adding or changing only the audit logs configuration to:
+    ```sh
+    gcloud resource-manager folders get-iam-policy {{folder-id}} > /tmp/folder_policy.yaml
+    ```
 
-    Note: Admin Activity Logs are enabled by default, and cannot be disabled. So they are not listed in these configuration changes.
+2. Edit the policy in `/tmp/policy.yaml`, adding or changing only the audit logs configuration to:
 
-        auditConfigs: 
-        - auditLogConfigs: 
-        - logType: DATA_WRITE 
-        - logType: DATA_READ 
-        service: allServices
+    Note: Admin Activity logs are enabled by default and cannot be disabled, so they are not listed in these configuration changes.
 
-    Note: `exemptedMembers:` is not set as audit logging should be enabled for all the users
+    auditConfigs:
+    - auditLogConfigs:
+    - logType: DATA_WRITE
+    - logType: DATA_READ
+    service: allServices
 
-3. To write new IAM policy run command:
+    Note: `exemptedMembers:` is not set because audit logging should be enabled for all users.
 
-        gcloud organizations set-iam-policy ORGANIZATION_ID /tmp/org_policy.yaml gcloud resource-manager folders set-iam-policy FOLDER_ID /tmp/folder_policy.yaml
-        gcloud projects set-iam-policy PROJECT_ID /tmp/project_policy.yaml
+3. To write the updated IAM policy, run the appropriate command:
+
+    ```sh
+    gcloud organizations set-iam-policy {{organization-id}} /tmp/org_policy.yaml
+    gcloud resource-manager folders set-iam-policy {{folder-id}} /tmp/folder_policy.yaml
+    gcloud projects set-iam-policy {{project-id}} /tmp/project_policy.yaml
+    ```
 
 If the preceding command reports a conflict with another change, then repeat these steps, starting with the first step.

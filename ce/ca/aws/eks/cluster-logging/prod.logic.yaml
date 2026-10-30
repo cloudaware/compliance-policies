@@ -6,6 +6,7 @@ testData:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "EKS cluster control plane logging is not configured for API server logs."
+    remediationMessage: "Enable API server logs in EKS control plane logging."
     check:
       CONTAINS:
         arg: 
@@ -13,7 +14,8 @@ conditions:
         search:
           TEXT: "api: Disabled"
   - status: "INCOMPLIANT"
-    currentStateMessage: "EKS cluster control plane logging is not configured for Audit logs."
+    currentStateMessage: "EKS cluster control plane logging is not configured for audit logs."
+    remediationMessage: "Enable audit logs in EKS control plane logging."
     check:
       CONTAINS:
         arg: 
@@ -21,7 +23,8 @@ conditions:
         search:
           TEXT: "audit: Disabled"
   - status: "INCOMPLIANT"
-    currentStateMessage: "EKS cluster control plane logging is not configured for Authenticator logs."
+    currentStateMessage: "EKS cluster control plane logging is not configured for authenticator logs."
+    remediationMessage: "Enable authenticator logs in EKS control plane logging."
     check:
       CONTAINS:
         arg: 
@@ -29,7 +32,8 @@ conditions:
         search:
           TEXT: "authenticator: Disabled"
   - status: "INCOMPLIANT"
-    currentStateMessage: "EKS cluster control plane logging is not configured for Controller manager logs."
+    currentStateMessage: "EKS cluster control plane logging is not configured for controller manager logs."
+    remediationMessage: "Enable controller manager logs in EKS control plane logging."
     check:
       CONTAINS:
         arg: 
@@ -37,7 +41,8 @@ conditions:
         search:
           TEXT: "controllerManager: Disabled"
   - status: "INCOMPLIANT"
-    currentStateMessage: "EKS cluster control plane logging is not configured for Scheduler logs."
+    currentStateMessage: "EKS cluster control plane logging is not configured for scheduler logs."
+    remediationMessage: "Enable scheduler logs in EKS control plane logging."
     check:
       CONTAINS:
         arg: 
@@ -46,4 +51,4 @@ conditions:
           TEXT: "scheduler: Disabled"
 otherwise:
   status: "COMPLIANT" 
-  currentStateMessage: "EKS Cluster logging is configured for all control plane log types."
+  currentStateMessage: "EKS cluster logging is configured for all control plane log types."

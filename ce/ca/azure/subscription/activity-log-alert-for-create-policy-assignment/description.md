@@ -8,7 +8,7 @@ Monitoring for create policy assignment events gives insight into changes done i
 
 ## Audit
 
-This policy evaluates *Azure Subscriptions* for the presence of an *Azure Activity Log Alert* that captures **Create Policy Assignment** events. A subscription is marked as `INCOMPLIANT` if it does **not** have an *Activity Log Alert* whose `Condition JSON` filters on the **Microsoft.Authorization/policyAssignments/write** operation.
+This policy flags an *Azure Subscription* as `INCOMPLIANT` if it does **not** have an enabled related *Azure Activity Log Alert* scoped to the subscription whose `Condition JSON` filters on the **Administrative** category and the **Microsoft.Authorization/policyAssignments/write** operation.
 
 ## Default Value
 

@@ -1,0 +1,19 @@
+---
+inputType: "CA10__CaAwsMqBroker__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsMqBroker__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The broker is not configured to block public access."
+    remediationMessage: "Configure the broker to block public access."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__publiclyAccessible__c"
+        right:
+          BOOLEAN: true
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The broker is configured to block public access."

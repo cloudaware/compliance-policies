@@ -33,7 +33,7 @@ Configure Amazon RDS event subscriptions to receive notifications for **maintena
 
 6. Choose **Create** to create the event subscription.
 
-7. Repeat steps 4–6 to create event subscriptions for other Amazon RDS DB instances in the current AWS Region, if applicable.
+7. Repeat steps 4-6 to create event subscriptions for other Amazon RDS DB instances in the current AWS Region, if applicable.
 
 8. Switch to other AWS Regions from the console and repeat this remediation process as required.
 
@@ -41,66 +41,66 @@ Configure Amazon RDS event subscriptions to receive notifications for **maintena
 
 1. Create an Amazon SNS topic to receive RDS event notifications:
 
-   ```sh
-   aws sns create-topic \
-       --name {{rds-instance-event-notifications}}
-   ```
+    ```sh
+    aws sns create-topic \
+        --name {{rds-instance-event-notifications}}
+    ```
 
 2. Note the Amazon Resource Name (ARN) returned in the output:
 
-   ```json
-   {
-       "TopicArn": "{{topic-arn}}"
-   }
-   ```
+    ```json
+    {
+        "TopicArn": "{{topic-arn}}"
+    }
+    ```
 
 3. Subscribe an email endpoint to the SNS topic:
 
-   ```sh
-   aws sns subscribe \
-       --topic-arn {{topic-arn}} \
-       --protocol email \
-       --notification-endpoint my@email.com
-   ```
+    ```sh
+    aws sns subscribe \
+        --topic-arn {{topic-arn}} \
+        --protocol email \
+        --notification-endpoint my@email.com
+    ```
 
 4. Confirm the email subscription using the token sent to the specified email address:
 
-   ```sh
-   aws sns confirm-subscription \
-       --topic-arn {{topic-arn}} \
-       --token {{confirmation-token}}
-   ```
+    ```sh
+    aws sns confirm-subscription \
+        --topic-arn {{topic-arn}} \
+        --token {{confirmation-token}}
+    ```
 
 5. Create an Amazon RDS event subscription for DB instance **maintenance**, **configuration change**, and **failure** events:
 
-   ```sh
-   aws rds create-event-subscription \
-       --region {{us-east-1}} \
-       --subscription-name {{subscription-name}} \
-       --sns-topic-arn {{topic-arn}} \
-       --source-type db-instance \
-       --event-categories maintenance configuration-change failure \
-       --source-ids {{db-instance-id}} \
-       --enabled
-   ```
+    ```sh
+    aws rds create-event-subscription \
+        --region {{us-east-1}} \
+        --subscription-name {{subscription-name}} \
+        --sns-topic-arn {{topic-arn}} \
+        --source-type db-instance \
+        --event-categories maintenance configuration-change failure \
+        --source-ids {{db-instance-id}} \
+        --enabled
+    ```
 
 6. Verify that the event subscription is successfully created by reviewing the command output:
 
-   ```json
-   {
-       "EventSubscription": {
-           "Status": "creating",
-           "SourceType": "db-instance",
-           "EventCategoriesList": [
-               "maintenance",
-               "configuration change",
-               "failure"
-           ],
-           "Enabled": true
-       }
-   }
-   ```
+    ```json
+    {
+        "EventSubscription": {
+            "Status": "creating",
+            "SourceType": "db-instance",
+            "EventCategoriesList": [
+                "maintenance",
+                "configuration change",
+                "failure"
+            ],
+            "Enabled": true
+        }
+    }
+    ```
 
-7. Repeat steps 1–6 for additional RDS DB instances in the same AWS Region, if required.
+7. Repeat steps 1-6 for additional RDS DB instances in the same AWS Region, if required.
 
 8. Update the `--region` parameter and repeat the remediation steps for other AWS Regions.

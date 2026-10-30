@@ -4,10 +4,10 @@ To ensure comprehensive logging for troubleshooting, auditing, and security purp
 
 ## Enable Cloud Logging on an Existing Cluster
 
-### **From gcloud CLI**
+### From Google Cloud CLI
 
     ```sh
     gcloud container clusters update {{cluster-name}} \
-        --location {{location}} \
+        --location={{location}} \
         --logging=SYSTEM,WORKLOAD,API_SERVER
     ```

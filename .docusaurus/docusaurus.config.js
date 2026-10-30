@@ -11,7 +11,6 @@ const config = {
     organizationName: 'cloudaware',
     projectName: 'compliance-policies',
     onBrokenLinks: 'ignore',
-    onBrokenMarkdownLinks: 'ignore',
     markdown: {
         format: 'detect'
     },
@@ -35,7 +34,9 @@ const config = {
                     exclude: [
                         ".*",
                         "export",
-                        "internal"
+                        "internal",
+                        "dashboards/components/*.mdx",
+                        "dashboards/gallery/**/*.mdx",
                     ],
                     sidebarPath: './sidebars.js',
                     async sidebarItemsGenerator({

@@ -4,17 +4,19 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "Bastion Host exists for this Subscription."
+    currentStateMessage: "A bastion host exists for this subscription."
     check:
       RELATED_LIST_HAS:
         relationshipName: "CA10Z1__Azure_Virtual_Network_Bastion_Hosts__r"
         status: "COMPLIANT"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "Bastion Host doesn't exist for this Subscription."
+  currentStateMessage: "A bastion host does not exist for this subscription."
+  remediationMessage: "Deploy an Azure Bastion host for secure administrative access."
 relatedLists:
   - relationshipName: "CA10Z1__Azure_Virtual_Network_Bastion_Hosts__r"
     conditions: []
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "Bastion Host is configured."
+      currentStateMessage: "A bastion host is configured."
+

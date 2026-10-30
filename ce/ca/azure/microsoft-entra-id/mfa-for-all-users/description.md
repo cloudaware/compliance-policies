@@ -1,7 +1,7 @@
 
 # Description
 
-A Conditional Access policy can be enabled to ensure that users are required to use Multifactor Authentication (MFA) to login.
+A Conditional Access policy can be enabled to ensure that users are required to use multi-factor authentication (MFA) to log in.
 
 **Note**: Since 2024, Azure has been rolling out mandatory multifactor authentication. For more information:
 
@@ -20,14 +20,14 @@ There is an increased cost associated with Conditional Access policies because o
 
 ### From Azure Portal
 
-1. From Azure Home open the Portal Menu in the top left, and select `Microsoft Entra ID`.
+1. In the Azure portal, open the portal menu in the upper left and select `Microsoft Entra ID`.
 2. Scroll down in the menu on the left, and select `Security`.
-3. Select on the left side `Conditional Access`.
+3. On the left, select `Conditional Access`.
 4. Select `Policies`.
 5. Select the policy you wish to audit.
 6. Click the blue text under `Users`.
 7. View under `Include` the corresponding users and groups to whom the policy is applied.
-8. Under `Exclude` ensure that no users or groups are specified. If there are users or groups specified for exclusion, a very strong justification should exist for each exception, and all excepted account-level objects should be recorded in documentation along with the justification for comparison in future audits.
+8. Under `Exclude`, ensure that no users or groups are specified. If there are users or groups specified for exclusion, a strong justification should exist for each exception, and all excepted account-level objects should be recorded in documentation along with the justification for comparison in future audits.
 
 ## Default Value
 
@@ -42,4 +42,4 @@ Starting October 2024, MFA will be required for all accounts by default.
 
 ## Additional Information
 
-These policies should be tested by using the What If tool in the References. Setting these can and will create issues with logging in for users until they use an MFA device linked to their accounts. Further testing can also be done via the insights and reporting resource the in References which monitors Azure sign ins.
+These policies should be tested by using the What If tool in the References. Setting these can create issues with users logging in until they use an MFA device linked to their accounts. Further testing can also be done via the insights and reporting resource in the References, which monitors Azure sign-ins.

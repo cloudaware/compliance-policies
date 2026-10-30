@@ -7,7 +7,7 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The Cluster is not available."
+    currentStateMessage: "The cluster is not available."
     check:
       NOT_EQUAL:
         left:
@@ -15,14 +15,14 @@ conditions:
         right:
           TEXT: "available"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Redshift Cluster require_ssl parameter is set to false."
-    remediationMessage: "Consider enabling require_ssl parameter for the Cluster."
+    currentStateMessage: "The Redshift cluster require_ssl parameter is set to false."
+    remediationMessage: "Enable the require_ssl parameter for the cluster."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10A2__AWS_Redshift_Cluster_ParameterGroup_Link__r"
   - status: "COMPLIANT"
-    currentStateMessage: "The Redshift Cluster require_ssl parameter is set to true."
+    currentStateMessage: "The Redshift cluster require_ssl parameter is set to true."
     check:
       RELATED_LIST_HAS:
         status: "COMPLIANT"
@@ -41,13 +41,13 @@ conditions:
         relationshipName: "CA10A2__AWS_Redshift_Cluster_ParameterGroup_Link__r"
 otherwise:
   status: "UNDETERMINED"
-  currentStateMessage: "The Redshift Cluster parameters do not exist in the CMDB."
+  currentStateMessage: "The Redshift cluster parameters do not exist in the CMDB."
 relatedLists:
   - relationshipName: "CA10A2__AWS_Redshift_Cluster_ParameterGroup_Link__r"
     conditions: 
       - status: "INCOMPLIANT"
         currentStateMessage: "The require_ssl parameter is set to false."
-        remediationMessage: "Consider enabling require_ssl parameter."
+        remediationMessage: "Enable the require_ssl parameter."
         check:
           RELATED_LIST_HAS:
             status: "INCOMPLIANT"
@@ -66,7 +66,7 @@ relatedLists:
             relationshipName: "CA10A2__parameterGroup__r.CA10__AWS_Redshift_Cluster_Parameters__r"
     otherwise:
       status: "INAPPLICABLE"
-      currentStateMessage: "The require_ssl parameter does not exist in the CMDB." 
+      currentStateMessage: "The require_ssl parameter does not exist in the CMDB."
     relatedLists:
       - relationshipName: "CA10A2__parameterGroup__r.CA10__AWS_Redshift_Cluster_Parameters__r"
         conditions:
@@ -79,7 +79,7 @@ relatedLists:
                 right:
                   TEXT: "require_ssl"
           - status: "INCOMPLIANT"
-            currentStateMessage: "The require_ssl parameter is not set to false."
+            currentStateMessage: "The require_ssl parameter is set to false."
             check:
               IS_EQUAL:
                 left:
@@ -87,7 +87,7 @@ relatedLists:
                 right:
                   TEXT: "false"
           - status: "COMPLIANT"
-            currentStateMessage: "The require_ssl parameter is not set to true."
+            currentStateMessage: "The require_ssl parameter is set to true."
             check:
               IS_EQUAL:
                 left:

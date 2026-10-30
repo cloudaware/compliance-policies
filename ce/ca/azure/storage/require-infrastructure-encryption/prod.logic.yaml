@@ -6,8 +6,8 @@ importExtracts:
   - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "Require Infrastructure Encryption setting is disabled."
-    remediationMessage: "Consider enabling Require Infrastructure Encryption setting."
+    currentStateMessage: "Infrastructure encryption is disabled."
+    remediationMessage: "Enable infrastructure encryption."
     check:
       IS_EQUAL:
         left:
@@ -15,7 +15,7 @@ conditions:
         right:
           TEXT: "Disabled"
   - status: "COMPLIANT"
-    currentStateMessage: "Require Infrastructure Encryption setting is enabled."
+    currentStateMessage: "Infrastructure encryption is enabled."
     check:
       IS_EQUAL:
         left:

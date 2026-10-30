@@ -6,7 +6,7 @@ importExtracts:
   - file: /types/CA10__CaAwsUser__c/credReport.extracts.yaml
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The user doesn't have active access keys."
+    currentStateMessage: "The user does not have active access keys."
     check:
       AND:
         args:
@@ -21,8 +21,8 @@ conditions:
             right:
               BOOLEAN: false
   - status: "INCOMPLIANT"
-    currentStateMessage: "More than one Active access key available for IAM user"
-    remediationMessage: "Consider removing one of th access keys."
+    currentStateMessage: "More than one active access key is available for the IAM user."
+    remediationMessage: "Remove one of the access keys."
     check:
       AND:
         args:

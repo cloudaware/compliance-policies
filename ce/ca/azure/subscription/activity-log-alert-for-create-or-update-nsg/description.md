@@ -8,7 +8,7 @@ Monitoring for Create or Update Network Security Group events gives insight into
 
 ## Audit
 
-This policy evaluates *Azure Subscriptions* for the presence of an *Azure Activity Log Alert* that captures **Create or Update Network Security Group** events. A subscription is marked as `INCOMPLIANT` if it does **not** have an *Activity Log Alert* whose `Condition JSON` filters on the **Microsoft.Network/networkSecurityGroups/write** operation.
+This policy flags an *Azure Subscription* as `INCOMPLIANT` if it does **not** have an enabled related *Azure Activity Log Alert* scoped to the subscription whose `Condition JSON` filters on the **Administrative** category and the **Microsoft.Network/networkSecurityGroups/write** operation.
 
 ## Default Value
 

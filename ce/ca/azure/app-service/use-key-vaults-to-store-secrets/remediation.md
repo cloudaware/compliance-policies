@@ -1,22 +1,28 @@
 # Remediation
 
-Remediation has 2 steps
+Remediation has two steps.
 
-1. Setup the Key Vault.
-2. Setup the App Service to use the Key Vault.
+1. Set up the Key Vault.
+2. Set up the App Service to use the Key Vault.
 
 ## Step 1: Set up the Key Vault
 
 ### From Azure CLI
 
 ```sh
-az keyvault create --name "<name>" --resource-group "<myResourceGroup>" --location myLocation
+az keyvault create \
+    --name {{key-vault-name}} \
+    --resource-group {{resource-group-name}} \
+    --location {{location}}
 ```
 
-### From Powershell
+### From PowerShell
 
 ```ps
-New-AzKeyvault -name <name> -ResourceGroupName <myResourceGroup> -Location <myLocation>
+New-AzKeyVault `
+    -Name {{key-vault-name}} `
+    -ResourceGroupName {{resource-group-name}} `
+    -Location {{location}}
 ```
 
 ## Step 2: Set up the App Service to use the Key Vault

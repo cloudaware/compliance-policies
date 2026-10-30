@@ -1,0 +1,146 @@
+[
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "conditionIndex": 99,
+      "status": "DISAPPEARED"
+    },
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-mysql",
+    "CA10__backupRetentionPeriod__c": 7,
+    "Id": "test1",
+    "CA10__disappearanceTime__c": "2026-01-20T22:12:18Z"
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__status__c') != 'available'",
+      "conditionIndex": 199,
+      "status": "INAPPLICABLE"
+    },
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "creating",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__backupRetentionPeriod__c": 7,
+    "Id": "test2"
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "not(setOfText(['aurora-postgresql', 'aurora-mysql', 'mysql', 'postgres', 'docdb', 'neptune']).contains(extract('CA10__engine__c')))",
+      "conditionIndex": 299,
+      "status": "INAPPLICABLE"
+    },
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "custom-engine",
+    "CA10__backupRetentionPeriod__c": 7,
+    "Id": "test3"
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__backupRetentionPeriod__c') < number(7.0)",
+      "conditionIndex": 399,
+      "status": "INCOMPLIANT"
+    },
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-mysql",
+    "CA10__backupRetentionPeriod__c": 1,
+    "Id": "test4"
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__backupRetentionPeriod__c') >= number(7.0)",
+      "conditionIndex": 499,
+      "status": "COMPLIANT"
+    },
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "aurora-postgresql",
+    "CA10__backupRetentionPeriod__c": 7,
+    "Id": "test5"
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__backupRetentionPeriod__c') < number(7.0)",
+      "conditionIndex": 399,
+      "status": "INCOMPLIANT"
+    },
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "mysql",
+    "CA10__backupRetentionPeriod__c": 3,
+    "Id": "test6"
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__backupRetentionPeriod__c') >= number(7.0)",
+      "conditionIndex": 499,
+      "status": "COMPLIANT"
+    },
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "postgres",
+    "CA10__backupRetentionPeriod__c": 14,
+    "Id": "test7"
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__backupRetentionPeriod__c') < number(7.0)",
+      "conditionIndex": 399,
+      "status": "INCOMPLIANT"
+    },
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "docdb",
+    "CA10__backupRetentionPeriod__c": 1,
+    "Id": "test8"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "extract('CA10__backupRetentionPeriod__c') >= number(7.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-01-30T10:53:34Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__engine__c": "neptune",
+    "CA10__backupRetentionPeriod__c": 7,
+    "Id": "test9"
+  }
+]

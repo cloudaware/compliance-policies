@@ -12,19 +12,28 @@
 
 1. Describe the instance properties:
 
-            gcloud compute instances describe <INSTANCE_NAME> --zone=<ZONE>
+    ```sh
+    gcloud compute instances describe {{instance-name}} \
+        --zone={{zone}}
+    ```
 
 2. Identify the access config name that contains the external IP address. This access config appears in the following format:
 
-            networkInterfaces: 
-            - accessConfigs: 
-                - kind: compute#accessConfig 
-                  name: External NAT 
-                  natIP: 130.211.181.55 
-                  type: ONE_TO_ONE_NAT
+    ```yaml
+    networkInterfaces: 
+    - accessConfigs: 
+        - kind: compute#accessConfig 
+            name: External NAT 
+            natIP: 130.211.181.55 
+            type: {{one-to-one-nat}}
+    ```
 
 3. Delete the access config.
 
-            gcloud compute instances delete-access-config <INSTANCE_NAME> --zone=<ZONE> --access-config-name <ACCESS_CONFIG_NAME>
+    ```sh
+    gcloud compute instances delete-access-config {{instance-name}} \
+        --zone={{zone}} \
+        --access-config-name {{access-config-name}}
+    ```
 
 In the above example, the `ACCESS_CONFIG_NAME` is `External NAT`. The name of your access config might be different.

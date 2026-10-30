@@ -5,8 +5,22 @@ testData:
 importExtracts:
   - file: /types/CA10__CaAwsDbInstance__c/object.extracts.yaml
 conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The instance is not available."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "available"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This policy does not apply to cluster instances."
+    check:
+      NOT_EMPTY:
+        arg:
+          EXTRACT: "CA10__clusterArn__c"
   - status: "COMPLIANT"
-    currentStateMessage: "RDS Instance Multi-AZ deployment is enabled."
+    currentStateMessage: "RDS instance Multi-AZ deployment is enabled."
     check:
       IS_EQUAL:
         left:
@@ -15,5 +29,5 @@ conditions:
           BOOLEAN: true 
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "RDS Instance Multi-AZ deployment is disabled."
-  remediationMessage: "Consider enabling RDS Instance Multi-AZ deployment."
+  currentStateMessage: "RDS instance Multi-AZ deployment is disabled."
+  remediationMessage: "Enable RDS instance Multi-AZ deployment."

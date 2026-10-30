@@ -1,6 +1,6 @@
 # Description
 
-Enable Diagnostic settings for exporting activity logs. Diagnostic settings are available for each individual resource within a subscription. Settings should be configured for all appropriate resources for your environment.
+Enable Diagnostic settings for exporting activity logs. Diagnostic settings are available for each individual resource within a subscription. Configure settings for all appropriate resources in your environment.
 
 ## Rationale
 
@@ -29,13 +29,13 @@ To identify Diagnostic Settings on specific resources:
 To identify Diagnostic Settings on a subscription:
 
 ```sh
-az monitor diagnostic-settings subscription list --subscription <subscription ID>
+az monitor diagnostic-settings subscription list --subscription {{subscription-id}}
 ```
 
 To identify Diagnostic Settings on a resource:
 
 ```sh
-az monitor diagnostic-settings list --resource <resource Id>
+az monitor diagnostic-settings list --resource {{resource-id}}
 ```
 
 ### From PowerShell
@@ -43,18 +43,18 @@ az monitor diagnostic-settings list --resource <resource Id>
 To identify Diagnostic Settings on a Subscription:
 
 ```ps
-Get-AzDiagnosticSetting -SubscriptionId <subscription ID>
+Get-AzDiagnosticSetting -SubscriptionId {{subscription-id}}
 ```
 
 To identify Diagnostic Settings on a specific resource:
 
 ```ps
-Get-AzDiagnosticSetting -ResourceId <resource ID>
+Get-AzDiagnosticSetting -ResourceId {{resource-id}}
 ```
 
 ## Default Value
 
-By default, diagnostic setting is not set.
+By default, diagnostic settings are not configured.
 
 ## References
 

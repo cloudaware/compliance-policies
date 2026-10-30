@@ -1,12 +1,12 @@
 # Description
 
-The root user account is the most privileged user in an AWS account. MFA adds an extra layer of protection on top of a user name and password. With MFA enabled, when a user signs in to an AWS website, they will be prompted for their user name and password as well as for an authentication code from their AWS MFA device. For Level 2, it is recommended that the root user account be protected with a hardware MFA.
+The root user account is the most privileged user in an AWS account. MFA adds an extra layer of protection on top of a user name and password. With MFA enabled, when a user signs in to an AWS website, they are prompted for their user name and password as well as an authentication code from their AWS MFA device. For Level 2, it is recommended that the root user account be protected with a hardware MFA device.
 
 ## Rationale
 
-A hardware MFA has a smaller attack surface than a virtual MFA. For example, a hardware MFA does not suffer the attack surface introduced by the mobile smartphone on which a virtual MFA resides.
+A hardware MFA has a smaller attack surface than a virtual MFA. For example, a hardware MFA does not inherit the attack surface of the mobile smartphone on which a virtual MFA resides.
 
-**Note**: Using hardware MFA for many, many AWS accounts may create a logistical device management issue. If this is the case, consider implementing this Level 2 recommendation selectively to the highest security AWS accounts and the Level 1 recommendation applied to the remaining accounts.
+**Note**: Using hardware MFA for many AWS accounts may create a logistical device management issue. If this is the case, consider implementing this Level 2 recommendation selectively for the highest-security AWS accounts and applying the Level 1 recommendation to the remaining accounts.
 
 ## Audit
 
@@ -18,13 +18,13 @@ Perform the following to determine if the root user account has a hardware MFA s
     aws iam get-account-summary | grep "AccountMFAEnabled"
     ```
 
-    The `AccountMFAEnabled` property is set to `1` will ensure that the root user account has MFA (Virtual or Hardware) Enabled.
+    The `AccountMFAEnabled` property set to `1` indicates that the root user account has MFA (virtual or hardware) enabled.
 
     `AccountPasswordPresent` set to `0` indicates that the root console credential has been removed.
-    
-    If `AccountMFAEnabled` property is set to `0` and `AccountPasswordPresent` is set to `1` the account is not compliant with this recommendation.
 
-2. If `AccountMFAEnabled` property is set to `1`, determine root account has Hardware MFA enabled.
+    If the `AccountMFAEnabled` property is set to `0` and `AccountPasswordPresent` is set to `1`, the account is not compliant with this recommendation.
+
+2. If the `AccountMFAEnabled` property is set to `1`, determine whether the root account has hardware MFA enabled.
 
     Run the following command to list all virtual MFA devices:
 
@@ -32,7 +32,7 @@ Perform the following to determine if the root user account has a hardware MFA s
     aws iam list-virtual-mfa-devices
     ```
 
-    If the output contains one MFA with the following Serial Number, it means the MFA is virtual, not hardware and the account is not compliant with this recommendation: `"SerialNumber": "arn:aws:iam::_<aws_account_number>_:mfa/root-account-mfa-device"`.
+    If the output contains one MFA with the following Serial Number, it means the MFA is virtual, not hardware, and the account is not compliant with this recommendation: `"SerialNumber": "arn:aws:iam::_<aws_account_number>_:mfa/root-account-mfa-device"`.
 
 ## References
 
@@ -42,4 +42,4 @@ Perform the following to determine if the root user account has a hardware MFA s
 
 ## Additional Information
 
-IAM User account root for us-gov cloud regions does not have console access. This control is not applicable for us-gov cloud regions.
+The IAM root user for us-gov cloud regions does not have console access. This control is not applicable for us-gov cloud regions.

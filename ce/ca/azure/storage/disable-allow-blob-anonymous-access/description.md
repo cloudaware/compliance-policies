@@ -4,9 +4,9 @@ The Azure Storage setting ‘Allow Blob Anonymous Access’ (aka "allowBlobPubli
 
 ## Rationale
 
-If "Allow Blob Anonymous Access" is enabled, blobs can be accessed by adding the blob name to the URL to see the contents. An attacker can enumerate a blob using methods, such as brute force, and access them.
+If "Allow Blob Anonymous Access" is enabled, blobs can be accessed by adding the blob name to the URL to view the contents. An attacker can enumerate blobs using methods such as brute force and access them.
 
-Exfiltration of data by brute force enumeration of items from a storage account may occur if this setting is set to 'Enabled'.
+Exfiltration of data by brute force enumeration of items from a storage account may occur if this setting is set to `Enabled`.
 
 ## Impact
 

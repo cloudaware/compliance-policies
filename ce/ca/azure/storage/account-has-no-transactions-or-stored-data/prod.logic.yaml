@@ -1,0 +1,37 @@
+---
+inputType: "CA10__CaAzureStorageAccount__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "30-day transaction or capacity evidence is unavailable."
+    check:
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorTransactionsSum30Day__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorUsedCapacityBytesAvg30Day__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The storage account has no transactions or stored data in the last 30 days."
+    remediationMessage: "Review dependencies and data-protection requirements before deleting the storage account."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__monitorTransactionsSum30Day__c"
+              right:
+                NUMBER: 0.0
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__monitorUsedCapacityBytesAvg30Day__c"
+              right:
+                NUMBER: 0.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The storage account has transactions or stored data in the last 30 days."

@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS RDS Instance Enhanced Monitoring is not enabled"
+  contextual: "Instance Enhanced Monitoring is not enabled"
+description: >
+  Enhanced Monitoring provides real-time metrics for the operating system that your 
+  Amazon RDS DB instance runs on. This helps in identifying performance issues 
+  and understanding resource utilization at a more granular level than standard 
+  CloudWatch metrics.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "PERFORMANCE"
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/06"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[RDS.6] Enhanced monitoring should be configured for RDS DB instances"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-6"

@@ -1,12 +1,12 @@
 # Description
 
-BigQuery by default encrypts the data as rest by employing `Envelope Encryption` using Google managed cryptographic keys. The data is encrypted using the `data encryption keys` and data encryption keys themselves are further encrypted using `key encryption keys`. This is seamless and do not require any additional input from the user. However, if you want to have greater control, Customer-managed encryption keys (CMEK) can be used as encryption key management solution for BigQuery Data Sets.
+BigQuery by default encrypts data at rest by employing `Envelope Encryption` using Google managed cryptographic keys. The data is encrypted using the `data encryption keys` and data encryption keys themselves are further encrypted using `key encryption keys`. This is seamless and does not require any additional input from the user. However, if you want greater control, customer-managed encryption keys (CMEK) can be used as an encryption key management solution for BigQuery datasets.
 
 ## Rationale
 
-BigQuery by default encrypts the data as rest by employing `Envelope Encryption` using Google managed cryptographic keys. This is seamless and does not require any additional input from the user.
+BigQuery by default encrypts data at rest by employing `Envelope Encryption` using Google managed cryptographic keys. This is seamless and does not require any additional input from the user.
 
-For greater control over the encryption, customer-managed encryption keys (CMEK) can be used as encryption key management solution for BigQuery Data Sets. Setting a Default Customer-managed encryption key (CMEK) for a data set ensure any tables created in future will use the specified CMEK if none other is provided.
+For greater control over encryption, customer-managed encryption keys (CMEK) can be used as an encryption key management solution for BigQuery datasets. Setting a default customer-managed encryption key (CMEK) for a dataset ensures any tables created in the future will use the specified CMEK if none other is provided.
 
 Note: Google does not store your keys on its servers and cannot access your protected data unless you provide the key. This also means that if you forget or lose your key, there is no way for Google to recover the key or to recover any data encrypted with the lost key.
 
@@ -29,11 +29,15 @@ Using Customer-managed encryption keys (CMEK) will incur additional labor-hour i
 
 List all dataset names
 
-            bq ls
+```sh
+bq ls
+```
 
-Use the following command to view each dataset details.
+Use the following command to view each dataset's details.
 
-            bq show <data_set_object>
+```sh
+bq show {{data-set-object}}
+```
 
 Verify the `kmsKeyName` is present.
 

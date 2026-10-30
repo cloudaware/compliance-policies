@@ -1,18 +1,18 @@
 # Description
 
-The `log_min_messages` flag defines the minimum message severity level that is considered as an error statement. Messages for error statements are logged with the SQL statement. Valid values include (from lowest to highest severity) `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `INFO`, `NOTICE`, `WARNING`, `ERROR`, `LOG`, `FATAL`, and `PANIC`. Each severity level includes the subsequent levels mentioned above. WARNING is considered the best practice setting. Changes should only be made in accordance with the organization's logging policy.
+The `log_min_messages` flag defines the minimum message severity level that is written to the PostgreSQL server log. Valid values include (from lowest to highest severity) `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `INFO`, `NOTICE`, `WARNING`, `ERROR`, `LOG`, `FATAL`, and `PANIC`. Each severity level includes the subsequent levels mentioned above. Set this flag to `WARNING` or a higher severity level.
 
 ## Rationale
 
-Auditing helps in troubleshooting operational problems and also permits forensic analysis. If `log_min_messages` is not set to the correct value, messages may not be classified as error messages appropriately. An organization will need to decide their own threshold for logging `log_min_messages` flag.
+Auditing helps in troubleshooting operational problems and also permits forensic analysis. If `log_min_messages` is set below `WARNING`, excessive low-severity messages may make it harder to identify actionable events.
 
 This recommendation is applicable to PostgreSQL database instances.
 
 ## Impact
 
-Setting the threshold too low will might result in increased log storage size and length, making it difficult to find actual errors. Setting the threshold to 'Warning' will log messages for the most needed error messages. Higher severity levels may cause errors needed to troubleshoot to not be logged.
+Setting the threshold too low might result in increased log storage size, making it difficult to find actual errors. Setting the threshold to `WARNING` will log messages for the most needed error messages. Higher severity levels may cause errors needed for troubleshooting to not be logged.
 
-Note: To effectively turn off logging failing statements, set this parameter to PANIC.
+Note: To effectively turn off logging failing statements, set this parameter to `PANIC`.
 
 ## Audit
 
@@ -21,17 +21,20 @@ Note: To effectively turn off logging failing statements, set this parameter to 
 1. Go to the Cloud SQL Instances page in the Google Cloud Console by visiting <https://console.cloud.google.com/sql/instances>.
 2. Select the instance to open its `Instance Overview` page.
 3. Go to the `Configuration` card.
-4. Under `Database flags`, check the value of `log_min_messages` flag is in accordance with the organization's logging policy.
+4. Under `Database flags`, check that the value of the `log_min_messages` flag is set to `WARNING` or a higher severity level.
 
 ### From Google Cloud CLI
 
-1. Use the below command for every Cloud SQL PostgreSQL database instance to verify that the value of `log_min_messages` is in accordance with the organization's logging policy.
+1. Use the following command for every Cloud SQL PostgreSQL database instance to verify that the value of `log_min_messages` is set to `WARNING` or a higher severity level.
 
-            gcloud sql instances describe [INSTANCE_NAME] --format=json | jq '.settings.databaseFlags[] | select(.name=="log_min_messages")|.value'
+    ```sh
+    gcloud sql instances describe {{instance-name}} \
+        --format=json | jq '.settings.databaseFlags[] | select(.name=="log_min_messages") | .value'
+    ```
 
 ## Default Value
 
-By default `log_min_messages` is `ERROR`.
+By default, `log_min_messages` is `ERROR`.
 
 ## References
 

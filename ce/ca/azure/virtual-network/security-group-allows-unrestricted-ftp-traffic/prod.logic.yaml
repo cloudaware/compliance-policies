@@ -29,7 +29,7 @@ conditions:
         status: "INCOMPLIANT"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The NSG doesn't allow FTP access from the Internet." 
+  currentStateMessage: "The Network Security Group does not allow FTP access from the Internet."
 relatedLists:
   - relationshipName: "CA10__Azure_Network_Security_Group_Rules__r"
     importExtracts:
@@ -108,8 +108,8 @@ relatedLists:
                       right:
                         TEXT: "Any"
       - status: "INCOMPLIANT"
-        currentStateMessage: "NSG Rule with FTP access from the Internet."
-        remediationMessage: "Consider restricting internet-level access to your Azure resources."
+        currentStateMessage: "NSG rule allows public access on the FTP port."
+        remediationMessage: "Restrict public access to the FTP port."
         check:
           OR:
             args:
@@ -131,8 +131,8 @@ relatedLists:
                         right:
                           NUMBER: 20.0
       - status: "INCOMPLIANT"
-        currentStateMessage: "NSG Rule with FTP access from the Internet."
-        remediationMessage: "Consider restricting internet-level access to your Azure resources."
+        currentStateMessage: "NSG rule allows public access on the FTP port."
+        remediationMessage: "Restrict public access to the FTP port."
         check:
           OR:
             args:
@@ -174,3 +174,4 @@ relatedLists:
     otherwise:
       status: "INAPPLICABLE"
       currentStateMessage: "This is a Network Interface without a linked VM Scale Set Instance."
+

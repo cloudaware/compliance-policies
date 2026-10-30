@@ -9,8 +9,11 @@
 
 ## From Azure CLI
 
-Use the below command to enable `Secure transfer required` for a `Storage Account`:
+Use the following command to enable `Secure transfer required` for a storage account:
 
 ```sh
-az storage account update --name <storageAccountName> --resource-group <resourceGroupName> --https-only true
+az storage account update \
+    --name {{storage-account-name}} \
+    --resource-group {{resource-group-name}} \
+    --https-only true
 ```

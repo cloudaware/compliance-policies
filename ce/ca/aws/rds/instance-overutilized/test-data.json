@@ -11,7 +11,10 @@
     "CA10__disappearanceTime__c": "2025-09-25T08:10:08Z",
     "CA10__status__c": "deleting",
     "CA10__createTime__c": "2020-02-04T07:42:39Z",
-    "CA10__averageCpuOneMonth__c": 4.887843966930509
+    "CA10__averageCpuOneMonth__c": 4.887843966930509,
+    "CA10__diskReadIopsAvg30d__c": 10.0,
+    "CA10__diskWriteIopsAvg30d__c": 10.0,
+    "CA10__databaseConnectionsMax30d__c": 1.0
   },
   {
     "expectedResult": {
@@ -25,7 +28,10 @@
     "CA10__disappearanceTime__c": null,
     "CA10__status__c": "upgrading",
     "CA10__createTime__c": "2020-10-23T02:12:49Z",
-    "CA10__averageCpuOneMonth__c": 31.360004047631566
+    "CA10__averageCpuOneMonth__c": 31.360004047631566,
+    "CA10__diskReadIopsAvg30d__c": 10.0,
+    "CA10__diskWriteIopsAvg30d__c": 10.0,
+    "CA10__databaseConnectionsMax30d__c": 1.0
   },
   {
     "expectedResult": {
@@ -39,13 +45,16 @@
     "CA10__disappearanceTime__c": null,
     "CA10__status__c": "available",
     "CA10__createTime__c": "2025-09-23T13:59:29Z",
-    "CA10__averageCpuOneMonth__c": 16.5114094188521
+    "CA10__averageCpuOneMonth__c": 16.5114094188521,
+    "CA10__diskReadIopsAvg30d__c": 10.0,
+    "CA10__diskWriteIopsAvg30d__c": 10.0,
+    "CA10__databaseConnectionsMax30d__c": 1.0
   },
   {
     "expectedResult": {
       "status": "UNDETERMINED",
       "conditionIndex": "399",
-      "conditionText": "extract('CA10__averageCpuOneMonth__c').isEmpty()",
+      "conditionText": "extract('CA10__averageCpuOneMonth__c').isEmpty() || (extract('CA10__diskReadIopsAvg30d__c').isEmpty() && extract('CA10__diskWriteIopsAvg30d__c').isEmpty() && extract('CA10__databaseConnectionsMax30d__c').isEmpty())",
       "runtimeError": null
     },
     "context": { "snapshotTime": "2025-09-26T09:58:29Z" },
@@ -53,13 +62,16 @@
     "CA10__disappearanceTime__c": null,
     "CA10__status__c": "available",
     "CA10__createTime__c": "2017-02-10T11:14:06Z",
-    "CA10__averageCpuOneMonth__c": null
+    "CA10__averageCpuOneMonth__c": null,
+    "CA10__diskReadIopsAvg30d__c": 10.0,
+    "CA10__diskWriteIopsAvg30d__c": 10.0,
+    "CA10__databaseConnectionsMax30d__c": 1.0
   },
   {
     "expectedResult": {
       "status": "INCOMPLIANT",
       "conditionIndex": "499",
-      "conditionText": "not(extract('CA10__averageCpuOneMonth__c') < number(90.0))",
+      "conditionText": "extract('CA10__averageCpuOneMonth__c') > number(90.0) && (extract('CA10__databaseConnectionsMax30d__c') > number(0.0) || extract('CA10__diskReadIopsAvg30d__c') > number(50.0) || extract('CA10__diskWriteIopsAvg30d__c') > number(50.0))",
       "runtimeError": null
     },
     "context": { "snapshotTime": "2025-09-26T09:58:29Z" },
@@ -67,7 +79,10 @@
     "CA10__disappearanceTime__c": null,
     "CA10__status__c": "available",
     "CA10__createTime__c": "2017-02-10T11:14:06Z",
-    "CA10__averageCpuOneMonth__c": 95.9032259406938214
+    "CA10__averageCpuOneMonth__c": 95.9032259406938214,
+    "CA10__diskReadIopsAvg30d__c": 10.0,
+    "CA10__diskWriteIopsAvg30d__c": 10.0,
+    "CA10__databaseConnectionsMax30d__c": 1.0
   },
   {
     "expectedResult": {
@@ -81,6 +96,43 @@
     "CA10__disappearanceTime__c": null,
     "CA10__status__c": "available",
     "CA10__createTime__c": "2017-02-10T11:14:06Z",
-    "CA10__averageCpuOneMonth__c": 5.9032259406938214
+    "CA10__averageCpuOneMonth__c": 5.9032259406938214,
+    "CA10__diskReadIopsAvg30d__c": 10.0,
+    "CA10__diskWriteIopsAvg30d__c": 10.0,
+    "CA10__databaseConnectionsMax30d__c": 1.0
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "500",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-26T09:58:29Z" },
+    "Id": "007",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__createTime__c": "2017-02-10T11:14:06Z",
+    "CA10__averageCpuOneMonth__c": 95.0,
+    "CA10__diskReadIopsAvg30d__c": 10.0,
+    "CA10__diskWriteIopsAvg30d__c": 10.0,
+    "CA10__databaseConnectionsMax30d__c": 0.0
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__averageCpuOneMonth__c') > number(90.0) && (extract('CA10__databaseConnectionsMax30d__c') > number(0.0) || extract('CA10__diskReadIopsAvg30d__c') > number(50.0) || extract('CA10__diskWriteIopsAvg30d__c') > number(50.0))",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-09-26T09:58:29Z" },
+    "Id": "008",
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__createTime__c": "2017-02-10T11:14:06Z",
+    "CA10__averageCpuOneMonth__c": 95.0,
+    "CA10__diskReadIopsAvg30d__c": 55.0,
+    "CA10__diskWriteIopsAvg30d__c": 10.0,
+    "CA10__databaseConnectionsMax30d__c": 0.0
   }
 ]

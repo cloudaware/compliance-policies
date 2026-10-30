@@ -1,0 +1,170 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10A1__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "Id": "test1",
+    "CA10A1__disappearanceTime__c": "2026-04-15T12:00:00Z",
+    "CA10A1__latestVersion__c": "latestVersion1",
+    "CA10A1__latestVersionUniqueId__c": "lt-00000000000000001:1",
+    "CA10A1__latestVersion__r": {
+      "Id": "latestVersion1",
+      "CA10A1__disappearanceTime__c": null,
+      "CA10A1__metadataHttpEndpoint__c": "enabled",
+      "CA10A1__metadataHttpTokens__c": "required"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "199",
+      "conditionText": "isEmptyLookup('CA10A1__latestVersion__r')",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "Id": "test2",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__latestVersion__c": null,
+    "CA10A1__latestVersionUniqueId__c": null,
+    "CA10A1__latestVersion__r": {
+      "Id": null,
+      "CA10A1__disappearanceTime__c": null,
+      "CA10A1__metadataHttpEndpoint__c": null,
+      "CA10A1__metadataHttpTokens__c": null
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "199",
+      "conditionText": "isEmptyLookup('CA10A1__latestVersion__r')",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "Id": "test3",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__latestVersion__c": "latestVersion3",
+    "CA10A1__latestVersionUniqueId__c": "lt-00000000000000003:3",
+    "CA10A1__latestVersion__r": {
+      "Id": "latestVersion3",
+      "CA10A1__disappearanceTime__c": "2026-04-15T12:00:00Z",
+      "CA10A1__metadataHttpEndpoint__c": "",
+      "CA10A1__metadataHttpTokens__c": ""
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10A1__latestVersion__r.CA10A1__metadataHttpEndpoint__c') == 'disabled'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "Id": "test4",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__latestVersion__c": "latestVersion4",
+    "CA10A1__latestVersionUniqueId__c": "lt-00000000000000004:4",
+    "CA10A1__latestVersion__r": {
+      "Id": "latestVersion4",
+      "CA10A1__disappearanceTime__c": null,
+      "CA10A1__metadataHttpEndpoint__c": "disabled",
+      "CA10A1__metadataHttpTokens__c": ""
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10A1__latestVersion__r.CA10A1__metadataHttpTokens__c') == 'required'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "Id": "test5",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__latestVersion__c": "latestVersion5",
+    "CA10A1__latestVersionUniqueId__c": "lt-00000000000000005:5",
+    "CA10A1__latestVersion__r": {
+      "Id": "latestVersion5",
+      "CA10A1__disappearanceTime__c": null,
+      "CA10A1__metadataHttpEndpoint__c": "enabled",
+      "CA10A1__metadataHttpTokens__c": "required"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10A1__latestVersion__r.CA10A1__metadataHttpTokens__c') == 'required'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "Id": "test6",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__latestVersion__c": "latestVersion6",
+    "CA10A1__latestVersionUniqueId__c": "lt-00000000000000006:6",
+    "CA10A1__latestVersion__r": {
+      "Id": "latestVersion6",
+      "CA10A1__disappearanceTime__c": null,
+      "CA10A1__metadataHttpEndpoint__c": "",
+      "CA10A1__metadataHttpTokens__c": "required"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "Id": "test7",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__latestVersion__c": "latestVersion7",
+    "CA10A1__latestVersionUniqueId__c": "lt-00000000000000007:7",
+    "CA10A1__latestVersion__r": {
+      "Id": "latestVersion7",
+      "CA10A1__disappearanceTime__c": null,
+      "CA10A1__metadataHttpEndpoint__c": "enabled",
+      "CA10A1__metadataHttpTokens__c": "optional"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "Id": "test8",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__latestVersion__c": "latestVersion8",
+    "CA10A1__latestVersionUniqueId__c": "lt-00000000000000008:8",
+    "CA10A1__latestVersion__r": {
+      "Id": "latestVersion8",
+      "CA10A1__disappearanceTime__c": null,
+      "CA10A1__metadataHttpEndpoint__c": "",
+      "CA10A1__metadataHttpTokens__c": ""
+    }
+  }
+]

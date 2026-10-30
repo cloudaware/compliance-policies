@@ -6,8 +6,8 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "App Service Minimum TLS Version is 1.0."
-    remediationMessage: "Consider setting Minimum TLS Version to 1.2."
+    currentStateMessage: "App Service minimum TLS version is 1.0."
+    remediationMessage: "Set the minimum TLS version to 1.2."
     check:
       IS_EQUAL:
         left:
@@ -15,8 +15,8 @@ conditions:
         right:
           TEXT: "1.0"
   - status: "INCOMPLIANT"
-    currentStateMessage: "App Service Minimum TLS Version is 1.1."
-    remediationMessage: "Consider setting Minimum TLS Version to 1.2."
+    currentStateMessage: "App Service minimum TLS version is 1.1."
+    remediationMessage: "Set the minimum TLS version to 1.2."
     check:
       IS_EQUAL:
         left:
@@ -24,7 +24,7 @@ conditions:
         right:
           TEXT: "1.1"
   - status: "COMPLIANT"
-    currentStateMessage: "App Service Minimum TLS Version is 1.2."
+    currentStateMessage: "App Service minimum TLS version is 1.2."
     check:
       IS_EQUAL:
         left:

@@ -2,15 +2,15 @@
 
 It is recommended to set `cross db ownership chaining` database flag for Cloud SQL SQL Server instance to `off`.
 
-This flag is deprecated for all SQL Server versions in CGP. Going forward, you can't set its value to on. However, if you have this flag enabled, we strongly recommend that you either remove the flag from your database or set it to off. For cross-database access, use the Microsoft tutorial for signing stored procedures with a certificate (<https://learn.microsoft.com/en-us/sql/relational-databases/tutorial-signing-stored-procedures-with-a-certificate?view=sql-server-ver16>).
+This flag is deprecated for all SQL Server versions in GCP. Going forward, you cannot set its value to on. However, if you have this flag enabled, we strongly recommend that you either remove the flag from your database or set it to off. For cross-database access, use the Microsoft tutorial for signing stored procedures with a certificate (<https://learn.microsoft.com/en-us/sql/relational-databases/tutorial-signing-stored-procedures-with-a-certificate?view=sql-server-ver16>).
 
 ## Rationale
 
-Use the `cross db ownership` for chaining option to configure cross-database ownership chaining for an instance of Microsoft SQL Server. This server option allows you to control cross-database ownership chaining at the database level or to allow cross-database ownership chaining for all databases. Enabling `cross db ownership` is not recommended unless all of the databases hosted by the instance of SQL Server must participate in cross-database ownership chaining and you are aware of the security implications of this setting. This recommendation is applicable to SQL Server database instances.
+Use the `cross db ownership` chaining option to configure cross-database ownership chaining for an instance of Microsoft SQL Server. This server option allows you to control cross-database ownership chaining at the database level or allow cross-database ownership chaining for all databases. Enabling `cross db ownership` is not recommended unless all of the databases hosted by the SQL Server instance must participate in cross-database ownership chaining and you are aware of the security implications of this setting. This recommendation is applicable to SQL Server database instances.
 
 ## Impact
 
-Updating flags may cause the database to restart. This may cause it to unavailable for a short amount of time, so this is best done at a time of low usage. You should also determine if the tables in your databases reference another table without using credentials for that database, as turning off cross database ownership will break this relationship.
+Updating flags may cause the database to restart. This may make it unavailable for a short period, so this is best done during low usage. You should also determine whether tables in your databases reference another table without using credentials for that database, as turning off cross-database ownership will break this relationship.
 
 ## Audit
 
@@ -19,20 +19,23 @@ NOTE: This flag is deprecated for all SQL Server versions. Going forward, you ca
 ### From Google Cloud Console
 
 1. Go to the Cloud SQL Instances page in the Google Cloud Console.
-2. Select the instance to open its `Instance Overview` page
+2. Select the instance to open its `Instance Overview` page.
 3. Ensure the database flag `cross db ownership chaining` that has been set is listed under the `Database flags` section.
 
 ### From Google Cloud CLI
 
-1. Ensure the below command returns `off` for every Cloud SQL SQL Server database instance:
+1. Ensure the following command returns `off` for every Cloud SQL SQL Server database instance:
 
-            gcloud sql instances describe <INSTANCE_NAME> --format=json | jq '.settings.databaseFlags[] | select(.name=="cross db ownership chaining")|.value'
+    ```sh
+    gcloud sql instances describe {{instance-name}} \
+        --format=json | jq '.settings.databaseFlags[] | select(.name=="cross db ownership chaining") | .value'
+    ```
 
 In the output, database flags are listed under the `settings` as the collection `databaseFlags`.
 
 ## Default Value
 
-This flag is deprecated for all SQL Server versions. Going forward, you can't set its value to on.
+This flag is deprecated for all SQL Server versions. Going forward, you cannot set its value to on.
 
 ## References
 

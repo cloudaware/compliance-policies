@@ -1,0 +1,17 @@
+---
+names:
+  full: AWS EC2 Launch Template Latest Version is not configured to require IMDSv2
+  contextual: EC2 Launch Template Latest Version is not configured to require IMDSv2
+description: >
+  Ensure that the latest version of each Amazon EC2 launch template explicitly
+  requires Instance Metadata Service Version 2 (IMDSv2).
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/secure-access"
+  - "/frameworks/aws-fsbp-v1.0.0/ec2/170"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[EC2.170] EC2 launch templates should use Instance Metadata Service Version 2 (IMDSv2)"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-170"

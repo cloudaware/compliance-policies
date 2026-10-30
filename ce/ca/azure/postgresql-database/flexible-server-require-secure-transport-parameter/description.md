@@ -4,13 +4,13 @@ Enable `require_secure_transport` on `PostgreSQL flexible servers`.
 
 ## Rationale
 
-`SSL connectivity` helps to provide a new layer of security by connecting database server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between database server and client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and application.
+`SSL connectivity` provides an additional layer of security by connecting the database server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between the database server and client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and application.
 
 ## Audit
 
 ### From Azure Portal
 
-1. Login to Azure Portal using <https://portal.azure.com>.
+1. Log in to Azure Portal using <https://portal.azure.com>.
 2. Go to `Azure Database for PostgreSQL flexible servers`.
 3. For each database, under `Settings`, click `Server parameters`.
 4. In the filter bar, type `require_secure_transport`.
@@ -18,18 +18,24 @@ Enable `require_secure_transport` on `PostgreSQL flexible servers`.
 
 ### From Azure CLI
 
-Ensure the below command returns a `value` of `on`:
+Ensure the following command returns a `value` of `on`:
 
 ```sh
-az postgres flexible-server parameter show --resource-group <resourceGroup> --server-name <serverName> --name require_secure_transport
+az postgres flexible-server parameter show \
+    --resource-group {{resource-group-name}} \
+    --server-name {{server-name}} \
+    --name require_secure_transport
 ```
 
 ### From PowerShell
 
-Ensure the below command returns a `value` of `on`:
+Ensure the following command returns a `value` of `on`:
 
 ```ps
-Get-AzPostgreSqlFlexibleServerConfiguration -ResourceGroupName <resourceGroup> -ServerName <serverName> -Name require_secure_transport
+Get-AzPostgreSqlFlexibleServerConfiguration `
+    -ResourceGroupName {{resource-group-name}} `
+    -ServerName {{server-name}} `
+    -Name require_secure_transport
 ```
 
 ### From Azure Policy

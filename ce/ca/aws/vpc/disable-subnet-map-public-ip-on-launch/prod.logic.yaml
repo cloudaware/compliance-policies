@@ -6,14 +6,23 @@ importExtracts:
   - file: "/types/CA10__CaAwsSubnet__c/object.extracts.yaml"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The subnet is configured to automatically assign public IP addresses to instances at launch."
-    remediationMessage: "Consider disabling the 'auto-assign public IP address' setting for this subnet to prevent unintended exposure of instances to the internet."
+    currentStateMessage: "The subnet is configured to automatically assign IPv4 and IPv6 addresses to instances at launch."
+    remediationMessage: "Disable the 'auto-assign public IP address' setting for this subnet to prevent unintended exposure of instances to the internet."
     check:
-      IS_EQUAL:
-        left:
-          EXTRACT: "CA10__mapPublicIpOnLaunch__c"
-        right:
-          BOOLEAN: true
+      AND:
+        args:
+          - EXTRACT: "CA10__mapPublicIpOnLaunch__c"
+          - EXTRACT: "CA10__assignIpv6AddressOnCreation__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The subnet is configured to automatically assign public IPv4 addresses to instances at launch."
+    remediationMessage: "Disable the 'auto-assign public IP address' setting for this subnet to prevent unintended exposure of instances to the internet."
+    check:
+      EXTRACT: "CA10__mapPublicIpOnLaunch__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The subnet is configured to automatically assign public IPv6 addresses to instances at launch."
+    remediationMessage: "Disable the 'auto-assign public IP address' setting for this subnet to prevent unintended exposure of instances to the internet."
+    check:
+      EXTRACT: "CA10__assignIpv6AddressOnCreation__c"
 otherwise:
   status: "COMPLIANT"
   currentStateMessage: "The subnet is not configured to automatically assign public IP addresses."

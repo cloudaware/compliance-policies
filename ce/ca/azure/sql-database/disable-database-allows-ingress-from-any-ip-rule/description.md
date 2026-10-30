@@ -1,29 +1,29 @@
 # Description
 
-Ensure that no SQL Databases allow ingress from 0.0.0.0/0 (ANY IP).
+Ensure that no SQL Databases allow ingress from 0.0.0.0/0 (any IP).
 
 ## Rationale
 
 Azure SQL Server includes a firewall to block access to unauthorized connections. More granular IP addresses can be defined by referencing the range of addresses available from specific datacenters.
 
-By default, for a SQL server, a Firewall exists with StartIp of 0.0.0.0 and EndIP of 0.0.0.0 allowing access to all the Azure services.
+By default, for a SQL server, a firewall exists with StartIp of 0.0.0.0 and EndIP of 0.0.0.0 allowing access to all Azure services.
 
-Additionally, a custom rule can be set up with StartIp of 0.0.0.0 and EndIP of 255.255.255.255 allowing access from ANY IP over the Internet.
+Additionally, a custom rule can be set up with StartIp of 0.0.0.0 and EndIP of 255.255.255.255 allowing access from any IP over the Internet.
 
 In order to reduce the potential attack surface for a SQL server, firewall rules should be defined with more granular IP addresses by referencing the range of addresses available from specific datacenters.
 
-If `Allow Azure services and resources to access this server` is 'Checked', this will allow resources outside of the subscription/tenant/organization boundary, within any region of Azure, to effectively bypass the defined SQL Server Network ACL on public endpoint. A malicious attacker can successfully launch a SQL server password bruteforce attack by creating a virtual machine in any Azure subscription/region, from outside of the subscription boundary where the SQL Server is residing.
+If `Allow Azure services and resources to access this server` is checked, this allows resources outside the subscription or tenant boundary, within any Azure region, to bypass the SQL Server network ACL on the public endpoint. A malicious attacker can launch a SQL server password brute-force attack by creating a virtual machine in any Azure subscription or region, outside the subscription boundary where the SQL Server is located.
 
 ## Impact
 
-Disabling `Allow Azure services and resources to access this server` will break all connections to SQL server and Hosted Databases unless custom IP specific rules are added in Firewall Policy.
+Disabling `Allow Azure services and resources to access this server` will break connections to SQL servers and hosted databases unless custom IP-specific rules are added in the firewall policy.
 
 ## Audit
 
 ### From Azure Portal
 
 1. Go to `SQL servers`.
-2. For each SQL server.
+2. For each SQL server:
 3. Under `Security`, click `Networking`.
 4. Ensure that `Allow Azure services and resources to access this server` is unchecked.
 5. Ensure that no firewall rule exists with:
@@ -41,7 +41,9 @@ az sql server list
 For each SQL server run the following command:
 
 ```sh
-az sql server firewall-rule list --resource-group <resource group name> --server <sql server name>
+az sql server firewall-rule list \
+    --resource-group {{resource-group-name}} \
+    --server {{sql-server-name}}
 ```
 
 Ensure the output does not contain any firewall `allow` rules with a source of `0.0.0.0`, or any rules named `AllowAllWindowsAzureIps`.
@@ -57,7 +59,9 @@ Get-AzSqlServer
 For each Server:
 
 ```ps
-Get-AzSqlServerFirewallRule -ResourceGroupName <resource group name> -ServerName <server name>
+Get-AzSqlServerFirewallRule `
+    -ResourceGroupName {{resource-group-name}} `
+    -ServerName {{sql-server-name}}
 ```
 
 Ensure that `StartIpAddress` is not set to `0.0.0.0`, `/0` or other combinations which allows access to wider public IP ranges including Windows Azure IP ranges. Also ensure that `FirewallRuleName` doesn't contain `AllowAllWindowsAzureIps` which is the rule created when the `Allow Azure services and resources to access this server` setting is enabled for that SQL Server.

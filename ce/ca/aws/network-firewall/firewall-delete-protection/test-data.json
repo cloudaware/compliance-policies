@@ -1,0 +1,62 @@
+[
+    {
+        "CA10A2__disappearanceTime__c": "2026-01-15T10:42:39Z",
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10A2__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "CA10A2__status__c": "READY",
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "CA10A2__deleteProtection__c": "false",
+        "Id": "test1"
+    },
+    {
+        "CA10A2__disappearanceTime__c": null,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10A2__status__c') != 'READY'",
+            "conditionIndex": 199,
+            "status": "INAPPLICABLE"
+        },
+        "CA10A2__status__c": "PROVISIONING",
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "CA10A2__deleteProtection__c": "false",
+        "Id": "test2"
+    },
+    {
+        "CA10A2__disappearanceTime__c": null,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10A2__deleteProtection__c') == 'false'",
+            "conditionIndex": 299,
+            "status": "INCOMPLIANT"
+        },
+        "CA10A2__status__c": "READY",
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "CA10A2__deleteProtection__c": "false",
+        "Id": "test3"
+    },
+    {
+        "CA10A2__disappearanceTime__c": null,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10A2__deleteProtection__c') == 'true'",
+            "conditionIndex": 399,
+            "status": "COMPLIANT"
+        },
+        "CA10A2__status__c": "READY",
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "CA10A2__deleteProtection__c": "true",
+        "Id": "test4"
+    }
+]

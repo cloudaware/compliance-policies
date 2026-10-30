@@ -1,0 +1,16 @@
+---
+extracts:
+# Not nullable.
+  - name: "CA10O1__userStatus__c"
+    value:
+      FIELD:
+        path: "CA10O1__userStatus__c"
+        undeterminedIf:
+          isEmpty: "User status should not be empty."
+# Values: Activated, Deactivated. Not nullable.
+  - name: "CA10O1__mfaStatus__c"
+    value:
+      FIELD:
+        path: "CA10O1__mfaStatus__c"
+        undeterminedIf:
+          isEmpty: "User MFA status should not be empty."

@@ -15,14 +15,14 @@ conditions:
           TEXT: "EXPIRED"
   - status: "INCOMPLIANT"
     currentStateMessage: "The recovery point is expired, but its lifecycle deletion date is not empty indicating failure to delete."
-    remediationMessage: "Manually delete the expired recovery point and investigate why the automated lifecycle rule failed to execute."
+    remediationMessage: "Delete the expired recovery point and investigate why the automated lifecycle rule failed."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10A1__calcLifecycleDeleteAt__c" 
   - status: "INCOMPLIANT"
     currentStateMessage: "The recovery point was scheduled for deletion more than 2 days ago but still exists."
-    remediationMessage: "Manually delete the expired recovery point and investigate why the automated lifecycle rule failed to execute."
+    remediationMessage: "Delete the expired recovery point and investigate why the automated lifecycle rule failed."
     check:
       IS_BEYOND_LAST_DAYS:
         arg:

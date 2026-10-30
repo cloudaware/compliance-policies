@@ -34,5 +34,5 @@ Enable provisioning in Azure Portal:
 Enable SCIM User and Group Provisioning in Azure Databricks:
 
 ```sh
-az ad app update --id <databricks-app-id> --set provisioning.provisioningMode=Automatic
+az ad app update --id {{databricks-app-id}} --set provisioning.provisioningMode=Automatic
 ```

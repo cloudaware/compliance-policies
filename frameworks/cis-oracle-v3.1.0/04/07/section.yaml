@@ -1,0 +1,11 @@
+---
+name: 4.7 Ensure a notification is configured for user changes - Level 1 (Automated)
+description: >
+  It is recommended to setup an Event Rule and Notification that gets triggered
+  when IAM Users are created, updated, deleted, capabilities updated, or state
+  updated. Event Rules are compartment scoped and will detect events in child
+  compartments, it is recommended to create the Event rule at the root
+  compartment level.
+similar:
+  internal:
+    - dec-c-6bc65a89

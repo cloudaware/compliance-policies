@@ -1,0 +1,104 @@
+[
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "context": {
+            "snapshotTime": "2026-01-21T01:54:19Z"
+        },
+        "CA10__engine__c": "postgresql",
+        "CA10__iamDatabaseAuthenticationEnabled__c": false,
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2025-08-15T02:09:15Z",
+        "CA10__clusterArn__c": "",
+        "CA10__status__c": "deleting"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__status__c') != 'available'",
+            "conditionIndex": 199,
+            "status": "INAPPLICABLE"
+        },
+        "context": {
+            "snapshotTime": "2026-01-21T01:54:19Z"
+        },
+        "CA10__engine__c": "sqlserver-se",
+        "CA10__iamDatabaseAuthenticationEnabled__c": false,
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__clusterArn__c": "",
+        "CA10__status__c": "stopped"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__clusterArn__c').isNotEmpty()",
+            "conditionIndex": 299,
+            "status": "INAPPLICABLE"
+        },
+        "context": {
+            "snapshotTime": "2026-01-21T01:54:19Z"
+        },
+        "CA10__engine__c": "aurora-postgresql",
+        "CA10__iamDatabaseAuthenticationEnabled__c": false,
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__clusterArn__c": "clusterArn",
+        "CA10__status__c": "available"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "not(setOfText(['postgres', 'mysql', 'mariadb', 'aurora', 'aurora-postgresql', 'aurora-mysql']).contains(extract('CA10__engine__c')))",
+            "conditionIndex": 399,
+            "status": "INAPPLICABLE"
+        },
+        "context": {
+            "snapshotTime": "2026-01-21T01:54:19Z"
+        },
+        "CA10__engine__c": "sqlserver-web",
+        "CA10__iamDatabaseAuthenticationEnabled__c": false,
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__clusterArn__c": "",
+        "CA10__status__c": "available"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10__iamDatabaseAuthenticationEnabled__c') == true",
+            "conditionIndex": 499,
+            "status": "COMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2026-01-21T01:54:19Z"
+        },
+        "CA10__engine__c": "postgres",
+        "CA10__iamDatabaseAuthenticationEnabled__c": true,
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__clusterArn__c": "",
+        "CA10__status__c": "available"
+    },
+    {
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "otherwise",
+            "conditionIndex": 500,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2026-01-21T01:54:19Z"
+        },
+        "CA10__engine__c": "mariadb",
+        "CA10__iamDatabaseAuthenticationEnabled__c": false,
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__clusterArn__c": "",
+        "CA10__status__c": "available"
+    }
+]

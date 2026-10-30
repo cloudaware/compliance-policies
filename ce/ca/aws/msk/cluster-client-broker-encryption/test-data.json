@@ -1,0 +1,44 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-13T23:28:46Z"
+        },
+        "CA10__disappearanceTime__c": "2026-01-13T20:52:48Z",
+        "CA10__encryptionClientBroker__c": "TLS",
+        "Id": "test1"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__encryptionClientBroker__c') == 'PLAINTEXT' || extract('CA10__encryptionClientBroker__c') == 'TLS_PLAINTEXT'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-13T23:28:46Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__encryptionClientBroker__c": "PLAINTEXT",
+        "Id": "test2"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__encryptionClientBroker__c') == 'TLS'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-13T23:28:46Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__encryptionClientBroker__c": "TLS",
+        "Id": "test3"
+    }
+]

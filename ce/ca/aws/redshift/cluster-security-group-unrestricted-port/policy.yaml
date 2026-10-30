@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS Redshift Cluster security group allows unrestricted access on the cluster port"
+  contextual: "Cluster security group allows unrestricted access on the cluster port"
+description: >
+  Identify AWS Redshift clusters associated with VPC security groups that allow inbound
+  access from any IP address (0.0.0.0/0 or ::/0) to the Redshift cluster port (TCP 5439).
+  Restrict access to trusted CIDR ranges or approved network paths only.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/network-exposure"
+  - "/frameworks/aws-fsbp-v1.0.0/redshift/15"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Redshift.15] Redshift security groups should allow ingress on the cluster port only from restricted origins"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/redshift-controls.html#redshift-15"

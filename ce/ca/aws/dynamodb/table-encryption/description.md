@@ -17,6 +17,6 @@ Enabling encryption with a KMS key may incur additional costs associated with AW
 
 ## Audit
 
-This policy marks an *AWS DynamoDB Table* as `INCOMPLIANT` if `SSE: Status` field is not set to **ENABLED**.
+This policy marks an *AWS DynamoDB Table* as `INCOMPLIANT` if the `SSE: Status` field is not set to **ENABLED**.
 
 If the *DynamoDB Table* is not **ACTIVE**, it is marked as `INAPPLICABLE`.

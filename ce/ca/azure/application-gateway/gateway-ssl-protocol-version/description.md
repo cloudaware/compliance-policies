@@ -13,7 +13,7 @@ Using the latest TLS version may affect compatibility with clients and backend s
 
 ## Audit
 
-This policy flags an *Azure Application Gateway* as `INCOMPLIANT` if it `Min protocol version` is **less** than **TLSv1_2**.
+This policy flags an *Azure Application Gateway* as `INCOMPLIANT` if its `Min protocol version` is **less** than **TLSv1_2**.
 
 ## Default Value
 

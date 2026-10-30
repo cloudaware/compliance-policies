@@ -55,5 +55,10 @@ Use `az network perimeter profile list` or `az network perimeter profile create`
 For each PaaS resource requiring association with a network security perimeter, run the following command:
 
 ```sh
-az network perimeter association create --resource-group <resource-group> --perimeter-name <network-security-perimeter> --association-name <association> --private-link-resource "{id:<paas-resource-id>}" --profile "{<profile-id>}"
+az network perimeter association create \
+    --resource-group {{resource-group-name}} \
+    --perimeter-name {{network-security-perimeter-name}} \
+    --association-name {{association-name}} \
+    --private-link-resource "{id:{{paas-resource-id}}}" \
+    --profile "{{profile-id}}"
 ```

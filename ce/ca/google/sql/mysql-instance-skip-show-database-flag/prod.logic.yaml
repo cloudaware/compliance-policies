@@ -7,7 +7,7 @@ importExtracts:
   - file: /types/CA10__CaGoogleSqlInstance__c/object.extracts.yaml
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This is not a Mysql database instance."
+    currentStateMessage: "This is not a MySQL database instance."
     check:
       NOT:
         arg:
@@ -17,7 +17,7 @@ conditions:
             search:
               TEXT: "MYSQL" 
   - status: "COMPLIANT"
-    currentStateMessage: "skip_show_database database flag is set to on."
+    currentStateMessage: "The skip_show_database database flag is set to on."
     check:
       IS_EQUAL:
         left:
@@ -26,5 +26,8 @@ conditions:
           TEXT: "on"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "skip_show_database database flag isn't set to on."
+  currentStateMessage: "The skip_show_database database flag is not set to on."
   remediationMessage: "Set skip_show_database database flag to on."
+
+
+

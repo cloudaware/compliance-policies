@@ -1,0 +1,14 @@
+---
+name: 2.18 Ensure that IAM External Access Analyzer is enabled for all regions (Automated)
+description: |-
+  Enable IAM External Access Analyzer for all resources in each active AWS region.
+
+  IAM Access Analyzer is a service that analyzes resource policies to identify resources
+  that can be accessed from outside the account. After the analyzer is enabled, scan
+  results are displayed in the console showing accessible resources. These results help
+  determine whether unintended access is permitted, making it easier for administrators
+  to monitor least privilege access. Access Analyzer analyzes only policies applied to
+  resources within the same AWS region.
+similar:
+  sections:
+    - /frameworks/cis-aws-v6.0.0/02/19

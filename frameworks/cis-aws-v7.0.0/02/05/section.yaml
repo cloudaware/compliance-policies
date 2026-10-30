@@ -1,0 +1,21 @@
+---
+name: 2.5 Ensure MFA is enabled for the 'root' user account (Automated)
+description: |-
+  The 'root' user account is the most privileged user in an AWS account. Multi-Factor
+  Authentication (MFA) adds an extra layer of protection on top of a username and
+  password. With MFA enabled, when a user signs in to an AWS website, they are
+  prompted for their username and password as well as an authentication code from their
+  MFA device.
+
+  **Note**: When virtual MFA is used for 'root' accounts, it is recommended that the device
+  used is not a personal device, but rather a dedicated mobile device (tablet or phone)
+  that is kept charged and secured, independent of any individual (“non-personal virtual
+  MFA”). This reduces the risk of losing access to MFA due to device loss, device
+  replacement, or employee turnover.
+
+  Where an AWS Organization is using centralized root access, root credentials can be
+  removed from member accounts. In that case, it is neither possible nor necessary to
+  configure root MFA in the member account.
+similar:
+  sections:
+    - /frameworks/cis-aws-v6.0.0/02/04

@@ -5,15 +5,15 @@ testData:
   - file: test-data.json
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "This Project has a default network."
-    remediationMessage: "Delete the default network."
+    currentStateMessage: "The project has a default network."
+    remediationMessage: "Delete the default network if it is not needed."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__Google_GCE_Networks__r" 
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Project doesn't have a default network."
+  currentStateMessage: "The project does not have a default network."
 relatedLists:
   - relationshipName: "CA10__Google_GCE_Networks__r"
     importExtracts:

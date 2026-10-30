@@ -14,13 +14,13 @@
 
 ### **1. Ensure Geo-Redundancy is Enabled**
 
-- Verify that geo-redundancy is enabled on the source server. This can be done by checking the server's backup configuration in the Azure portal.
+- Verify that geo-redundancy is enabled on the source server by checking the server's backup configuration in the Azure portal.
 - If geo-redundancy is not enabled, you may need to enable it and wait for the configuration to take effect. Note that for Zone-redundant High Availability servers, geo-redundancy can only be enabled during server creation.
 
 ### **2. Navigate to the Source Server's Overview Page**
 
 - In the Azure portal, go to `Azure Database for MySQL Flexible Server`.
-- Select the source server that you wish to move to another region.
+- Select the source server that you want to move to another region.
 - Click on the `Overview` tab to access the server's details.
 
 ### **3. Initiate the Restore Process**
@@ -38,7 +38,7 @@
 
 - Click on `Review + Create` to review your selections.
 - After reviewing, click on `Create` to initiate the restore process.
-- The restore operation will create a new server in the geo-paired region with the same data as the source server.
+- The restore operation creates a new server in the geo-paired region with the same data as the source server.
 
 ### **6. Verify the New Server's Functionality**
 
@@ -49,7 +49,7 @@
 ### **7. Clean Up the Source Server (Optional)**
 
 - If you no longer need the source server, you can delete it to avoid unnecessary charges.
-- To delete the source server, go to its `Overview` page, click on `Delete`, and follow the prompts to confirm the deletion.
+- To delete the source server, go to its `Overview` page, click `Delete`, and follow the prompts to confirm the deletion.
 
 ### **Considerations:**
 

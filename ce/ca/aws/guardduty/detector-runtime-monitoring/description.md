@@ -2,7 +2,7 @@
 
 This policy identifies AWS GuardDuty Detectors that do not have Runtime Monitoring enabled.
 
-Runtime Monitoring observes and analyzes operating system–level, networking, and file events to help detect potential security threats within your AWS workloads.
+Runtime Monitoring observes and analyzes operating system-level, networking, and file events to help detect potential security threats within your AWS workloads.
 
 ## Rationale
 

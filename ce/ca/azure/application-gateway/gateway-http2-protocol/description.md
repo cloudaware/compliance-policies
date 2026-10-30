@@ -14,11 +14,11 @@ Clients and backend services that do not support HTTP/2 will fall back to HTTP/1
 
 ## Audit
 
-This policy flags an *Azure Application Gateway* as `INCOMPLIANT` if it `HTTP/2` traffic is not **Enabled**.
+This policy flags an *Azure Application Gateway* as `INCOMPLIANT` if its `HTTP/2` traffic is not **Enabled**.
 
 ## Default Value
 
-HTTP2 is enabled by default.
+HTTP/2 is enabled by default.
 
 ## References
 

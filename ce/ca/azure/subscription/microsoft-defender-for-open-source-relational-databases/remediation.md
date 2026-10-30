@@ -16,7 +16,9 @@
 Run the following command:
 
 ```sh
-az security pricing create -n 'OpenSourceRelationalDatabases' --tier 'standard'
+az security pricing create \
+    -n OpenSourceRelationalDatabases \
+    --tier Standard
 ```
 
 ## From PowerShell
@@ -24,5 +26,7 @@ az security pricing create -n 'OpenSourceRelationalDatabases' --tier 'standard'
 Use the below command to enable Standard pricing tier for Open-source relational databases:
 
 ```ps
-set-azsecuritypricing -name "OpenSourceRelationalDatabases" -pricingtier "Standard"
+Set-AzSecurityPricing `
+    -Name "OpenSourceRelationalDatabases" `
+    -PricingTier "Standard"
 ```

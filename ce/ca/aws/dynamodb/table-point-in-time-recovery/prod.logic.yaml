@@ -12,23 +12,88 @@ conditions:
           EXTRACT: "CA10__tableStatus__c"
         right:
           TEXT: "ACTIVE"
-  - status: "INCOMPLIANT"
-    currentStateMessage: "Point-in-Time Recovery is not enabled for this DynamoDB table."
-    remediationMessage: "Consider enabling Point-in-Time Recovery for the DynamoDB table to allow for granular data restoration."
-    check:
-      IS_EQUAL:
-        left:
-          EXTRACT: "CA10__pointInTimeRecoveryStatus__c"
-        right:
-          TEXT: "DISABLED"
   - status: "COMPLIANT"
-    currentStateMessage: "Point-in-Time Recovery is enabled for this DynamoDB table."
+    currentStateMessage: "Point-in-time recovery is enabled for this DynamoDB table."
     check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__pointInTimeRecoveryStatus__c"
         right:
           TEXT: "ENABLED"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Point-in-time recovery is disabled, but a recent on-demand backup or AWS Backup recovery point exists for this table."
+    check:
+      OR:
+        args:
+          - RELATED_LIST_HAS:
+              status: "COMPLIANT"
+              relationshipName: "CA10__AWS_DynamoDB_Backups__r"
+          - RELATED_LIST_HAS:
+              status: "COMPLIANT"
+              relationshipName: "CA10A1__AWS_Backup_Recovery_Points__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Point-in-Time Recovery is not enabled for this DynamoDB table."
+    remediationMessage: "Enable point-in-time recovery for the DynamoDB table to allow granular data restoration."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__pointInTimeRecoveryStatus__c"
+        right:
+          TEXT: "DISABLED"
 otherwise:
   status: "UNDETERMINED"
-  currentStateMessage: "Unexpected values in the field."
+  currentStateMessage: "Unexpected values were found in the table status or point-in-time recovery status."
+relatedLists:
+  - relationshipName: "CA10__AWS_DynamoDB_Backups__r"
+    importExtracts:
+      - file: /types/CA10__CaAwsDynamoDbBackup__c/object.extracts.yaml
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "The DynamoDB Backup is not available."
+        check:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__status__c"
+            right:
+              TEXT: "AVAILABLE"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The DynamoDB Backup is available but was created more than 90 days ago."
+        remediationMessage: "Create a new DynamoDB backup and decommission the old one."
+        check:
+          IS_BEYOND_LAST_DAYS:
+            offsetDays: 90
+            arg:
+              EXTRACT: "CA10__creationDateTime__c"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "The backup exists and was created within the last 90 days."
+  - relationshipName: "CA10A1__AWS_Backup_Recovery_Points__r"
+    importExtracts:
+      - file: /types/CA10A1__CaAwsBackupRecoveryPoint__c/object.extracts.yaml
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "The recovery point is not completed or available."
+        check:
+          AND:
+            args:
+              - NOT_EQUAL:
+                  left:
+                    EXTRACT: "CA10A1__status__c"
+                  right:
+                    TEXT: "COMPLETED"
+              - NOT_EQUAL:
+                  left:
+                    EXTRACT: "CA10A1__status__c"
+                  right:
+                    TEXT: "AVAILABLE"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The recovery point is available but was created more than 90 days ago."
+        remediationMessage: "Create a backup plan or on-demand backup to provide a recent recovery point."
+        check:
+          IS_BEYOND_LAST_DAYS:
+            offsetDays: 90
+            arg:
+              EXTRACT: "CA10A1__creationDate__c"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "The backup recovery point exists and was created within the last 90 days."

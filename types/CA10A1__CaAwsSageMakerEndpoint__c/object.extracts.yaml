@@ -1,0 +1,8 @@
+---
+extracts:
+# InService | OutOfService | Creating | Updating | SystemUpdating | RollingBack | Deleting | Failed | UpdateRollbackFailed.
+# Not nullable. Can't have no access, retrieved via sagemaker:ListEndpoints
+  - name: CA10A1__status__c
+    value:
+      FIELD: 
+        path: CA10A1__status__c

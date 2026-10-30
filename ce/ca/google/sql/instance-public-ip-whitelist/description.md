@@ -1,10 +1,10 @@
 # Description
 
-Database Server should accept connections only from trusted Network(s)/IP(s) and restrict access from public IP addresses.
+Database servers should accept connections only from trusted networks or IPs and restrict access from public IP addresses.
 
 ## Rationale
 
-To minimize attack surface on a Database server instance, only trusted/known and required IP(s) should be white-listed to connect to it.
+To minimize the attack surface on a database server instance, only trusted and required IPs should be allowlisted to connect to it.
 
 An authorized network should not have IPs/networks configured to `0.0.0.0/0` which will allow access to the instance from anywhere in the world. **Note** that authorized networks apply only to instances with public IPs.
 
@@ -26,9 +26,12 @@ The Cloud SQL database instance would not be available to public IP addresses.
 
 1. Get detailed configuration for every Cloud SQL database instance.
 
-            gcloud sql instances list --format=json
+    ```sh
+    gcloud sql instances list \
+        --format=json
+    ```
 
-Ensure that the section `settings: ipConfiguration : authorizedNetworks` does not have any parameter `value` containing `0.0.0.0/0`.
+Ensure that the section `settings: ipConfiguration: authorizedNetworks` does not have any parameter `value` containing `0.0.0.0/0`.
 
 ## Prevention
 
@@ -36,7 +39,7 @@ To prevent new SQL instances from being configured to accept incoming connection
 
 ## Default Value
 
-By default, authorized networks are not configured. Remote connection to Cloud SQL database instance is not possible unless authorized networks are configured.
+By default, authorized networks are not configured. Remote connection to a Cloud SQL database instance is not possible unless authorized networks are configured.
 
 ## References
 
@@ -47,4 +50,4 @@ By default, authorized networks are not configured. Remote connection to Cloud S
 
 ## Additional Information
 
-There is no IPv6 configuration found for Google cloud SQL server services.
+There is no IPv6 configuration found for Google Cloud SQL server services.

@@ -1,0 +1,62 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-14T11:34:06Z"
+        },
+        "CA10__disappearanceTime__c": "2026-01-14T11:34:06Z",
+        "CA10__engineType__c": "ActiveMQ",
+        "CA10__logsAudit__c": "Disabled",
+        "Id": "test1"
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__engineType__c') != 'ACTIVEMQ'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-14T11:34:06Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__engineType__c": "RabbitMQ",
+        "CA10__logsAudit__c": "Disabled",
+        "Id": "test2"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__logsAudit__c') == 'Disabled'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-14T11:34:06Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__engineType__c": "ActiveMQ",
+        "CA10__logsAudit__c": "Disabled",
+        "Id": "test3"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "extract('CA10__logsAudit__c') == 'Enabled'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-14T11:34:06Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__engineType__c": "ActiveMQ",
+        "CA10__logsAudit__c": "Enabled",
+        "Id": "test4"
+    }
+]

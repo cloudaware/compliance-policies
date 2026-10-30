@@ -23,49 +23,49 @@ eksctl create iamserviceaccount \
     --approve
 ```
 
-**Note**: This command is applicable for clusters using the `IPv4` address family and takes the `AmazonEKS_CNI_Policy` AWS managed policy
+**Note**: This command is applicable for clusters using the `IPv4` address family and takes the `AmazonEKS_CNI_Policy` AWS managed policy.
 
 If your cluster uses the `IPv6` address family, a custom IAM policy must be created and attached:
 
 1. Save the following content as `vpc-cni-ipv6-policy.json`.
 
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ec2:AssignIpv6Addresses",
-                "ec2:DescribeInstances",
-                "ec2:DescribeTags",
-                "ec2:DescribeNetworkInterfaces",
-                "ec2:DescribeInstanceTypes"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ec2:CreateTags"
-            ],
-            "Resource": [
-                "arn:aws:ec2:*:*:network-interface/*"
-            ]
-        }
-    ]
-}
-```
+    ```json
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "ec2:AssignIpv6Addresses",
+                    "ec2:DescribeInstances",
+                    "ec2:DescribeTags",
+                    "ec2:DescribeNetworkInterfaces",
+                    "ec2:DescribeInstanceTypes"
+                ],
+                "Resource": "*"
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "ec2:CreateTags"
+                ],
+                "Resource": [
+                    "arn:aws:ec2:*:*:network-interface/*"
+                ]
+            }
+        ]
+    }
+    ```
 
 2. Create the policy using AWS CLI:
 
-```sh
-aws iam create-policy \
-    --policy-name AmazonEKS_CNI_IPv6_Policy \
-    --policy-document file://vpc-cni-ipv6-policy.json
-```
+    ```sh
+    aws iam create-policy \
+        --policy-name AmazonEKS_CNI_IPv6_Policy \
+        --policy-document file://vpc-cni-ipv6-policy.json
+    ```
 
-Then, attach it to a new IAM role via `eksctl`, replacing the policy ARN accordingly.
+    Then, attach it to a new IAM role via `eksctl`, replacing the policy ARN accordingly.
 
 ### Re-deploy the Amazon VPC CNI Plugin
 

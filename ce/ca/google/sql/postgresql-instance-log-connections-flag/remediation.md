@@ -14,6 +14,9 @@
 
 1. Configure the `log_connections` database flag for every Cloud SQL PosgreSQL database instance using the below command.
 
-            gcloud sql instances patch <INSTANCE_NAME> --database-flags "log_connections"=on
+    ```sh
+    gcloud sql instances patch {{instance-name}} \
+        --database-flags log_connections=on
+    ```
 
-Note: This command will overwrite all previously set database flags. To keep those and add new ones, include the values for all flags to be set on the instance; any flag not specifically included is set to its default value. For flags that do not take a value, specify the flag name followed by an equals sign ("=").
+    Note: This command will overwrite all previously set database flags. To keep those and add new ones, include the values for all flags to be set on the instance; any flag not specifically included is set to its default value. For flags that do not take a value, specify the flag name followed by an equals sign ("=").

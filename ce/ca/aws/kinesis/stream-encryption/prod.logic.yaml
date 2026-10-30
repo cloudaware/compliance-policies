@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10__CaAwsKinesisStream__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The Kinesis Stream is not active."
+    currentStateMessage: "The Kinesis stream is not active."
     check:
       NOT_EQUAL:
         left:
@@ -14,7 +14,7 @@ conditions:
         right:
           TEXT: "ACTIVE"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Server-side encryption is not enabled for this Kinesis Stream."
+    currentStateMessage: "Server-side encryption is not enabled for this Kinesis stream."
     remediationMessage: "Enable server-side encryption for the stream to protect data at rest."
     check:
       IS_EQUAL:
@@ -23,7 +23,7 @@ conditions:
         right:
           TEXT: "NONE"
   - status: "COMPLIANT"
-    currentStateMessage: "Server-side encryption is enabled for this Kinesis Stream."
+    currentStateMessage: "Server-side encryption is enabled for this Kinesis stream."
     check:
       IS_EQUAL:
         left:

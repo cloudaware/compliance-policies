@@ -8,5 +8,8 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - "/frameworks/cis-azure-v5.0.0/02/01/10"
-  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/cis-azure-v6.0.0/02/01/10"
+  - "/frameworks/cloudaware/resource-security/network-exposure"
+similarPolicies:
+  internal:
+    - dec-x-78146505

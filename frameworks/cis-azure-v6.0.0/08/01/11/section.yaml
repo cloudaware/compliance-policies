@@ -1,0 +1,11 @@
+---
+name: "8.1.11 Ensure that non-deprecated Microsoft Cloud Security Benchmark policies are not set to 'Disabled' (Manual)"
+description: >
+  The Microsoft Cloud Security Benchmark (or "MCSB") is an Azure Policy Initiative 
+  containing many security policies to evaluate resource configuration against best 
+  practice recommendations. If a policy in the MCSB is set with effect type Disabled, it is 
+  not evaluated and may prevent administrators from being informed of valuable security 
+  recommendations.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v5.0.0/08/01/11"

@@ -1,0 +1,14 @@
+---
+names:
+  full: "Azure Storage Account is not configured to use geo-redundant storage"
+  contextual: "Storage Account is not configured to use geo-redundant storage"
+description: >
+  Critical Azure Storage Accounts should use a geo-redundant storage option, such as
+  GRS, RA-GRS, GZRS, or RA-GZRS, to reduce the risk of data loss during regional
+  outages.
+categories:
+  - "RELIABILITY"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/cis-azure-v6.0.0/09/03/11"

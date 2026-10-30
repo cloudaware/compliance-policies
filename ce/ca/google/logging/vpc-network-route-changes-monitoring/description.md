@@ -10,7 +10,7 @@ Monitoring changes to route tables will help ensure that all VPC traffic flows t
 
 ## Impact
 
-Enabling of logging may result in your project being charged for the additional logs usage. These charges could be significant depending on the size of the organization.
+Enabling logging may result in your project being charged for additional log usage. These charges could be significant depending on the size of the organization.
 
 ## Audit
 
@@ -19,11 +19,13 @@ Enabling of logging may result in your project being charged for the additional 
 Ensure that the prescribed Log metric is present:
 
 1. Go to `Logging/Logs-based Metrics` by visiting <https://console.cloud.google.com/logs/metrics>.
-2. In the `User-defined Metrics` section, ensure that at least one metric `<Log_Metric_Name>` is present with the filter text:
+2. In the `User-defined Metrics` section, ensure that at least one metric `{{log-metric-name}}` is present with the filter text:
 
-        resource.type="gce_route" 
-        AND (protoPayload.methodName:"compute.routes.delete" 
-        OR protoPayload.methodName:"compute.routes.insert")
+    ```txt
+    resource.type="gce_route" 
+    AND (protoPayload.methodName:"compute.routes.delete" 
+    OR protoPayload.methodName:"compute.routes.insert")
+    ```
 
 Ensure the prescribed alerting policy is present:
 
@@ -37,13 +39,18 @@ Ensure the prescribed log metric is present:
 
 1. List the log metrics:
 
-        gcloud logging metrics list --format json
+    ```sh
+    gcloud logging metrics list \
+        --format json
+    ```
 
 2. Ensure that the output contains at least one metric with the filter set to:
 
-         resource.type="gce_route" 
-         ND (protoPayload.methodName:"compute.routes.delete" 
-         OR protoPayload.methodName:"compute.routes.insert")
+    ```txt
+    resource.type="gce_route" 
+    AND (protoPayload.methodName:"compute.routes.delete" 
+    OR protoPayload.methodName:"compute.routes.insert")
+    ```
 
 3. Note the value of the property `metricDescriptor.type` for the identified metric, in the format `logging.googleapis.com/user/<Log Metric Name>`.
 
@@ -51,13 +58,16 @@ Ensure that the prescribed alerting policy is present:
 
 1. List the alerting policies:
 
-        gcloud alpha monitoring policies list --format json
+    ```sh
+    gcloud alpha monitoring policies list \
+        --format json
+    ```
 
-2. Ensure that the output contains an least one alert policy where:
+2. Ensure that the output contains at least one alert policy where:
 
-    • `conditions.conditionThreshold.filter` is set to `metric.type=\"logging.googleapis.com/user/<Log Metric Name>\"`
+    - `conditions.conditionThreshold.filter` is set to `metric.type=\"logging.googleapis.com/user/<Log Metric Name>\"`
 
-    • AND `enabled` is set to `true`
+    - AND `enabled` is set to `true`
 
 ## References
 

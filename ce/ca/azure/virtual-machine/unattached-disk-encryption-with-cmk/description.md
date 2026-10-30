@@ -4,7 +4,7 @@ Ensure that unattached disks in a subscription are encrypted with a Customer Man
 
 ## Rationale
 
-Managed disks are encrypted by default with Platform-managed keys. Using Customer-managed keys may provide an additional level of security or meet an organization's regulatory requirements. Encrypting managed disks ensures that its entire content is fully unrecoverable without a key and thus protects the volume from unwarranted reads. Even if the disk is not attached to any of the VMs, there is always a risk where a compromised user account with administrative access to VM service can mount/attach these data disks, which may lead to sensitive information disclosure and tampering.
+Managed disks are encrypted by default with Platform-managed keys. Using Customer-managed keys may provide an additional level of security or meet an organization's regulatory requirements. Encrypting managed disks ensures that their entire content is fully unrecoverable without a key and protects the volume from unwarranted reads. Even if a disk is not attached to a VM, there is a risk that a compromised user account with administrative access to the VM service can mount or attach these data disks, which may lead to sensitive information disclosure and tampering.
 
 ## Impact
 
@@ -21,11 +21,11 @@ Utilizing and maintaining Customer-managed keys will require additional work to 
 3. In the `filter` field select `Disk state`.
 4. In the `Value` field select `Unattached`.
 5. Click `Apply`.
-6. for each disk listed ensure that `Encryption type` in the `encryption` blade is `Encryption at-rest with a customer-managed key`.
+6. For each disk listed, ensure that `Encryption type` in the `encryption` blade is `Encryption at-rest with a customer-managed key`.
 
 ### From Azure CLI
 
-Ensure command below does not return any output:
+Ensure the command below returns no output:
 
 ```sh
 az disk list --query '[? diskstate == `Unattached`].{encryptionSettings: encryptionSettings, name: name}' -o json
@@ -37,11 +37,11 @@ Sample Output:
 [ 
     { 
         "encryptionSettings": null, 
-        "name": "<Disk1>" 
+        "name": "{{disk-name-1}}" 
     }, 
     { 
         "encryptionSettings": null, 
-        "name": "<Disk2>" 
+        "name": "{{disk-name-2}}" 
     } 
 ]
 ```

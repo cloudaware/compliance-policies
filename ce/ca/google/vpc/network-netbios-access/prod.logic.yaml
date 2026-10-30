@@ -5,8 +5,8 @@ testData:
   - file: test-data.json
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Network has GCE Firewall Rules which allow unrestricted NetBIOS access."
-    remediationMessage: "Modify the firewall rule to remove unrestricted access."
+    currentStateMessage: "The network has firewall rules that allow unrestricted NetBIOS access."
+    remediationMessage: "Restrict NetBIOS access in firewall rules."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
@@ -43,8 +43,8 @@ relatedLists:
                   right:
                     TEXT: "::/0"
       - status: "INCOMPLIANT"
-        currentStateMessage: "This firewall rule is unrestricted."
-        remediationMessage: "Modify the firewall rule."
+        currentStateMessage: "The firewall rule allows unrestricted NetBIOS access."
+        remediationMessage: "Restrict NetBIOS access in the firewall rule."
         check:
           GREATER_THAN:
             left:

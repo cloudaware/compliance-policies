@@ -42,14 +42,27 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "299",
-      "conditionText": "setOfText(['DEBUG5', 'DEBUG4', 'DEBUG3', 'DEBUG2', 'DEBUG1', 'INFO', 'NOTICE', 'WARNING']).contains(extract('caJsonText__databaseFlagsLogMinMessagesFlagValue__c'))",
+      "conditionText": "setOfText(['WARNING', 'ERROR', 'LOG', 'FATAL', 'PANIC']).contains(extract('caJsonText__databaseFlagsLogMinMessagesFlagValue__c'))",
       "runtimeError": null
     },
     "context": { "snapshotTime": "2024-09-05T07:34:25Z" },
     "Id": "a8E43",
     "CA10__disappearanceTime__c": null,
     "CA10__databaseVersion__c": "POSTGRES_14",
-    "CA10__databaseFlagsJson__c": "[{\"name\": \"log_duration\", \"value\": \"on\" }, {\"name\" : \"log_min_messages\",  \"value\" : \"info\" }]"
+    "CA10__databaseFlagsJson__c": "[{\"name\": \"log_duration\", \"value\": \"on\" }, {\"name\" : \"log_min_messages\",  \"value\" : \"warning\" }]"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T07:34:25Z" },
+    "Id": "a8E44",
+    "CA10__disappearanceTime__c": null,
+    "CA10__databaseVersion__c": "POSTGRES_14",
+    "CA10__databaseFlagsJson__c": "[{\"name\": \"log_duration\", \"value\": \"on\" }, {\"name\" : \"log_min_messages\",  \"value\" : \"notice\" }]"
   },
   {
     "expectedResult": {

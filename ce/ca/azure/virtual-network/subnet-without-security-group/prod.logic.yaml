@@ -4,10 +4,10 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "Azure Network Subnet has a Network Security Group."
+    currentStateMessage: "The subnet is associated with a Network Security Group."
     check:
       NOT_EMPTY_LOOKUP: "CA10__networkSecurityGroup__r"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "Azure Network Subnet has no Network Security Group." 
-  remediationMessage: "Consider connecting the Subnet with a Network Security Group."
+  currentStateMessage: "The subnet is not associated with a Network Security Group."
+  remediationMessage: "Associate the subnet with a Network Security Group."

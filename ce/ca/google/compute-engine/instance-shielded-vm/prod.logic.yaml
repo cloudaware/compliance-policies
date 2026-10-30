@@ -6,7 +6,7 @@ importExtracts:
   - file: /types/CA10__CaGoogleGceInstance__c/object.extracts.yaml
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "Compute instance is launched with Shielded VM enabled."
+    currentStateMessage: "Shielded VM is enabled for the instance."
     check:
       AND:
         args:
@@ -22,5 +22,5 @@ conditions:
                 TEXT: "Enabled"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "Compute instance is launched without Shielded VM enabled."
-  remediationMessage: "Update the instance to enable Shielded VM."
+  currentStateMessage: "Shielded VM is not enabled for the instance."
+  remediationMessage: "Enable Shielded VM for the instance."

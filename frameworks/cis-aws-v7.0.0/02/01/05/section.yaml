@@ -1,0 +1,13 @@
+---
+name: 2.1.5 Ensure delegated admin manages AWS Organizations policies (Manual)
+description: |-
+  Ensure that a dedicated member account is configured as a delegated administrator for
+  AWS Organizations to manage organization policies (SCPs, RCPs, tag policies, backup
+  policies, AI opt-out policies) and other Organizations features, instead of performing
+  these tasks directly from the management account. The delegated administrator for
+  AWS Organizations is configured via a resource-based delegation policy in the
+  management account, which grants specific member accounts limited permissions to
+  perform Organizations policy and account management actions across the organization.
+  This allows policy management, OU operations, and other governance tasks to be
+  handled from purpose-built accounts without requiring broad access to the management
+  account.

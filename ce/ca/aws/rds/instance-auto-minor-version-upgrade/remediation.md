@@ -1,6 +1,6 @@
 # Remediation
 
-## Remediate AWS RDS Instances
+## Enable Auto Minor Version Upgrade
 
 ### Using AWS CloudFormation
 
@@ -63,49 +63,49 @@ resource "aws_db_instance" "rds-database-instance" {
 
 ### From Console
 
-1. Log in to the AWS management console and navigate to the RDS dashboard at <https://console.aws.amazon.com/rds/>.
+1. Log in to the AWS Management Console and navigate to the RDS dashboard at <https://console.aws.amazon.com/rds/>.
 2. In the left navigation panel, click `Databases`.
 3. Select the RDS instance that you want to update.
-4. Click on the `Modify` button located at the top right side.
-5. On the `Modify DB Instance: <instance identifier>` page, In the `Maintenance` section, select `Auto minor version upgrade` and click the `Yes` radio button.
-6. At the bottom of the page, click `Continue`, and check `Apply Immediately` to apply the changes immediately, or select `Apply during the next scheduled maintenance window` to avoid any downtime.
+4. Click the `Modify` button in the top right.
+5. On the `Modify DB Instance: {{instance identifier}}` page, in the `Maintenance` section, select `Auto minor version upgrade` and click the `Yes` radio button.
+6. At the bottom of the page, click `Continue` and select `Apply Immediately` to apply the changes immediately, or select `Apply during the next scheduled maintenance window` to avoid any downtime.
 7. Review the changes and click `Modify DB Instance`. The instance status should change from available to modifying and back to available. Once the feature is enabled, the `Auto Minor Version Upgrade` status should change to `Yes`.
 
 ### From Command Line
 
-- Run `modify-db-instance command` (OSX/Linux/UNIX) to enable the Auto Minor Version Upgrade feature for the selected Amazon database instance. The following command request example makes use of `--apply-immediately` parameter to apply the configuration changes asynchronously and as soon as possible. Any changes available in the pending modifications queue are also applied with this request. If any of the pending modifications require downtime, choosing this option can cause unexpected downtime for your RDS database application. If you skip adding the `--apply-immediately` parameter to the command request, Amazon RDS will apply your changes during the next maintenance window:
+- Run the `modify-db-instance` command to enable the Auto Minor Version Upgrade feature for the selected Amazon RDS database instance. The following command example uses the `--apply-immediately` parameter to apply configuration changes asynchronously and as soon as possible. Any changes available in the pending modifications queue are also applied with this request. If any of the pending modifications require downtime, choosing this option can cause unexpected downtime for your RDS database application. If you omit the `--apply-immediately` parameter, Amazon RDS applies your changes during the next maintenance window:
 
 ```sh
 aws rds modify-db-instance
-  --region us-east-1
-  --db-instance-identifier cc-project5-mysql-database
-  --auto-minor-version-upgrade
-  --apply-immediately
+    --region us-east-1
+    --db-instance-identifier cc-project5-mysql-database
+    --auto-minor-version-upgrade
+    --apply-immediately
 ```
 
 - The command output should return the configuration metadata for the modified RDS database instance:
 
 ```json
 {
- "DBInstance": {
-  "PubliclyAccessible": true,
-  "MasterUsername": "ccadmin",
-  "MonitoringInterval": 0,
-  "LicenseModel": "general-public-license",
-  ---
-  "AutoMinorVersionUpgrade": true,
-  "PreferredBackupWindow": "06:02-06:32",
-  ---
-  "DBInstanceClass": "db.t3.medium",
-  "DbInstancePort": 0,
-  "DBInstanceIdentifier": "cc-project5-mysql-database"
- }
+    "DBInstance": {
+    "PubliclyAccessible": true,
+    "MasterUsername": "ccadmin",
+    "MonitoringInterval": 0,
+    "LicenseModel": "general-public-license",
+    ---
+    "AutoMinorVersionUpgrade": true,
+    "PreferredBackupWindow": "06:02-06:32",
+    ---
+    "DBInstanceClass": "db.t3.medium",
+    "DbInstancePort": 0,
+    "DBInstanceIdentifier": "cc-project5-mysql-database"
+    }
 }
 ```
 
-- Repeat the above steps for each Amazon RDS database instance available in the selected AWS region.
+- Repeat the above steps for each Amazon RDS database instance available in the selected AWS Region.
 
-- Change the AWS cloud region by updating the `--region` command parameter value and repeat the process for other regions.
+- Change the AWS Region by updating the `--region` command parameter value and repeat the process for other regions.
 
 ## References
 

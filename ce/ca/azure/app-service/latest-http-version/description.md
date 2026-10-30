@@ -1,12 +1,12 @@
 # Description
 
-Periodically, newer versions are released for HTTP either due to security flaws or to include additional functionality. Using the latest HTTP version for web apps to take advantage of security fixes, if any, and/or new functionalities of the newer version.
+Periodically, newer HTTP versions are released either due to security flaws or to include additional functionality. Use the latest HTTP version for web apps to take advantage of security fixes and new functionality.
 
 ## Rationale
 
 Newer versions may contain security enhancements and additional functionality. Using the latest version is recommended in order to take advantage of enhancements and new capabilities. With each software installation, organizations need to determine if a given update meets their requirements. They must also verify the compatibility and support provided for any additional software against the update revision that is selected.
 
-HTTP 2.0 has additional performance improvements on the head-of-line blocking problem of old HTTP version, header compression, and prioritization of requests. HTTP 2.0 no longer supports HTTP 1.1's chunked transfer encoding mechanism, as it provides its own, more efficient, mechanisms for data streaming.
+HTTP 2.0 improves performance over older HTTP versions by addressing head-of-line blocking, enabling header compression, and supporting request prioritization. HTTP 2.0 no longer supports HTTP 1.1's chunked transfer encoding mechanism, as it provides its own, more efficient mechanisms for data streaming.
 
 ## Impact
 
@@ -16,30 +16,36 @@ Most modern browsers support HTTP 2.0 protocol over TLS only, while non-encrypte
 
 ### From Azure Portal
 
-1. Login to Azure Portal using <https://portal.azure.com>.
+1. Log in to the Azure portal using <https://portal.azure.com>.
 2. Go to `App Services`.
-3. Click on each App.
-4. Under `Setting` section, Click on `Configuration`.
-5. Ensure that `HTTP Version` set to `2.0` version under `General settings`.
+3. Select each app.
+4. Under `Settings`, select `Configuration`.
+5. Ensure `HTTP Version` is set to `2.0` under `General settings`.
 
-**NOTE**: Most modern browsers support HTTP 2.0 protocol over TLS only, while non-encrypted traffic continues to use HTTP 1.1. To ensure that client browsers connect to your app with HTTP/2, either buy an App Service Certificate for your app's custom domain or bind a third party certificate.
+**Note**: Most modern browsers support HTTP 2.0 over TLS only, while non-encrypted traffic continues to use HTTP 1.1. To ensure that client browsers connect to your app with HTTP/2, either buy an App Service Certificate for your app's custom domain or bind a third-party certificate.
 
 ### From Azure CLI
 
 To check HTTP 2.0 version status for an existing app, run the following command:
 
 ```sh
-az webapp config show --resource-group <RESOURCE_GROUP_NAME> --name <APP_NAME> --query http20Enabled
+az webapp config show \
+    --resource-group {{resource-group-name}} \
+    --name {{app-name}} \
+    --query http20Enabled
 ```
 
-The output should return `true` if HTTPS 2.0 traffic value is set to `On`.
+The output should return `true` if HTTP/2 is enabled.
 
 ### From PowerShell
 
 For each application, run the following command:
 
 ```ps
-Get-AzWebApp -ResourceGroupName <app resource group> -Name <app name> |Select-Object -ExpandProperty SiteConfig
+Get-AzWebApp `
+    -ResourceGroupName {{resource-group-name}} `
+    -Name {{app-name}} |
+    Select-Object -ExpandProperty SiteConfig
 ```
 
 If the value of the `Http20Enabled` setting is `true`, the application is compliant.

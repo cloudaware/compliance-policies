@@ -91,7 +91,7 @@
   },
   {
     "expectedResult": {
-      "status": "INAPPLICABLE",
+      "status": "UNDETERMINED",
       "conditionIndex": "400",
       "conditionText": "otherwise",
       "runtimeError": null
@@ -104,6 +104,36 @@
         "CA10__status__c": "not-opted-in",
         "CA10__ebsStorageEncryption__c": "",
         "CA10__account__c": "a04"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "299",
+      "conditionText": "CA10__AWS_Account_Regions__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-06-04T19:44:50Z" },
+    "Id": "a05",
+    "CA10__AWS_Account_Regions__r": [
+      {
+        "Id": "aD15",
+        "CA10__status__c": "not-opted-in",
+        "CA10__ebsStorageEncryption__c": "",
+        "CA10__account__c": "a05"
+      },
+      {
+        "Id": "aD25",
+        "CA10__status__c": "opt-in-not-required",
+        "CA10__ebsStorageEncryption__c": "Unknown",
+        "CA10__account__c": "a05"
+      },
+      {
+        "Id": "aD35",
+        "CA10__status__c": "opt-in-not-required",
+        "CA10__ebsStorageEncryption__c": "Enabled",
+        "CA10__account__c": "a05"
       }
     ]
   }

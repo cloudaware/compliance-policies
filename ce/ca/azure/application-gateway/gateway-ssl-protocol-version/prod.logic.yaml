@@ -13,7 +13,7 @@ conditions:
           EXTRACT: "CA10__sslPolicyMinProtocolVersion__c"
   - status: "INCOMPLIANT"
     currentStateMessage: "The Application Gateway SSL protocol version is outdated."
-    remediationMessage: "It is highly recommended to use TLS 1.2 or higher."
+    remediationMessage: "Use TLS 1.2 or higher."
     check:
       OR:
         args:
@@ -29,4 +29,4 @@ conditions:
                 TEXT: "TLSv1_1"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "Azure Application Gateway use the current SSL protocol version." 
+  currentStateMessage: "The Azure Application Gateway uses a current SSL protocol version."

@@ -1,0 +1,115 @@
+---
+inputType: CA10__CaAwsInstance__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsInstance__c/object.extracts.yaml
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: The EC2 instance is terminated or shutting down.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - terminated
+              - shutting-down
+        search:
+          EXTRACT: CA10__stateName__c
+  - status: INAPPLICABLE
+    currentStateMessage: No OS lifecycle enrichment source is available for this instance.
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: CA10__osInfoSource__c
+  - status: INCOMPLIANT
+    currentStateMessage: The installed OS release is explicitly marked as no longer maintained.
+    remediationMessage: Upgrade or rebuild on a supported OS release after compatibility testing.
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__osInfoMaintained__c
+        right:
+          TEXT: 'No'
+  - status: UNDETERMINED
+    currentStateMessage: The OS lifecycle maintained indicator is unrecognized.
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: CA10__osInfoMaintained__c
+        right:
+          TEXT: 'Yes'
+  - status: UNDETERMINED
+    currentStateMessage: The OS extended-support date precedes ordinary EOL; lifecycle enrichment is inconsistent.
+    check:
+      AND:
+        args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: CA10__osInfoEoesFrom__c
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: CA10__osInfoEolFrom__c
+          - IS_AFTER_TODAY:
+              arg:
+                EXTRACT: CA10__osInfoEolFrom__c
+          - NOT:
+              arg:
+                IS_AFTER_TODAY:
+                  arg:
+                    EXTRACT: CA10__osInfoEoesFrom__c
+  # shortcut: lifecycle dates omit vendor cutoff timezones; use exact vendor instants when available.
+  - status: INCOMPLIANT
+    currentStateMessage: The installed OS release has reached the end of its known extended-support window.
+    remediationMessage: Upgrade or rebuild on a supported OS release after compatibility testing.
+    check:
+      AND:
+        args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: CA10__osInfoEoesFrom__c
+          - IS_BEFORE_TODAY:
+              arg:
+                EXTRACT: CA10__osInfoEoesFrom__c
+  - status: INAPPLICABLE
+    currentStateMessage: No ordinary OS EOL date is available to assess standard-support expiry.
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: CA10__osInfoEolFrom__c
+  # EOAS is not used: ending active support alone does not end security support.
+  - status: COMPLIANT
+    currentStateMessage: The installed OS release is maintained and its ordinary end-of-life date is in the future.
+    check:
+      IS_AFTER_TODAY:
+        arg:
+          EXTRACT: CA10__osInfoEolFrom__c
+  - status: INCOMPLIANT
+    currentStateMessage: The installed OS release is past ordinary EOL; a catalog extended-support window remains but entitlement is unverified.
+    remediationMessage: Upgrade the OS or verify and document a time-limited extended-support exception and entitlement.
+    check:
+      AND:
+        args:
+          - IS_BEFORE_TODAY:
+              arg:
+                EXTRACT: CA10__osInfoEolFrom__c
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: CA10__osInfoEoesFrom__c
+          - IS_AFTER_TODAY:
+              arg:
+                EXTRACT: CA10__osInfoEoesFrom__c
+  - status: INCOMPLIANT
+    currentStateMessage: The installed OS release is past ordinary EOL without a known future extended-support date.
+    remediationMessage: Upgrade or rebuild on a supported OS release, verifying any alternative support arrangement separately.
+    check:
+      IS_BEFORE_TODAY:
+        arg:
+          EXTRACT: CA10__osInfoEolFrom__c
+otherwise:
+  status: INAPPLICABLE
+  currentStateMessage: The ordinary OS EOL date falls on the current UTC day; verify the vendor cutoff and refresh lifecycle enrichment.
+
+
+

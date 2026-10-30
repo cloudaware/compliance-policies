@@ -1,6 +1,6 @@
 ---
 name: "6.1.2 Monitoring using Activity Log Alerts"
-description: >
+description: |-
   The recommendations provided in this section are intended to provide entry-level 
   alerting for crucial activities on a tenant account. These recommended activities should 
   be tuned to your needs. By default, each of these Activity Log Alerts tends to guide the 
@@ -11,10 +11,10 @@ description: >
   While this section provides recommendations for the creation of Activity Log Alerts 
   specifically, Microsoft Azure supports four different types of alerts:
 
-  • Metric Alerts
-  • Log Alerts
-  • Activity Log Alerts
-  • Smart Detection Alerts
+  - Metric Alerts
+  - Log Alerts
+  - Activity Log Alerts
+  - Smart Detection Alerts
 
   All Azure services (Microsoft provided or otherwise) that can generate alerts are 
   assigned a "Resource provider namespace" when they are registered in an Azure 

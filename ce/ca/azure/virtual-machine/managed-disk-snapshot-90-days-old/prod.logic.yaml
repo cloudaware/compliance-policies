@@ -6,8 +6,8 @@ importExtracts:
   - file: /types/CA10__CaAzureSnapshot__c/object.extracts.yaml
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Managed Disk Snapshot is 90 days old or more."
-    remediationMessage: "Consider deleting or archiving the snapshot."
+    currentStateMessage: "The managed disk snapshot is 90 days old or more."
+    remediationMessage: "Delete or archive the snapshot."
     check:
       IS_BEYOND_LAST_DAYS:
         offsetDays: 90
@@ -15,4 +15,4 @@ conditions:
           EXTRACT: "CA10__timeCreated__c"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Managed Disk Snapshot is less than 90 days old."
+  currentStateMessage: "The managed disk snapshot is less than 90 days old."

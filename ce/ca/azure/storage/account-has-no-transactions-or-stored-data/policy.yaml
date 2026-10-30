@@ -1,0 +1,10 @@
+---
+names:
+  full: "Azure Storage Account has no transactions or stored data"
+  contextual: "Storage Account has no transactions or stored data"
+description: "Identify Azure Storage Accounts with zero transactions and zero average used capacity over the last 30 days."
+type: "BEST_PRACTICE"
+categories:
+  - "COST"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"

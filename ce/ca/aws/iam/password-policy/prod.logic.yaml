@@ -4,15 +4,15 @@ testData:
   - file: test-data.json
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "The Account has a password policy."
+    currentStateMessage: "The account has a password policy."
     check:
       RELATED_LIST_HAS:
         relationshipName: "CA10__AWS_IAM_Password_Policies__r"
         status: "COMPLIANT"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "The Account does not have any password policy."
-  remediationMessage: "Create an IAM Password Policy."
+  currentStateMessage: "The account does not have a password policy."
+  remediationMessage: "Create an IAM password policy."
 relatedLists:
   - relationshipName: "CA10__AWS_IAM_Password_Policies__r"
     importExtracts:
@@ -20,4 +20,4 @@ relatedLists:
     conditions: []
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "The is a password policy."
+      currentStateMessage: "This is a password policy."

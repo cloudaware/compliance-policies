@@ -7,7 +7,7 @@ description: >
   and downsize (resize) them to optimize cloud expenditure. 
   By default, a Virtual Machine is considered underutilized if their 
   average CPU utilization is consistently below 40% and maximum CPU utilization 
-  does not spike above 50% over a 14-day period.
+  does not spike above 50% over a 14-day period, and, when available, memory utilization is below 40%.
 categories:
   - "COST"
   - "PERFORMANCE"

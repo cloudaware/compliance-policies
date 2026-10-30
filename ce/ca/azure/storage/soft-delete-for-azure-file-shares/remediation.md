@@ -14,7 +14,10 @@
 For each storage account requiring remediation, run the following command to enable soft delete for file shares and set an appropriate number of days for deleted data to be retained, between 1 and 365, inclusive:
 
 ```sh
-az storage account file-service-properties update --account-name <storage-account> --enable-delete-retention true --delete-retention-days <retention-days>
+az storage account file-service-properties update \
+    --account-name {{storage-account-name}} \
+    --enable-delete-retention true \
+    --delete-retention-days {{retention-days}}
 ```
 
 ## From PowerShell
@@ -22,5 +25,9 @@ az storage account file-service-properties update --account-name <storage-accoun
 For each storage account requiring remediation, run the following command to enable soft delete for file shares and set an appropriate number of days for deleted data to be retained, between 1 and 365, inclusive:
 
 ```ps
-Update-AzStorageFileServiceProperty -ResourceGroupName <resource-group> -AccountName <storage-account> -EnableShareDeleteRetentionPolicy $true -ShareRetentionDays <retention-days>
+Update-AzStorageFileServiceProperty `
+    -ResourceGroupName {{resource-group-name}} `
+    -AccountName {{storage-account-name}} `
+    -EnableShareDeleteRetentionPolicy $true `
+    -ShareRetentionDays {{retention-days}}
 ```

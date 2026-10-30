@@ -12,6 +12,6 @@ Snapshots must be carefully reviewed before removal to confirm they are not part
 
 ## Audit
 
-This policy flags an *AWS EBS Snapshot* as `INCOMPLIANT` if its `Start Time`, the timestamp marking snapshot creation, exceeds 90 days.
+This policy flags an *AWS EBS Snapshot* as `INCOMPLIANT` if its `Start Time`, the timestamp of snapshot creation, exceeds 90 days.
 
 *EBS Snapshots* with a `State` other than **completed** are marked as `INAPPLICABLE`.

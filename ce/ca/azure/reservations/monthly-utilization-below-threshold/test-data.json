@@ -1,0 +1,208 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10Z1__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-09-15T00:00:00Z" },
+    "Id": "gone",
+    "CA10Z1__disappearanceTime__c": "2026-09-14T00:00:00Z",
+    "CA10Z1__provisioningState__c": "Succeeded",
+    "CA10Z1__Azure_Reservation_Utilizations__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10Z1__provisioningState__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-09-15T00:00:00Z" },
+    "Id": "missing-state",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": null,
+    "CA10Z1__Azure_Reservation_Utilizations__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10Z1__provisioningState__c') != 'Succeeded'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-09-15T00:00:00Z" },
+    "Id": "expired",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "Expired",
+    "CA10Z1__Azure_Reservation_Utilizations__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "399",
+      "conditionText": "CA10Z1__Azure_Reservation_Utilizations__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-09-15T00:00:00Z" },
+    "Id": "malformed-month",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "Succeeded",
+    "CA10Z1__Azure_Reservation_Utilizations__r": [
+      {
+        "Id": "malformed-month-record",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__avgUtilizationPercentage__c": 50,
+        "CA10Z1__yearMonth__c": "not-a-month",
+        "CA10Z1__reservation__c": "malformed-month"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "399",
+      "conditionText": "CA10Z1__Azure_Reservation_Utilizations__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-09-15T00:00:00Z" },
+    "Id": "future-month",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "Succeeded",
+    "CA10Z1__Azure_Reservation_Utilizations__r": [
+      {
+        "Id": "future-month-record",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__avgUtilizationPercentage__c": 50,
+        "CA10Z1__yearMonth__c": "2026-10-01",
+        "CA10Z1__reservation__c": "future-month"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-09-15T00:00:00Z" },
+    "Id": "no-utilization",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "Succeeded",
+    "CA10Z1__Azure_Reservation_Utilizations__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "599",
+      "conditionText": "CA10Z1__Azure_Reservation_Utilizations__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-09-15T00:00:00Z" },
+    "Id": "below",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "Succeeded",
+    "CA10Z1__Azure_Reservation_Utilizations__r": [
+      {
+        "Id": "below-month",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__avgUtilizationPercentage__c": 79.99,
+        "CA10Z1__yearMonth__c": "2026-09-01",
+        "CA10Z1__reservation__c": "below"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "699",
+      "conditionText": "CA10Z1__Azure_Reservation_Utilizations__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-09-15T00:00:00Z" },
+    "Id": "boundary",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "Succeeded",
+    "CA10Z1__Azure_Reservation_Utilizations__r": [
+      {
+        "Id": "boundary-month",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__avgUtilizationPercentage__c": 80,
+        "CA10Z1__yearMonth__c": "2026-09-01",
+        "CA10Z1__reservation__c": "boundary"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "499",
+      "conditionText": "CA10Z1__Azure_Reservation_Utilizations__r.has(INCOMPLIANT) && CA10Z1__Azure_Reservation_Utilizations__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-09-05T00:00:00Z" },
+    "Id": "conflicting",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "Succeeded",
+    "CA10Z1__Azure_Reservation_Utilizations__r": [
+      {
+        "Id": "conflicting-low",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__avgUtilizationPercentage__c": 70,
+        "CA10Z1__yearMonth__c": "2026-09-01",
+        "CA10Z1__reservation__c": "conflicting"
+      },
+      {
+        "Id": "conflicting-high",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__avgUtilizationPercentage__c": 90,
+        "CA10Z1__yearMonth__c": "2026-08-01",
+        "CA10Z1__reservation__c": "conflicting"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "399",
+      "conditionText": "CA10Z1__Azure_Reservation_Utilizations__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-09-15T00:00:00Z" },
+    "Id": "invalid-utilization",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "Succeeded",
+    "CA10Z1__Azure_Reservation_Utilizations__r": [
+      {
+        "Id": "invalid-month",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__avgUtilizationPercentage__c": 100.01,
+        "CA10Z1__yearMonth__c": "2026-09-01",
+        "CA10Z1__reservation__c": "invalid-utilization"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "700",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-09-15T00:00:00Z" },
+    "Id": "stale-only",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "Succeeded",
+    "CA10Z1__Azure_Reservation_Utilizations__r": [
+      {
+        "Id": "stale-month",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__avgUtilizationPercentage__c": null,
+        "CA10Z1__yearMonth__c": "2026-07-01",
+        "CA10Z1__reservation__c": "stale-only"
+      }
+    ]
+  }
+]

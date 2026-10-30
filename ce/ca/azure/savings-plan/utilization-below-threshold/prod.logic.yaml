@@ -1,0 +1,81 @@
+---
+inputType: "CA10Z1__CaAzureSavingsPlan__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10Z1__CaAzureSavingsPlan__c/object.extracts.yaml"
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "The Savings Plan provisioning state is unavailable."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10Z1__provisioningState__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Savings Plan is not successfully provisioned."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__provisioningState__c"
+        right:
+          TEXT: "Succeeded"
+  - status: "UNDETERMINED"
+    currentStateMessage: "A utilization record within the last 40 days has incomplete data."
+    check:
+      RELATED_LIST_HAS:
+        status: "UNDETERMINED"
+        relationshipName: "CA10Z1__CaAzureSavingsPlanUtilization__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Savings Plan utilization was below 80% within the last 40 days."
+    remediationMessage: "Review recent utilization and adjust future Savings Plan commitment coverage if the shortfall is persistent."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10Z1__CaAzureSavingsPlanUtilization__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "Savings Plan utilization met the 80% threshold throughout the available records from the last 40 days."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10Z1__CaAzureSavingsPlanUtilization__r"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "No complete Savings Plan utilization record is available within the last 40 days."
+relatedLists:
+  - relationshipName: "CA10Z1__CaAzureSavingsPlanUtilization__r"
+    importExtracts:
+      - file: "/types/CA10Z1__CaAzureSavingsPlanUtilization__c/object.extracts.yaml"
+    conditions:
+      - status: "UNDETERMINED"
+        currentStateMessage: "The utilization record's Usage Date is unavailable."
+        check:
+          IS_EMPTY:
+            arg:
+              EXTRACT: "CA10Z1__usageDate__c"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "The utilization record is outside the 40-day reporting window."
+        check:
+          NOT:
+            arg:
+              IS_WITHIN_LAST_DAYS:
+                offsetDays: 40
+                arg:
+                  EXTRACT: "CA10Z1__usageDate__c"
+      - status: "UNDETERMINED"
+        currentStateMessage: "The utilization record's average utilization is unavailable."
+        check:
+          IS_EMPTY:
+            arg:
+              EXTRACT: "CA10Z1__avgUtilizationPercentage__c"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Average utilization is below 80%."
+        remediationMessage: "Review recent eligible usage and future commitment requirements."
+        check:
+          LESS_THAN:
+            left:
+              EXTRACT: "CA10Z1__avgUtilizationPercentage__c"
+            right:
+              NUMBER: 80.0
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Average utilization meets the 80% threshold."

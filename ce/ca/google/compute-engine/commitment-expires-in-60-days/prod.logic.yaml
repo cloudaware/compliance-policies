@@ -15,7 +15,7 @@ conditions:
           TEXT: "ACTIVE"
   - status: "INCOMPLIANT"
     currentStateMessage: "The commitment expires in 60 days or less."
-    remediationMessage: "Consider renewing the expiring commitment to maintain cost savings."
+    remediationMessage: "Renew the commitment if continued cost savings are desired."
     check:
       IS_WITHIN_NEXT_DAYS:
         offsetDays: 60

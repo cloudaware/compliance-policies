@@ -3,7 +3,7 @@
 ## From Azure Portal
 
 1. Go to `Application gateways`.
-2. Click the name of an application gateway.
+2. Select the name of an application gateway.
 3. Under `Settings`, click `Web application firewall`.
 4. Under `Associated web application firewall policy`, click the policy name.
 5. Under `Settings`, click `Policy settings`.
@@ -16,5 +16,7 @@
 For each firewall policy requiring remediation, run the following command to enable request body inspection:
 
 ```sh
-az network application-gateway waf-policy update --ids <firewall-policy> --policy-settings request-body-check=true
+az network application-gateway waf-policy update \
+    --ids {{waf-policy-id}} \
+    --policy-settings request-body-check=true
 ```

@@ -1,0 +1,8 @@
+---
+name: 2.9 Ensure IAM password policy prevents password reuse (Automated)
+description: >
+  IAM password policies can prevent the reuse of passwords by the same user. It is
+  recommended that the password policy be configured to prevent password reuse.
+similar:
+  sections:
+    - /frameworks/cis-aws-v6.0.0/02/08

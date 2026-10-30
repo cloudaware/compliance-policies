@@ -16,19 +16,23 @@ Therefore interactive serial console support should be disabled.
 
 ### From Google Cloud CLI
 
-1. Login to Google Cloud console
+1. Log in to the Google Cloud Console
 2. Go to Compute Engine
 3. Go to VM instances
 4. Click on the Specific VM
-5. Ensure the statement `Connecting to serial serial ports is disabled` is displayed at the top of the details tab, just below the `Connect to serial console` drop-down.
+5. Ensure the statement `Connecting to serial ports is disabled` is displayed at the top of the details tab, just below the `Connect to serial console` drop-down.
 
 ### From Google Cloud Console
 
- Ensure the below command's output shows `null`:
+ Ensure the command output shows `null`:
 
-            gcloud compute instances describe <vmName> --zone=<region> --format="json(metadata.items[].key,metadata.items[].value)"
+```sh
+gcloud compute instances describe {{vm-name}} \
+    --zone={{region}} \
+    --format="json(metadata.items[].key,metadata.items[].value)"
+```
 
-or `key` and `value` properties from below command's json response are equal to `serial-port-enable` and `0` or `false` respectively.
+or `key` and `value` properties from the command's JSON response are equal to `serial-port-enable` and `0` or `false` respectively.
 
 ```json
 { 
@@ -45,7 +49,7 @@ or `key` and `value` properties from below command's json response are equal to 
 
 ## Prevention
 
-You can prevent VMs from having serial port access enable by `Disable VM serial port access` organization policy: <https://console.cloud.google.com/iam-admin/orgpolicies/compute-disableSerialPortAccess>.
+You can prevent VMs from having serial port access enabled by the `Disable VM serial port access` organization policy: <https://console.cloud.google.com/iam-admin/orgpolicies/compute-disableSerialPortAccess>.
 
 ## Default Value
 

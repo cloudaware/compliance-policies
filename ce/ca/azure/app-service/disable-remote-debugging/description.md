@@ -1,6 +1,6 @@
 # Description
 
-Remote Debugging allows Azure App Service to be debugged in real-time directly on the Azure environment. When remote debugging is enabled, it opens a communication channel that could potentially be exploited by unauthorized users if not properly secured.
+Remote Debugging allows Azure App Service to be debugged in real time directly in the Azure environment. When remote debugging is enabled, it opens a communication channel that could potentially be exploited by unauthorized users if not properly secured.
 
 ## Rationale
 
@@ -20,10 +20,10 @@ You will not be able to connect to your application from a remote location to di
 
 ### From Azure Portal
 
-1. Login to Azure Portal using <https://portal.azure.com>.
+1. Log in to the Azure portal using <https://portal.azure.com>.
 2. Go to `App Services`.
-3. Click on each App.
-4. Under `Setting` section, Click on `Configuration`.
+3. Select each app.
+4. Under `Settings`, select `Configuration`.
 5. Under the `General settings` tab, check the `Remote debugging` option. Ensure it is set to `Off`.
 
 ### From Azure CLI
@@ -31,7 +31,10 @@ You will not be able to connect to your application from a remote location to di
 To check remote debugging status for an existing app, run the following command:
 
 ```sh
-az webapp config show --resource-group <resource_group_name> --name <app_name> --query remoteDebuggingEnabled
+az webapp config show \
+    --resource-group {{resource-group-name}} \
+    --name {{app-name}} \
+    --query remoteDebuggingEnabled
 ```
 
 The output should be `false` if remote debugging is disabled.
@@ -41,7 +44,10 @@ The output should be `false` if remote debugging is disabled.
 To check remote debugging status for an existing app, run the following command:
 
 ```ps
-Get-AzWebApp -ResourceGroupName <resource_group_name> -Name <app_name> |Select-Object -ExpandProperty SiteConfig
+Get-AzWebApp `
+    -ResourceGroupName {{resource-group-name}} `
+    -Name {{app-name}} |
+    Select-Object -ExpandProperty SiteConfig
 ```
 
 The output of `remoteDebuggingEnabled` should be `false` if remote debugging is disabled.
@@ -55,7 +61,7 @@ If referencing a digital copy of this Benchmark, clicking a Policy ID will open 
 
 ## Default Value
 
-By default, remote debugging is set to `off`.
+By default, remote debugging is set to `Off`.
 
 ## References
 

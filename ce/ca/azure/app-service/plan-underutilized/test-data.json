@@ -1,0 +1,87 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-04-24T01:44:28Z"
+    },
+    "Id": "disappeared",
+    "CA10__disappearanceTime__c": "2025-04-23T00:00:00Z",
+    "CA10__skuTier__c": "Premium",
+    "CA10__numberOfSites__c": 1,
+    "CA10__monitorCpuAvg30Day__c": 1,
+    "CA10__monitorMemoryAvg30Day__c": 1
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__skuTier__c') == 'Free' || extract('CA10__skuTier__c') == 'Shared' || extract('CA10__skuTier__c') == 'Dynamic' || extract('CA10__skuTier__c') == 'WorkflowStandard' || extract('CA10__skuTier__c') == 'FlexConsumption' || extract('CA10__numberOfSites__c') == number(0.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-04-24T01:44:28Z"
+    },
+    "Id": "free",
+    "CA10__disappearanceTime__c": null,
+    "CA10__skuTier__c": "Free",
+    "CA10__numberOfSites__c": 1,
+    "CA10__monitorCpuAvg30Day__c": 1,
+    "CA10__monitorMemoryAvg30Day__c": 1
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__skuTier__c').isEmpty() || extract('CA10__numberOfSites__c').isEmpty() || extract('CA10__monitorCpuAvg30Day__c').isEmpty() || extract('CA10__monitorMemoryAvg30Day__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-04-24T01:44:28Z"
+    },
+    "Id": "missing",
+    "CA10__disappearanceTime__c": null,
+    "CA10__skuTier__c": "Premium",
+    "CA10__numberOfSites__c": 1,
+    "CA10__monitorCpuAvg30Day__c": null,
+    "CA10__monitorMemoryAvg30Day__c": 1
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__monitorCpuAvg30Day__c') < number(20.0) && extract('CA10__monitorMemoryAvg30Day__c') < number(40.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-04-24T01:44:28Z"
+    },
+    "Id": "low",
+    "CA10__disappearanceTime__c": null,
+    "CA10__skuTier__c": "Premium",
+    "CA10__numberOfSites__c": 1,
+    "CA10__monitorCpuAvg30Day__c": 19.99,
+    "CA10__monitorMemoryAvg30Day__c": 39.99
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2025-04-24T01:44:28Z"
+    },
+    "Id": "boundary",
+    "CA10__disappearanceTime__c": null,
+    "CA10__skuTier__c": "Premium",
+    "CA10__numberOfSites__c": 1,
+    "CA10__monitorCpuAvg30Day__c": 20,
+    "CA10__monitorMemoryAvg30Day__c": 40
+  }
+]

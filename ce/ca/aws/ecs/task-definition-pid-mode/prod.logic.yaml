@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10__CaAwsEcsTaskDefinition__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The Task Definition is not active."
+    currentStateMessage: "The task definition is not active."
     check:
       NOT_EQUAL:
         left:
@@ -14,8 +14,8 @@ conditions:
         right:
           TEXT: "ACTIVE"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Task Definition is configured to share the host's process namespace."
-    remediationMessage: "Create a new revision of the Task Definition with 'pidMode' set to 'task' (default) or removed."
+    currentStateMessage: "The task definition is configured to share the host's process namespace."
+    remediationMessage: "Create a new task definition revision with 'pidMode' set to 'task' (default) or removed."
     check:
       IS_EQUAL:
         left:
@@ -24,4 +24,4 @@ conditions:
           TEXT: "host"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Task Definition maintains its own process namespace."
+  currentStateMessage: "The task definition maintains its own process namespace."

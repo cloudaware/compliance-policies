@@ -4,7 +4,7 @@
 
 - The destination (target) bucket must be in the same AWS Region and AWS account as the source bucket.
 - Your destination bucket should not have server access logging enabled.
-- S3 buckets that have S3 Object Lock enabled can't be used as destination buckets
+- S3 buckets that have S3 Object Lock enabled can't be used as destination buckets.
 - The destination bucket must not have Requester Pays enabled.
 - Default server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS) is not supported.
 
@@ -64,7 +64,7 @@ Create a `{{logging.json}}` file that contains your logging configuration:
 
 Replace `{{your-log-destination-bucket}}` with the name of the bucket where you want to store the access logs, and `{{your-prefix}}` with an optional prefix to define a folder structure within the logging bucket.
 
-After you create the `{{logging.json}}` file, you can apply the logging configuration by using the  `put-bucket-logging` command. Replace `{{your-log-destination-bucket}}` with the name of your destination bucket.
+After you create the `{{logging.json}}` file, you can apply the logging configuration by using the `put-bucket-logging` command. Replace `{{your-log-destination-bucket}}` with the name of your destination bucket.
 
 ```bash
 aws s3api put-bucket-logging --bucket {{your-log-destination-bucket}} --bucket-logging-status file://{{logging.json}}

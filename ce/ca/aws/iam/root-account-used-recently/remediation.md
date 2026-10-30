@@ -12,19 +12,19 @@ Create the virtual device entity in IAM to represent a virtual MFA device:
 
 ```sh
 aws iam create-virtual-mfa-device \
---virtual-mfa-device-name {{mfa-device-name}} \
---outfile {{filepath}} \
---bootstrap-method {{bootstrap-method}}
+    --virtual-mfa-device-name {{mfa-device-name}} \
+    --outfile {{filepath}} \
+    --bootstrap-method {{bootstrap-method}}
 ```
 
 Enable an MFA device for use with AWS:
 
 ```sh
 aws iam enable-mfa-device \
---user-name root \
---serial-number {{mfa-device-arn}} \
---authentication-code1 123456 \
---authentication-code2 789012
+    --user-name root \
+    --serial-number {{mfa-device-arn}} \
+    --authentication-code1 123456 \
+    --authentication-code2 789012
 ```
 
 ### Create and use IAM roles for administrative tasks
@@ -32,8 +32,12 @@ aws iam enable-mfa-device \
 Define and assign roles with specific permissions instead of relying on root user credentials:
 
 ```sh
-aws iam create-role --role-name {{admin-role}} --assume-role-policy-document file://{{trust-policy}}.json
-aws iam attach-role-policy --role-name {{admin-role}} --policy-arn {{arn:aws:iam::aws:policy/admin-access}}
+aws iam create-role \
+    --role-name {{admin-role}} \
+    --assume-role-policy-document file://{{trust-policy}}.json
+aws iam attach-role-policy \
+    --role-name {{admin-role}} \
+    --policy-arn {{admin-policy-arn}}
 ```
 
 ### Disable root account access keys

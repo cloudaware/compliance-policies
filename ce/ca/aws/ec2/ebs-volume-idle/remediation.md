@@ -10,17 +10,17 @@ The remediation process depends on whether the idle EBS volume is **unattached**
 
 Snapshots provide a cost-effective way to retain the volume data before deletion.
 
-```bash
+```sh
 aws ec2 create-snapshot \
   --volume-id {{volume-id}} \
-  --description "{{Archival of idle EBS volume}}" \
+  --description "{{archival-description}}"
 ```
 
 #### **Delete the Volume**
 
 Once the snapshot status is `completed`, the volume can be safely deleted:
 
-```bash
+```sh
 aws ec2 delete-volume --volume-id {{volume-id}}
 ```
 
@@ -36,7 +36,7 @@ Consult with the application or resource owner to confirm whether the volume is 
 
 If confirmed unnecessary, detach the volume from the instance:
 
-```bash
+```sh
 aws ec2 detach-volume --volume-id {{volume-id}}
 ```
 

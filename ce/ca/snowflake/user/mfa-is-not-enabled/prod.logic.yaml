@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10SN2__CaSnowflakeUser__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The User does not use password authentication."
+    currentStateMessage: "The user does not use password authentication."
     check:
       NOT_EQUAL:
         left:
@@ -24,4 +24,4 @@ conditions:
           TEXT: "true"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The user has MFA enabled."
+  currentStateMessage: "MFA is enabled for this user."

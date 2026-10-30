@@ -6,3 +6,11 @@ extracts:
     value: 
       FIELD:
         path: CA10__status__c
+        undeterminedIf:
+          isEmpty: The Elastic Beanstalk environment status is missing from inventory.
+# Nullable
+  - name: CA10__solutionStackName__c
+    value:
+      FIELD:
+        path: CA10__solutionStackName__c
+        returnType: BYTES

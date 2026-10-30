@@ -5,7 +5,7 @@ testData:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "VPC flow logging is disabled."
-    remediationMessage: "Consider enabling VPC flow logging."
+    remediationMessage: "Enable VPC flow logging."
     check:
       RELATED_LIST_HAS_NO:
         status: "COMPLIANT"

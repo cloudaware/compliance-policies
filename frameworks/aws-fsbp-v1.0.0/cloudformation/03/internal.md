@@ -1,0 +1,1 @@
+Termination protection is an operational safety switch, not a universal compliance requirement. Many stacks are intentionally temporary or are recreated by automation, so enforcing this globally would create noise and block legitimate workflows more often than it would identify a real compliance gap.

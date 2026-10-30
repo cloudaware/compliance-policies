@@ -24,7 +24,10 @@ Removing `*Admin` or `*admin` or `Editor` or `Owner` role assignments from servi
 
 1. Get the policy that you want to modify, and write it to a JSON file:
 
-      gcloud projects get-iam-policy PROJECT_ID --format json > iam.json
+    ```sh
+    gcloud projects get-iam-policy {{project-id}} \
+        --format json > iam.json
+    ```
 
 2. The contents of the JSON file will look similar to the following. Note that `role` of members group associated with each `serviceaccount` does not contain `*Admin` or `*admin` or does not match `roles/editor` or does not match `roles/owner`.
 
@@ -32,15 +35,16 @@ This recommendation is only applicable to `User-Managed user-created` service ac
 `SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com`. Note that some Google-managed, Google-created service accounts have the same naming format, and should be excluded (e.g., `appsdev-apps-dev-script-auth@system.gserviceaccount.com` which needs the Owner role).
 
 Sample Json output:
+
 ```json
 {
-    "bindings": [ 
-        { "members": [ "serviceAccount:our-project-123@appspot.gserviceaccount.com", ], "role": "roles/appengine.appAdmin" }, 
-        { "members": [ "user:email1@gmail.com" ], "role": "roles/owner" }, 
-        { "members": [ "serviceAccount:our-project-123@appspot.gserviceaccount.com", "serviceAccount:123456789012-compute@developer.gserviceaccount.com" ], "role": "roles/editor" } 
-    ], 
-    "etag": "BwUjMhCsNvY=", 
-    "version": 1 
+    "bindings": [
+        { "members": [ "serviceAccount:our-project-123@appspot.gserviceaccount.com", ], "role": "roles/appengine.appAdmin" },
+        { "members": [ "user:email1@gmail.com" ], "role": "roles/owner" },
+        { "members": [ "serviceAccount:our-project-123@appspot.gserviceaccount.com", "serviceAccount:123456789012-compute@developer.gserviceaccount.com" ], "role": "roles/editor" }
+    ],
+    "etag": "BwUjMhCsNvY=",
+    "version": 1
 }
 ```
 

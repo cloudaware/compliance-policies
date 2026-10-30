@@ -6,9 +6,10 @@ description: >
   if tokens are leaked, improperly stored, or not rotated regularly.
   
   To mitigate these risks, administrators should:
-  • Restrict token creation to approved users and service principals.
-  • Enforce expiration policies to prevent long-lived tokens.
-  • Monitor token usage and revoke unused or compromised tokens.
+  - Restrict token creation to approved users and service principals.
+  - Enforce expiration policies to prevent long-lived tokens.
+  - Monitor token usage and revoke unused or compromised tokens.
 similar:
   sections:
     - "/frameworks/cis-azure-v4.0.0/03/01/06"
+    - "/frameworks/cis-azure-v6.0.0/02/01/06"

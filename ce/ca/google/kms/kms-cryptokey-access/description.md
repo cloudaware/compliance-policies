@@ -1,26 +1,36 @@
 # Description
 
-It is recommended that the IAM policy on Cloud KMS `cryptokeys` should restrict anonymous and/or public access.
+It is recommended that IAM policies on Cloud KMS `cryptokeys` restrict anonymous or public access.
 
 ## Rationale
 
-Granting permissions to `allUsers` or `allAuthenticatedUsers` allows anyone to access the dataset. Such access might not be desirable if sensitive data is stored at the location. In this case, ensure that anonymous and/or public access to a Cloud KMS `cryptokey` is not allowed.
+Granting permissions to `allUsers` or `allAuthenticatedUsers` allows anyone to access the `cryptokey`. Such access might not be desirable if sensitive data is protected with that key. In this case, ensure that anonymous or public access to a Cloud KMS `cryptokey` is not allowed.
 
 ## Impact
 
-Removing the binding for `allUsers` and `allAuthenticatedUsers` members denies accessing `cryptokeys` to anonymous or public users.
+Removing the binding for `allUsers` and `allAuthenticatedUsers` members denies access to `cryptokeys` for anonymous or public users.
 
 ## Audit
 
 ### From Google Cloud CLI
 
-1. List all Cloud KMS `Cryptokeys`.
+1. List all Cloud KMS `cryptokeys`.
 
-     gcloud kms keys list --keyring=[key_ring_name] --location=global --format=json | jq '.[].name'
+    ```sh
+    gcloud kms keys list \
+        --keyring={{key-ring-name}} \
+        --location=global \
+        --format=json | jq '.[].name'
+    ```
 
 2. Ensure the below command's output does not contain `allUsers` or `allAuthenticatedUsers`.
 
-     gcloud kms keys get-iam-policy [key_name] --keyring=[key_ring_name] --location=global --format=json | jq '.bindings[].members[]'
+    ```sh
+    gcloud kms keys get-iam-policy {{key-name}} \
+        --keyring={{key-ring-name}} \
+        --location=global \
+        --format=json | jq '.bindings[].members[]'
+    ```
 
 ## Default Value
 
@@ -35,9 +45,11 @@ By default Cloud KMS does not allow access to `allUsers` or `allAuthenticatedUse
 
 ## Additional Information
 
-[key_ring_name] : Is the resource ID of the key ring, which is the fully-qualified Key ring name. This value is case-sensitive and in the form:
+[key_ring_name] : is the resource ID of the key ring. This value is case-sensitive and in the form:
 
-     projects/PROJECT_ID/locations/LOCATION/keyRings/KEY_RING
+```txt
+projects/PROJECT_ID/locations/LOCATION/keyRings/KEY_RING
+```
 
 You can retrieve the key ring resource ID using the Cloud Console:
 
@@ -45,9 +57,11 @@ You can retrieve the key ring resource ID using the Cloud Console:
 2. For the key ring whose resource ID you are retrieving, click the `More` icon (3 vertical dots).
 3. Click `Copy Resource ID`. The resource ID for the key ring is copied to your clipboard.
 
-[key_name] : Is the resource ID of the key, which is the fully-qualified CryptoKey name. This value is case-sensitive and in the form:
+[key_name] : is the resource ID of the key. This value is case-sensitive and in the form:
 
-     projects/PROJECT_ID/locations/LOCATION/keyRings/KEY_RING/cryptoKeys/KEY
+```txt
+projects/PROJECT_ID/locations/LOCATION/keyRings/KEY_RING/cryptoKeys/KEY
+```
 
 You can retrieve the key resource ID using the Cloud Console:
 

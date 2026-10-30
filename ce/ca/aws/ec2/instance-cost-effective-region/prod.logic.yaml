@@ -15,7 +15,7 @@ conditions:
           TEXT: "running"
   - status: "INCOMPLIANT"
     currentStateMessage: "The instance is running in us-west-1 which is more expensive than us-west-2."
-    remediationMessage: "Consider migrating the instance to us-west-2."
+    remediationMessage: "Migrate the instance to us-west-2."
     check:
       IS_EQUAL:
         left:
@@ -24,7 +24,7 @@ conditions:
           TEXT: "us-west-1"
   - status: "INCOMPLIANT"
     currentStateMessage: "The instance is running in ca-west-1 which is more expensive than us-west-2."
-    remediationMessage: "Consider migrating the instance to us-west-2."
+    remediationMessage: "Migrate the instance to us-west-2."
     check:
       IS_EQUAL:
         left:
@@ -33,7 +33,7 @@ conditions:
           TEXT: "ca-west-1"
   - status: "INCOMPLIANT"
     currentStateMessage: "The instance is running in ap-northeast-1 which is more expensive than ap-northeast-2."
-    remediationMessage: "Consider migrating the instance to ap-northeast-2."
+    remediationMessage: "Migrate the instance to ap-northeast-2."
     check:
       IS_EQUAL:
         left:
@@ -42,7 +42,7 @@ conditions:
           TEXT: "ap-northeast-1"
   - status: "INCOMPLIANT"
     currentStateMessage: "The instance is running in ap-northeast-3 which is more expensive than ap-northeast-2."
-    remediationMessage: "Consider migrating the instance to ap-northeast-2."
+    remediationMessage: "Migrate the instance to ap-northeast-2."
     check:
       IS_EQUAL:
         left:
@@ -51,7 +51,7 @@ conditions:
           TEXT: "ap-northeast-3"
   - status: "INCOMPLIANT"
     currentStateMessage: "The instance is running in ca-central-1 which is more expensive than us-east-2."
-    remediationMessage: "Consider migrating the instance to us-east-2."
+    remediationMessage: "Migrate the instance to us-east-2."
     check:
       IS_EQUAL:
         left:
@@ -60,7 +60,7 @@ conditions:
           TEXT: "ca-central-1"
   - status: "INCOMPLIANT"
     currentStateMessage: "The instance is running in eu-central-1 which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
-    remediationMessage: "Consider migrating the instance to eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Migrate the instance to eu-west-1, eu-north-1, or eu-south-2."
     check:
       IS_EQUAL:
         left:
@@ -69,7 +69,7 @@ conditions:
           TEXT: "eu-central-1"
   - status: "INCOMPLIANT"
     currentStateMessage: "The instance is running in eu-west-2 which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
-    remediationMessage: "Consider migrating the instance to eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Migrate the instance to eu-west-1, eu-north-1, or eu-south-2."
     check:
       IS_EQUAL:
         left:
@@ -78,7 +78,7 @@ conditions:
           TEXT: "eu-west-2"
   - status: "INCOMPLIANT"
     currentStateMessage: "The instance is running in eu-south-1 which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
-    remediationMessage: "Consider migrating the instance to eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Migrate the instance to eu-west-1, eu-north-1, or eu-south-2."
     check:
       IS_EQUAL:
         left:
@@ -87,7 +87,7 @@ conditions:
           TEXT: "eu-south-1"
   - status: "INCOMPLIANT"
     currentStateMessage: "The instance is running in eu-west-3 which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
-    remediationMessage: "Consider migrating the instance to eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Migrate the instance to eu-west-1, eu-north-1, or eu-south-2."
     check:
       IS_EQUAL:
         left:
@@ -96,7 +96,7 @@ conditions:
           TEXT: "eu-west-3"
   - status: "INCOMPLIANT"
     currentStateMessage: "The instance is running in eu-central-2 which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
-    remediationMessage: "Consider migrating the instance to eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Migrate the instance to eu-west-1, eu-north-1, or eu-south-2."
     check:
       IS_EQUAL:
         left:

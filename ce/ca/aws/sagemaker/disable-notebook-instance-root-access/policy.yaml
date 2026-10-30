@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS SageMaker Notebook Instance Root Access is not disabled"
+  contextual: "Notebook Instance Root Access is not disabled"
+description: >
+  Ensure that AWS SageMaker notebook instances have root access disabled. 
+  Disabling root access follows the principle of least privilege and prevents users 
+  from gaining administrative control over the notebook instance's operating system, 
+  which helps protect against unauthorized configuration changes and software installations.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/secure-access"
+  - "/frameworks/aws-fsbp-v1.0.0/sagemaker/03"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[SageMaker.3] Users should not have root access to SageMaker notebook instances"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/sagemaker-controls.html#sagemaker-3"

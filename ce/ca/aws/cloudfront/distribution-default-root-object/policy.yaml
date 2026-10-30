@@ -6,10 +6,10 @@ description: >
   Ensure that CloudFront Web Distributions have a default root object configured 
   to serve a specific file (e.g., index.html) when a user requests the root URL of the distribution.
 categories:
-  - "SECURITY"
+  - "RELIABILITY"
 type: "BEST_PRACTICE"
 frameworkMappings:
-  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
   - "/frameworks/aws-fsbp-v1.0.0/cloudfront/01"
 similarPolicies:
   awsSecurityHub:

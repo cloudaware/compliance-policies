@@ -1,0 +1,12 @@
+---
+names:
+  full: "Google Private Service Connect is not used for access to Google APIs"
+  contextual: "Private Service Connect is not used for access to Google APIs"
+description: "Use Private Service Connect endpoints for Google APIs so workload traffic to Google services stays on Google private networking."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+impossible: true
+frameworkMappings:
+  - /frameworks/cis-gcp-v5.0.0/03/09
+  - /frameworks/cloudaware/resource-security/secure-access

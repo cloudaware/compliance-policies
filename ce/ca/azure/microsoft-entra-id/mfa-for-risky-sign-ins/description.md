@@ -14,14 +14,14 @@ Risk Policies for Conditional Access require Microsoft Entra ID P2. Additional o
 
 ### From Azure Portal
 
-1. From Azure Home select the Portal Menu in the top left, and select `Microsoft Entra ID`.
+1. In the Azure portal, open the portal menu in the upper left and select `Microsoft Entra ID`.
 2. Select `Security`.
-3. Select on the left side `Conditional Access`.
+3. On the left, select `Conditional Access`.
 4. Select `Policies`.
 5. Select the policy you wish to audit.
 6. Click the blue text under `Users`.
 7. View under `Include` the corresponding users and groups to whom the policy is applied.
-8. View under `Exclude` to determine which users and groups to whom the policy is not applied.
+8. Under `Exclude`, review the users and groups to whom the policy is not applied.
 
 ## Default Value
 
@@ -37,4 +37,4 @@ MFA is not enabled by default.
 
 ## Additional Information
 
-These policies should be tested by using the What If tool in the References. Setting these can and will create issues with logging in for users until they use an MFA device linked to their accounts. Further testing can also be done via the insights and reporting resource the in References which monitors Azure sign ins.
+These policies should be tested by using the What If tool in the References. Setting these can create issues with users logging in until they use an MFA device linked to their accounts. Further testing can also be done via the insights and reporting resource in the References, which monitors Azure sign-ins.

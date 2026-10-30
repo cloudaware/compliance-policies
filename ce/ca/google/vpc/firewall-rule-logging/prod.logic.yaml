@@ -7,7 +7,7 @@ importExtracts:
   - file: "/types/CA10__CaGoogleGceFirewallRule__c/object.extracts.yaml"
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "Firewall Rule logging is enabled."
+    currentStateMessage: "Firewall rule logging is enabled."
     check:
       IS_EQUAL:
         left:
@@ -16,5 +16,5 @@ conditions:
           TEXT: "Enabled"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "Firewall Rule logging is disabled."
-  remediationMessage: "Enable logging for the Firewall Rule."
+  currentStateMessage: "Firewall rule logging is disabled."
+  remediationMessage: "Enable logging for the firewall rule."

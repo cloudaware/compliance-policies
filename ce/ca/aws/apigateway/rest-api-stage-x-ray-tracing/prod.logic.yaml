@@ -9,7 +9,7 @@ recordTypes:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "AWS X-Ray is not enabled in API Gateway."
-    remediationMessage: "Consider enabling AWS X-Ray in API Gateway."
+    remediationMessage: "Enable AWS X-Ray in API Gateway."
     check:
       IS_EQUAL:
         left:

@@ -1,7 +1,7 @@
 ---
 names:
-  full: AWS ACM Certificate Expired
-  contextual: Certificate Expired
+  full: AWS ACM Certificate is expired
+  contextual: Certificate is expired
 description: >
   Remove all expired SSL/TLS certificates in AWS Certificate Manager to comply 
   with Amazon Security Best Practices. This action mitigates risks associated 
@@ -11,7 +11,6 @@ description: >
   secure communications.
 categories:
   - "SECURITY"
-  - "RELIABILITY"
 type: "COMPLIANCE_POLICY"
 frameworkMappings:
   - "/frameworks/cloudaware/secret-and-certificate-governance/expiration-management"

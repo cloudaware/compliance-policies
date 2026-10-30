@@ -1,0 +1,62 @@
+---
+inputType: CA10A1__CaAwsMwaaEnvironment__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10A1__CaAwsMwaaEnvironment__c/object.extracts.yaml
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: "The environment is being created, updated, maintained, or deleted, or is unavailable."
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - CREATE_FAILED
+              - DELETING
+              - DELETED
+              - CREATING
+              - PENDING
+              - UPDATING
+              - ROLLING_BACK
+              - CREATING_SNAPSHOT
+              - MAINTENANCE
+              - UNAVAILABLE
+        search:
+          EXTRACT: CA10A1__status__c
+  - status: UNDETERMINED
+    currentStateMessage: "The environment status is unrecognized, so Airflow version support cannot be determined."
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              SET:
+                itemType: TEXT
+                items:
+                  - AVAILABLE
+                  - UPDATE_FAILED
+            search:
+              EXTRACT: CA10A1__status__c
+  - status: INCOMPLIANT
+    currentStateMessage: "The environment uses an Airflow version that Amazon MWAA no longer supports."
+    remediationMessage: "Test your DAGs and dependencies, then upgrade or migrate the environment to a supported Airflow version."
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - "1.10.12"
+              - "2.0.2"
+              - "2.2.2"
+              - "2.4.3"
+              - "2.5.1"
+              - "2.6.3"
+        search:
+          EXTRACT: CA10A1__airflowVersion__c
+
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: "The environment's Airflow version has not reached a known Amazon MWAA end-of-support date."

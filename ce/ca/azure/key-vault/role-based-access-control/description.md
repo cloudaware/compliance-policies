@@ -2,15 +2,15 @@
 
 The recommended way to access Key Vaults is to use the Azure Role-Based Access Control (RBAC) permissions model.
 
-Azure RBAC is an authorization system built on Azure Resource Manager that provides fine-grained access management of Azure resources. It allows users to manage Key, Secret, and Certificate permissions. It provides one place to manage all permissions across all key vaults.
+Azure RBAC is an authorization system built on Azure Resource Manager that provides fine-grained access management of Azure resources. It allows users to manage key, secret, and certificate permissions. This provides one place to manage permissions across all Key Vaults.
 
 ## Rationale
 
-The new RBAC permissions model for Key Vaults enables a much finer grained access control for key vault secrets, keys, certificates, etc., than the vault access policy. This in turn will permit the use of privileged identity management over these roles, thus securing the key vaults with JIT Access management.
+The RBAC permissions model for Key Vaults enables much finer-grained access control for secrets, keys, certificates, and more than the vault access policy. This permits the use of privileged identity management over these roles, securing Key Vaults with JIT access management.
 
 ## Impact
 
-Implementation needs to be properly designed from the ground up, as this is a fundamental change to the way key vaults are accessed/managed. Changing permissions to key vaults will result in loss of service as permissions are re-applied. For the least amount of downtime, map your current groups and users to their corresponding permission needs.
+Implementation needs to be properly designed from the ground up, as this is a fundamental change to the way Key Vaults are accessed and managed. Changing permissions can result in service disruption while permissions are re-applied. To minimize downtime, map current groups and users to their corresponding permission needs.
 
 ## Audit
 
@@ -18,7 +18,7 @@ This policy flags an *Azure Key Vault* as `INCOMPLIANT` if `RBAC Authorization` 
 
 ## Default Value
 
-The default value for Access control in Key Vaults is Vault Policy.
+The default value for access control in Key Vaults is Vault Policy.
 
 ## References
 

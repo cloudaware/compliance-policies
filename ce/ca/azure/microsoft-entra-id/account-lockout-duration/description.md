@@ -1,6 +1,6 @@
 # Description
 
-The account lockout duration value determines how long an account retains the status of lockout, and therefore how long before a user can continue to attempt to login after passing the lockout threshold.
+The account lockout duration determines how long an account remains locked out, and therefore how long before a user can continue attempting to log in after passing the lockout threshold.
 
 ## Rationale
 
@@ -16,7 +16,7 @@ If the account lockout duration is set too high (more than 300 seconds) users ma
 
 ### From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. In the Azure portal, open the portal menu.
 2. Select `Microsoft Entra ID`.
 3. Under `Manage`, select `Security`.
 4. Under `Manage`, select `Authentication methods`.

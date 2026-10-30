@@ -15,21 +15,22 @@
     },
     {
         "expectedResult": {
-            "status": "INCOMPLIANT",
+            "status": "INAPPLICABLE",
             "conditionIndex": "199",
-            "conditionText": "extract('CA10__serviceSoftwareUpdateAvailable__c') == 'false'",
+            "conditionText": "extract('CA10__created__c') == 'false'",
             "runtimeError": null
         },
         "context": {
             "snapshotTime": "2025-10-29T06:46:08Z"
         },
+        "CA10__created__c": "false",
         "CA10__disappearanceTime__c": null,
-        "CA10__serviceSoftwareUpdateAvailable__c": "false",
+        "CA10__serviceSoftwareUpdateAvailable__c": "true",
         "Id": "test2"
     },
     {
         "expectedResult": {
-            "status": "COMPLIANT",
+            "status": "INCOMPLIANT",
             "conditionIndex": "299",
             "conditionText": "extract('CA10__serviceSoftwareUpdateAvailable__c') == 'true'",
             "runtimeError": null
@@ -37,8 +38,39 @@
         "context": {
             "snapshotTime": "2025-10-29T06:46:08Z"
         },
+        "CA10__created__c": "true",
         "CA10__disappearanceTime__c": null,
         "CA10__serviceSoftwareUpdateAvailable__c": "true",
         "Id": "test3"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__serviceSoftwareUpdateAvailable__c') == 'false'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-29T06:46:08Z"
+        },
+        "CA10__created__c": "true",
+        "CA10__disappearanceTime__c": null,
+        "CA10__serviceSoftwareUpdateAvailable__c": "false",
+        "Id": "test4"
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "201",
+            "conditionText": "CA10__serviceSoftwareUpdateAvailable__c.isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-10-29T06:46:08Z"
+        },
+        "CA10__created__c": "true",
+        "CA10__disappearanceTime__c": null,
+        "CA10__serviceSoftwareUpdateAvailable__c": null,
+        "Id": "test5"
     }
 ]

@@ -11,7 +11,7 @@ Only the third implementation is recommended.
 
 ## Rationale
 
-Assigning IAM policy only through groups unifies permissions management to a single, flexible layer consistent with organizational functional roles. By unifying permissions management, the likelihood of excessive permissions is reduced.
+Assigning IAM policies only through groups unifies permissions management to a single, flexible layer consistent with organizational functional roles. By unifying permissions management, the likelihood of excessive permissions is reduced.
 
 ## Audit
 
@@ -19,19 +19,19 @@ Perform the following to determine if an inline policy is set or a policy is dir
 
 1. Run the following to get a list of IAM users:
 
-```sh
-aws iam list-users --query 'Users[*].UserName' --output text
-```
+    ```sh
+    aws iam list-users --query 'Users[*].UserName' --output text
+    ```
 
 2. For each user returned, run the following command to determine if any policies are attached to them:
 
-```sh
-aws iam list-attached-user-policies --user-name <iam_user>
-```
+    ```sh
+    aws iam list-attached-user-policies --user-name <iam_user>
+    ```
 
-```sh
-aws iam list-user-policies --user-name <iam_user>
-```
+    ```sh
+    aws iam list-user-policies --user-name <iam_user>
+    ```
 
 3. If any policies are returned, the user has an inline policy or direct policy attachment.
 

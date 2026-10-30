@@ -14,7 +14,7 @@
 
 2. **Edit `task-def.json`**
 
-   Locate the pidMode key and remove it, or set it to task.
+   Locate the `pidMode` key and remove it, or set it to `task`.
 
     ```json
     {

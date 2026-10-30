@@ -1,6 +1,6 @@
 # Description
 
-API Gateway REST API stages should be configured with SSL certificates to ensure secure communication between API Gateway and backend systems. This configuration guarantees that requests originating from API Gateway are authenticated, allowing the backend systems to trust that the requests come from the API Gateway and not from unauthorized sources. SSL certificates are used to encrypt the communication between these components, adding a layer of security and ensuring integrity.
+API Gateway REST API stages should be configured with SSL certificates to ensure secure communication between API Gateway and backend systems. This configuration ensures that requests originating from API Gateway are authenticated, allowing backend systems to trust that the requests come from API Gateway and not unauthorized sources. SSL certificates encrypt communication between these components, adding a layer of security and ensuring integrity.
 
 ## Rationale
 

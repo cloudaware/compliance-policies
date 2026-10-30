@@ -6,7 +6,7 @@ AWS CloudWatch alarms monitor a single metric over a defined time period and can
 
 ## Rationale
 
-Alarms without configured actions are ineffective because they do not generate notifications or trigger automated responses when their state changes. This lack of response increases the risk of critical performance issues, security events, or system failures going undetected, potentially resulting in prolonged downtime or security breaches.
+Alarms without configured actions are ineffective because they do not generate notifications or trigger automated responses when their state changes. This increases the risk of critical performance issues, security events, or system failures going undetected, potentially resulting in prolonged downtime or security breaches.
 
 ## Impact
 

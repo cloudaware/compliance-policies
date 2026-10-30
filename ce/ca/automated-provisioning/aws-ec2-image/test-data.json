@@ -1,0 +1,262 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:backup:source-resource'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-backup-source-resource",
+    "Name": "test-aws-backup-source-resource",
+    "CA10__tagsJson__c": "{\"aws:backup:source-resource\":\"arn:aws:ec2:us-east-1:123456789012:volume/vol-0123456789abcdef0\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:dlm:lifecycle-policy-id')) && CA10__tagsJson__c.hasExact(bytes('aws:dlm:lifecycle-schedule-name')) && CA10__tagsJson__c.hasExact(bytes('dlm:managed'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-dlm-ami-tags",
+    "Name": "test-aws-dlm-ami-tags",
+    "CA10__tagsJson__c": "{\"aws:dlm:lifecycle-policy-id\":\"policy-0123456789abcdef0\",\"aws:dlm:lifecycle-schedule-name\":\"Daily AMIs\",\"dlm:managed\":\"true\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:servicecatalog:portfolioArn'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-servicecatalog-portfolioarn",
+    "Name": "test-aws-servicecatalog-portfolioarn",
+    "CA10__tagsJson__c": "{\"aws:servicecatalog:portfolioArn\":\"arn:aws:catalog:us-east-1:123456789012:portfolio/port-abc123\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:servicecatalog:productArn'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-servicecatalog-productarn",
+    "Name": "test-aws-servicecatalog-productarn",
+    "CA10__tagsJson__c": "{\"aws:servicecatalog:productArn\":\"arn:aws:catalog:us-east-1:123456789012:product/prod-abc123\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "599",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:servicecatalog:provisioningPrincipalArn'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-servicecatalog-provisioningprincipalarn",
+    "Name": "test-aws-servicecatalog-provisioningprincipalarn",
+    "CA10__tagsJson__c": "{\"aws:servicecatalog:provisioningPrincipalArn\":\"arn:aws:iam::123456789012:role/provisioning-role\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "699",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:servicecatalog:provisionedProductArn'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-servicecatalog-provisionedproductarn",
+    "Name": "test-aws-servicecatalog-provisionedproductarn",
+    "CA10__tagsJson__c": "{\"aws:servicecatalog:provisionedProductArn\":\"arn:aws:servicecatalog:us-east-1:123456789012:stack/test/pp-abc123\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "799",
+      "conditionText": "CA10__tagsJson__c.hasExact(bytes('aws:servicecatalog:provisioningArtifactIdentifier'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-servicecatalog-provisioningartifactidentifier",
+    "Name": "test-aws-servicecatalog-provisioningartifactidentifier",
+    "CA10__tagsJson__c": "{\"aws:servicecatalog:provisioningArtifactIdentifier\":\"pa-abc123\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "800",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-no-automatic-provisioning-tags",
+    "Name": "test-no-automatic-provisioning-tags",
+    "CA10__tagsJson__c": "{\"Owner\":\"platform-team\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "800",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-backup-managed-resource-not-supported",
+    "Name": "test-aws-backup-managed-resource-not-supported",
+    "CA10__tagsJson__c": "{\"AWSBackupManagedResource\":\"2026-06-23T00:00:00Z\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "800",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-application-migration-service-not-supported-for-ami",
+    "Name": "test-aws-application-migration-service-not-supported-for-ami",
+    "CA10__tagsJson__c": "{\"AWSApplicationMigrationServiceManaged\":\"mgn.amazonaws.com\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "800",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-elastic-disaster-recovery-not-supported-for-ami",
+    "Name": "test-aws-elastic-disaster-recovery-not-supported-for-ami",
+    "CA10__tagsJson__c": "{\"AWSElasticDisasterRecoveryManaged\":\"drs.amazonaws.com\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "800",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-rds-custom-not-supported-for-ami",
+    "Name": "test-aws-rds-custom-not-supported-for-ami",
+    "CA10__tagsJson__c": "{\"AWSRDSCustom\":\"custom-sqlserver\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "800",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-06-23T00:00:00Z"
+    },
+    "Id": "test-aws-dlm-incomplete-tags",
+    "Name": "test-aws-dlm-incomplete-tags",
+    "CA10__tagsJson__c": "{\"aws:dlm:lifecycle-policy-id\":\"policy-0123456789abcdef0\",\"aws:dlm:lifecycle-schedule-name\":\"Daily AMIs\"}",
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "rtId",
+    "RecordType": {
+      "DeveloperName": "RecordType1",
+      "Id": "rtId"
+    }
+  }
+]

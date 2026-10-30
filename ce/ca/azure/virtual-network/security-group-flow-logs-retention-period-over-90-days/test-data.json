@@ -17,7 +17,7 @@
     },
     {
         "expectedResult": {
-            "status": "INAPPLICABLE",
+            "status": "INCOMPLIANT",
             "conditionIndex": "199",
             "conditionText": "extract('CA10__flowLogsEnabled__c') == false",
             "runtimeError": null
@@ -34,8 +34,8 @@
     {
         "expectedResult": {
             "status": "INCOMPLIANT",
-            "conditionIndex": "299",
-            "conditionText": "extract('CA10__flowLogsRetentionPolicyEnabled__c') == false",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
             "runtimeError": null
         },
         "context": {
@@ -45,13 +45,13 @@
         "CA10__disappearanceTime__c": null,
         "CA10__flowLogsEnabled__c": true,
         "CA10__flowLogsRetentionPolicyEnabled__c": false,
-        "CA10__flowLogsRetentionPolicyDays__c": 0
+        "CA10__flowLogsRetentionPolicyDays__c": 1
     },
     {
         "expectedResult": {
             "status": "INCOMPLIANT",
-            "conditionIndex": "399",
-            "conditionText": "extract('CA10__flowLogsRetentionPolicyDays__c') < number(90.0)",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
             "runtimeError": null
         },
         "context": {
@@ -66,8 +66,8 @@
     {
         "expectedResult": {
             "status": "COMPLIANT",
-            "conditionIndex": "400",
-            "conditionText": "otherwise",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__flowLogsRetentionPolicyDays__c') == number(0.0) || (extract('CA10__flowLogsRetentionPolicyEnabled__c') == true && extract('CA10__flowLogsRetentionPolicyDays__c') >= number(90.0))",
             "runtimeError": null
         },
         "context": {
@@ -78,5 +78,21 @@
         "CA10__flowLogsEnabled__c": true,
         "CA10__flowLogsRetentionPolicyEnabled__c": true,
         "CA10__flowLogsRetentionPolicyDays__c": 365
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__flowLogsRetentionPolicyDays__c') == number(0.0) || (extract('CA10__flowLogsRetentionPolicyEnabled__c') == true && extract('CA10__flowLogsRetentionPolicyDays__c') >= number(90.0))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-28T08:24:16Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__flowLogsEnabled__c": true,
+        "CA10__flowLogsRetentionPolicyEnabled__c": false,
+        "CA10__flowLogsRetentionPolicyDays__c": 0
     }
 ]

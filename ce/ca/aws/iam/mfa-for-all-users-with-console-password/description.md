@@ -23,28 +23,28 @@ Perform the following to determine if a MFA device is enabled for all IAM users 
 
 ### From Command Line
 
-1. Run the following command (OSX/Linux/UNIX) to generate a list of all IAM users along with their password and MFA status:
+1. Run the following command to generate a list of all IAM users along with their password and MFA status:
 
-```sh
-aws iam generate-credential-report
-```
+    ```sh
+    aws iam generate-credential-report
+    ```
 
-```sh
-aws iam get-credential-report --query 'Content' --output text | base64 -d | cut -d, -f1,4,8
-```
+    ```sh
+    aws iam get-credential-report --query 'Content' --output text | base64 -d | cut -d, -f1,4,8
+    ```
 
 2. The output of this command will produce a table similar to the following:
 
-|user|password_enabled|mfa_active|
-|---|---|---|
-|elise|false|false|
-|brandon|true|true|
-|rakesh|false|false|
-|helene|false|false|
-|paras|true|true|
-|anitha|false|false|
+    |user|password_enabled|mfa_active|
+    |---|---|---|
+    |elise|false|false|
+    |brandon|true|true|
+    |rakesh|false|false|
+    |helene|false|false|
+    |paras|true|true|
+    |anitha|false|false|
 
-3. For any column having `password_enabled` set to `true` , ensure `mfa_active` is also set to `true`.
+3. For any column with `password_enabled` set to `true`, ensure `mfa_active` is also set to `true`.
 
 ## References
 
@@ -59,4 +59,4 @@ aws iam get-credential-report --query 'Content' --output text | base64 -d | cut 
 
 ### Forced IAM User Self-Service Remediation
 
-Amazon has published a pattern that forces users to self-service setup MFA before they have access to their complete permissions set. Until they complete this step, they cannot access their full permissions. This pattern can be used on new AWS accounts. It can also be used on existing accounts - it is recommended users are given instructions and a grace period to accomplish MFA enrollment before active enforcement on existing AWS accounts.
+Amazon has published a pattern that forces users to self-service setup MFA before they have access to their complete permissions set. Until they complete this step, they cannot access their full permissions. This pattern can be used on new AWS accounts. It can also be used on existing accounts. It is recommended users are given instructions and a grace period to accomplish MFA enrollment before active enforcement on existing AWS accounts.

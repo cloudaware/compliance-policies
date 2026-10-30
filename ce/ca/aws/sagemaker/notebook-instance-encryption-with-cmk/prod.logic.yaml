@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10A1__CaAwsSageMakerNotebookInstance__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The SageMaker Notebook Instance is not in service."
+    currentStateMessage: "The SageMaker notebook instance is not in service."
     check:
       NOT_EQUAL:
         left:
@@ -14,12 +14,12 @@ conditions:
         right:
           TEXT: "InService"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The SageMaker Notebook Instance is not encrypted with a Customer-Managed KMS Key."
-    remediationMessage: "Configure the SageMaker Notebook Instance to use a Customer-Managed KMS Key for encryption."
+    currentStateMessage: "The SageMaker notebook instance is not encrypted with a customer-managed KMS key."
+    remediationMessage: "Configure the SageMaker notebook instance to use a customer-managed KMS key for encryption."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10A1__kmsKeyId__c"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The SageMaker Notebook Instance is encrypted with a Customer-Managed KMS Key."
+  currentStateMessage: "The SageMaker notebook instance is encrypted with a customer-managed KMS key."

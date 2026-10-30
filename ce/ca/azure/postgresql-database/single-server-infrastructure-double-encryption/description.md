@@ -1,22 +1,22 @@
 # Description
 
-Azure Database for PostgreSQL servers should be created with 'infrastructure double encryption' enabled.
+Azure Database for PostgreSQL servers should be created with infrastructure double encryption enabled.
 
 **NOTE**: This recommendation currently only applies to Single Server, not Flexible Server. See additional information below for details about the planned retirement of Azure PostgreSQL Single Server.
 
 ## Rationale
 
-If Double Encryption is enabled, another layer of encryption is implemented at the hardware level before the storage or network level. Information will be encrypted before it is even accessed, preventing both interception of data in motion if the network layer encryption is broken and data at rest in system resources such as memory or processor cache. Encryption will also be in place for any backups taken of the database, so the key will secure access the data in all forms. For the most secure implementation of key based encryption, it is recommended to use a Customer Managed asymmetric RSA 2048 Key in Azure Key Vault.
+If double encryption is enabled, another layer of encryption is implemented at the hardware level before the storage or network level. Information is encrypted before it is accessed, preventing both interception of data in motion if the network layer encryption is broken and exposure of data at rest in system resources such as memory or processor cache. Encryption also applies to any backups taken of the database, so the key secures access to the data in all forms. For the most secure implementation of key based encryption, use a customer-managed asymmetric RSA 2048 key in Azure Key Vault.
 
 ## Impact
 
-The read and write speeds to the database will be impacted if both default encryption and Infrastructure Encryption are checked, as a secondary form of encryption requires more resource overhead for the cryptography of information. This cost is justified for information security. Customer managed keys are recommended for the most secure implementation, leading to overhead of key management. The key will also need to be backed up in a secure location, as loss of the key will mean loss of the information in the database.
+Read and write performance is impacted if both default encryption and Infrastructure Encryption are enabled, as a secondary form of encryption requires more resource overhead for cryptography. This cost is justified for information security. Customer-managed keys are recommended for the most secure implementation, which adds overhead for key management. The key must also be backed up in a secure location, as loss of the key means loss of the data in the database.
 
 ## Audit
 
 ### From Azure Portal
 
-1. From Azure Home, click on more services.
+1. From Azure Home, click **More services**.
 2. Click on `Databases`.
 3. Click on `Azure Database for PostgreSQL servers`.
 4. Select the database by clicking on its name.
@@ -25,10 +25,14 @@ The read and write speeds to the database will be impacted if both default encry
 
 ### From Azure CLI
 
-Enter the command:
+Run the following command:
 
 ```sh
-az postgres server configuration show --name <servername> --resource-group <resourcegroup> --query 'properties.infrastructureEncryption' -o tsv
+az postgres server configuration show \
+    --name {{server-name}} \
+    --resource-group {{resource-group-name}} \
+    --query "properties.infrastructureEncryption" \
+    -o tsv
 ```
 
 Verify that `Infrastructure encryption` is `enabled`.
@@ -41,7 +45,7 @@ If referencing a digital copy of this Benchmark, clicking a Policy ID will open 
 
 ## Default Value
 
-By Default, `Double Encryption` is `disabled`.
+By default, `Double Encryption` is `disabled`.
 
 ## References
 

@@ -17,7 +17,7 @@ conditions:
             search:
               TEXT: "SQLSERVER" 
   - status: "COMPLIANT"
-    currentStateMessage: "user connections database flag is set to unlimited connections."
+    currentStateMessage: "The user connections database flag is set to unlimited connections."
     check:
       IS_EQUAL:
         left:
@@ -26,5 +26,8 @@ conditions:
           TEXT: "0"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "user connections database flag isn't set to unlimited connections."
+  currentStateMessage: "The user connections database flag is not set to unlimited connections."
   remediationMessage: "Set user connections database flag to 0 (unlimited connections)."
+
+
+

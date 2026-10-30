@@ -8,7 +8,7 @@ Enabling logging for DataSync Tasks provides visibility into data transfer opera
 
 ## Impact
 
-Enabling logging will may incur charges for Amazon CloudWatch Logs based on the amount of data ingested and stored.
+Enabling logging may incur charges for Amazon CloudWatch Logs based on the amount of data ingested and stored.
 
 ## Audit
 

@@ -1,0 +1,2074 @@
+[
+  {
+    "Id": "retired-AL2_x86_64",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['AL2_x86_64', 'AL2_x86_64_GPU', 'AL2_ARM_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_x86_64",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.32.3-20250514",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.32"
+  },
+  {
+    "Id": "retired-AL2_x86_64_GPU",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['AL2_x86_64', 'AL2_x86_64_GPU', 'AL2_ARM_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_x86_64_GPU",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.32.3-20250514",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.32"
+  },
+  {
+    "Id": "retired-AL2_ARM_64",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['AL2_x86_64', 'AL2_x86_64_GPU', 'AL2_ARM_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_ARM_64",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.32.3-20250514",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.32"
+  },
+  {
+    "Id": "supported-AL2023_x86_64_STANDARD",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.0-20261012",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "supported-AL2023_ARM_64_STANDARD",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_ARM_64_STANDARD",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.0-20261012",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "supported-AL2023_x86_64_NEURON",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_NEURON",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.0-20261012",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "supported-AL2023_x86_64_NVIDIA",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_NVIDIA",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.0-20261012",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "supported-AL2023_ARM_64_NVIDIA",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_ARM_64_NVIDIA",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.0-20261012",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "supported-BOTTLEROCKET_ARM_64",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_ARM_64",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "supported-BOTTLEROCKET_x86_64",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "supported-BOTTLEROCKET_ARM_64_FIPS",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_ARM_64_FIPS",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "supported-BOTTLEROCKET_x86_64_FIPS",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64_FIPS",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "supported-BOTTLEROCKET_ARM_64_NVIDIA",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_ARM_64_NVIDIA",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "supported-BOTTLEROCKET_x86_64_NVIDIA",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64_NVIDIA",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "supported-BOTTLEROCKET_ARM_64_NVIDIA_FIPS",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_ARM_64_NVIDIA_FIPS",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "supported-BOTTLEROCKET_x86_64_NVIDIA_FIPS",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64_NVIDIA_FIPS",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "al2023-maintenance",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2027-07-01T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.37.0-20261012",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.37"
+  },
+  {
+    "Id": "al2023-final-day",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2029-06-30T23:59:59Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.40.0-20261012",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.40"
+  },
+  {
+    "Id": "al2023-past-maintenance",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "setOfText(['AL2023_x86_64_STANDARD', 'AL2023_ARM_64_STANDARD', 'AL2023_x86_64_NEURON', 'AL2023_x86_64_NVIDIA', 'AL2023_ARM_64_NVIDIA']).contains(extract('CA10A1__amiType__c')) && '2029-06-30T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2029-07-01T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.40.0-20261012",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.40"
+  },
+  {
+    "Id": "unknown-family-22",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['CUSTOM', 'WINDOWS_CORE_2019_x86_64', 'WINDOWS_FULL_2019_x86_64', 'WINDOWS_CORE_2022_x86_64', 'WINDOWS_FULL_2022_x86_64', 'WINDOWS_CORE_2025_x86_64', 'WINDOWS_FULL_2025_x86_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "CUSTOM",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.32.3-20250514",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "unknown-family-23",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['CUSTOM', 'WINDOWS_CORE_2019_x86_64', 'WINDOWS_FULL_2019_x86_64', 'WINDOWS_CORE_2022_x86_64', 'WINDOWS_FULL_2022_x86_64', 'WINDOWS_CORE_2025_x86_64', 'WINDOWS_FULL_2025_x86_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "WINDOWS_CORE_2022_x86_64",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.32.3-20250514",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "unknown-family-24",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_NEW",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.0-20261012",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "unknown-family-25",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_foo",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.32.3-20250514",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.32"
+  },
+  {
+    "Id": "unknown-family-26",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.32.3-20250514",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "unknown-family-27",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 201,
+      "conditionText": "CA10A1__amiType__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.32.3-20250514",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "unknown-family-28",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 201,
+      "conditionText": "CA10A1__amiType__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "   ",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.32.3-20250514",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "unknown-family-29",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 201,
+      "conditionText": "CA10A1__amiType__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.32.3-20250514",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "excluded-CREATING",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATING', 'CREATE_FAILED', 'DELETING']).contains(extract('CA10A1__status__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_x86_64",
+    "CA10A1__status__c": "CREATING",
+    "CA10A1__releaseVersion__c": "1.32.3-20250514",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.32"
+  },
+  {
+    "Id": "excluded-CREATE_FAILED",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATING', 'CREATE_FAILED', 'DELETING']).contains(extract('CA10A1__status__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_x86_64",
+    "CA10A1__status__c": "CREATE_FAILED",
+    "CA10A1__releaseVersion__c": "1.32.3-20250514",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.32"
+  },
+  {
+    "Id": "excluded-DELETING",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATING', 'CREATE_FAILED', 'DELETING']).contains(extract('CA10A1__status__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_x86_64",
+    "CA10A1__status__c": "DELETING",
+    "CA10A1__releaseVersion__c": "1.32.3-20250514",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.32"
+  },
+  {
+    "Id": "retired-UPDATING",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['AL2_x86_64', 'AL2_x86_64_GPU', 'AL2_ARM_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_x86_64",
+    "CA10A1__status__c": "UPDATING",
+    "CA10A1__releaseVersion__c": "1.32.3-20250514",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.32"
+  },
+  {
+    "Id": "retired-DEGRADED",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['AL2_x86_64', 'AL2_x86_64_GPU', 'AL2_ARM_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_x86_64",
+    "CA10A1__status__c": "DEGRADED",
+    "CA10A1__releaseVersion__c": "1.32.3-20250514",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.32"
+  },
+  {
+    "Id": "retired-DELETE_FAILED",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['AL2_x86_64', 'AL2_x86_64_GPU', 'AL2_ARM_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_x86_64",
+    "CA10A1__status__c": "DELETE_FAILED",
+    "CA10A1__releaseVersion__c": "1.32.3-20250514",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.32"
+  },
+  {
+    "Id": "unknown-status-36",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['AL2_x86_64', 'AL2_x86_64_GPU', 'AL2_ARM_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_x86_64",
+    "CA10A1__status__c": "UNKNOWN",
+    "CA10A1__releaseVersion__c": "1.32.3-20250514",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.32"
+  },
+  {
+    "Id": "unknown-status-37",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 101,
+      "conditionText": "CA10A1__status__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_x86_64",
+    "CA10A1__status__c": "",
+    "CA10A1__releaseVersion__c": "1.32.3-20250514",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.32"
+  },
+  {
+    "Id": "unknown-status-38",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 101,
+      "conditionText": "CA10A1__status__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_x86_64",
+    "CA10A1__status__c": null,
+    "CA10A1__releaseVersion__c": "1.32.3-20250514",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.32"
+  },
+  {
+    "Id": "missing-release-known-family",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": null,
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "custom-al2-looking-release",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['CUSTOM', 'WINDOWS_CORE_2019_x86_64', 'WINDOWS_FULL_2019_x86_64', 'WINDOWS_CORE_2022_x86_64', 'WINDOWS_FULL_2022_x86_64', 'WINDOWS_CORE_2025_x86_64', 'WINDOWS_FULL_2025_x86_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "CUSTOM",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.32.3-20250514",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.36"
+  },
+  {
+    "Id": "retired-future-looking-release",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['AL2_x86_64', 'AL2_x86_64_GPU', 'AL2_ARM_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_x86_64",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.5-20990101",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__version__c": "1.32"
+  },
+  {
+    "Id": "disappeared",
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "runtimeError": null,
+      "conditionIndex": 99,
+      "conditionText": "isDisappeared(CA10A1__disappearanceTime__c)"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_x86_64",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.32.3-20250514",
+    "CA10A1__disappearanceTime__c": "2026-10-01T00:00:00Z",
+    "CA10A1__version__c": "1.32"
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-1.29-retired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && '2026-11-25T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.32' && '2027-03-22T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.33' && '2027-07-28T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.34' && '2027-12-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.35' && '2028-03-26T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.36' && '2028-08-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.37' && '2028-11-30T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.29",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.29.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-1.29-retired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && '2026-11-25T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.32' && '2027-03-22T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.33' && '2027-07-28T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.34' && '2027-12-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.35' && '2028-03-26T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.36' && '2028-08-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.37' && '2028-11-30T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "1.29",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-1.30-retired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && '2026-11-25T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.32' && '2027-03-22T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.33' && '2027-07-28T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.34' && '2027-12-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.35' && '2028-03-26T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.36' && '2028-08-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.37' && '2028-11-30T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.30",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.30.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-1.30-retired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && '2026-11-25T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.32' && '2027-03-22T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.33' && '2027-07-28T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.34' && '2027-12-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.35' && '2028-03-26T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.36' && '2028-08-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.37' && '2028-11-30T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "1.30",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-1.31-before-final",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-11-25T23:59:59Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.31",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.31.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-1.31-at-final",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && '2026-11-25T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.32' && '2027-03-22T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.33' && '2027-07-28T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.34' && '2027-12-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.35' && '2028-03-26T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.36' && '2028-08-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.37' && '2028-11-30T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-11-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.31",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.31.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-1.31-before-final",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-11-25T23:59:59Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "1.31",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-1.31-at-final",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && '2026-11-25T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.32' && '2027-03-22T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.33' && '2027-07-28T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.34' && '2027-12-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.35' && '2028-03-26T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.36' && '2028-08-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.37' && '2028-11-30T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-11-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "1.31",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-1.32-before-final",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2027-03-22T23:59:59Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.32",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.32.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-1.32-at-final",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && '2026-11-25T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.32' && '2027-03-22T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.33' && '2027-07-28T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.34' && '2027-12-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.35' && '2028-03-26T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.36' && '2028-08-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.37' && '2028-11-30T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2027-03-23T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.32",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.32.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-1.32-before-final",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2027-03-22T23:59:59Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "1.32",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-1.32-at-final",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && '2026-11-25T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.32' && '2027-03-22T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.33' && '2027-07-28T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.34' && '2027-12-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.35' && '2028-03-26T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.36' && '2028-08-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.37' && '2028-11-30T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2027-03-23T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "1.32",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-1.33-before-final",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2027-07-28T23:59:59Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.33",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.33.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-1.33-at-final",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && '2026-11-25T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.32' && '2027-03-22T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.33' && '2027-07-28T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.34' && '2027-12-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.35' && '2028-03-26T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.36' && '2028-08-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.37' && '2028-11-30T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2027-07-29T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.33",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.33.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-1.33-before-final",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2027-07-28T23:59:59Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "1.33",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-1.33-at-final",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && '2026-11-25T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.32' && '2027-03-22T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.33' && '2027-07-28T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.34' && '2027-12-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.35' && '2028-03-26T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.36' && '2028-08-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.37' && '2028-11-30T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2027-07-29T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "1.33",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-1.34-before-final",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2027-12-01T23:59:59Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.34.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-1.34-at-final",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && '2026-11-25T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.32' && '2027-03-22T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.33' && '2027-07-28T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.34' && '2027-12-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.35' && '2028-03-26T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.36' && '2028-08-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.37' && '2028-11-30T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2027-12-02T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.34.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-1.34-before-final",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2027-12-01T23:59:59Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-1.34-at-final",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && '2026-11-25T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.32' && '2027-03-22T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.33' && '2027-07-28T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.34' && '2027-12-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.35' && '2028-03-26T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.36' && '2028-08-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.37' && '2028-11-30T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2027-12-02T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-1.35-before-final",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2028-03-26T23:59:59Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.35",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.35.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-1.35-at-final",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && '2026-11-25T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.32' && '2027-03-22T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.33' && '2027-07-28T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.34' && '2027-12-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.35' && '2028-03-26T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.36' && '2028-08-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.37' && '2028-11-30T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2028-03-27T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.35",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.35.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-1.35-before-final",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2028-03-26T23:59:59Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "1.35",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-1.35-at-final",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && '2026-11-25T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.32' && '2027-03-22T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.33' && '2027-07-28T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.34' && '2027-12-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.35' && '2028-03-26T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.36' && '2028-08-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.37' && '2028-11-30T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2028-03-27T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "1.35",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-1.36-before-final",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2028-08-01T23:59:59Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.36",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-1.36-at-final",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && '2026-11-25T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.32' && '2027-03-22T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.33' && '2027-07-28T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.34' && '2027-12-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.35' && '2028-03-26T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.36' && '2028-08-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.37' && '2028-11-30T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2028-08-02T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.36",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-1.36-before-final",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2028-08-01T23:59:59Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "1.36",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-1.36-at-final",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && '2026-11-25T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.32' && '2027-03-22T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.33' && '2027-07-28T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.34' && '2027-12-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.35' && '2028-03-26T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.36' && '2028-08-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.37' && '2028-11-30T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2028-08-02T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "1.36",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-1.37-before-final",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2028-11-30T23:59:59Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.37",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.37.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-1.37-at-final",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && '2026-11-25T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.32' && '2027-03-22T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.33' && '2027-07-28T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.34' && '2027-12-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.35' && '2028-03-26T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.36' && '2028-08-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.37' && '2028-11-30T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2028-12-01T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.37",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.37.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-1.37-before-final",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2028-11-30T23:59:59Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "1.37",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-1.37-at-final",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && '2026-11-25T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.32' && '2027-03-22T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.33' && '2027-07-28T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.34' && '2027-12-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.35' && '2028-03-26T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.36' && '2028-08-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.37' && '2028-11-30T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2028-12-01T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "1.37",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-standard-transition-2026-03-22T23:59:59Z",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-03-22T23:59:59Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.32",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.32.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-standard-transition-2026-03-23T00:00:00Z",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-03-23T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.32",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.32.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-standard-transition-2026-03-23T23:59:59Z",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-03-23T23:59:59Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.32",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.32.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_ARM_64_NVIDIA_FIPS-standard-transition-2026-03-22T23:59:59Z",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-03-22T23:59:59Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_ARM_64_NVIDIA_FIPS",
+    "CA10A1__version__c": "1.32",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_ARM_64_NVIDIA_FIPS-standard-transition-2026-03-23T00:00:00Z",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-03-23T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_ARM_64_NVIDIA_FIPS",
+    "CA10A1__version__c": "1.32",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_ARM_64_NVIDIA_FIPS-standard-transition-2026-03-23T23:59:59Z",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-03-23T23:59:59Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_ARM_64_NVIDIA_FIPS",
+    "CA10A1__version__c": "1.32",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-missing-version-None",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 601,
+      "conditionText": "CA10A1__version__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.4-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-missing-version-''",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 601,
+      "conditionText": "CA10A1__version__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.4-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-missing-version-'  '",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 601,
+      "conditionText": "CA10A1__version__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "  ",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "  .0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-unmapped-1.28",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.28",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.28.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-unmapped-1.38",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.38",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.38.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-release-day",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-01T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.37",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.37.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-UPDATING-unverified-rollout",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['UPDATING', 'DEGRADED']).contains(extract('CA10A1__status__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "UPDATING",
+    "CA10A1__releaseVersion__c": "1.36.4-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-DEGRADED-unverified-rollout",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['UPDATING', 'DEGRADED']).contains(extract('CA10A1__status__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "DEGRADED",
+    "CA10A1__releaseVersion__c": "1.36.4-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "AL2023_x86_64_STANDARD-DELETE_FAILED",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.36",
+    "CA10A1__status__c": "DELETE_FAILED",
+    "CA10A1__releaseVersion__c": "1.36.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-missing-version-None",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 601,
+      "conditionText": "CA10A1__version__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-missing-version-''",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 601,
+      "conditionText": "CA10A1__version__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-missing-version-'  '",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 601,
+      "conditionText": "CA10A1__version__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "  ",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-unmapped-1.28",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "1.28",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-unmapped-1.38",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "1.38",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-release-day",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-01T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "1.37",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-UPDATING-unverified-rollout",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['UPDATING', 'DEGRADED']).contains(extract('CA10A1__status__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "UPDATING",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-DEGRADED-unverified-rollout",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['UPDATING', 'DEGRADED']).contains(extract('CA10A1__status__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "DEGRADED",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "BOTTLEROCKET_x86_64-DELETE_FAILED",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "1.36",
+    "CA10A1__status__c": "DELETE_FAILED",
+    "CA10A1__releaseVersion__c": "1.13.1-2913d3b6",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "windows-2019-CORE",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['CUSTOM', 'WINDOWS_CORE_2019_x86_64', 'WINDOWS_FULL_2019_x86_64', 'WINDOWS_CORE_2022_x86_64', 'WINDOWS_FULL_2022_x86_64', 'WINDOWS_CORE_2025_x86_64', 'WINDOWS_FULL_2025_x86_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "WINDOWS_CORE_2019_x86_64",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.4-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "windows-2019-FULL",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['CUSTOM', 'WINDOWS_CORE_2019_x86_64', 'WINDOWS_FULL_2019_x86_64', 'WINDOWS_CORE_2022_x86_64', 'WINDOWS_FULL_2022_x86_64', 'WINDOWS_CORE_2025_x86_64', 'WINDOWS_FULL_2025_x86_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "WINDOWS_FULL_2019_x86_64",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.4-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "windows-2022-CORE",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['CUSTOM', 'WINDOWS_CORE_2019_x86_64', 'WINDOWS_FULL_2019_x86_64', 'WINDOWS_CORE_2022_x86_64', 'WINDOWS_FULL_2022_x86_64', 'WINDOWS_CORE_2025_x86_64', 'WINDOWS_FULL_2025_x86_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "WINDOWS_CORE_2022_x86_64",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.4-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "windows-2022-FULL",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['CUSTOM', 'WINDOWS_CORE_2019_x86_64', 'WINDOWS_FULL_2019_x86_64', 'WINDOWS_CORE_2022_x86_64', 'WINDOWS_FULL_2022_x86_64', 'WINDOWS_CORE_2025_x86_64', 'WINDOWS_FULL_2025_x86_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "WINDOWS_FULL_2022_x86_64",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.4-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "windows-2025-CORE",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['CUSTOM', 'WINDOWS_CORE_2019_x86_64', 'WINDOWS_FULL_2019_x86_64', 'WINDOWS_CORE_2022_x86_64', 'WINDOWS_FULL_2022_x86_64', 'WINDOWS_CORE_2025_x86_64', 'WINDOWS_FULL_2025_x86_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "WINDOWS_CORE_2025_x86_64",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.4-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "windows-2025-FULL",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['CUSTOM', 'WINDOWS_CORE_2019_x86_64', 'WINDOWS_FULL_2019_x86_64', 'WINDOWS_CORE_2022_x86_64', 'WINDOWS_FULL_2022_x86_64', 'WINDOWS_CORE_2025_x86_64', 'WINDOWS_FULL_2025_x86_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "WINDOWS_FULL_2025_x86_64",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.4-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "custom-unavailable-ami",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['CUSTOM', 'WINDOWS_CORE_2019_x86_64', 'WINDOWS_FULL_2019_x86_64', 'WINDOWS_CORE_2022_x86_64', 'WINDOWS_FULL_2022_x86_64', 'WINDOWS_CORE_2025_x86_64', 'WINDOWS_FULL_2025_x86_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "CUSTOM",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "ami-0123456789abcdef0",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "missing-version-retired-al2",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['AL2_x86_64', 'AL2_x86_64_GPU', 'AL2_ARM_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_ARM_64",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.4-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "unmapped-version-retired-al2",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['AL2_x86_64', 'AL2_x86_64_GPU', 'AL2_ARM_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_x86_64_GPU",
+    "CA10A1__version__c": "1.28",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.4-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "al2023-os-retired-without-version",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "setOfText(['AL2023_x86_64_STANDARD', 'AL2023_ARM_64_STANDARD', 'AL2023_x86_64_NEURON', 'AL2023_x86_64_NVIDIA', 'AL2023_ARM_64_NVIDIA']).contains(extract('CA10A1__amiType__c')) && '2029-06-30T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2029-07-01T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.4-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "al2023-os-retired-during-update",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "setOfText(['AL2023_x86_64_STANDARD', 'AL2023_ARM_64_STANDARD', 'AL2023_x86_64_NEURON', 'AL2023_x86_64_NVIDIA', 'AL2023_ARM_64_NVIDIA']).contains(extract('CA10A1__amiType__c')) && '2029-06-30T00:00:00Z'.beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2029-07-01T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "UPDATING",
+    "CA10A1__releaseVersion__c": "1.36.4-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "empty-release-does-not-prove-retirement",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.36",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "future-release-does-not-rescue-retired-stream",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && '2026-11-25T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.32' && '2027-03-22T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.33' && '2027-07-28T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.34' && '2027-12-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.35' && '2028-03-26T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.36' && '2028-08-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.37' && '2028-11-30T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.30",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.30.99-20991231",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "recent-release-retired-bottlerocket-stream",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && '2026-11-25T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.32' && '2027-03-22T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.33' && '2027-07-28T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.34' && '2027-12-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.35' && '2028-03-26T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.36' && '2028-08-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.37' && '2028-11-30T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "BOTTLEROCKET_x86_64",
+    "CA10A1__version__c": "1.29",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.99.0-example",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "unsupported-node-stream-newer-cluster",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && '2026-11-25T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.32' && '2027-03-22T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.33' && '2027-07-28T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.34' && '2027-12-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.35' && '2028-03-26T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.36' && '2028-08-01T00:00:00Z'.beforeToday()) || (extract('CA10A1__version__c') == '1.37' && '2028-11-30T00:00:00Z'.beforeToday())"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.30",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.30.0-20261012",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__cluster__c": "cluster-newer-control-plane",
+    "CA10A1__cluster__r": {
+      "Id": "cluster-newer-control-plane",
+      "CA10A1__version__c": "1.36",
+      "CA10A1__status__c": "ACTIVE"
+    }
+  },
+  {
+    "Id": "parent-state-CREATING-does-not-rescue-al2",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['AL2_x86_64', 'AL2_x86_64_GPU', 'AL2_ARM_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_x86_64",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.4-20261012",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__cluster__c": "parent-CREATING",
+    "CA10A1__cluster__r": {
+      "Id": "parent-CREATING",
+      "CA10A1__status__c": "CREATING"
+    }
+  },
+  {
+    "Id": "parent-state-UPDATING-does-not-rescue-al2",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['AL2_x86_64', 'AL2_x86_64_GPU', 'AL2_ARM_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_x86_64",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.4-20261012",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__cluster__c": "parent-UPDATING",
+    "CA10A1__cluster__r": {
+      "Id": "parent-UPDATING",
+      "CA10A1__status__c": "UPDATING"
+    }
+  },
+  {
+    "Id": "parent-state-FAILED-does-not-rescue-al2",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['AL2_x86_64', 'AL2_x86_64_GPU', 'AL2_ARM_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_x86_64",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.4-20261012",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__cluster__c": "parent-FAILED",
+    "CA10A1__cluster__r": {
+      "Id": "parent-FAILED",
+      "CA10A1__status__c": "FAILED"
+    }
+  },
+  {
+    "Id": "parent-state-DELETING-does-not-rescue-al2",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['AL2_x86_64', 'AL2_x86_64_GPU', 'AL2_ARM_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_x86_64",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.4-20261012",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__cluster__c": "parent-DELETING",
+    "CA10A1__cluster__r": {
+      "Id": "parent-DELETING",
+      "CA10A1__status__c": "DELETING"
+    }
+  },
+  {
+    "Id": "parent-state-None-does-not-rescue-al2",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['AL2_x86_64', 'AL2_x86_64_GPU', 'AL2_ARM_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_x86_64",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.4-20261012",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__cluster__c": "parent-None",
+    "CA10A1__cluster__r": {
+      "Id": "parent-None",
+      "CA10A1__status__c": null
+    }
+  },
+  {
+    "Id": "unresolved-parent-does-not-rescue-al2",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['AL2_x86_64', 'AL2_x86_64_GPU', 'AL2_ARM_64']).contains(extract('CA10A1__amiType__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2_x86_64",
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.36.4-20261012",
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__cluster__c": "unresolved-parent"
+  },
+  {
+    "Id": "al2023-unknown-version-final-day-start",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2029-06-30T00:00:00Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.40",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.40.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "al2023-unknown-version-before-final-day",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2029-06-29T23:59:59Z"
+    },
+    "CA10A1__amiType__c": "AL2023_x86_64_STANDARD",
+    "CA10A1__version__c": "1.40",
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__releaseVersion__c": "1.40.0-20261012",
+    "CA10A1__disappearanceTime__c": null
+  },
+  {
+    "Id": "deleted-missing-native-metadata",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATING', 'CREATE_FAILED', 'DELETING']).contains(extract('CA10A1__status__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__amiType__c": null,
+    "CA10A1__version__c": null,
+    "CA10A1__status__c": "DELETING",
+    "CA10A1__releaseVersion__c": "1.36.4-20261012",
+    "CA10A1__disappearanceTime__c": null
+  }
+]

@@ -1,0 +1,280 @@
+[
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "(CA10Z1__Azure_Front_Door_Profiles__r.hasNo(COMPLIANT) && CA10Z1__Azure_Front_Door_Profiles__r.hasNo(INCOMPLIANT)) || (CA10Z1__Azure_Front_Door_Profiles__r.count(COMPLIANT) == number(1.0) && CA10Z1__Azure_Front_Door_Profiles__r.hasNo(INCOMPLIANT)) || (CA10Z1__Azure_Front_Door_Profiles__r.count(INCOMPLIANT) == number(1.0) && CA10Z1__Azure_Front_Door_Profiles__r.hasNo(COMPLIANT))",
+      "conditionIndex": 399,
+      "status": "INAPPLICABLE"
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "001",
+    "CA10Z1__Azure_Front_Door_Profiles__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "299",
+      "conditionText": "CA10Z1__Azure_Front_Door_Profiles__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "unknown",
+    "CA10Z1__Azure_Front_Door_Profiles__r": [
+      {
+        "Id": "profile-unknown",
+        "RecordType": {
+          "Id": "profile"
+        },
+        "RecordTypeId": "profile",
+        "CA10Z1__subscription__c": "unknown",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__provisioningState__c": "Succeeded",
+        "CA10Z1__skuName__c": "",
+        "CA10Z1__Azure_Front_Door_Endpoints__r": []
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "399",
+      "conditionText": "(CA10Z1__Azure_Front_Door_Profiles__r.hasNo(COMPLIANT) && CA10Z1__Azure_Front_Door_Profiles__r.hasNo(INCOMPLIANT)) || (CA10Z1__Azure_Front_Door_Profiles__r.count(COMPLIANT) == number(1.0) && CA10Z1__Azure_Front_Door_Profiles__r.hasNo(INCOMPLIANT)) || (CA10Z1__Azure_Front_Door_Profiles__r.count(INCOMPLIANT) == number(1.0) && CA10Z1__Azure_Front_Door_Profiles__r.hasNo(COMPLIANT))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "one",
+    "CA10Z1__Azure_Front_Door_Profiles__r": [
+      {
+        "Id": "profile-one",
+        "RecordType": {
+          "Id": "profile"
+        },
+        "RecordTypeId": "profile",
+        "CA10Z1__subscription__c": "one",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__provisioningState__c": "Succeeded",
+        "CA10Z1__skuName__c": "Standard_AzureFrontDoor",
+        "CA10Z1__Azure_Front_Door_Endpoints__r": [
+          {
+            "Id": "endpoint-one",
+            "RecordType": {
+              "Id": "endpoint"
+            },
+            "RecordTypeId": "endpoint",
+            "CA10Z1__profile__c": "profile-one",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__provisioningState__c": "Succeeded"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10Z1__Azure_Front_Door_Profiles__r.count(COMPLIANT) >= number(2.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "two-singletons",
+    "CA10Z1__Azure_Front_Door_Profiles__r": [
+      {
+        "Id": "profile-a",
+        "RecordType": {
+          "Id": "profile"
+        },
+        "RecordTypeId": "profile",
+        "CA10Z1__subscription__c": "two-singletons",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__provisioningState__c": "Succeeded",
+        "CA10Z1__skuName__c": "Standard_AzureFrontDoor",
+        "CA10Z1__Azure_Front_Door_Endpoints__r": [
+          {
+            "Id": "endpoint-a",
+            "RecordType": {
+              "Id": "endpoint"
+            },
+            "RecordTypeId": "endpoint",
+            "CA10Z1__profile__c": "profile-a",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__provisioningState__c": "Succeeded"
+          }
+        ]
+      },
+      {
+        "Id": "profile-b",
+        "RecordType": {
+          "Id": "profile"
+        },
+        "RecordTypeId": "profile",
+        "CA10Z1__subscription__c": "two-singletons",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__provisioningState__c": "Succeeded",
+        "CA10Z1__skuName__c": "Premium_AzureFrontDoor",
+        "CA10Z1__Azure_Front_Door_Endpoints__r": [
+          {
+            "Id": "endpoint-b",
+            "RecordType": {
+              "Id": "endpoint"
+            },
+            "RecordTypeId": "endpoint",
+            "CA10Z1__profile__c": "profile-b",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__provisioningState__c": "Succeeded"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "mixed",
+    "CA10Z1__Azure_Front_Door_Profiles__r": [
+      {
+        "Id": "profile-c",
+        "RecordType": {
+          "Id": "profile"
+        },
+        "RecordTypeId": "profile",
+        "CA10Z1__subscription__c": "mixed",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__provisioningState__c": "Succeeded",
+        "CA10Z1__skuName__c": "Standard_AzureFrontDoor",
+        "CA10Z1__Azure_Front_Door_Endpoints__r": [
+          {
+            "Id": "endpoint-c",
+            "RecordType": {
+              "Id": "endpoint"
+            },
+            "RecordTypeId": "endpoint",
+            "CA10Z1__profile__c": "profile-c",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__provisioningState__c": "Succeeded"
+          }
+        ]
+      },
+      {
+        "Id": "profile-d",
+        "RecordType": {
+          "Id": "profile"
+        },
+        "RecordTypeId": "profile",
+        "CA10Z1__subscription__c": "mixed",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__provisioningState__c": "Succeeded",
+        "CA10Z1__skuName__c": "Premium_AzureFrontDoor",
+        "CA10Z1__Azure_Front_Door_Endpoints__r": [
+          {
+            "Id": "endpoint-d1",
+            "RecordType": {
+              "Id": "endpoint"
+            },
+            "RecordTypeId": "endpoint",
+            "CA10Z1__profile__c": "profile-d",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__provisioningState__c": "Succeeded"
+          },
+          {
+            "Id": "endpoint-d2",
+            "RecordType": {
+              "Id": "endpoint"
+            },
+            "RecordTypeId": "endpoint",
+            "CA10Z1__profile__c": "profile-d",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__provisioningState__c": "Succeeded"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10Z1__Azure_Front_Door_Profiles__r.count(COMPLIANT) >= number(2.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "two-singletons-with-unknown",
+    "CA10Z1__Azure_Front_Door_Profiles__r": [
+      {
+        "Id": "profile-e",
+        "RecordType": {
+          "Id": "profile"
+        },
+        "RecordTypeId": "profile",
+        "CA10Z1__subscription__c": "two-singletons-with-unknown",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__provisioningState__c": "Succeeded",
+        "CA10Z1__skuName__c": "Standard_AzureFrontDoor",
+        "CA10Z1__Azure_Front_Door_Endpoints__r": [
+          {
+            "Id": "endpoint-e",
+            "RecordType": {
+              "Id": "endpoint"
+            },
+            "RecordTypeId": "endpoint",
+            "CA10Z1__profile__c": "profile-e",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__provisioningState__c": "Succeeded"
+          }
+        ]
+      },
+      {
+        "Id": "profile-f",
+        "RecordType": {
+          "Id": "profile"
+        },
+        "RecordTypeId": "profile",
+        "CA10Z1__subscription__c": "two-singletons-with-unknown",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__provisioningState__c": "Succeeded",
+        "CA10Z1__skuName__c": "Premium_AzureFrontDoor",
+        "CA10Z1__Azure_Front_Door_Endpoints__r": [
+          {
+            "Id": "endpoint-f",
+            "RecordType": {
+              "Id": "endpoint"
+            },
+            "RecordTypeId": "endpoint",
+            "CA10Z1__profile__c": "profile-f",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__provisioningState__c": "Succeeded"
+          }
+        ]
+      },
+      {
+        "Id": "profile-g",
+        "RecordType": {
+          "Id": "profile"
+        },
+        "RecordTypeId": "profile",
+        "CA10Z1__subscription__c": "two-singletons-with-unknown",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__provisioningState__c": "Succeeded",
+        "CA10Z1__skuName__c": "",
+        "CA10Z1__Azure_Front_Door_Endpoints__r": []
+      }
+    ]
+  }
+]

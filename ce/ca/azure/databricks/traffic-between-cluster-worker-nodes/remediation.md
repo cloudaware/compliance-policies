@@ -3,7 +3,7 @@
 Create a JKS keystore:
 
 1. Generate a Java KeyStore (JKS) file that will be used for SSL/TLS encryption.
-2. Upload the keystore file to a secure directory in DBFS (e.g. /dbfs//jetty_ssl_driver_keystore.jks).
+2. Upload the keystore file to a secure directory in DBFS (e.g., /dbfs/jetty_ssl_driver_keystore.jks).
 
     Develop an init script:
 
@@ -17,7 +17,7 @@ Create a JKS keystore:
 
     ```json
     #!/bin/bash
-    set -euo pipefail keystore_dbfs_file="/dbfs/<keystore-directory>/jetty_ssl_driver_keystore.jks" 
+    set -euo pipefail keystore_dbfs_file="/dbfs/{{keystore-directory}}/jetty_ssl_driver_keystore.jks" 
     max_attempts=30 
     while [ ! -f ${keystore_dbfs_file} ]; do 
         if [ "$max_attempts" == 0 ]; then 
@@ -68,4 +68,4 @@ Create a JKS keystore:
     fi
     ```
 
-5. Save.
+5. Save the script.

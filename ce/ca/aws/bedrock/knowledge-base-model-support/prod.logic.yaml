@@ -1,0 +1,136 @@
+---
+inputType: CA10A2__CaAwsBedrockKnowledgeBase__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10A2__CaAwsBedrockKnowledgeBase__c/object.extracts.yaml
+  - file: /types/CA10A2__CaAwsBedrockFoundationModel__c/object.extracts.yaml
+conditions:
+  - status: UNDETERMINED
+    currentStateMessage: The knowledge base has conflicting foundation embedding and SQL, Kendra, or SageMaker configuration.
+    check:
+      AND:
+        args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: CA10A2__foundationEmbeddingModelArn__c
+          - OR:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A2__sqlConfigType__c
+                    right:
+                      TEXT: REDSHIFT
+                - NOT_EMPTY:
+                    arg:
+                      EXTRACT: CA10A2__kendraIndexArn__c
+                - NOT_EMPTY:
+                    arg:
+                      EXTRACT: CA10A2__sageMakerEmbeddingModelArn__c
+  - status: INAPPLICABLE
+    currentStateMessage: The knowledge base has SQL or Amazon Kendra configuration.
+    check:
+      OR:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10A2__sqlConfigType__c
+              right:
+                TEXT: REDSHIFT
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: CA10A2__kendraIndexArn__c
+  - status: INAPPLICABLE
+    currentStateMessage: The knowledge base is being deleted.
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10A2__status__c
+        right:
+          TEXT: DELETING
+  - status: UNDETERMINED
+    currentStateMessage: The knowledge base status is unrecognized.
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              SET:
+                itemType: TEXT
+                items:
+                  - CREATING
+                  - ACTIVE
+                  - UPDATING
+                  - FAILED
+                  - DELETE_UNSUCCESSFUL
+                  - UPDATE_UNSUCCESSFUL
+            search:
+              EXTRACT: CA10A2__status__c
+  - status: INAPPLICABLE
+    currentStateMessage: The embedding model uses a SageMaker endpoint outside the foundation-model lifecycle scope.
+    check:
+      OR:
+        args:
+          - CONTAINS:
+              arg:
+                EXTRACT: CA10A2__foundationEmbeddingModelArn__c
+              search:
+                BYTES: ":sagemaker:"
+          - CONTAINS:
+              arg:
+                EXTRACT: CA10A2__sageMakerEmbeddingModelArn__c
+              search:
+                BYTES: ":sagemaker:"
+  - status: INAPPLICABLE
+    currentStateMessage: No native foundation embedding ARN or model relationship identifies an assessable vector configuration; managed and other unclassified variants are outside this policy scope.
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: CA10A2__foundationEmbeddingModelArn__c
+          - IS_EMPTY:
+              arg:
+                EXTRACT: CA10A2__foundationEmbeddingModel__c
+  - status: UNDETERMINED
+    currentStateMessage: The configured embedding ARN is missing or does not identify a foundation model.
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              EXTRACT: CA10A2__foundationEmbeddingModelArn__c
+            search:
+              BYTES: "::foundation-model/"
+  - status: UNDETERMINED
+    currentStateMessage: The foundation embedding model lookup is missing, unresolved, or disappeared; its lifecycle cannot be established.
+    check:
+      IS_EMPTY_LOOKUP: CA10A2__foundationEmbeddingModel__r
+  - status: UNDETERMINED
+    currentStateMessage: The related foundation model ARN does not match the knowledge base's configured embedding model ARN and Region.
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: CA10A2__foundationEmbeddingModelArn__c
+        right:
+          EXTRACT: CA10A2__foundationEmbeddingModel__r.CA10A2__modelArn__c
+  - status: COMPLIANT
+    currentStateMessage: The configured foundation embedding model is Active in its AWS Region.
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10A2__foundationEmbeddingModel__r.CA10A2__modelLifecycleStatus__c
+        right:
+          TEXT: ACTIVE
+  - status: INCOMPLIANT
+    currentStateMessage: The configured foundation embedding model is Legacy and scheduled for retirement.
+    remediationMessage: Plan migration to an Active embedding model, including re-embedding and rebuilding the vector index as required.
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10A2__foundationEmbeddingModel__r.CA10A2__modelLifecycleStatus__c
+        right:
+          TEXT: LEGACY
+otherwise:
+  status: UNDETERMINED
+  currentStateMessage: The configured embedding model lifecycle status is missing or unrecognized; verify its regional status in Amazon Bedrock.

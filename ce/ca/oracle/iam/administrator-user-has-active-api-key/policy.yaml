@@ -1,0 +1,13 @@
+---
+names:
+  full: "Oracle IAM Administrator User has an active API key"
+  contextual: "IAM Administrator User has an active API key"
+description: >
+  OCI tenancy administrator users should not have active API keys. Long-term API 
+  credentials on privileged users increase the risk of broad unauthorized access.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cis-oracle-v3.1.0/01/12"
+  - "/frameworks/cloudaware/identity-and-access-governance/credential-lifecycle-management"

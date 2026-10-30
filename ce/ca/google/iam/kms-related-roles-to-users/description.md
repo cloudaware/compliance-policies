@@ -27,7 +27,9 @@ Removed roles should be assigned to another user based on business needs.
 
 1. List all users and role assignments:
 
-     gcloud projects get-iam-policy PROJECT_ID
+     ```sh
+     gcloud projects get-iam-policy {{project-id}}
+     ```
 
 2. Ensure that there are no common users found in the member section for roles `cloudkms.admin` and any one of `Cloud KMS CryptoKey Encrypter/Decrypter`, `Cloud KMS CryptoKey Encrypter`, `Cloud KMS CryptoKey Decrypter`
 

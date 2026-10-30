@@ -1,8 +1,8 @@
 # Description
 
-**NOTE**: This recommendation is only relevant if your subscription is using Per-User MFA. If your organization is licensed to use Conditional Access, the preferred method of requiring MFA to join devices to Entra ID is to use a Conditional Access policy (see additional information below for link).
+**Note**: This recommendation is only relevant if your subscription is using per-user MFA. If your organization is licensed to use Conditional Access, the preferred method of requiring MFA to join devices to Entra ID is to use a Conditional Access policy (see Additional Information below for the link).
 
-Joining or registering devices to Microsoft Entra ID should require Multi-factor authentication.
+Joining or registering devices to Microsoft Entra ID should require multi-factor authentication.
 
 ## Rationale
 
@@ -10,13 +10,13 @@ Multi-factor authentication is recommended when adding devices to Microsoft Entr
 
 ## Impact
 
-A slight impact of additional overhead, as Administrators will now have to approve every access to the domain.
+There is additional overhead, as administrators will need to approve every access to the domain.
 
 ## Audit
 
 ### From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. In the Azure portal, open the portal menu.
 2. Select `Microsoft Entra ID`.
 3. Under `Manage`, select `Devices`.
 4. Under `Manage`, select `Device settings`.
@@ -33,6 +33,6 @@ By default, `Require Multi-Factor Authentication to register or join devices wit
 
 ## Additional Information
 
-If Conditional Access is available, this recommendation should be bypassed in favor of the Conditional Access implementation of requiring Multifactor Authentication to register or join devices with Microsoft Entra.
+If Conditional Access is available, this recommendation should be bypassed in favor of the Conditional Access implementation of requiring multi-factor authentication to register or join devices with Microsoft Entra.
 
 <https://learn.microsoft.com/en-us/entra/identity/conditional-access/how-to-policy-mfa-device-register-join>

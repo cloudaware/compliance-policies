@@ -23,34 +23,6 @@ risk of downtime outweigh these costs for critical applications.
 
 ## Audit
 
-### From Console
+This policy flags an *AWS RDS Instance* as `INCOMPLIANT` if the `Multi AZ` checkbox is set to **false**.
 
-1. Login to the AWS Management Console and open the RDS dashboard.
-2. In the navigation pane, under `Databases`, select the RDS instance you want to examine.
-3. Click the `Instance Name` to see details, then navigate to the `Configuration` tab.
-4. Under the `Availability & Durability` section, check the `Multi-AZ` status.
-    - If Multi-AZ deployment is enabled, it will display `Yes`.
-    - If it is disabled, the status will display `No`.
-5. Repeat steps 2-4 to verify the Multi-AZ status of other RDS instances in the same region.
-6. Change the region from the top of the navigation bar and repeat the audit for other regions.
-
-### From Command Line
-
-1. Run the following command to list all RDS instances in the selected AWS region:
-
-```sh
-aws rds describe-db-instances --region <region-name> --query
-'DBInstances[*].DBInstanceIdentifier'
-```
-
-2. Run the following command using the instance identifier returned earlier to check the Multi-AZ status:
-
-```sh
-aws rds describe-db-instances --region <region-name> --db-instanceidentifier
-<db-name> --query 'DBInstances[*].MultiAZ'
-```
-
-- If the output is True, Multi-AZ is enabled.
-- If the output is False, Multi-AZ is not enabled.
-
-3. Repeat steps 1 and 2 to audit each RDS instance, and change regions to verify in other regions.
+*Instances* that are **not in an available state** or that **belong to an RDS cluster** are marked as `INAPPLICABLE`.

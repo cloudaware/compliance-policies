@@ -13,7 +13,7 @@ aws autoscaling describe-launch-configurations \
     --output json > {{lc-export.json}}
 ```
 
-**Note**: Modify the JSON schema to match the Launch TempTemplate since the configuration object includes extra fields that EC2’s `create-launch-template` will reject, and some keys need renaming.
+**Note**: Modify the JSON schema to match the Launch Template since the configuration object includes extra fields that EC2’s `create-launch-template` will reject, and some keys need renaming.
 
 ### Create the Launch Template
 

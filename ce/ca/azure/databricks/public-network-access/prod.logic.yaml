@@ -6,15 +6,15 @@ importExtracts:
   - file: "/types/CA10Z1__CaAzureDatabricksWorkspace__c/object.extracts.yaml"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "Allow Public Network Access is not configured on the Databricks Workspace."
-    remediationMessage: "Disable Allow Public Network Access on the Azure Databricks Workspace."
+    currentStateMessage: "Allow public network access is not configured on the Databricks workspace."
+    remediationMessage: "Disable allow public network access on the Azure Databricks workspace."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10Z1__publicNetworkAccess__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Allow Public Network Access is Enabled on the Databricks Workspace."
-    remediationMessage: "Disable Allow Public Network Access on the Azure Databricks Workspace."
+    currentStateMessage: "Allow public network access is enabled on the Databricks workspace."
+    remediationMessage: "Disable allow public network access on the Azure Databricks workspace."
     check:
       IS_EQUAL:
         left:
@@ -22,7 +22,7 @@ conditions:
         right:
           TEXT: "Enabled"
   - status: "COMPLIANT"
-    currentStateMessage: "Allow Public Network Access is Disabled on the Databricks Workspace."
+    currentStateMessage: "Allow public network access is disabled on the Databricks workspace."
     check:
       IS_EQUAL:
         left:

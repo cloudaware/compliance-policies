@@ -1,0 +1,11 @@
+---
+name: "[CloudFormation.4] CloudFormation stacks should have associated service roles"
+description: |-
+  Using service roles with CloudFormation stacks helps implement least privilege 
+  access by separating permissions between the user who creates/updates stacks 
+  and the permissions needed by CloudFormation to create/update resources. This 
+  reduces the risk of privilege escalation and helps maintain security boundaries 
+  between different operational roles.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/cloudformation-controls.html#cloudformation-4

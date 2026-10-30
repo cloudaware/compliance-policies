@@ -1,10 +1,10 @@
 # Description
 
-Enabling encryption at the hardware level on top of the default software encryption for Storage Accounts accessing Azure storage solutions.
+Enable hardware-level encryption on top of the default software encryption for Storage Accounts accessing Azure Storage solutions.
 
 ## Rationale
 
-Azure Storage automatically encrypts all data in a storage account at the network level using 256-bit AES encryption, which is one of the strongest, FIPS 140-2-compliant block ciphers available. Customers who require higher levels of assurance that their data is secure can also enable 256-bit AES encryption at the Azure Storage infrastructure level for double encryption. Double encryption of Azure Storage data protects against a scenario where one of the encryption algorithms or keys may be compromised. Similarly, data is encrypted even before network transmission and in all backups. In this scenario, the additional layer of encryption continues to protect your data. For the most secure implementation of key based encryption, it is recommended to use a Customer Managed asymmetric RSA 2048 Key in Azure Key Vault.
+Azure Storage automatically encrypts all data in a storage account at the network level using 256-bit AES encryption, which is one of the strongest, FIPS 140-2-compliant block ciphers available. Customers who require higher levels of assurance that their data is secure can also enable 256-bit AES encryption at the Azure Storage infrastructure level for double encryption. Double encryption of Azure Storage data protects against a scenario where one of the encryption algorithms or keys may be compromised. Similarly, data is encrypted even before network transmission and in all backups. In this scenario, the additional layer of encryption continues to protect your data. For the most secure implementation of key based encryption, it is recommended to use a customer-managed asymmetric RSA 2048 key in Azure Key Vault.
 
 ## Impact
 
@@ -14,7 +14,7 @@ The read and write speeds to the storage will be impacted if both default encryp
 
 ### From Azure Portal
 
-1. From Azure Portal select the portal menu in the top left.
+1. From Azure Portal, select the portal menu in the top left.
 2. Select `Storage Accounts`.
 3. Click on each storage account within each resource group you wish to audit.
 4. In the overview, under Security, ensure `Infrastructure encryption` is set to `Enabled`.
@@ -22,13 +22,24 @@ The read and write speeds to the storage will be impacted if both default encryp
 ### From Azure CLI
 
 ```sh
-az storage blob show \ --account-name <storage-account> \ --container-name <container> \ --name <blob> \ --query "properties.serverEncrypted"
+az storage blob show \
+    --account-name {{storage-account-name}} \
+    --container-name {{container-name}} \
+    --name {{blob-name}} \
+    --query "properties.serverEncrypted"
 ```
 
 ### From PowerShell
 
 ```ps
-$account = Get-AzStorageAccount -ResourceGroupName <resource-group> ` -Name <storage-account> $blob = Get-AzStorageBlob -Context $account.Context ` -Container <container> ` -Blob <blob> $blob.ICloudBlob.Properties.IsServerEncrypted
+$account = Get-AzStorageAccount `
+    -ResourceGroupName {{resource-group-name}} `
+    -Name {{storage-account-name}}
+$blob = Get-AzStorageBlob `
+    -Context $account.Context `
+    -Container {{container-name}} `
+    -Blob {{blob-name}}
+$blob.ICloudBlob.Properties.IsServerEncrypted
 ```
 
 ### From Azure Policy
@@ -39,7 +50,7 @@ If referencing a digital copy of this Benchmark, clicking a Policy ID will open 
 
 ## Default Value
 
-By default, Infrastructure Encryption is disabled in blob creation.
+By default, Infrastructure Encryption is disabled at blob creation.
 
 ## References
 

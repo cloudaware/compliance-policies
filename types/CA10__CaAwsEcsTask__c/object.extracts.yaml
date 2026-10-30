@@ -1,0 +1,18 @@
+---
+# lastStatus is required; launchType and platformVersion are assessed in context.
+# platformVersion describes task infrastructure, not the task definition or image.
+extracts:
+  - name: "CA10__lastStatus__c"
+    value:
+      FIELD:
+        path: "CA10__lastStatus__c"
+        undeterminedIf:
+          isEmpty: "Task last status cannot be empty. Possible data collection issue."
+  - name: "CA10__launchType__c"
+    value:
+      FIELD:
+        path: "CA10__launchType__c"
+  - name: "CA10__platformVersion__c"
+    value:
+      FIELD:
+        path: "CA10__platformVersion__c"

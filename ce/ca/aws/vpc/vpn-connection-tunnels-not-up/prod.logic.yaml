@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10__CaAwsVpnConnection__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The VPN Connection is not available."
+    currentStateMessage: "The VPN connection is not available."
     check:
       NOT_EQUAL:
         left:
@@ -14,7 +14,7 @@ conditions:
         right:
           TEXT: "available"
   - status: "COMPLIANT"
-    currentStateMessage: "Both VPN Connection tunnels are in the UP state."
+    currentStateMessage: "Both VPN connection tunnels are in the UP state."
     check:
       GREATER_THAN_EQUAL:
         left:
@@ -24,8 +24,8 @@ conditions:
         right:
           NUMBER: 2
   - status: "INCOMPLIANT"
-    currentStateMessage: "One VPN Connection tunnel is not in the UP state."
-    remediationMessage: "This is often caused by a misconfiguration on the customer gateway device."
+    currentStateMessage: "One VPN connection tunnel is not in the UP state."
+    remediationMessage: "Review the customer gateway device configuration; misconfiguration is a common cause."
     check:
       IS_EQUAL:
         left:
@@ -35,8 +35,8 @@ conditions:
         right:
           NUMBER: 1
   - status: "INCOMPLIANT"
-    currentStateMessage: "None of the VPN Connection tunnels are in the UP state."
-    remediationMessage: "This is often caused by a misconfiguration on the customer gateway device."
+    currentStateMessage: "None of the VPN connection tunnels are in the UP state."
+    remediationMessage: "Review the customer gateway device configuration; misconfiguration is a common cause."
     check:
       IS_EQUAL:
         left:

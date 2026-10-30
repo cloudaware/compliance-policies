@@ -7,12 +7,12 @@ importExtracts:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "This certificate is issued for a wildcard (*) domain."
-    remediationMessage: "Delete the wildcard certificate and add single domain certificates\
-      \ for each domain you use."
+    remediationMessage: "Replace the wildcard certificate with single-domain certificates\
+      \ for each domain in use."
     check:
       AND:
         args:
-          - NOT_EQUAL:
+          - IS_EQUAL:
               left:
                 EXTRACT: CA10__status__c
               right:
@@ -25,3 +25,4 @@ conditions:
 otherwise:
   status: "COMPLIANT"
   currentStateMessage: "This is not a wildcard certificate."
+

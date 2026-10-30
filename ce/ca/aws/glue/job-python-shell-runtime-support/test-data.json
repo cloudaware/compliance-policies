@@ -1,0 +1,457 @@
+[
+  {
+    "Id": "python2-retired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['2', '3.6']).contains(extract('CA10__commandPythonVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__commandPythonVersion__c": "2",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "python2-high-glue-does-not-rescue",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['2', '3.6']).contains(extract('CA10__commandPythonVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__commandPythonVersion__c": "2",
+    "CA10__glueVersion__c": "6.0"
+  },
+  {
+    "Id": "python39-low-glue",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__commandPythonVersion__c": "3.9",
+    "CA10__glueVersion__c": "0.9"
+  },
+  {
+    "Id": "python39-missing-glue",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__commandPythonVersion__c": "3.9",
+    "CA10__glueVersion__c": null
+  },
+  {
+    "Id": "python3-ambiguous-low-glue",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__commandPythonVersion__c') == '3'"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__commandPythonVersion__c": "3",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "python3-ambiguous-high-glue",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__commandPythonVersion__c') == '3'"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__commandPythonVersion__c": "3",
+    "CA10__glueVersion__c": "6.0"
+  },
+  {
+    "Id": "explicit-python36-retired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['2', '3.6']).contains(extract('CA10__commandPythonVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__commandPythonVersion__c": "3.6",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "future-python311",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__commandPythonVersion__c": "3.11",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "malformed-runtime",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__commandPythonVersion__c": "python2",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "missing-runtime",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 301,
+      "conditionText": "CA10__commandPythonVersion__c.isEmpty()"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__commandPythonVersion__c": null,
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "empty-runtime",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 301,
+      "conditionText": "CA10__commandPythonVersion__c.isEmpty()"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__commandPythonVersion__c": "",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "whitespace-runtime",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 301,
+      "conditionText": "CA10__commandPythonVersion__c.isEmpty()"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__commandPythonVersion__c": "   ",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "spark-python2-excluded",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['glueetl', 'gluestreaming', 'glueray']).contains(extract('CA10__commandName__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__commandPythonVersion__c": "2",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "streaming-missing-runtime-excluded",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['glueetl', 'gluestreaming', 'glueray']).contains(extract('CA10__commandName__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "gluestreaming",
+    "CA10__commandPythonVersion__c": null,
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "ray-excluded",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['glueetl', 'gluestreaming', 'glueray']).contains(extract('CA10__commandName__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueray",
+    "CA10__commandPythonVersion__c": "2",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "unknown-command",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "extract('CA10__commandName__c') != 'pythonshell'"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "custom",
+    "CA10__commandPythonVersion__c": "2",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "missing-command",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 101,
+      "conditionText": "CA10__commandName__c.isEmpty()"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": null,
+    "CA10__commandPythonVersion__c": "2",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "deleted-python2",
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "runtimeError": null,
+      "conditionIndex": 99,
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)"
+    },
+    "CA10__disappearanceTime__c": "2026-10-01T00:00:00Z",
+    "CA10__commandName__c": "pythonshell",
+    "CA10__commandPythonVersion__c": "2",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "python2-missing-glue",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['2', '3.6']).contains(extract('CA10__commandPythonVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__commandPythonVersion__c": "2",
+    "CA10__glueVersion__c": null
+  },
+  {
+    "Id": "python3-ambiguous-missing-glue",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__commandPythonVersion__c') == '3'"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__commandPythonVersion__c": "3",
+    "CA10__glueVersion__c": null
+  },
+  {
+    "Id": "spark-missing-runtime-excluded",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['glueetl', 'gluestreaming', 'glueray']).contains(extract('CA10__commandName__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueetl",
+    "CA10__commandPythonVersion__c": null,
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "ray-missing-runtime-excluded",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['glueetl', 'gluestreaming', 'glueray']).contains(extract('CA10__commandName__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "glueray",
+    "CA10__commandPythonVersion__c": null,
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "empty-command",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 101,
+      "conditionText": "CA10__commandName__c.isEmpty()"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "",
+    "CA10__commandPythonVersion__c": "2",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "whitespace-command",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 101,
+      "conditionText": "CA10__commandName__c.isEmpty()"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": " \t\n",
+    "CA10__commandPythonVersion__c": "2",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "missing-command-and-runtime",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 101,
+      "conditionText": "CA10__commandName__c.isEmpty()"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": null,
+    "CA10__commandPythonVersion__c": null,
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "unknown-command-missing-runtime",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "extract('CA10__commandName__c') != 'pythonshell'"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "custom",
+    "CA10__commandPythonVersion__c": null,
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "observed-custom-command",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "extract('CA10__commandName__c') != 'pythonshell'"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "TransformData",
+    "CA10__commandPythonVersion__c": "",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "deleted-incomplete-inventory",
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "runtimeError": null,
+      "conditionIndex": 99,
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)"
+    },
+    "CA10__disappearanceTime__c": "2026-10-01T00:00:00Z",
+    "CA10__commandName__c": null,
+    "CA10__commandPythonVersion__c": null,
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "normalized-python2",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['2', '3.6']).contains(extract('CA10__commandPythonVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": " PYTHONSHELL\t",
+    "CA10__commandPythonVersion__c": " 2\n",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "normalized-python39",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "\tPythonShell ",
+    "CA10__commandPythonVersion__c": " 3.9 ",
+    "CA10__glueVersion__c": null
+  },
+  {
+    "Id": "command-prefix-is-not-shell",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "extract('CA10__commandName__c') != 'pythonshell'"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell-extra",
+    "CA10__commandPythonVersion__c": "2",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "runtime-prefix-is-not-python2",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__commandPythonVersion__c": "2.7",
+    "CA10__glueVersion__c": "1.0"
+  },
+  {
+    "Id": "future-python-3-10",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__commandPythonVersion__c": "3.10",
+    "CA10__glueVersion__c": null
+  },
+  {
+    "Id": "future-python-3-13",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__commandPythonVersion__c": "3.13",
+    "CA10__glueVersion__c": null
+  },
+  {
+    "Id": "future-python-4-0",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__commandName__c": "pythonshell",
+    "CA10__commandPythonVersion__c": "4.0",
+    "CA10__glueVersion__c": null
+  }
+]

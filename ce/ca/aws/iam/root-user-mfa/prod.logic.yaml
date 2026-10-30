@@ -7,7 +7,7 @@ importExtracts:
   - file: /types/CA10__CaAwsUser__c/object.extracts.yaml
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "Requirements of this policy are applicable only to root users."
+    currentStateMessage: "This policy applies only to root users."
     check:
       NOT_EQUAL:
         left:
@@ -23,7 +23,7 @@ conditions:
         right:
           BOOLEAN: true
   - status: "COMPLIANT"
-    currentStateMessage: "The root user doesn't have credentials."
+    currentStateMessage: "The root user does not have console credentials."
     check:
       NOT_EQUAL:
         left:
@@ -33,4 +33,4 @@ conditions:
 otherwise:
   status: "INCOMPLIANT"
   currentStateMessage: "The root user does not have MFA enabled."
-  remediationMessage: "Consider enabling MFA for the root user."
+  remediationMessage: "Enable MFA for the root user."

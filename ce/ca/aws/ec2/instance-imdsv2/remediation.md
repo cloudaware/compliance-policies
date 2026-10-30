@@ -24,20 +24,20 @@ Resources:
 
 ## From Command Line
 
-1. Run `the describe-instances` command using appropriate filtering to list the IDs of all the existing EC2 instances currently available in the selected region:
+1. Run the `describe-instances` command using appropriate filtering to list the IDs of all the existing EC2 instances currently available in the selected region:
 
-```sh
-aws ec2 describe-instances --region <region-name> --output table --query "Reservations[*].Instances[*].InstanceId"
-```
+    ```sh
+    aws ec2 describe-instances --region {{region-name}} --output table --query "Reservations[*].Instances[*].InstanceId"
+    ```
 
 2. The command output should return a table with the requested instance IDs.
 3. Now run the `modify-instance-metadata-options` command using an instance ID returned at the previous step to update the Instance Metadata Version:
 
-```sh
-aws ec2 modify-instance-metadata-options --instance-id <instance-id> --http-tokens required --region <region-name>
-```
+    ```sh
+    aws ec2 modify-instance-metadata-options --instance-id {{instance-id}} --http-tokens required --region {{region-name}}
+    ```
 
-4. Repeat steps no. 1 – 3 to perform the remediation process for other EC2 Instances in the same AWS region.
+4. Repeat steps no. 1-3 to perform the remediation process for other EC2 Instances in the same AWS region.
 5. Change the region by updating `--region` and repeat the entire process for other regions.
 
 ## From Console
@@ -47,4 +47,4 @@ aws ec2 modify-instance-metadata-options --instance-id <instance-id> --http-toke
 3. Select the EC2 instance that you want to examine.
 4. Choose `Actions` > `Instance Settings` > `Modify instance metadata options`.
 5. Ensure `Instance metadata service` is set to `Enable` and set `IMDSv2` to `Required`.
-6. Repeat steps no. 1 – 5 to perform the remediation process for other EC2 Instances in the all applicable AWS region(s).
+6. Repeat steps no. 1-5 to perform the remediation process for other EC2 Instances in all applicable AWS regions.

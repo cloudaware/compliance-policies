@@ -1,0 +1,19 @@
+---
+inputType: "CA10__CaAwsUser__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsUser__c/credReport.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "MFA is enabled for this user."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__credReportMfaActive__c
+        right:
+          BOOLEAN: true
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "MFA is not enabled for this user."
+  remediationMessage: "Enable MFA for this user."

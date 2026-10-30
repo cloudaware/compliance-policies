@@ -1,0 +1,31 @@
+---
+extracts:
+# Values: ACTIVE | DELETING | ERROR. Not nullable. 
+  - name: CA10A2__firewallPolicyStatus__c
+    value:
+      FIELD: 
+        path: CA10A2__firewallPolicyStatus__c
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10A2__firewallPolicyStatus__c"
+            currentStateMessage: "Firewall Policy Status cannot be empty. Possible permissions issue with networkfirewall:DescribeFirewallPolicy."
+# Values: must be one of the defaults aws:pass | aws:drop | aws:forward_to_sfe and custom actions
+# Not nullable
+  - name: CA10A2__statelessDefaultActions__c
+    value:
+      FIELD: 
+        path: CA10A2__statelessDefaultActions__c
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10A2__statelessDefaultActions__c"
+            currentStateMessage: "Firewall Policy Stateless Default Actions cannot be empty. Possible permissions issue with networkfirewall:DescribeFirewallPolicy."
+# Values: must be one of the defaults aws:pass | aws:drop | aws:forward_to_sfe and custom actions
+# Not nullable
+  - name: CA10A2__statelessFragmentDefaultActions__c
+    value:
+      FIELD: 
+        path: CA10A2__statelessFragmentDefaultActions__c
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10A2__statelessFragmentDefaultActions__c"
+            currentStateMessage: "Firewall Policy Stateless Default Actions cannot be empty. Possible permissions issue with networkfirewall:DescribeFirewallPolicy."

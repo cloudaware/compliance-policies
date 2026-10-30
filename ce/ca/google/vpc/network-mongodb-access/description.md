@@ -10,7 +10,7 @@ MongoDB is a widely used NoSQL database that, in many default configurations and
 
 ## Impact
 
-All MongoDB connections from outside of the network to the concerned VPC(s) can be blocked. If there is a legitimate operational need for remote access, specific trusted source IP addresses should be explicitly defined in firewall rules to whitelist access to the necessary MongoDB ports.
+All MongoDB connections from outside of the network to the concerned VPC(s) can be blocked. If there is a legitimate operational need for remote access, specific trusted source IP ranges should be explicitly defined in firewall rules to whitelist access to the necessary MongoDB ports.
 
 ## Audit
 

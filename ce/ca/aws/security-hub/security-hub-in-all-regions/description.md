@@ -4,33 +4,33 @@ Security Hub collects security data from across AWS accounts, services, and supp
 
 ## Rationale
 
-AWS Security Hub provides you with a comprehensive view of your security state in AWS and helps you check your environment against security industry standards and best practices - enabling you to quickly assess the security posture across your AWS accounts.
+AWS Security Hub provides you with a comprehensive view of your security state in AWS and helps you check your environment against security industry standards and best practices, enabling you to quickly assess the security posture across your AWS accounts.
 
 ## Impact
 
-It is recommended AWS Security Hub be enabled in all regions. AWS Security Hub requires AWS Config to be enabled.
+It is recommended that AWS Security Hub be enabled in all regions. AWS Security Hub requires AWS Config to be enabled.
 
 ## Audit
 
-The process to evaluate AWS Security Hub configuration per region
+The process to evaluate AWS Security Hub configuration per region:
 
 ### From Console
 
 1. Sign in to the AWS Management Console and open the AWS Security Hub console at <https://console.aws.amazon.com/securityhub/>.
-2. On the top right of the console, select the target Region.
-3. If presented with the Security Hub > Summary page then Security Hub is set-up for the selected region.
-4. If presented with Setup Security Hub or Get Started With Security Hub - follow the online instructions.
-5. Repeat steps 2 to 4 for each region.
+2. In the top right of the console, select the target Region.
+3. If presented with the Security Hub > Summary page, then Security Hub is set up for the selected region.
+4. If presented with Setup Security Hub or Get Started With Security Hub, follow the online instructions.
+5. Repeat steps 2-4 for each region.
 
 ### From Command Line
 
-Run the following to list the Securityhub status:
+Run the following to list the Security Hub status:
 
 ```sh
 aws securityhub describe-hub
 ```
 
-This will list the Securityhub status by region. Audit for the presence of a `SubscribedAt` value
+This lists the Security Hub status by region. Audit for the presence of a `SubscribedAt` value.
 
 Example output:
 
@@ -42,7 +42,7 @@ Example output:
 }
 ```
 
-An error will be returned if Securityhub is not enabled.
+An error is returned if Security Hub is not enabled.
 
 Example error:
 

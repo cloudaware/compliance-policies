@@ -6,25 +6,8 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The soft delete configuration for Azure Storage Blob Storage is not enabled."
-    remediationMessage: "Consider enabling soft delete for Blob Storage."
-    check:
-      OR:
-        args:
-          - IS_EQUAL:
-              left:
-                EXTRACT: "CA10__blobRetentionPolicyState__c"
-              right:
-                TEXT: "Disabled"
-          - IS_EMPTY:
-              arg:
-                EXTRACT: "CA10__blobRetentionPolicyState__c"
-          - IS_EMPTY:
-              arg:
-                EXTRACT: "CA10__blobRetentionPolicyDays__c"
-  - status: "INCOMPLIANT"
     currentStateMessage: "The soft delete configuration for Azure Storage Containers is not enabled."
-    remediationMessage: "Consider enabling soft delete for Containers."
+    remediationMessage: "Enable soft delete for containers."
     check:
       OR:
         args:
@@ -39,27 +22,6 @@ conditions:
           - IS_EMPTY:
               arg:
                 EXTRACT: "CA10__containerRetentionPolicyDays__c"
-  - status: "COMPLIANT"
-    currentStateMessage: "The soft delete for Azure Storage Containers is enabled."
-    check:
-      AND:
-        args:
-          - IS_EQUAL:
-              left:
-                EXTRACT: "CA10__containerRetentionPolicyState__c"
-              right:
-                TEXT: "Enabled"
-          - NOT_EMPTY:
-              arg:
-                EXTRACT: "CA10__containerRetentionPolicyDays__c"
-          - IS_EQUAL:
-              left:
-                EXTRACT: "CA10__blobRetentionPolicyState__c"
-              right:
-                TEXT: "Enabled"
-          - NOT_EMPTY:
-              arg:
-                EXTRACT: "CA10__blobRetentionPolicyDays__c"
 otherwise:
-  status: "UNDETERMINED"
-  currentStateMessage: "Unexpected values in the fields."
+  status: "COMPLIANT"
+  currentStateMessage: "Soft delete for Azure Storage containers is enabled."

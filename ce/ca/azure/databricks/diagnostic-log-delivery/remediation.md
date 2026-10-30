@@ -4,7 +4,7 @@
 
 ### **From Azure Portal**
 
-1. Navigate to your Azure Databricks workspace.
+1. Navigate to the Azure Databricks workspace.
 2. Select **Monitoring** > **Diagnostic settings** from the left-hand menu.
 3. Click **+ Add diagnostic setting**.
 4. Under **Category details**, select the log categories you want to capture, such as:
@@ -17,8 +17,8 @@
 5. Choose a destination for the logs:
 
    - **Log Analytics workspace** - for advanced querying and monitoring.
-   - **Storage account** : for long-term retention.
-   - **Event Hub** : for integration with third-party systems.
+   - **Storage account**: for long-term retention.
+   - **Event Hub**: for integration with third-party systems.
 6. Provide a **Name** for the diagnostic setting and click **Save**.
 
 ### **From Azure CLI**
@@ -44,7 +44,7 @@ az monitor diagnostic-settings create \
 
 ```sh
 az monitor log-analytics workspace update \
-    --resource-group {{resource-group}} \
+    --resource-group {{resource-group-name}} \
     --name {{log-analytics-name}} \
     --retention-time 365
 ```
@@ -65,7 +65,7 @@ az monitor log-analytics workspace update \
 ```bash
 az monitor activity-log alert create \
     --name "DatabricksAnomalyAlert" \
-    --resource-group {{resource-group}} \
+    --resource-group {{resource-group-name}} \
     --scopes {{databricks-resource-id}} \
     --condition "contains 'UnauthorizedAccess'"
 ```

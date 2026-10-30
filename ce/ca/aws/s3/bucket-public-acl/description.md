@@ -1,6 +1,6 @@
 # Description
 
-This policy identifies AWS S3 Buckets that do not have Block Public ACLs enabled and whose Access Control List (ACLs) grants such public permissions as `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, or `FULL_CONTROL`.
+This policy identifies AWS S3 Buckets that do not have Block Public ACLs enabled and whose Access Control Lists (ACLs) grant such public permissions as `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, or `FULL_CONTROL`.
 Access is considered public if any of these permissions are granted to either the **AllUsers** group (anyone on the Internet) or the **AuthenticatedUsers** group (any AWS account holder).
 
 ## Rationale

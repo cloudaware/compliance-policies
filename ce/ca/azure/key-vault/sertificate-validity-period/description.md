@@ -1,7 +1,6 @@
 # Description
 
-This policy identifies Azure Key Vault Certificates that are valid for more that 12 months.
-Restrict the validity period of certificates stored in Azure Key Vault to 12 months or less.
+This policy identifies Azure Key Vault Certificates that are valid for more than 12 months. Restrict the validity period of certificates stored in Azure Key Vault to 12 months or less.
 
 ## Rationale
 
@@ -9,7 +8,7 @@ Limiting certificate validity reduces the risk of misuse if compromised and help
 
 ## Impact
 
-Minor administrative effort required to ensure certificate renewal and lifecycle management.
+Minor administrative effort is required to manage certificate renewal and lifecycle.
 
 ## Audit
 

@@ -1,10 +1,10 @@
 # Description
 
-Ensure that virtual network flow logs are retained for greater than or equal to 90 days.
+Ensure that virtual network flow logs are retained for 90 days or more.
 
 ## Rationale
 
-Virtual network flow logs provide critical visibility into traffic patterns. Logs can be used to check for anomalies and give insight into suspected breaches.
+Virtual network flow logs provide critical visibility into traffic patterns. Logs can be used to check for anomalies and provide insight into suspected breaches.
 
 ## Impact
 
@@ -26,7 +26,7 @@ A *Flow Log* is marked as `INAPPLICABLE` if either:
 
 ## Default Value
 
-When a virtual network flow log is created using the Azure CLI, retention days is set to 0 by default. When creating via the Azure Portal, retention days must be specified by the creator.
+When a virtual network flow log is created using the Azure CLI, retention days are set to 0 by default. When creating via the Azure Portal, retention days must be specified by the creator.
 
 ## References
 

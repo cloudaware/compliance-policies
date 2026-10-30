@@ -16,7 +16,7 @@ Before removing guest users, determine their use and scope. Like removing any us
 
 ### From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. In the Azure portal, open the portal menu.
 2. Select `Microsoft Entra ID`.
 3. Under `Manage`, select `Users`.
 4. Click on `Add filter`.
@@ -36,7 +36,7 @@ Ensure all users listed are still required and not inactive.
 ### From Azure PowerShell
 
 ```ps
-Get-AzureADUser |Where-Object {$_.UserType -like "Guest"} |Select-Object DisplayName, UserPrincipalName, UserType -Unique
+Get-AzureADUser | Where-Object { $_.UserType -like "Guest" } | Select-Object DisplayName, UserPrincipalName, UserType -Unique
 ```
 
 ### From Azure Policy
@@ -49,7 +49,7 @@ If referencing a digital copy of this Benchmark, clicking a Policy ID will open 
 
 ## Default Value
 
-By default no guest users are created.
+By default, no guest users are created.
 
 ## References
 
@@ -66,9 +66,9 @@ It is good practice to use a dynamic security group to manage guest users.
 
 To create the dynamic security group:
 
-1. Navigate to the 'Microsoft Entra ID' blade in the Azure Portal
-2. Select the 'Groups' item
-3. Create new
-4. Type of 'dynamic'
-5. Use the following dynamic selection rule. "(user.userType -eq "Guest")"
-6. Once the group has been created, select access reviews option and create a new access review with a period of monthly and send to relevant administrators for review.
+1. Navigate to the `Microsoft Entra ID` blade in the Azure portal.
+2. Select `Groups`.
+3. Create a new group.
+4. Set the type to `Dynamic`.
+5. Use the following dynamic selection rule: `(user.userType -eq "Guest")`.
+6. Once the group has been created, select `Access reviews` and create a new access review with a monthly period, then send it to relevant administrators for review.

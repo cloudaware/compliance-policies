@@ -8,12 +8,12 @@
 4. Select the `Key rotation` tab.
 5. Check the `Automatically rotate this KMS key every year` checkbox.
 6. Click `Save`.
-7. Repeat steps 3–6 for all customer-managed CMKs that do not have automatic rotation enabled.
+7. Repeat steps 3-6 for all customer-managed CMKs that do not have automatic rotation enabled.
 
 ## From Command Line
 
 1. Run the following command to enable key rotation:
 
-```sh
-aws kms enable-key-rotation --key-id <kms_key_id>
-```
+    ```sh
+    aws kms enable-key-rotation --key-id {{kms-key-id}}
+    ```

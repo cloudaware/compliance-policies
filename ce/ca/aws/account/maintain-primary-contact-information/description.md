@@ -25,12 +25,15 @@ multiple individuals as recipients, such as email aliases and PABX hunt groups.
 
 ## Audit
 
-This activity can only be performed via the AWS Console, with a user who has permission to read and write Billing information `aws-portal:*Billing`:
+Verify the current contact information using the AWS account API. The principal must have permission to read and write billing contact information (`aws-portal:*Billing`).
 
-1. Sign in to the AWS Management Console and open the `Billing and Cost Management` console at <https://console.aws.amazon.com/billing/home#/>.
-2. On the navigation bar, choose your account name, and then choose `Account`.
-3. On the `Account Settings` page, review and verify the current details.
-4. Under `Contact Information`, review and verify the current details.
+### From Command Line
+
+Run the following command:
+
+```sh
+aws account get-contact-information
+```
 
 ## References
 

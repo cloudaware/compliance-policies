@@ -4,16 +4,16 @@ names:
   contextual: Application Insights are not configured
 description: "Application Insights within Azure act as an Application Performance\
   \ Monitoring solution providing valuable data into how well an application performs\
-  \ and additional information   when performing incident response. The types of log\
+  \ and additional information when performing incident response. The types of log\
   \ data collected include application metrics, telemetry data, and application trace\
   \ logging data providing organizations with detailed information about application\
   \ activity and application transactions."
 type: COMPLIANCE_POLICY
 categories:
-  - RELIABILITY
-  - PERFORMANCE
+  - "RELIABILITY"
+  - "PERFORMANCE"
 frameworkMappings:
-  - "/frameworks/cis-azure-v5.0.0/06/01/03/01"
+  - "/frameworks/cis-azure-v6.0.0/06/01/03/01"
   - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
 similarPolicies:
   cloudConformity:

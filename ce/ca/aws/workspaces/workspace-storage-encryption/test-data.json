@@ -1,0 +1,72 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-24T08:56:32Z" },
+    "CA10__disappearanceTime__c": "2025-12-15T10:38:57Z",
+    "CA10__rootVolumeEncryptionEnabled__c": false,
+    "CA10__userVolumeEncryptionEnabled__c": true,
+    "CA10__state__c": "AVAILABLE",
+    "Id": "001"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__rootVolumeEncryptionEnabled__c') == false && extract('CA10__userVolumeEncryptionEnabled__c') == false",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-24T08:56:32Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__rootVolumeEncryptionEnabled__c": false,
+    "CA10__userVolumeEncryptionEnabled__c": false,
+    "CA10__state__c": "AVAILABLE",
+    "Id": "002"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "500",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-24T08:56:32Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__rootVolumeEncryptionEnabled__c": true,
+    "CA10__userVolumeEncryptionEnabled__c": true,
+    "CA10__state__c": "AVAILABLE",
+    "Id": "003"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__rootVolumeEncryptionEnabled__c') == false",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-24T08:56:32Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__rootVolumeEncryptionEnabled__c": false,
+    "CA10__userVolumeEncryptionEnabled__c": true,
+    "CA10__state__c": "AVAILABLE",
+    "Id": "004"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__userVolumeEncryptionEnabled__c') == false",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-24T08:56:32Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__rootVolumeEncryptionEnabled__c": true,
+    "CA10__userVolumeEncryptionEnabled__c": false,
+    "CA10__state__c": "AVAILABLE",
+    "Id": "005"
+  }
+]

@@ -7,7 +7,7 @@ importExtracts:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The S3 bucket is not encrypted."
-    remediationMessage: "Enable Server-Side Encryption with AWS KMS (SSE-KMS) for the bucket."
+    remediationMessage: "Enable server-side encryption with AWS KMS (SSE-KMS) for the bucket."
     check:
       IS_EQUAL:
         left:
@@ -16,7 +16,7 @@ conditions:
           TEXT: "None"
   - status: "INCOMPLIANT"
     currentStateMessage: "The S3 bucket is encrypted with Amazon S3 managed key."
-    remediationMessage: "Enable Server-Side Encryption with AWS KMS for the bucket."
+    remediationMessage: "Enable server-side encryption with AWS KMS for the bucket."
     check:
       IS_EQUAL:
         left:
@@ -24,7 +24,7 @@ conditions:
         right:
           TEXT: "AES256"
   - status: "COMPLIANT"
-    currentStateMessage: "The S3 Bucket is encrypted with a KMS key."
+    currentStateMessage: "The S3 bucket is encrypted with a KMS key."
     check:
       CONTAINS:
         arg:

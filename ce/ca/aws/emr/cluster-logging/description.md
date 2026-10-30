@@ -1,7 +1,6 @@
 # Description
 
-This policy identifies Amazon EMR clusters that do not have logging enabled.
-Ensure that all Amazon EMR cluster logs are archived and uploaded to Amazon S3 to support long-term retention, historical analysis, and operational troubleshooting.
+This policy identifies Amazon EMR clusters that do not have logging enabled. Ensure that all Amazon EMR cluster logs are archived and uploaded to Amazon S3 to support long-term retention, historical analysis, and operational troubleshooting.
 
 ## Rationale
 

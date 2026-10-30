@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS RDS Instance is not configured to copy all tags to snapshots"
+  contextual: "Instance is not configured to copy all tags to snapshots"
+description: >
+  Ensure that RDS instances have the Copy Tags to Snapshots setting enabled. 
+  This practice ensures that database backups inherit the same metadata as the 
+  source instance, which is essential for cost allocation, security labeling, 
+  and access control consistency.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/17"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[RDS.17] RDS DB instances should be configured to copy tags to snapshots"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-17"

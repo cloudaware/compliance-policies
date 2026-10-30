@@ -1,0 +1,24 @@
+---
+names:
+  full: "AWS RDS Cluster Deletion Protection is not enabled"
+  contextual: "Cluster Deletion Protection is not enabled"
+description: >
+  Ensure that Amazon RDS clusters have deletion protection enabled. This feature 
+  prevents the database from being accidentally deleted by any user or process, 
+  providing an essential safety net for critical data.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-protection-and-recovery"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/07"
+  - "/frameworks/aws-fsbp-v1.0.0/documentdb/05"
+  - "/frameworks/aws-fsbp-v1.0.0/neptune/04"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[RDS.7] RDS clusters should have deletion protection enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-7"
+    - name: "[DocumentDB.5] Amazon DocumentDB clusters should have deletion protection enabled"  
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/documentdb-controls.html#documentdb-5"
+    - name: "[Neptune.4] Neptune DB clusters should have deletion protection enabled"  
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/neptune-controls.html#neptune-4"

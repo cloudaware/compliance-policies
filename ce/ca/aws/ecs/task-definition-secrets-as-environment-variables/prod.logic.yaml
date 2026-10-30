@@ -7,7 +7,7 @@ importExtracts:
   - file: "/types/CA10__CaAwsEcsContainerDefinition__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The Task Definition is not active."
+    currentStateMessage: "The task definition is not active."
     check:
       NOT_EQUAL:
         left:
@@ -15,7 +15,7 @@ conditions:
         right:
           TEXT: "ACTIVE"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Task Definition contains environment variables with\
+    currentStateMessage: "The task definition contains environment variables with\
       \ names indicating sensitive data (e.g., AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, ECS_ENGINE_AUTH_DATA)."
     remediationMessage: "Move sensitive data to AWS Secrets Manager or SSM Parameter\
       \ Store and reference them using the secrets parameter."
@@ -25,7 +25,7 @@ conditions:
         relationshipName: "CA10__AWS_ECS_Container_Definitions__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "No obvious secrets detected in plaintext environment variables (e.g., AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, ECS_ENGINE_AUTH_DATA)."
+  currentStateMessage: "No obvious secrets are detected in plaintext environment variables (e.g., AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, ECS_ENGINE_AUTH_DATA)."
 relatedLists:
   - relationshipName: "CA10__AWS_ECS_Container_Definitions__r"
     conditions:
@@ -46,7 +46,7 @@ relatedLists:
             search:
               BYTES: "PASSWORD"
       - status: "INCOMPLIANT"
-        currentStateMessage: "The container contains SECRET secret in environment variables."
+        currentStateMessage: "The container contains SECRET in environment variables."
         check:
           CONTAINS:
             arg:
@@ -80,3 +80,4 @@ relatedLists:
     otherwise:
       status: "COMPLIANT"
       currentStateMessage: "The container does not contain any secrets in environment variables."
+

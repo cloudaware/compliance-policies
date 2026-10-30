@@ -1,14 +1,15 @@
 ---
 name: 2.15 Ensure 'Access Approval' is 'Enabled' - Level 2 (Automated)
-description: GCP Access Approval enables you to require your organizations' explicit
-  approval whenever Google support try to access your projects. You can then select
-  users within your organization who can approve these requests through giving them
-  a security role in IAM. All access requests display which Google Employee requested
-  them in an email or Pub/Sub message that you can choose to Approve. This adds an
-  additional control and logging of who in your organization approved/denied these
-  requests.
+description: >
+  GCP Access Approval enables you to require your organizations' explicit approval whenever Google
+  support try to access your projects. You can then select users within your organization who can
+  approve these requests through giving them a security role in IAM. All access requests display
+  which Google Employee requested them in an email or Pub/Sub message that you can choose to
+  Approve. This adds an additional control and logging of who in your organization approved/denied
+  these requests.
 similar:
   sections:
     - /frameworks/cis-gcp-v2.0.0/02/15
+    - /frameworks/cis-gcp-v4.0.0/02/15
   internal:
     - dec-c-289d0cc0

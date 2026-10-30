@@ -1,0 +1,9 @@
+---
+extracts:
+# Values: true | false. Not nullable. Retrieved via cognito-identity:DescribeIdentityPool
+  - name: CA10A1__allowUnauthenticatedIdentities__c
+    value:
+      FIELD:
+        path: CA10A1__allowUnauthenticatedIdentities__c
+        undeterminedIf:
+          isEmpty: "Allow Unauthenticated Identities should not be empty. Possibly corrupted data."

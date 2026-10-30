@@ -28,7 +28,7 @@ The removed role should be assigned to a different user based on business needs.
 1. List all users and role assignments:
 
     ```sh
-    gcloud projects get-iam-policy [Project_ID] --format json | \ jq -r '[ (["Service_Account_Admin_and_User"] | (., map(length*"-"))), ( [ .bindings[] | select(.role == "roles/iam.serviceAccountAdmin" or .role == "roles/iam.serviceAccountUser").members[] ] | group_by(.) | map({User: ., Count: length}) | .[] | select(.Count == 2).User | unique ) ] | .[] | @tsv'
+    gcloud projects get-iam-policy {{project-id}} --format json | \ jq -r '[ (["Service_Account_Admin_and_User"] | (., map(length*"-"))), ( [ .bindings[] | select(.role == "roles/iam.serviceAccountAdmin" or .role == "roles/iam.serviceAccountUser").members[] ] | group_by(.) | map({User: ., Count: length}) | .[] | select(.Count == 2).User | unique ) ] | .[] | @tsv'
     ```
 
 2. All common users listed under `Service_Account_Admin_and_User` are assigned both the `roles/iam.serviceAccountAdmin` and `roles/iam.serviceAccountUser roles`.

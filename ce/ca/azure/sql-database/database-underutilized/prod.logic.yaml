@@ -52,8 +52,7 @@ conditions:
         arg:
           EXTRACT: "CA10__pausedDate__c"
   - status: "UNDETERMINED"
-    currentStateMessage: "There is not enough data in the CMDB to identify if the\
-      \ database is underutilized."
+    currentStateMessage: "There is not enough data in the CMDB to determine whether the database is underutilized."
     check:  
       OR:
         args:
@@ -64,9 +63,8 @@ conditions:
               arg:
                 EXTRACT: "CA10__monitorStoragePercentMax30Day__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The database DTU consumption is less than 20% and storage\
-      \ utilization is less than 10%."
-    remediationMessage: "Consider rightsizing the database."
+    currentStateMessage: "The database DTU consumption is less than 20%, and storage utilization is less than 10%."
+    remediationMessage: "Rightsize the database."
     check:
       AND:
         args:
@@ -84,9 +82,8 @@ conditions:
               right:
                 NUMBER: 10.0
   - status: "INCOMPLIANT"
-    currentStateMessage: "The database CPU utilization is less than 20%, App Memory\
-      \ utilization < 40%, and storage utilization is less than 10%."
-    remediationMessage: "Consider rightsizing the database."
+    currentStateMessage: "The database CPU utilization is less than 20%, app memory utilization is less than 40%, and storage utilization is less than 10%."
+    remediationMessage: "Rightsize the database."
     check:
       AND:
         args:
@@ -110,7 +107,7 @@ conditions:
                 NUMBER: 10.0
   - status: "INCOMPLIANT"
     currentStateMessage: "The database CPU is less than 20% and storage utilization is less than 10%."
-    remediationMessage: "Consider rightsizing the database."
+    remediationMessage: "Rightsize the database."
     check:
       AND:
         args:

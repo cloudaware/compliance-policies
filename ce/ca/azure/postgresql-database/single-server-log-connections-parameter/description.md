@@ -6,13 +6,13 @@ Enable `log_connections` on `PostgreSQL Single Servers`.
 
 ## Rationale
 
-Enabling `log_connections` helps PostgreSQL Database to log attempted connection to the server, as well as successful completion of client authentication. Log data can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance.
+Enabling `log_connections` helps PostgreSQL log attempted connections to the server, as well as successful client authentication. Log data can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance.
 
 ## Audit
 
 ### From Azure Portal
 
-1. Login to Azure Portal using <https://portal.azure.com>.
+1. Log in to Azure Portal using <https://portal.azure.com>.
 2. Go to `Azure Database for PostgreSQL servers`.
 3. For each database, under `Settings`, click `Server parameters`.
 4. In the filter bar, type `log_connections`.
@@ -20,18 +20,24 @@ Enabling `log_connections` helps PostgreSQL Database to log attempted connection
 
 ### From Azure CLI
 
-Ensure the below command returns a `Value` of `ON`:
+Ensure the following command returns a `Value` of `ON`:
 
 ```sh
-az postgres server configuration show --resource-group <resourceGroupName> --server-name <serverName> --name log_connections
+az postgres server configuration show \
+    --resource-group {{resource-group-name}} \
+    --server-name {{server-name}} \
+    --name log_connections
 ```
 
 ### From PowerShell
 
-Ensure the below command returns a `Value` of `ON`:
+Ensure the following command returns a `Value` of `ON`:
 
 ```ps
-Get-AzPostgreSqlConfiguration -ResourceGroupName <resourceGroup> -ServerName <serverName> -Name log_connections
+Get-AzPostgreSqlConfiguration `
+    -ResourceGroupName {{resource-group-name}} `
+    -ServerName {{server-name}} `
+    -Name log_connections
 ```
 
 ### From Azure Policy
@@ -42,7 +48,7 @@ If referencing a digital copy of this Benchmark, clicking a Policy ID will open 
 
 ## Default Value
 
-By default `log_connections` is enabled (set to `ON`).
+By default, `log_connections` is enabled (set to `ON`).
 
 ## References
 

@@ -1,0 +1,187 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "gone",
+    "CA10__disappearanceTime__c": "2026-09-09T00:00:00Z",
+    "CA10__timeCreated__c": null
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__provisioningState__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "unknown-state",
+    "CA10__disappearanceTime__c": null,
+    "CA10__provisioningState__c": "",
+    "CA10__skuCapacity__c": 1,
+    "CA10__timeCreated__c": "2026-07-01T00:00:00Z",
+    "CA10__monitorCpuAvg30Day__c": 1,
+    "CA10__monitorNetworkInMbSum30Day__c": 1,
+    "CA10__monitorNetworkOutMbSum30Day__c": 1
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__provisioningState__c') != 'Succeeded'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "updating",
+    "CA10__disappearanceTime__c": null,
+    "CA10__provisioningState__c": "Updating",
+    "CA10__skuCapacity__c": 1,
+    "CA10__timeCreated__c": "2026-07-01T00:00:00Z",
+    "CA10__monitorCpuAvg30Day__c": 1,
+    "CA10__monitorNetworkInMbSum30Day__c": 1,
+    "CA10__monitorNetworkOutMbSum30Day__c": 1
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__skuCapacity__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "unknown-capacity",
+    "CA10__disappearanceTime__c": null,
+    "CA10__provisioningState__c": "Succeeded",
+    "CA10__skuCapacity__c": null,
+    "CA10__timeCreated__c": "2026-07-01T00:00:00Z",
+    "CA10__monitorCpuAvg30Day__c": 1,
+    "CA10__monitorNetworkInMbSum30Day__c": 1,
+    "CA10__monitorNetworkOutMbSum30Day__c": 1
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__skuCapacity__c') == number(0.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "zero",
+    "CA10__disappearanceTime__c": null,
+    "CA10__provisioningState__c": "Succeeded",
+    "CA10__skuCapacity__c": 0,
+    "CA10__timeCreated__c": "2026-07-01T00:00:00Z",
+    "CA10__monitorCpuAvg30Day__c": 1,
+    "CA10__monitorNetworkInMbSum30Day__c": 1,
+    "CA10__monitorNetworkOutMbSum30Day__c": 1
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "extract('CA10__timeCreated__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "unknown-created",
+    "CA10__disappearanceTime__c": null,
+    "CA10__provisioningState__c": "Succeeded",
+    "CA10__skuCapacity__c": 1,
+    "CA10__timeCreated__c": null,
+    "CA10__monitorCpuAvg30Day__c": 1,
+    "CA10__monitorNetworkInMbSum30Day__c": 1,
+    "CA10__monitorNetworkOutMbSum30Day__c": 1
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "699",
+      "conditionText": "not(extract('CA10__timeCreated__c').beyondLastDays(30))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "young",
+    "CA10__disappearanceTime__c": null,
+    "CA10__provisioningState__c": "Succeeded",
+    "CA10__skuCapacity__c": 1,
+    "CA10__timeCreated__c": "2026-09-01T00:00:00Z",
+    "CA10__monitorCpuAvg30Day__c": 1,
+    "CA10__monitorNetworkInMbSum30Day__c": 1,
+    "CA10__monitorNetworkOutMbSum30Day__c": 1
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "799",
+      "conditionText": "extract('CA10__monitorCpuAvg30Day__c').isEmpty() || extract('CA10__monitorNetworkInMbSum30Day__c').isEmpty() || extract('CA10__monitorNetworkOutMbSum30Day__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "missing-metric",
+    "CA10__disappearanceTime__c": null,
+    "CA10__provisioningState__c": "Succeeded",
+    "CA10__skuCapacity__c": 1,
+    "CA10__timeCreated__c": "2026-07-01T00:00:00Z",
+    "CA10__monitorCpuAvg30Day__c": null,
+    "CA10__monitorNetworkInMbSum30Day__c": 1,
+    "CA10__monitorNetworkOutMbSum30Day__c": 1
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "899",
+      "conditionText": "extract('CA10__monitorCpuAvg30Day__c') < number(20.0) && extract('CA10__monitorNetworkInMbSum30Day__c') < number(100.0) && extract('CA10__monitorNetworkOutMbSum30Day__c') < number(100.0)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "low",
+    "CA10__disappearanceTime__c": null,
+    "CA10__provisioningState__c": "Succeeded",
+    "CA10__skuCapacity__c": 1,
+    "CA10__timeCreated__c": "2026-07-01T00:00:00Z",
+    "CA10__monitorCpuAvg30Day__c": 19.99,
+    "CA10__monitorNetworkInMbSum30Day__c": 99.99,
+    "CA10__monitorNetworkOutMbSum30Day__c": 99.99
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "900",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "boundary",
+    "CA10__disappearanceTime__c": null,
+    "CA10__provisioningState__c": "Succeeded",
+    "CA10__skuCapacity__c": 1,
+    "CA10__timeCreated__c": "2026-07-01T00:00:00Z",
+    "CA10__monitorCpuAvg30Day__c": 20,
+    "CA10__monitorNetworkInMbSum30Day__c": 100,
+    "CA10__monitorNetworkOutMbSum30Day__c": 100
+  }
+]

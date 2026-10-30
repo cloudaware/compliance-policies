@@ -21,5 +21,5 @@ conditions:
                 EXTRACT: "CA10__logConfigSampleRate__c"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "Logging isn't enabled for the HTTP(S) Load Balancer or sample rate isn't set."
-  remediationMessage: "Enable logging for the HTTP(S) Load Balancer."
+  currentStateMessage: "Logging is not enabled for the HTTP(S) Load Balancer or the sample rate is not set."
+  remediationMessage: "Enable logging and set a sample rate for the HTTP(S) Load Balancer."

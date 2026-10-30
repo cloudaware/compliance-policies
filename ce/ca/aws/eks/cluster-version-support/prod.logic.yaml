@@ -1,0 +1,209 @@
+---
+inputType: CA10A1__CaAwsEksCluster__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10A1__CaAwsEksCluster__c/object.extracts.yaml
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: The EKS cluster is creating, pending, failed, or being deleted.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - CREATING
+              - PENDING
+              - FAILED
+              - DELETING
+        search:
+          EXTRACT: CA10A1__status__c
+  # Legacy local clusters have a separate release schedule; platform revisions never set Kubernetes support dates.
+  - status: INAPPLICABLE
+    currentStateMessage: The legacy Outposts local cluster uses a separate Kubernetes release schedule outside this policy's regional EKS calendar.
+    check:
+      STARTS_WITH:
+        arg:
+          EXTRACT: CA10A1__platformVersion__c
+        search:
+          TEXT: eks-local-outposts.
+  - status: UNDETERMINED
+    currentStateMessage: The EKS platform family is unrecognized; the regional Kubernetes support calendar cannot be selected safely.
+    check:
+      NOT:
+        arg:
+          STARTS_WITH:
+            arg:
+              EXTRACT: CA10A1__platformVersion__c
+            search:
+              TEXT: eks.
+  # AWS EKS calendar verified 2026-10-26; dates and sources are documented in description.md.
+  # Elapsed cutoffs are fixed findings; only future cutoffs need date comparisons.
+  # NOT IS_AFTER_TODAY includes the published cutoff date, starting at 00:00 UTC.
+  - status: INCOMPLIANT
+    currentStateMessage: The control-plane Kubernetes minor version has reached the final AWS EKS support cutoff, including extended support.
+    remediationMessage: Verify the current AWS cluster state and prioritize a tested control-plane upgrade to a version within standard support.
+    check:
+      OR:
+        args:
+          - CONTAINS:
+              arg:
+                SET:
+                  itemType: TEXT
+                  items:
+                    - '1.29'
+                    - '1.30'
+              search:
+                EXTRACT: CA10A1__version__c
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.31'
+                - NOT:
+                    arg:
+                      IS_AFTER_TODAY:
+                        arg:
+                          DATE_TIME: '2026-11-26T00:00:00Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.32'
+                - NOT:
+                    arg:
+                      IS_AFTER_TODAY:
+                        arg:
+                          DATE_TIME: '2027-03-23T00:00:00Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.33'
+                - NOT:
+                    arg:
+                      IS_AFTER_TODAY:
+                        arg:
+                          DATE_TIME: '2027-07-29T00:00:00Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.34'
+                - NOT:
+                    arg:
+                      IS_AFTER_TODAY:
+                        arg:
+                          DATE_TIME: '2027-12-02T00:00:00Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.35'
+                - NOT:
+                    arg:
+                      IS_AFTER_TODAY:
+                        arg:
+                          DATE_TIME: '2028-03-27T00:00:00Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.36'
+                - NOT:
+                    arg:
+                      IS_AFTER_TODAY:
+                        arg:
+                          DATE_TIME: '2028-08-02T00:00:00Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.37'
+                - NOT:
+                    arg:
+                      IS_AFTER_TODAY:
+                        arg:
+                          DATE_TIME: '2028-12-01T00:00:00Z'
+  - status: INCOMPLIANT
+    currentStateMessage: The control-plane Kubernetes minor version is outside AWS EKS standard support and within the published extended support window; additional charges can apply.
+    remediationMessage: Plan a tested control-plane upgrade to a version within standard support, or record a time-limited exception and verify the cluster upgrade policy and charges.
+    check:
+      OR:
+        args:
+          - CONTAINS:
+              arg:
+                SET:
+                  itemType: TEXT
+                  items:
+                    - '1.31'
+                    - '1.32'
+                    - '1.33'
+              search:
+                EXTRACT: CA10A1__version__c
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.34'
+                - NOT:
+                    arg:
+                      IS_AFTER_TODAY:
+                        arg:
+                          DATE_TIME: '2026-12-02T00:00:00Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.35'
+                - NOT:
+                    arg:
+                      IS_AFTER_TODAY:
+                        arg:
+                          DATE_TIME: '2027-03-27T00:00:00Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.36'
+                - NOT:
+                    arg:
+                      IS_AFTER_TODAY:
+                        arg:
+                          DATE_TIME: '2027-08-02T00:00:00Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.37'
+                - NOT:
+                    arg:
+                      IS_AFTER_TODAY:
+                        arg:
+                          DATE_TIME: '2027-12-01T00:00:00Z'
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: The control-plane Kubernetes version has not reached a standard-support cutoff defined by this policy.

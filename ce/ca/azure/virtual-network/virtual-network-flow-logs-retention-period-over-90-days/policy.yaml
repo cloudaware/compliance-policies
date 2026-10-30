@@ -5,8 +5,8 @@ names:
 description: Ensure that virtual network flow logs are retained for greater than or equal to 90 days.
 type: COMPLIANCE_POLICY
 categories:
-  - SECURITY
-  - RELIABILITY
+  - "SECURITY"
+  - "RELIABILITY"
 frameworkMappings:
-  - "/frameworks/cis-azure-v5.0.0/07/08"
+  - "/frameworks/cis-azure-v6.0.0/07/08"
   - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"

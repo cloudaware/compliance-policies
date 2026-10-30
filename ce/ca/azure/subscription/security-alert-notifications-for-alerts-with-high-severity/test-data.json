@@ -29,7 +29,7 @@
         "expectedResult": {
             "status": "COMPLIANT",
             "conditionIndex": "499",
-            "conditionText": "setOfText(['High', 'Critical']).contains(extract('caJsonText__securityCenterContactsDefaultAlertNotificationsSeverity__c')) && extract('caJsonText__securityCenterContactsDefaultAlertNotifications__c') == 'On'",
+            "conditionText": "setOfText(['Low', 'Medium', 'High']).contains(extract('caJsonText__securityCenterContactsDefaultAlertNotificationsSeverity__c')) && extract('caJsonText__securityCenterContactsDefaultAlertNotifications__c') == 'On'",
             "runtimeError": null
         },
         "context": {
@@ -92,9 +92,9 @@
     },
     {
         "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "399",
-            "conditionText": "not(setOfText(['High', 'Critical']).contains(extract('caJsonText__securityCenterContactsDefaultAlertNotificationsSeverity__c')))",
+            "status": "COMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "setOfText(['Low', 'Medium', 'High']).contains(extract('caJsonText__securityCenterContactsDefaultAlertNotificationsSeverity__c')) && extract('caJsonText__securityCenterContactsDefaultAlertNotifications__c') == 'On'",
             "runtimeError": null
         },
         "context": {
@@ -102,5 +102,18 @@
         },
         "Id": "test8",
         "CA10__securityCenterContacts__c": "[{\"name\":\"default\",\"email\":\"\",\"phone\":\"\",\"alertNotifications\":\"On\",\"alertsToAdmins\":\"Off\",\"alertNotificationsMinimalSeverity\":\"Low\",\"notificationsByRoleState\":\"Off\",\"notificationsByRoleRoles\":\"\"}]"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "not(setOfText(['Low', 'Medium', 'High']).contains(extract('caJsonText__securityCenterContactsDefaultAlertNotificationsSeverity__c')))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2024-06-25T20:34:10Z"
+        },
+        "Id": "test9",
+        "CA10__securityCenterContacts__c": "[{\"name\":\"default\",\"email\":\"\",\"phone\":\"\",\"alertNotifications\":\"On\",\"alertsToAdmins\":\"Off\",\"alertNotificationsMinimalSeverity\":\"Critical\",\"notificationsByRoleState\":\"Off\",\"notificationsByRoleRoles\":\"\"}]"
     }
 ]

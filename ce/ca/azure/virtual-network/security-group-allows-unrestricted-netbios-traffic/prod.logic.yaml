@@ -28,7 +28,7 @@ conditions:
         status: "INCOMPLIANT"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The NSG doesn't allow NetBIOS access from the Internet." 
+  currentStateMessage: "The Network Security Group does not allow NetBIOS access from the Internet."
 relatedLists:
   - relationshipName: "CA10__Azure_Network_Security_Group_Rules__r"
     importExtracts:
@@ -112,7 +112,7 @@ relatedLists:
                         TEXT: "Any"
       - status: "INCOMPLIANT"
         currentStateMessage: "NSG Rule with NetBIOS access from the Internet on port 137."
-        remediationMessage: "Consider restricting internet-level access to your Azure resources."
+        remediationMessage: "Restrict public access to the NetBIOS port."
         check:
           OR:
             args:
@@ -135,7 +135,7 @@ relatedLists:
                           NUMBER: 137.0
       - status: "INCOMPLIANT"
         currentStateMessage: "NSG Rule with NetBIOS access from the Internet on port 138."
-        remediationMessage: "Consider restricting internet-level access to your Azure resources."
+        remediationMessage: "Restrict public access to the NetBIOS port."
         check:
           OR:
             args:
@@ -158,7 +158,7 @@ relatedLists:
                           NUMBER: 138.0
       - status: "INCOMPLIANT"
         currentStateMessage: "NSG Rule with NetBIOS access from the Internet on port 139."
-        remediationMessage: "Consider restricting internet-level access to your Azure resources."
+        remediationMessage: "Restrict public access to the NetBIOS port."
         check:
           OR:
             args:
@@ -200,3 +200,4 @@ relatedLists:
     otherwise:
       status: "INAPPLICABLE"
       currentStateMessage: "This is a Network Interface without a linked VM Scale Set Instance."
+

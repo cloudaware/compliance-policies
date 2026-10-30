@@ -1,0 +1,11 @@
+name: >
+  [RDS.46] RDS DB instances should not be deployed in public subnets with routes to internet gateways
+description: |-
+  By provisioning your Amazon RDS resources in private subnets, you can prevent 
+  your RDS resources from receiving inbound traffic from the public internet, 
+  which can prevent unintended access to your RDS DB instances. If RDS resources 
+  are provisioned in a public subnet that is open to the internet, they might be 
+  vulnerable to risks such as data exfiltration.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-46

@@ -9,10 +9,10 @@ description: "AWS CloudTrail is a web service that records AWS API calls for you
   \ service."
 type: COMPLIANCE_POLICY
 categories:
-  - SECURITY
-  - RELIABILITY
+  - "SECURITY"
+  - "RELIABILITY"
 frameworkMappings:
-  - "/frameworks/cis-aws-v6.0.0/04/01"
+  - "/frameworks/cis-aws-v7.0.0/04/01"
   - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
   - "/frameworks/aws-fsbp-v1.0.0/cloudtrail/01"
 similarPolicies:
@@ -21,3 +21,6 @@ similarPolicies:
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/CloudTrail/cloudtrail-enabled.html
       name: CloudTrail Enabled
+  awsSecurityHub:
+    - name: "[CloudTrail.1] CloudTrail should be enabled and configured with at least one multi-Region trail that includes read and write management events"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/cloudtrail-controls.html#cloudtrail-1"

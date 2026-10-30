@@ -1,6 +1,6 @@
 # Description
 
-Ensure that the AWS EC2 Auto Scaling Group uses a Launch Template which is configured to enforce the use of Instance Metadata Service Version 2 (IMDSv2).
+Ensure that the AWS EC2 Auto Scaling Group uses a Launch Template that is configured to enforce the use of Instance Metadata Service Version 2 (IMDSv2).
 
 IMDSv2 is a session-oriented metadata retrieval mechanism that issues time-limited tokens, significantly reducing the risk of unauthorized metadata and IAM credential exposure.
 
@@ -10,7 +10,7 @@ Enforcing IMDSv2 mitigates common attack vectors, such as Server-Side Request Fo
 
 ## Impact
 
-If you leave the metadata version unspecified, the configuration will be determined by the defaults of the account and AMI levels which might be without explicit IMDSv2 requirement.
+If you leave the metadata version unspecified, the configuration will be determined by the defaults at the account and AMI levels, which might not explicitly require IMDSv2.
 
 ## Audit
 
@@ -19,7 +19,7 @@ This policy flags an *AWS EC2 Auto Scaling Group* as `INCOMPLIANT` if the relate
 - `Metadata HTTP Endpoint` field set to **disabled**, and
 - `Metadata HTTP Tokens` field **NOT** set to **required**.
 
-By default, an empty `Metadata HTTP Endpoint` field is an equivalent to **enabled**, and an empty `Metadata HTTP Tokens` field is an equivalent to **optional**.
+By default, an empty `Metadata HTTP Endpoint` field is equivalent to **enabled**, and an empty `Metadata HTTP Tokens` field is equivalent to **optional**.
 
 The *AWS EC2 Auto Scaling Group* is marked as `INAPPLICABLE` if the ASG uses Launch Configurations instead of Launch Templates. AWS is phasing out support for Launch Configurations and migration to Launch Templates is recommended.
 

@@ -6,16 +6,17 @@
 2. Select the PostgreSQL instance for which you want to enable the database flag.
 3. Click `Edit`.
 4. Scroll down to the `Flags` section.
-5. To set a flag that has not been set on the instance before, click `Add a Database Flag`, choose the flag `log_temp_files` from the drop-down menu and set the value as `0`.
+5. To set a flag that has not been set on the instance before, click `Add a Database Flag`, choose the flag `log_temp_files` from the drop-down menu, and set the value to `0`.
 6. Click `Save`.
 7. Confirm the changes under `Flags` on the Overview page.
 
 ## From Google Cloud CLI
 
-1. Configure the `log_temp_files` database flag for every Cloud SQL PosgreSQL database instance using the below command.
+1. Configure the `log_temp_files` database flag for every Cloud SQL PostgreSQL database instance using the following command.
 
     ```sh
-    gcloud sql instances patch <INSTANCE_NAME> --database-flags "log_temp_files"= `0`
+    gcloud sql instances patch {{instance-name}} \
+        --database-flags log_temp_files=0
     ```
 
     Note: This command will overwrite all previously set database flags. To keep those and add new ones, include the values for all flags to be set on the instance; any flag not specifically included is set to its default value. For flags that do not take a value, specify the flag name followed by an equals sign ("=").

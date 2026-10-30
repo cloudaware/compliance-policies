@@ -14,11 +14,33 @@
 ## From Azure CLI
 
 ```sh
-az monitor diagnostic-settings subscription create --subscription <subscription id> --name <diagnostic settings name> --location <location> --event-hub <event hub ID> --event-hub-auth-rule <event hub auth rule ID> --storage-account <storage account ID> --workspace <log analytics workspace ID> --logs "[{category:Security,enabled:true},{category:Administrative,enabled:true},{category:Alert,enabled:true},{category:Policy,enabled:true}]"
+az monitor diagnostic-settings subscription create \
+    --subscription {{subscription-id}} \
+    --name {{diagnostic-setting-name}} \
+    --location {{location}} \
+    --event-hub {{event-hub-id}} \
+    --event-hub-auth-rule {{event-hub-auth-rule-id}} \
+    --storage-account {{storage-account-id}} \
+    --workspace {{log-analytics-workspace-id}} \
+    --logs "[{category:Security,enabled:true},{category:Administrative,enabled:true},{category:Alert,enabled:true},{category:Policy,enabled:true}]"
 ```
 
 ## From PowerShell
 
 ```ps
-$logCategories = @(); $logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category Administrative -Enabled $true $logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category Security -Enabled $true $logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category Alert -Enabled $true $logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category Policy -Enabled $true New-AzSubscriptionDiagnosticSetting -SubscriptionId <subscription ID> -Name <Diagnostic settings name> <[-EventHubAuthorizationRule <event hub auth rule ID> -EventHubName <event hub name>] [-StorageAccountId <storage account ID>] [-WorkSpaceId <log analytics workspace ID>] [-MarketplacePartner ID <full ARM Marketplace resource ID>]> -Log $logCategories
+$logCategories = @()
+$logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category Administrative -Enabled $true
+$logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category Security -Enabled $true
+$logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category Alert -Enabled $true
+$logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category Policy -Enabled $true
+
+New-AzSubscriptionDiagnosticSetting `
+    -SubscriptionId {{subscription-id}} `
+    -Name {{diagnostic-setting-name}} `
+    -EventHubAuthorizationRuleId {{event-hub-auth-rule-id}} `
+    -EventHubName {{event-hub-name}} `
+    -StorageAccountId {{storage-account-id}} `
+    -WorkSpaceId {{log-analytics-workspace-id}} `
+    -MarketplacePartnerId {{marketplace-partner-id}} `
+    -Log $logCategories
 ```

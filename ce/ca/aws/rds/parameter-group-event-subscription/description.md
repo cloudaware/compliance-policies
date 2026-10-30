@@ -9,7 +9,7 @@ Amazon RDS event notifications use Amazon SNS to inform you of changes to the co
 
 ## Rationale
 
-RDS parameter groups define the behavior and performance of your database instances. Changes to parameters—such as buffer sizes, timeout settings, or SSL enforcement—can significantly impact database stability, performance, and security. Subscribing to event notifications ensures that operations and security teams are immediately aware of modifications, allowing verification or rapid remediation of unintended changes.
+RDS parameter groups define the behavior and performance of your database instances. Changes to parameters, such as buffer sizes, timeout settings, or SSL enforcement, can significantly impact database stability, performance, and security. Subscribing to event notifications ensures that operations and security teams are immediately aware of modifications, allowing verification or rapid remediation of unintended changes.
 
 ## Audit
 

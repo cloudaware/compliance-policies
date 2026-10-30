@@ -1,17 +1,18 @@
 # Remediation
 
-## Decommission Idle RDS Instances
+## Address Idle RDS Instances
 
 ### Key Considerations
 
-- If deletion is not an option (e.g., business constraints), consider downsizing the instance.
-- Confirm with application and database owners that the instance is no longer required before stopping or deleting it.
+- Confirm with application and database owners that the instance is no longer required before stopping, resizing, or deleting it.
+- Review dependencies, connection strings, scheduled jobs, backups, and retention requirements.
 - Stopping an instance retains the underlying data and allows it to be restarted later.
-- Deleting an instance permanently removes it. Always take a final snapshot (if needed) before deletion.
+- Deleting an instance permanently removes it. Create a final snapshot unless an approved retention process already exists.
+- If the instance still supports a low-volume workload, consider rightsizing instead of deleting it.
 
 ### Stop or Delete the Instance
 
-#### **From Command Line**
+#### **From AWS CLI**
 
 Stop the instance:
 
@@ -20,7 +21,7 @@ aws rds stop-db-instance \
     --db-instance-identifier {{db-instance-id}}
 ```
 
-Take a final snapshot before deletion:
+Create a manual snapshot before deletion:
 
 ```sh
 aws rds create-db-snapshot \
@@ -28,7 +29,7 @@ aws rds create-db-snapshot \
     --db-instance-identifier {{db-instance-id}}
 ```
 
-Delete the idle instance:
+Delete the idle instance after the manual snapshot is available:
 
 ```sh
 aws rds delete-db-instance \
@@ -36,9 +37,9 @@ aws rds delete-db-instance \
     --skip-final-snapshot
 ```
 
-### Downsize the DB instance
+### Right-Size the DB Instance
 
-#### **From Command Line**
+#### **From AWS CLI**
 
 To apply during the next maintenance window (recommended for production):
 

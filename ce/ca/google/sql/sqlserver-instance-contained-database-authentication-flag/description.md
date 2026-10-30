@@ -1,6 +1,6 @@
 # Description
 
-It is recommended not to set `contained database authentication` database flag for Cloud SQL on the SQL Server instance to `on`.
+It is recommended not to set the `contained database authentication` database flag for a Cloud SQL SQL Server instance to `on`.
 
 ## Rationale
 
@@ -15,14 +15,17 @@ When `contained database authentication` is off (0) for the instance, contained 
 ### From Google Cloud Console
 
 1. Go to the Cloud SQL Instances page in the Google Cloud Console by visiting <https://console.cloud.google.com/sql/instances>.
-2. Select the instance to open its `Instance Overview` page
-3. Under the 'Database flags' section, if the database flag `contained database authentication` is present, then ensure that it is not set to `on`.
+2. Select the instance to open its `Instance Overview` page.
+3. Under the `Database flags` section, if the `contained database authentication` flag is present, ensure that it is not set to `on`.
 
 ### From Google Cloud CLI
 
-1. Ensure the below command doesn't return `on` for any Cloud SQL for SQL Server database instance.
+1. Ensure the following command does not return `on` for any Cloud SQL SQL Server database instance:
 
-            gcloud sql instances describe <INSTANCE_NAME> --format=json | jq '.settings.databaseFlags[] | select(.name=="contained database authentication")|.value'
+    ```sh
+    gcloud sql instances describe {{instance-name}} \
+        --format=json | jq '.settings.databaseFlags[] | select(.name=="contained database authentication") | .value'
+    ```
 
 ## References
 

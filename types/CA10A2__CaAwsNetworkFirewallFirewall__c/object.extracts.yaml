@@ -1,0 +1,31 @@
+---
+extracts:
+# Values: PROVISIONING | DELETING | READY. Not nullable. 
+  - name: CA10A2__status__c
+    value:
+      FIELD: 
+        path: CA10A2__status__c
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10A2__status__c"
+            currentStateMessage: "Firewall Status cannot be empty. Possible permissions issue with networkfirewall:DescribeFirewall."
+# Values: true | false
+# Not nullable
+  - name: CA10A2__deleteProtection__c
+    value:
+      FIELD: 
+        path: CA10A2__deleteProtection__c
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10A2__deleteProtection__c"
+            currentStateMessage: "Firewall Delete Protection cannot be empty. Possible permissions issue with networkfirewall:DescribeFirewall."
+# Values: true | false
+# Not nullable
+  - name: CA10A2__subnetChangeProtection__c
+    value:
+      FIELD: 
+        path: CA10A2__subnetChangeProtection__c
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10A2__subnetChangeProtection__c"
+            currentStateMessage: "Firewall Subnet Change Protection cannot be empty. Possible permissions issue with networkfirewall:DescribeFirewall."

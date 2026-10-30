@@ -7,8 +7,8 @@ importExtracts:
   - file: /types/CA10G1__CaGoogleApiKey__c/object.extracts.yaml
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "API Key is older than 90 days."
-    remediationMessage: "It's recommended to rotate API Key every 90 days."
+    currentStateMessage: "API key is older than 90 days."
+    remediationMessage: "Rotate API keys at least every 90 days."
     check:
       IS_BEYOND_LAST_DAYS:
         offsetDays: 90
@@ -16,5 +16,5 @@ conditions:
           EXTRACT: CA10G1__createTime__c     
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "API Key is regularly rotated."
+  currentStateMessage: "API key was created within the last 90 days."
 

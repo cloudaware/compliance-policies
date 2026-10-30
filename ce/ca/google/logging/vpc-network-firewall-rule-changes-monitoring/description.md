@@ -1,14 +1,14 @@
 # Description
 
-It is recommended that a metric filter and alarm be established for Virtual Private Cloud (VPC) Network Firewall rule changes.
+It is recommended that a metric filter and alarm be established for Virtual Private Cloud (VPC) network firewall rule changes.
 
 ## Rationale
 
-Monitoring for Create or Update Firewall rule events gives insight to network access changes and may reduce the time it takes to detect suspicious activity.
+Monitoring create or update firewall rule events provides insight into network access changes and may reduce the time it takes to detect suspicious activity.
 
 ## Impact
 
-Enabling of logging may result in your project being charged for the additional logs usage. These charges could be significant depending on the size of the organization.
+Enabling logging may result in your project being charged for additional log usage. These charges could be significant depending on the size of the organization.
 
 ## Audit
 
@@ -17,12 +17,14 @@ Enabling of logging may result in your project being charged for the additional 
 Ensure that the prescribed log metric is present:
 
 1. Go to `Logging/Logs-based Metrics` by visiting <https://console.cloud.google.com/logs/metrics>.
-2. In the `User-defined Metrics` section, ensure at least one metric `<Log_Metric_Name>` is present with this filter text:
+2. In the `User-defined Metrics` section, ensure at least one metric `{{log-metric-name}}` is present with this filter text:
 
-        resource.type="gce_firewall_rule" 
-        AND (protoPayload.methodName:"compute.firewalls.patch" 
-        OR protoPayload.methodName:"compute.firewalls.insert" 
-        OR protoPayload.methodName:"compute.firewalls.delete")
+    ```txt
+    resource.type="gce_firewall_rule" 
+    AND (protoPayload.methodName:"compute.firewalls.patch" 
+    OR protoPayload.methodName:"compute.firewalls.insert" 
+    OR protoPayload.methodName:"compute.firewalls.delete")
+    ```
 
 Ensure that the prescribed alerting policy is present:
 
@@ -36,14 +38,19 @@ Ensure that the prescribed log metric is present:
 
 1. List the log metrics:
 
-        gcloud logging metrics list --format json
+    ```sh
+    gcloud logging metrics list \
+        --format json
+    ```
 
 2. Ensure that the output contains at least one metric with the filter set to:
 
-         resource.type="gce_firewall_rule" 
-         AND (protoPayload.methodName:"compute.firewalls.patch" 
-         OR protoPayload.methodName:"compute.firewalls.insert" 
-         OR protoPayload.methodName:"compute.firewalls.delete")
+    ```txt
+    resource.type="gce_firewall_rule" 
+    AND (protoPayload.methodName:"compute.firewalls.patch" 
+    OR protoPayload.methodName:"compute.firewalls.insert" 
+    OR protoPayload.methodName:"compute.firewalls.delete")
+    ```
 
 3. Note the value of the property `metricDescriptor.type` for the identified metric, in the format `logging.googleapis.com/user/<Log Metric Name>`.
 
@@ -51,13 +58,16 @@ Ensure that the prescribed alerting policy is present:
 
 1. List the alerting policies:
 
-        gcloud alpha monitoring policies list --format json
+    ```sh
+    gcloud alpha monitoring policies list \
+        --format json
+    ```
 
-2. Ensure that the output contains an least one alert policy where:
+2. Ensure that the output contains at least one alert policy where:
 
-    • `conditions.conditionThreshold.filter` is set to `metric.type=\"logging.googleapis.com/user/<Log Metric Name>\"`
+    - `conditions.conditionThreshold.filter` is set to `metric.type=\"logging.googleapis.com/user/<Log Metric Name>\"`
 
-    • AND `enabled` is set to `true`
+    - AND `enabled` is set to `true`
 
 ## References
 

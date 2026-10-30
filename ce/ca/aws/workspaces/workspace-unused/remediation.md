@@ -6,7 +6,7 @@ Terminate unused AWS WorkSpaces to reduce costs and minimize security risks. Bef
 
 ### **Warning**
 
-Terminating a WorkSpace is a permanent action. All associated user data will be destroyed and cannot be recovered. To safeguard important information, ensure user data is backed up prior to termination. For help with backing up user data, contact AWS Support.
+Terminating a WorkSpace is a permanent action. All associated user data will be destroyed and cannot be recovered. Ensure user data is backed up before termination. For help with backing up user data, contact AWS Support.
 
 ### **From AWS CLI**
 

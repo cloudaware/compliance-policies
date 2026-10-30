@@ -9,20 +9,20 @@ recordTypes:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The distribution has at least one custom origin that uses the deprecated SSL 3.0 protocol."
-    remediationMessage: "Consider updating the Minimum Origin SSL protocol to TLSv1.2 or later."
+    remediationMessage: "Update the minimum origin SSL protocol to TLSv1.2 or later."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__AWS_CloudFront_Origins__r"
   - status: "INCOMPLIANT"
     currentStateMessage: "The distribution has at least one custom origin that uses the outdated TLS protocols."
-    remediationMessage: "Consider updating the Minimum Origin SSL protocol to TLSv1.2 or later."
+    remediationMessage: "Update the minimum origin SSL protocol to TLSv1.2 or later."
     check:
       RELATED_LIST_HAS:
         status: "COMPLIANT"
         relationshipName: "CA10__AWS_CloudFront_Origins__r"  
   - status: "UNDETERMINED"
-    currentStateMessage: "The Distribution doesn't have any origins in the CMDB."
+    currentStateMessage: "The distribution doesn't have any origins in the CMDB."
     check:
       AND:
         args:
@@ -34,8 +34,8 @@ conditions:
               relationshipName: "CA10__AWS_CloudFront_Origins__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "All custom origins for this Distribution are configured to use\
-    \ TLSv1.2 or later SSL Protocols (if applicable)."
+  currentStateMessage: "All custom origins for this distribution are configured to use\
+    \ TLSv1.2 or later SSL protocols (if applicable)."
 relatedLists:
   - relationshipName: "CA10__AWS_CloudFront_Origins__r"
     importExtracts:
@@ -65,8 +65,8 @@ relatedLists:
             search:
               TEXT: "s3-website"
       - status: "INCOMPLIANT"
-        currentStateMessage: "The Distribution allows the deprecated SSL 3.0 protocol."
-        remediationMessage: "Consider using TLSv1.2 or later for HTTPS communication to the Origin."
+        currentStateMessage: "The distribution allows the deprecated SSL 3.0 protocol."
+        remediationMessage: "Use TLSv1.2 or later for HTTPS communication to the origin."
         check:
           CONTAINS:
             arg:
@@ -75,8 +75,8 @@ relatedLists:
               TEXT: "SSLv3"
       # This condition is set to COMPLIANT only to make it easier to distinguish from INCOMPLIANT in the main body of the policy
       - status: "COMPLIANT"
-        currentStateMessage: "The Distribution allows the outdated TLS protocols."
-        remediationMessage: "Consider using TLSv1.2 or later for HTTPS communication to the Origin."
+        currentStateMessage: "The distribution allows the outdated TLS protocols."
+        remediationMessage: "Use TLSv1.2 or later for HTTPS communication to the origin."
         check:
           CONTAINS_ANY:
             arg:

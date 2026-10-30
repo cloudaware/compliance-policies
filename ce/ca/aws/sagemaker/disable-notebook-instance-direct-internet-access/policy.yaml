@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS SageMaker Notebook Instance Direct Internet Access is not disabled"
+  contextual: "Notebook Instance Direct Internet Access is not disabled"
+description: >
+  Ensure that AWS SageMaker notebook instances do not have direct internet access 
+  enabled. Disabling this feature ensures that the notebook instance can only access 
+  the internet through a VPC, allowing for better network security and traffic control.
+type: "COMPLIANCE_POLICY" 
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/network-exposure"
+  - "/frameworks/aws-fsbp-v1.0.0/sagemaker/01"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[SageMaker.1] Amazon SageMaker notebook instances should not have direct internet access"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/sagemaker-controls.html#sagemaker-1"

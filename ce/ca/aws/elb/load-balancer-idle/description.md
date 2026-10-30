@@ -1,6 +1,6 @@
 # Description
 
-This policy identifies AWS Elastic Load Balancers that are considered idle, including **Application Load Balancers (ALBs)** and **Classic Load Balancers (CLBs)**. A load balancer is classified as idle if it has processed zero requests (that is, the `RequestCount` metric equals 0) over a 30 days period.
+This policy identifies AWS Elastic Load Balancers that are considered idle, including **Application Load Balancers (ALBs)** and **Classic Load Balancers (CLBs)**. A load balancer is classified as idle if it has processed zero requests (that is, the `RequestCount` metric equals 0) over a 30-day period.
 
 ## Rationale
 

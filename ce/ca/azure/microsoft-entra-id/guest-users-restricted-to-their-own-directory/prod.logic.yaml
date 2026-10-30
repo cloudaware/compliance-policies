@@ -4,14 +4,14 @@ testData:
   - file: "test-data.json"
 conditions:
       - status: "INCOMPLIANT"
-        currentStateMessage: "The role templateId is set to either User or Guest User."
-        remediationMessage: "Consider updating the templateId to the Restricted Guest User role."
+        currentStateMessage: "The guest user role is set to User or Guest User."
+        remediationMessage: "Set the guest user role to Restricted Guest User."
         check:
           RELATED_LIST_HAS:
             status: "INCOMPLIANT"
             relationshipName: "CA10Z1__Azure_Active_Directory_Auth_Policies__r"
       - status: "COMPLIANT"
-        currentStateMessage: "The role templateId is set to Restricted Guest User."
+        currentStateMessage: "The guest user role is set to Restricted Guest User."
         check:
           RELATED_LIST_HAS:
             status: "COMPLIANT"
@@ -31,8 +31,8 @@ relatedLists:
       - file: "/types/CA10Z1__CaAzureActiveDirectoryAuthPolicy__c/object.extracts.yaml"
     conditions:
       - status: "INCOMPLIANT"
-        currentStateMessage: "The role templateId is set to User."
-        remediationMessage: "Consider updating the templateId to the Restricted Guest User role."
+        currentStateMessage: "The guest user role is set to User."
+        remediationMessage: "Set the guest user role to Restricted Guest User."
         check:
           IS_EQUAL:
             left:
@@ -40,8 +40,8 @@ relatedLists:
             right:
               TEXT: "a0b1b346-4d3e-4e8b-98f8-753987be4970"
       - status: "INCOMPLIANT"
-        currentStateMessage: "The role templateId is set to Guest User."
-        remediationMessage: "Consider updating the templateId to the Restricted Guest User role."
+        currentStateMessage: "The guest user role is set to Guest User."
+        remediationMessage: "Set the guest user role to Restricted Guest User."
         check:
           IS_EQUAL:
             left:

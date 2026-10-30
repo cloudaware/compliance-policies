@@ -5,3 +5,20 @@ extracts:
     value:
       FIELD: 
         path: CA10A1__kmsKeyId__c
+# Not nullable.
+  - name: CA10A1__productionVariantsJson__c
+    value:
+      FIELD: 
+        path: CA10A1__productionVariantsJson__c
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10A1__productionVariantsJson__c"
+            currentStateMessage: "Endpoint Config Production Variants cannot be empty. Possible permission issue with sagemaker:DescribeEndpointConfig"
+  - name: caJsonFrom__productionVariantsJson__c
+    value:
+      JSON_FROM:
+        arg:
+          EXTRACT: "CA10A1__endpointConfig__r.CA10A1__productionVariantsJson__c"
+        undeterminedIf:
+          isEmpty: "Endpoint Config Production Variants cannot be empty. Possible permission issue with sagemaker:DescribeEndpointConfig"
+          isInvalid: "The Production Variants JSON is invalid."

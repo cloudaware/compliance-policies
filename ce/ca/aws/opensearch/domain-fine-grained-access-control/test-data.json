@@ -1,0 +1,38 @@
+[
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "101",
+      "conditionText": "CA10__advancedSecurityEnabled__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-16T12:00:00Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__advancedSecurityEnabled__c": "",
+    "Id": "test1"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__advancedSecurityEnabled__c') == 'false'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-16T12:00:00Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__advancedSecurityEnabled__c": "false",
+    "Id": "test2"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__advancedSecurityEnabled__c') == 'true'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-16T12:00:00Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__advancedSecurityEnabled__c": "true",
+    "Id": "test3"
+  }
+]

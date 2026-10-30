@@ -17,7 +17,7 @@ Implementation may require changes in administrative workflows or the redistribu
 
 ## Audit
 
-This policy marks an `Owner` *Azure Authorization Role* as `INCOMPLIANT` if the role has fewer than 2 or more that 3 related *Azure Authorization Role Assignments*.
+This policy marks an `Owner` *Azure Authorization Role* as `INCOMPLIANT` if the role has fewer than 2 or more than 3 related *Azure Authorization Role Assignments*.
 
 This policy marks an `Owner` *Azure Authorization Role* as `UNDETERMINED` if the role has a related assignment to *Azure Active Directory Group*. Check number of group members manually.
 

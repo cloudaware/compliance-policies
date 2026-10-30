@@ -1,53 +1,35 @@
 # Description
 
-OS login binds SSH certificates to IAM users and facilitates effective SSH certificate management.
+This policy checks whether OS Login is enabled at the Google Cloud project level for projects with running Google Compute Engine instances. OS Login links SSH access to Cloud IAM identities and reduces reliance on SSH keys stored in project or instance metadata.
 
 ## Rationale
 
-Enabling osLogin ensures that SSH keys used to connect to instances are mapped with IAM users. Revoking access to IAM user will revoke all the SSH keys associated with that particular user. It facilitates centralized and automated SSH key pair management which is useful in handling cases like response to compromised SSH key pairs and/or revocation of external/third-party/Vendor users.
+Enabling OS Login centralizes SSH access management through IAM. When access is removed from an IAM user, the associated SSH access is also removed. This helps manage SSH access consistently and reduces the operational risk of unmanaged or stale SSH keys.
+
+Project-level OS Login can be overridden by instance metadata. A running instance that sets `enable-oslogin` to `FALSE` disables the project-level control for that instance.
 
 ## Impact
 
-Enabling OS Login on project disables metadata-based SSH key configurations on all instances from a project. Disabling OS Login restores SSH keys that you have configured in project or instance meta-data.
+Enabling OS Login at the project level disables metadata-based SSH key configurations for instances in the project. If OS Login is later disabled, SSH keys configured in project or instance metadata are restored.
 
 ## Audit
 
-### From Google Cloud Console
+This policy flags a *Google Project* as `INCOMPLIANT` when both of the following conditions are met:
 
-1. Go to the VM compute metadata page by visiting <https://console.cloud.google.com/compute/metadata>.
-2. Ensure that key `enable-oslogin` is present with value set to `TRUE`.
-3. Because instances can override project settings, ensure that no instance has custom metadata with key `enable-oslogin` and value `FALSE`.
+- The project has at least one running non-GKE *Google GCE Instance*, and
+- Project common metadata does not set `enable-oslogin` to `TRUE`.
 
-### From Google Cloud CLI
+This policy also flags a *Google Project* as `INCOMPLIANT` when at least one running non-GKE *Google GCE Instance* has instance metadata that sets `enable-oslogin` to `FALSE`.
 
-1. List the instances in your project and get details on each instance:
+Projects with no running applicable GCE instances are marked as `INAPPLICABLE`.
 
-            gcloud compute instances list --format=json
-
-2. Verify that the section `commonInstanceMetadata` has a key `enable-oslogin` set to value `TRUE`.
-
-## Exception
-
-VMs created by GKE should be excluded. These VMs have names that start with `gke-` and are labeled `goog-gke-node`
+GKE-created instances are marked as `INAPPLICABLE`. These instances usually have names that start with `gke-`.
 
 ## Default Value
 
-By default, parameter `enable-oslogin` is not set, which is equivalent to setting it to `FALSE`.
+By default, `enable-oslogin` is not set, which is equivalent to `FALSE`.
 
 ## References
 
 1. <https://cloud.google.com/compute/docs/instances/managing-instance-access>
-2. <https://cloud.google.com/compute/docs/instances/managing-instance-access#enable_oslogin>
-3. <https://cloud.google.com/sdk/gcloud/reference/compute/instances/remove-metadata>
-4. <https://cloud.google.com/compute/docs/oslogin/setup-two-factor-authentication>
-
-## Additional Information
-
-1. In order to use osLogin, instance using Custom Images must have the latest version of the Linux Guest Environment installed. The following image families do not yet support OS Login:
-
-            Project cos-cloud (Container-Optimized OS) image family cos-stable. 
-            All project coreos-cloud (CoreOS) image families 
-            Project suse-cloud (SLES) image family sles-11 
-            All Windows Server and SQL Server image families
-
-2. Project enable-oslogin can be over-ridden by setting enable-oslogin parameter to an instance metadata individually.
+2. <https://cloud.google.com/compute/docs/oslogin/set-up-oslogin>

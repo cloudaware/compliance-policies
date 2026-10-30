@@ -28,7 +28,11 @@ If you lose your encryption key, you will not be able to recover the data.
 
 Ensure `diskEncryptionKey` property in the below command's response is not null, and contains key `sha256` with corresponding value
 
-            gcloud compute disks describe <DISK_NAME> --zone <ZONE> --format="json(diskEncryptionKey,name)"
+```sh
+gcloud compute disks describe {{disk-name}} \
+    --zone {{zone}} \
+    --format="json(diskEncryptionKey,name)"
+```
 
 ## Default Value
 

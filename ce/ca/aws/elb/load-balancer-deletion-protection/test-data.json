@@ -1,0 +1,62 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-01-07T07:54:04Z" },
+    "CA10__disappearanceTime__c": "2025-12-29T17:28:56Z",
+    "CA10__type__c": "classic",
+    "CA10__additionalAttributes__c": "elb.http.desyncmitigationmode: defensive",
+    "Id": "001",
+    "RecordTypeId": "RT_001",
+    "RecordType": { "Id": "RT_001" }
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__type__c') != 'application' && extract('CA10__type__c') != 'gateway' && extract('CA10__type__c') != 'network'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-01-07T07:54:04Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__type__c": "classic",
+    "CA10__additionalAttributes__c": "elb.http.desyncmitigationmode: defensive",
+    "Id": "002",
+    "RecordTypeId": "RT_001",
+    "RecordType": { "Id": "RT_001" }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('caSetFrom_additionalAttributes__c').contains('deletion_protection.enabled: false')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-01-07T07:54:04Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__type__c": "application",
+    "CA10__additionalAttributes__c": "access_logs.s3.enabled: true\nrouting.http.drop_invalid_header_fields.enabled: false\nhealth_check_logs.s3.prefix: \nconnection_logs.s3.enabled: false\naccess_logs.s3.prefix: prefix\nrouting.http2.enabled: false\nwaf.fail_open.enabled: false\nrouting.http.xff_client_port.enabled: false\nclient_keep_alive.seconds: 3600\nhealth_check_logs.s3.bucket: \nconnection_logs.s3.bucket: \ndeletion_protection.enabled: false\naccess_logs.s3.bucket: bucket\nload_balancing.cross_zone.enabled: true\nzonal_shift.config.enabled: false\nrouting.http.preserve_host_header.enabled: false\nrouting.http.x_amzn_tls_version_and_cipher_suite.enabled: false\nconnection_logs.s3.prefix: \nidle_timeout.timeout_seconds: 3600\nhealth_check_logs.s3.enabled: false\nrouting.http.xff_header_processing.mode: append\nrouting.http.desync_mitigation_mode: defensive",
+    "Id": "003",
+    "RecordTypeId": "RT_001",
+    "RecordType": { "Id": "RT_001" }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('caSetFrom_additionalAttributes__c').contains('deletion_protection.enabled: true')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-01-07T07:54:04Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__type__c": "application",
+    "CA10__additionalAttributes__c": "access_logs.s3.enabled: false\nrouting.http.drop_invalid_header_fields.enabled: true\nhealth_check_logs.s3.prefix: \nconnection_logs.s3.enabled: false\naccess_logs.s3.prefix: \nrouting.http2.enabled: true\nwaf.fail_open.enabled: false\nrouting.http.xff_client_port.enabled: false\nclient_keep_alive.seconds: 3600\nhealth_check_logs.s3.bucket: \nconnection_logs.s3.bucket: \ndeletion_protection.enabled: true\naccess_logs.s3.bucket: \nload_balancing.cross_zone.enabled: true\nzonal_shift.config.enabled: false\nrouting.http.preserve_host_header.enabled: false\nrouting.http.x_amzn_tls_version_and_cipher_suite.enabled: false\nconnection_logs.s3.prefix: \nidle_timeout.timeout_seconds: 60\nhealth_check_logs.s3.enabled: false\nrouting.http.xff_header_processing.mode: append\nrouting.http.desync_mitigation_mode: defensive",
+    "Id": "004",
+    "RecordTypeId": "RT_001",
+    "RecordType": { "Id": "RT_001" }
+  }
+]

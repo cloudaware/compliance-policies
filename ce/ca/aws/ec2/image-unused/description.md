@@ -5,7 +5,7 @@ This policy identifies Amazon Machine Images (AMIs) that appear to be unused. An
 1. The AMI is in the **Available** state.
 2. The AMI was created more than **90 days** ago.
 3. The AMI was last used more than **90 days** ago.
-4. The AMI is **not associated** with any AWS EC2 Instances in the CMDB.
+4. The AMI is **not associated** with any AWS EC2 instances in the CMDB.
 
 Removing unused AMIs helps reduce unnecessary storage costs. The AMI cleanup process consists of two steps: deregistering the unused AMI and deleting the associated snapshots.
 

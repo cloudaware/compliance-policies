@@ -1,0 +1,27 @@
+---
+inputType: "CA10__CaAwsLambdaFunction__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsLambdaFunction__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Lambda function tracing with AWS X-Ray is not enabled."
+    remediationMessage: "Enable AWS X-Ray tracing for the function."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__tracingConfigResponseMode__c"
+        right:
+          TEXT: "PassThrough"
+  - status: "COMPLIANT"
+    currentStateMessage: "Lambda function tracing with AWS X-Ray is enabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__tracingConfigResponseMode__c"
+        right:
+          TEXT: "Active"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

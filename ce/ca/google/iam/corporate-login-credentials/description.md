@@ -16,15 +16,21 @@ For each Google Cloud Platform project, list the accounts that have been granted
 
 ### From Google Cloud CLI
 
-     gcloud projects get-iam-policy PROJECT_ID
+     ```sh
+     gcloud projects get-iam-policy {{project-id}}
+     ```
 
 Also list the accounts added on each folder:
 
-     gcloud resource-manager folders get-iam-policy FOLDER_ID
+     ```sh
+     gcloud resource-manager folders get-iam-policy {{folder-id}}
+     ```
 
 And list your organization's IAM policy:
 
-     gcloud organizations get-iam-policy ORGANIZATION_ID
+     ```sh
+     gcloud organizations get-iam-policy {{organization-id}}
+     ```
 
 No email accounts outside the organization domain should be granted permissions in the IAM policies. This excludes Google-owned service accounts.
 

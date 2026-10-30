@@ -23,13 +23,13 @@
 ## From Azure CLI
 
 ```sh
-az monitor activity-log alert create 
+az monitor activity-log alert create \
     --resource-group {{resource-group-name}} \
     --condition category=Administrative and operationName=Microsoft.Network/networkSecurityGroups/write and level=verbose \
     --scope /subscriptions/{{subscription-id}} \
     --name {{activity-log-rule-name}} \
     --subscription {{subscription-id}} \
-    --action-group {{action group-id}}
+    --action-group {{action-group-id}}
 ```
 
 ## From PowerShell

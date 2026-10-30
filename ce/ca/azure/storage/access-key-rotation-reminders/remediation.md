@@ -9,11 +9,11 @@
 5. In the `Send reminders` field select `Custom`, then set the `Remind me every` field to `90` and the period drop down to `Days`.
 6. Click `Save`.
 
-## From Powershell
+## From PowerShell
 
 ```ps
-$rgName = {{resource-group-name}}
-$accountName = {{storage-account-name}}
+$rgName = "{{resource-group-name}}"
+$accountName = "{{storage-account-name}}"
 
 # Get storage account details
 $account = Get-AzStorageAccount `

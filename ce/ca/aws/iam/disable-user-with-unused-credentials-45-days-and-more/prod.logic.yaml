@@ -6,7 +6,7 @@ importExtracts:
   - file: /types/CA10__CaAwsUser__c/credReport.extracts.yaml
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "Requirements of this policy are applicable only to users with enabled console password or access keys."
+    currentStateMessage: "This policy applies only to users with an enabled console password or active access keys."
     check:
       AND:
         args:
@@ -26,8 +26,8 @@ conditions:
               right:
                 BOOLEAN: false
   - status: "INCOMPLIANT"
-    currentStateMessage: "Password hasn't been used for over 45 days."
-    remediationMessage: "Consider disabling the Console Access for the user."
+    currentStateMessage: "The password has not been used for over 45 days."
+    remediationMessage: "Disable console access for the user."
     check:
       AND:
         args:
@@ -44,8 +44,8 @@ conditions:
               arg:
                 EXTRACT: CA10__credReportPasswordLastUsed__c
   - status: "INCOMPLIANT"
-    currentStateMessage: "Password hasn't been changed over 45 days."
-    remediationMessage: "Consider disabling the Console Access for the user."
+    currentStateMessage: "The password has not been changed for over 45 days."
+    remediationMessage: "Disable console access for the user."
     check:
       AND:
         args:
@@ -65,8 +65,8 @@ conditions:
               arg:
                 EXTRACT: CA10__credReportPasswordLastChanged__c
   - status: "INCOMPLIANT"
-    currentStateMessage: "Access Key 1 hasn't been used for over 45 days."
-    remediationMessage: "Consider deactivating the Access Key 1."
+    currentStateMessage: "Access key 1 has not been used for over 45 days."
+    remediationMessage: "Deactivate access key 1."
     check:
       AND:
         args:
@@ -83,8 +83,8 @@ conditions:
               arg:
                 EXTRACT: CA10__credReportAccessKey1LastUsed__c
   - status: "INCOMPLIANT"
-    currentStateMessage: "Access key 1 hasn't been rotated for over 45 days."
-    remediationMessage: "Consider deleting the Access Key 1."
+    currentStateMessage: "Access key 1 has not been rotated for over 45 days."
+    remediationMessage: "Delete access key 1."
     check:
       AND:
         args:
@@ -101,8 +101,8 @@ conditions:
               arg:
                 EXTRACT: CA10__credReportAccessKey1LastRotated__c
   - status: "INCOMPLIANT"
-    currentStateMessage: "Access Key 2 hasn't been used for over 45 days."
-    remediationMessage: "Consider deactivating the Access Key 2."
+    currentStateMessage: "Access key 2 has not been used for over 45 days."
+    remediationMessage: "Deactivate access key 2."
     check:
       AND:
         args:
@@ -119,8 +119,8 @@ conditions:
               arg:
                 EXTRACT: CA10__credReportAccessKey2LastUsed__c
   - status: "INCOMPLIANT"
-    currentStateMessage: "Access key 2 hasn't been rotated for over 45 days."
-    remediationMessage: "Consider deleting the Access Key 2."
+    currentStateMessage: "Access key 2 has not been rotated for over 45 days."
+    remediationMessage: "Delete access key 2."
     check:
       AND:
         args:
@@ -138,4 +138,4 @@ conditions:
                 EXTRACT: CA10__credReportAccessKey2LastRotated__c
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "All credentials unused for 45 days or longer were removed or deactivated"
+  currentStateMessage: "All credentials unused for 45 days or longer have been removed or deactivated."

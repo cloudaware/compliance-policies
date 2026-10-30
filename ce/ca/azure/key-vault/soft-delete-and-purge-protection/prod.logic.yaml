@@ -6,8 +6,8 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Purge Protection is disabled."
-    remediationMessage: "Consider enabling Purge Protection function."
+    currentStateMessage: "Purge protection is disabled."
+    remediationMessage: "Enable purge protection."
     check:
       NOT_EQUAL:
         left:
@@ -15,7 +15,7 @@ conditions:
         right:
           TEXT: "Enabled"
   - status: "COMPLIANT"
-    currentStateMessage: "The Purge Protection function is enabled."
+    currentStateMessage: "Purge protection is enabled."
     check:
       IS_EQUAL:
         left:

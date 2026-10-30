@@ -4,7 +4,7 @@ Transparent Data Encryption (TDE) with Customer-managed key support provides inc
 
 With TDE, data is encrypted at rest with a symmetric key (called the database encryption key) stored in the database or data warehouse distribution. To protect this data encryption key (DEK) in the past, only a certificate that the Azure SQL Service managed could be used. Now, with Customer-managed key support for TDE, the DEK can be protected with an asymmetric key that is stored in the Azure Key Vault. The Azure Key Vault is a highly available and scalable cloud-based key store which offers central key management, leverages FIPS 140-2 Level 2 validated hardware security modules (HSMs), and allows separation of management of keys and data for additional security.
 
-Based on business needs or criticality of data/databases hosted on a SQL server, it is recommended that the TDE protector is encrypted by a key that is managed by the data owner (Customer-managed key).
+Based on business needs or the criticality of data or databases hosted on a SQL server, it is recommended that the TDE protector is encrypted by a key managed by the data owner (customer-managed key).
 
 ## Rationale
 
@@ -12,9 +12,9 @@ Customer-managed key support for Transparent Data Encryption (TDE) allows user c
 
 ## Impact
 
-Once TDE protector is encrypted with a Customer-managed key, it transfers entire responsibility of respective key management on to you, and hence you should be more careful about doing any operations on the particular key in order to keep data from corresponding SQL server and Databases hosted accessible.
+Once the TDE protector is encrypted with a customer-managed key, responsibility for key management transfers to you. Handle operations on the key carefully to keep data on the corresponding SQL server and hosted databases accessible.
 
-When deploying Customer Managed Keys, it is prudent to ensure that you also deploy an automated toolset for managing these keys (this should include discovery and key rotation), and Keys should be stored in an HSM or hardware backed keystore, such as Azure Key Vault.
+When deploying customer-managed keys, ensure that you also deploy an automated toolset for managing these keys, including discovery and key rotation. Keys should be stored in an HSM or hardware-backed keystore, such as Azure Key Vault.
 
 As far as toolsets go, check with your cryptographic key provider, as they may well provide one as an add-on to their service.
 
@@ -30,7 +30,7 @@ As far as toolsets go, check with your cryptographic key provider, as they may w
 ### From Azure CLI
 
 ```sh
-az account get-access-token --query "{subscripton:subscription,accessToken:accessToken}" --out tsv | xargs -L1 bash -c 'curl -X GET -H "Authorization: Bearer $1" -H "Content-Type: application/json" https://management.azure.com/subscriptions/$0/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/encryptionProtector?api-version=2015-05-01-preview'
+az account get-access-token --query "{subscription:subscription,accessToken:accessToken}" --out tsv | xargs -L1 bash -c 'curl -X GET -H "Authorization: Bearer $1" -H "Content-Type: application/json" https://management.azure.com/subscriptions/$0/resourceGroups/{{resource-group-name}}/providers/Microsoft.Sql/servers/{{server-name}}/encryptionProtector?api-version=2015-05-01-preview'
 ```
 
 Ensure the output of the command contains properties:
@@ -42,7 +42,9 @@ Ensure the output of the command contains properties:
 ### From PowerShell
 
 ```ps
-Get-AzSqlServerTransparentDataEncryptionProtector -ServerName <ServerName> -ResourceGroupName <ResourceGroupName>
+Get-AzSqlServerTransparentDataEncryptionProtector `
+    -ServerName {{server-name}} `
+    -ResourceGroupName {{resource-group-name}}
 ```
 
 Ensure the output of the command contains properties:
@@ -60,7 +62,7 @@ If referencing a digital copy of this Benchmark, clicking a Policy ID will open 
 
 ## Default Value
 
-By Default, Microsoft managed TDE protector is enabled for a SQL server.
+By default, the Microsoft-managed TDE protector is enabled for a SQL server.
 
 ## References
 

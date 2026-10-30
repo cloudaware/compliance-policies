@@ -14,11 +14,11 @@ There is an additional cost for each scheduled key rotation.
 
 ## Audit
 
-This policy marks an *Azure Key Vault* as `INCOMPLIANT` if any of its *Key Vault Keys*:
+This policy marks an *Azure Key Vault Key* as `INCOMPLIANT` if the key:
 
-- Missing `Lifetime Actions`,
-- `Lifetime Actions` don’t include a **Rotate** action, or
-- Include a **Rotate** action but haven’t been rotated in over **two** years (exceeding the industry‑standard maximum key lifetime).
+- Is missing `Lifetime Actions`,
+- Has `Lifetime Actions` that do not include a **Rotate** action, or
+- Includes a **Rotate** action but has not been rotated in over **two** years, exceeding the industry-standard maximum key lifetime.
 
 ## Default Value
 

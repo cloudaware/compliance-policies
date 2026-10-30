@@ -1,0 +1,35 @@
+---
+inputType: "CA10O1__CaOracleIamUser2__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10O1__CaOracleIamUser2__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This Oracle IAM user is not active."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10O1__userStatus__c"
+        right:
+          TEXT: "Active"
+  - status: "COMPLIANT"
+    currentStateMessage: "MFA is activated for this OCI IAM user."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10O1__mfaStatus__c"
+        right:
+          TEXT: "Activated"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "MFA is deactivated for this OCI IAM user."
+    remediationMessage: "Have the user activate MFA for OCI Console access."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10O1__mfaStatus__c"
+        right:
+          TEXT: "Deactivated"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "The OCI IAM user's MFA status is unexpected."

@@ -8,20 +8,7 @@ Enabling log file validation will provide additional integrity checking of Cloud
 
 ## Audit
 
-Perform the following on each trail to determine if log file validation is enabled:
-
-### From Console
-
-1. Sign in to the AWS Management Console and open the IAM console at <https://console.aws.amazon.com/cloudtrail>.
-2. Click on `Trails` on the left navigation pane.
-3. For Every Trail:
-
-- Click on a trail via the link in the `Name` column.
-- Under the `General details` section, ensure `Log file validation` is set to `Enabled`.
-
-### From Command Line
-
-List all trails:
+List all trails to determine whether log file validation is enabled:
 
 ```sh
 aws cloudtrail describe-trails

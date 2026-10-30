@@ -7,7 +7,7 @@ importExtracts:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Image tag mutability is set to MUTABLE, allowing image tags to be overwritten."
-    remediationMessage: "Consider setting image tag mutability to IMMUTABLE to prevent overwriting image tags."
+    remediationMessage: "Set image tag mutability to IMMUTABLE to prevent overwriting image tags."
     check:
       IS_EQUAL:
         left:
@@ -15,7 +15,7 @@ conditions:
         right:
           TEXT: "MUTABLE"
   - status: "COMPLIANT"
-    currentStateMessage: "Image tag mutability is set to have immutable tags."
+    currentStateMessage: "Image tag mutability is set to immutable."
     check:
       CONTAINS:
         arg:

@@ -6,7 +6,7 @@ importExtracts:
   - file: /types/CA10__CaAwsUser__c/credReport.extracts.yaml
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This user doesn't have active access keys."
+    currentStateMessage: "This user does not have active access keys."
     check:
       AND:
         args:
@@ -21,7 +21,7 @@ conditions:
               right:
                 BOOLEAN: false
   - status: "INCOMPLIANT"
-    currentStateMessage: "Access Key 1 hasn't been rotated for over 90 days."
+    currentStateMessage: "Access key 1 has not been rotated for over 90 days."
     check: 
       AND:
         args:
@@ -35,7 +35,7 @@ conditions:
               arg:
                 EXTRACT: CA10__credReportAccessKey1LastRotated__c
   - status: "INCOMPLIANT"
-    currentStateMessage: "Access Key 2 hasn't been rotated for over 90 days."
+    currentStateMessage: "Access key 2 has not been rotated for over 90 days."
     check: 
       AND:
         args:
@@ -50,4 +50,4 @@ conditions:
                 EXTRACT: CA10__credReportAccessKey2LastRotated__c
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "All access keys are regularly rotated." 
+  currentStateMessage: "All access keys are rotated regularly."

@@ -1,6 +1,6 @@
 # Remediation
 
-Consider resizing an Google GCE Instance to a smaller, more cost-effective machine type that aligns with its workload requirements or terminating it if it's no longer required.
+Consider resizing a Google GCE Instance to a smaller, more cost-effective machine type that aligns with its workload requirements or terminating it if it's no longer required.
 
 ## Resize the Instance
 
@@ -8,23 +8,24 @@ Consider resizing an Google GCE Instance to a smaller, more cost-effective machi
 
 1. Stop the instance:
 
-```bash
-gcloud compute instances stop {{instance-name}} --zone=ZONE
-```
+    ```sh
+    gcloud compute instances stop {{instance-name}} \
+        --zone=ZONE
+    ```
 
 2. Change the machine type:
 
-```bash
-gcloud compute instances set-machine-type {{instance-name}} \
-    --machine-type={{new-machine-type}} \
-    --zone={{zone}}
-```
+    ```sh
+    gcloud compute instances set-machine-type {{instance-name}} \
+        --machine-type={{new-machine-type}} \
+        --zone={{zone}}
+    ```
 
 3. Start the instance:
 
-```bash
-gcloud compute instances start {{instance-name}} --zone={{zone}}
-```
+    ```sh
+    gcloud compute instances set-machine-type {{instance-name}} \
+    ```
 
 ### Considerations
 
@@ -38,7 +39,8 @@ gcloud compute instances start {{instance-name}} --zone={{zone}}
 If the instance is consistently underutilized and no longer required, terminate it to fully eliminate costs.
 
 ```sh
-gcloud compute instances delete {{instance-name}} --zone={{zone}}
+gcloud compute instances start {{instance-name}} \
+    --zone={{zone}}
 ```
 
 ### Considerations

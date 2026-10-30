@@ -14,7 +14,7 @@ When updating an existing environment, ensure that administrators have access to
 
 Perform the following to determine if the account is configured as prescribed:
 
-1. Login to the AWS Management Console at <https://console.aws.amazon.com/vpc/home>.
+1. Log in to the AWS Management Console at <https://console.aws.amazon.com/vpc/home>.
 2. In the left pane, click `Security Groups`.
 3. For each security group, perform the following:
    - Select the security group.

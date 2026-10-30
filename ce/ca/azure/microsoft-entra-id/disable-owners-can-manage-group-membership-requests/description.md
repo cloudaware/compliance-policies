@@ -14,7 +14,7 @@ Group Membership for user accounts will need to be handled by Admins and cause a
 
 ### From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. In the Azure portal, open the portal menu.
 2. Select `Microsoft Entra ID`.
 3. Under `Manage`, select `Groups`.
 4. Under `Settings`, select `General`.

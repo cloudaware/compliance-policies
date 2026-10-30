@@ -1,6 +1,6 @@
 # Description
 
-This policy identifies REST API Gateways where none of the related Stages have **Detailed CloudWatch Metrics** enabled. Detailed metrics allow monitoring of API stage caching, latency, and error rates at a more granular level, facilitating the configuration of precise alarms.
+This policy identifies REST API Gateways where none of the related Stages have **Detailed CloudWatch Metrics** enabled. Detailed metrics allow monitoring of API stage caching, latency, and error rates at a more granular level, enabling more precise alarms.
 
 ## Rationale
 
@@ -13,4 +13,4 @@ By default, API Gateway reports metrics at the stage level. Enabling **Detailed 
 ## Audit
 
 This policy targets the **REST APIs**.
-An *API Gateway API* is flagged as `INCOMPLIANT` when at least one associated *API Gateway Stage* has the `CloudWatch Detailed Metrics Enabled` set to **False** or there is no *API Gateway Stage* associated with it.
+An *API Gateway API* is flagged as `INCOMPLIANT` when at least one associated *API Gateway Stage* has `CloudWatch Detailed Metrics Enabled` set to **False** or there is no *API Gateway Stage* associated with it.

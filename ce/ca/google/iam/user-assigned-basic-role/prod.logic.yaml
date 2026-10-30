@@ -4,7 +4,7 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The User is assigned one of the basic roles: Owner, Editor, or Viewer."
+    currentStateMessage: "The user is assigned a basic role: Owner, Editor, or Viewer."
     remediationMessage: "Replace the basic role with a more restrictive role."
     check:
       RELATED_LIST_HAS:
@@ -12,7 +12,7 @@ conditions:
         relationshipName: "CA10G1__Google_IAM_Policy_Bindings__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The User doesn't have a basic role assigned."
+  currentStateMessage: "The user does not have a basic role assigned."
 relatedLists:
   - relationshipName: "CA10G1__Google_IAM_Policy_Bindings__r"
     importExtracts:
@@ -42,4 +42,4 @@ relatedLists:
               EXTRACT: "CA10__iamRole__r.CA10__roleName__c"
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "User doesn't have a basic role assigned."
+      currentStateMessage: "User does not have a basic role assigned."

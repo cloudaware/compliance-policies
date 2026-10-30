@@ -1,10 +1,10 @@
 # Description
 
-AWS CloudShell is a convenient way of running CLI commands against AWS services. AWSCloudShellFullAccess managed IAM policy provides full access to CloudShell, which allows file upload and download capability between a user's local system and the CloudShell environment. Within the CloudShell environment a user has sudo permissions, and can access the internet. So it is feasible to install file transfer software (for example) and move data from CloudShell to external internet servers.
+AWS CloudShell is a convenient way to run CLI commands against AWS services. The **AWSCloudShellFullAccess** managed IAM policy provides full access to CloudShell, which allows file upload and download capability between a user's local system and the CloudShell environment. Within the CloudShell environment, a user has sudo permissions and can access the internet. This makes it feasible to install file transfer software (for example) and move data from CloudShell to external internet servers.
 
 ## Rationale
 
-Access to this policy should be restricted as it presents a potential channel for data exfiltration by malicious cloud admins that are given full permissions to the service. AWS documentation describes how to create a more restrictive IAM policy which denies file transfer permissions.
+Access to this policy should be restricted, as it presents a potential channel for data exfiltration by malicious cloud admins who are given full permissions to the service. AWS documentation describes how to create a more restrictive IAM policy that denies file transfer permissions.
 
 ## Audit
 
@@ -19,23 +19,23 @@ Access to this policy should be restricted as it presents a potential channel fo
 
 1. List IAM policies, filter for the `AWSCloudShellFullAccess` managed policy, and note the `Arn` element value:
 
-```sh
-aws iam list-policies --query "Policies[?PolicyName == 'AWSCloudShellFullAccess']"
-```
+    ```sh
+    aws iam list-policies --query "Policies[?PolicyName == 'AWSCloudShellFullAccess']"
+    ```
 
 2. Check if the `AWSCloudShellFullAccess` policy is attached to any role:
 
-```sh
-aws iam list-entities-for-policy --policy-arn arn:aws:iam::aws:policy/AWSCloudShellFullAccess
-```
+    ```sh
+    aws iam list-entities-for-policy --policy-arn arn:aws:iam::aws:policy/AWSCloudShellFullAccess
+    ```
 
-3. In Output, Ensure `PolicyRoles` returns empty.
+3. In the output, ensure `PolicyRoles` returns empty.
 
-Example:
+    Example:
 
-```
-PolicyRoles: [ ]
-```
+    ```json
+    PolicyRoles: [ ]
+    ```
 
 **Note**: Keep in mind that other policies may grant access.
 

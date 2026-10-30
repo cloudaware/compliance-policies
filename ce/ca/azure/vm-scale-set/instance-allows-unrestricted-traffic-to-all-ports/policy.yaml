@@ -12,4 +12,13 @@ categories:
   - "SECURITY"
 type: "COMPLIANCE_POLICY"
 frameworkMappings:
-  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/iso-iec-27001-2013/09/01/02"
+  - "/frameworks/pci-dss-v4.0.1/01/02/01"
+  - "/frameworks/pci-dss-v4.0.1/01/02/05"
+  - "/frameworks/pci-dss-v4.0.1/01/02/06"
+  - "/frameworks/pci-dss-v4.0.1/01/03/01"
+  - "/frameworks/pci-dss-v4.0.1/01/03/02"
+  - "/frameworks/cloudaware/resource-security/network-exposure"
+similarPolicies:
+  internal:
+    - dec-x-06394dfa

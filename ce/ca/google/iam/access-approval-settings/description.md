@@ -30,17 +30,23 @@ To use Access Approval your organization will need have enabled Access Transpare
 
 1. From within the project you wish to audit, run the following command.
 
-            gcloud access-approval settings get
+    ```sh
+    gcloud access-approval settings get
+    ```
 
 2. The status will be displayed in the output.
 
-IF Access Approval is not enabled you should get this output:
+    IF Access Approval is not enabled you should get this output:
 
-            API [accessapproval.googleapis.com] not enabled on project [-----]. Would you like to enable and retry (this will take a few minutes)? (y/N)?
+    ```txt
+    API [accessapproval.googleapis.com] not enabled on project [-----]. Would you like to enable and retry (this will take a few minutes)? (y/N)?
+    ```
 
-After entering `Y` if you get the following output, it means that `Access Transparency` is not enabled:
+    After entering `Y` if you get the following output, it means that `Access Transparency` is not enabled:
 
-            ERROR: (gcloud.access-approval.settings.get) FAILED_PRECONDITION: Precondition check failed.
+    ```txt
+    ERROR: (gcloud.access-approval.settings.get) FAILED_PRECONDITION: Precondition check failed.
+    ```
 
 ## Default Value
 

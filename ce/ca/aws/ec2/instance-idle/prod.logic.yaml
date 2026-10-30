@@ -22,7 +22,7 @@ conditions:
         right:
           NUMBER: 14.0
   - status: UNDETERMINED
-    currentStateMessage: "There is not enough data in the CMDB to identify if the instance is idle."
+    currentStateMessage: "There is not enough CMDB data to determine whether the instance is idle."
     check:
       OR:
         args:
@@ -38,13 +38,152 @@ conditions:
           - IS_EMPTY:
               arg:
                 EXTRACT: CA10__sumTwoWeekNetworkOutMb__c
+          - AND:
+              args:
+                - NOT_EMPTY:
+                    arg:
+                      EXTRACT: "CA10N__newRelicHost__c"
+                - OR:
+                    args:
+                      - IS_EMPTY:
+                          arg:
+                            EXTRACT: "CA10N__newRelicHostMemoryUsed14Day__c"
+                      - IS_EMPTY:
+                          arg:
+                            EXTRACT: CA10N__newRelicHostDiskReadUtilization__c
+                      - IS_EMPTY:
+                          arg:
+                            EXTRACT: CA10N__newRelicHostDiskWriteUtilization__c
   - status: INCOMPLIANT
-    currentStateMessage: "The instance is idle with Average CPU Utilization < 5%,\
-      \ Max CPU Utilization < 15%, and Average Network I/O < 100 MB."
-    remediationMessage: "Consider stopping, terminating, or rightsizing the instance."
+    currentStateMessage: "The instance is idle: CPU < 5%, memory < 20%, maximum CPU < 15%, 14-day network I/O < 100 MB, and disk utilization metrics are below 5%."
+    remediationMessage: "Stop, terminate, or rightsize the instance."
     check:
       AND:
         args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10N__newRelicHost__c"
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10N__newRelicHostMemoryUsed14Day__c
+              right:
+                NUMBER: 20.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__averageCpuTwoWeeks__c
+              right:
+                NUMBER: 5.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__maxCpuTwoWeeks__c
+              right:
+                NUMBER: 15.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__sumTwoWeekNetworkInMb__c
+              right:
+                NUMBER: 100.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__sumTwoWeekNetworkOutMb__c
+              right:
+                NUMBER: 100.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10N__newRelicHostDiskReadUtilization__c
+              right:
+                NUMBER: 5.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10N__newRelicHostDiskWriteUtilization__c
+              right:
+                NUMBER: 5.0
+  - status: INCOMPLIANT
+    currentStateMessage: "The instance is idle: CPU < 5%, memory < 20%, maximum CPU < 15%, 14-day network I/O < 100 MB, and disk utilization metrics are below 5%."
+    remediationMessage: "Stop, terminate, or rightsize the instance."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10N__newRelicHost__c"
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__averageMemoryUsedTwoWeeks__c
+              right:
+                NUMBER: 20.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__averageCpuTwoWeeks__c
+              right:
+                NUMBER: 5.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__maxCpuTwoWeeks__c
+              right:
+                NUMBER: 15.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__sumTwoWeekNetworkInMb__c
+              right:
+                NUMBER: 100.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__sumTwoWeekNetworkOutMb__c
+              right:
+                NUMBER: 100.0
+  - status: INCOMPLIANT
+    currentStateMessage: "The instance is idle: CPU < 5%, memory < 20%, maximum CPU < 15%, 14-day network I/O < 100 MB, and disk utilization metrics are below 5%."
+    remediationMessage: "Stop, terminate, or rightsize the instance."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10N__newRelicHost__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__averageMemoryUsedTwoWeeks__c"
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__nagiosMemoryUtilization__c
+              right:
+                NUMBER: 20.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__averageCpuTwoWeeks__c
+              right:
+                NUMBER: 5.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__maxCpuTwoWeeks__c
+              right:
+                NUMBER: 15.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__sumTwoWeekNetworkInMb__c
+              right:
+                NUMBER: 100.0
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__sumTwoWeekNetworkOutMb__c
+              right:
+                NUMBER: 100.0
+  - status: INCOMPLIANT
+    currentStateMessage: "The instance is idle: average CPU < 5%, maximum CPU < 15%, 14-day network I/O < 100 MB, and disk utilization metrics are below 5%."
+    remediationMessage: "Stop, terminate, or rightsize the instance."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10N__newRelicHost__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__averageMemoryUsedTwoWeeks__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__nagiosMemoryUtilization__c"
           - LESS_THAN:
               left:
                 EXTRACT: CA10__averageCpuTwoWeeks__c
@@ -67,4 +206,4 @@ conditions:
                 NUMBER: 100.0
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: 'The instance is not idle.'
+  currentStateMessage: "The instance is not idle."

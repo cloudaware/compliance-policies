@@ -18,11 +18,10 @@ conditions:
       IS_WITHIN_LAST_DAYS:
         offsetDays: 30
         arg:
-          FIELD:
-            path: "CA10__creationDateTime__c"
+          EXTRACT: "CA10__creationDateTime__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The DynamoDB Table is not used and contains 0 items."
-    remediationMessage: "Consider deleting the Table."
+    currentStateMessage: "The DynamoDB table is unused and contains 0 items."
+    remediationMessage: "Delete the table."
     check:
       IS_EQUAL:
         left:
@@ -31,4 +30,4 @@ conditions:
           NUMBER: 0.0
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Table contains items and is considered in use."
+  currentStateMessage: "The table contains items and is considered in use."

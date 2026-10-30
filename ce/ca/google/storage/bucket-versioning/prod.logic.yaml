@@ -31,10 +31,10 @@ conditions:
 otherwise:
   status: "INCOMPLIANT"
   currentStateMessage: "Versioning is not enabled on this storage bucket."
-  remediationMessage: "Enable Versioning on this bucket."
+  remediationMessage: "Enable versioning on this bucket."
 relatedLists:
   - relationshipName: "CA10G1__Google_Logging_Log_Sinks__r"
     conditions: []
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "This is a Log Sink with a storage bucket destination."
+      currentStateMessage: "This is a log sink with a storage bucket destination."

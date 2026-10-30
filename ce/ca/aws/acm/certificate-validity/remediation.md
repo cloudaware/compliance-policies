@@ -2,7 +2,7 @@
 
 ## Re-initiate ACM Certificate Validation (Email Validation)
 
-For Amazon Certificate Manager (ACM) certificates that have failed or timed out during **email-based validation**, re-initiate the validation process by resending the domain validation email using the AWS CLI.
+For Amazon Certificate Manager (ACM) certificates that have failed or timed out during **email-based validation**, reinitiate the validation process by resending the domain validation email using the AWS CLI.
 
 ### **Note**
 

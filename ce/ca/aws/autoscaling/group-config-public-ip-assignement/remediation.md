@@ -17,7 +17,7 @@ aws autoscaling describe-launch-configurations \
     --launch-configuration-names {{existing-launch-configuration-name}}
 ```
 
-Once you have the configuration details, create a new launch configuration using the `create-launch-configuration` command. Set the `--associate-public-ip-address` parameter to **true** in the new configuration:
+Once you have the configuration details, create a new launch configuration using the `create-launch-configuration` command. Set the `--associate-public-ip-address` parameter in the new configuration:
 
 ```sh
 aws autoscaling create-launch-configuration \

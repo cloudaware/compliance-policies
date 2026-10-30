@@ -2,7 +2,7 @@
 
 Review and update AWS EC2 Security Group rules to restrict FTP traffic (ports 20 and 21) to specific trusted IP ranges or disable it entirely. The unrestricted FTP traffic can lead to unauthorized access, exposing sensitive systems and data to potential threats. Security Groups are critical network access control tools within AWS EC2, and maintaining least-privilege configurations ensures the security and integrity of your cloud environment.
 
-## Rational
+## Rationale
 
 FTP, which uses ports 20 (data transfer) and 21 (command control), is an inherently insecure protocol that transmits data, including credentials, in plaintext. Allowing unrestricted access to these ports increases the risk of unauthorized access, data breaches, and exploitation by malicious actors. If unrestricted FTP access remains, systems may become vulnerable to brute-force attacks, data theft, and other malicious activities.
 

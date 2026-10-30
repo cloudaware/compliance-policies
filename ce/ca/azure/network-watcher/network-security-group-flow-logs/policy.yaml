@@ -9,9 +9,9 @@ description: Ensure that network flow logs are captured and fed into a central l
 impossible: true
 type: COMPLIANCE_POLICY
 categories:
-  - SECURITY
-  - RELIABILITY
-  - PERFORMANCE
+  - "SECURITY"
+  - "RELIABILITY"
+  - "PERFORMANCE"
 frameworkMappings:
-  - "/frameworks/cis-azure-v5.0.0/06/01/01/05"
+  - "/frameworks/cis-azure-v6.0.0/06/01/01/05"
   - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"

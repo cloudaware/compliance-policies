@@ -1,0 +1,35 @@
+---
+inputType: "CA10__CaAwsUser__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsUser__c/credReport.extracts.yaml
+  - file: /types/CA10__CaAwsUser__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This policy applies only to the root user."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: CA10__userName__c
+        right:
+          TEXT: "root"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The root user has one or more active signing certificates."
+    remediationMessage: "Delete all active signing certificates for the root user."
+    check:
+      OR:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10__credReportCert1Active__c
+              right:
+                BOOLEAN: true
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10__credReportCert2Active__c
+              right:
+                BOOLEAN: true
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The root user does not have any active signing certificates."

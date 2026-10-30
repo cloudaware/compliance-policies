@@ -5,8 +5,9 @@ importExtracts:
 testData:
   - file: "test-data.json"
 conditions:
-  - status: "INAPPLICABLE"
-    currentStateMessage: "Network Security Group Flow Logs are disabled."
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Network Security Group flow logs are disabled."
+    remediationMessage: "Enable Network Security Group flow logs and set retention to 0 or at least 90 days."
     check:
       IS_EQUAL:
         left:
@@ -14,23 +15,35 @@ conditions:
         right:
           BOOLEAN: false
   - status: "INCOMPLIANT"
-    currentStateMessage: "Network Security Group Flow Logs retention policy is disabled."
-    remediationMessage: "Consider migrating the NSG Flow Logs and enabling a retention policy."
+    currentStateMessage: "Network Security Group flow logs retention period is not configured."
+    remediationMessage: "Set the retention period to 0 or at least 90 days."
     check:
-      IS_EQUAL:
-        left:
-          EXTRACT: "CA10__flowLogsRetentionPolicyEnabled__c"
-        right:
-          BOOLEAN: false
-  - status: "INCOMPLIANT"
-    currentStateMessage: "Network Security Group Flow Logs retention period is less than 90 days."
-    remediationMessage: "Consider migrating the NSG Flow Logs and updating the retention policy."
-    check:
-      LESS_THAN:
-        left:
+      IS_EMPTY:
+        arg:
           EXTRACT: "CA10__flowLogsRetentionPolicyDays__c"
-        right:
-          NUMBER: 90.0
+  - status: "COMPLIANT"
+    currentStateMessage: "Network Security Group flow logs are enabled and the retention period is set to 0 or at least 90 days."
+    check:
+      OR:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__flowLogsRetentionPolicyDays__c"
+              right:
+                NUMBER: 0.0
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: "CA10__flowLogsRetentionPolicyEnabled__c"
+                    right:
+                      BOOLEAN: true
+                - GREATER_THAN_EQUAL:
+                    left:
+                      EXTRACT: "CA10__flowLogsRetentionPolicyDays__c"
+                    right:
+                      NUMBER: 90.0
 otherwise:
-  status: "COMPLIANT"
-  currentStateMessage: "Network Security Group Flow Logs are enabled and the retention period is set to 'greater than or equal to 90 days'."
+  status: "INCOMPLIANT"
+  currentStateMessage: "Network Security Group flow logs retention period is less than 90 days."
+  remediationMessage: "Set the retention period to 0 or at least 90 days."

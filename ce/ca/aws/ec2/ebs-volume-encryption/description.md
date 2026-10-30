@@ -2,7 +2,7 @@
 
 Ensure that all attached AWS EBS volumes are encrypted at rest using AWS-managed or customer-managed keys. Encryption provides a critical layer of data protection and should be enforced for all in-use volumes.
 
-## Rational
+## Rationale
 
 Encrypting EBS volumes at rest helps safeguard sensitive data from unauthorized access in the event of physical compromise or internal misuse. Enforcing encryption for all attached volumes ensures that data is protected during operation and aligns with security best practices and compliance requirements.
 

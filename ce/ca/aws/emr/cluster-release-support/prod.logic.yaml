@@ -1,0 +1,449 @@
+---
+inputType: CA10__CaAwsEmrCluster__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsEmrCluster__c/object.extracts.yaml
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: The EMR cluster is terminated.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - TERMINATED
+              - TERMINATED_WITH_ERRORS
+        search:
+          EXTRACT: CA10__status__c
+  - status: UNDETERMINED
+    currentStateMessage: The EMR cluster status is unrecognized.
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              SET:
+                itemType: TEXT
+                items:
+                  - STARTING
+                  - BOOTSTRAPPING
+                  - RUNNING
+                  - WAITING
+                  - TERMINATING
+            search:
+              EXTRACT: CA10__status__c
+  - status: INAPPLICABLE
+    currentStateMessage: The EMR release label is unavailable; legacy AMI-only clusters require separate assessment.
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: CA10__releaseLabel__c
+  - status: INCOMPLIANT
+    currentStateMessage: The EMR release reached AWS End of Support on September 1, 2026 and has no Extended Support path.
+    remediationMessage: Test and migrate workloads to a supported EMR release, then terminate the old cluster after preserving
+      required data.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - emr-4.0.0
+              - emr-4.1.0
+              - emr-4.2.0
+              - emr-4.3.0
+              - emr-4.4.0
+              - emr-4.5.0
+              - emr-4.6.0
+              - emr-4.6.1
+              - emr-4.7.0
+              - emr-4.7.1
+              - emr-4.7.2
+              - emr-4.7.3
+              - emr-4.7.4
+              - emr-4.8.0
+              - emr-4.8.1
+              - emr-4.8.2
+              - emr-4.8.3
+              - emr-4.8.4
+              - emr-4.8.5
+              - emr-4.9.1
+              - emr-4.9.2
+              - emr-4.9.3
+              - emr-4.9.4
+              - emr-4.9.5
+              - emr-4.9.6
+              - emr-5.0.0
+              - emr-5.0.1
+              - emr-5.0.2
+              - emr-5.0.3
+              - emr-5.1.0
+              - emr-5.1.1
+              - emr-5.2.0
+              - emr-5.2.1
+              - emr-5.2.2
+              - emr-5.2.3
+              - emr-5.3.0
+              - emr-5.3.1
+              - emr-5.3.2
+              - emr-5.4.0
+              - emr-5.4.1
+              - emr-5.5.0
+              - emr-5.5.1
+              - emr-5.5.2
+              - emr-5.5.3
+              - emr-5.5.4
+              - emr-5.6.0
+              - emr-5.6.1
+              - emr-5.7.0
+              - emr-5.7.1
+              - emr-5.8.0
+              - emr-5.8.1
+              - emr-5.8.2
+              - emr-5.8.3
+              - emr-5.9.0
+              - emr-5.9.1
+              - emr-5.10.0
+              - emr-5.10.1
+              - emr-5.11.0
+              - emr-5.11.1
+              - emr-5.11.2
+              - emr-5.11.3
+              - emr-5.11.4
+              - emr-5.12.0
+              - emr-5.12.1
+              - emr-5.12.2
+              - emr-5.12.3
+              - emr-5.13.0
+              - emr-5.13.1
+              - emr-5.14.0
+              - emr-5.14.1
+              - emr-5.14.2
+              - emr-5.15.0
+              - emr-5.15.1
+              - emr-5.16.0
+              - emr-5.16.1
+              - emr-5.17.0
+              - emr-5.17.1
+              - emr-5.17.2
+              - emr-5.18.0
+              - emr-5.18.1
+              - emr-5.19.0
+              - emr-5.19.1
+              - emr-5.20.0
+              - emr-5.20.1
+              - emr-5.21.0
+              - emr-5.21.1
+              - emr-5.21.2
+              - emr-5.22.0
+              - emr-5.23.0
+              - emr-5.23.1
+              - emr-5.24.0
+              - emr-5.24.1
+              - emr-5.25.0
+              - emr-5.26.0
+              - emr-5.27.0
+              - emr-5.27.1
+              - emr-5.28.0
+              - emr-5.28.1
+              - emr-5.29.0
+              - emr-5.30.0
+              - emr-5.30.1
+              - emr-5.30.2
+              - emr-5.31.0
+              - emr-5.31.1
+              - emr-5.32.0
+              - emr-5.32.1
+              - emr-5.33.0
+              - emr-5.33.1
+              - emr-5.34.0
+              - emr-5.35.0
+              - emr-6.0.0
+              - emr-6.0.1
+              - emr-6.1.0
+              - emr-6.1.1
+              - emr-6.2.0
+              - emr-6.2.1
+              - emr-6.3.0
+              - emr-6.3.1
+              - emr-6.4.0
+              - emr-6.5.0
+        search:
+          EXTRACT: CA10__releaseLabel__c
+  - status: INCOMPLIANT
+    currentStateMessage: The EMR release is past the final conditional Extended Support window, which ran through June 30, 2027.
+    remediationMessage: Test and migrate workloads to a supported EMR release, then terminate the old cluster after preserving
+      required data.
+    check:
+      AND:
+        args:
+          - CONTAINS:
+              arg:
+                SET:
+                  itemType: TEXT
+                  items:
+                    - emr-5.36.0
+                    - emr-5.36.1
+                    - emr-5.36.2
+                    - emr-6.6.0
+                    - emr-6.7.0
+                    - emr-6.8.0
+                    - emr-6.8.1
+                    - emr-6.9.0
+                    - emr-6.9.1
+                    - emr-6.10.0
+                    - emr-6.10.1
+                    - emr-6.11.0
+                    - emr-6.11.1
+                    - emr-6.12.0
+                    - emr-6.13.0
+                    - emr-6.14.0
+                    - emr-6.15.0
+              search:
+                EXTRACT: CA10__releaseLabel__c
+          - IS_BEFORE_TODAY:
+              arg:
+                DATE_TIME: '2027-06-30T00:00:00Z'
+  - status: INCOMPLIANT
+    currentStateMessage: AWS bridge support for this EMR release ended on August 31, 2026; a conditional support extension may
+      be available through June 30, 2027, subject to AWS approval.
+    remediationMessage: Migrate to a release within its original AWS support period and confirm any temporary migration
+      extension with AWS Support.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - emr-5.36.0
+              - emr-5.36.1
+              - emr-5.36.2
+              - emr-6.6.0
+              - emr-6.7.0
+              - emr-6.8.0
+              - emr-6.8.1
+              - emr-6.9.0
+              - emr-6.9.1
+              - emr-6.10.0
+              - emr-6.10.1
+              - emr-6.11.0
+              - emr-6.11.1
+              - emr-6.12.0
+              - emr-6.13.0
+              - emr-6.14.0
+              - emr-6.15.0
+        search:
+          EXTRACT: CA10__releaseLabel__c
+  - status: INCOMPLIANT
+    currentStateMessage: The EMR release is past the final conditional support extension, which ran through August 31, 2027.
+    remediationMessage: Test and migrate workloads to a supported EMR release, then terminate the old cluster after preserving
+      required data.
+    check:
+      AND:
+        args:
+          - CONTAINS:
+              arg:
+                SET:
+                  itemType: TEXT
+                  items:
+                    - emr-7.0.0
+                    - emr-7.1.0
+                    - emr-7.2.0
+                    - emr-7.3.0
+                    - emr-7.4.0
+                    - emr-7.5.0
+                    - emr-7.6.0
+                    - emr-7.7.0
+                    - emr-7.8.0
+                    - emr-7.9.0
+                    - emr-7.10.0
+              search:
+                EXTRACT: CA10__releaseLabel__c
+          - IS_BEFORE_TODAY:
+              arg:
+                DATE_TIME: '2027-08-31T00:00:00Z'
+  - status: INCOMPLIANT
+    currentStateMessage: The EMR release has passed its original AWS support end date; a conditional support extension may be
+      available through August 31, 2027, subject to AWS approval.
+    remediationMessage: Migrate to a release within its original AWS support period and confirm any temporary migration
+      extension with AWS Support.
+    check:
+      OR:
+        args:
+          - CONTAINS:
+              arg:
+                SET:
+                  itemType: TEXT
+                  items:
+                    - emr-7.0.0
+                    - emr-7.1.0
+                    - emr-7.2.0
+                    - emr-7.3.0
+              search:
+                EXTRACT: CA10__releaseLabel__c
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10__releaseLabel__c
+                    right:
+                      TEXT: emr-7.4.0
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2026-11-13T00:00:00Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10__releaseLabel__c
+                    right:
+                      TEXT: emr-7.5.0
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2026-11-21T00:00:00Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10__releaseLabel__c
+                    right:
+                      TEXT: emr-7.6.0
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2027-01-10T00:00:00Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10__releaseLabel__c
+                    right:
+                      TEXT: emr-7.7.0
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2027-02-06T00:00:00Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10__releaseLabel__c
+                    right:
+                      TEXT: emr-7.8.0
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2027-03-07T00:00:00Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10__releaseLabel__c
+                    right:
+                      TEXT: emr-7.9.0
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2027-05-19T00:00:00Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10__releaseLabel__c
+                    right:
+                      TEXT: emr-7.10.0
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2027-08-15T00:00:00Z'
+  - status: INCOMPLIANT
+    currentStateMessage: The EMR release reached AWS End of Support on 2027-11-04.
+    remediationMessage: Test and migrate workloads to a supported EMR release, then terminate the old cluster after preserving
+      required data.
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10__releaseLabel__c
+              right:
+                TEXT: emr-7.11.0
+          - IS_BEFORE_TODAY:
+              arg:
+                DATE_TIME: '2027-11-03T00:00:00Z'
+  - status: INCOMPLIANT
+    currentStateMessage: The EMR release reached AWS End of Support on 2027-11-22.
+    remediationMessage: Test and migrate workloads to a supported EMR release, then terminate the old cluster after preserving
+      required data.
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10__releaseLabel__c
+              right:
+                TEXT: emr-7.12.0
+          - IS_BEFORE_TODAY:
+              arg:
+                DATE_TIME: '2027-11-21T00:00:00Z'
+  - status: INCOMPLIANT
+    currentStateMessage: The EMR release reached AWS End of Support on 2028-04-21.
+    remediationMessage: Test and migrate workloads to a supported EMR release, then terminate the old cluster after preserving
+      required data.
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10__releaseLabel__c
+              right:
+                TEXT: emr-7.13.0
+          - IS_BEFORE_TODAY:
+              arg:
+                DATE_TIME: '2028-04-20T00:00:00Z'
+  - status: INCOMPLIANT
+    currentStateMessage: The EMR release reached AWS End of Support on 2028-09-09.
+    remediationMessage: Test and migrate workloads to a supported EMR release, then terminate the old cluster after preserving
+      required data.
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10__releaseLabel__c
+              right:
+                TEXT: emr-7.14.0
+          - IS_BEFORE_TODAY:
+              arg:
+                DATE_TIME: '2028-09-08T00:00:00Z'
+  - status: INCOMPLIANT
+    currentStateMessage: AWS runtime for Apache Spark 8.0 reached Amazon EMR End of Support on May 21, 2028.
+    remediationMessage: Test and migrate workloads to a supported EMR release, then terminate the old cluster after preserving
+      required data.
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10__releaseLabel__c
+              right:
+                TEXT: emr-spark-8.0.0
+          - IS_BEFORE_TODAY:
+              arg:
+                DATE_TIME: '2028-05-20T00:00:00Z'
+  - status: INCOMPLIANT
+    currentStateMessage: AWS runtime for Apache Spark 8.1 LTS reached End of Life on September 8, 2029 without a separate
+      EOS period.
+    remediationMessage: Test and migrate workloads to a supported EMR release, then terminate the old cluster after preserving
+      required data.
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10__releaseLabel__c
+              right:
+                TEXT: emr-spark-8.1.0
+          - IS_BEFORE_TODAY:
+              arg:
+                DATE_TIME: '2029-09-07T00:00:00Z'
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: The EMR cluster uses a supported release.

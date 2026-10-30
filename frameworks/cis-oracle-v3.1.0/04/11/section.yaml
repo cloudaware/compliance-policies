@@ -1,0 +1,10 @@
+---
+name: 4.11 Ensure a notification is configured for network security group changes - Level 1 (Automated)
+description: >
+  It is recommended to setup an Event Rule and Notification that gets triggered
+  when network security groups are created, updated or deleted. Event Rules are
+  compartment scoped and will detect events in child compartments, it is
+  recommended to create the Event rule at the root compartment level.
+similar:
+  internal:
+    - dec-c-ee3f46b7

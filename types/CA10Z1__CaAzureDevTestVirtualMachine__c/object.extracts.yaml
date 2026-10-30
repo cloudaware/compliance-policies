@@ -1,0 +1,24 @@
+---
+extracts:
+  - name: "CA10Z1__applicableScheduleJson__c"
+    value:
+      FIELD:
+        path: "CA10Z1__applicableScheduleJson__c"
+        returnType: BYTES
+  - name: "caJsonFrom__applicableScheduleJson__c"
+    value:
+      JSON_FROM:
+        arg:
+          EXTRACT: "CA10Z1__applicableScheduleJson__c" 
+        undeterminedIf:
+          isInvalid: "The applicable schedule JSON is invalid." 
+  - name: "caJsonText__autoShutdownStatus__c"
+    value:
+      JSON_QUERY_TEXT:
+        arg:
+          EXTRACT: "caJsonFrom__applicableScheduleJson__c"
+        expression: "properties.labVmsShutdown.properties.status"
+        undeterminedIf:
+          evaluationError: "The auto-shutdown schedule cannot be read."
+          resultTypeMismatch: "The auto-shutdown status is not text."
+          

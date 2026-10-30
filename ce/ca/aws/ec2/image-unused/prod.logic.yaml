@@ -35,8 +35,8 @@ conditions:
         relationshipName: "CA10__AWS_EC2_Instances__r"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "The AMI wasn't used within the last 90 days and has no associated running instances."
-  remediationMessage: "Deregister the AMI and delete its associated EBS snapshots to save costs."
+  currentStateMessage: "The AMI was not used within the last 90 days and has no associated running instances."
+  remediationMessage: "Deregister the AMI and delete its associated EBS snapshots to reduce costs."
 relatedLists:
   - relationshipName: "CA10__AWS_EC2_Instances__r"
     conditions: []

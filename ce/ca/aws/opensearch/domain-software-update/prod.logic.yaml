@@ -5,24 +5,31 @@ testData:
 importExtracts:
   - file: "/types/CA10__CaAwsElasticsearchDomain__c/object.extracts.yaml"
 conditions:
-  - status: "INCOMPLIANT"
-    currentStateMessage: "A new service software update is available for the OpenSearch domain."
-    remediationMessage: "Consider installing the latest compatible service software\
-      \ update for the OpenSearch domain to get the latest features, security patches, and bug fixes."
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The OpenSearch domain is still being created."
     check:
       IS_EQUAL:
         left:
-          EXTRACT: "CA10__serviceSoftwareUpdateAvailable__c"
+          EXTRACT: "CA10__created__c"
         right:
           TEXT: "false"
-  - status: "COMPLIANT"
-    currentStateMessage: "The OpenSearch domain is running the latest service software version."
+  - status: "INCOMPLIANT"
+    currentStateMessage: "A newer compatible service software version is available for the OpenSearch domain."
+    remediationMessage: "Install the latest compatible service software update during an approved maintenance window."
     check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__serviceSoftwareUpdateAvailable__c"
         right:
           TEXT: "true"
+  - status: "COMPLIANT"
+    currentStateMessage: "The OpenSearch domain is running the latest available service software."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__serviceSoftwareUpdateAvailable__c"
+        right:
+          TEXT: "false"
 otherwise:
   status: "UNDETERMINED"
-  currentStateMessage: "Unexpected values in the field."
+  currentStateMessage: "Unexpected values were found in the service software update fields."

@@ -6,17 +6,17 @@ Enable `log_disconnections` on `PostgreSQL Servers`.
 
 ## Rationale
 
-Enabling `log_disconnections` helps PostgreSQL Database to `Logs end of a session`, including duration, which in turn generates query and error logs. Query and error logs can be used to identify, troubleshoot, and repair configuration errors and sub-optimal performance.
+Enabling `log_disconnections` helps PostgreSQL log the end of a session, including duration, which in turn generates query and error logs. Query and error logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance.
 
 ## Impact
 
-Enabling this setting will enable a log of all disconnections. If this is enabled for a high traffic server, the log may grow exponentially.
+Enabling this setting logs all disconnections. If this is enabled for a high-traffic server, the log may grow quickly.
 
 ## Audit
 
 ### From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. From Azure Home, select the Portal Menu.
 2. Go to `Azure Database` for `PostgreSQL servers`.
 3. For each database, under `Settings`, click `Server parameters`.
 4. Search for `log_disconnections`.
@@ -24,18 +24,24 @@ Enabling this setting will enable a log of all disconnections. If this is enable
 
 ### From Azure CLI
 
-Ensure `log_disconnections` value is set to `ON`:
+Ensure `log_disconnections` is set to `ON`:
 
 ```sh
-az postgres server configuration show --resource-group <resourceGroupName> --server-name <serverName> --name log_disconnections
+az postgres server configuration show \
+    --resource-group {{resource-group-name}} \
+    --server-name {{server-name}} \
+    --name log_disconnections
 ```
 
 ### From PowerShell
 
-Ensure `log_disconnections` value is set to `ON`:
+Ensure `log_disconnections` is set to `ON`:
 
 ```ps
-Get-AzPostgreSqlConfiguration -ResourceGroupName <ResourceGroupName> -ServerName <ServerName> -Name log_disconnections
+Get-AzPostgreSqlConfiguration `
+    -ResourceGroupName {{resource-group-name}} `
+    -ServerName {{server-name}} `
+    -Name log_disconnections
 ```
 
 ### From Azure Policy
@@ -46,7 +52,7 @@ If referencing a digital copy of this Benchmark, clicking a Policy ID will open 
 
 ## Default Value
 
-By default `log_disconnections` is disabled (set to `off`).
+By default, `log_disconnections` is disabled (set to `off`).
 
 ## References
 

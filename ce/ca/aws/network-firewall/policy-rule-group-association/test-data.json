@@ -1,0 +1,89 @@
+[
+    {
+        "CA10A2__AWS_NetworkFirewall_PolicyRuleGroupLinks__r": [],
+        "CA10A2__disappearanceTime__c": "2026-01-15T10:42:39Z",
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10A2__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "Id": "test1",
+        "CA10A2__firewallPolicyStatus__c": ""
+    },
+    {
+        "CA10A2__AWS_NetworkFirewall_PolicyRuleGroupLinks__r": [],
+        "CA10A2__disappearanceTime__c": null,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "CA10A2__firewallPolicyStatus__c.delegatedTo(CA10A2__firewallPolicyStatus__c).isEmpty()",
+            "conditionIndex": 101,
+            "status": "UNDETERMINED"
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "Id": "test2",
+        "CA10A2__firewallPolicyStatus__c": ""
+    },
+    {
+        "CA10A2__AWS_NetworkFirewall_PolicyRuleGroupLinks__r": [],
+        "CA10A2__disappearanceTime__c": null,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10A2__firewallPolicyStatus__c') != 'ACTIVE'",
+            "conditionIndex": 199,
+            "status": "INAPPLICABLE"
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "Id": "test3",
+        "CA10A2__firewallPolicyStatus__c": "ERROR"
+    },
+    {
+        "CA10A2__AWS_NetworkFirewall_PolicyRuleGroupLinks__r": [],
+        "CA10A2__disappearanceTime__c": null,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "CA10A2__AWS_NetworkFirewall_PolicyRuleGroupLinks__r.hasNo(COMPLIANT)",
+            "conditionIndex": 299,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "Id": "test4",
+        "CA10A2__firewallPolicyStatus__c": "ACTIVE"
+    },
+    {
+        "CA10A2__AWS_NetworkFirewall_PolicyRuleGroupLinks__r": [
+            {
+                "CA10A2__disappearanceTime__c": null,
+                "CA10A2__ruleGroup__c": "test5_1",
+                "CA10A2__ruleGroup__r": {
+                    "CA10A2__disappearanceTime__c": null,
+                    "Id": "test5_1"
+                },
+                "CA10A2__ruleGroupArn__c": "ruleGroupArn",
+                "Id": "test5_2",
+                "CA10A2__firewallPolicy__c": "test5"
+            }
+        ],
+        "CA10A2__disappearanceTime__c": null,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "CA10A2__AWS_NetworkFirewall_PolicyRuleGroupLinks__r.has(COMPLIANT)",
+            "conditionIndex": 399,
+            "status": "COMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "Id": "test5",
+        "CA10A2__firewallPolicyStatus__c": "ACTIVE"
+    }
+]

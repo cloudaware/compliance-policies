@@ -6,7 +6,7 @@ AWS Shield Advanced provides enhanced protections against Distributed Denial of 
 
 ## Rationale
 
-Creating a dedicated IAM role for the SRT is a critical step in preparing for a DDoS attack. Without this role, the SRT cannot access your account to analyze traffic, apply mitigations, or assist in your response efforts. Proactively configuring this access ensures that if a DDoS event occurs, the SRT can engage immediately, minimizing downtime and potential impact on your applications.
+Creating a dedicated IAM role for the SRT is a critical step in preparing for a DDoS attack. Without this role, the SRT cannot access your account to analyze traffic, apply mitigations, or assist in your response efforts. Proactively configuring this access ensures that if a DDoS event occurs, the SRT can engage immediately, minimizing downtime and impact on your applications.
 
 ## Audit
 

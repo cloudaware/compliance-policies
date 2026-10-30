@@ -1,6 +1,6 @@
 # Description
 
-Ensure that all Recovery Points stored within an AWS Backup Vault are encrypted. AWS Backup offers centralized backup and recovery capabilities, enforcing encryption on recovery points is a critical security measure to protect data at rest.
+Ensure that all Recovery Points stored within an AWS Backup Vault are encrypted. AWS Backup offers centralized backup and recovery capabilities, and enforcing encryption on recovery points is a critical security measure to protect data at rest.
 
 ## Rationale
 
@@ -8,7 +8,7 @@ Encrypting backup data is essential to protect sensitive information (such as ap
 
 ## Impact
 
-If an unauthorized user with access to the vault’s storage location could restore and inspect unencrypted backups.
+If an unauthorized user gains access to the vault’s storage location, they could restore and inspect unencrypted backups.
 
 Enabling encryption may incur additional charges for KMS key usage and management. The IAM role performing backup and restore operations must have permissions to use the specified KMS key.
 

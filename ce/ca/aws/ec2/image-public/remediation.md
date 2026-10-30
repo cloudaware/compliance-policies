@@ -10,8 +10,8 @@ Run the `modify-image-attribute` command to remove public launch permissions fro
 
 ```sh
 aws ec2 modify-image-attribute \
-    --region us-east-1 \
-    --image-id ami-0abcd1234abcd1234 \
+    --region {{region-name}} \
+    --image-id {{image-id}} \
     --launch-permission "{\"Remove\":[{\"Group\":\"all\"}]}"
 ```
 

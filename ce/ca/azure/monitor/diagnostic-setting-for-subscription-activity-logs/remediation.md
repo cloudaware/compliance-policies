@@ -23,20 +23,37 @@ To enable Diagnostic Settings on a specific resource:
 6. Select the appropriate log, metric, and destination. (this may be Log Analytics, Storage Account, Event Hub, or Partner solution).
 7. Click `Save`.
 
-Repeat these step for all resources as needed.
+Repeat these steps for all resources as needed.
 
 ## From Azure CLI
 
 To configure Diagnostic Settings on a Subscription:
 
 ```sh
-az monitor diagnostic-settings subscription create --subscription <subscription id> --name <diagnostic settings name> --location <location> --event-hub <event hub ID> --event-hub-auth-rule <event hub auth rule ID> --storage-account <storage account ID> --workspace <log analytics workspace ID> --logs "<JSON encoded categories>" (e.g. [{category:Security,enabled:true},{category:Administrative,enabled:true},{category:Alert,enabled:true},{category:Policy,enabled:true}])
+az monitor diagnostic-settings subscription create \
+    --subscription {{subscription-id}} \
+    --name {{diagnostic-setting-name}} \
+    --location {{location}} \
+    --event-hub {{event-hub-id}} \
+    --event-hub-auth-rule {{event-hub-auth-rule-id}} \
+    --storage-account {{storage-account-id}} \
+    --workspace {{log-analytics-workspace-id}} \
+    --logs "{{json-encoded-categories}}"
 ```
 
 To configure Diagnostic Settings on a specific resource:
 
 ```sh
-az monitor diagnostic-settings create --subscription <subscription ID> --resource <resource ID> --name <diagnostic settings name> --event-hub <event hub ID> --event-hub-rule <event hub auth rule ID> --storage-account <storage account ID> --workspace <log analytics workspace ID> --logs <resource specific JSON encoded log settings> --metrics <metric settings (shorthand|json-file|yaml-file)>
+az monitor diagnostic-settings create \
+    --subscription {{subscription-id}} \
+    --resource {{resource-id}} \
+    --name {{diagnostic-setting-name}} \
+    --event-hub {{event-hub-id}} \
+    --event-hub-rule {{event-hub-auth-rule-id}} \
+    --storage-account {{storage-account-id}} \
+    --workspace {{log-analytics-workspace-id}} \
+    --logs {{resource-specific-json-encoded-log-settings}} \
+    --metrics {{metric-settings-shorthand-or-json-or-yaml}}
 ```
 
 ## From PowerShell
@@ -44,11 +61,44 @@ az monitor diagnostic-settings create --subscription <subscription ID> --resourc
 To configure Diagnostic Settings on a subscription:
 
 ```ps
-$logCategories = @(); $logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category Administrative -Enabled $true $logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category Security -Enabled $true $logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category ServiceHealth -Enabled $true $logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category Alert -Enabled $true $logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category Recommendation -Enabled $true $logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category Policy -Enabled $true $logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category Autoscale -Enabled $true $logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category ResourceHealth -Enabled $true New-AzSubscriptionDiagnosticSetting -SubscriptionId <subscription ID> -Name <Diagnostic settings name> <[-EventHubAuthorizationRule <event hub auth rule ID> -EventHubName <event hub name>] [-StorageAccountId <storage account ID>] [-WorkSpaceId <log analytics workspace ID>] [-MarketplacePartner ID <full ARM Marketplace resource ID>]> -Log $logCategories
+$logCategories = @()
+$logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category Administrative -Enabled $true
+$logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category Security -Enabled $true
+$logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category ServiceHealth -Enabled $true
+$logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category Alert -Enabled $true
+$logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category Recommendation -Enabled $true
+$logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category Policy -Enabled $true
+$logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category Autoscale -Enabled $true
+$logCategories += New-AzDiagnosticSettingSubscriptionLogSettingsObject -Category ResourceHealth -Enabled $true
+
+New-AzSubscriptionDiagnosticSetting `
+    -SubscriptionId {{subscription-id}} `
+    -Name {{diagnostic-setting-name}} `
+    -EventHubAuthorizationRuleId {{event-hub-auth-rule-id}} `
+    -EventHubName {{event-hub-name}} `
+    -StorageAccountId {{storage-account-id}} `
+    -WorkSpaceId {{log-analytics-workspace-id}} `
+    -MarketplacePartnerId {{marketplace-partner-id}} `
+    -Log $logCategories
 ```
 
 To configure Diagnostic Settings on a specific resource:
 
 ```ps
-$logCategories = @() $logCategories += New-AzDiagnosticSettingLogSettingsObject -Category <resource specific log category> -Enabled $true Repeat command and variable assignment for each Log category specific to the resource where this Diagnostic Setting will get configured. $metricCategories = @() $metricCategories += New-AzDiagnosticSettingMetricSettingsObject -Enabled $true [-Category <resource specific metric category | AllMetrics>] [-RetentionPolicyDay <Integer>] [-RetentionPolicyEnabled $true] Repeat command and variable assignment for each Metric category or use the 'AllMetrics' category. New-AzDiagnosticSetting -ResourceId <resource ID> -Name <Diagnostic settings name> -Log $logCategories -Metric $metricCategories [-EventHubAuthorizationRuleId <event hub auth rule ID> -EventHubName <event hub name>] [-StorageAccountId <storage account ID>] [-WorkspaceId <log analytics workspace ID>] [-MarketplacePartnerId <full ARM marketplace resource ID>]>
+$logCategories = @()
+$logCategories += New-AzDiagnosticSettingLogSettingsObject -Category {{resource-specific-log-category}} -Enabled $true
+
+$metricCategories = @()
+$metricCategories += New-AzDiagnosticSettingMetricSettingsObject -Enabled $true -Category {{resource-specific-metric-category-or-allmetrics}}
+
+New-AzDiagnosticSetting `
+    -ResourceId {{resource-id}} `
+    -Name {{diagnostic-setting-name}} `
+    -Log $logCategories `
+    -Metric $metricCategories `
+    -EventHubAuthorizationRuleId {{event-hub-auth-rule-id}} `
+    -EventHubName {{event-hub-name}} `
+    -StorageAccountId {{storage-account-id}} `
+    -WorkspaceId {{log-analytics-workspace-id}} `
+    -MarketplacePartnerId {{marketplace-partner-id}}
 ```

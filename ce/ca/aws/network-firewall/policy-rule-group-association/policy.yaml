@@ -1,0 +1,20 @@
+---
+names:
+  full: "AWS Network Firewall Policy is not associated with a rule group"
+  contextual: "Policy is not associated with a rule group"
+description: >
+  Ensure that each AWS Network Firewall policy has at least one rule group associated 
+  with it. A firewall policy defines the stateful and stateless rule groups that 
+  provide the network traffic filtering logic for your firewall. Policies without 
+  rule groups may allow or drop traffic based only on default actions without 
+  specific inspection logic.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/network-firewall/03"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[NetworkFirewall.3] Network Firewall policies should have at least one rule group associated"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/networkfirewall-controls.html#networkfirewall-3"

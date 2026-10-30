@@ -6,7 +6,7 @@ importExtracts:
   - file: /types/CA10__CaGoogleIamServiceAccount__c/object.extracts.yaml
 conditions: 
   - status: "INAPPLICABLE"
-    currentStateMessage: "This recommendation is only applicable to User-Managed user-created service accounts."
+    currentStateMessage: "This recommendation applies only to user-managed service accounts."
     check:
 ## NOT: SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com
       NOT:
@@ -24,15 +24,15 @@ conditions:
                   search:
                     EXTRACT: serviceAccountProjectId
   - status: "INCOMPLIANT"
-    currentStateMessage: "This Service Account has roles with admin privileges."
-    remediationMessage: "Consider restricting the Service Account."
+    currentStateMessage: "This service account has roles with admin privileges."
+    remediationMessage: "Restrict the service account privileges."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__Google_IAM_Policy_Bindings__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Service Account has no admin privileges "
+  currentStateMessage: "The service account has no admin privileges."
 relatedLists:
   - relationshipName: "CA10__Google_IAM_Policy_Bindings__r"
     importExtracts:
@@ -42,11 +42,11 @@ relatedLists:
       - "caGoogleIamPolicyBindingProject"
     conditions:
       - status: "COMPLIANT"
-        currentStateMessage: "There is no role with admin privileges"
+        currentStateMessage: "There is no role with admin privileges."
         check:
           IS_EMPTY_LOOKUP: "CA10__iamRole__r"
       - status: "INCOMPLIANT"
-        currentStateMessage: "Role with admin privileges"
+        currentStateMessage: "Role with admin privileges."
         check:
            OR:
              args:
@@ -67,4 +67,4 @@ relatedLists:
                      TEXT: "owner"
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "Role without admin privileges"
+      currentStateMessage: "Role without admin privileges."

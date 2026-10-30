@@ -1,0 +1,14 @@
+---
+names:
+  full: "Oracle IAAS Instance Secure Boot is disabled"
+  contextual: "Oracle IAAS Instance Secure Boot is disabled"
+description: >
+  Ensure that Oracle IAAS Instances have Secure Boot enabled when platform
+  configuration data is available. Secure Boot helps protect the boot chain by
+  allowing only trusted boot components to run during instance startup.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cis-oracle-v3.1.0/03/02"
+  - "/frameworks/cloudaware/resource-security/threat-protection"

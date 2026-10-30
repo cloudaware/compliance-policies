@@ -1,0 +1,10 @@
+---
+name: 2.16 Ensure IAM instance roles are used for AWS resource access from instances (Automated)
+description: >
+  AWS access from within EC2 instances can be achieved either by embedding AWS
+  access keys into applications or by assigning an IAM role to the instance with the
+  appropriate permissions. "AWS access" refers to making API calls to AWS services to
+  access or manage resources.
+similar:
+  sections:
+    - /frameworks/cis-aws-v6.0.0/02/17

@@ -1,0 +1,193 @@
+---
+inputType: "CA10__CaAwsBeanstalkEnvironment__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsBeanstalkEnvironment__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Elastic Beanstalk environment is not in a stable Ready state."
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: "TEXT"
+            items:
+              - "Aborting"
+              - "Launching"
+              - "Updating"
+              - "LinkingFrom"
+              - "LinkingTo"
+              - "Terminating"
+              - "Terminated"
+        search:
+          EXTRACT: "CA10__status__c"
+  - status: "UNDETERMINED"
+    currentStateMessage: "The Elastic Beanstalk environment status is missing or unrecognized."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "Ready"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The solution stack name is missing, custom, or outside the standard AWS-managed stack format."
+    check:
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__solutionStackName__c"
+          - NOT:
+              arg:
+                STARTS_WITH:
+                  arg:
+                    EXTRACT: "CA10__solutionStackName__c"
+                  search:
+                    BYTES: "64bit "
+          - ENDS_WITH:
+              arg:
+                EXTRACT: "CA10__solutionStackName__c"
+              search:
+                BYTES: " custom"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The environment uses a verified solution stack on Amazon Linux AMI platform branches, retired by Elastic Beanstalk on 2022-07-18."
+    remediationMessage: "Migrate the application to a supported Elastic Beanstalk platform branch and test the replacement environment."
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: "BYTES"
+            items:
+              - "64bit Amazon Linux 2018.03 v2.9.1 running Java 8"
+              - "64bit Amazon Linux 2018.03 v2.9.1 running Java 7"
+        search:
+          EXTRACT: "CA10__solutionStackName__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The environment uses a verified solution stack on Amazon Linux 2 platform branches, retired by Elastic Beanstalk on 2026-08-06."
+    remediationMessage: "Migrate the application to a supported Elastic Beanstalk platform branch and test the replacement environment."
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: "BYTES"
+            items:
+              - "64bit Amazon Linux 2 v3.13.1 running Corretto 17"
+              - "64bit Amazon Linux 2 v3.13.1 running Corretto 11"
+              - "64bit Amazon Linux 2 v3.13.1 running Corretto 8"
+              - "64bit Amazon Linux 2 v4.13.2 running Tomcat 9 Corretto 11"
+              - "64bit Amazon Linux 2 v4.13.3 running Tomcat 9 Corretto 8"
+              - "64bit Amazon Linux 2 v4.2.3 running Docker"
+              - "64bit Amazon Linux 2 v3.5.3 running ECS"
+        search:
+          EXTRACT: "CA10__solutionStackName__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The environment uses a verified solution stack on Node.js 20, Python 3.9 and Ruby 3.2 AL2023 platform branches, retired by Elastic Beanstalk on 2026-08-13."
+    remediationMessage: "Migrate the application to a supported Elastic Beanstalk platform branch and test the replacement environment."
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: "BYTES"
+            items:
+              - "64bit Amazon Linux 2023 v6.6.6 running Node.js 20"
+              - "64bit Amazon Linux 2023 v4.3.0 running Python 3.9"
+              - "64bit Amazon Linux 2023 v4.1.0 running Ruby 3.2"
+        search:
+          EXTRACT: "CA10__solutionStackName__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The environment uses a verified solution stack on Windows Server 2016 platform branches, retired by Elastic Beanstalk on 2026-09-30."
+    remediationMessage: "Migrate the application to a supported Elastic Beanstalk platform branch and test the replacement environment."
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: "BYTES"
+            items:
+              - "64bit Windows Server 2016 v2.23.6 running IIS 10.0"
+              - "64bit Windows Server Core 2016 v2.23.6 running IIS 10.0"
+        search:
+          EXTRACT: "CA10__solutionStackName__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The environment uses a verified solution stack on .NET 8, .NET 9 and PHP 8.2 AL2023 platform branches, retired by Elastic Beanstalk on 2027-03-31."
+    remediationMessage: "Migrate the application to a supported Elastic Beanstalk platform branch and test the replacement environment."
+    check:
+      AND:
+        args:
+          - CONTAINS:
+              arg:
+                SET:
+                  itemType: "BYTES"
+                  items:
+                    - "64bit Amazon Linux 2023 v3.11.9 running .NET 8"
+                    - "64bit Amazon Linux 2023 v3.11.9 running .NET 9"
+                    - "64bit Amazon Linux 2023 v3.11.10 running .NET 8"
+                    - "64bit Amazon Linux 2023 v3.11.10 running .NET 9"
+                    - "64bit Amazon Linux 2023 v4.13.9 running PHP 8.2"
+                    - "64bit Amazon Linux 2023 v4.13.10 running PHP 8.2"
+              search:
+                EXTRACT: "CA10__solutionStackName__c"
+          - IS_BEFORE_TODAY:
+              arg:
+                DATE_TIME: "2027-03-31T00:00:00Z"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The environment uses a verified solution stack on Node.js 22 and Ruby 3.3 AL2023 platform branches, retired by Elastic Beanstalk on 2027-07-31."
+    remediationMessage: "Migrate the application to a supported Elastic Beanstalk platform branch and test the replacement environment."
+    check:
+      AND:
+        args:
+          - CONTAINS:
+              arg:
+                SET:
+                  itemType: "BYTES"
+                  items:
+                    - "64bit Amazon Linux 2023 v6.11.9 running Node.js 22"
+                    - "64bit Amazon Linux 2023 v6.11.10 running Node.js 22"
+                    - "64bit Amazon Linux 2023 v4.14.9 running Ruby 3.3"
+                    - "64bit Amazon Linux 2023 v4.14.10 running Ruby 3.3"
+              search:
+                EXTRACT: "CA10__solutionStackName__c"
+          - IS_BEFORE_TODAY:
+              arg:
+                DATE_TIME: "2027-07-31T00:00:00Z"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The environment uses a verified solution stack on the .NET 6 AL2023 platform branch, retired by Elastic Beanstalk on 2025-04-08."
+    remediationMessage: "Migrate the application to a supported Elastic Beanstalk platform branch and test the replacement environment."
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: "BYTES"
+            items:
+              - "64bit Amazon Linux 2023 v3.1.2 running .NET 6"
+        search:
+          EXTRACT: "CA10__solutionStackName__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The environment uses a verified solution stack on a Node.js 18 platform branch, retired by Elastic Beanstalk on 2025-08-11."
+    remediationMessage: "Migrate the application to a supported Elastic Beanstalk platform branch and test the replacement environment."
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: "BYTES"
+            items:
+              - "64bit Amazon Linux 2023 v6.6.3 running Node.js 18"
+              - "64bit Amazon Linux 2 v5.11.3 running Node.js 18"
+        search:
+          EXTRACT: "CA10__solutionStackName__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The environment uses a verified solution stack on a PHP 8.1 platform branch, retired by Elastic Beanstalk on 2026-04-16."
+    remediationMessage: "Migrate the application to a supported Elastic Beanstalk platform branch and test the replacement environment."
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: "BYTES"
+            items:
+              - "64bit Amazon Linux 2023 v4.12.1 running PHP 8.1"
+              - "64bit Amazon Linux 2 v3.15.0 running PHP 8.1"
+        search:
+          EXTRACT: "CA10__solutionStackName__c"
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: The solution stack does not match a known retirement condition covered by this policy.

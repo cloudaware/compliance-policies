@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS MQ Broker is publicly accessible"
+  contextual: "Broker is publicly accessible"
+description: >
+  Identify Amazon MQ brokers that are configured with public accessibility. 
+  Publicly accessible brokers are exposed to the internet, increasing the 
+  attack surface and potential for unauthorized access.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/network-exposure"
+  - "/frameworks/aws-well-architected/sec/08/04"
+similarPolicies:
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/MQ/publicly-accessible.html"
+      name: "Publicly Accessible MQ Brokers"

@@ -1,15 +1,15 @@
 ---
 names:
-  full: AWS DynamoDB Table Point In Time Recovery is not enabled
-  contextual: Table Point In Time Recovery is not enabled
+  full: "AWS DynamoDB Table Point In Time Recovery is not enabled"
+  contextual: "Table Point In Time Recovery is not enabled"
 description: >
   Ensure that Point-in-Time Recovery (PITR) is enabled for your Amazon DynamoDB 
   tables to protect against accidental writes or deletes. PITR provides continuous 
   backups, allowing you to restore your table to any point in time during 
   the last 35 days.
-type: COMPLIANCE_POLICY
+type: "COMPLIANCE_POLICY"
 categories:
-  - SECURITY
+  - "SECURITY"
 frameworkMappings:
   - "/frameworks/cloudaware/resource-security/data-protection-and-recovery"
   - "/frameworks/aws-fsbp-v1.0.0/dynamodb/02"

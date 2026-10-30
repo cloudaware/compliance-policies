@@ -20,7 +20,9 @@ The default Compute Engine service account is named `[PROJECT_NUMBER]-compute@de
 
 1. List the instances in your project and get details on each instance:
 
-            gcloud compute instances list --format=json | jq -r '. | "SA: \(.[].serviceAccounts[].email) Name: \(.[].name)"'
+    ```sh
+    gcloud compute instances list --format=json | jq -r '. | "SA: \(.[].serviceAccounts[].email) Name: \(.[].name)"'
+    ```
 
 2. Ensure that the service account section has an email that does not match the pattern `[PROJECT_NUMBER]-compute@developer.gserviceaccount.com`.
 

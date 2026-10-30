@@ -6,8 +6,8 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "App Service HTTPS Only configuration is disabled."
-    remediationMessage: "Consider enabling App Service HTTPS Only configuration."
+    currentStateMessage: "App Service HTTPS-only configuration is disabled."
+    remediationMessage: "Enable App Service HTTPS-only configuration."
     check:
       IS_EQUAL:
         left:
@@ -15,7 +15,7 @@ conditions:
         right:
           TEXT: "Disabled"
   - status: "COMPLIANT"
-    currentStateMessage: "App Service HTTPS Only configuration is enabled."
+    currentStateMessage: "App Service HTTPS-only configuration is enabled."
     check:
       IS_EQUAL:
         left:

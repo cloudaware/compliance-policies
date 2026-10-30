@@ -1,6 +1,6 @@
 # Description
 
-This policy identifies Google Storage Bucket used as destinations for Cloud Logging sinks that do not have **Object Versioning** enabled.
+This policy identifies Google Storage Buckets used as destinations for Cloud Logging sinks that do not have **Object Versioning** enabled.
 
 ## Rationale
 

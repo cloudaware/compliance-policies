@@ -14,7 +14,7 @@ Configuring this setting will result in logs being retained for the specified nu
 
 ### From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. From Azure Home, select the Portal Menu.
 2. Go to `Azure Database for PostgreSQL flexible servers`.
 3. For each database, under `Settings`, click `Server parameters`.
 4. In the filter bar, type `logfiles.retention_days`.
@@ -22,23 +22,29 @@ Configuring this setting will result in logs being retained for the specified nu
 
 ### From Azure CLI
 
-Ensure `logfiles.retention_days` value is greater than 3:
+Ensure `logfiles.retention_days` is greater than 3:
 
 ```sh
-az postgres flexible-server parameter show --resource-group <resourceGroup> --server-name <serverName> --name logfiles.retention_days
+az postgres flexible-server parameter show \
+    --resource-group {{resource-group-name}} \
+    --server-name {{server-name}} \
+    --name logfiles.retention_days
 ```
 
-### From Powershell
+### From PowerShell
 
-Ensure `logfiles.retention_days` value is greater than 3:
+Ensure `logfiles.retention_days` is greater than 3:
 
 ```ps
-Get-AzPostgreSqlFlexibleServerConfiguration -ResourceGroupName <resourceGroup> -ServerName <serverName> -Name logfiles.retention_days
+Get-AzPostgreSqlFlexibleServerConfiguration `
+    -ResourceGroupName {{resource-group-name}} `
+    -ServerName {{server-name}} `
+    -Name logfiles.retention_days
 ```
 
 ## Default Value
 
-By default `logfiles.retention_days` is set to `3`.
+By default, `logfiles.retention_days` is set to `3`.
 
 ## References
 

@@ -1,0 +1,10 @@
+---
+names:
+  full: "Azure API Management service in a capacity-based tier has no active APIs"
+  contextual: "Capacity-based service has no active APIs"
+description: "Identify successfully provisioned Azure API Management services in non-Consumption tiers, older than 30 days, with no active APIs."
+categories:
+  - "COST"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"

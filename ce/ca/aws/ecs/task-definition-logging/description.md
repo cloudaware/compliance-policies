@@ -2,7 +2,7 @@
 
 This policy identifies AWS ECS Task Definitions in which container definitions do not include a `logConfiguration`, specifically where a `logDriver` is not specified.
 
-Without a proper log configuration, container logs (stdout/stderr) may be lost or only accessible through ephemeral methods, such as `docker logs` on the host, if accessible.
+Without a proper log configuration, container logs (stdout/stderr) may be lost or accessible only through ephemeral methods, such as `docker logs` on the host, if accessible.
 
 ## Rationale
 

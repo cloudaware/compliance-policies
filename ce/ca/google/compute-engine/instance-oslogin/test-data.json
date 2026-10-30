@@ -1,67 +1,128 @@
 [
   {
     "expectedResult": {
-      "status": "DISAPPEARED",
-      "conditionIndex": "99",
-      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "not(CA10__Google_GCE_Instances__r.has(COMPLIANT) || CA10__Google_GCE_Instances__r.has(INCOMPLIANT))",
       "runtimeError": null
     },
-    "context": { "snapshotTime": "2025-01-16T06:54:27Z" },
-    "Id": "111",
-    "CA10__disappearanceTime__c": "2025-01-14T22:50:43Z",
-    "Name": "nat",
-    "CA10__metadataJson__c": ""
+    "context": {
+      "snapshotTime": "2026-05-13T00:00:00Z"
+    },
+    "Id": "proj-oslogin-1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__gceCommonMetadataItemsJson__c": "[{\"key\":\"some-key\",\"value\":\"TRUE\"}]",
+    "CA10__Google_GCE_Instances__r": []
   },
   {
     "expectedResult": {
       "status": "INAPPLICABLE",
       "conditionIndex": "199",
-      "conditionText": "extract('Name').startsWith('gke-')",
+      "conditionText": "not(CA10__Google_GCE_Instances__r.has(COMPLIANT) || CA10__Google_GCE_Instances__r.has(INCOMPLIANT))",
       "runtimeError": null
     },
-    "context": { "snapshotTime": "2025-01-16T06:54:27Z" },
-    "Id": "112",
+    "context": {
+      "snapshotTime": "2026-05-13T00:00:00Z"
+    },
+    "Id": "proj-oslogin-2",
     "CA10__disappearanceTime__c": null,
-    "Name": "gke-kubeflow-5grx",
-    "CA10__metadataJson__c": ""
+    "CA10__gceCommonMetadataItemsJson__c": "[{\"key\":\"enable-oslogin\",\"value\":\"FALSE\"}]",
+    "CA10__Google_GCE_Instances__r": []
   },
   {
     "expectedResult": {
       "status": "COMPLIANT",
-      "conditionIndex": "299",
-      "conditionText": "extract('caJsonText__metadataJsonEnableOsloginValue').contains('true')",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
       "runtimeError": null
     },
-    "context": { "snapshotTime": "2025-01-16T06:54:27Z" },
-    "Id": "113",
+    "context": {
+      "snapshotTime": "2026-05-13T00:00:00Z"
+    },
+    "Id": "proj-oslogin-3",
     "CA10__disappearanceTime__c": null,
-    "Name": "kot",
-    "CA10__metadataJson__c": "{\"fingerprint\":\"YRNXNhzLlpE\\u003d\",\"items\":[{\"key\":\"disable-swap-binaries\",\"value\":\"true\"},{\"key\":\"enable-oslogin\",\"value\":\"TRUE\"}]}"
+    "CA10__gceCommonMetadataItemsJson__c": "[{\"key\":\"enable-oslogin\",\"value\":\"TRUE\"}]",
+    "CA10__Google_GCE_Instances__r": [
+      {
+        "Id": "inst-oslogin-31",
+        "CA10__disappearanceTime__c": null,
+        "Name": "app-1",
+        "CA10__status__c": "RUNNING",
+        "CA10__metadataJson__c": "{\"items\":[{\"key\":\"some-key\",\"value\":\"x\"}]}",
+        "CA10__project__c": "proj-oslogin-3"
+      },
+      {
+        "Id": "inst-oslogin-32",
+        "CA10__disappearanceTime__c": null,
+        "Name": "app-2",
+        "CA10__status__c": "RUNNING",
+        "CA10__metadataJson__c": "{\"items\":[{\"key\":\"enable-oslogin\",\"value\":\"TRUE\"}]}",
+        "CA10__project__c": "proj-oslogin-3"
+      },
+      {
+        "Id": "inst-oslogin-33",
+        "CA10__disappearanceTime__c": null,
+        "Name": "gke-cluster-node",
+        "CA10__status__c": "RUNNING",
+        "CA10__metadataJson__c": "{\"items\":[{\"key\":\"enable-oslogin\",\"value\":\"FALSE\"}]}",
+        "CA10__project__c": "proj-oslogin-3"
+      },
+      {
+        "Id": "inst-oslogin-34",
+        "CA10__disappearanceTime__c": null,
+        "Name": "app-stopped",
+        "CA10__status__c": "TERMINATED",
+        "CA10__metadataJson__c": "{\"items\":[{\"key\":\"enable-oslogin\",\"value\":\"FALSE\"}]}",
+        "CA10__project__c": "proj-oslogin-3"
+      }
+    ]
   },
   {
     "expectedResult": {
       "status": "INCOMPLIANT",
-      "conditionIndex": "300",
-      "conditionText": "otherwise",
+      "conditionIndex": "399",
+      "conditionText": "CA10__Google_GCE_Instances__r.has(INCOMPLIANT)",
       "runtimeError": null
     },
-    "context": { "snapshotTime": "2025-01-16T06:54:27Z" },
-    "Id": "114",
+    "context": {
+      "snapshotTime": "2026-05-13T00:00:00Z"
+    },
+    "Id": "proj-oslogin-4",
     "CA10__disappearanceTime__c": null,
-    "Name": "testname1",
-    "CA10__metadataJson__c": "{\"fingerprint\":\"f7SMBNRSt8g\\u003d\",\"items\":[{\"key\":\"ssh-keys\",\"value\":\"macrohon\"}, {\"key\":\"enable-oslogin\",\"value\":\"false\"}],\"kind\":\"compute#metadata\"}"
+    "CA10__gceCommonMetadataItemsJson__c": "[{\"key\":\"enable-oslogin\",\"value\":\"TRUE\"}]",
+    "CA10__Google_GCE_Instances__r": [
+      {
+        "Id": "inst-oslogin-41",
+        "CA10__disappearanceTime__c": null,
+        "Name": "app-3",
+        "CA10__status__c": "RUNNING",
+        "CA10__metadataJson__c": "{\"items\":[{\"key\":\"enable-oslogin\",\"value\":\"FALSE\"}]}",
+        "CA10__project__c": "proj-oslogin-4"
+      }
+    ]
   },
   {
     "expectedResult": {
-      "status": "INCOMPLIANT",
-      "conditionIndex": "300",
-      "conditionText": "otherwise",
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "not(CA10__Google_GCE_Instances__r.has(COMPLIANT) || CA10__Google_GCE_Instances__r.has(INCOMPLIANT))",
       "runtimeError": null
     },
-    "context": { "snapshotTime": "2025-01-16T06:54:27Z" },
-    "Id": "115",
+    "context": {
+      "snapshotTime": "2026-05-13T00:00:00Z"
+    },
+    "Id": "proj-oslogin-5",
     "CA10__disappearanceTime__c": null,
-    "Name": "testname2",
-    "CA10__metadataJson__c": "{\"fingerprint\":\"f7SMBNRSt8g\\u003d\",\"items\":[{\"key\":\"ssh-keys\",\"value\":\"macrohon\"}],\"kind\":\"compute#metadata\"}"
+    "CA10__gceCommonMetadataItemsJson__c": "[{\"key\":\"some-key\",\"value\":\"TRUE\"}]",
+    "CA10__Google_GCE_Instances__r": [
+      {
+        "Id": "inst-oslogin-51",
+        "CA10__disappearanceTime__c": null,
+        "Name": "app-stopped-only",
+        "CA10__status__c": "TERMINATED",
+        "CA10__metadataJson__c": "{\"items\":[{\"key\":\"enable-oslogin\",\"value\":\"FALSE\"}]}",
+        "CA10__project__c": "proj-oslogin-5"
+      }
+    ]
   }
 ]

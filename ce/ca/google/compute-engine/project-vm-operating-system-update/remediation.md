@@ -20,13 +20,15 @@ From Command Line
 
 1. For project wide tagging, run the following command
 
-            gcloud compute project-info add-metadata \ 
-                --project <PROJECT_ID>\ 
-                --metadata=enable-osconfig=TRUE
+    ```sh
+    gcloud compute project-info add-metadata \ 
+        --project {{project-id}} \ 
+        --metadata=enable-osconfig=TRUE
+    ```
 
-Please see the reference /compute/docs/troubleshooting/vm-manager/verify-setup#metadata-enabled at the bottom for more options like instance specific tagging.
+    Please see the reference /compute/docs/troubleshooting/vm-manager/verify-setup#metadata-enabled at the bottom for more options like instance specific tagging.
 
-Note: Adding a new tag via commandline may overwrite existing tags. You will need to do this at a time of low usage for the least impact.
+    Note: Adding a new tag via commandline may overwrite existing tags. You will need to do this at a time of low usage for the least impact.
 
 ### Install and Start the Local OSConfig for Data Parsing
 
@@ -62,18 +64,24 @@ For the sake of brevity, please see the attached resources to enable NAT or Priv
 
 Linux Debian Based Operating Systems
 
-            sudo apt update
+```sh
+sudo apt update
+```
 
 The output should have a numbered list of lines with Hit: URL of updates.
 
 Redhat Based Operating Systems
 
-            yum check-update
+```sh
+yum check-update
+```
 
 The output should show a list of packages that have updates available.
 
 Windows
 
-            ping http://windowsupdate.microsoft.com/
+```sh
+ping http://windowsupdate.microsoft.com/
+```
 
 The ping should successfully be delivered and received.

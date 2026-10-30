@@ -1,0 +1,60 @@
+---
+inputType: "CA10__CaAwsGroupPolicy__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsGroupPolicy__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This IAM group inline policy allows KMS decryption actions on all KMS keys."
+    remediationMessage: "Restrict KMS decryption permissions to only the specific KMS keys that the group inline policy should allow."
+    check:
+      AND:
+        args:
+          # Handle policies where Statement is an array. We count only statements
+          # that combine Allow + decrypt-related KMS action + wildcard KMS key scope.
+          # Wildcard scope includes Resource == '*' and KMS key ARNs ending with ':key/*'.
+          - IS_EQUAL:
+              left:
+                JSON_QUERY_TEXT:
+                  arg:
+                    EXTRACT: "caJsonFrom_policyDocument__c"
+                  expression: "type(Statement)"
+                  undeterminedIf:
+                    evaluationError: "The JSON query has failed."
+                    resultTypeMismatch: "The JSON query did not return text type."
+              right:
+                TEXT: "array"
+          - GREATER_THAN:
+              left:
+                JSON_QUERY_NUMBER:
+                  arg:
+                    EXTRACT: "caJsonFrom_policyDocument__c"
+                  expression: "length(Statement[? Effect == 'Allow' && (((type(Action) == 'array') && (contains(Action, 'kms:Decrypt') || contains(Action, 'kms:ReEncryptFrom') || contains(Action, 'kms:*') || contains(Action, 'kms:ReEncrypt*'))) || ((type(Action) == 'string') && (Action == 'kms:Decrypt' || Action == 'kms:ReEncryptFrom' || Action == 'kms:*' || Action == 'kms:ReEncrypt*'))) && (((type(Resource) == 'array') && (contains(Resource, '*') || length(Resource[? (starts_with(@, 'arn:aws:kms:') || starts_with(@, 'arn:*:kms:')) && contains(@, ':key/*')]) > `0`)) || ((type(Resource) == 'string') && (Resource == '*' || ((starts_with(Resource, 'arn:aws:kms:') || starts_with(Resource, 'arn:*:kms:')) && contains(Resource, ':key/*')))))])"
+                  undeterminedIf:
+                    evaluationError: "The JSON query has failed."
+                    resultTypeMismatch: "The JSON query did not return number type."
+              right:
+                NUMBER: 0.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This IAM group inline policy allows KMS decryption actions on all KMS keys."
+    remediationMessage: "Restrict KMS decryption permissions to only the specific KMS keys that the group inline policy should allow."
+    check:
+      # Handle policies where Statement is a single object instead of an array.
+      # The expression verifies the same three requirements in one statement:
+      # Allow effect, decrypt-related KMS action, and wildcard KMS key scope.
+      # Wildcard scope includes Resource == '*' and KMS key ARNs ending with ':key/*'.
+      IS_EQUAL:
+        left:
+          JSON_QUERY_BOOLEAN:
+            arg:
+              EXTRACT: "caJsonFrom_policyDocument__c"
+            expression: "(Statement.Effect == 'Allow') && ((((type(Statement.Action) == 'string') && (Statement.Action == 'kms:Decrypt' || Statement.Action == 'kms:ReEncryptFrom' || Statement.Action == 'kms:*' || Statement.Action == 'kms:ReEncrypt*')) || ((type(Statement.Action) == 'array') && (contains(Statement.Action, 'kms:Decrypt') || contains(Statement.Action, 'kms:ReEncryptFrom') || contains(Statement.Action, 'kms:*') || contains(Statement.Action, 'kms:ReEncrypt*')))) && (((type(Statement.Resource) == 'string') && (Statement.Resource == '*' || ((starts_with(Statement.Resource, 'arn:aws:kms:') || starts_with(Statement.Resource, 'arn:*:kms:')) && contains(Statement.Resource, ':key/*')))) || ((type(Statement.Resource) == 'array') && (contains(Statement.Resource, '*') || length(Statement.Resource[? (starts_with(@, 'arn:aws:kms:') || starts_with(@, 'arn:*:kms:')) && contains(@, ':key/*')]) > `0`))))"
+            undeterminedIf:
+              evaluationError: "The JSON query has failed."
+              resultTypeMismatch: "The JSON query did not return boolean type."
+        right:
+          BOOLEAN: true
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "This IAM group inline policy does not allow KMS decryption actions on all KMS keys."

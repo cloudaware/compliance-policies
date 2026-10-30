@@ -4,7 +4,7 @@
 
 1. Go to `Azure Databricks`.
 2. Click the name of a workspace.
-3. Under `Settings` click `Networking`.
+3. Under `Settings`, click `Networking`.
 4. Under `Network access`, next to `Allow Public Network Access`, click the radio button next to `Disabled`.
 5. Click `Save`.
 6. Repeat steps 1-5 for each workspace requiring remediation.
@@ -14,10 +14,10 @@
 For each workspace requiring remediation, run the following command to set `publicNetworkAccess` to `Disabled`:
 
 ```sh
-az databricks workspace update /
-    --resource-group {{resource-group}} /
-    --name {{workspace}} /
-    --public-network-access Disabled 
+az databricks workspace update \
+    --resource-group {{resource-group-name}} \
+    --name {{workspace-name}} \
+    --public-network-access Disabled
 ```
 
 ## From PowerShell
@@ -26,7 +26,7 @@ For each workspace requiring remediation, run the following command to set `Publ
 
 ```ps
 Update-AzDatabricksWorkspace `
-    -ResourceGroupName {{resource-group}} `
-    -Name {{workspace}} `
+    -ResourceGroupName {{resource-group-name}} `
+    -Name {{workspace-name}} `
     -PublicNetworkAccess Disabled
 ```

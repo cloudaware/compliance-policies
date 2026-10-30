@@ -13,10 +13,10 @@ description: "To enable HTTPS connections to your website or application in AWS,
   \ the IAM Console."
 type: COMPLIANCE_POLICY
 categories:
-  - SECURITY
-  - RELIABILITY
+  - "SECURITY"
+  - "RELIABILITY"
 frameworkMappings:
-  - "/frameworks/cis-aws-v6.0.0/02/18"
+  - "/frameworks/cis-aws-v7.0.0/02/17"
   - "/frameworks/cloudaware/secret-and-certificate-governance/expiration-management"
 similarPolicies:
   internal:
@@ -24,3 +24,6 @@ similarPolicies:
   cloudConformity:
     - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/IAM/expired-ssl-tls-certificate.html
       name: Expired SSL/TLS Certificate
+  awsSecurityHub:
+    - name: "[IAM.26] Expired SSL/TLS certificates managed in IAM should be removed"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/iam-controls.html#iam-26"

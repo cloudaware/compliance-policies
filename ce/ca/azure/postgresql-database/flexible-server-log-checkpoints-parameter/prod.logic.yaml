@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10Z1__CaAzurePostgreSqlServer__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This is not the Flexible Server deployment mode."
+    currentStateMessage: "This is not the flexible server deployment mode."
     check:
       NOT_EQUAL:
         left:
@@ -14,8 +14,8 @@ conditions:
         right:
           TEXT: "Flexible"
   - status: "INCOMPLIANT"
-    currentStateMessage: "PostgreSQL Flexible Server log_checkpoints configuration is not enabled."
-    remediationMessage: "Consider enabling PostgreSQL Flexible Server log_checkpoints configuration."
+    currentStateMessage: "PostgreSQL Flexible Server log_checkpoints is not enabled."
+    remediationMessage: "Enable log_checkpoints."
     check:
       IS_EQUAL:
         left:

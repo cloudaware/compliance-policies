@@ -10,16 +10,26 @@
 
 ## From Azure CLI
 
-Replace the information within <> with appropriate values:
+Replace the information within `{{}}` with appropriate values:
 
 ```sh
-az lock create --name <lock> \ --resource-group <resource-group> \ --resource <storage-account> \ --lock-type CanNotDelete \ --resource-type Microsoft.Storage/storageAccounts
+az lock create \
+    --name {{lock-name}} \
+    --resource-group {{resource-group-name}} \
+    --resource {{storage-account-name}} \
+    --lock-type CanNotDelete \
+    --resource-type Microsoft.Storage/storageAccounts
 ```
 
 ## From Powershell
 
-Replace the information within <> with appropriate values:
+Replace the information within `{{}}` with appropriate values:
 
 ```ps
-New-AzResourceLock -LockLevel CanNotDelete ` -LockName <lock> ` -ResourceName <storage-account> ` -ResourceType Microsoft.Storage/storageAccounts ` -ResourceGroupName <resource-group>
+New-AzResourceLock `
+    -LockLevel CanNotDelete `
+    -LockName {{lock-name}} `
+    -ResourceName {{storage-account-name}} `
+    -ResourceType Microsoft.Storage/storageAccounts `
+    -ResourceGroupName {{resource-group-name}}
 ```

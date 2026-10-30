@@ -1,16 +1,16 @@
 # Description
 
-Enable connection throttling on ё.
+Enable connection throttling on `PostgreSQL flexible servers`.
 
 ## Rationale
 
-Enabling `connection_throttling` helps the PostgreSQL Database to `Set the verbosity of logged messages`. This in turn generates query and error logs with respect to concurrent connections that could lead to a successful Denial of Service (DoS) attack by exhausting connection resources. A system can also fail or be degraded by an overload of legitimate users. Query and error logs can be used to identify, troubleshoot, and repair configuration errors and sub-optimal performance.
+Enabling `connection_throttling` helps PostgreSQL limit concurrent connections that could lead to a Denial of Service (DoS) attack by exhausting connection resources. A system can also fail or be degraded by an overload of legitimate users. Query and error logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance.
 
 ## Audit
 
 ### From Azure Portal
 
-1. Login to Azure Portal using <https://portal.azure.com>.
+1. Log in to Azure Portal using <https://portal.azure.com>.
 2. Go to `Azure Database for PostgreSQL flexible servers`.
 3. For each database, under Settings, click `Server parameters`.
 4. In the filter bar, type `connection_throttle.enable`.
@@ -18,18 +18,24 @@ Enabling `connection_throttling` helps the PostgreSQL Database to `Set the verbo
 
 ### From Azure CLI
 
-Ensure the below command returns a `value` of `ON`:
+Ensure the following command returns a `value` of `ON`:
 
 ```sh
-az postgres flexible-server parameter show --resource-group <resourceGroup> --server-name <serverName> --name connection_throttle.enable
+az postgres flexible-server parameter show \
+    --resource-group {{resource-group-name}} \
+    --server-name {{server-name}} \
+    --name connection_throttle.enable
 ```
 
 ### From PowerShell
 
-Ensure the below command returns a `Value` of `ON`:
+Ensure the following command returns a `Value` of `ON`:
 
 ```ps
-Get-AzPostgreSqlFlexibleServerConfiguration -ResourceGroupName <resourceGroup> -ServerName <serverName> -Name connection_throttle.enable
+Get-AzPostgreSqlFlexibleServerConfiguration `
+    -ResourceGroupName {{resource-group-name}} `
+    -ServerName {{server-name}} `
+    -Name connection_throttle.enable
 ```
 
 ## From Azure Policy

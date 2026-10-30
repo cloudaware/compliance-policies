@@ -14,8 +14,8 @@ conditions:
         right:
           TEXT: "available"
   - status: "INCOMPLIANT"
-    currentStateMessage: "RDS Snapshot is 90 days old or more."
-    remediationMessage: "Consider deleting or archiving the snapshot."
+    currentStateMessage: "The RDS snapshot is 90 days old or more."
+    remediationMessage: "Delete or archive the snapshot if it is no longer needed."
     check:
       IS_BEYOND_LAST_DAYS:
         offsetDays: 90
@@ -23,4 +23,4 @@ conditions:
           EXTRACT: "CA10__snapshotCreateTime__c"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "RDS snapshot is less than 90 days old."
+  currentStateMessage: "The RDS snapshot is less than 90 days old."

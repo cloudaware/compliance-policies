@@ -2,7 +2,7 @@
 
 This policy identifies Google Cloud Storage Buckets that do not have logging enabled. Enabling logging ensures that all access requests to a bucket are recorded for audit and monitoring purposes.
 
-## Rational
+## Rationale
 
 Cloud Storage logging captures detailed information about every request made to a bucket, including read, write, and delete operations on objects. These logs are critical for security auditing, monitoring access patterns, and investigating potential security incidents. Without logging, it becomes difficult to determine who accessed your data, when it was accessed, and from where.
 

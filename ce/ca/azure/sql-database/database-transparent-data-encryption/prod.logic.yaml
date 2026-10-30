@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10__CaAzureSqlDatabase__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This is a Master Database. TDE cannot be used to encrypt the logical master database."
+    currentStateMessage: "This is the master database. TDE cannot encrypt the logical master database."
     check:
       AND:
         args:
@@ -22,7 +22,7 @@ conditions:
                 TEXT: "system"
   - status: "INCOMPLIANT"
     currentStateMessage: "SQL Database Transparent Data Encryption is disabled."
-    remediationMessage: "Consider enabling SQL Database Transparent Data Encryption."
+    remediationMessage: "Enable SQL Database Transparent Data Encryption."
     check:
       IS_EQUAL:
         left:

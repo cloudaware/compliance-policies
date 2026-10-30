@@ -1,6 +1,6 @@
 # Description
 
-NOTE: This recommendation assumes that the `Public network access` parameter is set to `Enabled from selected virtual networks and IP addresses`. Please ensure the prerequisite recommendation has been implemented before proceeding:
+NOTE: This recommendation assumes that the `Public network access` parameter is set to `Enabled from selected virtual networks and IP addresses`. Ensure the prerequisite recommendation has been implemented before proceeding:
 
 - Ensure Default Network Access Rule for Storage Accounts is Set to Deny
 
@@ -20,9 +20,9 @@ Some Azure services that interact with storage accounts operate from networks th
 
 ## Rationale
 
-**NOTE**: If none of the services listed in the Description are in use in your environment, you may wish to make an exception to this recommendation and disable 'Allow Azure services on the trusted services list to access this storage account.'
+**NOTE**: If none of the services listed in the Description are in use in your environment, you may wish to make an exception to this recommendation and disable `Allow Azure services on the trusted services list to access this storage account`.
 
-Turning on firewall rules for storage account will block access to incoming requests for data, including from other Azure services. We can re-enable this functionality by enabling `Trusted Azure Services` through networking exceptions.
+Turning on firewall rules for a storage account blocks access to incoming requests for data, including from other Azure services. You can re-enable this functionality by enabling `Trusted Azure Services` through networking exceptions.
 
 ## Impact
 
@@ -30,7 +30,7 @@ This creates authentication credentials for services that need access to storage
 
 ## Audit
 
-This policy flags an *Azure Storage Account* as `INCOMPLIANT` if its `Network ACLs: Bypass` does **not** contain **AzureServices**.
+This policy flags an *Azure Storage Account* as `INCOMPLIANT` when `Public Network Access State` is **Enabled**, `Network ACLs: Default Action` is **Deny**, and `Network ACLs: Bypass` does **not** contain **AzureServices**.
 
 ## Default Value
 

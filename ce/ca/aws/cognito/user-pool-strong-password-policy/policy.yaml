@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS Cognito User Pool Password Policy is not strong"
+  contextual: "User Pool Password Policy is not strong"
+description: >
+  Ensure that Amazon Cognito user pools enforce strong password requirements.
+  Strong password policies require a minimum length, uppercase and lowercase
+  letters, numbers, symbols, and a temporary password validity period of
+  7 days or fewer.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/identity-and-access-governance/credential-lifecycle-management"
+  - "/frameworks/aws-fsbp-v1.0.0/cognito/03"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Cognito.3] Password policies for Cognito user pools should have strong configurations"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/cognito-controls.html#cognito-3"

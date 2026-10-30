@@ -1,0 +1,63 @@
+---
+inputType: "CA10Z1__CaAzureSynapseBigDataPool__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10Z1__CaAzureSynapseBigDataPool__c/object.extracts.yaml
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "The provisioning state is unavailable."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10Z1__provisioningState__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Only successfully provisioned Spark pools are in scope."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__provisioningState__c"
+        right:
+          TEXT: "Succeeded"
+  - status: "UNDETERMINED"
+    currentStateMessage: "The auto-pause state is invalid or unavailable, or the enabled delay is unavailable."
+    check:
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10Z1__autoPauseState__c"
+          - AND:
+              args:
+                - NOT_EQUAL:
+                    left:
+                      EXTRACT: "CA10Z1__autoPauseState__c"
+                    right:
+                      TEXT: "Enabled"
+                - NOT_EQUAL:
+                    left:
+                      EXTRACT: "CA10Z1__autoPauseState__c"
+                    right:
+                      TEXT: "Disabled"
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: "CA10Z1__autoPauseState__c"
+                    right:
+                      TEXT: "Enabled"
+                - IS_EMPTY:
+                    arg:
+                      EXTRACT: "CA10Z1__autoPauseDelayInMinutes__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Spark pool auto-pause is disabled."
+    remediationMessage: "Review workload tolerance, then enable auto-pause."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__autoPauseState__c"
+        right:
+          TEXT: "Disabled"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Spark pool auto-pause is enabled."

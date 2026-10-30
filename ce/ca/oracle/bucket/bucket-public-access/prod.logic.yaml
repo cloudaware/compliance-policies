@@ -1,0 +1,36 @@
+---
+inputType: "CA10O1__CaOracleStorageBucket__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10O1__CaOracleStorageBucket__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The bucket allows public object read access and object listing."
+    remediationMessage: "Set the bucket Public Access Type to NoPublicAccess."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10O1__publicAccessType__c"
+        right:
+          TEXT: "ObjectRead"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The bucket allows public object read access."
+    remediationMessage: "Set the bucket Public Access Type to NoPublicAccess."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10O1__publicAccessType__c"
+        right:
+          TEXT: "ObjectReadWithoutList"
+  - status: "COMPLIANT"
+    currentStateMessage: "The bucket does not allow public access."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10O1__publicAccessType__c"
+        right:
+          TEXT: "NoPublicAccess"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the bucket Public Access Type field."

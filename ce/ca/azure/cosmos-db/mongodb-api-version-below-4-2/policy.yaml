@@ -1,0 +1,14 @@
+---
+names:
+  full: "Azure Cosmos DB Account MongoDB API version is below 4.2"
+  contextual: "Account MongoDB API version is below 4.2"
+description: >
+  Ensure that Azure Cosmos DB accounts using the MongoDB API use server version
+  4.2 or later to use the more cost-efficient storage format.
+type: "BEST_PRACTICE"
+categories:
+  - "COST"
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-optimization"
+  - "/frameworks/cloudaware/resource-reliability/infrastructure-modernization"

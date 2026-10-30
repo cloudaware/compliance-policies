@@ -15,8 +15,14 @@ Currently there is no way to update the encryption of an existing disk. Therefor
 
 In the gcloud compute tool, encrypt a disk using the --csek-key-file flag during instance creation. If you are using an RSA-wrapped key, use the gcloud beta component:
 
-            gcloud compute instances create <INSTANCE_NAME> --csek-key-file <example-file.json>
+```sh
+gcloud compute instances create {{instance-name}} \
+    --csek-key-file {{example-file.json}}
+```
 
 To encrypt a standalone persistent disk:
 
-            gcloud compute disks create <DISK_NAME> --csek-key-file <example-file.json>
+```sh
+gcloud compute disks create {{disk-name}} \
+    --csek-key-file {{example-file.json}}
+```

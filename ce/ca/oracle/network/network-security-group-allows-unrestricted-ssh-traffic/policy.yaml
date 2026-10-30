@@ -1,0 +1,18 @@
+---
+names:
+  full: "Oracle IAAS Network Security Group allows unrestricted SSH traffic"
+  contextual: "IAAS Network Security Group allows unrestricted SSH traffic"
+description: >
+  Ensure that Oracle IAAS Network Security Groups do not allow unrestricted ingress from
+  the internet (0.0.0.0/0 or ::/0) to SSH port 22. Public SSH exposure increases the
+  attack surface of administrative interfaces and should be restricted to trusted CIDR
+  ranges, bastion hosts, VPN networks, or other approved access paths.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cis-oracle-v3.1.0/02/03"
+  - "/frameworks/cloudaware/resource-security/network-exposure"
+similarPolicies:
+  internal:
+    - "dec-x-fe5d4f07"

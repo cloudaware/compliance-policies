@@ -17,7 +17,7 @@ conditions:
             search:
               TEXT: "POSTGRE" 
   - status: "COMPLIANT"
-    currentStateMessage: "log_connections database flag is set to on."
+    currentStateMessage: "The log_connections database flag is set to on."
     check:
       IS_EQUAL:
         left:
@@ -26,5 +26,8 @@ conditions:
           TEXT: "on"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "log_connections database flag isn't set to on."
+  currentStateMessage: "The log_connections database flag is not set to on."
   remediationMessage: "Set log_connections database flag to on."
+
+
+

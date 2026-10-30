@@ -8,11 +8,11 @@ Enabling secure cluster connectivity limits exposure to the public internet, imp
 
 ## Impact
 
-Enabling secure cluster connectivity requires careful network configuration. Before secure cluster connectivity can be enabled, Azure Databricks workspaces must be deployed in a customer-managed virtual network (VNet injection), refer to the policy [`Azure Databricks Workspace is not deployed in a customer-managed virtual network (VNet)`](../customer-managed-virtual-network/).
+Enabling secure cluster connectivity requires careful network configuration. Before secure cluster connectivity can be enabled, Azure Databricks workspaces must be deployed in a customer-managed virtual network (VNet injection). Refer to the policy [`Azure Databricks Workspace is not deployed in a customer-managed virtual network (VNet)`](../customer-managed-virtual-network/).
 
 ## Audit
 
-This policy flags an *Azure Databricks Workspace* as `INCOMPLAINT` if the `Parameters JSON` field **does not** contain the **enableNoPublicIp** parameter set to **true**.
+This policy flags an *Azure Databricks Workspace* as `INCOMPLIANT` if the `Parameters JSON` field **does not** contain the **enableNoPublicIp** parameter set to **true**.
 
 ## Default Value
 

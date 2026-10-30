@@ -9,21 +9,21 @@ To remediate this violation, create a new SageMaker notebook instance configured
 1. **Create a new SageMaker notebook instance**
    Ensure that the desired CMK already exists before running the following command:
 
-   ```bash
-   aws sagemaker create-notebook-instance \
-       --notebook-instance-name {{new-instance-name}} \
-       --instance-type {{instance-type}} \
-       --role-arn {{iam-role-arn}} \
-       --kms-key-id {{kms-key-arn}}
-   ```
+    ```sh
+    aws sagemaker create-notebook-instance \
+        --notebook-instance-name {{new-instance-name}} \
+        --instance-type {{instance-type}} \
+        --role-arn {{iam-role-arn}} \
+        --kms-key-id {{kms-key-arn}}
+    ```
 
-2. **Migrate data and remove the non-compliant instance**
+2. **Migrate data and remove the incompliant instance**
 
    - Once the new notebook instance is in the `InService` state, transfer any data, notebooks, or configurations from the old instance.
    - Thoroughly test the new notebook instance to ensure all data has been migrated correctly and that it functions as expected.
    - After confirming successful migration, stop and delete the old instance to prevent unnecessary costs:
 
-   ```bash
-   aws sagemaker delete-notebook-instance \
-       --notebook-instance-name {{old-instance-name}}
-   ```
+    ```sh
+    aws sagemaker delete-notebook-instance \
+        --notebook-instance-name {{old-instance-name}}
+    ```

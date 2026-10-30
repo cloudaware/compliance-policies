@@ -11,7 +11,7 @@ Virtual networks and resources are protected against attacks, helping to ensure 
 
 ## Impact
 
-Azure DDoS Network Protection incurs a significant fixed monthly charge, with additional charges if more than 100 public IP resources are protected. Careful consideration and analysis should be applied before enabling DDoS protection. Refer to <https://azure.microsoft.com/en-us/pricing/details/ddos-protection> for detailed pricing information.
+Azure DDoS Network Protection incurs a significant fixed monthly charge, with additional charges if more than 100 public IP resources are protected. Careful consideration and analysis should be given before enabling DDoS protection. Refer to <https://azure.microsoft.com/en-us/pricing/details/ddos-protection> for detailed pricing information.
 
 ## Audit
 

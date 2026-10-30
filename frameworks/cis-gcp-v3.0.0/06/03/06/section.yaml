@@ -1,10 +1,11 @@
 ---
-name: 6.3.6 Ensure '3625 (trace flag)' database flag for all Cloud SQL Server instances
-  is set to 'on' - Level 1 (Automated)
-description: It is recommended to set `3625 (trace flag)` database flag for Cloud
-  SQL SQL Server instance to `on`.
+name: 6.3.6 Ensure '3625 (trace flag)' database flag for all Cloud SQL Server instances is set to 'on' - Level 1 (Automated)
+description: >
+  It is recommended to set `3625 (trace flag)` database flag for Cloud SQL SQL Server instance to
+  `on`.
 similar:
   sections:
     - /frameworks/cis-gcp-v2.0.0/06/03/06
+    - /frameworks/cis-gcp-v4.0.0/06/03/06
   internal:
     - dec-c-cc6ceb61

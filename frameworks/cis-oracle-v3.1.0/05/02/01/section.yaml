@@ -1,0 +1,15 @@
+---
+name: 5.2.1 Ensure Block Volumes are encrypted with Customer Managed Keys (CMK). - Level 2 (Automated)
+description: |-
+  Oracle Cloud Infrastructure Block Volume service lets you dynamically
+  provision and manage block storage volumes. By default, the Oracle service
+  manages the keys that encrypt block volumes. Block Volumes can also be
+  encrypted using a customer managed key. 
+  
+  Terminated Block Volumes cannot be recovered and any data on a terminated volume 
+  is permanently lost. However, Block Volumes can exist in a terminated state within 
+  the OCI Portal and CLI for some time after deleting. As such, any Block Volumes 
+  in this state should not be considered when assessing this policy.
+similar:
+  internal:
+    - dec-c-ed741316

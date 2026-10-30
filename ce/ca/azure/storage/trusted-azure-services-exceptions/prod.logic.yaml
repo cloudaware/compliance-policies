@@ -5,9 +5,25 @@ testData:
 importExtracts:
   - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
 conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This recommendation applies only when public network access is enabled for selected networks and IP addresses."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__publicNetworkAccessState__c"
+        right:
+          TEXT: "Disabled"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This recommendation applies after the default network access rule is set to Deny."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__networkAclsDefaultAction__c"
+        right:
+          TEXT: "Allow"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Allow trusted Azure services exception is not enabled."
-    remediationMessage: "Consider enabling Trusted Azure Services."
+    currentStateMessage: "The trusted Azure services exception is not enabled."
+    remediationMessage: "Enable the trusted Azure services exception."
     check:
       NOT:
         arg:
@@ -18,4 +34,4 @@ conditions:
               TEXT: "azureservices"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "Trusted Azure Services exception is enabled."
+  currentStateMessage: "The trusted Azure services exception is enabled."

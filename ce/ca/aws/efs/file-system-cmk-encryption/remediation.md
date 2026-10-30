@@ -1,6 +1,6 @@
 # Remediation
 
-## Encrypt EFS File System Using KMS CMK
+## Encrypt EFS File System Using a KMS CMK
 
 Encryption at rest for Amazon EFS can only be enabled during the creation of the file system. It is not possible to enable encryption or change the KMS key for an existing file system.
 
@@ -10,7 +10,7 @@ Encryption at rest for Amazon EFS can only be enabled during the creation of the
 
     ```sh
     aws kms create-key \
-        --region {{us-east-1}} \
+        --region {{region-name}} \
         --description "CMK for EFS data encryption"
     ```
 
@@ -18,7 +18,7 @@ Encryption at rest for Amazon EFS can only be enabled during the creation of the
 
     ```sh
     aws kms create-alias \
-        --region {{us-east-1}} \
+        --region {{region-name}} \
         --alias-name {{alias/efs-cmk}} \
         --target-key-id {{cmk-arn}}
     ```
@@ -27,7 +27,7 @@ Encryption at rest for Amazon EFS can only be enabled during the creation of the
 
     ```sh
     aws efs create-file-system \
-        --region {{us-east-1}} \
+        --region {{region-name}} \
         --creation-token {{unique-token}} \
         --encrypted \
         --kms-key-id {{cmk-arn}}
@@ -37,7 +37,7 @@ Encryption at rest for Amazon EFS can only be enabled during the creation of the
 
     ```sh
     aws efs create-mount-target \
-        --region {{us-east-1}} \
+        --region {{region-name}} \
         --file-system-id {{new-file-system-id}} \
         --subnet-id {{subnet-id}}
     ```
@@ -48,6 +48,6 @@ Encryption at rest for Amazon EFS can only be enabled during the creation of the
 
     ```sh
     aws efs delete-file-system \
-        --region us-east-1 \
+        --region {{region-name}} \
         --file-system-id {{old-file-system-id}}
     ```

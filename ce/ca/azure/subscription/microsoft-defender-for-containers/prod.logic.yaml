@@ -5,7 +5,7 @@ testData:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Microsoft Defender for Containers is not in Standard tier."
-    remediationMessage: "Consider enabling Defender for Containers Standard plan.\
+    remediationMessage: "Enable Defender for Containers Standard plan.\
       \ Ensure that the following Extensions are enabled: ContainerRegistriesVulnerabilityAssessments,\
       \ AgentlessDiscoveryForKubernetes, AgentlessVmScanning, ContainerSensor."
     check:
@@ -21,7 +21,7 @@ conditions:
 otherwise:
   status: "INCOMPLIANT"
   currentStateMessage: "Microsoft Defender for Containers is not enabled."
-  remediationMessage: "Consider enabling Microsoft Defender for Containers Standard plan.\
+  remediationMessage: "Enable Microsoft Defender for Containers Standard plan.\
       \ Ensure that the following Extensions are enabled: ContainerRegistriesVulnerabilityAssessments,\
       \ AgentlessDiscoveryForKubernetes, AgentlessVmScanning, ContainerSensor."
 relatedLists:
@@ -102,3 +102,5 @@ relatedLists:
       status: "INCOMPLIANT"
       currentStateMessage: "This is not a Standard tier."
       remediationMessage: "Enable Defender for Containers Standard plan."
+
+

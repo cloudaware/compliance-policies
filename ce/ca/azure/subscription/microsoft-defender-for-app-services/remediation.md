@@ -14,7 +14,9 @@
 Run the following command:
 
 ```sh
-az security pricing create -n Appservices --tier 'standard'
+az security pricing create \
+    -n Appservices \
+    --tier Standard
 ```
 
 ## From PowerShell
@@ -22,5 +24,7 @@ az security pricing create -n Appservices --tier 'standard'
 Run the following command:
 
 ```ps
-Set-AzSecurityPricing -Name "AppServices" -PricingTier "Standard"
+Set-AzSecurityPricing `
+    -Name "AppServices" `
+    -PricingTier "Standard"
 ```

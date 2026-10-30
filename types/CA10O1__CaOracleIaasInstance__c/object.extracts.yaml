@@ -1,0 +1,30 @@
+---
+extracts:
+  - name: "CA10O1__instanceOptionsLegacyImdsEndpoints__c"
+    value:
+      FIELD:
+        path: "CA10O1__instanceOptionsLegacyImdsEndpoints__c"
+  - name: "CA10O1__platformConfigJson__c"
+    value:
+      FIELD:
+        path: "CA10O1__platformConfigJson__c"
+        undeterminedIf:
+          isEmpty: "Instance platform configuration cannot be empty."
+  - name: "caJsonFrom__platformConfigJson__c"
+    value:
+      JSON_FROM:
+        arg:
+          EXTRACT: "CA10O1__platformConfigJson__c"
+        undeterminedIf:
+          isInvalid: "Platform configuration JSON is invalid."
+          isEmpty: "Platform configuration JSON is empty."
+  - name: "CA10O1__bootVolumePvEncryptionInTransit__c"
+    value:
+      FIELD:
+        path: "CA10O1__bootVolumePvEncryptionInTransit__c"
+        undeterminedIf:
+          isEmpty: "The boot volume in-transit encryption option cannot be empty."
+  - name: "CA10O1__sourceDetailsKmsKeyOcid__c"
+    value:
+      FIELD:
+        path: "CA10O1__sourceDetailsKmsKeyOcid__c"

@@ -1,0 +1,1 @@
+Resource-based policies on custom event buses are mainly needed for cross-account access or for explicit bus-level delegation. Without such a policy, the bus is effectively limited to resources in the same account.

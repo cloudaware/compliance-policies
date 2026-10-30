@@ -1,0 +1,10 @@
+name: >
+  [RedshiftServerless.5] Redshift Serverless namespaces should not use the default admin username
+description: |-
+  When creating an Amazon Redshift Serverless namespace, you should specify a custom 
+  admin username for the namespace. The default admin username is public knowledge. 
+  By specifying a custom admin username, you can, for example, help mitigate the 
+  risk or effectiveness of brute force attacks against the namespace.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/redshiftserverless-controls.html#redshiftserverless-5

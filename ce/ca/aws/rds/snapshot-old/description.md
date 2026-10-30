@@ -8,7 +8,7 @@ Retaining database snapshots beyond their useful lifecycle can lead to unnecessa
 
 ## Impact
 
-Deleting snapshots that are still required for disaster recovery or compliance may result in data loss. Always confirm the snapshot’s purpose before removal.
+Deleting snapshots that are still required for disaster recovery or compliance may result in data loss. Always confirm the snapshot's purpose before removal.
 
 ## Audit
 

@@ -4,7 +4,7 @@ Ensure that Azure VM Scale Set Instances hosting MongoDB instances are not expos
 
 Network Security Group (NSG) rules should be configured to block inbound traffic to these ports from untrusted sources, and access should be limited to specific, authorized IP address ranges or internal networks. This minimizes the potential for unauthorized access and reduces the risk of data breaches.
 
-## Rational
+## Rationale
 
 MongoDB is a widely used NoSQL database that, when exposed to the public internet (e.g., via `0.0.0.0/0`), presents significant security vulnerabilities. Unrestricted access to MongoDB ports allows malicious actors to perform unauthorized operations, such as data exfiltration, unauthorized modifications, or exploitation of known vulnerabilities. By restricting MongoDB access to trusted IP addresses or internal networks, organizations can limit exposure and ensure that only authorized systems and users are able to interact with the database, significantly reducing the attack surface.
 
@@ -22,6 +22,6 @@ This policy flags an *Azure VM Scale Set Instance* as `INCOMPLIANT` if it is ass
 - `Source Address Prefix` is either **Internet**, `*` **0.0.0.0**, **/0**, or **Any**.
 - `Destination Port` is **27017 - 27020**.
 
-If the `Direction`, `Access`, `Protocol`, or `Source Address Prefix` fields do not match the criteria above, the VM is marked as `INAPPLICABLE`.
+If the `Direction`, `Access`, `Protocol`, or `Source Address Prefix` fields do not match the criteria above, the Azure VM Scale Set Instance is marked as `INAPPLICABLE`.
 
-If the `Destination Port` does not match, the VM is considered `COMPLIANT`.
+If the `Destination Port` does not match, the Azure VM Scale Set Instance is considered `COMPLIANT`.

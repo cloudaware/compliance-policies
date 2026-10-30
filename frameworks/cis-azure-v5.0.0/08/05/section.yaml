@@ -1,6 +1,6 @@
 ---
 name: "8.5 Ensure Azure DDoS Network Protection is enabled on virtual networks (Automated)"
-description: >
+description: |-
   Azure DDoS Network Protection defends resources in virtual networks against 
   distributed denial-of-service (DDoS) attacks.
 
@@ -8,3 +8,6 @@ description: >
   assessment status remains manual. Determining the appropriateness of enabling 
   Azure DDoS Network Protection depends on the context and requirements of each 
   organization and environment.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v6.0.0/08/05"

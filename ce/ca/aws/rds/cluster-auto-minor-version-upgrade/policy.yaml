@@ -7,9 +7,7 @@ description: "Ensure that RDS Multi-AZ database clusters have the Auto Minor Ver
   \ security patches and bug fixes."
 type: COMPLIANCE_POLICY
 categories:
-  - "SECURITY"
   - "RELIABILITY"
-  - "PERFORMANCE"
 frameworkMappings:
   - "/frameworks/cloudaware/resource-reliability/infrastructure-modernization"
   - "/frameworks/aws-fsbp-v1.0.0/rds/35"

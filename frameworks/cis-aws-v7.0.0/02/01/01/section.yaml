@@ -1,0 +1,9 @@
+---
+name: 2.1.1 Ensure centralized root access in AWS Organizations (Manual)
+description: |-
+  Ensure centralized root access management is enabled to manage and secure root
+  user credentials for member accounts in AWS Organizations. This allows the
+  management account and an optional delegated administrator account to centrally
+  delete, prevent recovery of, and if necessary, perform short-lived, scoped root-required
+  actions in member accounts without maintaining long-term root user credentials in each
+  account.

@@ -1,0 +1,55 @@
+<MdxCard>
+[Back to Index](index.md)
+
+# MdxAreaChart
+
+<MdxAreaChart height={60} points={[10, 25, 15, 40, 30, 55, 45]} />
+
+## points
+
+- `points={[10, 25, 15, 40, 30, 55, 45]}`: <MdxAreaChart height={40} points={[10, 25, 15, 40, 30, 55, 45]} />
+
+## height
+
+- `height={20}`: <MdxAreaChart height={20} points={[5, 20, 10, 35, 25, 50]} />
+- `height={40}`: <MdxAreaChart height={40} points={[5, 20, 10, 35, 25, 50]} />
+- `height={80}`: <MdxAreaChart height={80} points={[5, 20, 10, 35, 25, 50]} />
+- `height={120}`: <MdxAreaChart height={120} points={[5, 20, 10, 35, 25, 50]} />
+
+## autoRound
+
+- `autoRound={true}`: <MdxAreaChart height={40} autoRound={true} points={[5.333, 20.167, 10.5, 35.9, 25.1]} />
+
+## id
+
+- `id="my-chart"`: <MdxAreaChart height={40} points={[5, 20, 10, 35]} id="my-chart" />
+
+## disabledSort
+
+- `disabledSort={true}`: <MdxAreaChart height={40} points={[5, 20, 10, 35]} disabledSort={true} />
+
+## options
+
+Overrides default AreaChart Highcharts settings.
+
+- `options={{ tooltip: { enabled: false } }}`: <MdxAreaChart height={40} points={[5, 20, 10, 35]} options={{ tooltip: { enabled: false } }} />
+- `options={{ chart: { backgroundColor: "#f5f5f5" } }}`: <MdxAreaChart height={40} points={[5, 20, 10, 35]} options={{ chart: { backgroundColor: "#f5f5f5" } }} />
+- `options={{ plotOptions: { series: { lineWidth: 2 } } }}`: <MdxAreaChart height={40} points={[5, 20, 10, 35]} options={{ plotOptions: { series: { lineWidth: 2 } } }} />
+- `options={{ yAxis: { tickPositions: [0, 20, 40] } }}`: <MdxAreaChart height={40} points={[5, 20, 10, 35]} options={{ yAxis: { tickPositions: [0, 20, 40] } }} />
+
+```js
+options: {
+    chart: {},
+    tooltip: {},
+    xAxis: {},
+    yAxis: {},
+    plotOptions: {},
+    series: []
+}
+```
+
+## noData
+
+- `noData={<span>No data</span>}`: <MdxAreaChart height={40} points={[5, 20, 10, 35]} noData={<span>No data</span>} />
+
+</MdxCard>

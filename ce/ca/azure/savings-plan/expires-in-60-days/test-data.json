@@ -1,0 +1,116 @@
+[
+  {
+    "CA10Z1__disappearanceTime__c": null,
+    "RecordType": {
+      "Id": "RecordType1"
+    },
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10Z1__provisioningState__c') != 'Succeeded'",
+      "conditionIndex": 299,
+      "status": "INAPPLICABLE"
+    },
+    "CA10Z1__expiryDateTime__c": "2025-11-02T09:33:28Z",
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "RecordTypeId": "RecordType1",
+    "Id": "001",
+    "CA10Z1__provisioningState__c": "Expired"
+  },
+  {
+    "CA10Z1__disappearanceTime__c": "2026-09-09T00:00:00Z",
+    "RecordType": {
+      "Id": "RecordType1"
+    },
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "isDisappeared(CA10Z1__disappearanceTime__c)",
+      "conditionIndex": 99,
+      "status": "DISAPPEARED"
+    },
+    "CA10Z1__expiryDateTime__c": "2026-09-20T00:00:00Z",
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "RecordTypeId": "RecordType1",
+    "Id": "disappeared",
+    "CA10Z1__provisioningState__c": "Succeeded"
+  },
+  {
+    "CA10Z1__disappearanceTime__c": null,
+    "RecordType": {
+      "Id": "RecordType1"
+    },
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10Z1__provisioningState__c').isEmpty() || extract('CA10Z1__expiryDateTime__c').isEmpty()",
+      "conditionIndex": 199,
+      "status": "UNDETERMINED"
+    },
+    "CA10Z1__expiryDateTime__c": null,
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "RecordTypeId": "RecordType1",
+    "Id": "missing",
+    "CA10Z1__provisioningState__c": "Succeeded"
+  },
+  {
+    "CA10Z1__disappearanceTime__c": null,
+    "RecordType": {
+      "Id": "RecordType1"
+    },
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10Z1__expiryDateTime__c').withinNextDays(60)",
+      "conditionIndex": 399,
+      "status": "INCOMPLIANT"
+    },
+    "CA10Z1__expiryDateTime__c": "2026-10-01T00:00:00Z",
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "RecordTypeId": "RecordType1",
+    "Id": "expiring",
+    "CA10Z1__provisioningState__c": "Succeeded"
+  },
+  {
+    "CA10Z1__disappearanceTime__c": null,
+    "RecordType": {
+      "Id": "RecordType1"
+    },
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10Z1__expiryDateTime__c').withinNextDays(60)",
+      "conditionIndex": 399,
+      "status": "INCOMPLIANT"
+    },
+    "CA10Z1__expiryDateTime__c": "2026-09-10T00:00:00Z",
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "RecordTypeId": "RecordType1",
+    "Id": "today",
+    "CA10Z1__provisioningState__c": "Succeeded"
+  },
+  {
+    "CA10Z1__disappearanceTime__c": null,
+    "RecordType": {
+      "Id": "RecordType1"
+    },
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "otherwise",
+      "conditionIndex": 400,
+      "status": "COMPLIANT"
+    },
+    "CA10Z1__expiryDateTime__c": "2026-12-01T00:00:00Z",
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "RecordTypeId": "RecordType1",
+    "Id": "later",
+    "CA10Z1__provisioningState__c": "Succeeded"
+  }
+]

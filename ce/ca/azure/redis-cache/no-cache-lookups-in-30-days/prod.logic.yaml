@@ -1,0 +1,51 @@
+---
+inputType: "CA10__CaAzureRedisCache__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureRedisCache__c/object.extracts.yaml"
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "Provisioning state is unavailable."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__provisioningState__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Redis cache is not successfully provisioned."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__provisioningState__c"
+        right:
+          TEXT: "Succeeded"
+  - status: "UNDETERMINED"
+    currentStateMessage: "The 30-day cache-hit or cache-miss metric is unavailable."
+    check:
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorCacheHitsSum30Day__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorCacheMissesSum30Day__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "No cache hits or misses were recorded during the last 30 days."
+    remediationMessage: "Review non-cache Redis usage and workload ownership before resizing or removing the cache."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__monitorCacheHitsSum30Day__c"
+              right:
+                NUMBER: 0.0
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__monitorCacheMissesSum30Day__c"
+              right:
+                NUMBER: 0.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Redis cache recorded cache hits or misses during the last 30 days."

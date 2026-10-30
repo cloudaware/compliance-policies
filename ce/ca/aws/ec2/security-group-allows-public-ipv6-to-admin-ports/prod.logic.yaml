@@ -4,15 +4,15 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "This Security Group allows ingress from ::/0 to remote server administration ports."
-    remediationMessage: "Consider changing the Security Group source field to a range other than ::/0 or delete the offending inbound rule."
+    currentStateMessage: "This security group allows ingress from ::/0 to remote administration ports."
+    remediationMessage: "Change the security group source to a range other than ::/0 or delete the offending inbound rule."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "This Security Group doesn't allow ingress from ::/0."
+  currentStateMessage: "This security group does not allow ingress from ::/0."
 relatedLists: 
   - relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
     importExtracts:
@@ -58,8 +58,8 @@ relatedLists:
                       right:
                         TEXT: "udp"
       - status: "INCOMPLIANT"
-        currentStateMessage: "This Security Group allows ingress from ::/0."
-        remediationMessage: "Consider changing the source field to a range other than ::/0 or delete the offending inbound rule."
+        currentStateMessage: "This security group allows ingress from ::/0."
+        remediationMessage: "Change the source field to a range other than ::/0 or delete the offending inbound rule."
         check:
 # check that port range either includes port 22 or port 3389, or the range is empty (all ports)
           OR:
@@ -96,4 +96,4 @@ relatedLists:
                     EXTRACT: "CA10__toPort__c"
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "This Security Group doesn't allow ingress from ::/0."
+      currentStateMessage: "This security group does not allow ingress from ::/0."

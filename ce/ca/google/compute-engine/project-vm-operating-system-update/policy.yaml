@@ -11,11 +11,10 @@ description: "Google Cloud Virtual Machines have the ability via an OS Config ag
 impossible: true
 type: COMPLIANCE_POLICY
 categories:
-  - "SECURITY"
   - "RELIABILITY"
 frameworkMappings:
-  - /frameworks/cis-gcp-v3.0.0/04/12
-  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization
+  - "/frameworks/cis-gcp-v5.0.0/04/12"
+  - "/frameworks/cloudaware/resource-reliability/infrastructure-modernization"
 similarPolicies:
   cloudConformity:
     - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudAPI/latest-os-updates.html"

@@ -1,0 +1,21 @@
+---
+names:
+  full: "AWS Redshift Cluster automatic major version upgrade is not enabled"
+  contextual: "Cluster automatic major version upgrade is not enabled"
+description: >
+  Ensure that Amazon Redshift clusters have the version upgrade feature enabled. 
+  This allows the cluster to automatically receive major engine upgrades, including 
+  performance improvements and new features, during its maintenance window.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/infrastructure-modernization"
+  - "/frameworks/aws-fsbp-v1.0.0/redshift/06"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Redshift.6] Amazon Redshift should have automatic upgrades to major versions enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/redshift-controls.html#redshift-6"
+  cloudConformity:
+    - url: "http://trendmicro.com/cloudoneconformity/knowledge-base/aws/Redshift/redshift-cluster-allow-version-upgrade.html"
+      name: Redshift Cluster Allow Version Upgrade

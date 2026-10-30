@@ -7,14 +7,14 @@ importExtracts:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Log publishing options are not configured."
-    remediationMessage: "Enable error logging (AUDIT_LOGS) for the OpenSearch domain."
+    remediationMessage: "Enable audit logging (AUDIT_LOGS) for the OpenSearch domain."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__logPublishingOptionsJson__c"    
   - status: "INCOMPLIANT"
     currentStateMessage: "Audit logging (AUDIT_LOGS) is explicitly disabled in the configuration."
-    remediationMessage: "Enable error logging (AUDIT_LOGS) for the OpenSearch domain."
+    remediationMessage: "Enable audit logging (AUDIT_LOGS) for the OpenSearch domain."
     check:
       NOT:
         arg:

@@ -1,17 +1,19 @@
 # Description
 
-Cosmos DB can use tokens or Entra ID for client authentication which in turn will use Azure RBAC for authorization. Using Entra ID is significantly more secure because Entra ID handles the credentials and allows for MFA and centralized management, and the Azure RBAC better integrated with the rest of Azure.
+Cosmos DB can use tokens or Entra ID for client authentication, which in turn uses Azure RBAC for authorization. Using Entra ID is significantly more secure because Entra ID handles credentials, enables MFA and centralized management, and Azure RBAC is better integrated with the rest of Azure.
 
 ## Rationale
 
-Entra ID client authentication is considerably more secure than token-based authentication because the tokens must be persistent at the client. Entra ID does not require this.
+Entra ID client authentication is considerably more secure than token-based authentication because tokens must be stored on the client. Entra ID does not require this.
 
 ## Audit
 
-### From Powershell
+### From PowerShell
 
 ```ps
-$cosmosdbname = "<your-cosmos-db-account-name>" $resourcegroup = "<your-resource-group-name>" az cosmosdb show --name $cosmosdbname --resource-group $resourcegroup | ConvertFrom-Json
+$cosmosDbName = "{{cosmos-db-account-name}}"
+$resourceGroup = "{{resource-group-name}}"
+az cosmosdb show --name $cosmosDbName --resource-group $resourceGroup | ConvertFrom-Json
 ```
 
 In the resulting output, `disableLocalAuth` should be `true`.

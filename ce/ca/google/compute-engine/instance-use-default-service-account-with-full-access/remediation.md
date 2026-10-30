@@ -14,12 +14,20 @@
 
 1. Stop the instance:
 
-            gcloud compute instances stop <INSTANCE_NAME>
+    ```sh
+    gcloud compute instances stop {{instance-name}}
+    ```
 
 2. Update the instance:
 
-            gcloud compute instances set-service-account <INSTANCE_NAME> --service-account=<SERVICE_ACCOUNT> --scopes [SCOPE1, SCOPE2...]
+    ```sh
+    gcloud compute instances set-service-account {{instance-name}} \
+        --service-account={{service-account}} \
+        --scopes [SCOPE1, SCOPE2...]
+    ```
 
 3. Restart the instance:
 
-            gcloud compute instances start <INSTANCE_NAME>
+    ```sh
+    gcloud compute instances start {{instance-name}}
+    ```

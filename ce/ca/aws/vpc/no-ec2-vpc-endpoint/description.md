@@ -1,6 +1,6 @@
 # Description
 
-Ensures that Amazon VPCs are configured with a VPC endpoint for the Amazon EC2 service. A VPC endpoint enables private connectivity between your VPC and supported AWS services without the need for an internet gateway, NAT device, VPN connection, or AWS Direct Connect.
+This policy identifies Amazon VPCs that are not configured with a VPC endpoint for the Amazon EC2 service. A VPC endpoint enables private connectivity between your VPC and supported AWS services without the need for an internet gateway, NAT device, VPN connection, or AWS Direct Connect.
 
 ## Rationale
 

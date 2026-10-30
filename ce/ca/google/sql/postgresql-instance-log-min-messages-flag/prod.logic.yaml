@@ -17,24 +17,25 @@ conditions:
             search:
               TEXT: "POSTGRE" 
   - status: "COMPLIANT"
-    currentStateMessage: "log_min_messages database flag is set appropriately."
+    currentStateMessage: "The log_min_messages database flag is set appropriately."
     check:
       CONTAINS:
         arg:
           SET:
             itemType: TEXT
             items:
-              - "DEBUG5"
-              - "DEBUG4"
-              - "DEBUG3"
-              - "DEBUG2"
-              - "DEBUG1"
-              - "INFO"
-              - "NOTICE"
               - "WARNING"
+              - "ERROR"
+              - "LOG"
+              - "FATAL"
+              - "PANIC"
         search:
           EXTRACT: "caJsonText__databaseFlagsLogMinMessagesFlagValue__c"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "log_min_messages database flag isn't set appropriately."
-  remediationMessage: "Set log_min_messages database flag to appropriate value."
+  currentStateMessage: "The log_min_messages database flag is not set appropriately."
+  remediationMessage: "Set the log_min_messages database flag to WARNING or a higher severity level."
+
+
+
+

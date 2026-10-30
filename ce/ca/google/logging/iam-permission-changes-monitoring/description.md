@@ -1,14 +1,14 @@
 # Description
 
-It is recommended that a metric filter and alarm be established for Cloud Storage Bucket IAM changes.
+It is recommended that a metric filter and alarm be established for Cloud Storage bucket IAM changes.
 
 ## Rationale
 
-Monitoring changes to cloud storage bucket permissions may reduce the time needed to detect and correct permissions on sensitive cloud storage buckets and objects inside the bucket.
+Monitoring changes to Cloud Storage bucket permissions may reduce the time needed to detect and correct permissions on sensitive buckets and objects.
 
 ## Impact
 
-Enabling of logging may result in your project being charged for the additional logs usage. These charges could be significant depending on the size of the organization.
+Enabling logging may result in your project being charged for additional log usage. These charges could be significant depending on the size of the organization.
 
 ## Audit
 
@@ -17,10 +17,12 @@ Enabling of logging may result in your project being charged for the additional 
 Ensure the prescribed log metric is present:
 
 1. For each project that contains cloud storage buckets, go to `Logging/Logs-based Metrics` by visiting <https://console.cloud.google.com/logs/metrics>.
-2. In the `User-defined Metrics` section, ensure at least one metric `<Log_Metric_Name>` is present with the filter text:
+2. In the `User-defined Metrics` section, ensure at least one metric `{{log-metric-name}}` is present with the filter text:
 
-            resource.type="gcs_bucket" 
-            AND protoPayload.methodName="storage.setIamPermissions"
+    ```txt
+    resource.type="gcs_bucket" 
+    AND protoPayload.methodName="storage.setIamPermissions"
+    ```
 
     Ensure that the prescribed alerting policy is present:
 
@@ -34,12 +36,17 @@ Ensure that the prescribed log metric is present:
 
 1. List the log metrics:
 
-            gcloud logging metrics list --format json
+    ```sh
+    gcloud logging metrics list \
+        --format=json
+    ```
 
 2. Ensure that the output contains at least one metric with the filter set to:
 
-            resource.type=gcs_bucket 
-            AND protoPayload.methodName="storage.setIamPermissions"
+    ```txt
+    resource.type="gcs_bucket" 
+    AND protoPayload.methodName="storage.setIamPermissions"
+    ```
 
 3. Note the value of the property `metricDescriptor.type` for the identified metric, in the format `logging.googleapis.com/user/<Log Metric Name>`.
 
@@ -47,13 +54,16 @@ Ensure that the prescribed log metric is present:
 
 4. List the alerting policies:
 
-            gcloud alpha monitoring policies list --format json
+    ```sh
+    gcloud alpha monitoring policies list \
+        --format=json
+    ```
 
-5. Ensure that the output contains an least one alert policy where:
+5. Ensure that the output contains at least one alert policy where:
 
-    • `conditions.conditionThreshold.filter` is set to `metric.type=\"logging.googleapis.com/user/<Log Metric Name>\"`
+    - `conditions.conditionThreshold.filter` is set to `metric.type=\"logging.googleapis.com/user/<Log Metric Name>\"`
 
-    • AND `enabled` is set to `true`
+    - AND `enabled` is set to `true`
 
 ## References
 

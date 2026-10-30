@@ -10,25 +10,29 @@ If access from Azure services is enabled, the server's firewall will accept conn
 
 ### From Azure Portal
 
-1. Login to Azure Portal using <https://portal.azure.com>.
+1. Log in to Azure Portal using <https://portal.azure.com>.
 2. Go to `Azure Database for PostgreSQL flexible servers`.
 3. For each database, under `Settings`, click `Networking`.
 4. Under `Firewall rules`, ensure `Allow public access from any Azure service within Azure to this server` is not checked.
 
 ### From Azure CLI
 
-Ensure the below command does not return a rule with a name beginning `AllowAllAzureServicesAndResourcesWithinAzureIps` or with `"startIpAddress": "0.0.0.0"` or `"endIpAddress": "0.0.0.0"`:
+Ensure the following command does not return a rule with a name beginning `AllowAllAzureServicesAndResourcesWithinAzureIps`, or with `"startIpAddress": "0.0.0.0"` or `"endIpAddress": "0.0.0.0"`:
 
 ```sh
-az postgres flexible-server firewall-rule list --resource-group <resourceGroup> --name <serverName>
+az postgres flexible-server firewall-rule list \
+    --resource-group {{resource-group-name}} \
+    --name {{server-name}}
 ```
 
 ### From PowerShell
 
-Ensure the below command does not return a rule with a name beginning `AllowAllAzureServicesAndResourcesWithinAzureIps`:
+Ensure the following command does not return a rule with a name beginning `AllowAllAzureServicesAndResourcesWithinAzureIps`:
 
 ```ps
-Get-AzPostgreSqlFlexibleServerFirewallRule -ResourceGroupName <resourceGroup> -ServerName <serverName>
+Get-AzPostgreSqlFlexibleServerFirewallRule `
+    -ResourceGroupName {{resource-group-name}} `
+    -ServerName {{server-name}}
 ```
 
 ### From Azure Policy

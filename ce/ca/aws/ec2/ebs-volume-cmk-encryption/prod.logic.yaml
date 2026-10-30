@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10__CaAwsKmsKey__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This policy only applies to attached EBS volumes. This volume is not attached."
+    currentStateMessage: "This policy applies only to attached EBS volumes. This volume is not attached."
     check:
       NOT_EQUAL:
         left:
@@ -14,7 +14,7 @@ conditions:
         right:
           TEXT: "in-use"
   - status: "INAPPLICABLE"
-    currentStateMessage: "The EBS volume is not encrypted. This is addressed in 'ebs-volume-encryption' policy"
+    currentStateMessage: "The EBS volume is not encrypted. This is addressed in the 'ebs-volume-encryption' policy."
     check:
       NOT:
         arg:
@@ -25,8 +25,8 @@ conditions:
     check:
       IS_EMPTY_LOOKUP: CA10__kmsKey__r
   - status: "INCOMPLIANT"
-    currentStateMessage: "The attached EBS volume is not encrypted using a KMS customer-managed keys."
-    remediationMessage: "Enable KMS customer-managed keys encryption for the volume."
+    currentStateMessage: "The attached EBS volume is not encrypted using a KMS customer-managed key."
+    remediationMessage: "Enable KMS customer-managed key encryption for the volume."
     check:
       NOT_EQUAL:
         left:

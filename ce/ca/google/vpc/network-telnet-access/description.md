@@ -10,7 +10,7 @@ Telnet is an obsolete and insecure remote access protocol. It transmits all info
 
 ## Impact
 
-All Telnet connections from outside of the network to the concerned VPC(s) can be blocked. If remote Telnet access is required for legitimate business purposes, firewall rules should explicitly whitelist trusted source IP addresses to limit exposure.
+All Telnet connections from outside of the network to the concerned VPC(s) can be blocked. If remote Telnet access is required for legitimate business purposes, firewall rules should explicitly whitelist trusted source IP ranges to limit exposure.
 
 ## Audit
 

@@ -8,19 +8,19 @@ Cloud services offer the ability to protect data related to those services using
 
 ## Impact
 
-Using Customer Managed Keys involves additional overhead in maintenance by administrators.
+Using customer-managed keys involves additional overhead for administrators.
 
 ## Audit
 
 ### From Google Cloud Console
 
-1. Login to the GCP Console and navigate to the Dataproc Cluster page by visiting <https://console.cloud.google.com/dataproc/clusters>.
+1. Log in to the GCP Console and navigate to the Dataproc Cluster page by visiting <https://console.cloud.google.com/dataproc/clusters>.
 2. Select the project from the project dropdown list.
-3. On the `Dataproc Clusters` page, select the cluster and click on the Name attribute value that you want to examine.
-4. On the `details` page, select the `Configurations` tab.
-5. On the `Configurations` tab, check the `Encryption type` configuration attribute value. If the value is set to `Google-managed key`, then Dataproc Cluster is not encrypted with Customer managed encryption keys.
+3. On the `Dataproc Clusters` page, select the cluster and click the Name value you want to examine.
+4. On the `Details` page, select the `Configurations` tab.
+5. On the `Configurations` tab, check the `Encryption type` configuration attribute value. If the value is set to `Google-managed key`, the Dataproc cluster is not encrypted with customer-managed encryption keys.
 
-    Repeat step no. 3 - 5 for other Dataproc Clusters available in the selected project.
+    Repeat steps 3-5 for other Dataproc clusters available in the selected project.
 
 6. Change the project from the project dropdown list and repeat the audit procedure for other projects.
 
@@ -28,16 +28,25 @@ Using Customer Managed Keys involves additional overhead in maintenance by admin
 
 1. Run clusters list command to list all the Dataproc Clusters available in the region:
 
-            gcloud dataproc clusters list --region='us-central1'
+    ```sh
+    gcloud dataproc clusters list \
+        --region='us-central1'
+    ```
 
 2. Run clusters describe command to get the key details of the selected cluster:
 
-            gcloud dataproc clusters describe <cluster_name> --region=us-central1 --flatten=config.encryptionConfig.gcePdKmsKeyName
+    ```sh
+    gcloud dataproc clusters describe {{cluster-name}} \
+        --region=us-central1 \
+        --flatten=config.encryptionConfig.gcePdKmsKeyName
+    ```
 
-3. If the above command output return "null", then the selected cluster is not encrypted with Customer managed encryption keys.
-4. Repeat step no. 2 and 3 for other Dataproc Clusters available in the selected region. Change the region by updating --region and repeat step no. 2 for other clusters available in the project. Change the project by running the below command and repeat the audit procedure for other Dataproc clusters available in other projects:
+3. If the above command output returns "null", the selected cluster is not encrypted with customer-managed encryption keys.
+4. Repeat steps 2-3 for other Dataproc clusters available in the selected region. Change the region by updating --region and repeat step 2 for other clusters available in the project. Change the project by running the below command and repeat the audit procedure for other Dataproc clusters available in other projects:
 
-            gcloud config set project <project_ID>"
+    ```sh
+    gcloud config set project {{project-id}}"
+    ```
 
 ## References
 

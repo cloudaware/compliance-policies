@@ -10,9 +10,10 @@ description: >
   periods of low activity.
 type: COMPLIANCE_POLICY
 categories:
-  - SECURITY
+  - PERFORMANCE
+  - COST
 frameworkMappings:
-  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-optimization"
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-right-sizing"
   - "/frameworks/cloudaware/resource-performance/workload-efficiency"
   - "/frameworks/aws-fsbp-v1.0.0/dynamodb/01"
 similarPolicies:

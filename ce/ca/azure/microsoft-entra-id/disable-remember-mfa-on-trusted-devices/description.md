@@ -16,7 +16,7 @@ For every login attempt, the user will be required to perform multi-factor authe
 
 ### From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. In the Azure portal, open the portal menu.
 2. Select `Microsoft Entra ID`.
 3. Under `Manage`, click `Users`.
 4. Click the `Per-user MFA` button on the top bar.

@@ -7,14 +7,14 @@ importExtracts:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Key rotation reminders are not configured."
-    remediationMessage: "Configure the Key rotation reminders."
+    remediationMessage: "Configure key rotation reminders."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__keyExpirationPeriodDays__c"
   - status: "INCOMPLIANT"
     currentStateMessage: "Key rotation reminders are set for more than 90 days."
-    remediationMessage: "Configure Key rotation reminders for 90 days."
+    remediationMessage: "Set key rotation reminders to 90 days."
     check:
       GREATER_THAN:
         left:

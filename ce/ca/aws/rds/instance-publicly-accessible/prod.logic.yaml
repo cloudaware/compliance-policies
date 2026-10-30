@@ -1,0 +1,165 @@
+---
+# This policy goes through the same paths as /ce/ca/aws/ec2/instance-without-public-ip-in-public-subnet/prod.logic.yaml
+# Check that policy logic for details
+inputType: "CA10__CaAwsDbInstance__c"
+testData:
+ - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsDbInstance__c/object.extracts.yaml
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "This RDS instance is not publicly accessible."
+    check:
+      NOT:
+        arg:
+          EXTRACT: "CA10__publiclyAccessible__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This RDS instance is publicly accessible and in a public subnet."
+    remediationMessage: "Restrict public access to the instance."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__subnetGroup__r.CA10__AWS_RDS_Subnet_Group_Subnet_Links__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This RDS instance is publicly accessible but in a private subnet."
+    remediationMessage: "Restrict public access to the instance."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__subnetGroup__r.CA10__AWS_RDS_Subnet_Group_Subnet_Links__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This RDS instance is publicly accessible and in a public subnet."
+    remediationMessage: "Restrict public access to the instance."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10__vpc__r.CA10__routeTables__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "This RDS instance is publicly accessible but in a private subnet."
+  remediationMessage: "Restrict public access to the instance."
+relatedLists:
+  - relationshipName: "CA10__subnetGroup__r.CA10__AWS_RDS_Subnet_Group_Subnet_Links__r"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "This subnet group has a subnet route table with an internet gateway route and unrestricted access."
+        remediationMessage: "Remove internet gateway routes with unrestricted access."
+        check:
+          RELATED_LIST_HAS:
+            status: "INCOMPLIANT"
+            relationshipName: "CA10__subnet__r.CA10__routeTableAssociations__r"
+      - status: "COMPLIANT"
+        currentStateMessage: "This subnet group does not have subnet route tables with unrestricted internet gateway access."
+        check:
+          RELATED_LIST_HAS:
+            status: "COMPLIANT"
+            relationshipName: "CA10__subnet__r.CA10__routeTableAssociations__r"
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "This subnet group does not have route table associations."
+    relatedLists:
+      - relationshipName: "CA10__subnet__r.CA10__routeTableAssociations__r"
+        importExtracts:
+        - file: "/types/CA10__CaAwsRoute__c/object.extracts.yaml"
+        conditions:
+          - status: "INCOMPLIANT"
+            currentStateMessage: "This subnet route table has an internet gateway route with unrestricted access."
+            remediationMessage: "Remove internet gateway routes with unrestricted access."
+            check:
+              RELATED_LIST_HAS:
+                status: "INCOMPLIANT"
+                relationshipName: "CA10__routeTable__r.CA10__routes__r"
+        otherwise:
+          status: "COMPLIANT"
+          currentStateMessage: "This subnet is compliant."
+        relatedLists:
+          - relationshipName: "CA10__routeTable__r.CA10__routes__r"
+            conditions:
+              - status: "INCOMPLIANT"
+                currentStateMessage: "This is an internet gateway route with unrestricted access."
+                remediationMessage: "Remove this route."
+                check:
+                  AND:
+                    args:
+                      - STARTS_WITH:
+                          arg:
+                            EXTRACT: "CA10__gatewayId__c"
+                          search:
+                            TEXT: "igw"
+                      - OR:
+                          args:
+                            - IS_EQUAL:
+                                left:
+                                  EXTRACT: "CA10__destinationCidrBlock__c"
+                                right:
+                                  TEXT: "0.0.0.0/0"
+                            - IS_EQUAL:
+                                left:
+                                  EXTRACT: "CA10__destinationIpv6CidrBlock__c"
+                                right:
+                                  TEXT: "::/0"
+            otherwise:
+              status: "COMPLIANT"
+              currentStateMessage: "This is not an internet gateway route."
+  - relationshipName: "CA10__vpc__r.CA10__routeTables__r"
+    importExtracts:
+      - file: "/types/CA10__CaAwsRoute__c/object.extracts.yaml"
+      - file: "/types/CA10__CaAwsRouteTableAssociation__c/object.extracts.yaml"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "This is a main route table with an internet gateway route."
+        remediationMessage: "Remove this route."
+        check:
+          AND:
+            args:
+              - RELATED_LIST_HAS:
+                  status: "COMPLIANT"
+                  relationshipName: "CA10__routeTableAssociations__r"
+              - RELATED_LIST_HAS:
+                  status: "INCOMPLIANT"
+                  relationshipName: "CA10__routes__r"
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "Custom route tables or a main route table without an internet gateway."
+    relatedLists:
+      - relationshipName: "CA10__routeTableAssociations__r"
+        conditions:
+          - status: "COMPLIANT"
+            currentStateMessage: "This is a main route table."
+            check:
+              IS_EQUAL:
+                left:
+                  EXTRACT: "CA10__main__c"
+                right:
+                  BOOLEAN: true
+        otherwise:
+          status: "INAPPLICABLE"
+          currentStateMessage: "This is not a main route table."
+      - relationshipName: "CA10__routes__r"
+        conditions:
+          - status: "INCOMPLIANT"
+            currentStateMessage: "This is an internet gateway route."
+            remediationMessage: "Remove this route."
+            check:
+              AND:
+                args:
+                  - STARTS_WITH:
+                      arg:
+                        EXTRACT: "CA10__gatewayId__c"
+                      search:
+                        TEXT: "igw"
+                  - OR:
+                      args:
+                        - IS_EQUAL:
+                            left:
+                              EXTRACT: "CA10__destinationCidrBlock__c"
+                            right:
+                              TEXT: "0.0.0.0/0"
+                        - IS_EQUAL:
+                            left:
+                              EXTRACT: "CA10__destinationIpv6CidrBlock__c"
+                            right:
+                              TEXT: "::/0"
+        otherwise:
+          status: "COMPLIANT"
+          currentStateMessage: "This is not an internet gateway route."

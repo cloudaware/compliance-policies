@@ -1,6 +1,6 @@
 # Description
 
-It is recommended to configure Second Generation Sql instance to use private IPs instead of public IPs.
+It is recommended to configure second generation SQL instances to use private IPs instead of public IPs.
 
 ## Rationale
 
@@ -21,11 +21,15 @@ Removing the public IP address on SQL instances may break some applications that
 
 1. List all Cloud SQL database instances using the following command:
 
-            gcloud sql instances list
+    ```sh
+    gcloud sql instances list
+    ```
 
 2. For every instance of type `instanceType: CLOUD_SQL_INSTANCE` with `backendType: SECOND_GEN`, get detailed configuration. Ignore instances of type `READ_REPLICA_INSTANCE` because these instances inherit their settings from the primary instance. Also, note that first generation instances cannot be configured to have a private IP address.
 
-            gcloud sql instances describe <INSTANCE_NAME>
+    ```sh
+    gcloud sql instances describe {{instance-name}}
+    ```
 
 3. Ensure that the setting `ipAddresses` has an IP address configured of `type: PRIVATE` and has no IP address of `type: PRIMARY`. PRIMARY IP addresses are public addresses. An instance can have both a private and public address at the same time. Note also that you cannot use private IP with First Generation instances.
 
@@ -35,7 +39,7 @@ To prevent new SQL instances from getting configured with public IP addresses, s
 
 ## Default Value
 
-By default, Cloud Sql instances have a public IP.
+By default, Cloud SQL instances have a public IP.
 
 ## References
 

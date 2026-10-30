@@ -2,9 +2,9 @@
 names:
   full: AWS RDS Instance is underutilized
   contextual: Instance is underutilized
-description: "Instances are considered underutilized if their average\
-  \ CPU utilization is consistently below 20% and their disk I/O is below 50 IOPS\
-  \ over a 30-day period. Such instances might be oversized for their workload."
+description: "Instances are considered underutilized when their 30-day average\
+  \ CPU utilization, disk I/O, and database connection activity remain low. Such\
+  \ instances might be oversized for their workload."
 type: "COMPLIANCE_POLICY"
 categories:
   - "COST"
@@ -12,4 +12,3 @@ categories:
 frameworkMappings:
   - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-right-sizing"
   - "/frameworks/cloudaware/resource-performance/workload-efficiency"
-  

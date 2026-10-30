@@ -1,6 +1,6 @@
 # Description
 
-AWS provides customers with the option of specifying the contact information for
+AWS provides customers with the option of specifying the contact information for the
 account's security team. It is recommended that this information be provided.
 
 ## Rationale
@@ -24,9 +24,9 @@ Perform the following to determine if security contact information is present:
 
 1. Run the following command:
 
-```sh
-aws account get-alternate-contact --alternate-contact-type SECURITY
-```
+    ```sh
+    aws account get-alternate-contact --alternate-contact-type SECURITY
+    ```
 
 2. Ensure proper contact information is specified for the `Security` contact.
 

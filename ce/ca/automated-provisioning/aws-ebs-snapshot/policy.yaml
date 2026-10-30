@@ -1,0 +1,11 @@
+---
+names:
+  full: "AWS EBS Snapshot auto-provisioning status"
+  contextual: "EBS Snapshot auto-provisioning status"
+description: >
+  Identify AWS EBS Snapshots with AWS-managed tag evidence that may 
+  indicate creation or management by AWS Backup, Amazon Data Lifecycle Manager, 
+  AWS Application Migration Service, or AWS Elastic Disaster Recovery."
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY

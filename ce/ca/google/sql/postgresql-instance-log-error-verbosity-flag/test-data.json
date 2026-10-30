@@ -42,7 +42,7 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "299",
-      "conditionText": "setOfText(['DEFAULT', 'TERSE', 'VERBOSE']).contains(extract('caJsonText__databaseFlagsLogErrorVerbosityFlagValue__c'))",
+      "conditionText": "setOfText(['DEFAULT', 'VERBOSE']).contains(extract('caJsonText__databaseFlagsLogErrorVerbosityFlagValue__c'))",
       "runtimeError": null
     },
     "context": { "snapshotTime": "2024-09-05T07:34:25Z" },
@@ -50,6 +50,19 @@
     "CA10__disappearanceTime__c": null,
     "CA10__databaseVersion__c": "POSTGRES_14",
     "CA10__databaseFlagsJson__c": "[{\"name\": \"log_duration\", \"value\": \"on\" }, { \"name\": \"max_connections\",  \"value\": 10000 }, {\"name\" : \"cloudsql.logical_decoding\",  \"value\" : \"on\" }, { \"name\": \"log_error_verbosity\",  \"value\" : \"default\"}]"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2024-09-05T07:34:25Z" },
+    "Id": "a8E4P4",
+    "CA10__disappearanceTime__c": null,
+    "CA10__databaseVersion__c": "POSTGRES_14",
+    "CA10__databaseFlagsJson__c": "[{\"name\": \"log_duration\", \"value\": \"on\" }, { \"name\": \"max_connections\",  \"value\": 10000 }, {\"name\" : \"cloudsql.logical_decoding\",  \"value\" : \"on\" }, { \"name\": \"log_error_verbosity\",  \"value\" : \"terse\"}]"
   },
   {
     "expectedResult": {

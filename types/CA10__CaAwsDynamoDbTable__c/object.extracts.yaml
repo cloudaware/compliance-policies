@@ -14,10 +14,10 @@ extracts:
     value:
       FIELD:
         path: CA10__pointInTimeRecoveryStatus__c
-        # undeterminedIf:
-        #   noAccessDelegate:
-        #     path: "CA10__pointInTimeRecoveryStatus__c"
-        #     currentStateMessage: "Unable to determine Point In Time Recovery Status. Possible permission issue with dynamodb:DescribeTable."
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__pointInTimeRecoveryStatus__c"
+            currentStateMessage: "Unable to determine point-in-time recovery status. Possible permission issue with dynamodb:DescribeContinuousBackups."
 # Nullable.
   - name: "CA10__regionName2__c"
     value:
@@ -30,6 +30,10 @@ extracts:
     value:
       FIELD:
         path: "CA10__tableStatus__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__tableStatus__c"
+            currentStateMessage: "Unable to determine table status. Possible permission issue with dynamodb:DescribeTable."
 # Values: ENABLED | null. Possible permission issue with dynamodb:DescribeTable.
   - name: "CA10__sseDescriptionStatus__c"
     value:

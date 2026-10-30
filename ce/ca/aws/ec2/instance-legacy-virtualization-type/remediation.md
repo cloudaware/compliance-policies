@@ -4,7 +4,7 @@ If an instance was launched from a PV AMI, it cannot be directly changed to an H
 
 ## Migration Process Overview
 
-1. Backup critical data from the original instance.
+1. Back up critical data from the original instance.
 2. Create a new instance using an HVM-compatible AMI that supports the desired instance type, and attach any EBS volumes that were attached to your original instance.
 3. Install your application on your new instance.
 4. Restore any data.

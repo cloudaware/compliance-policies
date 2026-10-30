@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10Z1__CaAzureMySqlServer__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This is not the Flexible Server deployment mode."
+    currentStateMessage: "This is not the flexible server deployment mode."
     check:
       NOT_EQUAL:
         left:
@@ -15,7 +15,7 @@ conditions:
           TEXT: "Flexible"
   - status: "INCOMPLIANT"
     currentStateMessage: "MySQL Flexible Server audit_log_enabled configuration parameter is disabled."
-    remediationMessage: "Consider enabling MySQL Flexible Server audit_log_enabled configuration."
+    remediationMessage: "Enable the audit_log_enabled parameter on the MySQL Flexible Server."
     check:
       IS_EQUAL:
         left:
@@ -30,7 +30,7 @@ conditions:
           TEXT: "off"
   - status: "INCOMPLIANT"
     currentStateMessage: "MySQL Flexible Server audit_log_events configuration parameter is not set to CONNECTION."
-    remediationMessage: "Consider setting MySQL Flexible Server audit_log_events configuration to CONNECTION."
+    remediationMessage: "Set the audit_log_events parameter to CONNECTION."
     check:
       AND:
         args:

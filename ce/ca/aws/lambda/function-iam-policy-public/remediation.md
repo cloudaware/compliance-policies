@@ -4,7 +4,7 @@
 
 ### **From Command Line**
 
-1. Retrieve the existing resource-based policy to identify the statement ID (`Sid`) associated with public access:
+1. Retrieve the resource-based policy and note the statement ID (`Sid`) that grants public access:
 
     ```sh
     aws lambda get-policy \

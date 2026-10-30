@@ -4,13 +4,13 @@ Enable `log_checkpoints` on `PostgreSQL flexible servers`.
 
 ## Rationale
 
-Enabling `log_checkpoints` helps the PostgreSQL Database to `Log each checkpoint`, which in turn generates query and error logs. However, access to transaction logs is not supported. Query and error logs can be used to identify, troubleshoot, and repair configuration errors and sub-optimal performance.
+Enabling `log_checkpoints` helps PostgreSQL log each checkpoint, which in turn generates query and error logs. However, access to transaction logs is not supported. Query and error logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance.
 
 ## Audit
 
 ### From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. From Azure Home, select the Portal Menu.
 2. Go to `Azure Database for PostgreSQL flexible servers`.
 3. For each database, under `Settings`, click `Server parameters`.
 4. In the filter bar, type `log_checkpoints`.
@@ -18,18 +18,24 @@ Enabling `log_checkpoints` helps the PostgreSQL Database to `Log each checkpoint
 
 ### From Azure CLI
 
-Ensure the below command returns a `value` of `on`:
+Ensure the following command returns a `value` of `on`:
 
 ```sh
-az postgres flexible-server parameter show --resource-group <resourceGroup> --server-name <serverName> --name log_checkpoints
+az postgres flexible-server parameter show \
+    --resource-group {{resource-group-name}} \
+    --server-name {{server-name}} \
+    --name log_checkpoints
 ```
 
 ### From PowerShell
 
-Ensure the below command returns a `value` of `on`:
+Ensure the following command returns a `value` of `on`:
 
 ```ps
-Get-AzPostgreSqlFlexibleServerConfiguration -ResourceGroupName <resourceGroup> -ServerName <serverName> -Name log_checkpoints
+Get-AzPostgreSqlFlexibleServerConfiguration `
+    -ResourceGroupName {{resource-group-name}} `
+    -ServerName {{server-name}} `
+    -Name log_checkpoints
 ```
 
 ### From Azure Policy
@@ -40,7 +46,7 @@ If referencing a digital copy of this Benchmark, clicking a Policy ID will open 
 
 ## Default Value
 
-By default `log_checkpoints` is enabled (set to `on`).
+By default, `log_checkpoints` is enabled (set to `on`).
 
 ## References
 

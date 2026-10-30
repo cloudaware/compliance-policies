@@ -1,0 +1,8 @@
+---
+extracts:
+  - name: "Name"
+    value:
+      FIELD:
+        path: "Name"
+        undeterminedIf:
+          isEmpty: "The security list name is not available."

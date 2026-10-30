@@ -14,8 +14,8 @@ Perform the following to set the password policy as prescribed:
 
 1. Run the following command:
 
-```sh
-aws iam update-account-password-policy --password-reuse-prevention 24
-```
+    ```sh
+    aws iam update-account-password-policy --password-reuse-prevention 24
+    ```
 
 **Note**: All commands starting with `aws iam update-account-password-policy` can be combined into a single command.

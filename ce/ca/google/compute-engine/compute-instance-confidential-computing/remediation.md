@@ -14,4 +14,9 @@ Confidential Computing can only be enabled when an instance is created. You must
 
 Create a new instance with Confidential Compute enabled.
 
-            gcloud compute instances create <INSTANCE_NAME> --zone <ZONE> --confidential-compute --maintenance-policy=TERMINATE
+```sh
+gcloud compute instances create {{instance-name}} \
+    --zone {{zone}} \
+    --confidential-compute \
+    --maintenance-policy=TERMINATE
+```

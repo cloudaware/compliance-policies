@@ -3,14 +3,14 @@ names:
   full: AWS RDS Instance is idle
   contextual: Instance is idle
 description: >
-  Identify AWS RDS Instances that appear to be idle and take action to stop or 
-  terminate them. By default, an RDS instance is considered idle when it satisfies 
-  the following criteria over the past 30 days: 1) Average CPU utilization has 
-  been below 5%; and 2) The total number of database connections has been zero.
+  Identify idle AWS RDS Instances to reduce unnecessary costs. Instances
+  are considered idle when their 30-day average CPU utilization is below 5% and
+  both their 30-day average and maximum database connections are zero, with
+  near-zero disk read and write IOPS.
 type: "COMPLIANCE_POLICY"
 categories:
-  - "PERFORMANCE"
   - "COST"
+  - "PERFORMANCE"
 frameworkMappings:
   - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"
-  - "/frameworks/cloudaware/resource-performance/workload-efficiency"  
+  - "/frameworks/cloudaware/resource-performance/workload-efficiency"

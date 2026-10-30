@@ -9,6 +9,5 @@ aws opensearch update-domain-config \
     --domain-name {{domain-name}} \
     --node-to-node-encryption-options Enabled=true
 ```
--
 
 Applying node-to-node encryption triggers a blue/green update of the domain, which may cause a brief period of reduced availability or increased latency. Plan the change accordingly.

@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10__CaAwsBucket__c/object.extracts.yaml"
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "The Bucket is configured to block public ACLs."
+    currentStateMessage: "The bucket is configured to block public ACLs."
     check:
       IS_EQUAL:
         left:
@@ -14,7 +14,7 @@ conditions:
         right:
           TEXT: "Yes"
   - status: "COMPLIANT"
-    currentStateMessage: "The Bucket ACL is configured with any grants."
+    currentStateMessage: "The bucket ACL has no grants."
     check:
       IS_EQUAL:
         left:
@@ -24,7 +24,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The bucket ACL grants public full control access."
     remediationMessage: "Modify the bucket ACL to remove grants for 'Everyone' or\
-      \ 'Any authenticated AWS user'. It is strongly recommended to enable\
+      \ 'Any authenticated AWS user'. Enable\\
       \ 'Block all public access' and use IAM policies for access control."
     check:
       # Full control for Everyone or Any authenticated AWS user
@@ -42,7 +42,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The bucket ACL grants both public read and public write access."
     remediationMessage: "Modify the bucket ACL to remove grants for 'Everyone' or\
-      \ 'Any authenticated AWS user'. It is strongly recommended to enable\
+      \ 'Any authenticated AWS user'. Enable\\
       \ 'Block all public access' and use IAM policies for access control."
     check:
       AND:
@@ -74,7 +74,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The bucket ACL grants public read access."
     remediationMessage: "Modify the bucket ACL to remove grants for 'Everyone' or\
-      \ 'Any authenticated AWS user'. It is strongly recommended to enable\
+      \ 'Any authenticated AWS user'. Enable\\
       \ 'Block all public access' and use IAM policies for access control."
     check:
       # Read permissions for Everyone or Any authenticated AWS user
@@ -92,7 +92,7 @@ conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The bucket ACL grants public write access."
     remediationMessage: "Modify the bucket ACL to remove grants for 'Everyone' or\
-      \ 'Any authenticated AWS user'. It is strongly recommended to enable\
+      \ 'Any authenticated AWS user'. Enable\\
       \ 'Block all public access' and use IAM policies for access control."
     check:
       # Read permissions for Everyone or Any authenticated AWS user
@@ -109,4 +109,6 @@ conditions:
           NUMBER: 0.0
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Bucket ACL does not grant public read or write access."
+  currentStateMessage: "The bucket ACL does not grant public read or write access."
+
+

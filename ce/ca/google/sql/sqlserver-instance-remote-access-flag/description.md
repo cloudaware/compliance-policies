@@ -1,10 +1,10 @@
 # Description
 
-It is recommended to set `remote access` database flag for Cloud SQL SQL Server instance to `off`.
+It is recommended to set the `remote access` database flag for a Cloud SQL SQL Server instance to `off`.
 
 ## Rationale
 
-The `remote access` option controls the execution of stored procedures from local or remote servers on which instances of SQL Server are running. This default value for this option is 1. This grants permission to run local stored procedures from remote servers or remote stored procedures from the local server. To prevent local stored procedures from being run from a remote server or remote stored procedures from being run on the local server, this must be disabled. The Remote Access option controls the execution of local stored procedures on remote servers or remote stored procedures on local server. 'Remote access' functionality can be abused to launch a Denial-of-Service (DoS) attack on remote servers by off-loading query processing to a target, hence this should be disabled. This recommendation is applicable to SQL Server database instances.
+The `remote access` option controls the execution of stored procedures from local or remote servers on which instances of SQL Server are running. The default value for this option is 1. This grants permission to run local stored procedures from remote servers or remote stored procedures from the local server. To prevent local stored procedures from being run from a remote server or remote stored procedures from being run on the local server, this must be disabled. The Remote Access option controls the execution of local stored procedures on remote servers or remote stored procedures on the local server. Remote access functionality can be abused to launch a Denial-of-Service (DoS) attack on remote servers by off-loading query processing to a target, hence this should be disabled. This recommendation is applicable to SQL Server database instances.
 
 ## Impact
 
@@ -15,20 +15,23 @@ Setting custom flags via command line on certain instances will cause all omitte
 ### From Google Cloud Console
 
 1. Go to the Cloud SQL Instances page in the Google Cloud Console by visiting <https://console.cloud.google.com/sql/instances>.
-2. Select the instance to open its `Instance Overview` page
+2. Select the instance to open its `Instance Overview` page.
 3. Ensure the database flag `remote access` that has been set is listed under the `Database flags` section.
 
 ### From Google Cloud CLI
 
-1. Ensure the below command returns `off` for every Cloud SQL SQL Server database instance
+1. Ensure the following command returns `off` for every Cloud SQL SQL Server database instance:
 
-            gcloud sql instances describe <INSTANCE_NAME> --format=json | jq '.settings.databaseFlags[] | select(.name=="remote access")|.value'
+    ```sh
+    gcloud sql instances describe {{instance-name}} \
+        --format=json | jq '.settings.databaseFlags[] | select(.name=="remote access") | .value'
+    ```
 
 In the output, database flags are listed under the `settings` as the collection `databaseFlags`.
 
 ## Default Value
 
-By default `remote access` is `on`.
+By default, `remote access` is `on`.
 
 ## References
 

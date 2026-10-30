@@ -10,9 +10,9 @@ Confidential Computing enables customers' sensitive code and other data encrypte
 
 ## Impact
 
-• Confidential Computing for Compute instances does not support live migration. Unlike regular Compute instances, Confidential VMs experience disruptions during maintenance events like a software or hardware update.
+- Confidential Computing for Compute instances does not support live migration. Unlike regular Compute instances, Confidential VMs experience disruptions during maintenance events like a software or hardware update.
 
-• Additional charges may be incurred when enabling this security feature. See <https://cloud.google.com/compute/confidential-vm/pricing> for more info.
+- Additional charges may be incurred when enabling this security feature. See <https://cloud.google.com/compute/confidential-vm/pricing> for more info.
 
 ## Audit
 
@@ -28,12 +28,17 @@ Note: Confidential Computing is currently only supported on N2D and C2D machines
 
 1. List the instances in your project and get details on each instance:
 
-            gcloud compute instances list --format=json
+    ```sh
+    gcloud compute instances list \
+        --format=json
+    ```
 
 2. Ensure that `enableConfidentialCompute` is set to `true` for all instances with machine type starting with "n2d-".
 
-            confidentialInstanceConfig:
-             enableConfidentialCompute: true
+    ```json
+    confidentialInstanceConfig:
+        enableConfidentialCompute: true
+    ```
 
 ## Default Value
 

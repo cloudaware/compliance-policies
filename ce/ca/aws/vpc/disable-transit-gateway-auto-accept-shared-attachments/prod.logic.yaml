@@ -6,8 +6,7 @@ importExtracts:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Transit Gateway is configured to automatically accept shared attachments."
-    remediationMessage: "Disable the Auto Accept Shared Attachments feature for\
-      \ the Transit Gateway to ensure all cross-account connections are manually reviewed."
+    remediationMessage: "Disable Auto Accept Shared Attachments for the Transit Gateway so cross-account connections are manually reviewed."
     check:
       IS_EQUAL:
         left:

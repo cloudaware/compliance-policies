@@ -1,10 +1,11 @@
 ---
-name: 6.3.7 Ensure that the 'contained database authentication' database flag for
-  Cloud SQL on the SQL Server instance is not set to 'on' - Level 1 (Automated)
-description: It is recommended not to set `contained database authentication` database
-  flag for Cloud SQL on the SQL Server instance to `on`.
+name: 6.3.7 Ensure that the 'contained database authentication' database flag for Cloud SQL on the SQL Server instance is not set to 'on' - Level 1 (Automated)
+description: >
+  It is recommended not to set `contained database authentication` database flag for Cloud SQL on
+  the SQL Server instance to `on`.
 similar:
   sections:
     - /frameworks/cis-gcp-v2.0.0/06/03/07
+    - /frameworks/cis-gcp-v4.0.0/06/03/07
   internal:
     - dec-c-328daeda

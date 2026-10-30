@@ -1,6 +1,6 @@
 # Description
 
-Ensure that each AWS API Gateway API Route is configured with a mechanisms for controlling and managing access to the API. API Gateway supports the following mechanisms:
+Ensure that each AWS API Gateway API Route is configured with a mechanism for controlling and managing access to the API. API Gateway supports the following mechanisms:
 
 - **Lambda authorizers** - Leverage custom AWS Lambda functions to evaluate incoming requests and determine access.
 - **JWT authorizers** - Validate JSON Web Tokens (JWTs) issued by trusted identity providers to control access.

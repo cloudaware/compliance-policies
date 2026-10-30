@@ -11,7 +11,6 @@ description: >
   including Elastic Load Balancers, CloudFront distributions, and APIs on Amazon API Gateway
 categories:
   - "SECURITY"
-  - "RELIABILITY"
 type: "COMPLIANCE_POLICY"
 frameworkMappings:
   - "/frameworks/cloudaware/secret-and-certificate-governance/expiration-management"
@@ -19,3 +18,9 @@ frameworkMappings:
 similarPolicies:
   internal:
     - "dec-x-b24d2338"
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/ACM/certificate-expires-in-7-days.html
+      name: AWS ACM Certificates Renewal (7 days before expiration)
+  awsSecurityHub:
+    - name: "[ACM.1] Imported and ACM-issued certificates should be renewed after a specified time period"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/acm-controls.html#acm-1"

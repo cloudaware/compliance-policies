@@ -25,10 +25,12 @@ Being a level 2, enabling this setting can have a high impact on the cost of dat
 
 ### From Azure CLI
 
-Ensure the below command's output contains properties delete, read and write set to `true`:
+Ensure the following command's output contains properties `delete`, `read`, and `write` set to `true`:
 
 ```sh
-az storage logging show --services t --account-name <storageAccountName>
+az storage logging show \
+    --services t \
+    --account-name {{storage-account-name}}
 ```
 
 ### From Azure Policy
@@ -39,7 +41,7 @@ If referencing a digital copy of this Benchmark, clicking a Policy ID will open 
 
 ## Default Value
 
-By default, storage account table service logging is disabled for read, write, an delete operations.
+By default, storage account table service logging is disabled for read, write, and delete operations.
 
 ## References
 

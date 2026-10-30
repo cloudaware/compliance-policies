@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS CloudTrail Trail is not integrated with CloudWatch Logs"
+  contextual: "Trail is not integrated with CloudWatch Logs"
+description: >
+  Ensure that AWS CloudTrail trails are integrated with Amazon CloudWatch Logs to
+  support centralized, near-real-time monitoring, alerting, and investigation of
+  trail activity.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/cloudtrail/05"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[CloudTrail.5] CloudTrail trails should be integrated with Amazon CloudWatch Logs"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/cloudtrail-controls.html#cloudtrail-5"

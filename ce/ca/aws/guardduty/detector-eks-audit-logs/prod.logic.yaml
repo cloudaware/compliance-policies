@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10__CaAwsGuardDutyDetector__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This GuardDuty Detector is not enabled."
+    currentStateMessage: "This GuardDuty detector is not enabled."
     check:
       NOT_EQUAL:
         left:
@@ -14,8 +14,8 @@ conditions:
         right:
           TEXT: "ENABLED"
   - status: "INCOMPLIANT"
-    currentStateMessage: "GuardDuty EKS Audit Log Monitoring is disabled."
-    remediationMessage: "Enable EKS Audit Log Monitoring in the GuardDuty data sources settings."
+    currentStateMessage: "GuardDuty EKS audit log monitoring is disabled."
+    remediationMessage: "Enable EKS audit log monitoring in the GuardDuty data sources settings."
     check:
       IS_EQUAL:
         left:
@@ -29,7 +29,7 @@ conditions:
         right:
           TEXT: "DISABLED"
   - status: "COMPLIANT"
-    currentStateMessage: "GuardDuty EKS Audit Log Monitoring is enabled."
+    currentStateMessage: "GuardDuty EKS audit log monitoring is enabled."
     check:
       IS_EQUAL:
         left:

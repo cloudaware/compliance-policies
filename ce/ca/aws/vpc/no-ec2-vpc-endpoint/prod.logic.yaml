@@ -3,33 +3,33 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This VPC doesn't have any EC2 Instances."
+    currentStateMessage: "This VPC does not have any EC2 instances."
     check:
       RELATED_LIST_HAS_NO:
         status: "COMPLIANT"
         relationshipName: "CA10__AWS_EC2_Instances__r"
   - status: "COMPLIANT"
-    currentStateMessage: "The VPC has an active VPC Endpoint for the EC2 service."
+    currentStateMessage: "The VPC has an active VPC endpoint for the EC2 service."
     check:
       RELATED_LIST_HAS:
         status: "COMPLIANT"
         relationshipName: "CA10__AWS_VPC_Endpoints__r"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "The VPC does not have an active VPC Endpoint for the EC2 service."
-  remediationMessage: "Consider creating a VPC Endpoint for the Amazon EC2 service to ensure that traffic between your VPC and EC2 does not leave the Amazon network."
+  currentStateMessage: "The VPC does not have an active VPC endpoint for the EC2 service."
+  remediationMessage: "Create a VPC endpoint for the Amazon EC2 service so traffic between the VPC and EC2 stays on the Amazon network."
 relatedLists:
   - relationshipName: "CA10__AWS_EC2_Instances__r"
     conditions: []
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "This is an EC2 Instance."
+      currentStateMessage: "This is an EC2 instance."
   - relationshipName: "CA10__AWS_VPC_Endpoints__r"
     importExtracts:
       - file: /types/CA10__CaAwsVpcEndpoint__c/object.extracts.yaml
     conditions:
       - status: "COMPLIANT"
-        currentStateMessage: "This is an active VPC Endpoint for the EC2 service."
+        currentStateMessage: "This is an active VPC endpoint for the EC2 service."
         check:
           AND:
             args:
@@ -45,4 +45,4 @@ relatedLists:
                     TEXT: "available"
     otherwise:
       status: "INAPPLICABLE"
-      currentStateMessage: "This is not an active VPC Endpoint for the EC2 service."
+      currentStateMessage: "This is not an active VPC endpoint for the EC2 service."

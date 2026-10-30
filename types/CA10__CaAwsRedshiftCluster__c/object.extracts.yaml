@@ -25,3 +25,43 @@ extracts:
     value:
       FIELD:
         path: "CA10__diskWriteIopsAvg30d__c"
+# Nullable.
+  - name: "CA10__logging__c"
+    value:
+      FIELD:
+        path: "CA10__logging__c"
+# Nullable.
+  - name: "CA10__automatedSnapshotRetentionPeriod__c"
+    value:
+      FIELD:
+        path: "CA10__automatedSnapshotRetentionPeriod__c"
+# Text.
+  - name: "CA10__encryption__c"
+    value:
+      FIELD:
+        path: "CA10__encryption__c"
+# Text.
+  - name: "CA10__masterUsername__c"
+    value:
+      FIELD:
+        path: "CA10__masterUsername__c"
+# Text.
+  - name: "CA10__versionUpgrade__c"
+    value:
+      FIELD:
+        path: "CA10__versionUpgrade__c"
+# Values: Yes | No. Not nullable. Can't have no access, retrieved via redshift:DescribeClusters
+  - name: "CA10__publiclyAccessible__c"
+    value:
+      FIELD:
+        path: "CA10__publiclyAccessible__c"
+# Values: Enabled | Disabled. Not nullable. Can't have no access, retrieved via redshift:DescribeClusters
+  - name: "CA10__enhancedVpcRouting2__c"
+    value:
+      FIELD:
+        path: "CA10__enhancedVpcRouting2__c"
+# Number
+  - name: "CA10__endpointPort2__c"
+    value:
+      FIELD:
+        path: "CA10__endpointPort2__c"

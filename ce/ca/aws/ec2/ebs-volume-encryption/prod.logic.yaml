@@ -5,7 +5,7 @@ importExtracts:
   - file: "/types/CA10__CaAwsVolume__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This policy only applies to attached EBS volumes. This volume is not attached."
+    currentStateMessage: "This policy applies only to attached EBS volumes. This volume is not attached."
     check:
       NOT_EQUAL:
         left:
@@ -14,14 +14,13 @@ conditions:
           TEXT: "in-use"
   - status: "INCOMPLIANT"
     currentStateMessage: "The attached EBS volume is not encrypted."
-    remediationMessage: "Enable encryption for the volume. "
+    remediationMessage: "Enable encryption for the volume."
     check:
       NOT:
         arg:
           EXTRACT: "CA10__encrypted__c"
   - status: "COMPLIANT"
     currentStateMessage: "The attached EBS volume is encrypted."
-    remediationMessage: "Enable encryption for the volume. "
     check:
       IS_EQUAL:
         left:

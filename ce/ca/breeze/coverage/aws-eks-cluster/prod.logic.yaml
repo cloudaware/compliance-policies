@@ -6,15 +6,15 @@ testData:
   - file: ../test-data-ca10a1.json
 conditions:
   - status: INCOMPLIANT
-    currentStateMessage: Cluster never had breeze agent installed
-    remediationMessage: Install breeze agent on the cluster
+    currentStateMessage: "The cluster has never had the breeze agent installed."
+    remediationMessage: "Install the breeze agent on the cluster."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: breezeLastUpdate
   - status: INCOMPLIANT
-    currentStateMessage: Cluster latest breeze report was more than a day ago
-    remediationMessage: Re-install breeze agent on the cluster and make sure it is reporting
+    currentStateMessage: "The latest breeze report for this cluster is more than a day old."
+    remediationMessage: "Reinstall the breeze agent on the cluster and confirm it is reporting."
     check:
       IS_BEYOND_LAST_DAYS:
         offsetDays: 1
@@ -22,4 +22,5 @@ conditions:
           EXTRACT: breezeLastUpdate
 otherwise:
   status: COMPLIANT
-  currentStateMessage: Cluster has breeze agent installed and has a recent report
+  currentStateMessage: "The breeze agent is installed on the cluster and has a recent report."
+

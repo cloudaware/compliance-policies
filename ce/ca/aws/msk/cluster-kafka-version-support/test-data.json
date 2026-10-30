@@ -1,0 +1,1008 @@
+[
+  {
+    "Id": "1.1.1-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "1.1.1"
+  },
+  {
+    "Id": "2.2.1-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "2.2.1"
+  },
+  {
+    "Id": "2.6.0-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "2.6.0"
+  },
+  {
+    "Id": "2.8.2.tiered-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "2.8.2.tiered"
+  },
+  {
+    "Id": "3.4.0-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.4.0"
+  },
+  {
+    "Id": "3.5.1-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.5.1"
+  },
+  {
+    "Id": "3.6.0-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.6.0"
+  },
+  {
+    "Id": "3.7.x-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.7.x"
+  },
+  {
+    "Id": "3.7.x.kraft-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.7.x.kraft"
+  },
+  {
+    "Id": "2.8.2-tiered-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "2.8.2-tiered"
+  },
+  {
+    "Id": "2.4.1.1-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "2.4.1.1"
+  },
+  {
+    "Id": "3.3.2-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.3.2"
+  },
+  {
+    "Id": "3.8.x-supported",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.8.x"
+  },
+  {
+    "Id": "3.8.x.kraft-supported",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.8.x.kraft"
+  },
+  {
+    "Id": "3.9.x-supported",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.9.x"
+  },
+  {
+    "Id": "3.9.x.kraft-supported",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.9.x.kraft"
+  },
+  {
+    "Id": "4.0.x-supported",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "4.0.x"
+  },
+  {
+    "Id": "4.0.x.kraft-supported",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "4.0.x.kraft"
+  },
+  {
+    "Id": "4.1.x-supported",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "4.1.x"
+  },
+  {
+    "Id": "4.1.x.kraft-supported",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "4.1.x.kraft"
+  },
+  {
+    "Id": "4.2.x-supported",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "4.2.x"
+  },
+  {
+    "Id": "4.2.x.kraft-supported",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "4.2.x.kraft"
+  },
+  {
+    "Id": "2.8.2-not-listed",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "2.8.2"
+  },
+  {
+    "Id": "3.7.1-not-listed",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.7.1"
+  },
+  {
+    "Id": "3.9.0-not-listed",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.9.0"
+  },
+  {
+    "Id": "3.9.x.custom-not-listed",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.9.x.custom"
+  },
+  {
+    "Id": "3.8.x.tiered-not-listed",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.8.x.tiered"
+  },
+  {
+    "Id": "4.3.x-not-listed",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "4.3.x"
+  },
+  {
+    "Id": "garbage-not-listed",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "garbage"
+  },
+  {
+    "Id": "KTVPDKIKX0DER-not-listed",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "KTVPDKIKX0DER"
+  },
+  {
+    "Id": "empty-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionText": "CA10__currentBrokerKafkaVersion__c.isEmpty()",
+      "conditionIndex": 301
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": ""
+  },
+  {
+    "Id": "missing-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionText": "CA10__currentBrokerKafkaVersion__c.isEmpty()",
+      "conditionIndex": 301
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": null
+  },
+  {
+    "Id": "whitespace-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionText": "CA10__currentBrokerKafkaVersion__c.isEmpty()",
+      "conditionIndex": 301
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "   "
+  },
+  {
+    "Id": "deployment-type-not-inferred-from-missing-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionText": "CA10__currentBrokerKafkaVersion__c.isEmpty()",
+      "conditionIndex": 301
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": null
+  },
+  {
+    "Id": "revision-token-ignored",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.9.x",
+    "CA10__currentVersion__c": "KTVPDKIKX0DER"
+  },
+  {
+    "Id": "deleted-missing-version",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "runtimeError": null,
+      "conditionText": "setOfText(['DELETING', 'CREATING', 'FAILED']).contains(extract('CA10__state__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "DELETING",
+    "CA10__currentBrokerKafkaVersion__c": null
+  },
+  {
+    "Id": "CREATING-not-listed-state",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "runtimeError": null,
+      "conditionText": "setOfText(['DELETING', 'CREATING', 'FAILED']).contains(extract('CA10__state__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "CREATING",
+    "CA10__currentBrokerKafkaVersion__c": "3.6.0"
+  },
+  {
+    "Id": "FAILED-not-listed-state",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "runtimeError": null,
+      "conditionText": "setOfText(['DELETING', 'CREATING', 'FAILED']).contains(extract('CA10__state__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "FAILED",
+    "CA10__currentBrokerKafkaVersion__c": "3.6.0"
+  },
+  {
+    "Id": "FUTURE_STATE-not-listed-state",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 299,
+      "runtimeError": null,
+      "conditionText": "not(setOfText(['ACTIVE', 'UPDATING', 'HEALING', 'MAINTENANCE', 'REBOOTING_BROKER']).contains(extract('CA10__state__c')))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "FUTURE_STATE",
+    "CA10__currentBrokerKafkaVersion__c": "3.6.0"
+  },
+  {
+    "Id": "UPDATING-expired-current-version",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "UPDATING",
+    "CA10__currentBrokerKafkaVersion__c": "3.7.x"
+  },
+  {
+    "Id": "HEALING-expired-current-version",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "HEALING",
+    "CA10__currentBrokerKafkaVersion__c": "3.7.x"
+  },
+  {
+    "Id": "MAINTENANCE-expired-current-version",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "MAINTENANCE",
+    "CA10__currentBrokerKafkaVersion__c": "3.7.x"
+  },
+  {
+    "Id": "REBOOTING_BROKER-expired-current-version",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "REBOOTING_BROKER",
+    "CA10__currentBrokerKafkaVersion__c": "3.7.x"
+  },
+  {
+    "Id": "missing-state",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionText": "CA10__state__c.isEmpty()",
+      "conditionIndex": 101
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": null,
+    "CA10__currentBrokerKafkaVersion__c": "3.9.x"
+  },
+  {
+    "Id": "disappeared",
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": 99,
+      "runtimeError": null,
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)"
+    },
+    "CA10__disappearanceTime__c": "2026-10-22T00:00:00Z",
+    "CA10__state__c": null,
+    "CA10__currentBrokerKafkaVersion__c": null
+  },
+  {
+    "Id": "2.1.0-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "2.1.0"
+  },
+  {
+    "Id": "2.3.1-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "2.3.1"
+  },
+  {
+    "Id": "2.4.1-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "2.4.1"
+  },
+  {
+    "Id": "2.5.1-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "2.5.1"
+  },
+  {
+    "Id": "2.6.1-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "2.6.1"
+  },
+  {
+    "Id": "2.6.2-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "2.6.2"
+  },
+  {
+    "Id": "2.6.3-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "2.6.3"
+  },
+  {
+    "Id": "2.7.0-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "2.7.0"
+  },
+  {
+    "Id": "2.7.1-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "2.7.1"
+  },
+  {
+    "Id": "2.7.2-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "2.7.2"
+  },
+  {
+    "Id": "2.8.0-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "2.8.0"
+  },
+  {
+    "Id": "2.8.1-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "2.8.1"
+  },
+  {
+    "Id": "3.1.1-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.1.1"
+  },
+  {
+    "Id": "3.2.0-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.2.0"
+  },
+  {
+    "Id": "3.3.1-current-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.3.1"
+  },
+  {
+    "Id": "UPDATING-supported-current-version",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "UPDATING",
+    "CA10__currentBrokerKafkaVersion__c": "3.9.x"
+  },
+  {
+    "Id": "UPDATING-missing-current-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionText": "CA10__currentBrokerKafkaVersion__c.isEmpty()",
+      "conditionIndex": 301
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "UPDATING",
+    "CA10__currentBrokerKafkaVersion__c": null
+  },
+  {
+    "Id": "HEALING-supported-current-version",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "HEALING",
+    "CA10__currentBrokerKafkaVersion__c": "3.9.x"
+  },
+  {
+    "Id": "HEALING-missing-current-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionText": "CA10__currentBrokerKafkaVersion__c.isEmpty()",
+      "conditionIndex": 301
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "HEALING",
+    "CA10__currentBrokerKafkaVersion__c": null
+  },
+  {
+    "Id": "MAINTENANCE-supported-current-version",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "MAINTENANCE",
+    "CA10__currentBrokerKafkaVersion__c": "3.9.x"
+  },
+  {
+    "Id": "MAINTENANCE-missing-current-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionText": "CA10__currentBrokerKafkaVersion__c.isEmpty()",
+      "conditionIndex": 301
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "MAINTENANCE",
+    "CA10__currentBrokerKafkaVersion__c": null
+  },
+  {
+    "Id": "REBOOTING_BROKER-supported-current-version",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "REBOOTING_BROKER",
+    "CA10__currentBrokerKafkaVersion__c": "3.9.x"
+  },
+  {
+    "Id": "REBOOTING_BROKER-missing-current-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionText": "CA10__currentBrokerKafkaVersion__c.isEmpty()",
+      "conditionIndex": 301
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "REBOOTING_BROKER",
+    "CA10__currentBrokerKafkaVersion__c": null
+  },
+  {
+    "Id": "CREATING-missing-version-excluded",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "runtimeError": null,
+      "conditionText": "setOfText(['DELETING', 'CREATING', 'FAILED']).contains(extract('CA10__state__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "CREATING",
+    "CA10__currentBrokerKafkaVersion__c": null
+  },
+  {
+    "Id": "FAILED-missing-version-excluded",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "runtimeError": null,
+      "conditionText": "setOfText(['DELETING', 'CREATING', 'FAILED']).contains(extract('CA10__state__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "FAILED",
+    "CA10__currentBrokerKafkaVersion__c": null
+  },
+  {
+    "Id": "DELETING-missing-version-excluded",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "runtimeError": null,
+      "conditionText": "setOfText(['DELETING', 'CREATING', 'FAILED']).contains(extract('CA10__state__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "DELETING",
+    "CA10__currentBrokerKafkaVersion__c": null
+  },
+  {
+    "Id": "expired-broker-with-supported-looking-revision",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.7.x",
+    "CA10__currentVersion__c": "3.9.x",
+    "CA10__currentBrokerConfiguration__c": null
+  },
+  {
+    "Id": "supported-broker-with-expired-looking-revision",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.9.x",
+    "CA10__currentVersion__c": "1.1.1"
+  },
+  {
+    "Id": "missing-broker-with-supported-looking-revision",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionText": "CA10__currentBrokerKafkaVersion__c.isEmpty()",
+      "conditionIndex": 301
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": null,
+    "CA10__currentVersion__c": "3.9.x"
+  },
+  {
+    "Id": "unrecognized-broker-with-supported-looking-revision",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.9.0",
+    "CA10__currentVersion__c": "3.9.x"
+  },
+  {
+    "Id": "supported-broker-without-optional-metadata",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "3.9.x",
+    "CA10__currentVersion__c": null,
+    "CA10__currentBrokerConfiguration__c": null,
+    "CA10__regionName__c": null,
+    "CA10__instanceType__c": null
+  },
+  {
+    "Id": "normalized-expired-version-and-state",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 399,
+      "runtimeError": null,
+      "conditionText": "setOfText(['1.1.1', '2.1.0', '2.2.1', '2.3.1', '2.4.1', '2.4.1.1', '2.5.1', '2.6.0', '2.6.1', '2.6.2', '2.6.3', '2.7.0', '2.7.1', '2.7.2', '2.8.0', '2.8.1', '3.1.1', '3.2.0', '3.3.1', '3.3.2', '2.8.2.tiered', '2.8.2-tiered', '3.4.0', '3.5.1', '3.6.0', '3.7.x', '3.7.x.kraft']).contains(extract('CA10__currentBrokerKafkaVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": " active ",
+    "CA10__currentBrokerKafkaVersion__c": " 3.7.X.KRAFT "
+  },
+  {
+    "Id": "normalized-supported-version-and-state",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": " active ",
+    "CA10__currentBrokerKafkaVersion__c": " 3.9.X "
+  },
+  {
+    "Id": "whitespace-state",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionText": "CA10__state__c.isEmpty()",
+      "conditionIndex": 101
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": " \t ",
+    "CA10__currentBrokerKafkaVersion__c": "3.9.x"
+  },
+  {
+    "Id": "unrecognized-state-before-missing-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 299,
+      "runtimeError": null,
+      "conditionText": "not(setOfText(['ACTIVE', 'UPDATING', 'HEALING', 'MAINTENANCE', 'REBOOTING_BROKER']).contains(extract('CA10__state__c')))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "FUTURE_STATE",
+    "CA10__currentBrokerKafkaVersion__c": null
+  },
+  {
+    "Id": "5.0.x-future-compliant",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "5.0.x"
+  },
+  {
+    "Id": "5.0.x.kraft-future-compliant",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "5.0.x.kraft"
+  },
+  {
+    "Id": "100.0.x-future-compliant",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 400,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__state__c": "ACTIVE",
+    "CA10__currentBrokerKafkaVersion__c": "100.0.x"
+  }
+]

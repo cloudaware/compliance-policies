@@ -12,11 +12,13 @@
         "Id": "test1",
         "CA10__disappearanceTime__c": "2025-09-21T19:39:32Z",
         "CA10__status__c": "RUNNING",
-        "CA10__creationDate__c": "2025-09-19T16:15:39Z",
-        "CA10__averageCpuTwoWeeks__c": 5,
-        "CA10__maxCpuTwoWeeks__c": 50,
-        "CA10__sumTwoWeekNetworkInMb__c": 5400,
-        "CA10__sumTwoWeekNetworkOutMb__c": 1491
+        "CA10__creationDate__c": "2024-09-19T16:15:39Z",
+        "CA10__averageCpuTwoWeeks__c": 30.0,
+        "CA10__maxCpuTwoWeeks__c": 40.0,
+        "CA10__sumTwoWeekNetworkInMb__c": 1000.0,
+        "CA10__sumTwoWeekNetworkOutMb__c": 1000.0,
+        "CA10N__newRelicHost__c": null,
+        "CA10N__newRelicHostMemoryUsed14Day__c": null
     },
     {
         "expectedResult": {
@@ -31,11 +33,13 @@
         "Id": "test2",
         "CA10__disappearanceTime__c": null,
         "CA10__status__c": "TERMINATED",
-        "CA10__creationDate__c": "2025-07-22T14:07:50Z",
-        "CA10__averageCpuTwoWeeks__c": 5,
-        "CA10__maxCpuTwoWeeks__c": 20,
-        "CA10__sumTwoWeekNetworkInMb__c": 390,
-        "CA10__sumTwoWeekNetworkOutMb__c": 419
+        "CA10__creationDate__c": "2024-07-22T14:07:50Z",
+        "CA10__averageCpuTwoWeeks__c": 30.0,
+        "CA10__maxCpuTwoWeeks__c": 40.0,
+        "CA10__sumTwoWeekNetworkInMb__c": 1000.0,
+        "CA10__sumTwoWeekNetworkOutMb__c": 1000.0,
+        "CA10N__newRelicHost__c": null,
+        "CA10N__newRelicHostMemoryUsed14Day__c": null
     },
     {
         "expectedResult": {
@@ -51,16 +55,18 @@
         "CA10__disappearanceTime__c": null,
         "CA10__status__c": "RUNNING",
         "CA10__creationDate__c": "2025-09-19T15:01:00Z",
-        "CA10__averageCpuTwoWeeks__c": 5,
-        "CA10__maxCpuTwoWeeks__c": 35,
-        "CA10__sumTwoWeekNetworkInMb__c": 2526,
-        "CA10__sumTwoWeekNetworkOutMb__c": 4579
+        "CA10__averageCpuTwoWeeks__c": 30.0,
+        "CA10__maxCpuTwoWeeks__c": 40.0,
+        "CA10__sumTwoWeekNetworkInMb__c": 1000.0,
+        "CA10__sumTwoWeekNetworkOutMb__c": 1000.0,
+        "CA10N__newRelicHost__c": null,
+        "CA10N__newRelicHostMemoryUsed14Day__c": null
     },
     {
         "expectedResult": {
             "status": "UNDETERMINED",
             "conditionIndex": "399",
-            "conditionText": "extract('CA10__averageCpuTwoWeeks__c').isEmpty() || extract('CA10__maxCpuTwoWeeks__c').isEmpty()",
+            "conditionText": "extract('CA10__averageCpuTwoWeeks__c').isEmpty() || extract('CA10__maxCpuTwoWeeks__c').isEmpty() || (extract('CA10N__newRelicHost__c').isNotEmpty() && extract('CA10N__newRelicHostMemoryUsed14Day__c').isEmpty())",
             "runtimeError": null
         },
         "context": {
@@ -71,15 +77,17 @@
         "CA10__status__c": "RUNNING",
         "CA10__creationDate__c": "2024-09-19T15:01:00Z",
         "CA10__averageCpuTwoWeeks__c": null,
-        "CA10__maxCpuTwoWeeks__c": null,
-        "CA10__sumTwoWeekNetworkInMb__c": null,
-        "CA10__sumTwoWeekNetworkOutMb__c": null
+        "CA10__maxCpuTwoWeeks__c": 40.0,
+        "CA10__sumTwoWeekNetworkInMb__c": 1000.0,
+        "CA10__sumTwoWeekNetworkOutMb__c": 1000.0,
+        "CA10N__newRelicHost__c": null,
+        "CA10N__newRelicHostMemoryUsed14Day__c": null
     },
     {
         "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "599",
-            "conditionText": "extract('CA10__averageCpuTwoWeeks__c') < number(40.0) && extract('CA10__maxCpuTwoWeeks__c') < number(50.0)",
+            "status": "UNDETERMINED",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__averageCpuTwoWeeks__c').isEmpty() || extract('CA10__maxCpuTwoWeeks__c').isEmpty() || (extract('CA10N__newRelicHost__c').isNotEmpty() && extract('CA10N__newRelicHostMemoryUsed14Day__c').isEmpty())",
             "runtimeError": null
         },
         "context": {
@@ -89,16 +97,18 @@
         "CA10__disappearanceTime__c": null,
         "CA10__status__c": "RUNNING",
         "CA10__creationDate__c": "2024-09-19T15:01:00Z",
-        "CA10__averageCpuTwoWeeks__c": 1,
-        "CA10__maxCpuTwoWeeks__c": 1,
-        "CA10__sumTwoWeekNetworkInMb__c": null,
-        "CA10__sumTwoWeekNetworkOutMb__c": null
+        "CA10__averageCpuTwoWeeks__c": 30.0,
+        "CA10__maxCpuTwoWeeks__c": 40.0,
+        "CA10__sumTwoWeekNetworkInMb__c": 1000.0,
+        "CA10__sumTwoWeekNetworkOutMb__c": 1000.0,
+        "CA10N__newRelicHost__c": "newRelicHost",
+        "CA10N__newRelicHostMemoryUsed14Day__c": null
     },
     {
         "expectedResult": {
             "status": "INAPPLICABLE",
             "conditionIndex": "499",
-            "conditionText": "extract('CA10__averageCpuTwoWeeks__c') < number(5.0) && extract('CA10__maxCpuTwoWeeks__c') < number(15.0) && extract('CA10__sumTwoWeekNetworkInMb__c') < number(100.0) && extract('CA10__sumTwoWeekNetworkOutMb__c') < number(100.0)",
+            "conditionText": "extract('CA10N__newRelicHost__c').isNotEmpty() && extract('CA10N__newRelicHostMemoryUsed14Day__c') < number(20.0) && extract('CA10N__newRelicHostDiskReadUtilization__c') < number(5.0) && extract('CA10N__newRelicHostDiskWriteUtilization__c') < number(5.0) && extract('CA10__averageCpuTwoWeeks__c') < number(5.0) && extract('CA10__maxCpuTwoWeeks__c') < number(15.0) && extract('CA10__sumTwoWeekNetworkInMb__c') < number(100.0) && extract('CA10__sumTwoWeekNetworkOutMb__c') < number(100.0)",
             "runtimeError": null
         },
         "context": {
@@ -108,16 +118,20 @@
         "CA10__disappearanceTime__c": null,
         "CA10__status__c": "RUNNING",
         "CA10__creationDate__c": "2024-09-19T15:01:00Z",
-        "CA10__averageCpuTwoWeeks__c": 1,
-        "CA10__maxCpuTwoWeeks__c": 1,
-        "CA10__sumTwoWeekNetworkInMb__c": 1,
-        "CA10__sumTwoWeekNetworkOutMb__c": 1
+        "CA10__averageCpuTwoWeeks__c": 1.0,
+        "CA10__maxCpuTwoWeeks__c": 10.0,
+        "CA10__sumTwoWeekNetworkInMb__c": 10.0,
+        "CA10__sumTwoWeekNetworkOutMb__c": 10.0,
+        "CA10N__newRelicHost__c": "newRelicHost",
+        "CA10N__newRelicHostMemoryUsed14Day__c": 10.0,
+        "CA10N__newRelicHostDiskReadUtilization__c": 1.0,
+        "CA10N__newRelicHostDiskWriteUtilization__c": 1.0
     },
     {
         "expectedResult": {
-            "status": "INCOMPLIANT",
+            "status": "INAPPLICABLE",
             "conditionIndex": "599",
-            "conditionText": "extract('CA10__averageCpuTwoWeeks__c') < number(40.0) && extract('CA10__maxCpuTwoWeeks__c') < number(50.0)",
+            "conditionText": "extract('CA10N__newRelicHost__c').isEmpty() && extract('CA10__averageCpuTwoWeeks__c') < number(5.0) && extract('CA10__maxCpuTwoWeeks__c') < number(15.0) && extract('CA10__sumTwoWeekNetworkInMb__c') < number(100.0) && extract('CA10__sumTwoWeekNetworkOutMb__c') < number(100.0)",
             "runtimeError": null
         },
         "context": {
@@ -126,17 +140,19 @@
         "Id": "test7",
         "CA10__disappearanceTime__c": null,
         "CA10__status__c": "RUNNING",
-        "CA10__creationDate__c": "2025-06-16T18:48:32Z",
-        "CA10__averageCpuTwoWeeks__c": 1,
-        "CA10__maxCpuTwoWeeks__c": 10,
-        "CA10__sumTwoWeekNetworkInMb__c": 397,
-        "CA10__sumTwoWeekNetworkOutMb__c": 4089
+        "CA10__creationDate__c": "2024-09-19T15:01:00Z",
+        "CA10__averageCpuTwoWeeks__c": 1.0,
+        "CA10__maxCpuTwoWeeks__c": 10.0,
+        "CA10__sumTwoWeekNetworkInMb__c": 10.0,
+        "CA10__sumTwoWeekNetworkOutMb__c": 10.0,
+        "CA10N__newRelicHost__c": null,
+        "CA10N__newRelicHostMemoryUsed14Day__c": null
     },
     {
         "expectedResult": {
-            "status": "COMPLIANT",
-            "conditionIndex": "600",
-            "conditionText": "otherwise",
+            "status": "INCOMPLIANT",
+            "conditionIndex": "699",
+            "conditionText": "extract('CA10N__newRelicHost__c').isNotEmpty() && extract('CA10__averageCpuTwoWeeks__c') < number(40.0) && extract('CA10N__newRelicHostMemoryUsed14Day__c') < number(40.0) && extract('CA10__maxCpuTwoWeeks__c') < number(50.0)",
             "runtimeError": null
         },
         "context": {
@@ -145,10 +161,54 @@
         "Id": "test8",
         "CA10__disappearanceTime__c": null,
         "CA10__status__c": "RUNNING",
-        "CA10__creationDate__c": "2025-06-21T20:39:56Z",
-        "CA10__averageCpuTwoWeeks__c": 40,
-        "CA10__maxCpuTwoWeeks__c": 90,
-        "CA10__sumTwoWeekNetworkInMb__c": 5113,
-        "CA10__sumTwoWeekNetworkOutMb__c": 2901
+        "CA10__creationDate__c": "2024-09-19T15:01:00Z",
+        "CA10__averageCpuTwoWeeks__c": 30.0,
+        "CA10__maxCpuTwoWeeks__c": 40.0,
+        "CA10__sumTwoWeekNetworkInMb__c": null,
+        "CA10__sumTwoWeekNetworkOutMb__c": null,
+        "CA10N__newRelicHost__c": "newRelicHost",
+        "CA10N__newRelicHostMemoryUsed14Day__c": 30.0
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "799",
+            "conditionText": "extract('CA10N__newRelicHost__c').isEmpty() && extract('CA10__averageCpuTwoWeeks__c') < number(40.0) && extract('CA10__maxCpuTwoWeeks__c') < number(50.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-21T23:29:57Z"
+        },
+        "Id": "test9",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "RUNNING",
+        "CA10__creationDate__c": "2024-09-19T15:01:00Z",
+        "CA10__averageCpuTwoWeeks__c": 30.0,
+        "CA10__maxCpuTwoWeeks__c": 40.0,
+        "CA10__sumTwoWeekNetworkInMb__c": null,
+        "CA10__sumTwoWeekNetworkOutMb__c": null,
+        "CA10N__newRelicHost__c": null,
+        "CA10N__newRelicHostMemoryUsed14Day__c": null
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "800",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-09-21T23:29:57Z"
+        },
+        "Id": "test10",
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "RUNNING",
+        "CA10__creationDate__c": "2024-09-19T15:01:00Z",
+        "CA10__averageCpuTwoWeeks__c": 30.0,
+        "CA10__maxCpuTwoWeeks__c": 40.0,
+        "CA10__sumTwoWeekNetworkInMb__c": 1000.0,
+        "CA10__sumTwoWeekNetworkOutMb__c": 1000.0,
+        "CA10N__newRelicHost__c": "newRelicHost",
+        "CA10N__newRelicHostMemoryUsed14Day__c": 50.0
     }
 ]

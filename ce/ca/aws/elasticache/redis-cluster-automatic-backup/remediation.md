@@ -9,7 +9,7 @@
 ```bash
 aws elasticache modify-replication-group \
     --replication-group-id {{replication-group-id}} \
-    --snapshot-retention-limit {{7}} \
+    --snapshot-retention-limit {{retention-days}} \
     --apply-immediately
 ```
 
@@ -18,7 +18,7 @@ aws elasticache modify-replication-group \
 ```bash
 aws elasticache modify-cache-cluster \
     --cache-cluster-id {{cache-cluster-id}} \
-    --snapshot-retention-limit {{7}} \
+    --snapshot-retention-limit {{retention-days}} \
     --apply-immediately
 ```
 

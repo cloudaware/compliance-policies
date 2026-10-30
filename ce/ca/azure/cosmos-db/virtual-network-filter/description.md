@@ -1,10 +1,10 @@
 # Description
 
-Limiting your Cosmos DB to only communicate on whitelisted networks lowers its attack footprint.
+Limiting your Cosmos DB to communicate only on approved networks lowers its attack footprint.
 
 ## Rationale
 
-Selecting certain networks for your Cosmos DB to communicate restricts the number of networks including the internet that can interact with what is stored within the database.
+Selecting certain networks for your Cosmos DB to communicate with restricts the number of networks, including the internet, that can interact with what is stored within the database.
 
 ## Impact
 
@@ -25,7 +25,7 @@ Selecting certain networks for your Cosmos DB to communicate restricts the numbe
 
 ### From Azure CLI
 
-Retrieve a list of all CosmosDB database names:
+Retrieve a list of all Cosmos DB account names:
 
 ```sh
 az cosmosdb list
@@ -34,7 +34,7 @@ az cosmosdb list
 For each database listed, run the following command:
 
 ```sh
-az cosmosdb show <database id>
+az cosmosdb show {{cosmosdb-account-id}}
 ```
 
 For each database, ensure that `isVirtualNetworkFilterEnabled` is set to `true`.
@@ -47,7 +47,7 @@ If referencing a digital copy of this Benchmark, clicking a Policy ID will open 
 
 ## Default Value
 
-By default, Cosmos DBs are set to have access all networks.
+By default, Cosmos DB accounts have access to all networks.
 
 ## References
 

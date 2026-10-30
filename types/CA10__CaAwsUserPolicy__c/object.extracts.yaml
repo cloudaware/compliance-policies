@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=../../schema/Extracts.schema.json
+---
+extracts:
+  - name: "CA10__policyDocument__c"
+    value:
+      FIELD:
+        path: "CA10__policyDocument__c"
+        returnType: BYTES
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__policyDocument__c"
+            currentStateMessage: "Unable to determine the Policy Document. Possible permission issue with iam:GetUserPolicy"
+  - name: "caJsonFrom_policyDocument__c"
+    value:
+      JSON_FROM:
+        arg:
+          EXTRACT: "CA10__policyDocument__c"
+        undeterminedIf:
+          isInvalid: "IAM policy document JSON is invalid."

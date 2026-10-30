@@ -4,7 +4,7 @@ This policy identifies unused AWS DynamoDB Tables to help reduce unnecessary cos
 
 ## Rationale
 
-Unused resources contribute to cloud waste and may incur avoidable costs, particularly when tables are provisioned with read and write capacity units or add unnecessary management overhead. Identifying and removing unused DynamoDB tables helps optimize costs and maintain a clean, well-managed infrastructure.
+Unused resources contribute to cloud waste and may incur avoidable costs, particularly when tables are provisioned with read and write capacity units and add unnecessary management overhead. Identifying and removing unused DynamoDB tables helps optimize costs and maintain a clean, well-managed infrastructure.
 
 ## Audit
 

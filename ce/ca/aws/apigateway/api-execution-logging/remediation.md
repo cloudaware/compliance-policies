@@ -31,7 +31,7 @@ To set up these permissions:
 2. Attach the above policy to the IAM role.
 3. Set the IAM role ARN in the `cloudWatchRoleArn` property of your `Account`. Note that you must configure the `cloudWatchRoleArn` separately for each AWS Region where you wish to enable CloudWatch Logs.
 
-If you receive an error when setting the IAM role ARN, check your AWS Security Token Service account settings to make sure that AWS STS is enabled in the Region that you're using.
+If you receive an error when setting the IAM role ARN, check your AWS Security Token Service account settings to make sure that AWS STS is enabled in the region you're using.
 
 ## From Command Line
 
@@ -39,23 +39,23 @@ If you receive an error when setting the IAM role ARN, check your AWS Security T
 
 1. To override stage settings for a specific resource and method:
 
-```sh
-aws apigateway update-stage \
---rest-api-id {{api-id}} \
---stage-name {{stage-name}} \
---patch-operations op=replace,path=/{{resourcePath}}/{{httpMethod}}/logging/loglevel,value=INFO
-```
+    ```sh
+    aws apigateway update-stage \
+    --rest-api-id {{api-id}} \
+    --stage-name {{stage-name}} \
+    --patch-operations op=replace,path=/{{resourcePath}}/{{httpMethod}}/logging/loglevel,value=INFO
+    ```
 
 2. To apply logging level to all resources and methods in a stage:
 
-```sh
-aws apigateway update-stage \
---rest-api-id {{api-id}} \
---stage-name {{stage-name}} \
---patch-operations op=replace,path=/*/*/logging/loglevel,value=INFO
-```
+    ```sh
+    aws apigateway update-stage \
+    --rest-api-id {{api-id}} \
+    --stage-name {{stage-name}} \
+    --patch-operations op=replace,path=/*/*/logging/loglevel,value=INFO
+    ```
 
-Replace `{{api-id}}`, `{{stage-name}}`, `{{resourcePath}}`, and `{{httpMethod}}` with the appropriate values.
+    Replace `{{api-id}}`, `{{stage-name}}`, `{{resourcePath}}`, and `{{httpMethod}}` with the appropriate values.
 
 ### Set Logging Level for WebSocket API Stage
 

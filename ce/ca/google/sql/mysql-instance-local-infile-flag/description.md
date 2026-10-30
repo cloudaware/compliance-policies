@@ -19,18 +19,23 @@ Disabling `local_infile` makes the server refuse local data loading by clients t
 ### From Google Cloud Console
 
 1. Go to the Cloud SQL Instances page in the Google Cloud Console by visiting <https://console.cloud.google.com/sql/instances>.
-2. Select the instance to open its `Instance Overview` page
+2. Select the instance to open its `Instance Overview` page.
 3. Ensure the database flag `local_infile` that has been set is listed under the `Database flags` section.
 
 ### From Google Cloud CLI
 
 1. List all Cloud SQL database instances:
 
-            gcloud sql instances list
+    ```sh
+    gcloud sql instances list
+    ```
 
-2. Ensure the below command returns `off` for every Cloud SQL MySQL database instance.
+2. Ensure the following command returns `off` for every Cloud SQL MySQL database instance:
 
-            gcloud sql instances describe <INSTANCE_NAME> --format=json | jq '.settings.databaseFlags[] | select(.name=="local_infile")|.value'
+    ```sh
+    gcloud sql instances describe {{instance-name}} \
+        --format=json | jq '.settings.databaseFlags[] | select(.name=="local_infile") | .value'
+    ```
 
 ## Default Value
 
@@ -46,6 +51,6 @@ By default `local_infile` is `on`.
 
 WARNING: This patch modifies database flag values, which may require the instance to be restarted. Check the list of supported flags - <https://cloud.google.com/sql/docs/mysql/flags> - to see if your instance will be restarted when this patch is submitted.
 
-Note: some database flag settings can affect instance availability or stability, and remove the instance from the Cloud SQL SLA. For information about these flags, see Operational Guidelines."
+Note: some database flag settings can affect instance availability or stability and remove the instance from the Cloud SQL SLA. For information about these flags, see Operational Guidelines.
 
 Note: Configuring the above flag restarts the Cloud SQL instance.

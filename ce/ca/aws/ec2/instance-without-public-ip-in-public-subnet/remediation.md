@@ -30,4 +30,4 @@ Replace `{{association-id}}` with the actual association ID representing the cur
 aws ec2 associate-route-table --route-table-id {{route-table-id}} --subnet-id {{subnet-id}}
 ```
 
-Replace `{{route-table-id}}` with the actual route table ID and `{subnet-id}}` with the ID of the subnet you want to associate.
+Replace `{{route-table-id}}` with the actual route table ID and `{{subnet-id}}` with the ID of the subnet you want to associate.

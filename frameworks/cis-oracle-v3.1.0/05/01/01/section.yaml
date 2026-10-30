@@ -1,0 +1,11 @@
+---
+name: 5.1.1 Ensure no Object Storage buckets are publicly visible. - Level 1 (Automated)
+description: >
+  A bucket is a logical container for storing objects. It is associated with a
+  single compartment that has policies that determine what action a user can
+  perform on a bucket and on all the objects in the bucket. By Default a newly
+  created bucket is private. It is recommended that no bucket be publicly
+  accessible.
+similar:
+  internal:
+    - dec-c-81444c08

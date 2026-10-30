@@ -24,7 +24,7 @@ Sample output:
 }
 ```
 
-Note the `{{cert-arn}}` for use in the next step.
+Note the `{{cert-arn}}` to use in the next step.
 
 ### Enable SSL on the Endpoint
 
@@ -35,7 +35,7 @@ aws dms modify-endpoint \
     --certificate-arn {{cert-arn}}
 ```
 
-`--ssl-mode`: Choose one of `require`, `verify-ca`, or `verify-full` according to your security requirements.
+`--ssl-mode`: Choose one of `require`, `verify-ca`, or `verify-full` based on your security requirements.
 
 ### Test the Endpoint Connection
 

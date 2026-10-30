@@ -1,22 +1,22 @@
 # Description
 
-Key vaults contain object keys, secrets, and certificates. Deletion of a key vault can cause immediate data loss or loss of security functions (authentication, validation, verification, non-repudiation, etc.) supported by the key vault objects.
+Key Vaults contain object keys, secrets, and certificates. Deletion of a Key Vault can cause immediate data loss or loss of security functions (authentication, validation, verification, non-repudiation, etc.) supported by the Key Vault objects.
 
-It is recommended the key vault be made recoverable by enabling the "purge protection" function. This is to prevent the loss of encrypted data, including storage accounts, SQL databases, and/or dependent services provided by key vault objects (keys, secrets, certificates, etc.).
+It is recommended that the Key Vault be made recoverable by enabling the "purge protection" function. This prevents the loss of encrypted data, including storage accounts, SQL databases, and dependent services provided by Key Vault objects (keys, secrets, certificates, etc.).
 
-**NOTE**: In February 2025, Microsoft enabled soft delete protection on all key vaults. Users can no longer opt out of or turn off soft delete.
+**Note**: In February 2025, Microsoft enabled soft delete protection on all Key Vaults. Users can no longer opt out of or turn off soft delete.
 
-**WARNING**: A current limitation is that role assignments disappear when a key vault is deleted. All role assignments will need to be recreated after recovery.
+**WARNING**: A current limitation is that role assignments disappear when a Key Vault is deleted. All role assignments must be recreated after recovery.
 
 ## Rationale
 
-Users may accidentally run delete/purge commands on a key vault, or an attacker or malicious user may do so deliberately in order to cause disruption. Deleting or purging a key vault leads to immediate data loss, as keys encrypting data and secrets/certificates allowing access/services will become inaccessible.
+Users may accidentally run delete or purge commands on a Key Vault, or an attacker or malicious user may do so deliberately to cause disruption. Deleting or purging a Key Vault leads to immediate data loss, as keys encrypting data and secrets or certificates allowing access to services become inaccessible.
 
-Enabling purge protection ensures that even if a key vault is deleted, the key vault and its objects remain recoverable during the configurable retention period. If no action is taken, the key vault and its objects will be purged once the retention period elapses.
+Enabling purge protection ensures that even if a Key Vault is deleted, the Key Vault and its objects remain recoverable during the configurable retention period. If no action is taken, the Key Vault and its objects will be purged once the retention period elapses.
 
 ## Impact
 
-Once purge protection is enabled for a key vault, it cannot be disabled.
+Once purge protection is enabled for a Key Vault, it cannot be disabled.
 
 ## Audit
 

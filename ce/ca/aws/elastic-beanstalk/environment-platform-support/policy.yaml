@@ -1,0 +1,13 @@
+---
+names:
+  full: AWS Elastic Beanstalk Environment uses a retired platform branch
+  contextual: Environment uses a retired platform branch
+description: >
+  Identify stable Elastic Beanstalk environments whose exact solution stack belongs
+  to a platform branch with a published AWS retirement date that has passed.
+  Retired branches no longer receive Elastic Beanstalk maintenance or security updates.
+type: BEST_PRACTICE
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization

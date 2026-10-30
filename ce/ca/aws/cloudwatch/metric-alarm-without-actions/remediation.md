@@ -1,6 +1,6 @@
 # Remediation
 
-To remediate this issue, you must configure at least one action for your CloudWatch alarm. The most common action is to send a notification to an Amazon SNS topic.
+To remediate this issue, configure at least one action for your CloudWatch alarm. The most common action is to send a notification to an Amazon SNS topic.
 
 ## Configure an Action
 
@@ -33,7 +33,7 @@ aws cloudwatch put-metric-alarm
 - `arn:aws:swf:*region* :*account-id* :action/actions/AWS_EC2.InstanceId.Reboot/1.0`
 - `arn:aws:swf:*region* :*account-id* :action/actions/AWS_EC2.InstanceId.Recover/1.0`
 
-### **Autoscaling action**
+### **Auto Scaling actions**
 
 - `arn:aws:autoscaling:region :account-id :scalingPolicy:policy-id :autoScalingGroupName/group-friendly-name :policyName/policy-friendly-name`
 
@@ -41,7 +41,7 @@ aws cloudwatch put-metric-alarm
 
 - Invoke the latest version of a Lambda function: `arn:aws:lambda:region :account-id :function:function-name`
 - Invoke a specific version of a Lambda function: `arn:aws:lambda:region :account-id :function:function-name :version-number`
-- Invoke a function by using an alias Lambda function: `arn:aws:lambda:region :account-id :function:function-name :alias-name`
+- Invoke a function using a Lambda alias: `arn:aws:lambda:region :account-id :function:function-name :alias-name`
 
 ### **SNS notification action**
 

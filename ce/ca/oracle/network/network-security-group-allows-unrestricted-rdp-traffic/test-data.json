@@ -1,0 +1,48 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10O1__Oracle_IAAS_Network_Security_Group_Rules__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test1",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_IAAS_Network_Security_Group_Rules__r": [
+      {
+        "Id": "test1_1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__networkSecurityGroup__c": "test1",
+        "CA10O1__direction__c": "INGRESS",
+        "CA10O1__source__c": "0.0.0.0/0",
+        "CA10O1__protocol__c": "TCP",
+        "CA10O1__destinationPortMin__c": 3389,
+        "CA10O1__destinationPortMax__c": 3389
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test2",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_IAAS_Network_Security_Group_Rules__r": [
+      {
+        "Id": "test2_1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__networkSecurityGroup__c": "test2",
+        "CA10O1__direction__c": "INGRESS",
+        "CA10O1__source__c": "10.0.0.0/24",
+        "CA10O1__protocol__c": "TCP",
+        "CA10O1__destinationPortMin__c": 3389,
+        "CA10O1__destinationPortMax__c": 3389
+      }
+    ]
+  }
+]

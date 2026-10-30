@@ -1,0 +1,65 @@
+---
+inputType: "CA10A2__CaAwsNetworkFirewallFirewallPolicy__c"
+importExtracts:
+  - file: "/types/CA10A2__CaAwsNetworkFirewallFirewallPolicy__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The network firewall policy is not active."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10A2__firewallPolicyStatus__c"
+        right:
+          TEXT: "ACTIVE"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The stateless default action is set to pass for full packets."
+    remediationMessage: "Set the stateless default action to 'aws:drop' or 'aws:forward_to_sfe' to prevent unintended traffic."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "CA10A2__statelessDefaultActions__c"
+        search:
+          TEXT: "aws:pass"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The stateless default action is set to pass for fragmented packets."
+    remediationMessage: "Set the stateless default action to 'aws:drop' or 'aws:forward_to_sfe' to prevent unintended traffic."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "CA10A2__statelessFragmentDefaultActions__c"
+        search:
+          TEXT: "aws:pass"
+  - status: "COMPLIANT"
+    currentStateMessage: "The stateless default action is set to Drop or Forward."
+    check:
+      AND:
+        args:
+          - CONTAINS_ANY:
+              arg:
+                SET_FROM:
+                  separator: "\n"
+                  arg:
+                    EXTRACT: "CA10A2__statelessDefaultActions__c"
+              search:
+                SET:
+                  itemType: "TEXT"
+                  items:
+                    - "aws:drop"
+                    - "aws:forward_to_sfe"
+          - CONTAINS_ANY:
+              arg:
+                SET_FROM:
+                  separator: "\n"
+                  arg:
+                    EXTRACT: "CA10A2__statelessFragmentDefaultActions__c"
+              search:
+                SET:
+                  itemType: "TEXT"
+                  items:
+                    - "aws:drop"
+                    - "aws:forward_to_sfe"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

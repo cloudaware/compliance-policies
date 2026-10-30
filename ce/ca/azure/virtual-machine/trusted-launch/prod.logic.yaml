@@ -6,16 +6,15 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "Security Type is not set."
-    remediationMessage: "Consider setting the SecurityType of the virtual machine.
-     It has to be set to any specified value to enable UefiSettings."
+    currentStateMessage: "Security type is not set."
+    remediationMessage: "Set the security type for the virtual machine to enable UEFI settings."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__securityProfileSecurityType__c"
   - status: "INCOMPLIANT"
     currentStateMessage: "Secure Boot and vTPM are disabled."
-    remediationMessage: "Consider enabling Secure Boot and vTPM."
+    remediationMessage: "Enable Secure Boot and vTPM."
     check:
       AND:
         args:
@@ -31,7 +30,7 @@ conditions:
                 TEXT: "Disabled"
   - status: "INCOMPLIANT"
     currentStateMessage: "Secure Boot is disabled."
-    remediationMessage: "Consider enabling Secure Boot."
+    remediationMessage: "Enable Secure Boot."
     check:
       AND:
         args:
@@ -47,7 +46,7 @@ conditions:
                 TEXT: "Disabled"
   - status: "INCOMPLIANT"
     currentStateMessage: "vTPM is disabled."
-    remediationMessage: "Consider enabling and vTPM."
+    remediationMessage: "Enable vTPM."
     check:
       AND:
         args:

@@ -1,0 +1,52 @@
+---
+inputType: "CA10A2__CaAwsNetworkFirewallRuleGroup__c"
+importExtracts:
+  - file: "/types/CA10A2__CaAwsNetworkFirewallRuleGroup__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The network firewall rule group is not active."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10A2__ruleGroupStatus__c"
+        right:
+          TEXT: "ACTIVE"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This policy only applies to stateless rule groups."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10A2__type__c"
+        right:
+          TEXT: "STATELESS"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The stateless rule group contains no rules."
+    remediationMessage: "Add rules to the stateless rule group, or delete it if it is no longer required and is not associated with a firewall policy."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10A2__statelessRulesJson__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The stateless rule group contains no rules."
+    remediationMessage: "Add rules to the stateless rule group, or delete it if it is no longer required."
+    check:
+      IS_EQUAL:
+        left:
+          JSON_QUERY_NUMBER:
+            arg:
+              JSON_FROM:
+                arg:
+                  EXTRACT: "CA10A2__statelessRulesJson__c"
+                undeterminedIf:
+                  isInvalid: "The rule group rules contain invalid JSON."
+            expression: "length(@)"
+            undeterminedIf:
+              evaluationError: "Failed to evaluate the number of rules."
+              resultTypeMismatch: "The rule group rules structure is unexpected."
+        right:
+          NUMBER: 0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The stateless rule group contains at least one rule."

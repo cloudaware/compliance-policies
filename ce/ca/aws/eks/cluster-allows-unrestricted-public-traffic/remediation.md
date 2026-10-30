@@ -8,7 +8,7 @@ If you rely solely on the public endpoint, you must include every egress IP used
 
 ```sh
 aws eks update-cluster-config \
-    --region {{region-code}} \
+    --region {{region-name}} \
     --name {{cluster-name}} \
     --resources-vpc-config endpointPublicAccess=true,publicAccessCidrs="{{publicAccessCidrs}}",endpointPrivateAccess=true
 ```

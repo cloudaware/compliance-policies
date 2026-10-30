@@ -1,0 +1,8 @@
+---
+extracts:
+  - name: "CA10Z1__provisioningState__c"
+    value:
+      FIELD:
+        path: "CA10Z1__provisioningState__c"
+        undeterminedIf:
+          isEmpty: "The NAT gateway provisioning state is unavailable."

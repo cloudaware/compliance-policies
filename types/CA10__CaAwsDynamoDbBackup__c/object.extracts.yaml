@@ -1,0 +1,16 @@
+---
+extracts:
+# Not nullable.
+  - name: "CA10__creationDateTime__c"
+    value:
+      FIELD:
+        path: "CA10__creationDateTime__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10__creationDateTime__c"
+            currentStateMessage: "Dynamo DB Table Backup creation date cannot be empty."
+# Nullable.
+  - name: "CA10__status__c"
+    value:
+      FIELD:
+        path: "CA10__status__c"

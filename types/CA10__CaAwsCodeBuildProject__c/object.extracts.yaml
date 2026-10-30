@@ -15,3 +15,11 @@ extracts:
     value: 
       FIELD:
         path: CA10__sourceLocation__c
+# Image identifiers are case-sensitive and must not be whitespace-normalized.
+  - name: CA10__environmentImage__c
+    value:
+      FIELD:
+        path: CA10__environmentImage__c
+        returnType: BYTES
+        undeterminedIf:
+          isEmpty: "CodeBuild Project Environment Image is empty. Check codebuild:BatchGetProjects permissions and inventory collection."

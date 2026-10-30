@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS SageMaker Notebook Instance is not in a VPC"
+  contextual: "Notebook Instance is not in a VPC"
+description: >
+  Ensure that AWS SageMaker notebook instances are launched within a Virtual Private Cloud (VPC). 
+  This allows you to secure the communication between the notebook and other resources, 
+  such as S3 buckets or databases, by using private network paths and VPC endpoints.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/secure-access"
+  - "/frameworks/aws-fsbp-v1.0.0/sagemaker/02"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[SageMaker.2] SageMaker notebook instances should be launched in a custom VPC"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/sagemaker-controls.html#sagemaker-2"

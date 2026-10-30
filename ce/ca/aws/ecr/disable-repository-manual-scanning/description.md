@@ -1,6 +1,6 @@
 # Description
 
-This policy identifies AWS ECR Repositories configured with manual vulnerability scanning. To ensure automated timely detection of security vulnerabilities, it is recommended to enable either **Scan on Push** or **Continuous Scanning**.
+This policy identifies AWS ECR Repositories configured with manual vulnerability scanning. To ensure timely, automated detection of security vulnerabilities, it is recommended to enable either **Scan on Push** or **Continuous Scanning**.
 
 ## Rationale
 

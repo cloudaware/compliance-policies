@@ -8,7 +8,7 @@ recordTypes:
   - "caWebDistribution"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The CloudFront Distribution is configured to use the default SSL/TLS certificate."
+    currentStateMessage: "The CloudFront distribution is configured to use the default SSL/TLS certificate."
     check:
       IS_EQUAL:
         left:
@@ -16,8 +16,8 @@ conditions:
         right:
           BOOLEAN: true
   - status: "INCOMPLIANT"
-    currentStateMessage: "The CloudFront Distribution is configured to use Dedicated IP address."
-    remediationMessage: "Change the SSL Support Method for the Distribution from Dedicated IP to Server Name Indication (SNI)."
+    currentStateMessage: "The CloudFront distribution is configured to use a Dedicated IP address."
+    remediationMessage: "Change the SSL support method from Dedicated IP to Server Name Indication (SNI)."
     check:
       IS_EQUAL:
         left:
@@ -26,4 +26,4 @@ conditions:
           TEXT: "vip"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The CloudFront Distribution is configured to use SNI-only for SSL support."
+  currentStateMessage: "The CloudFront distribution is configured to use SNI-only for SSL support."

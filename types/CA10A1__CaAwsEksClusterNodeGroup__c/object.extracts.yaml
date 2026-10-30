@@ -1,0 +1,20 @@
+---
+extracts:
+  - name: CA10A1__version__c
+    value:
+      FIELD:
+        path: CA10A1__version__c
+        undeterminedIf:
+          isEmpty: The managed node group Kubernetes version is missing. Check eks:DescribeNodegroup permissions.
+  - name: CA10A1__status__c
+    value:
+      FIELD:
+        path: CA10A1__status__c
+        undeterminedIf:
+          isEmpty: The managed node group status is missing from inventory.
+  - name: CA10A1__amiType__c
+    value:
+      FIELD:
+        path: CA10A1__amiType__c
+        undeterminedIf:
+          isEmpty: The managed node group AMI type is missing. Check eks:DescribeNodegroup permissions.

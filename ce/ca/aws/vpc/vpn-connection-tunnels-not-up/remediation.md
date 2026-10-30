@@ -4,31 +4,31 @@
 
 To remediate a VPN connection with a down tunnel, you typically need to investigate and correct the configuration on your on-premises customer gateway device.
 
-Enabling AWS Site-to-Site VPN tunnel logs can be very helpful for troubleshooting and resolving VPN connectivity issues. Logs are published to Amazon CloudWatch Logs, where you can analyze tunnel negotiations, dropped packets, and configuration mismatches.
+Enabling AWS Site-to-Site VPN tunnel logs is helpful for troubleshooting and resolving VPN connectivity issues. Logs are published to Amazon CloudWatch Logs, where you can analyze tunnel negotiations, dropped packets, and configuration mismatches.
 
-1. Create a CloudWatch Log Group (if one does not already exist)
+1. Create a CloudWatch Log Group (if one does not already exist).
 
-```sh
-aws logs create-log-group \
-  --log-group-name {{log-group-name}}
-```
+    ```sh
+    aws logs create-log-group \
+        --log-group-name {{log-group-name}}
+    ```
 
 2. Enable VPN Tunnel Logging
 
-```sh
-aws ec2 modify-vpn-tunnel-options \
-    --vpn-connection-id <vpn-connection-id> \
-    --vpn-tunnel-outside-ip-address <tunnel-outside-ip> \
-    --tunnel-options '{
-      "LogOptions": {
-        "CloudWatchLogOptions": {
-          "LogEnabled": true,
-          "LogGroupArn": "arn:aws:logs:{{region}}:{{account-id}}:log-group:{{log-group-name}}",
-          "LogOutputFormat": "json"
+    ```sh
+    aws ec2 modify-vpn-tunnel-options \
+        --vpn-connection-id {{vpn-connection-id}} \
+        --vpn-tunnel-outside-ip-address {{tunnel-outside-ip}} \
+        --tunnel-options '{
+        "LogOptions": {
+            "CloudWatchLogOptions": {
+            "LogEnabled": true,
+            "LogGroupArn": "arn:aws:logs:{{region}}:{{account-id}}:log-group:{{log-group-name}}",
+            "LogOutputFormat": "json"
+            }
         }
-      }
-    }'
-```
+        }'
+    ```
 
 ## Best Practices for Tunnel Stability
 
@@ -38,7 +38,7 @@ Prefer **IKEv2** over IKEv1 whenever possible. IKEv2 is more robust, simpler, an
 
 ### 2. Reset the *Don't Fragment (DF)* Flag
 
-Some packets carry the *DF (Don’t Fragment)* flag, which can prevent fragmentation and cause ICMP *Path MTU Exceeded* messages. Applications may fail to handle these messages properly, leading to connectivity issues.
+Some packets carry the *DF (Don't Fragment)* flag, which can prevent fragmentation and cause ICMP *Path MTU Exceeded* messages. Applications may fail to handle these messages properly, leading to connectivity issues.
 If your customer gateway device supports overriding the DF flag, configure it to allow fragmentation when needed.
 
 ### 3. Fragment Packets Before Encryption

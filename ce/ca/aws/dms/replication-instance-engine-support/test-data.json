@@ -1,0 +1,795 @@
+[
+  {
+    "Id": "3.4.6-already-eol",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.4.6"
+  },
+  {
+    "Id": "3.4.7-already-eol",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.4.7"
+  },
+  {
+    "Id": "3.5.1-already-eol",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.5.1"
+  },
+  {
+    "Id": "3.5.2-already-eol",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.5.2"
+  },
+  {
+    "Id": "3.5.3-already-eol",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.5.3"
+  },
+  {
+    "Id": "3.5.4-before-eol",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.5.4', '3.6.1']).contains(extract('CA10A1__engineVersion__c'))"
+    },
+    "context": {
+      "snapshotTime": "2027-03-30T23:59:59Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.5.4"
+  },
+  {
+    "Id": "3.5.4-eol-boundary",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2027-03-31T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.5.4"
+  },
+  {
+    "Id": "3.5.4-eol-midday",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2027-03-31T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.5.4"
+  },
+  {
+    "Id": "3.5.4-after-eol",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2027-04-01T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.5.4"
+  },
+  {
+    "Id": "3.5.4-no-new-instance-boundary",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.5.4', '3.6.1']).contains(extract('CA10A1__engineVersion__c'))"
+    },
+    "context": {
+      "snapshotTime": "2027-01-31T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.5.4"
+  },
+  {
+    "Id": "3.6.0-already-eol",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.6.0"
+  },
+  {
+    "Id": "3.6.1-eol-not-announced",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.5.4', '3.6.1']).contains(extract('CA10A1__engineVersion__c'))"
+    },
+    "context": {
+      "snapshotTime": "2030-01-01T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.6.1"
+  },
+  {
+    "Id": "available-retains-eol-engine",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.5.3"
+  },
+  {
+    "Id": "modifying-retains-eol-engine",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "modifying",
+    "CA10A1__engineVersion__c": "3.5.3"
+  },
+  {
+    "Id": "upgrading-retains-eol-engine",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "upgrading",
+    "CA10A1__engineVersion__c": "3.5.3"
+  },
+  {
+    "Id": "rebooting-retains-eol-engine",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "rebooting",
+    "CA10A1__engineVersion__c": "3.5.3"
+  },
+  {
+    "Id": "resetting-master-credentials-retains-eol-engine",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "resetting-master-credentials",
+    "CA10A1__engineVersion__c": "3.5.3"
+  },
+  {
+    "Id": "storage-full-retains-eol-engine",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "storage-full",
+    "CA10A1__engineVersion__c": "3.5.3"
+  },
+  {
+    "Id": "incompatible-credentials-retains-eol-engine",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "incompatible-credentials",
+    "CA10A1__engineVersion__c": "3.5.3"
+  },
+  {
+    "Id": "incompatible-network-retains-eol-engine",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "incompatible-network",
+    "CA10A1__engineVersion__c": "3.5.3"
+  },
+  {
+    "Id": "maintenance-retains-eol-engine",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "maintenance",
+    "CA10A1__engineVersion__c": "3.5.3"
+  },
+  {
+    "Id": "deleted-excluded-before-version-check",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "runtimeError": null,
+      "conditionText": "setOfText(['deleted', 'deleting', 'creating', 'failed']).contains(extract('CA10A1__status__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "deleted",
+    "CA10A1__engineVersion__c": null
+  },
+  {
+    "Id": "deleting-excluded-before-version-check",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "runtimeError": null,
+      "conditionText": "setOfText(['deleted', 'deleting', 'creating', 'failed']).contains(extract('CA10A1__status__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "deleting",
+    "CA10A1__engineVersion__c": null
+  },
+  {
+    "Id": "creating-status-unknown",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "runtimeError": null,
+      "conditionText": "setOfText(['deleted', 'deleting', 'creating', 'failed']).contains(extract('CA10A1__status__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "creating",
+    "CA10A1__engineVersion__c": "3.5.3"
+  },
+  {
+    "Id": "failed-status-unknown",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "runtimeError": null,
+      "conditionText": "setOfText(['deleted', 'deleting', 'creating', 'failed']).contains(extract('CA10A1__status__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "failed",
+    "CA10A1__engineVersion__c": "3.5.3"
+  },
+  {
+    "Id": "unknown-status-retains-eol-finding",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "unknown",
+    "CA10A1__engineVersion__c": "3.5.3"
+  },
+  {
+    "Id": "null-status-retains-eol-finding",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": null,
+    "CA10A1__engineVersion__c": "3.5.3"
+  },
+  {
+    "Id": "empty-status-retains-eol-finding",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "",
+    "CA10A1__engineVersion__c": "3.5.3"
+  },
+  {
+    "Id": "blank-status-retains-eol-finding",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "   ",
+    "CA10A1__engineVersion__c": "3.5.3"
+  },
+  {
+    "Id": "None-version-unknown",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "201",
+      "runtimeError": null,
+      "conditionText": "CA10A1__engineVersion__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": null
+  },
+  {
+    "Id": "-version-unknown",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "201",
+      "runtimeError": null,
+      "conditionText": "CA10A1__engineVersion__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": ""
+  },
+  {
+    "Id": "   -version-unknown",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "201",
+      "runtimeError": null,
+      "conditionText": "CA10A1__engineVersion__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "   "
+  },
+  {
+    "Id": "3.4.5-version-unknown",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "400",
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.4.5"
+  },
+  {
+    "Id": "3.7.0-version-unknown",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "400",
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.7.0"
+  },
+  {
+    "Id": "3.5-version-unknown",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "400",
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.5"
+  },
+  {
+    "Id": "3.5.4.1-version-unknown",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "400",
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.5.4.1"
+  },
+  {
+    "Id": "3.5.4-beta-version-unknown",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "400",
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.5.4-beta"
+  },
+  {
+    "Id": "3.5.x-version-unknown",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "400",
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.5.x"
+  },
+  {
+    "Id": "v3.5.4-version-unknown",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "400",
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "v3.5.4"
+  },
+  {
+    "Id": "3..5.4-version-unknown",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "400",
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3..5.4"
+  },
+  {
+    "Id": "3. 5.4-version-unknown",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "400",
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3. 5.4"
+  },
+  {
+    "Id": "normalized-version-and-status",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.5.4', '3.6.1']).contains(extract('CA10A1__engineVersion__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": " AVAILABLE ",
+    "CA10A1__engineVersion__c": " 3.5.4 "
+  },
+  {
+    "Id": "disappeared-takes-precedence",
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "runtimeError": null,
+      "conditionText": "isDisappeared(CA10A1__disappearanceTime__c)"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": "2026-10-22T00:00:00Z",
+    "CA10A1__status__c": null,
+    "CA10A1__engineVersion__c": null
+  },
+  {
+    "Id": "supported-default-not-latest",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.5.4', '3.6.1']).contains(extract('CA10A1__engineVersion__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.5.4",
+    "CA10A1__instanceClass__c": "dms.r6i.xlarge",
+    "CA10A1__regionName__c": "us-east-1",
+    "CA10A1__multiAz__c": false
+  },
+  {
+    "Id": "3.5.4-former-eol-remains-supported",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.5.4', '3.6.1']).contains(extract('CA10A1__engineVersion__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-11-15T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.5.4"
+  },
+  {
+    "Id": "multi-az-does-not-exempt-eol",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.5.3",
+    "CA10A1__instanceClass__c": "dms.c5.2xlarge",
+    "CA10A1__regionName__c": "us-east-1",
+    "CA10A1__multiAz__c": true
+  },
+  {
+    "Id": "automatic-upgrade-does-not-exempt-current-eol",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "upgrading",
+    "CA10A1__engineVersion__c": "3.5.3",
+    "CA10A1__minorVersionAutomaricUpdate__c": true
+  },
+  {
+    "Id": "regional-3.6.0-eol",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.4.6', '3.4.7', '3.5.1', '3.5.2', '3.5.3', '3.6.0']).contains(extract('CA10A1__engineVersion__c')) || (extract('CA10A1__engineVersion__c') == '3.5.4' && not('2027-03-31T00:00:00Z'.afterToday()))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "available",
+    "CA10A1__engineVersion__c": "3.6.0",
+    "CA10A1__instanceClass__c": "dms.r5.large",
+    "CA10A1__regionName__c": "ap-southeast-2",
+    "CA10A1__multiAz__c": false
+  },
+  {
+    "Id": "creating-without-engine-version",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "runtimeError": null,
+      "conditionText": "setOfText(['deleted', 'deleting', 'creating', 'failed']).contains(extract('CA10A1__status__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "creating",
+    "CA10A1__engineVersion__c": null
+  },
+  {
+    "Id": "upgrading-without-engine-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "201",
+      "runtimeError": null,
+      "conditionText": "CA10A1__engineVersion__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "upgrading",
+    "CA10A1__engineVersion__c": null
+  },
+  {
+    "Id": "missing-status-supported-engine",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "runtimeError": null,
+      "conditionText": "setOfText(['3.5.4', '3.6.1']).contains(extract('CA10A1__engineVersion__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": null,
+    "CA10A1__engineVersion__c": "3.5.4",
+    "CA10A1__instanceClass__c": "dms.r6i.xlarge",
+    "CA10A1__regionName__c": "us-east-1",
+    "CA10A1__multiAz__c": false
+  },
+  {
+    "Id": "missing-status-and-engine-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "201",
+      "runtimeError": null,
+      "conditionText": "CA10A1__engineVersion__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": null,
+    "CA10A1__engineVersion__c": null
+  }
+]

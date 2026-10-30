@@ -7,12 +7,12 @@ importExtracts:
   - file: /types/CA10__CaGoogleBigQueryDataset__c/object.extracts.yaml
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "BigQuery Dataset is encrypted with a KMS Key."
+    currentStateMessage: "The BigQuery dataset is encrypted with a KMS key."
     check:
       NOT_EMPTY:
         arg:
           EXTRACT: "CA10__kmsKeyName__c"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "BigQuery Dataset is not encrypted with a KMS Key."
-  remediationMessage: "Set a KMS key for BigQuery Dataset."
+  currentStateMessage: "The BigQuery dataset is not encrypted with a KMS key."
+  remediationMessage: "Set a KMS key for the BigQuery dataset."

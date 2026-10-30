@@ -1,0 +1,14 @@
+---
+names:
+  full: "Oracle IAM DB Credentials are not rotated every 90 days"
+  contextual: "DB Credentials are not rotated every 90 days"
+description: >
+  Oracle IAM DB Credentials should be rotated at least every 90 days.
+  Stale database passwords increase the exposure window for compromised
+  long-term credentials used to access supported Oracle databases.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cis-oracle-v3.1.0/01/11"
+  - "/frameworks/cloudaware/identity-and-access-governance/credential-lifecycle-management"

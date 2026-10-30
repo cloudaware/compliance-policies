@@ -7,7 +7,7 @@ importExtracts:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Secure transfer required configuration is disabled for the storage account."
-    remediationMessage: "Consider enabling Secure transfer required configuration."
+    remediationMessage: "Enable secure transfer required."
     check:
       IS_EQUAL:
         left:
@@ -16,4 +16,4 @@ conditions:
           BOOLEAN: false
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "Secure transfer required configuration is enabled."
+  currentStateMessage: "Secure transfer required is enabled."

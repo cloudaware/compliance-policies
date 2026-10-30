@@ -1,0 +1,26 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10O1__bootVolumePvEncryptionInTransit__c') == 'Disabled'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test1",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__bootVolumePvEncryptionInTransit__c": "Disabled"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10O1__bootVolumePvEncryptionInTransit__c') == 'Enabled'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test2",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__bootVolumePvEncryptionInTransit__c": "Enabled"
+  }
+]

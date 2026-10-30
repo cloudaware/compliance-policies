@@ -8,8 +8,8 @@ recordTypes:
   - "caWebDistribution"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The CloudFront Distribution is configured to use the default SSL/TLS certificate."
-    remediationMessage: "Configure the Distribution to use a custom SSL/TLS certificate."
+    currentStateMessage: "The CloudFront distribution is configured to use the default SSL/TLS certificate."
+    remediationMessage: "Configure the distribution to use a custom SSL/TLS certificate."
     check:
       IS_EQUAL:
         left:
@@ -18,4 +18,4 @@ conditions:
           BOOLEAN: true
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The CloudFront Distribution uses a custom SSL/TLS certificate."
+  currentStateMessage: "The CloudFront distribution uses a custom SSL/TLS certificate."

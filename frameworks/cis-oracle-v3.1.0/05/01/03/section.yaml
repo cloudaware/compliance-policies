@@ -1,0 +1,12 @@
+---
+name: 5.1.3 Ensure Versioning is Enabled for Object Storage Buckets - Level 2 (Automated)
+description: >
+  A bucket is a logical container for storing objects. Object versioning is
+  enabled at the bucket level and is disabled by default upon creation.
+  Versioning directs Object Storage to automatically create an object version
+  each time a new object is uploaded, an existing object is overwritten, or when
+  an object is deleted. You can enable object versioning at bucket creation time
+  or later.
+similar:
+  internal:
+    - dec-c-c370b3a4

@@ -1,0 +1,38 @@
+---
+inputType: CA10__CaAwsCodeBuildProject__c
+importExtracts:
+  - file: /types/CA10__CaAwsCodeBuildProject__c/object.extracts.yaml
+testData:
+  - file: test-data.json
+# AWS deprecation list:
+# https://docs.aws.amazon.com/codebuild/latest/userguide/deprecated-images.html
+conditions:
+  - status: INCOMPLIANT
+    currentStateMessage: The configured managed image is deprecated by CodeBuild and no longer receives image updates or build-host caching.
+    remediationMessage: Select a current compatible CodeBuild managed image and test the buildspec, dependencies, and artifacts.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: BYTES
+            items:
+              - "aws/codebuild/standard:3.0"
+              - "aws/codebuild/amazonlinux2-x86_64-standard:2.0"
+              - "aws/codebuild/standard:4.0"
+              - "aws/codebuild/amazonlinux2-aarch64-standard:1.0"
+              - "aws/codebuild/amazonlinux2-x86_64-standard:3.0"
+        search:
+          EXTRACT: CA10__environmentImage__c
+  - status: INAPPLICABLE
+    currentStateMessage: The image identifier is outside the AWS CodeBuild managed-image namespace; its lifecycle requires a separate assessment.
+    check:
+      NOT:
+        arg:
+          STARTS_WITH:
+            arg:
+              EXTRACT: CA10__environmentImage__c
+            search:
+              BYTES: "aws/codebuild/"
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: The configured AWS CodeBuild image identifier does not exactly match an image in the reviewed AWS deprecated-image list.

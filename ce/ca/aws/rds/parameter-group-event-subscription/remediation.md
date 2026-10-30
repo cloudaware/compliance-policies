@@ -33,7 +33,7 @@ Configure Amazon RDS event subscriptions to receive notifications for **configur
 
 6. Choose **Create** to create the event subscription.
 
-7. Repeat steps 4–6 to create event subscriptions for other RDS parameter groups in the current AWS Region, if applicable.
+7. Repeat steps 4-6 to create event subscriptions for other RDS parameter groups in the current AWS Region, if applicable.
 
 8. Switch to other AWS Regions from the console and repeat this remediation process as required.
 
@@ -99,6 +99,6 @@ Configure Amazon RDS event subscriptions to receive notifications for **configur
     }
     ```
 
-7. Repeat steps 1–6 for additional RDS parameter groups in the same AWS Region, if required.
+7. Repeat steps 1-6 for additional RDS parameter groups in the same AWS Region, if required.
 
 8. Update the `--region` parameter and repeat the remediation steps for other AWS Regions.

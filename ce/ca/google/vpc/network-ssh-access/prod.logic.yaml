@@ -5,8 +5,8 @@ testData:
   - file: test-data.json
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Network has GCE Firewall Rules allow unrestricted SSH access."
-    remediationMessage: "Modify the firewall rule to remove unrestricted access."
+    currentStateMessage: "The network has firewall rules that allow unrestricted SSH access."
+    remediationMessage: "Restrict SSH access in firewall rules."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
@@ -43,8 +43,8 @@ relatedLists:
                   right:
                     TEXT: "::/0"
       - status: "INCOMPLIANT"
-        currentStateMessage: "The firewall rule is insecure."
-        remediationMessage: "Modify firewall rule to restrict SSH access."
+        currentStateMessage: "The firewall rule allows unrestricted SSH access."
+        remediationMessage: "Restrict SSH access in the firewall rule."
         check:
           GREATER_THAN:
             left:

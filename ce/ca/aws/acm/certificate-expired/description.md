@@ -1,6 +1,6 @@
 # Description
 
-Ensure that all expired Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates in AWS Certificate Manager (ACM) are removed. AWS Certificate Manager is a service that allows easy provisioning, management, and deployment of SSL/TLS certificates for use with other Amazon services like Elastic Load Balancing (ELB) and CloudFront.
+Ensure that all expired Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates in AWS Certificate Manager (ACM) are removed. AWS Certificate Manager is a service that enables easy provisioning, management, and deployment of SSL/TLS certificates for use with other Amazon services such as Elastic Load Balancing (ELB) and CloudFront.
 
 ## Rationale
 
@@ -8,6 +8,6 @@ Removing expired certificates enhances security and helps maintain compliance wi
 
 ## Audit
 
-This policy will mark a certificate as `INCOMPLIANT` if the `Status` field is set to `EXPIRED`.
+This policy flags an *AWS ACM Certificate* as `INCOMPLIANT` if the `Status` field is set to **EXPIRED**.
 
-Empty `Status` indicates that there is a possible permission issue with `acm:DescribeCertificate` API call and the object will be marked as `UNDETERMINED`.
+An empty `Status` may indicate a permission issue with the `acm:DescribeCertificate` API call, and the object will be marked as `UNDETERMINED`.

@@ -8,7 +8,7 @@ It is recommended to only allow an administrator to register custom-developed ap
 
 ## Impact
 
-Enforcing this setting will create additional requests for approval that will need to be addressed by an administrator. If permissions are delegated, a user may approve a malevolent third party application, potentially giving it access to your data.
+Enforcing this setting will create additional requests for approval that will need to be addressed by an administrator. If permissions are delegated, a user may approve a malicious third-party application, potentially giving it access to your data.
 
 ## Audit
 

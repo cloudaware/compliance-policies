@@ -1,0 +1,62 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-01-07T07:54:04Z" },
+    "CA10__disappearanceTime__c": "2025-12-29T17:28:56Z",
+    "CA10__type__c": "classic",
+    "CA10__connectionDrainingEnabled__c": false,
+    "Id": "001",
+    "RecordTypeId": "Rt_001",
+    "RecordType": { "Id": "Rt_001" }
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__type__c') != 'classic'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-01-07T07:54:04Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__type__c": "application",
+    "CA10__connectionDrainingEnabled__c": false,
+    "Id": "002",
+    "RecordTypeId": "Rt_001",
+    "RecordType": { "Id": "Rt_001" }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__connectionDrainingEnabled__c') == false",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-01-07T07:54:04Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__type__c": "classic",
+    "CA10__connectionDrainingEnabled__c": false,
+    "Id": "003",
+    "RecordTypeId": "Rt_001",
+    "RecordType": { "Id": "Rt_001" }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__connectionDrainingEnabled__c') == true",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-01-07T07:54:04Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__type__c": "classic",
+    "CA10__connectionDrainingEnabled__c": true,
+    "Id": "004",
+    "RecordTypeId": "Rt_001",
+    "RecordType": { "Id": "Rt_001" }
+  }
+]

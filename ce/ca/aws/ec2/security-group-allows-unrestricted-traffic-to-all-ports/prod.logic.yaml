@@ -4,16 +4,15 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "There are rules that open common ports to the inbound connections"
-    remediationMessage: "Remove the rules or adjust them to accept connections from\
-      \ narrower CIDRs"
+    currentStateMessage: "At least one rule opens common ports to inbound connections."
+    remediationMessage: "Remove these rules or narrow them to specific CIDRs."
     check:
       RELATED_LIST_HAS:
         relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
         status: "INCOMPLIANT"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "Group has no rules that open common ports to the internet"
+  currentStateMessage: "The security group has no rules that open common ports to the internet."
 relatedLists:
   - relationshipName: "CA10__AWS_EC2_Security_Group_Rules__r"
     importExtracts:
@@ -28,7 +27,7 @@ relatedLists:
             right:
               TEXT: "Inbound"
       - status: "INAPPLICABLE"
-        currentStateMessage: "This is not an IP source based security group rule."
+        currentStateMessage: "This is not an IP-based security group rule."
         check:
           NOT_EQUAL:
             left:
@@ -51,9 +50,8 @@ relatedLists:
                   right:
                     TEXT: "::/0"
       - status: "INCOMPLIANT"
-        currentStateMessage: "Rule opens all protocols and all ports to the internet"
-        remediationMessage: "Remove the rule or narrow it down to a specific port,\
-          \ protocol and CIDR"
+        currentStateMessage: "This rule opens all protocols and all ports to the internet."
+        remediationMessage: "Remove the rule or narrow it to a specific port, protocol, and CIDR."
         check:
           AND:
             args:
@@ -69,9 +67,8 @@ relatedLists:
                   arg:
                     EXTRACT: "CA10__toPort__c"
       - status: "INCOMPLIANT"
-        currentStateMessage: "Rule opens all protocols and all ports to the internet"
-        remediationMessage: "Remove the rule or narrow it down to a specific port,\
-          \ protocol and CIDR"
+        currentStateMessage: "This rule opens all protocols and all ports to the internet."
+        remediationMessage: "Remove the rule or narrow it to a specific port, protocol, and CIDR."
         check:
           AND:
             args:
@@ -92,4 +89,5 @@ relatedLists:
                     NUMBER: 65535.0
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "This Security Group doesn't allow unrestricted access."
+      currentStateMessage: "This security group does not allow unrestricted access."
+

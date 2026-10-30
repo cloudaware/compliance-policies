@@ -6,7 +6,7 @@ testData:
   - file: 'test-data.json'
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The Instance is not running."
+    currentStateMessage: "The instance is not running."
     check:
       NOT_EQUAL:
         left:
@@ -23,7 +23,7 @@ conditions:
             arg:
               EXTRACT: "CA10__createTime__c"
   - status: "UNDETERMINED"
-    currentStateMessage: "There is not enough data in the CMDB to identify if the instance is idle."
+    currentStateMessage: "There is not enough data in the CMDB to determine whether the instance is underutilized."
     check:
       OR:
         args:
@@ -40,7 +40,7 @@ conditions:
               arg:
                 EXTRACT: "CA10__diskWriteIoOpsRate30Day__c"
   - status: "INAPPLICABLE"
-    currentStateMessage: "The Instance is idle and considered by the 'Google Cloud SQL Instance is idle' policy."
+    currentStateMessage: "The instance is idle and is evaluated by the Google Cloud SQL instance idle policy."
     check:
       AND:
         args:
@@ -55,8 +55,8 @@ conditions:
               right:
                 NUMBER: 0.0
   - status: INCOMPLIANT
-    currentStateMessage: "The Instance is underutilized with CPU Utilization < 20%, Memory Utilization < 40%, and Disk < 50 IOPS."
-    remediationMessage: "Consider rightsizing or consolidating the instance."
+    currentStateMessage: "The instance is underutilized with CPU utilization < 20%, memory utilization < 40%, and disk < 50 IOPS."
+    remediationMessage: "Rightsize or consolidate the instance."
     check:
       AND:
         args:
@@ -82,4 +82,8 @@ conditions:
                 NUMBER: 50.0
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Instance is not underutilized."
+  currentStateMessage: "The instance is not underutilized."
+
+
+
+

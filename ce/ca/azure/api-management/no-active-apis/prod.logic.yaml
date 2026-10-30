@@ -1,0 +1,64 @@
+---
+inputType: "CA10Z1__CaAzureApiManagementService__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10Z1__CaAzureApiManagementService__c/object.extracts.yaml"
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "Provisioning state is unavailable."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10Z1__provisioningState__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The API Management service is not successfully provisioned."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__provisioningState__c"
+        right:
+          TEXT: "Succeeded"
+  - status: "UNDETERMINED"
+    currentStateMessage: "SKU is unavailable."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10Z1__skuName__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The API Management service uses the Consumption tier."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__skuName__c"
+        right:
+          TEXT: "Consumption"
+  - status: "UNDETERMINED"
+    currentStateMessage: "Creation time is unavailable."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10Z1__createdAtUtc__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The API Management service is within its first 30 days."
+    check:
+      IS_WITHIN_LAST_DAYS:
+        offsetDays: 30
+        arg:
+          EXTRACT: "CA10Z1__createdAtUtc__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The non-Consumption API Management service has no active APIs."
+    remediationMessage: "Verify the API inventory in Azure, then remove the service if it is unused."
+    check:
+      RELATED_LIST_HAS_NO:
+        status: "COMPLIANT"
+        relationshipName: "CA10Z1__Azure_API_Management_APIs__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The non-Consumption API Management service has at least one active API."
+relatedLists:
+  - relationshipName: "CA10Z1__Azure_API_Management_APIs__r"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This API record is active in Cloudaware CMDB."

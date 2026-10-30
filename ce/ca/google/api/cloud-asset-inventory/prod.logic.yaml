@@ -7,7 +7,7 @@ importExtracts:
   - file: /types/CA10__CaGoogleProject__c/object.extracts.yaml
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "Cloud Asset Inventory is enabled "
+    currentStateMessage: "Cloud Asset Inventory is enabled."
     check:
       CONTAINS:
         arg:
@@ -16,4 +16,5 @@ conditions:
           TEXT: 'cloudasset.googleapis.com'
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "Cloud Asset Inventory is not enabled"
+  currentStateMessage: "Cloud Asset Inventory is not enabled."
+  remediationMessage: "Enable Cloud Asset Inventory for the project."

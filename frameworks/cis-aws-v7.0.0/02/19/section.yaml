@@ -1,0 +1,12 @@
+---
+name: 2.19 Ensure IAM users are managed centrally via identity federation or AWS Organizations for multi-account environments (Manual)
+description: >
+  In multi-account environments, IAM user centralization facilitates greater user control.
+  User access beyond the initial account is provided through role assumption.
+  Centralization of users can be accomplished through federation with an external identity
+  provider or through the use of AWS Organizations. AWS IAM Identity Center (formerly
+  AWS SSO) is the recommended approach for centralized user management in AWS
+  Organizations.
+similar:
+  sections:
+    - /frameworks/cis-aws-v6.0.0/02/20

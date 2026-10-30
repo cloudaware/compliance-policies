@@ -1,6 +1,6 @@
 # Remediation
 
-## From Azure Console
+## From Azure Portal
 
 1. Go to `SQL servers`.
 2. For each SQL server, under `Security`, click `Transparent data encryption`.
@@ -11,18 +11,26 @@
 
 ## From Azure CLI
 
-Use the below command to encrypt SQL server's TDE protector with a Customer-managed key:
+Use the following command to encrypt the SQL server TDE protector with a customer-managed key:
 
 ```sh
-az sql server tde-key set --resource-group <resourceName> --server <dbServerName> --server-key-type {AzureKeyVault} --kid <keyIdentifier>
+az sql server tde-key set \
+    --resource-group {{resource-group-name}} \
+    --server {{server-name}} \
+    --server-key-type AzureKeyVault \
+    --kid {{key-identifier}}
 ```
 
 ## From PowerShell
 
-Use the below command to encrypt SQL server's TDE protector with a Customer-managed Key Vault key:
+Use the following command to encrypt the SQL server TDE protector with a customer-managed Key Vault key:
 
 ```ps
-Set-AzSqlServerTransparentDataEncryptionProtector -Type AzureKeyVault -KeyId <KeyIdentifier> -ServerName <ServerName> -ResourceGroupName <ResourceGroupName>
+Set-AzSqlServerTransparentDataEncryptionProtector `
+    -Type AzureKeyVault `
+    -KeyId {{key-identifier}} `
+    -ServerName {{server-name}} `
+    -ResourceGroupName {{resource-group-name}}
 ```
 
 Select `Y` when prompted.

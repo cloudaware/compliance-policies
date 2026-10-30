@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS RDS Aurora Cluster Multi-AZ Deployment is not enabled"
+  contextual: "Aurora Cluster Multi-AZ Deployment is not enabled"
+description: >
+  Amazon Aurora clusters should be configured for Multi-AZ deployment. Multi-AZ 
+  deployment provides high availability and fault tolerance by automatically failing 
+  over to a replica in a different Availability Zone if the primary instance fails.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/15"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[RDS.15] RDS DB clusters should be configured for multiple Availability Zones"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-15"

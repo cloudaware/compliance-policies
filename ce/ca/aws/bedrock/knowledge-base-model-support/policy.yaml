@@ -1,0 +1,13 @@
+---
+names:
+  full: AWS Bedrock Knowledge Base should use an Active embedding model
+  contextual: Knowledge Base should use an Active embedding model
+description: >
+  Ensure that the foundation embedding model configured for an Amazon Bedrock
+  knowledge base is Active rather than Legacy to plan migration before regional
+  model retirement disrupts ingestion or retrieval.
+type: BEST_PRACTICE
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization

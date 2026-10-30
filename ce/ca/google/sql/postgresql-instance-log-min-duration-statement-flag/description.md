@@ -21,15 +21,18 @@ Turning on logging will increase the required storage over time. Mismanaged logs
 
 ### From Google Cloud CLI
 
-1. Use the below command for every Cloud SQL PostgreSQL database instance to verify the value of `log_min_duration_statement` is set to `-1`.
+1. Use the following command for every Cloud SQL PostgreSQL database instance to verify that the value of `log_min_duration_statement` is set to `-1`.
 
-            gcloud sql instances describe <INSTANCE_NAME> --format=json| jq '.settings.databaseFlags[] | select(.name=="log_min_duration_statement")|.value'
+    ```sh
+    gcloud sql instances describe {{instance-name}} \
+        --format=json | jq '.settings.databaseFlags[] | select(.name=="log_min_duration_statement") | .value'
+    ```
 
-In the output, database flags are listed under the `settings` as the collection `databaseFlags`.
+In the output, database flags are listed under `settings` as the `databaseFlags` collection.
 
 ## Default Value
 
-By default `log_min_duration_statement` is `-1`.
+By default, `log_min_duration_statement` is `-1`.
 
 ## References
 

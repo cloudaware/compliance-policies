@@ -8,8 +8,8 @@ description: Ensure that virtual network flow logs are captured and fed into a c
 impossible: true
 type: COMPLIANCE_POLICY
 categories:
-  - SECURITY
-  - RELIABILITY
+  - "SECURITY"
+  - "RELIABILITY"
 frameworkMappings:
-  - "/frameworks/cis-azure-v5.0.0/06/01/01/07"
+  - "/frameworks/cis-azure-v6.0.0/06/01/01/06"
   - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"

@@ -1,0 +1,10 @@
+---
+names:
+  full: "Azure Savings Plan expired in the last 30 days"
+  contextual: "Savings Plan expired in the last 30 days"
+description: "Identify successfully provisioned Azure Savings Plans that expired within the last 30 days so their renewal intent and replacement coverage can be reviewed."
+categories:
+  - "COST"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-optimization"

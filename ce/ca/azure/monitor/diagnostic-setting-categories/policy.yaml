@@ -8,10 +8,10 @@ description: The diagnostic setting should be configured to log the appropriate 
   from the control/management plane.
 type: COMPLIANCE_POLICY
 categories:
-  - SECURITY
-  - RELIABILITY
+  - "SECURITY"
+  - "RELIABILITY"
 frameworkMappings:
-  - "/frameworks/cis-azure-v5.0.0/06/01/01/02"
+  - "/frameworks/cis-azure-v6.0.0/06/01/01/02"
   - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
 similarPolicies:
   internal:

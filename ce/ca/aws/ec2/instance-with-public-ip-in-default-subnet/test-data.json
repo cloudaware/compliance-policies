@@ -78,7 +78,7 @@
         "expectedResult": {
             "status": "COMPLIANT",
             "conditionIndex": "499",
-            "conditionText": "CA10__vpcSubnet__r.CA10__defaultForAz__c == false",
+            "conditionText": "extract('CA10__vpcSubnet__r.CA10__defaultForAz__c') == false",
             "runtimeError": null
         },
         "context": {
@@ -101,7 +101,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "599",
-            "conditionText": "CA10__vpcSubnet__r.CA10__mapPublicIpOnLaunch__c == true",
+            "conditionText": "extract('CA10__vpcSubnet__r.CA10__mapPublicIpOnLaunch__c') == true",
             "runtimeError": null
         },
         "context": {

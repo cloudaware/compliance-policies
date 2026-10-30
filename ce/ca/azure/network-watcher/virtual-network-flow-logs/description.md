@@ -1,6 +1,6 @@
 # Description
 
-Ensure that virtual network flow logs are captured and fed into a central log analytics workspace.
+Ensure that virtual network flow logs are captured and sent to a central Log Analytics workspace.
 
 ## Rationale
 

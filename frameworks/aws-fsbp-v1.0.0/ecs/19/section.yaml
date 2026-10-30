@@ -1,0 +1,11 @@
+name: "[ECS.19] ECS capacity providers should have managed termination protection enabled"
+description: |-
+  Amazon ECS capacity providers manage the scaling of infrastructure for tasks in 
+  your clusters. When you use EC2 instances for your capacity, you use Auto Scaling 
+  group to manage the EC2 instances. Managed termination protection allows cluster 
+  auto scaling to control which instances are terminated. When you used managed 
+  termination protection, Amazon ECS only terminates EC2 instances that don't have 
+  any running Amazon ECS tasks.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ecs-controls.html#ecs-19

@@ -7,7 +7,7 @@ importExtracts:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "This certificate is expired."
-    remediationMessage: "Delete, re-import or renew the expired certificate."
+    remediationMessage: "Remove, re-import, or renew the expired certificate."
     check:
       IS_EQUAL:
         left:

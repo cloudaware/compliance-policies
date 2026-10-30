@@ -1,6 +1,6 @@
 ---
 name: "8.3.7 Ensure Public Network Access is Disabled (Automated)"
-description: >
+description: |-
   Disable public network access to prevent exposure to the internet and reduce the risk of 
   unauthorized access. Use private endpoints to securely manage access within trusted networks.
 
@@ -16,3 +16,4 @@ description: >
 similar:
   sections:
     - "/frameworks/cis-azure-v4.0.0/09/03/07"
+    - "/frameworks/cis-azure-v6.0.0/08/03/07"

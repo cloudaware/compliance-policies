@@ -19,16 +19,21 @@ Removing the external IP address from your Compute instance may cause some appli
 
 ### From Google Cloud CLI
 
-            gcloud compute instances list --format=json
+```sh
+gcloud compute instances list \
+    --format=json
+```
 
 1. The output should not contain an `accessConfigs` section under `networkInterfaces`. Note that the `natIP` value is present only for instances that are running or for instances that are stopped but have a static IP address. For instances that are stopped and are configured to have an ephemeral public IP address, the `natIP` field will not be present. Example output:
 
-            networkInterfaces: 
-            - accessConfigs: 
-                - kind: compute#accessConfig 
-                  name: External NAT 
-                  networkTier: STANDARD 
-                  type: ONE_TO_ONE_NAT
+    ```txt
+    networkInterfaces: 
+    - accessConfigs: 
+        - kind: compute#accessConfig 
+            name: External NAT 
+            networkTier: STANDARD 
+            type: ONE_TO_ONE_NAT
+    ```
 
 ## Exception
 

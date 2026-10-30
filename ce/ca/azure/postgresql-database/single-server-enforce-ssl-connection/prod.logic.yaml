@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10Z1__CaAzurePostgreSqlServer__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This is not a Single Server deployment mode."
+    currentStateMessage: "This is not the single server deployment mode."
     check:
       NOT_EQUAL:
         left:
@@ -14,8 +14,8 @@ conditions:
         right:
           TEXT: "Single"
   - status: "INCOMPLIANT"
-    currentStateMessage: "PostgreSQL Server SSL Enforcement is disabled."
-    remediationMessage: "Consider enabling PostgreSQL Server SSL Enforcement."
+    currentStateMessage: "PostgreSQL single server SSL enforcement is disabled."
+    remediationMessage: "Enable SSL enforcement on the PostgreSQL server."
     check:
       IS_EQUAL:
         left:
@@ -23,7 +23,7 @@ conditions:
         right:
           TEXT: "Disabled"
   - status: "COMPLIANT"
-    currentStateMessage: "PostgreSQL Server SSL Enforcement is enabled."
+    currentStateMessage: "PostgreSQL single server SSL enforcement is enabled."
     check:
       IS_EQUAL:
         left:

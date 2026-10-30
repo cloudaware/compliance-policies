@@ -1,0 +1,13 @@
+---
+names:
+  full: "Azure Cosmos DB Account analytical storage uses periodic backup"
+  contextual: "Account analytical storage uses periodic backup"
+description: >
+  Identify Azure Cosmos DB accounts with analytical storage and periodic backup
+  for cost-optimization review; continuous backup may be more cost-effective for
+  eligible Synapse Link or Fabric Mirroring workloads.
+type: "BEST_PRACTICE"
+categories:
+  - "COST"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-optimization"

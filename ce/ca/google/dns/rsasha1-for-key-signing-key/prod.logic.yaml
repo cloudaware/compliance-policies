@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10__CaGoogleDnsManagedZone__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "Only applicable to public DNS Managed Zones."
+    currentStateMessage: "Only applicable to public DNS managed zones."
     check:
       NOT_EQUAL:
         left:
@@ -14,7 +14,8 @@ conditions:
         right:
           TEXT: "public"
   - status: "INCOMPLIANT"
-    currentStateMessage: "DNSSEC is not enabled for the public DNS Managed Zone."
+    currentStateMessage: "DNSSEC is not enabled for the public DNS managed zone."
+    remediationMessage: "Enable DNSSEC for the public DNS managed zone."
     check:
       NOT_EQUAL:
         left:
@@ -22,8 +23,8 @@ conditions:
         right:
           TEXT: "on"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Managed Zone uses the RSASHA1 algorithm for the Key-Signing Key."
-    remediationMessage: "Change the DNSSEC Configuration for the Managed Zone."
+    currentStateMessage: "The managed zone uses the RSASHA1 algorithm for the key-signing key."
+    remediationMessage: "Update the DNSSEC configuration for the managed zone."
     check:
       CONTAINS:
         arg:
@@ -32,4 +33,4 @@ conditions:
           TEXT: "rsasha1"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The public Managed Zone doesn't use the RSASHA1 algorithm for the Key-Signing Key."
+  currentStateMessage: "The public managed zone does not use the RSASHA1 algorithm for the key-signing key."

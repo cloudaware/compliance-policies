@@ -6,7 +6,7 @@ importExtracts:
   - file: /types/CA10__CaAwsAccount__c/object.extracts.yaml
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "IAM Access analyzer is enabled for all regions."
+    currentStateMessage: "IAM Access Analyzer is enabled in all regions."
     check:
           IS_EQUAL:
             left:
@@ -19,15 +19,15 @@ conditions:
                 relationshipName: "CA10__AWS_Account_Regions__r"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "IAM Access analyzer is not enabled for all regions."
-  remediationMessage: "Configure the IAM Access analyzer in each active region."
+  currentStateMessage: "IAM Access Analyzer is not enabled in all regions."
+  remediationMessage: "Enable IAM Access Analyzer in each active region."
 relatedLists:
   - relationshipName: "CA10A1__AWS_IAM_Access_Analyzers__r"
     importExtracts:
       - file: /types/CA10A1__CaAwsIamAccessAnalyzer__c/object.extracts.yaml
     conditions:      
       - status: "INAPPLICABLE"
-        currentStateMessage: "This is not an External Access Analyzer."
+        currentStateMessage: "This is not an external access analyzer."
         check:
           AND:
             args:
@@ -42,7 +42,7 @@ relatedLists:
                   right:
                     TEXT: "ORGANIZATION"
       - status: "COMPLIANT"
-        currentStateMessage: "Active AWS IAM External Access Analyzer."
+        currentStateMessage: "Active IAM external access analyzer."
         check:
             IS_EQUAL:
               left:
@@ -51,13 +51,13 @@ relatedLists:
                 TEXT: "ACTIVE"
     otherwise:
       status: "INAPPLICABLE"
-      currentStateMessage: "There is no active AWS IAM External Access Analyzer."
+      currentStateMessage: "There is no active IAM external access analyzer."
   - relationshipName: "CA10__AWS_Account_Regions__r"
     importExtracts:
       - file: /types/CA10__CaAwsAccountRegion__c/object.extracts.yaml
     conditions:      
     - status: "COMPLIANT"
-      currentStateMessage: "Active AWS Account Region."
+      currentStateMessage: "Active AWS account region."
       check:
           NOT_EQUAL:
             left:
@@ -66,4 +66,4 @@ relatedLists:
               TEXT: "not-opted-in"
     otherwise:
       status: "INAPPLICABLE"
-      currentStateMessage: "This AWS Account Region not active."
+      currentStateMessage: "This AWS account region is not active."

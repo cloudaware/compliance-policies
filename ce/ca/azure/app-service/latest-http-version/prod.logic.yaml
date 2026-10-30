@@ -6,8 +6,8 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "App Service HTTP 2.0 version is not enabled."
-    remediationMessage: "Consider enabling HTTP 2.0 version."
+    currentStateMessage: "App Service HTTP/2 is not enabled."
+    remediationMessage: "Enable HTTP/2."
     check:
       IS_EQUAL:
         left:
@@ -15,7 +15,7 @@ conditions:
         right:
           TEXT: "Disabled"
   - status: "COMPLIANT"
-    currentStateMessage: "App Service HTTP 2.0 version is enabled."
+    currentStateMessage: "App Service HTTP/2 is enabled."
     check:
       IS_EQUAL:
         left:

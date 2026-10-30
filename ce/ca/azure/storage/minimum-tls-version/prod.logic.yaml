@@ -6,8 +6,8 @@ importExtracts:
   - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "This Storage Account uses legacy protocol TLS 1.0."
-    remediationMessage: "Consider setting 'Minimum TLS version' to TLS 1.2."
+    currentStateMessage: "This storage account uses legacy TLS 1.0."
+    remediationMessage: "Set the minimum TLS version to TLS 1.2."
     check:
       IS_EQUAL:
         left:
@@ -15,8 +15,8 @@ conditions:
         right:
           TEXT: "TLS1_0"
   - status: "INCOMPLIANT"
-    currentStateMessage: "This Storage Account uses legacy protocol TLS 1.1."
-    remediationMessage: "Consider setting 'Minimum TLS version' to TLS 1.2."
+    currentStateMessage: "This storage account uses legacy TLS 1.1."
+    remediationMessage: "Set the minimum TLS version to TLS 1.2."
     check:
       IS_EQUAL:
         left:
@@ -24,7 +24,7 @@ conditions:
         right:
           TEXT: "TLS1_1"
   - status: "COMPLIANT"
-    currentStateMessage: "The Minimum TLS version is set to TLS 1.2."
+    currentStateMessage: "The minimum TLS version is set to TLS 1.2."
     check:
       IS_EQUAL:
         left:

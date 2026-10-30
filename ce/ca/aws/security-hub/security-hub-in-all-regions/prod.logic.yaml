@@ -4,7 +4,7 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Account does not have any Security Hubs enabled."
+    currentStateMessage: "The account does not have Security Hub enabled in any region."
     check:
       IS_EQUAL:
         left:
@@ -40,7 +40,7 @@ conditions:
 otherwise:
   status: "INCOMPLIANT"
   currentStateMessage: "Security Hub is not enabled in all active regions."
-  remediationMessage: "Consider enabling Security Hub in all active regions."
+  remediationMessage: "Enable Security Hub in all active regions."
 relatedLists:
   - relationshipName: "CA10A1__AWS_Security_Hubs__r"
     conditions: []
@@ -52,7 +52,7 @@ relatedLists:
       - file: /types/CA10__CaAwsAccountRegion__c/object.extracts.yaml
     conditions:
     - status: "COMPLIANT"
-      currentStateMessage: "Active AWS Account Region."
+      currentStateMessage: "Active AWS account region."
       check:
         NOT_EQUAL:
           left:
@@ -61,4 +61,4 @@ relatedLists:
             TEXT: "not-opted-in"
     otherwise:
       status: "INAPPLICABLE"
-      currentStateMessage: "This AWS Account Region is not active."
+      currentStateMessage: "This AWS account region is not active."

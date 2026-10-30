@@ -1,0 +1,27 @@
+---
+inputType: "CA10A1__CaAwsDmsReplicationInstance__c"
+importExtracts:
+  - file: "/types/CA10A1__CaAwsDmsReplicationInstance__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Multi-AZ deployment is not enabled for the DMS replication instance."
+    remediationMessage: "Enable Multi-AZ deployment for this DMS replication instance."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10A1__multiAz__c"
+        right:
+          BOOLEAN: false
+  - status: "COMPLIANT"
+    currentStateMessage: "Multi-AZ deployment is enabled for the DMS replication instance."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10A1__multiAz__c"
+        right:
+          BOOLEAN: true
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "The Multi-AZ deployment state for the DMS replication instance could not be determined."

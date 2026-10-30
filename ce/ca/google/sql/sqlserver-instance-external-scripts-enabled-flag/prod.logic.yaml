@@ -17,7 +17,7 @@ conditions:
             search:
               TEXT: "SQLSERVER" 
   - status: "COMPLIANT"
-    currentStateMessage: "external scripts enabled database flag is set to off."
+    currentStateMessage: "The external scripts enabled database flag is set to off."
     check:
       IS_EQUAL:
         left:
@@ -26,5 +26,9 @@ conditions:
           TEXT: "off"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "external scripts enabled database flag isn't set to off."
+  currentStateMessage: "The external scripts enabled database flag is not set to off."
   remediationMessage: "Set external scripts enabled database flag to off."
+
+
+
+

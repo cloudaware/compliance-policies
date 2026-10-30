@@ -16,7 +16,7 @@ This policy flagged an *Google GCE Instance* as `INCOMPLIANT` if it is **running
 
 | Region                                                                  | Recommended Alternative               |
 | ----------------------------------------------------------------------- | ------------------------------------- |
-| `us-west2`,<br>`us-west3`,<br>`us-west4`                                | `us-west1`                            |
-| `us-south1`,<br>`northamerica-northeast1`,<br>`northamerica-northeast2` | `us-east1`, `us-east5`, `us-central1` |
-| `europe-north1`,<br>`europe-southwest1`,<br>`europe-west1`,<br>`europe-west12`,<br>`europe-west2`,<br>`europe-west3`,<br>`europe-west6`,<br>`europe-west8`,<br>`europe-west9`|`europe-north2`, `europe-west4`|
+| `us-west2`,{{br}}`us-west3`,{{br}}`us-west4`                                | `us-west1`                            |
+| `us-south1`,{{br}}`northamerica-northeast1`,{{br}}`northamerica-northeast2` | `us-east1`, `us-east5`, `us-central1` |
+| `europe-north1`,{{br}}`europe-southwest1`,{{br}}`europe-west1`,{{br}}`europe-west12`,{{br}}`europe-west2`,{{br}}`europe-west3`,{{br}}`europe-west6`,{{br}}`europe-west8`,{{br}}`europe-west9` | `europe-north2`, `europe-west4` |
 | `australia-southeast2`                                                  | `australia-southeast1`                |

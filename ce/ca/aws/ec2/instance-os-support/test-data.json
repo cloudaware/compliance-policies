@@ -1,0 +1,920 @@
+[
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "supported-after-eoas",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "899",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').afterToday()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2024-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": "2029-05-31T00:00:00Z",
+    "Id": "extended-eligible-not-entitled",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "999",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').beforeToday() && extract('CA10__osInfoEoesFrom__c').isNotEmpty() && extract('CA10__osInfoEoesFrom__c').afterToday()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": null,
+    "CA10__osInfoMaintained__c": "No",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "not-maintained",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__osInfoMaintained__c') == 'No'",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2026-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "ordinary-eol-without-extension",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "1099",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').beforeToday()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2020-11-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": "2024-06-30T00:00:00Z",
+    "Id": "final-support-ended",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "699",
+      "conditionText": "extract('CA10__osInfoEoesFrom__c').isNotEmpty() && extract('CA10__osInfoEoesFrom__c').beforeToday()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2029-06-30T00:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "eol-exact-boundary",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "1100",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2029-06-29T23:59:59Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "eol-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "899",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').afterToday()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2024-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": "2026-10-23T00:00:00Z",
+    "Id": "eoes-exact-boundary",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "1099",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').beforeToday()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": null,
+    "CA10__osInfoMaintained__c": "",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "missing-lincoln-enrichment",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__osInfoSource__c').isEmpty()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": null,
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "missing-source-with-dates",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__osInfoSource__c').isEmpty()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "ami",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "alternate-source-with-valid-lifecycle",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "899",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').afterToday()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "missing-maintained",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "301",
+      "conditionText": "CA10__osInfoMaintained__c.isEmpty()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "unknown",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "malformed-maintained",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__osInfoMaintained__c') != 'Yes'",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": null,
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": "2030-01-01T00:00:00Z",
+    "Id": "unknown-eol-extended-future",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "799",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').isEmpty()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": null,
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "missing-state",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "101",
+      "conditionText": "CA10__stateName__c.isEmpty()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "unknown",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "unknown-state",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "899",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').afterToday()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "stopped",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "stopped-supported",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "899",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').afterToday()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "No",
+    "CA10__stateName__c": "stopped",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "stopped-eol",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__osInfoMaintained__c') == 'No'",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "terminated",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "terminated",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "setOfText(['terminated', 'shutting-down']).contains(extract('CA10__stateName__c'))",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "shutting-down",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "shutting-down",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "setOfText(['terminated', 'shutting-down']).contains(extract('CA10__stateName__c'))",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": "2026-10-22T00:00:00Z",
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "disappeared",
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": "2024-06-30T00:00:00Z",
+    "Id": "inconsistent-eoes-before-eol",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "extract('CA10__osInfoEoesFrom__c').isNotEmpty() && extract('CA10__osInfoEolFrom__c').isNotEmpty() && extract('CA10__osInfoEolFrom__c').afterToday() && not(extract('CA10__osInfoEoesFrom__c').afterToday())",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "inventory-provider",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2026-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "alternate-source-past-eol",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "1099",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').beforeToday()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "inventory-provider",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": null,
+    "CA10__osInfoMaintained__c": "No",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "alternate-source-not-maintained",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__osInfoMaintained__c') == 'No'",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2020-01-01T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "missing-source-with-expired-lifecycle",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__osInfoSource__c').isEmpty()",
+      "runtimeError": null
+    },
+    "CA10__osInfoSource__c": null
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "inventory-provider",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": null,
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "alternate-source-missing-eol",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "799",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').isEmpty()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "   ",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "whitespace-source-with-valid-lifecycle",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__osInfoSource__c').isEmpty()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": null,
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2024-01-09T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": "2024-06-30T00:00:00Z",
+    "Id": "final-support-ended-without-ordinary-eol",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "699",
+      "conditionText": "extract('CA10__osInfoEoesFrom__c').isNotEmpty() && extract('CA10__osInfoEoesFrom__c').beforeToday()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2028-10-26T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2027-06-30T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "al2023-maintenance-phase-supported",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "899",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').afterToday()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2027-01-12T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2022-01-11T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": "2030-01-12T00:00:00Z",
+    "Id": "windows2016-after-mainstream-support",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "899",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').afterToday()",
+      "runtimeError": null
+    },
+    "CA10__platformDetails__c": "Windows BYOL"
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2024-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2027-06-30T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": "2029-05-31T00:00:00Z",
+    "Id": "rhel79-els-available-entitlement-unknown",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "999",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').beforeToday() && extract('CA10__osInfoEoesFrom__c').isNotEmpty() && extract('CA10__osInfoEoesFrom__c').afterToday()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2029-07-01T00:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2027-06-30T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "eol-day-after",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "1099",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').beforeToday()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2029-06-30T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2027-06-30T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": "2033-05-31T00:00:00Z",
+    "Id": "eol-transition-with-extended-window",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "1100",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2029-06-30T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "No",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2027-06-30T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "eol-transition-explicitly-unmaintained",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__osInfoMaintained__c') == 'No'",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2024-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2027-06-30T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": "2026-10-27T00:00:00Z",
+    "Id": "eoes-day-before",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "999",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').beforeToday() && extract('CA10__osInfoEoesFrom__c').isNotEmpty() && extract('CA10__osInfoEoesFrom__c').afterToday()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2024-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2027-06-30T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": "2026-10-25T00:00:00Z",
+    "Id": "eoes-day-after",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "699",
+      "conditionText": "extract('CA10__osInfoEoesFrom__c').isNotEmpty() && extract('CA10__osInfoEoesFrom__c').beforeToday()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": null,
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2027-06-30T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": "2026-10-26T00:00:00Z",
+    "Id": "eoes-transition-missing-ordinary-eol",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "799",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').isEmpty()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2027-06-30T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "private-old-image-current-guest-supported",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "899",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').afterToday()",
+      "runtimeError": null
+    },
+    "CA10__platformDetails__c": "Linux/UNIX",
+    "CA10__image__c": "synthetic-private-image",
+    "CA10__image__r": {
+      "Id": "synthetic-private-image",
+      "CA10__creationDate__c": "2018-01-01T00:00:00Z",
+      "CA10__platformDetails__c": "Linux/UNIX",
+      "CA10__disappearanceTime__c": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2027-06-30T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "missing-image-supported-guest",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "899",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').afterToday()",
+      "runtimeError": null
+    },
+    "CA10__image__c": null
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2026-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2027-06-30T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "deleted-image-unsupported-guest",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "1099",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').beforeToday()",
+      "runtimeError": null
+    },
+    "CA10__image__c": "synthetic-deleted-image",
+    "CA10__image__r": {
+      "Id": "synthetic-deleted-image",
+      "CA10__disappearanceTime__c": "2026-10-01T00:00:00Z"
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": null,
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": null,
+    "CA10__osInfoMaintained__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2027-06-30T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "marketplace-without-enrichment",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__osInfoSource__c').isEmpty()",
+      "runtimeError": null
+    },
+    "CA10__platformDetails__c": "Red Hat Enterprise Linux",
+    "CA10__image__c": "synthetic-marketplace-image"
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": null,
+    "CA10__osInfoMaintained__c": "",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2027-06-30T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "byol-without-enrichment",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__osInfoSource__c').isEmpty()",
+      "runtimeError": null
+    },
+    "CA10__platformDetails__c": "Windows BYOL"
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": null,
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2027-06-30T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "custom-unknown-release-no-eol",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "799",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').isEmpty()",
+      "runtimeError": null
+    },
+    "CA10__platformDetails__c": "Linux/UNIX"
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2026-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2027-06-30T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "fresh-image-expired-guest",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "1099",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').beforeToday()",
+      "runtimeError": null
+    },
+    "CA10__image__c": "synthetic-fresh-image",
+    "CA10__image__r": {
+      "Id": "synthetic-fresh-image",
+      "CA10__creationDate__c": "2026-10-25T00:00:00Z",
+      "CA10__disappearanceTime__c": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "pending",
+    "CA10__osInfoEoasFrom__c": "2027-06-30T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "pending-supported",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "899",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').afterToday()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": "Yes",
+    "CA10__stateName__c": "stopping",
+    "CA10__osInfoEoasFrom__c": "2027-06-30T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "stopping-supported",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "899",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').afterToday()",
+      "runtimeError": null
+    }
+  },
+  {
+    "CA10__disappearanceTime__c": null,
+    "CA10__osInfoSource__c": "breeze",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10__osInfoEolFrom__c": "2029-06-30T00:00:00Z",
+    "CA10__osInfoMaintained__c": " YES ",
+    "CA10__stateName__c": "running",
+    "CA10__osInfoEoasFrom__c": "2027-06-30T00:00:00Z",
+    "CA10__osInfoEoesFrom__c": null,
+    "Id": "normalized-maintained-value",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "899",
+      "conditionText": "extract('CA10__osInfoEolFrom__c').afterToday()",
+      "runtimeError": null
+    }
+  }
+]

@@ -6,7 +6,7 @@ importExtracts:
   - file: /types/CA10__CaAwsEfsFileSystem__c/object.extracts.yaml
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "EFS File System data is encrypted."
+    currentStateMessage: "EFS file system data is encrypted."
     check:
       IS_EQUAL:
         left:
@@ -15,5 +15,5 @@ conditions:
           BOOLEAN: true 
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "EFS File System data is not encrypted."
-  remediationMessage: "Consider enabling EFS File System data encryption."
+  currentStateMessage: "EFS file system data is not encrypted."
+  remediationMessage: "Enable EFS file system data encryption."

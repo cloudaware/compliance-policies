@@ -12,7 +12,7 @@ Access to these services should be restricted exclusively to trusted internal ne
 
 ## Impact
 
-All external connections to Directory services from outside the affected VPC(s) can be blocked. If there is a legitimate business requirement for remote access (for example, administrative access to Cassandra resources), specific trusted source IP addresses should be explicitly defined in firewall rules to whitelist access to the required ports.
+All external connections to Directory services from outside the affected VPC(s) can be blocked. If there is a legitimate business requirement for remote access (for example, administrative access to Directory services resources), specific trusted source IP ranges should be explicitly defined in firewall rules to whitelist access to the required ports.
 
 ## Audit
 

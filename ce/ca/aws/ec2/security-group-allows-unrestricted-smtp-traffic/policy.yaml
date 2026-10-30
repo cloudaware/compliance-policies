@@ -9,8 +9,14 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - "/frameworks/cloudaware/resource-security/threat-protection"
+  - "/frameworks/iso-iec-27001-2013/13/01/01"
+  - "/frameworks/pci-dss-v4.0.1/01/03/01"
+  - "/frameworks/pci-dss-v4.0.1/01/03/02"
+  - "/frameworks/cloudaware/resource-security/network-exposure"
   - "/frameworks/aws-fsbp-v1.0.0/ec2/19"
+  - "/frameworks/iso-iec-27001-2013/09/04/01"
+  - "/frameworks/pci-dss-v4.0.1/01/04/01"
+  - "/frameworks/pci-dss-v4.0.1/01/04/02"
 similarPolicies:
   internal:
     - dec-x-11c3009f

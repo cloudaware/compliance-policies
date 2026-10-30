@@ -28,7 +28,7 @@ conditions:
         status: "INCOMPLIANT"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The NSG doesn't allow MongoDB access from the Internet." 
+  currentStateMessage: "The Network Security Group does not allow MongoDB access from the Internet."
 relatedLists:
   - relationshipName: "CA10__Azure_Network_Security_Group_Rules__r"
     importExtracts:
@@ -108,8 +108,8 @@ relatedLists:
                         TEXT: "Any"
       # PORTS 27017-27020
       - status: "INCOMPLIANT"
-        currentStateMessage: "NSG Rule with MongoDB port 27017 with public access from the Internet."
-        remediationMessage: "Restrict access to the MongoDB port"
+        currentStateMessage: "NSG rule allows public access on the MongoDB port."
+        remediationMessage: "Restrict access to the MongoDB port."
         check:
           OR:
             args:
@@ -131,8 +131,8 @@ relatedLists:
                           right:
                             NUMBER: 27017.0
       - status: "INCOMPLIANT"
-        currentStateMessage: "NSG Rule with MongoDB port 27018 with public access from the Internet."
-        remediationMessage: "Restrict access to the MongoDB port"
+        currentStateMessage: "NSG rule allows public access on the MongoDB port."
+        remediationMessage: "Restrict access to the MongoDB port."
         check:
           OR:
             args:
@@ -154,8 +154,8 @@ relatedLists:
                           right:
                             NUMBER: 27018.0
       - status: "INCOMPLIANT"
-        currentStateMessage: "NSG Rule with MongoDB port 27019 with public access from the Internet."
-        remediationMessage: "Restrict access to the MongoDB port"
+        currentStateMessage: "NSG rule allows public access on the MongoDB port."
+        remediationMessage: "Restrict access to the MongoDB port."
         check:
           OR:
             args:
@@ -177,8 +177,8 @@ relatedLists:
                           right:
                             NUMBER: 27019.0
       - status: "INCOMPLIANT"
-        currentStateMessage: "NSG Rule with MongoDB port 27020 with public access from the Internet."
-        remediationMessage: "Restrict access to the MongoDB port"
+        currentStateMessage: "NSG rule allows public access on the MongoDB port."
+        remediationMessage: "Restrict access to the MongoDB port."
         check:
           OR:
             args:
@@ -201,7 +201,7 @@ relatedLists:
                             NUMBER: 27020.0
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "NSG rule without public access on MongoDB port"
+      currentStateMessage: "NSG rule without public access on MongoDB port."
   - relationshipName: "CA10__Azure_Network_Interfaces__r"
     conditions:
       - status: "COMPLIANT"
@@ -220,3 +220,5 @@ relatedLists:
     otherwise:
       status: "INAPPLICABLE"
       currentStateMessage: "This is a Network Interface without a linked VM Scale Set Instance."
+
+

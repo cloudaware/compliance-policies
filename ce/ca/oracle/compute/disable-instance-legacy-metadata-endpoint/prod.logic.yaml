@@ -1,0 +1,33 @@
+---
+inputType: "CA10O1__CaOracleIaasInstance__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10O1__CaOracleIaasInstance__c/object.extracts.yaml"
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "The legacy metadata service endpoint setting is not available for this instance."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10O1__instanceOptionsLegacyImdsEndpoints__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The legacy metadata service endpoint is enabled for this instance."
+    remediationMessage: "Disable legacy IMDS endpoints for this instance."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10O1__instanceOptionsLegacyImdsEndpoints__c"
+        right:
+          TEXT: "Enabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "Legacy metadata service endpoints are disabled for this instance."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10O1__instanceOptionsLegacyImdsEndpoints__c"
+        right:
+          TEXT: "Disabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the legacy metadata service endpoint setting."

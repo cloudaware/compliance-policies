@@ -1,32 +1,35 @@
 # Description
 
-Managed service identity in App Service provides more security by eliminating secrets from the app, such as credentials in the connection strings. When registering an App Service with Entra ID, the app will connect to other Azure services securely without the need for usernames and passwords.
+Managed identity in App Service improves security by eliminating secrets in the app, such as credentials in connection strings. When registering an App Service with Entra ID, the app can connect to other Azure services securely without usernames and passwords.
 
 ## Rationale
 
-App Service provides a highly scalable, self-patching web hosting service in Azure. It also provides a managed identity for apps, which is a turn-key solution for securing access to Azure SQL Database and other Azure services.
+App Service provides a highly scalable, self-patching web hosting service in Azure. It also provides a managed identity for apps, which is a turnkey solution for securing access to Azure SQL Database and other Azure services.
 
 ## Audit
 
 ### From Azure Portal
 
-1. From Azure Portal open the Portal Menu in the top left.
+1. In the Azure portal, open the portal menu in the upper left.
 2. Go to `App Services`.
-3. Click on each App.
-4. Under the `Setting` section, Click on `Identity`.
-5. Under the `System assigned` pane, ensure that `Status` set to `On`.
+3. Select each app.
+4. Under the `Settings` section, select `Identity`.
+5. Under the `System assigned` pane, ensure `Status` is set to `On`.
 
 ### From Azure CLI
 
-To check Register with Entra ID feature status for an existing app, run the following command:
+To check the Register with Entra ID status for an existing app, run the following command:
 
 ```sh
-az webapp identity show --resource-group <RESOURCE_GROUP_NAME> --name <APP_NAME> --query principalId
+az webapp identity show \
+    --resource-group {{resource-group-name}} \
+    --name {{app-name}} \
+    --query principalId
 ```
 
-The output should return unique Principal ID.
+The output should return a unique principal ID.
 
-If no output for the above command then Register with Entra ID is not set.
+If the command returns no output, Register with Entra ID is not set.
 
 ### From PowerShell
 
@@ -36,13 +39,15 @@ List the web apps:
 Get-AzWebApp
 ```
 
-For each web app run the following command:
+For each web app, run the following command:
 
 ```ps
-Get-AzWebapp -ResourceGroupName <app resource group> -Name <app name>
+Get-AzWebApp `
+    -ResourceGroupName {{resource-group-name}} `
+    -Name {{app-name}}
 ```
 
-Make sure the Identity setting contains a unique Principal ID.
+Make sure the Identity setting contains a unique principal ID.
 
 ### From Azure Policy
 
@@ -53,7 +58,7 @@ If referencing a digital copy of this Benchmark, clicking a Policy ID will open 
 
 ## Default Value
 
-By default, Managed service identity via Entra ID is disabled.
+By default, managed identity via Entra ID is disabled.
 
 ## References
 

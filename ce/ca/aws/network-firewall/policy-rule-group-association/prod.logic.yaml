@@ -1,0 +1,41 @@
+---
+inputType: "CA10A2__CaAwsNetworkFirewallFirewallPolicy__c"
+importExtracts:
+  - file: "/types/CA10A2__CaAwsNetworkFirewallFirewallPolicy__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The network firewall policy is not active."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10A2__firewallPolicyStatus__c"
+        right:
+          TEXT: "ACTIVE"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The network firewall policy has no stateful or stateless rule groups associated."
+    remediationMessage: "Associate at least one rule group with the firewall policy to define traffic filtering rules."
+    check:
+      RELATED_LIST_HAS_NO:
+        status: "COMPLIANT"
+        relationshipName: "CA10A2__AWS_NetworkFirewall_PolicyRuleGroupLinks__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "The network firewall policy is associated with at least one rule group."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10A2__AWS_NetworkFirewall_PolicyRuleGroupLinks__r"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."
+relatedLists:
+  - relationshipName: "CA10A2__AWS_NetworkFirewall_PolicyRuleGroupLinks__r"
+    conditions: 
+      - status: "COMPLIANT" 
+        currentStateMessage: "A rule group association exists."
+        check:
+          NOT_EMPTY_LOOKUP: "CA10A2__ruleGroup__r" 
+    otherwise:
+      status: "INCOMPLIANT"
+      currentStateMessage: "No rule group association exists."

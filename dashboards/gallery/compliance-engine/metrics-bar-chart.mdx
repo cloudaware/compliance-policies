@@ -1,0 +1,46 @@
+<MdxCard>
+
+[Back](index.md)
+
+# Statistics/Metrics Bar Charts
+
+    <MdxRow align="stretch">
+
+        <MdxCol s="3">
+            <MdxCard visualLevel="flat">
+                <Icon icon="circle" color="green" weight="bold" /> **Compliant**
+
+                ## 0
+
+                <MdxPercentBarChart title="Latest PolicyRun" value={0} barColor="green" labelColor="green" width="100%" />
+            </MdxCard>
+        </MdxCol>
+        <MdxCol s="3">
+            <MdxCard visualLevel="flat">
+                <Icon icon="circle" color="red" weight="bold" /> **Incompliant**
+
+                ## 23
+
+                <MdxPercentBarChart title="Latest PolicyRun" value={23/27*100} barColor="red" labelColor="red" width="100%" />
+            </MdxCard>
+        </MdxCol>
+        <MdxCol s="3">
+            <MdxCard visualLevel="flat">
+                <Icon icon="circle" color="grey" weight="bold" /> **Inapplicable**
+
+                ## 0
+
+                <MdxPercentBarChart title="Latest PolicyRun" value={0} barColor="grey" labelColor="grey" width="100%" />
+            </MdxCard>
+        </MdxCol>
+        <MdxCol s="3">
+            <MdxCard visualLevel="flat">
+                <Icon icon="circle" color="orange" weight="bold" /> **Undetermined**
+
+                ## 4
+
+                <MdxPercentBarChart title="Latest PolicyRun" value={14.8} barColor="orange" labelColor="orange" width="100%" />
+            </MdxCard>
+        </MdxCol>
+    </MdxRow>
+</MdxCard>

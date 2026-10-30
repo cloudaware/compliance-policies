@@ -10,12 +10,12 @@
 
 Columns or tables with high data risk have evidence of sensitive information without additional protections. To lower the data risk score, consider doing the following:
 
-• For columns containing sensitive data, apply a BigQuery policy tag to restrict access to accounts with specific access rights.
+- For columns containing sensitive data, apply a BigQuery policy tag to restrict access to accounts with specific access rights.
 
-• De-identify the raw sensitive data using de-identification techniques like masking and tokenization.
+- De-identify the raw sensitive data using de-identification techniques like masking and tokenization.
 
 ## Incorporate findings into your security and governance operations
 
-• Enable sending findings into your security and posture services. You can publish data profiles to Security Command Center and Chronicle.
+- Enable sending findings into your security and posture services. You can publish data profiles to Security Command Center and Chronicle.
 
-• Automate remediation or enable alerting of new or changed data risk with Pub/Sub.
+- Automate remediation or enable alerting of new or changed data risk with Pub/Sub.

@@ -7,7 +7,7 @@ importExtracts:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The S3 Access Point is not configured to block public access."
-    remediationMessage: "Consider configuring the S3 Access Point to block all public access settings."
+    remediationMessage: "Configure the S3 access point to block all public access settings."
     check:
       OR:
         args:
@@ -33,4 +33,4 @@ conditions:
                 TEXT: "Yes"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The S3 Access Point is configured to block all public access."
+  currentStateMessage: "The S3 access point is configured to block all public access."

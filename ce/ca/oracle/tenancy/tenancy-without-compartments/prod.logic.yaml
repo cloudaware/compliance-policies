@@ -1,0 +1,39 @@
+---
+inputType: "CA10O1__CaOracleTenancy__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "This tenancy has at least one active customer-managed compartment."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10O1__Oracle_Compartments__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "This tenancy does not have any active customer-managed compartments."
+  remediationMessage: "Create at least one active customer-managed compartment and use it to organize OCI resources."
+relatedLists:
+  - relationshipName: "CA10O1__Oracle_Compartments__r"
+    importExtracts:
+      - file: "/types/CA10O1__CaOracleCompartment__c/object.extracts.yaml"
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This Oracle compartment is not active."
+        check:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10O1__lifecycleState__c"
+            right:
+              TEXT: "ACTIVE"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This is the OCI-managed ManagedCompartmentForPaaS compartment."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "Name"
+            right:
+              TEXT: "ManagedCompartmentForPaaS"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This is an active customer-managed compartment."

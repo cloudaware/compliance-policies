@@ -11,8 +11,8 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "Bucket Versioning has never been enabled"
-    remediationMessage: "Consider enabling S3 Versioning feature on the bucket"
+    currentStateMessage: "Bucket versioning has never been enabled."
+    remediationMessage: "Enable S3 versioning on the bucket."
     check:
       IS_EQUAL:
         left:
@@ -20,8 +20,8 @@ conditions:
         right:
           TEXT: "off"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Bucket Versioning feature has been suspended"
-    remediationMessage: "Consider reactivating S3 Versioning feature on the bucket"
+    currentStateMessage: "Bucket versioning has been suspended."
+    remediationMessage: "Reactivate S3 versioning on the bucket."
     check:
       IS_EQUAL:
         left:
@@ -29,7 +29,7 @@ conditions:
         right:
           TEXT: "suspended"
   - status: "COMPLIANT"
-    currentStateMessage: "Bucket Versioning is enabled"
+    currentStateMessage: "Bucket versioning is enabled."
     check:
       IS_EQUAL:
         left:
@@ -38,4 +38,5 @@ conditions:
           TEXT: "enabled"
 otherwise:
   status: "UNDETERMINED"
-  currentStateMessage: "Unexpected value in the field"
+  currentStateMessage: "Unexpected value in the field."
+

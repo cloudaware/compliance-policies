@@ -1,0 +1,27 @@
+---
+inputType: "CA10O1__CaOracleIaasInstance__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10O1__CaOracleIaasInstance__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "In-transit encryption is disabled for the boot volume attached to this instance."
+    remediationMessage: "Enable in-transit encryption for the instance boot volume attachment."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10O1__bootVolumePvEncryptionInTransit__c"
+        right:
+          TEXT: "Disabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "In-transit encryption is enabled for the boot volume attached to this instance."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10O1__bootVolumePvEncryptionInTransit__c"
+        right:
+          TEXT: "Enabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected value in the boot volume in-transit encryption setting."

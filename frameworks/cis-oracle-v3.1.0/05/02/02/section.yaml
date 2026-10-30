@@ -1,0 +1,12 @@
+---
+name: 5.2.2 Ensure boot volumes are encrypted with Customer Managed Key (CMK). - Level 2 (Automated)
+description: >
+  When you launch a virtual machine (VM) or bare metal instance based on a
+  platform image or custom image, a new boot volume for the instance is created
+  in the same compartment. That boot volume is associated with that instance
+  until you terminate the instance. By default, the Oracle service manages the
+  keys that encrypt this boot volume. Boot Volumes can also be encrypted using a
+  customer managed key.
+similar:
+  internal:
+    - dec-c-ef9670e3

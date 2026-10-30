@@ -6,8 +6,8 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Managed Disk Data Access Auth Mode is not set to Azure Active Directory."
-    remediationMessage: "Consider setting Data Access Auth Mode to Azure Active Directory."
+    currentStateMessage: "Managed disk data access auth mode is not set to Azure Active Directory."
+    remediationMessage: "Set data access auth mode to Azure Active Directory."
     check:
       IS_EQUAL:
         left:
@@ -15,14 +15,14 @@ conditions:
         right:
           TEXT: "None"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Managed Disk Data Access Auth Mode is not set to Azure Active Directory."
-    remediationMessage: "Consider setting Data Access Auth Mode to Azure Active Directory."
+    currentStateMessage: "Managed disk data access auth mode is not set to Azure Active Directory."
+    remediationMessage: "Set data access auth mode to Azure Active Directory."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__dataAccessAuthMode__c"
   - status: "COMPLIANT"
-    currentStateMessage: "The Managed Disk Data Access Auth Mode is set to Azure Active Directory."
+    currentStateMessage: "Managed disk data access auth mode is set to Azure Active Directory."
     check:
       IS_EQUAL:
         left:

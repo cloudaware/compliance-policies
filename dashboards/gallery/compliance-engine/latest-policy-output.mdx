@@ -1,0 +1,87 @@
+<MdxCard>
+    [Back](index.md)
+
+    # Latest Policy Output
+
+    <MdxCustomView key="latest-policy-output-summary" type="chart" viewSettings={{
+        keyPrefix: "CABQ0001",
+        sObjectName: "CABQ__CaCe2PolicyOutput__c",
+        listViewPreset: {
+            filter: {
+                type: "groupCondition",
+                operator: "and",
+                conditions: [
+                    {
+                        type: "condition",
+                        operator: "equals",
+                        field: "policyId__c",
+                        value: "/ce/ca/aws/account/aws-support-role"
+                    },
+                    {
+                        type: "condition",
+                        operator: "notEquals",
+                        field: "status__c",
+                        value: "DISAPPEARED"
+                    }
+                ]
+            },
+            aggregateQuery: {
+                columns: [
+                    {
+                        label: "Current State Message",
+                        name: "currentStateMessage__c",
+                        fieldNameOrPath: "currentStateMessage__c",
+                        type: "TEXT",
+                        usage: "GROUPED"
+                    },
+                    {
+                        label: "Status",
+                        name: "status__c",
+                        fieldNameOrPath: "status__c",
+                        type: "TEXT",
+                        usage: "GROUPED"
+                    },
+                    {
+                        label: "Name",
+                        name: "Name",
+                        fieldNameOrPath: "Name",
+                        type: "TEXT",
+                        usage: "AGGREGATED",
+                        aggregateFunction: "COUNT"
+                    }
+                ],
+                orderBy: []
+            },
+            chart: {
+                chartType: "pie",
+                seriesBy: [],
+                dimensions: [
+                    "status__c"
+                ],
+                measures: [
+                    "Name:COUNT"
+                ]
+            },
+            columns: [
+                {
+                    label: "Current State Message",
+                    name: "currentStateMessage__c",
+                    fieldNameOrPath: "currentStateMessage__c",
+                    type: "TEXT"
+                },
+                {
+                    label: "Status",
+                    name: "status__c",
+                    fieldNameOrPath: "status__c",
+                    type: "TEXT"
+                },
+                {
+                    label: "Name",
+                    name: "Name",
+                    fieldNameOrPath: "Name",
+                    type: "TEXT"
+                }
+            ]
+        }
+    }} />
+</MdxCard>

@@ -1,0 +1,126 @@
+[
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__type__c') != 'application' && extract('CA10__type__c') != 'network'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-01T00:50:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__type__c": "classic",
+    "Id": "001",
+    "RecordTypeId": "RecordTypeId1",
+    "RecordType": { "Id": "RecordTypeId1" },
+    "CA10__AWS_EC2_Load_Balancer_Listeners__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyName__c": "",
+        "CA10__loadBalancer__c": "001",
+        "CA10__protocol__c": "HTTPS",
+        "Id": "001-1",
+        "RecordTypeId": "RecordTypeId3",
+        "RecordType": { "Id": "RecordTypeId3" }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-01T00:50:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__type__c": "network",
+    "Id": "002",
+    "RecordTypeId": "RecordTypeId2",
+    "RecordType": { "Id": "RecordTypeId2" },
+    "CA10__AWS_EC2_Load_Balancer_Listeners__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__AWS_EC2_Load_Balancer_Listeners__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-01T00:50:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__type__c": "application",
+    "Id": "003",
+    "RecordTypeId": "RecordTypeId2",
+    "RecordType": { "Id": "RecordTypeId2" },
+    "CA10__AWS_EC2_Load_Balancer_Listeners__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyName__c": "ELBSecurityPolicy-TLS13-1-3-2021-06",
+        "CA10__loadBalancer__c": "003",
+        "CA10__protocol__c": "HTTPS",
+        "Id": "003-1",
+        "RecordTypeId": "RecordTypeId4",
+        "RecordType": { "Id": "RecordTypeId4" }
+      },
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyName__c": "ELBSecurityPolicy-TLS-1-2-2017-01",
+        "CA10__loadBalancer__c": "003",
+        "CA10__protocol__c": "HTTPS",
+        "Id": "003-2",
+        "RecordTypeId": "RecordTypeId4",
+        "RecordType": { "Id": "RecordTypeId4" }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "CA10__AWS_EC2_Load_Balancer_Listeners__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-01T00:50:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__type__c": "application",
+    "Id": "004",
+    "RecordTypeId": "RecordTypeId2",
+    "RecordType": { "Id": "RecordTypeId2" },
+    "CA10__AWS_EC2_Load_Balancer_Listeners__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyName__c": "ELBSecurityPolicy-TLS13-1-2-2021-06",
+        "CA10__loadBalancer__c": "004",
+        "CA10__protocol__c": "HTTPS",
+        "Id": "004-1",
+        "RecordTypeId": "RecordTypeId4",
+        "RecordType": { "Id": "RecordTypeId4" }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-01T00:50:53Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__type__c": "network",
+    "Id": "005",
+    "RecordTypeId": "RecordTypeId2",
+    "RecordType": { "Id": "RecordTypeId2" },
+    "CA10__AWS_EC2_Load_Balancer_Listeners__r": [
+      {
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyName__c": "ELBSecurityPolicy-TLS13-1-2-2021-06",
+        "CA10__loadBalancer__c": "005",
+        "CA10__protocol__c": "TCP",
+        "Id": "005-1",
+        "RecordTypeId": "RecordTypeId4",
+        "RecordType": { "Id": "RecordTypeId4" }
+      }
+    ]
+  }
+]

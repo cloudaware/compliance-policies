@@ -195,3 +195,29 @@ extracts:
           # value CAN be empty, for example when key was never changed.
           #isEmpty: Value of 'access_key_2_last_rotated' is empty, unexpected data
           invalidFormat: Value of 'access_key_2_last_rotated' does not match ISO-8601 format
+  - name: CA10__credReportCert1Active__c
+    value:
+      BOOLEAN_FROM:
+        arg:
+          JSON_QUERY_TEXT:
+            arg:
+              EXTRACT: CA10__credReportAttributesJson__c
+            expression: "to_string(cert_1_active)"
+            undeterminedIf:
+              evaluationError: "The JSON query has failed."
+              resultTypeMismatch: "The JSON query did not return text type."
+        undeterminedIf:
+          isEmpty: Value of 'cert_1_active' is empty, unexpected data
+  - name: CA10__credReportCert2Active__c
+    value:
+      BOOLEAN_FROM:
+        arg:
+          JSON_QUERY_TEXT:
+            arg:
+              EXTRACT: CA10__credReportAttributesJson__c
+            expression: "to_string(cert_2_active)"
+            undeterminedIf:
+              evaluationError: "The JSON query has failed."
+              resultTypeMismatch: "The JSON query did not return text type."
+        undeterminedIf:
+          isEmpty: Value of 'cert_1_active' is empty, unexpected data

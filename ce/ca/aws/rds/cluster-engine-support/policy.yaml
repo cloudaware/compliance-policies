@@ -1,0 +1,13 @@
+---
+names:
+  full: AWS RDS Cluster engine is outside standard support
+  contextual: Cluster engine is outside standard support
+description: >
+  Ensure that Aurora and RDS for MySQL or PostgreSQL Multi-AZ DB clusters use 
+  an engine major version within AWS standard support. Identify expired standard 
+  support without confusing Extended Support availability with enrollment or charges.
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization

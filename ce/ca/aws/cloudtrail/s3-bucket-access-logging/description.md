@@ -2,9 +2,9 @@
 
 Server access logging generates a log that contains access records for each request
 made to your S3 bucket. An access log record contains details about the request, such
-as the request type, the resources specified in the request worked, and the time and
-date the request was processed. It is recommended that server access logging be
-enabled on the CloudTrail S3 bucket.
+as the request type, the resources specified in the request, and the time and date
+the request was processed. It is recommended that server access logging be enabled
+on the CloudTrail S3 bucket.
 
 ## Rationale
 
@@ -29,28 +29,28 @@ Perform the following ensure the CloudTrail S3 bucket has access logging is enab
 
 1. Get the name of the S3 bucket that CloudTrail is logging to:
 
-```sh
-aws cloudtrail describe-trails --query 'trailList[*].S3BucketName'
-```
+    ```sh
+    aws cloudtrail describe-trails --query 'trailList[*].S3BucketName'
+    ```
 
 2. Ensure Bucket Logging is enabled:
 
-```sh
-aws s3api get-bucket-logging --bucket <s3_bucket_for_cloudtrail>
-```
+    ```sh
+    aws s3api get-bucket-logging --bucket {{s3_bucket_for_cloudtrail}}
+    ```
 
-Ensure command does not return empty output.
+    Ensure the command does not return empty output.
 
-Sample Output for a bucket with logging enabled:
+    Sample Output for a bucket with logging enabled:
 
-```json
-{ 
-    "LoggingEnabled": { 
-        "TargetPrefix": "<log-file-prefix>", 
-        "TargetBucket": "<logging-bucket>" 
-    } 
-}
-```
+    ```json
+    { 
+        "LoggingEnabled": { 
+            "TargetPrefix": "<log-file-prefix>", 
+            "TargetBucket": "<logging-bucket>" 
+        } 
+    }
+    ```
 
 ## Default Value
 

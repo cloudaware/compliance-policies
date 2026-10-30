@@ -9,13 +9,20 @@ extracts:
         path: "CA10__status__c"
         undeterminedIf:
           isEmpty: "Corrupted data. Status cannot be empty." 
-# Values: memcached | redis. Not nullable. Can't have no access, retrieved via elasticache:DescribeCacheClusters
+# Values: memcached | redis | valkey. Not nullable. Retrieved via elasticache:DescribeCacheClusters
   - name: "CA10__engine__c"
     value:
       FIELD:
         path: "CA10__engine__c"
         undeterminedIf:
           isEmpty: "Corrupted data. Engine cannot be empty."
+# Not nullable. Retrieved via elasticache:DescribeCacheClusters
+  - name: "CA10__engineVersion__c"
+    value:
+      FIELD:
+        path: "CA10__engineVersion__c"
+        undeterminedIf:
+          isEmpty: "Corrupted data. Engine Version cannot be empty."
 # Date/Time
   - name: "CA10__createTime__c"
     value:

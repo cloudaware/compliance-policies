@@ -1,0 +1,13 @@
+---
+name: 6.3.2 Ensure 'cross db ownership chaining' Database Flag for Cloud SQL SQL Server Instance Is Set to 'off' - Level 1 (Automated)
+description: |-
+  It is recommended to set `cross db ownership chaining` database flag for Cloud SQL SQL Server
+  instance to `off`.
+  
+  This flag is deprecated for all SQL Server versions in CGP. Going forward, you can't set its value
+  to on. However, if you have this flag enabled, we strongly recommend that you either remove the
+  flag from your database or set it to off. For cross-database access, use Microsoft's tutorial for
+  signing stored procedures with a certificate.
+similar:
+  sections:
+    - /frameworks/cis-gcp-v4.0.0/06/03/02

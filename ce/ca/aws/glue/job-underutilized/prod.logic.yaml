@@ -1,0 +1,126 @@
+---
+inputType: CA10__CaAwsGlueJob__c
+importExtracts:
+  - file: /types/CA10__CaAwsGlueJob__c/object.extracts.yaml
+testData:
+  - file: test-data.json
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: This policy applies only to Apache Spark batch ETL jobs.
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: CA10__commandName__c
+        right:
+          TEXT: glueetl
+  - status: INAPPLICABLE
+    currentStateMessage: The job was not created before UTC midnight 14 days ago.
+    check:
+      NOT:
+        arg:
+          IS_BEYOND_LAST_DAYS:
+            offsetDays: 14
+            arg:
+              EXTRACT: CA10__createdOn__c
+  - status: UNDETERMINED
+    currentStateMessage: No completed Spark tasks were observed; the utilization assessment is inconclusive.
+    check:
+      LESS_THAN_EQUAL:
+        left:
+          EXTRACT: CA10__numCompletedTasksSum14d__c
+        right:
+          NUMBER: 0
+  - status: UNDETERMINED
+    currentStateMessage: At least one 14-day utilization percentage is zero or outside the valid 0 to 100 range;
+      positive utilization evidence is required.
+    check:
+      OR:
+        args:
+          - LESS_THAN_EQUAL:
+              left:
+                EXTRACT: CA10__avgAllCpuSystemLoad14d__c
+              right:
+                NUMBER: 0
+          - GREATER_THAN:
+              left:
+                EXTRACT: CA10__avgAllCpuSystemLoad14d__c
+              right:
+                NUMBER: 100
+          - LESS_THAN_EQUAL:
+              left:
+                EXTRACT: CA10__avgAllJvmHeapUsage14d__c
+              right:
+                NUMBER: 0
+          - GREATER_THAN:
+              left:
+                EXTRACT: CA10__avgAllJvmHeapUsage14d__c
+              right:
+                NUMBER: 100
+          - LESS_THAN_EQUAL:
+              left:
+                EXTRACT: CA10__avgDriverCpuSystemLoad14d__c
+              right:
+                NUMBER: 0
+          - GREATER_THAN:
+              left:
+                EXTRACT: CA10__avgDriverCpuSystemLoad14d__c
+              right:
+                NUMBER: 100
+          - LESS_THAN_EQUAL:
+              left:
+                EXTRACT: CA10__avgDriverJvmHeapUsage14d__c
+              right:
+                NUMBER: 0
+          - GREATER_THAN:
+              left:
+                EXTRACT: CA10__avgDriverJvmHeapUsage14d__c
+              right:
+                NUMBER: 100
+  - status: UNDETERMINED
+    currentStateMessage: Completed-task totals do not establish activity in both halves of the 14-day period,
+      or the totals are inconsistent.
+    check:
+      OR:
+        args:
+          - LESS_THAN_EQUAL:
+              left:
+                EXTRACT: CA10__numCompletedTasksSum7d__c
+              right:
+                NUMBER: 0
+          - LESS_THAN_EQUAL:
+              left:
+                EXTRACT: CA10__numCompletedTasksSum14d__c
+              right:
+                EXTRACT: CA10__numCompletedTasksSum7d__c
+  - status: INCOMPLIANT
+    currentStateMessage: The job completed tasks in both halves of the 14-day period, and average driver and
+      executor CPU and JVM heap utilization are all positive and below 20%.
+    remediationMessage: Review worker sizing, parallelism, peak demand, disk usage, and actual Auto Scaling
+      allocation. Benchmark changes before reducing capacity.
+    check:
+      AND:
+        args:
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__avgAllCpuSystemLoad14d__c
+              right:
+                NUMBER: 20
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__avgAllJvmHeapUsage14d__c
+              right:
+                NUMBER: 20
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__avgDriverCpuSystemLoad14d__c
+              right:
+                NUMBER: 20
+          - LESS_THAN:
+              left:
+                EXTRACT: CA10__avgDriverJvmHeapUsage14d__c
+              right:
+                NUMBER: 20
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: At least one driver or executor CPU or JVM heap average is 20% or higher; the low-average
+    criterion is not met. This does not establish appropriate job sizing.

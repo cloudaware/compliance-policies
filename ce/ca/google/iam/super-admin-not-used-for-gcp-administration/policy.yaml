@@ -1,0 +1,12 @@
+---
+names:
+  full: "Google Super Admin Account is used for Google Cloud administration"
+  contextual: "Super Admin Account is used for Google Cloud administration"
+description: "Reserve Google Workspace or Cloud Identity Super Admin accounts for identity administration and use separate accounts with appropriate IAM roles for Google Cloud administration."
+type: COMPLIANCE_POLICY
+categories:
+  - "SECURITY"
+impossible: true
+frameworkMappings:
+  - /frameworks/cis-gcp-v5.0.0/01/01/02
+  - /frameworks/cloudaware/identity-and-access-governance/general-access-controls

@@ -1,0 +1,1 @@
+The absence of an AWS Systems Manager interface endpoint is not a meaningful compliance finding by itself. A VPC only needs this endpoint when workloads in that VPC are expected to use Systems Manager privately. CE does not have a reliable way to prove that managed workloads with that requirement actually exist in the account or in the specific VPC.

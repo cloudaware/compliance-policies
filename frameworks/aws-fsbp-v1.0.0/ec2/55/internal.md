@@ -1,0 +1,1 @@
+The absence of an Amazon ECR API interface endpoint is not a meaningful compliance finding by itself. A VPC only needs this endpoint when workloads in that VPC are expected to call the ECR API privately. CE does not have a reliable way to prove that such workloads or that requirement actually exist in the account or in the specific VPC.

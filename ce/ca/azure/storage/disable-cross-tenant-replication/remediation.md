@@ -10,8 +10,11 @@
 
 ## From Azure CLI
 
-Replace the information within `<>` with appropriate values:
+Replace the information within `{{}}` with appropriate values:
 
 ```sh
-az storage account update --name <storageAccountName> --resource-group <resourceGroupName> --allow-cross-tenant-replication false
+az storage account update \
+    --name {{storage-account-name}} \
+    --resource-group {{resource-group-name}} \
+    --allow-cross-tenant-replication false
 ```

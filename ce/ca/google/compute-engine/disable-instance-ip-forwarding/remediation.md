@@ -14,8 +14,12 @@ You only edit the `canIpForward` setting at instance creation time. Therefore, y
 
 1. Delete the instance:
 
-            gcloud compute instances delete INSTANCE_NAME
+    ```sh
+    gcloud compute instances delete {{instance-name}}
+    ```
 
 2. Create a new instance to replace it, with `IP forwarding` set to `Off`
 
-            gcloud compute instances create
+    ```sh
+    gcloud compute instances create
+    ```

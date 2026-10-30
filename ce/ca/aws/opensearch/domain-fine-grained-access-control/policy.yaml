@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS OpenSearch Domain fine-grained access control is not enabled"
+  contextual: "Domain fine-grained access control is not enabled"
+description: >
+  Ensure that fine-grained access control is enabled for Amazon OpenSearch Service
+  domains to enforce authenticated, least-privilege access to indexes, documents,
+  fields, and APIs.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/secure-access"
+  - "/frameworks/aws-fsbp-v1.0.0/opensearch/07"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Opensearch.7] OpenSearch domains should have fine-grained access control enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/opensearch-controls.html#opensearch-7"

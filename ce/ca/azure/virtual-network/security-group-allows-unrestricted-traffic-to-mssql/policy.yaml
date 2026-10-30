@@ -10,5 +10,10 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
-
+  - "/frameworks/cloudaware/resource-security/network-exposure"
+  - "/frameworks/iso-iec-27001-2013/09/01/02"
+  - "/frameworks/soc-2/cc6/01/07"
+  - "/frameworks/soc-2/cc6/06/01"
+similarPolicies:
+  internal:
+    - dec-x-efa79ed1

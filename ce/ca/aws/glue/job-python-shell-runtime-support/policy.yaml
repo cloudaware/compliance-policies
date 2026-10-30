@@ -1,0 +1,12 @@
+---
+names:
+  full: AWS Glue Python Shell Job uses a runtime past end of support
+  contextual: Python Shell Job uses a runtime past end of support
+description: >
+  Migrate Python shell job definitions configured with a verified runtime past AWS
+  end of support to reduce security and job execution risks.
+type: BEST_PRACTICE
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization

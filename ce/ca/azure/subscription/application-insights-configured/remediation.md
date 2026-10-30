@@ -18,11 +18,25 @@
 ## From Azure CLI
 
 ```sh
-az monitor app-insights component create --app <app name> --resource-group <resource group name> --location <location> --kind "web" --retention-time <INT days to retain logs> --workspace <log analytics workspace ID> --subscription <subscription ID>
+az monitor app-insights component create \
+    --app {{app-name}} \
+    --resource-group {{resource-group-name}} \
+    --location {{location}} \
+    --kind "web" \
+    --retention-time {{retention-days}} \
+    --workspace {{log-analytics-workspace-id}} \
+    --subscription {{subscription-id}}
 ```
 
 ## From PowerShell
 
 ```ps
-New-AzApplicationInsights -Kind "web" -ResourceGroupName <resource group name> -Name <app insights name> -location <location> -RetentionInDays <INT days to retain logs> -SubscriptionID <subscription ID> -WorkspaceResourceId <log analytics workspace ID>
+New-AzApplicationInsights `
+    -Kind "web" `
+    -ResourceGroupName {{resource-group-name}} `
+    -Name {{app-insights-name}} `
+    -Location {{location}} `
+    -RetentionInDays {{retention-days}} `
+    -SubscriptionID {{subscription-id}} `
+    -WorkspaceResourceId {{log-analytics-workspace-id}}
 ```

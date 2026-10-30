@@ -1,16 +1,16 @@
 # Description
 
-Ensure that Intune logs are captured and fed into a central log analytics workspace.
+Ensure that Intune logs are captured and sent to a central Log Analytics workspace.
 
 ## Rationale
 
-Intune includes built-in logs that provide information about your environments. Sending logs to a Log Analytics workspace enables centralized analysis, correlation, and alerting for faster threat detection and response.
+Intune includes built-in logs that provide information about your environment. Sending logs to a Log Analytics workspace enables centralized analysis, correlation, and alerting for faster threat detection and response.
 
 ## Impact
 
 A Microsoft Intune plan is required to access Intune: <https://www.microsoft.com/en-gb/security/business/microsoft-intune-pricing>.
 
-The amount of data logged and, thus, the cost incurred can vary significantly depending on the tenant size.
+The amount of data logged, and therefore the cost incurred, can vary significantly depending on the tenant size.
 
 For information on Log Analytics workspace costs, visit: <https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs>.
 

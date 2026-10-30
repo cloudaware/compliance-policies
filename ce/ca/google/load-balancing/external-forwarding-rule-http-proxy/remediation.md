@@ -4,7 +4,7 @@
 
 This process involves creating an SSL certificate, configuring a new HTTPS proxy, and updating the forwarding rule to use the secure proxy.
 
-### **From gcloud CLI**
+### **From Google Cloud CLI**
 
 1. **Create an SSL Certificate (if one does not already exist)**
 

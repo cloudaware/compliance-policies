@@ -1,0 +1,110 @@
+
+<MdxCard>
+    [Back to Index](index.md)
+    <MdxCustomView key="chart1" type="chart" viewSettings={
+        {
+            keyPrefix: "CABQ0003",
+            sObjectName: "CABQ__CaCi__c",
+            listViewPreset: {
+                filter: {
+                    type: "groupCondition",
+                    operator: "and",
+                    conditions: [
+                        {
+                            type: "condition",
+                            operator: "equals",
+                            field: "supportsApplication__c",
+                            value: "Yes"
+                        },
+                        {
+                            type: "condition",
+                            operator: "notEquals",
+                            field: "applicationTier__c"
+                        }
+                    ]
+                },
+                aggregateQuery: {
+                    columns: [
+                        {
+                            label: "Type Label",
+                            name: "typeLabel__c",
+                            fieldNameOrPath: "typeLabel__c",
+                            type: "TEXT",
+                            usage: "GROUPED"
+                        },
+                        {
+                            label: "Number of Resources",
+                            name: "Id",
+                            fieldNameOrPath: "Id",
+                            type: "ID",
+                            order: "DESC",
+                            usage: "AGGREGATED",
+                            aggregateFunction: "COUNT"
+                        }
+                    ],
+                    orderBy: [
+                        {
+                            column: {
+                                label: "Number of Resources",
+                                name: "Id",
+                                fieldNameOrPath: "Id",
+                                type: "ID",
+                                order: "DESC",
+                                usage: "AGGREGATED",
+                                aggregateFunction: "COUNT"
+                            },
+                            direction: "DESC"
+                        }
+                    ]
+                },
+                chart: {
+                    chartType: "pie",
+                    dimensions: [
+                        "typeLabel__c"
+                    ],
+                    measures: [
+                        "Id:COUNT"
+                    ]
+                },
+                columns: [
+                    {
+                        label: "Name",
+                        name: "Name",
+                        fieldNameOrPath: "Name",
+                        type: "TEXT"
+                    },
+                    {
+                        label: "Cloud",
+                        name: "cloud__c",
+                        fieldNameOrPath: "cloud__c",
+                        type: "TEXT"
+                    },
+                    {
+                        label: "Products",
+                        name: "products__c",
+                        fieldNameOrPath: "products__c",
+                        type: "TEXT"
+                    },
+                    {
+                        label: "Type Label",
+                        name: "typeLabel__c",
+                        fieldNameOrPath: "typeLabel__c",
+                        type: "TEXT"
+                    },
+                    {
+                        label: "Application Tier",
+                        name: "applicationTier__c",
+                        fieldNameOrPath: "applicationTier__c",
+                        type: "REFERENCE"
+                    },
+                    {
+                        label: "Number of Resources",
+                        name: "Id",
+                        fieldNameOrPath: "Id",
+                        type: "ID"
+                    }
+                ]
+            }
+        }
+    } />
+</MdxCard>

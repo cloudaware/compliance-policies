@@ -1,0 +1,122 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__policyExt__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-16T12:00:00Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__policyExt__c": "",
+    "Id": "test1"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-16T12:00:00Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__policyExt__c": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"events.amazonaws.com\"},\"Action\":\"sqs:SendMessage\",\"Resource\":\"*\",\"Condition\":{\"ArnEquals\":{\"aws:SourceArn\":\"arn:aws:events:us-east-1:123456789012:rule/example\"}},\"AnalyzedResult\":{\"accessLevel\":\"SAME_ACCOUNT\",\"reason\":\"Policy is limited to the same account\"}}]}",
+    "Id": "test2"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "CA10__policyExt__c .allows(EXTERNAL_PRINCIPAL, [sqs:ReceiveMessage, sqs:SendMessage, sqs:DeleteMessage, ... 2 elements])",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-16T12:00:00Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__policyExt__c": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"sqs:SendMessage\",\"Resource\":\"*\",\"AnalyzedResult\":{\"accessLevel\":\"ANONYMOUS_PRINCIPAL\",\"reason\":\"All principals '*' do not restrict access\"}}]}",
+    "Id": "test3"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__policyExt__c .allows(EXTERNAL_PRINCIPAL, [sqs:SetQueueAttributes, sqs:DeleteQueue, sqs:AddPermission, ... 4 elements])",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-16T12:00:00Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__policyExt__c": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"sqs:DeleteQueue\",\"Resource\":\"*\",\"AnalyzedResult\":{\"accessLevel\":\"ANONYMOUS_PRINCIPAL\",\"reason\":\"All principals '*' do not restrict access\"}}]}",
+    "Id": "test4"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__policyExt__c .allows(EXTERNAL_PRINCIPAL, [sqs:SetQueueAttributes, sqs:DeleteQueue, sqs:AddPermission, ... 4 elements])",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-16T12:00:00Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__policyExt__c": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"sqs:PurgeQueue\",\"Resource\":\"*\",\"AnalyzedResult\":{\"accessLevel\":\"ANONYMOUS_PRINCIPAL\",\"reason\":\"All principals '*' do not restrict access\"}}]}",
+    "Id": "test5"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__policyExt__c .allows(EXTERNAL_PRINCIPAL, [sqs:SetQueueAttributes, sqs:DeleteQueue, sqs:AddPermission, ... 4 elements])",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-16T12:00:00Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__policyExt__c": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"sqs:AddPermission\",\"Resource\":\"*\",\"AnalyzedResult\":{\"accessLevel\":\"ANONYMOUS_PRINCIPAL\",\"reason\":\"All principals '*' do not restrict access\"}}]}",
+    "Id": "test6"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "CA10__policyExt__c .allows(EXTERNAL_PRINCIPAL, [sqs:ReceiveMessage, sqs:SendMessage, sqs:DeleteMessage, ... 2 elements])",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-16T12:00:00Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__policyExt__c": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"sqs:ReceiveMessage\",\"Resource\":\"*\",\"AnalyzedResult\":{\"accessLevel\":\"ANONYMOUS_PRINCIPAL\",\"reason\":\"All principals '*' do not restrict access\"}}]}",
+    "Id": "test7"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "CA10__policyExt__c .allows(EXTERNAL_PRINCIPAL, [sqs:ReceiveMessage, sqs:SendMessage, sqs:DeleteMessage, ... 2 elements])",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-16T12:00:00Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__policyExt__c": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"sqs:GetQueueAttributes\",\"Resource\":\"*\",\"AnalyzedResult\":{\"accessLevel\":\"ANONYMOUS_PRINCIPAL\",\"reason\":\"All principals '*' do not restrict access\"}}]}",
+    "Id": "test8"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "CA10__policyExt__c .allows(EXTERNAL_PRINCIPAL, [sqs:SetQueueAttributes, sqs:DeleteQueue, sqs:AddPermission, ... 4 elements])",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-16T12:00:00Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__policyExt__c": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"SQS:*\",\"Resource\":\"*\",\"AnalyzedResult\":{\"accessLevel\":\"ANONYMOUS_PRINCIPAL\",\"reason\":\"All principals '*' do not restrict access\"}}]}",
+    "Id": "test9"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-16T12:00:00Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__policyExt__c": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Deny\",\"Principal\":\"*\",\"Action\":\"sqs:*\",\"Resource\":\"*\",\"AnalyzedResult\":{\"accessLevel\":\"ANONYMOUS_PRINCIPAL\",\"reason\":\"All principals '*' do not restrict access\"}}]}",
+    "Id": "test10"
+  }
+]

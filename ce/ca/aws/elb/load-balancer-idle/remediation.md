@@ -10,7 +10,7 @@ Remove idle Application and Classic Load Balancers to eliminate unnecessary cost
 
 ```sh
 aws elbv2 delete-load-balancer \
-    --region {{aws-region}} \
+    --region {{region-name}} \
     --load-balancer-arn {{application-load-balancer-arn}}
 ```
 
@@ -18,6 +18,6 @@ aws elbv2 delete-load-balancer \
 
 ```sh
 aws elb delete-load-balancer \
-    --region {{aws-region}} \
+    --region {{region-name}} \
     --load-balancer-name {{classic-load-balancer-name}}
 ```

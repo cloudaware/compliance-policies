@@ -4,11 +4,11 @@ Private endpoints limit network traffic to approved sources.
 
 ## Rationale
 
-For sensitive data, private endpoints allow granular control of which services can communicate with Cosmos DB and ensure that this network traffic is private. You set this up on a case by case basis for each service you wish to be connected.
+For sensitive data, private endpoints allow granular control of which services can communicate with Cosmos DB and ensure that this network traffic is private. You set this up on a case-by-case basis for each service you want to connect.
 
 ## Impact
 
-Only whitelisted services will have access to communicate with the Cosmos DB.
+Only approved services can communicate with Cosmos DB.
 
 ## Audit
 
@@ -31,7 +31,7 @@ If referencing a digital copy of this Benchmark, clicking a Policy ID will open 
 
 ## Default Value
 
-By default Cosmos DB does not have private endpoints enabled and its traffic is public to the network.
+By default, Cosmos DB does not have private endpoints enabled, and its traffic is public to the network.
 
 ## References
 

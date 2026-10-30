@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS RDS Cluster has a common master username"
+  contextual: "Cluster has a common master username"
+description: >
+  Ensure that Amazon RDS clusters do not use common default administrative 
+  usernames such as 'admin', 'root', 'postgres', etc. This reduces the predictability 
+  of administrative credentials and helps protect the cluster against automated brute-force attacks.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/identity-and-access-governance/credential-lifecycle-management"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/24"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[RDS.24] RDS Database clusters should use a custom administrator username"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-24"

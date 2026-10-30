@@ -10,9 +10,24 @@ type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - "/frameworks/cis-aws-v6.0.0/06/04"
-  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/cis-aws-v7.0.0/06/04"
+  - "/frameworks/iso-iec-27001-2013/13/01/01"
+  - "/frameworks/iso-iec-27001-2022/05/10"
+  - "/frameworks/iso-iec-27001-2022/05/14"
+  - "/frameworks/iso-iec-27001-2022/05/15"
+  - "/frameworks/iso-iec-27001-2022/08/03"
+  - "/frameworks/iso-iec-27001-2022/08/04"
+  - "/frameworks/soc-2/cc6/01/08"
+  - "/frameworks/soc-2/cc6/06/04"
+  - "/frameworks/cloudaware/resource-security/network-exposure"
   - "/frameworks/aws-fsbp-v1.0.0/ec2/19"
+  - "/frameworks/iso-iec-27001-2013/09/04/01"
+  - "/frameworks/iso-iec-27001-2022/06/07"
+  - "/frameworks/iso-iec-27001-2022/08/01"
+  - "/frameworks/iso-iec-27001-2022/08/16"
+  - "/frameworks/iso-iec-27001-2022/08/22"
+  - "/frameworks/pci-dss-v4.0.1/01/04/01"
+  - "/frameworks/pci-dss-v4.0.1/01/04/02"
 frameworkIgnoreMappings:
   - /frameworks/cis-aws-v1.3.0/05/02
   - /frameworks/cis-aws-v1.4.0/05/02
@@ -22,3 +37,5 @@ frameworkIgnoreMappings:
 similarPolicies:
   internal:
     - dec-x-bcae85fb
+    - dec-x-b43542b5
+    - dec-x-7dd32fc8

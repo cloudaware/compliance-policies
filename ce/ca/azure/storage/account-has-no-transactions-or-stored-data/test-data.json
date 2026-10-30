@@ -1,0 +1,78 @@
+[
+  {
+    "RecordType": {
+      "Id": "RecordType1"
+    },
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "otherwise",
+      "conditionIndex": 300,
+      "status": "COMPLIANT"
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "RecordTypeId": "RecordType1",
+    "CA10__monitorTransactionsSum30Day__c": 8035.0,
+    "Id": "001",
+    "CA10__disappearanceTime__c": null,
+    "CA10__monitorUsedCapacityBytesAvg30Day__c": 1461130.9137691238
+  },
+  {
+    "RecordType": {
+      "Id": "RecordType1"
+    },
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "conditionIndex": 99,
+      "status": "DISAPPEARED"
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "RecordTypeId": "RecordType1",
+    "CA10__monitorTransactionsSum30Day__c": 0,
+    "Id": "gone",
+    "CA10__disappearanceTime__c": "2026-09-09T00:00:00Z",
+    "CA10__monitorUsedCapacityBytesAvg30Day__c": 0
+  },
+  {
+    "RecordType": {
+      "Id": "RecordType1"
+    },
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__monitorTransactionsSum30Day__c').isEmpty() || extract('CA10__monitorUsedCapacityBytesAvg30Day__c').isEmpty()",
+      "conditionIndex": 199,
+      "status": "UNDETERMINED"
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "RecordTypeId": "RecordType1",
+    "CA10__monitorTransactionsSum30Day__c": null,
+    "Id": "missing",
+    "CA10__disappearanceTime__c": null,
+    "CA10__monitorUsedCapacityBytesAvg30Day__c": 0
+  },
+  {
+    "RecordType": {
+      "Id": "RecordType1"
+    },
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__monitorTransactionsSum30Day__c') == number(0.0) && extract('CA10__monitorUsedCapacityBytesAvg30Day__c') == number(0.0)",
+      "conditionIndex": 299,
+      "status": "INCOMPLIANT"
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "RecordTypeId": "RecordType1",
+    "CA10__monitorTransactionsSum30Day__c": 0,
+    "Id": "empty",
+    "CA10__disappearanceTime__c": null,
+    "CA10__monitorUsedCapacityBytesAvg30Day__c": 0
+  }
+]

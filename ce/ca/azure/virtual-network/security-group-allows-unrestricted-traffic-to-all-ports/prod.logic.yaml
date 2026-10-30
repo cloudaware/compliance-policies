@@ -20,15 +20,15 @@ conditions:
         relationshipName: "CA10Z1__Azure_VM_Scale_Set_Instance_Network_Ints__r"
         status: "COMPLIANT"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Network Security Group has a rule that allows public access to all ports."
-    remediationMessage: "Restrict inbound access to all ports from the Internet."
+    currentStateMessage: "The Network Security Group has a rule that allows access on all ports from the Internet."
+    remediationMessage: "Restrict inbound access on all ports from the Internet."
     check:
       RELATED_LIST_HAS:
         relationshipName: "CA10__Azure_Network_Security_Group_Rules__r"
         status: "INCOMPLIANT"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The NSG does not allow public access to all ports." 
+  currentStateMessage: "The Network Security Group does not allow access on all ports from the Internet."
 relatedLists:
   - relationshipName: "CA10__Azure_Network_Security_Group_Rules__r"
     importExtracts:
@@ -111,8 +111,8 @@ relatedLists:
                       right:
                         TEXT: "Any"
       - status: "INCOMPLIANT"
-        currentStateMessage: "NSG Rule with all ports access from the Internet."
-        remediationMessage: "Consider restricting internet-level access to your Azure resources."
+        currentStateMessage: "NSG rule allows public access on all ports."
+        remediationMessage: "Restrict public access to all ports."
         check:
           OR:
             args:
@@ -159,3 +159,4 @@ relatedLists:
     otherwise:
       status: "INAPPLICABLE"
       currentStateMessage: "This is a Network Interface without a linked VM Scale Set Instance."
+

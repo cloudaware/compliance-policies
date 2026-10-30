@@ -35,37 +35,37 @@ If it only requires outbound internet access, deploy it into a private subnet th
 
 1. Create a new subnet in the same VPC and Availability Zone if a suitable subnet does not already exist:
 
-```sh
-aws ec2 create-subnet \
-    --vpc-id {{vpc-id}} \
-    --cidr-block {{cidr-block}} \
-    --availability-zone {{availability-zone}} \
-```
+    ```sh
+    aws ec2 create-subnet \
+        --vpc-id {{vpc-id}} \
+        --cidr-block {{cidr-block}} \
+        --availability-zone {{availability-zone}}
+    ```
 
 2. Create an AMI of the existing instance:
 
-```sh
-aws ec2 create-image \
-    --instance-id {{instance-id}} \
-    --name {{ami-name}} \
-    --description {{ami-description}}
-    --no-reboot
-```
+    ```sh
+    aws ec2 create-image \
+        --instance-id {{instance-id}} \
+        --name {{ami-name}} \
+        --description {{ami-description}} \
+        --no-reboot
+    ```
 
 3. Launch a new instance from the AMI into the custom subnet:
 
-```sh
-aws ec2 run-instances \
-    --image-id {{image-id}} \
-    --instance-type {{instance-type}} \
-    --key-name {{keypair-name}} \
-    --subnet-id {{custom-subnet-id}} \
-    --security-group-ids {{sg-id}} \
-    --associate-public-ip-address   # Only if public access is required
-```
+    ```sh
+    aws ec2 run-instances \
+        --image-id {{image-id}} \
+        --instance-type {{instance-type}} \
+        --key-name {{keypair-name}} \
+        --subnet-id {{custom-subnet-id}} \
+        --security-group-ids {{sg-id}} \
+        --associate-public-ip-address   # Only if public access is required
+    ```
 
 4. Validate application functionality. Once confirmed, terminate the original instance:
 
-```sh
-aws ec2 terminate-instances --instance-ids {{old-instance-id}}
-```
+    ```sh
+    aws ec2 terminate-instances --instance-ids {{old-instance-id}}
+    ```

@@ -4,22 +4,22 @@ testData:
   - file: test-data.json
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "User has directly attached policies."
-    remediationMessage: "Add a user to an IAM group"
+    currentStateMessage: "The user has directly attached policies."
+    remediationMessage: "Add the user to an IAM group."
     check:
       RELATED_LIST_HAS:
         status: "COMPLIANT"
         relationshipName: "CA10__AWS_IAM_Policy_User_Links__r"
   - status: "INCOMPLIANT"
-    currentStateMessage: "User has inline policies."
-    remediationMessage: "Add a user to an IAM group."
+    currentStateMessage: "The user has inline policies."
+    remediationMessage: "Add the user to an IAM group."
     check:
       RELATED_LIST_HAS:
         status: "COMPLIANT"
         relationshipName: "CA10__userPolicies__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "User doesn't have inline or directly attached policies."
+  currentStateMessage: "The user does not have inline or directly attached policies."
 relatedLists:
   - relationshipName: "CA10__userPolicies__r"
     conditions: []

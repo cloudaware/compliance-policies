@@ -2,7 +2,7 @@
 
 ## From Azure Portal
 
-1. Login to Azure Portal using <https://portal.azure.com>.
+1. Log in to Azure Portal using <https://portal.azure.com>.
 2. Go to `Azure Database for MySQL flexible servers`.
 3. For each database, under `Settings`, click `Server parameters`.
 4. In the filter bar, type `tls_version`.
@@ -12,16 +12,24 @@
 
 ## From Azure CLI
 
-Use the below command to update MySQL flexible servers to use TLS version 1.2:
+Use the following command to update MySQL flexible servers to use TLS version 1.2:
 
 ```sh
-az mysql flexible-server parameter set --resource-group <resourceGroup> --server-name <serverName> --name tls_version --value TLSv1.2
+az mysql flexible-server parameter set \
+    --resource-group {{resource-group-name}} \
+    --server-name {{server-name}} \
+    --name tls_version \
+    --value TLSv1.2
 ```
 
 ## From PowerShell
 
-Use the below command to update MySQL flexible servers to use TLS version 1.2:
+Use the following command to update MySQL flexible servers to use TLS version 1.2:
 
 ```ps
-Update-AzMySqlFlexibleServerConfiguration -ResourceGroupName <resourceGroup> -ServerName <serverName> -Name tls_version -Value TLSv1.2
+Update-AzMySqlFlexibleServerConfiguration `
+    -ResourceGroupName {{resource-group-name}} `
+    -ServerName {{server-name}} `
+    -Name tls_version `
+    -Value TLSv1.2
 ```

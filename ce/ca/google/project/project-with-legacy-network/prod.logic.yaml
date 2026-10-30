@@ -4,15 +4,15 @@ testData:
   - file: test-data.json
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Project has networks in the legacy mode."
-    remediationMessage: "Delete the networks in the legacy mode."
+    currentStateMessage: "The project has networks in legacy mode."
+    remediationMessage: "Delete legacy networks if they are not needed."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__Google_GCE_Networks__r" 
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Project doesn't have networks in the legacy mode."
+  currentStateMessage: "The project does not have networks in legacy mode."
 relatedLists:
   - relationshipName: "CA10__Google_GCE_Networks__r"
     importExtracts:

@@ -8,7 +8,7 @@ A Request Unit is a performance metric that abstracts system resource consumptio
 
 Monitoring Total Request Units is essential for detecting idle or underutilized Cosmos DB accounts. By identifying accounts with zero recent activity, you can assess their relevance and potential for deallocation, optimizing cloud resource management and cost efficiency.
 
-You're billed on an hourly basis for the number of RUs per second provisioned.
+You are billed on an hourly basis for the number of RUs per second provisioned.
 
 ## Impact
 

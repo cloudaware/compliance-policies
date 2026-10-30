@@ -12,7 +12,7 @@ Migrating S3 buckets to different regions requires careful planning to ensure th
 
 ## Audit
 
-This policy flagged an *AWS S3 Bucket* as `INCOMPLIANT` if it resides in one of the following regions identified as less cost-efficient:
+This policy flags an *AWS S3 Bucket* as `INCOMPLIANT` if it resides in one of the following regions identified as less cost-efficient:
 
 | Region       | Recommended Alternative              |
 | ------------ | ------------------------------------ |

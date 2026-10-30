@@ -8,6 +8,13 @@ extracts:
       path: "CA10__name__c"
       undeterminedIf:
         isEmpty: "Corrupted data. Policy Name cannot be empty."
+# Not Nullable. Can't have no Access, retrieved via iam:ListPolicies
+- name: "CA10__policyType__c"
+  value:
+    FIELD:
+      path: "CA10__policyType__c"
+      undeterminedIf:
+        isEmpty: "Corrupted data. Policy Type cannot be empty."
 # Checkbox. Can't have no Access, retrieved via iam:ListPolicies
 - name: "CA10__attachable__c"
   value: 

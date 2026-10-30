@@ -7,7 +7,7 @@ importExtracts:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "SQL Server auditing is disabled."
-    remediationMessage: "Consider enabling SQL Server auditing."
+    remediationMessage: "Enable SQL Server auditing."
     check:
       IS_EQUAL:
         left:
@@ -16,7 +16,7 @@ conditions:
           TEXT: "Disabled"
   - status: "INCOMPLIANT"
     currentStateMessage: "SQL Server auditing retention is less than 90 days."
-    remediationMessage: "Consider setting SQL Server auditing retention to be greater than 90 days or 0 for unlimited retention."
+    remediationMessage: "Set auditing retention to more than 90 days or to 0 for unlimited retention."
     check:
       AND:
         args:

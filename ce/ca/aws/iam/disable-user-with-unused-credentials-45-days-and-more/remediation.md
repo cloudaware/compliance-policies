@@ -2,22 +2,22 @@
 
 ## From Console
 
-Perform the following to manage Unused Password (IAM user console access):
+Perform the following to manage unused passwords (IAM user console access):
 
-1. Login to the AWS Management Console.
+1. Log in to the AWS Management Console.
 2. Click `Services`.
 3. Click `IAM`.
 4. Click on `Users`.
 5. Click on `Security Credentials`.
-6. Select user whose `Console last sign-in` is greater than `45` days.
+6. Select a user whose `Console last sign-in` is greater than `45` days.
 7. Click `Security credentials`.
-8. In section `Sign-in credentials`, `Console password` click `Manage`.
-9. Under Console Access select `Disable`.
+8. In the `Sign-in credentials` section, for `Console password`, click `Manage`.
+9. Under `Console Access`, select `Disable`.
 10. Click `Apply`.
 
 Perform the following to deactivate Access Keys:
 
-1. Login to the AWS Management Console.
+1. Log in to the AWS Management Console.
 2. Click `Services`.
 3. Click `IAM`.
 4. Click on `Users`.

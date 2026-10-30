@@ -1,0 +1,257 @@
+---
+inputType: "CA10__CaAzureStorageAccount__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "No classic Blob, Queue, or Table logging operation is enabled."
+    check:
+      AND:
+        args:
+          - NOT:
+              arg:
+                OR:
+                  args:
+                    - IS_EQUAL:
+                        left:
+                          EXTRACT: "CA10__blobLoggingReadState__c"
+                        right:
+                          TEXT: "Enabled"
+                    - IS_EQUAL:
+                        left:
+                          EXTRACT: "CA10__blobLoggingWriteState__c"
+                        right:
+                          TEXT: "Enabled"
+                    - IS_EQUAL:
+                        left:
+                          EXTRACT: "CA10__blobLoggingDeleteState__c"
+                        right:
+                          TEXT: "Enabled"
+          - NOT:
+              arg:
+                OR:
+                  args:
+                    - IS_EQUAL:
+                        left:
+                          EXTRACT: "CA10__queueLoggingReadState__c"
+                        right:
+                          TEXT: "Enabled"
+                    - IS_EQUAL:
+                        left:
+                          EXTRACT: "CA10__queueLoggingWriteState__c"
+                        right:
+                          TEXT: "Enabled"
+                    - IS_EQUAL:
+                        left:
+                          EXTRACT: "CA10__queueLoggingDeleteState__c"
+                        right:
+                          TEXT: "Enabled"
+          - NOT:
+              arg:
+                OR:
+                  args:
+                    - IS_EQUAL:
+                        left:
+                          EXTRACT: "CA10__tableLoggingReadState__c"
+                        right:
+                          TEXT: "Enabled"
+                    - IS_EQUAL:
+                        left:
+                          EXTRACT: "CA10__tableLoggingWriteState__c"
+                        right:
+                          TEXT: "Enabled"
+                    - IS_EQUAL:
+                        left:
+                          EXTRACT: "CA10__tableLoggingDeleteState__c"
+                        right:
+                          TEXT: "Enabled"
+  - status: "UNDETERMINED"
+    currentStateMessage: "Enabled classic logging has incomplete retention evidence."
+    check:
+      OR:
+        args:
+          - AND:
+              args:
+                - OR:
+                    args:
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__blobLoggingReadState__c"
+                          right:
+                            TEXT: "Enabled"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__blobLoggingWriteState__c"
+                          right:
+                            TEXT: "Enabled"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__blobLoggingDeleteState__c"
+                          right:
+                            TEXT: "Enabled"
+                - OR:
+                    args:
+                      - IS_EMPTY:
+                          arg:
+                            EXTRACT: "CA10__blobLoggingRetentionPolicyState__c"
+                      - IS_EMPTY:
+                          arg:
+                            EXTRACT: "CA10__blobLoggingRetentionPolicyDays__c"
+          - AND:
+              args:
+                - OR:
+                    args:
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__queueLoggingReadState__c"
+                          right:
+                            TEXT: "Enabled"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__queueLoggingWriteState__c"
+                          right:
+                            TEXT: "Enabled"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__queueLoggingDeleteState__c"
+                          right:
+                            TEXT: "Enabled"
+                - OR:
+                    args:
+                      - IS_EMPTY:
+                          arg:
+                            EXTRACT: "CA10__queueLoggingRetentionPolicyState__c"
+                      - IS_EMPTY:
+                          arg:
+                            EXTRACT: "CA10__queueLoggingRetentionPolicyDays__c"
+          - AND:
+              args:
+                - OR:
+                    args:
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__tableLoggingReadState__c"
+                          right:
+                            TEXT: "Enabled"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__tableLoggingWriteState__c"
+                          right:
+                            TEXT: "Enabled"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__tableLoggingDeleteState__c"
+                          right:
+                            TEXT: "Enabled"
+                - OR:
+                    args:
+                      - IS_EMPTY:
+                          arg:
+                            EXTRACT: "CA10__tableLoggingRetentionPolicyState__c"
+                      - IS_EMPTY:
+                          arg:
+                            EXTRACT: "CA10__tableLoggingRetentionPolicyDays__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Enabled classic logging has disabled or non-positive retention."
+    remediationMessage: "Set a reviewed positive retention period for each enabled service."
+    check:
+      OR:
+        args:
+          - AND:
+              args:
+                - OR:
+                    args:
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__blobLoggingReadState__c"
+                          right:
+                            TEXT: "Enabled"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__blobLoggingWriteState__c"
+                          right:
+                            TEXT: "Enabled"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__blobLoggingDeleteState__c"
+                          right:
+                            TEXT: "Enabled"
+                - OR:
+                    args:
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__blobLoggingRetentionPolicyState__c"
+                          right:
+                            TEXT: "Disabled"
+                      - LESS_THAN_EQUAL:
+                          left:
+                            EXTRACT: "CA10__blobLoggingRetentionPolicyDays__c"
+                          right:
+                            NUMBER: 0.0
+          - AND:
+              args:
+                - OR:
+                    args:
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__queueLoggingReadState__c"
+                          right:
+                            TEXT: "Enabled"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__queueLoggingWriteState__c"
+                          right:
+                            TEXT: "Enabled"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__queueLoggingDeleteState__c"
+                          right:
+                            TEXT: "Enabled"
+                - OR:
+                    args:
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__queueLoggingRetentionPolicyState__c"
+                          right:
+                            TEXT: "Disabled"
+                      - LESS_THAN_EQUAL:
+                          left:
+                            EXTRACT: "CA10__queueLoggingRetentionPolicyDays__c"
+                          right:
+                            NUMBER: 0.0
+          - AND:
+              args:
+                - OR:
+                    args:
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__tableLoggingReadState__c"
+                          right:
+                            TEXT: "Enabled"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__tableLoggingWriteState__c"
+                          right:
+                            TEXT: "Enabled"
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__tableLoggingDeleteState__c"
+                          right:
+                            TEXT: "Enabled"
+                - OR:
+                    args:
+                      - IS_EQUAL:
+                          left:
+                            EXTRACT: "CA10__tableLoggingRetentionPolicyState__c"
+                          right:
+                            TEXT: "Disabled"
+                      - LESS_THAN_EQUAL:
+                          left:
+                            EXTRACT: "CA10__tableLoggingRetentionPolicyDays__c"
+                          right:
+                            NUMBER: 0.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Enabled classic logging has bounded retention."

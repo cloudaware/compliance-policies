@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS Secrets Manager Secret has not been accessed in over 90 days"
+  contextual: "Secret has not been accessed in over 90 days"
+description: >
+  Identify AWS Secrets Manager secrets that have not been accessed for more than 90 days. 
+  Unused secrets should be reviewed for deletion or rotation to reduce the attack 
+  surface and minimize costs.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/secret-and-certificate-governance/expiration-management"
+  - "/frameworks/aws-fsbp-v1.0.0/secrets-manager/03"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[SecretsManager.3] Remove unused Secrets Manager secrets"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/secretsmanager-controls.html#secretsmanager-3"

@@ -7,8 +7,8 @@ importExtracts:
   - file: /types/CA10__CaGoogleBigQueryDataset__c/object.extracts.yaml
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "IAM policy on BigQuery dataset allows anonymous and/or public access."
-    remediationMessage: "Update the dataset information to remove all roles containing 'allUsers' or 'allAuthenticatedUsers'."
+    currentStateMessage: "The BigQuery dataset IAM policy allows anonymous or public access."
+    remediationMessage: "Remove roles with allUsers or allAuthenticatedUsers from the dataset IAM policy."
     check:
       OR:
         args:
@@ -24,4 +24,4 @@ conditions:
                 TEXT: "allAuthenticatedUsers"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "IAM policy on BigQuery dataset does not allow anonymous and/or public access."
+  currentStateMessage: "The BigQuery dataset IAM policy does not allow anonymous or public access."

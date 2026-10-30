@@ -1,0 +1,10 @@
+name: >
+  [RDS.45] Aurora MySQL DB clusters should have audit logging enabled
+description: |-
+  Database logs can assist with security and access audits and help diagnose availability 
+  issues. Audit logs capture a record of database activity, including login attempts, 
+  data modifications, schema changes, and other events that can be audited for 
+  security and compliance purposes.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-45

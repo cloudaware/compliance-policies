@@ -6,7 +6,7 @@ While an automated assessment procedure exists for this recommendation, the asse
 
 ## Rationale
 
-Network security perimeter denies public access to PaaS resources, reducing exposure and mitigating data exfiltration risks.
+Network security perimeters deny public access to PaaS resources, reducing exposure and mitigating data exfiltration risks.
 
 ## Impact
 
@@ -36,7 +36,7 @@ az group list
 For each resource group, run the following command to list resources:
 
 ```sh
-az resource list --resource-group <resource-group>
+az resource list --resource-group {{resource-group-name}}
 ```
 
 Take note of PaaS resources.
@@ -44,13 +44,15 @@ Take note of PaaS resources.
 For each resource group, run the following command to list network security perimeters:
 
 ```sh
-az network perimeter list --resource-group <resource-group>
+az network perimeter list --resource-group {{resource-group-name}}
 ```
 
 For each network security perimeter, run the following command to list resources:
 
 ```sh
-az network perimeter association list --resource-group <resource-group> --perimeter-name <network-security-perimeter>
+az network perimeter association list \
+    --resource-group {{resource-group-name}} \
+    --perimeter-name {{network-security-perimeter-name}}
 ```
 
 Ensure each PaaS resource is associated with a network security perimeter.

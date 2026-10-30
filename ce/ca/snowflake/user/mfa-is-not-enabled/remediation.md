@@ -1,6 +1,6 @@
 # Remediation
 
-Multi-Factor Authentication (MFA) is configured on a per-user basis in Snowflake. However, user enrollment is not automatic, each user must complete the enrollment process individually.
+Multi-Factor Authentication (MFA) is configured on a per-user basis in Snowflake. However, enrollment is not automatic. Each user must complete the enrollment process individually.
 
 ## Enforcing MFA Enrollment
 

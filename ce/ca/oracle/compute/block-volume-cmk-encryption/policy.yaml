@@ -1,0 +1,17 @@
+---
+names:
+  full: "Oracle IAAS Block Volume is not encrypted with a customer managed key"
+  contextual: "IAAS Block Volume is not encrypted with a customer managed key"
+description: >
+  Ensure that Oracle block volumes use customer managed keys from OCI Vault for
+  encryption at rest. Customer managed keys provide stronger control over key
+  access, rotation, auditing, and revocation than provider-managed encryption keys.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cis-oracle-v3.1.0/05/02/01"
+  - "/frameworks/cloudaware/resource-security/data-encryption"
+similarPolicies:
+  internal:
+    - "dec-x-ae60c87e"

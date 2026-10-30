@@ -4,7 +4,7 @@ testData:
   - file: test-data.json
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "Only for Cloud KMS Admin Users"
+    currentStateMessage: "Only applicable to Cloud KMS admin users."
     check:
       NOT:
         arg:
@@ -12,15 +12,15 @@ conditions:
             status: "INAPPLICABLE"
             relationshipName: "CA10G1__Google_IAM_Policy_Bindings__r"
   - status: "INCOMPLIANT"
-    currentStateMessage: "User has 'Cloud KMS Admin' and Cloud KMS CryptoKey Encrypter or Decrypter roles assigned at the same time."
-    remediationMessage: "Remove an extra role from the user."
+    currentStateMessage: "The user has Cloud KMS Admin and CryptoKey Encrypter or Decrypter roles assigned at the same time."
+    remediationMessage: "Remove one of the conflicting roles."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10G1__Google_IAM_Policy_Bindings__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The principle of 'Separation of Duties' is enforced."
+  currentStateMessage: "Separation of duties is enforced."
 relatedLists:
   - relationshipName: "CA10G1__Google_IAM_Policy_Bindings__r"
     importExtracts:
@@ -32,11 +32,11 @@ relatedLists:
       - "caGoogleIamPolicyBindingProject"
     conditions: 
       - status: "COMPLIANT"
-        currentStateMessage: "Empty policy binding"
+        currentStateMessage: "Empty policy binding."
         check:
           IS_EMPTY_LOOKUP: "CA10__iamRole__r"
       - status: "INAPPLICABLE"
-        currentStateMessage: "User has a KMS Admin role assigned"
+        currentStateMessage: "User has a KMS Admin role assigned."
         check:
           IS_EQUAL:
             left:
@@ -44,7 +44,7 @@ relatedLists:
             right:
               TEXT: "roles/cloudkms.admin" 
       - status: "INCOMPLIANT"
-        currentStateMessage: "User has a KMS related role assigned"
+        currentStateMessage: "User has a KMS-related role assigned."
         check: 
           OR:
             args:
@@ -65,5 +65,5 @@ relatedLists:
                     TEXT: "roles/cloudkms.cryptoKeyDecrypter"
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "User doesn't have a KMS related role assigned"
+      currentStateMessage: "User does not have a KMS-related role assigned."
 

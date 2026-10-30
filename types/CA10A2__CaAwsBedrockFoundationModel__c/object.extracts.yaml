@@ -1,0 +1,21 @@
+---
+extracts:
+  # Optional output modalities from bedrock:ListFoundationModels, stored as newline-separated text.
+  - name: CA10A2__outputModalities__c
+    value:
+      FIELD:
+        path: CA10A2__outputModalities__c
+  # Values: ACTIVE | LEGACY. Collected by bedrock:ListFoundationModels.
+  - name: CA10A2__modelLifecycleStatus__c
+    value:
+      FIELD:
+        path: CA10A2__modelLifecycleStatus__c
+        undeterminedIf:
+          isEmpty: The foundation model lifecycle status is unavailable.
+  - name: CA10A2__modelArn__c
+    value:
+      FIELD:
+        path: CA10A2__modelArn__c
+        undeterminedIf:
+          isEmpty: The foundation model ARN is unavailable.
+        returnType: BYTES

@@ -6,8 +6,7 @@ importExtracts:
   - file: /types/CA10__CaAwsUser__c/credReport.extracts.yaml
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "Requirements of this policy are applicable only to users\
-      \ with enabled console password"
+    currentStateMessage: "This policy applies only to users with an enabled console password."
     check:
       IS_EQUAL:
         left:
@@ -15,7 +14,7 @@ conditions:
         right:
           BOOLEAN: false
   - status: "COMPLIANT"
-    currentStateMessage: "MFA Enabled for this user"
+    currentStateMessage: "MFA is enabled for this user."
     check:
       IS_EQUAL:
         left:
@@ -24,5 +23,5 @@ conditions:
           BOOLEAN: true
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "MFA is not enabled for this user"
-  remediationMessage: "Enable MFA for this user or disable the console access"
+  currentStateMessage: "MFA is not enabled for this user."
+  remediationMessage: "Enable MFA for this user or disable console access."

@@ -6,8 +6,8 @@ recordTypes:
   - restApi
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "There is no related API Stage where CloudWatch Metrics are enabled."
-    remediationMessage: "Consider enabling CloudWatch Metrics for the API Stage."
+    currentStateMessage: "No related API stage has CloudWatch metrics enabled."
+    remediationMessage: "Enable CloudWatch metrics for the API stage."
     check:
       IS_EQUAL:
         left:
@@ -17,23 +17,23 @@ conditions:
         right:
           NUMBER: 0.0
   - status: "INCOMPLIANT"
-    currentStateMessage: "There is at least one related API Stage where CloudWatch Metrics are not enabled."
-    remediationMessage: "Consider enabling CloudWatch Metrics for the API Stage."
+    currentStateMessage: "At least one API stage does not have CloudWatch metrics enabled."
+    remediationMessage: "Enable CloudWatch metrics for the API stage."
     check:
       RELATED_LIST_HAS:
         relationshipName: "CA10__AWS_API_Gateway_Stages__r"
         status: "INCOMPLIANT"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "CloudWatch Metrics for all API Stages are enabled."
+  currentStateMessage: "CloudWatch metrics are enabled for all API stages."
 relatedLists:
   - relationshipName: "CA10__AWS_API_Gateway_Stages__r"
     importExtracts:
       - file: "/types/CA10__CaAwsApiGatewayStage__c/object.extracts.yaml"
     conditions:
       - status: "INCOMPLIANT"
-        currentStateMessage: "CloudWatch Metrics are not enabled for this API Stage."
-        remediationMessage: "Consider enabling CloudWatch Metrics for this API Stage."
+        currentStateMessage: "CloudWatch metrics are not enabled for this API stage."
+        remediationMessage: "Enable CloudWatch metrics for this API stage."
         check:
           IS_EQUAL:
             left:
@@ -42,4 +42,4 @@ relatedLists:
               BOOLEAN: false
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "CloudWatch Metrics are enabled."
+      currentStateMessage: "CloudWatch metrics are enabled for this API stage."

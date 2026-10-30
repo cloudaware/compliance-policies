@@ -26,5 +26,8 @@ conditions:
           TEXT: "on"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "The log_checkpoints database flag isn't set to on."
+  currentStateMessage: "The log_checkpoints database flag is not set to on."
   remediationMessage: "Set log_checkpoints database flag to on."
+
+
+

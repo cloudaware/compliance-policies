@@ -6,22 +6,22 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "App Service Remote Debugging is not disabled."
-    remediationMessage: "Consider disabling App Service Remote Debugging."
-    check:
-      IS_EQUAL:
-        left:
-          EXTRACT: "CA10__configRemoteDebugging__c"
-        right:
-          TEXT: "Disabled"
-  - status: "COMPLIANT"
-    currentStateMessage: "App Service Remote Debugging is disabled."
+    currentStateMessage: "The App Service remote debugging is not disabled."
+    remediationMessage: "Disable App Service remote debugging."
     check:
       IS_EQUAL:
         left:
           EXTRACT: "CA10__configRemoteDebugging__c"
         right:
           TEXT: "Enabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "The App Service remote debugging is disabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__configRemoteDebugging__c"
+        right:
+          TEXT: "Disabled"
 otherwise:
   status: "UNDETERMINED"
   currentStateMessage: "Unexpected value in the field."

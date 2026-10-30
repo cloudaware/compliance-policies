@@ -3,7 +3,7 @@
 Microsoft Azure applies a default global banned password list to all user and admin accounts that are created and managed directly in Microsoft Entra ID.
 The Microsoft Entra password policy does not apply to user accounts that are synchronized from an on-premises Active Directory environment, unless Microsoft Entra ID Connect is used and `EnforceCloudPasswordPolicyForPasswordSyncedUsers` is enabled.
 Review the `Default Value` section for more detail on the password policy.
-For increased password security, a custom banned password list is recommended
+For increased password security, a custom banned password list is recommended.
 
 ## Rationale
 
@@ -17,7 +17,7 @@ Increasing needed password complexity might increase overhead on administration 
 
 ### From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. In the Azure portal, open the portal menu.
 2. Select `Microsoft Entra ID`.
 3. Under `Manage`, select `Security`.
 4. Under `Manage`, select `Authentication Methods`.
@@ -27,7 +27,7 @@ Increasing needed password complexity might increase overhead on administration 
 
 ## Default Value
 
-By default the custom bad password list is not `Enabled`. Organizational-specific terms can be added to the custom banned password list, such as the following examples:
+By default, the custom bad password list is not `Enabled`. Organization-specific terms can be added to the custom banned password list, such as the following examples:
 
 - Brand names
 - Product names
@@ -73,7 +73,7 @@ Note: Password complexity check isn't required for Education tenants.
 
 - When a user changes or resets their password, the new password can't be the same as the current or recently used passwords.
 - Password isn't banned by Entra ID Password Protection.
-- The password can't be on the global list of banned passwords for Azure AD Password Protection, or on the customizable list of banned passwords specific to your organization.
+- The password can't be on the global list of banned passwords for Entra ID Password Protection, or on the customizable list of banned passwords specific to your organization.
 
 ### Evaluation
 

@@ -1,0 +1,22 @@
+---
+names:
+  full: "AWS Redshift Cluster Audit Logging is not enabled"
+  contextual: "Cluster Audit Logging is not enabled"
+description: >
+  AWS Redshift audit logging provides a detailed record of connections, queries, 
+  and changes to your database. This information is essential for security auditing, 
+  troubleshooting, and regulatory compliance. It is recommended to enable audit 
+  logging to maintain a complete audit trail of database activity.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/redshift/04"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Redshift.4] Amazon Redshift clusters should have audit logging enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/redshift-controls.html#redshift-4"
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/Redshift/redshift-cluster-audit-logging-enabled.html"
+      name: Redshift Cluster Audit Logging Enabled

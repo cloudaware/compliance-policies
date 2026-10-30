@@ -1,0 +1,1047 @@
+[
+  {
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "Id": "active-current",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 799,
+      "conditionText": "extract('CA10A2__model__r.CA10A2__modelLifecycleStatus__c') == 'ACTIVE'"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "active-current-CA10A2__model__r",
+    "CA10A2__model__r": {
+      "Id": "active-current-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1"
+    }
+  },
+  {
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "Id": "legacy-current",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-lite-v1",
+    "CA10A2__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 899,
+      "conditionText": "extract('CA10A2__model__r.CA10A2__modelLifecycleStatus__c') == 'LEGACY'"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "legacy-current-CA10A2__model__r",
+    "CA10A2__model__r": {
+      "Id": "legacy-current-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "LEGACY",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-lite-v1"
+    }
+  },
+  {
+    "CA10A2__foundationDesiredModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-lite-v1",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 899,
+      "conditionText": "extract('CA10A2__model__r.CA10A2__modelLifecycleStatus__c') == 'LEGACY'"
+    },
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "updating-legacy-current-active-desired-CA10A2__model__r",
+    "CA10A2__foundationDesiredModel__c": "updating-legacy-current-active-desired-CA10A2__foundationDesiredModel__r",
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__model__r": {
+      "Id": "updating-legacy-current-active-desired-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "LEGACY",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1"
+    },
+    "CA10A2__foundationDesiredModel__r": {
+      "Id": "updating-legacy-current-active-desired-CA10A2__foundationDesiredModel__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__status__c": "Updating",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "Id": "updating-legacy-current-active-desired"
+  },
+  {
+    "Id": "updating-active-current-legacy-desired",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 799,
+      "conditionText": "extract('CA10A2__model__r.CA10A2__modelLifecycleStatus__c') == 'ACTIVE'"
+    },
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "updating-active-current-legacy-desired-CA10A2__model__r",
+    "CA10A2__foundationDesiredModel__c": "updating-active-current-legacy-desired-CA10A2__foundationDesiredModel__r",
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__model__r": {
+      "Id": "updating-active-current-legacy-desired-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1"
+    },
+    "CA10A2__foundationDesiredModel__r": {
+      "Id": "updating-active-current-legacy-desired-CA10A2__foundationDesiredModel__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "LEGACY"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__status__c": "Updating",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__foundationDesiredModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-lite-v1"
+  },
+  {
+    "Id": "active-current-legacy-original-base",
+    "CA10A2__foundationModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-lite-v1",
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "active-current-legacy-original-base-CA10A2__model__r",
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "CA10A2__foundationModel__r": {
+      "Id": "active-current-legacy-original-base-CA10A2__foundationModel__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "LEGACY"
+    },
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 799,
+      "conditionText": "extract('CA10A2__model__r.CA10A2__modelLifecycleStatus__c') == 'ACTIVE'"
+    },
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__model__r": {
+      "Id": "active-current-legacy-original-base-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__status__c": "InService",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__foundationModel__c": "active-current-legacy-original-base-CA10A2__foundationModel__r"
+  },
+  {
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "Id": "creating-active-current",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": "Creating",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['Creating', 'Failed']).contains(extract('CA10A2__status__c'))"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "creating-active-current-CA10A2__model__r",
+    "CA10A2__model__r": {
+      "Id": "creating-active-current-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1"
+    }
+  },
+  {
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "Id": "failed-update-legacy-current",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": "Failed",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['Creating', 'Failed']).contains(extract('CA10A2__status__c'))"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "failed-update-legacy-current-CA10A2__model__r",
+    "CA10A2__model__r": {
+      "Id": "failed-update-legacy-current-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "LEGACY",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1"
+    }
+  },
+  {
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "Id": "unknown-throughput-status",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": "DELETING",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "not(setOfText(['Creating', 'InService', 'Updating', 'Failed']).contains(extract('CA10A2__status__c')))"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "unknown-throughput-status-CA10A2__model__r",
+    "CA10A2__model__r": {
+      "Id": "unknown-throughput-status-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1"
+    }
+  },
+  {
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "Id": "missing-throughput-status",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": null,
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 101,
+      "conditionText": "CA10A2__status__c.isEmpty()"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "missing-throughput-status-CA10A2__model__r",
+    "CA10A2__model__r": {
+      "Id": "missing-throughput-status-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1"
+    }
+  },
+  {
+    "Id": "custom-current-legacy-base-active-desired",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('caAwsBedrockUsesCustomModel')"
+    },
+    "CA10A2__customModel__c": "custom-current-legacy-base-active-desired-CA10A2__customModel__r",
+    "CA10A2__model__c": null,
+    "CA10A2__foundationDesiredModel__c": "custom-current-legacy-base-active-desired-CA10A2__foundationDesiredModel__r",
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": "custom-current-legacy-base-active-desired-CA10A2__customModel__r"
+    },
+    "CA10A2__foundationModel__r": {
+      "Id": "custom-current-legacy-base-active-desired-CA10A2__foundationModel__r",
+      "CA10A2__modelLifecycleStatus__c": "LEGACY",
+      "CA10A2__disappearanceTime__c": null
+    },
+    "CA10A2__modelArn__c": null,
+    "CA10A2__model__r": {
+      "Id": null,
+      "CA10A2__disappearanceTime__c": null
+    },
+    "CA10A2__foundationDesiredModel__r": {
+      "Id": "custom-current-legacy-base-active-desired-CA10A2__foundationDesiredModel__r",
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__disappearanceTime__c": null
+    },
+    "CA10A2__customModelArn__c": "arn:aws:bedrock:us-east-1:123456789012:custom-model/amazon.titan-text-lite-v1/abcdefghijkl",
+    "CA10A2__status__c": "InService",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__foundationModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-lite-v1",
+    "CA10A2__foundationDesiredModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__foundationModel__c": "custom-current-legacy-base-active-desired-CA10A2__foundationModel__r"
+  },
+  {
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "Id": "custom-arn-in-generic-current-field",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1:123456789012:custom-model/amazon.titan-text-lite-v1/abcdefghijkl",
+    "CA10A2__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('caAwsBedrockUsesCustomModel')"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "custom-arn-in-generic-current-field-CA10A2__model__r",
+    "CA10A2__model__r": {
+      "Id": "custom-arn-in-generic-current-field-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1"
+    }
+  },
+  {
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "Id": "active-current-extraneous-custom-arn",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 799,
+      "conditionText": "extract('CA10A2__model__r.CA10A2__modelLifecycleStatus__c') == 'ACTIVE'"
+    },
+    "CA10A2__customModelArn__c": "arn:aws:bedrock:us-east-1:123456789012:custom-model/amazon.titan-text-lite-v1/abcdefghijkl",
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "conflicting-custom-and-foundation-current-CA10A2__model__r",
+    "CA10A2__model__r": {
+      "Id": "conflicting-custom-and-foundation-current-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1"
+    }
+  },
+  {
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": "custom-lookup-without-arn-CA10A2__customModel__r"
+    },
+    "Id": "active-current-extraneous-custom-lookup",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 799,
+      "conditionText": "extract('CA10A2__model__r.CA10A2__modelLifecycleStatus__c') == 'ACTIVE'"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__customModel__c": "custom-lookup-without-arn-CA10A2__customModel__r",
+    "CA10A2__model__c": "custom-lookup-without-arn-CA10A2__model__r",
+    "CA10A2__model__r": {
+      "Id": "custom-lookup-without-arn-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1"
+    }
+  },
+  {
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "Id": "missing-current-arn",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": null,
+    "CA10A2__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 401,
+      "conditionText": "CA10A2__modelArn__c.isEmpty()"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "missing-current-arn-CA10A2__model__r",
+    "CA10A2__model__r": {
+      "Id": "missing-current-arn-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1"
+    }
+  },
+  {
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "Id": "malformed-current-arn",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "not-an-arn",
+    "CA10A2__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "not(extract('CA10A2__modelArn__c').contains(bytes('::foundation-model/')))"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "malformed-current-arn-CA10A2__model__r",
+    "CA10A2__model__r": {
+      "Id": "malformed-current-arn-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1"
+    }
+  },
+  {
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "Id": "unresolved-current-lookup",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 605,
+      "conditionText": "CA10A2__modelArn__c.isEmpty()"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "missing-model",
+    "CA10A2__model__r": {
+      "Id": null,
+      "CA10A2__disappearanceTime__c": null
+    }
+  },
+  {
+    "Id": "missing-current-lookup-original-base-present",
+    "CA10A2__foundationModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": null,
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "CA10A2__foundationModel__r": {
+      "Id": "missing-current-lookup-original-base-present-CA10A2__foundationModel__r",
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__disappearanceTime__c": null
+    },
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 599,
+      "conditionText": "isEmptyLookup('CA10A2__model__r')"
+    },
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__model__r": {
+      "Id": null,
+      "CA10A2__disappearanceTime__c": null
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__status__c": "InService",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__foundationModel__c": "missing-current-lookup-original-base-present-CA10A2__foundationModel__r"
+  },
+  {
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "Id": "disappeared-current-model",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 599,
+      "conditionText": "isEmptyLookup('CA10A2__model__r')"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "disappeared-current-model-CA10A2__model__r",
+    "CA10A2__model__r": {
+      "Id": "disappeared-current-model-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": "2026-10-22T00:00:00Z",
+      "CA10A2__modelLifecycleStatus__c": "LEGACY",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1"
+    }
+  },
+  {
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "Id": "mismatched-model-arn",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "extract('CA10A2__modelArn__c') != extract('CA10A2__model__r.CA10A2__modelArn__c')"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "mismatched-model-arn-CA10A2__model__r",
+    "CA10A2__model__r": {
+      "Id": "mismatched-model-arn-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-lite-v1"
+    }
+  },
+  {
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "Id": "mismatched-region",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "extract('CA10A2__modelArn__c') != extract('CA10A2__model__r.CA10A2__modelArn__c')"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "mismatched-region-CA10A2__model__r",
+    "CA10A2__model__r": {
+      "Id": "mismatched-region-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-text-express-v1"
+    }
+  },
+  {
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "Id": "missing-related-model-arn",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 605,
+      "conditionText": "CA10A2__modelArn__c.isEmpty()"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "missing-related-model-arn-CA10A2__model__r",
+    "CA10A2__model__r": {
+      "Id": "missing-related-model-arn-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": null
+    }
+  },
+  {
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "Id": "unknown-model-lifecycle",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 900,
+      "conditionText": "otherwise"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "unknown-model-lifecycle-CA10A2__model__r",
+    "CA10A2__model__r": {
+      "Id": "unknown-model-lifecycle-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "RETIRED",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1"
+    }
+  },
+  {
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "Id": "eol-not-a-native-api-status",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 900,
+      "conditionText": "otherwise"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "eol-not-a-native-api-status-CA10A2__model__r",
+    "CA10A2__model__r": {
+      "Id": "eol-not-a-native-api-status-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "EOL",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1"
+    }
+  },
+  {
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "Id": "missing-model-lifecycle",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 704,
+      "conditionText": "CA10A2__modelLifecycleStatus__c.isEmpty()"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "missing-model-lifecycle-CA10A2__model__r",
+    "CA10A2__model__r": {
+      "Id": "missing-model-lifecycle-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": null,
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1"
+    }
+  },
+  {
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "Id": "disappeared-throughput",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__disappearanceTime__c": "2026-10-22T00:00:00Z",
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "runtimeError": null,
+      "conditionIndex": 99,
+      "conditionText": "isDisappeared(CA10A2__disappearanceTime__c)"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "disappeared-throughput-CA10A2__model__r",
+    "CA10A2__model__r": {
+      "Id": "disappeared-throughput-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1"
+    }
+  },
+  {
+    "CA10A2__customModel__r": {
+      "CA10A2__disappearanceTime__c": null,
+      "Id": null
+    },
+    "Id": "future-snapshot-still-uses-native-state",
+    "context": {
+      "snapshotTime": "2030-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 799,
+      "conditionText": "extract('CA10A2__model__r.CA10A2__modelLifecycleStatus__c') == 'ACTIVE'"
+    },
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__customModel__c": null,
+    "CA10A2__model__c": "future-snapshot-still-uses-native-state-CA10A2__model__r",
+    "CA10A2__model__r": {
+      "Id": "future-snapshot-still-uses-native-state-CA10A2__model__r",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1"
+    }
+  },
+  {
+    "CA10A2__customModel__r": {
+      "Id": "legacy-current-extraneous-custom-metadata-custom",
+      "CA10A2__disappearanceTime__c": null
+    },
+    "Id": "legacy-current-extraneous-custom-metadata",
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+    "CA10A2__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 899,
+      "conditionText": "extract('CA10A2__model__r.CA10A2__modelLifecycleStatus__c') == 'LEGACY'"
+    },
+    "CA10A2__customModelArn__c": "arn:aws:bedrock:us-east-1:123456789012:custom-model/amazon.titan-text-lite-v1/abcdefghijkl",
+    "CA10A2__customModel__c": "legacy-current-extraneous-custom-metadata-custom",
+    "CA10A2__model__c": "legacy-current-extraneous-custom-metadata-model",
+    "CA10A2__model__r": {
+      "Id": "legacy-current-extraneous-custom-metadata-model",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "LEGACY",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1"
+    }
+  },
+  {
+    "Id": "creating-without-model-data",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "Creating",
+    "CA10A2__modelArn__c": null,
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__model__c": null,
+    "CA10A2__model__r": {
+      "Id": null,
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelArn__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE"
+    },
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['Creating', 'Failed']).contains(extract('CA10A2__status__c'))",
+      "runtimeError": null
+    }
+  },
+  {
+    "Id": "failed-without-model-data",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "Failed",
+    "CA10A2__modelArn__c": null,
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__model__c": null,
+    "CA10A2__model__r": {
+      "Id": null,
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelArn__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE"
+    },
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['Creating', 'Failed']).contains(extract('CA10A2__status__c'))",
+      "runtimeError": null
+    }
+  },
+  {
+    "Id": "creating-legacy-model",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "Creating",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-haiku-20240307-v1:0:48k",
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__model__c": "creating-legacy-model-model",
+    "CA10A2__model__r": {
+      "Id": "creating-legacy-model-model",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-haiku-20240307-v1:0:48k",
+      "CA10A2__modelLifecycleStatus__c": "LEGACY"
+    },
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['Creating', 'Failed']).contains(extract('CA10A2__status__c'))",
+      "runtimeError": null
+    }
+  },
+  {
+    "Id": "active-context-variant-24k",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-lite-v1:0:24k",
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__model__c": "active-context-variant-24k-model",
+    "CA10A2__model__r": {
+      "Id": "active-context-variant-24k-model",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-lite-v1:0:24k",
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE"
+    },
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 799,
+      "conditionText": "extract('CA10A2__model__r.CA10A2__modelLifecycleStatus__c') == 'ACTIVE'",
+      "runtimeError": null
+    }
+  },
+  {
+    "Id": "active-context-variant-300k",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-lite-v1:0:300k",
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__model__c": "active-context-variant-300k-model",
+    "CA10A2__model__r": {
+      "Id": "active-context-variant-300k-model",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-lite-v1:0:300k",
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE"
+    },
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 799,
+      "conditionText": "extract('CA10A2__model__r.CA10A2__modelLifecycleStatus__c') == 'ACTIVE'",
+      "runtimeError": null
+    }
+  },
+  {
+    "Id": "haiku-active-region",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-haiku-20240307-v1:0:48k",
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__model__c": "haiku-active-region-model",
+    "CA10A2__model__r": {
+      "Id": "haiku-active-region-model",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-haiku-20240307-v1:0:48k",
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE"
+    },
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 799,
+      "conditionText": "extract('CA10A2__model__r.CA10A2__modelLifecycleStatus__c') == 'ACTIVE'",
+      "runtimeError": null
+    }
+  },
+  {
+    "Id": "haiku-legacy-region",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:ap-south-1::foundation-model/anthropic.claude-3-haiku-20240307-v1:0:48k",
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__model__c": "haiku-legacy-region-model",
+    "CA10A2__model__r": {
+      "Id": "haiku-legacy-region-model",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelArn__c": "arn:aws:bedrock:ap-south-1::foundation-model/anthropic.claude-3-haiku-20240307-v1:0:48k",
+      "CA10A2__modelLifecycleStatus__c": "LEGACY"
+    },
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 899,
+      "conditionText": "extract('CA10A2__model__r.CA10A2__modelLifecycleStatus__c') == 'LEGACY'",
+      "runtimeError": null
+    }
+  },
+  {
+    "Id": "context-variant-mismatch",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-lite-v1:0:300k",
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__model__c": "context-variant-mismatch-model",
+    "CA10A2__model__r": {
+      "Id": "context-variant-mismatch-model",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-lite-v1:0:24k",
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE"
+    },
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 699,
+      "conditionText": "extract('CA10A2__modelArn__c') != extract('CA10A2__model__r.CA10A2__modelArn__c')",
+      "runtimeError": null
+    }
+  },
+  {
+    "Id": "model-arn-case-mismatch",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-lite-v1:0:24k",
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__model__c": "model-arn-case-mismatch-model",
+    "CA10A2__model__r": {
+      "Id": "model-arn-case-mismatch-model",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/Amazon.nova-lite-v1:0:24k",
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE"
+    },
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 699,
+      "conditionText": "extract('CA10A2__modelArn__c') != extract('CA10A2__model__r.CA10A2__modelArn__c')",
+      "runtimeError": null
+    }
+  },
+  {
+    "Id": "imported-custom-model",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1:123456789012:custom-model/imported/abcdefghijkl",
+    "CA10A2__customModelArn__c": null,
+    "CA10A2__model__c": "imported-custom-model-model",
+    "CA10A2__model__r": {
+      "Id": "imported-custom-model-model",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1:123456789012:custom-model/imported/abcdefghijkl",
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE"
+    },
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 399,
+      "conditionText": "extract('caAwsBedrockUsesCustomModel')",
+      "runtimeError": null
+    }
+  },
+  {
+    "Id": "govcloud-custom-model",
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "InService",
+    "CA10A2__modelArn__c": null,
+    "CA10A2__customModelArn__c": "arn:aws-us-gov:bedrock:us-gov-west-1:123456789012:custom-model/amazon.nova-lite-v1/abcdefghijkl",
+    "CA10A2__model__c": null,
+    "CA10A2__model__r": {
+      "Id": null,
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelArn__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE"
+    },
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 399,
+      "conditionText": "extract('caAwsBedrockUsesCustomModel')",
+      "runtimeError": null
+    }
+  }
+]

@@ -2,7 +2,7 @@
 
 Ensure that Azure VM Scale Set Instances do not permit unrestricted inbound access to the SMTP port (TCP 25). Inbound SMTP traffic should be explicitly restricted within Network Security Groups to prevent exposure to the public internet via open IP ranges such as 0.0.0.0/0.
 
-## Rational
+## Rationale
 
 Unrestricted access to SMTP (port 25) can result in the unauthorized use of your VM for sending email, often leading to abuse such as spam or malicious email relay. This behavior can cause your public IP addresses to be blacklisted, impact email deliverability, degrade your organization’s reputation, and potentially violate compliance and acceptable use policies. Limiting SMTP traffic to trusted IP ranges or internal networks ensures controlled usage and mitigates the risk of misuse.
 
@@ -20,6 +20,6 @@ This policy flags an *Azure VM Scale Set Instance* as `INCOMPLIANT` if it is ass
 - `Source Address Prefix` is either **Internet**, `*` **0.0.0.0**, **/0**, or **Any**.
 - `Destination Port` is **25**.
 
-If the `Direction`, `Access`, `Protocol`, or `Source Address Prefix` fields do not match the criteria above, the VM is marked as `INAPPLICABLE`.
+If the `Direction`, `Access`, `Protocol`, or `Source Address Prefix` fields do not match the criteria above, the Azure VM Scale Set Instance is marked as `INAPPLICABLE`.
 
-If the `Destination Port` does not match, the VM is considered `COMPLIANT`.
+If the `Destination Port` does not match, the Azure VM Scale Set Instance is considered `COMPLIANT`.

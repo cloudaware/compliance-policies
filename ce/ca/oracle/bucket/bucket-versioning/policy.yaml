@@ -1,0 +1,19 @@
+---
+names:
+  full: "Oracle Storage Bucket versioning is disabled"
+  contextual: "Storage bucket versioning is disabled"
+description: >
+  Ensure that Oracle Storage Buckets have object versioning enabled. Versioning
+  preserves previous object versions after overwrite and delete operations,
+  improving recoverability from accidental or malicious data changes.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cis-oracle-v3.1.0/05/01/03"
+  - "/frameworks/cloudaware/resource-security/data-protection-and-recovery"
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+similarPolicies:
+  internal:
+    - "dec-x-56689c50"

@@ -15,7 +15,7 @@ conditions:
           TEXT: "EXPIRED"
   - status: "INCOMPLIANT"
     currentStateMessage: "The commitment has expired within the last 30 days."
-    remediationMessage: "Review the expired commitment to determine if a new one should be purchased to maintain cost savings."
+    remediationMessage: "Evaluate whether a new commitment is needed to maintain cost savings."
     check:
       IS_WITHIN_LAST_DAYS:
         offsetDays: 30

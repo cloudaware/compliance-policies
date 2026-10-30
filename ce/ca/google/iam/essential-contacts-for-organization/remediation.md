@@ -11,10 +11,11 @@
 
 ## From Google Cloud CLI
 
-1. To add an organization Essential Contacts run a command:
+1. To add organization essential contacts, run the following command:
 
-    gcloud essential-contacts create --email="\<EMAIL>"  \
-
-     --notification-categories="<NOTIFICATION_CATEGORIES>"  \
-
-     --organization=<ORGANIZATION_ID>
+    ```sh
+    gcloud essential-contacts create \
+        --email="{{email}}" \
+        --notification-categories="{{notification-categories}}" \
+        --organization={{organization-id}}
+    ```

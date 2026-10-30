@@ -12,7 +12,7 @@ conditions:
     check:
       IS_EMPTY_LOOKUP: "CA10G1__bucket__r"
   - status: "COMPLIANT"
-    currentStateMessage: "Sink with a locked bucket."
+    currentStateMessage: "The sink exports to a bucket with a retention policy lock."
     check:
       IS_EQUAL:
         left:
@@ -21,5 +21,7 @@ conditions:
           TEXT: "Locked"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "The sink is configured to export logs in a storage bucket without a lock."
-  remediationMessage: "Enable a retention policy and Bucket Lock."
+  currentStateMessage: "The sink exports logs to a storage bucket without a retention policy lock."
+  remediationMessage: "Enable a retention policy and bucket lock."
+
+

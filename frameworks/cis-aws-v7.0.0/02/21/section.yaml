@@ -1,0 +1,8 @@
+---
+name: "2.21 Ensure AWS resource policies do not allow unrestricted access using 'Principal': '*' (Manual)"
+description: >
+  Ensure AWS resource-based policies, such as Amazon S3 bucket policies, Amazon
+  SQS queue policies, Amazon SNS topic policies, and AWS Lambda resource policies,
+  do not grant unrestricted access using "Principal": "*" with "Effect": "Allow"
+  unless the policy includes restrictive conditions that limit access to specific trusted
+  identities, accounts, services, or network boundaries.

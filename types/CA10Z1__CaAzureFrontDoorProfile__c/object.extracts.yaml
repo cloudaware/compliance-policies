@@ -1,0 +1,12 @@
+---
+extracts:
+  - name: "CA10Z1__provisioningState__c"
+    value:
+      FIELD:
+        path: "CA10Z1__provisioningState__c"
+        undeterminedIf: {isEmpty: "The Front Door profile provisioning state is unavailable."}
+  - name: "CA10Z1__skuName__c"
+    value:
+      FIELD:
+        path: "CA10Z1__skuName__c"
+        undeterminedIf: {isEmpty: "The Front Door profile SKU is unavailable."}

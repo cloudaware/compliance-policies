@@ -7,7 +7,7 @@ importExtracts:
   - file: /types/CA10__CaGoogleSqlInstance__c/object.extracts.yaml
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "The SQL Instance requires all incoming connections to use SSL."
+    currentStateMessage: "The SQL instance requires all incoming connections to use SSL."
     check:
       OR:
         args:
@@ -23,5 +23,9 @@ conditions:
                 TEXT: "TRUSTED_CLIENT_CERTIFICATE_REQUIRED"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "The SQL Instance does not require incoming connections use SSL."
-  remediationMessage: "Enforce all incoming connections to SQL database instance to use SSL."
+  currentStateMessage: "The SQL instance does not require incoming connections to use SSL."
+  remediationMessage: "Enforce SSL for all incoming connections to the SQL instance."
+
+
+
+

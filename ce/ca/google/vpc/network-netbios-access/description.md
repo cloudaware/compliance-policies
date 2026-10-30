@@ -10,7 +10,7 @@ NetBIOS is a legacy protocol used for name resolution and file/printer sharing i
 
 ## Impact
 
-All NetBIOS connections from outside of the network to the concerned VPC(s) can be blocked. If there is a legitimate operational need for remote access, specific trusted source IP addresses should be explicitly defined in firewall rules to whitelist access only to the required NetBIOS ports.
+All NetBIOS connections from outside of the network to the concerned VPC(s) can be blocked. If there is a legitimate operational need for remote access, specific trusted source IP ranges should be explicitly defined in firewall rules to whitelist access only to the required NetBIOS ports.
 
 ## Audit
 

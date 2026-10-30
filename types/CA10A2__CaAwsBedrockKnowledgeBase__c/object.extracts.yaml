@@ -1,0 +1,30 @@
+---
+extracts:
+  - name: CA10A2__kendraIndexArn__c
+    value:
+      FIELD:
+        path: CA10A2__kendraIndexArn__c
+  - name: CA10A2__foundationEmbeddingModelArn__c
+    value:
+      FIELD:
+        path: CA10A2__foundationEmbeddingModelArn__c
+        returnType: BYTES
+  - name: CA10A2__sageMakerEmbeddingModelArn__c
+    value:
+      FIELD:
+        path: CA10A2__sageMakerEmbeddingModelArn__c
+        returnType: BYTES
+  - name: CA10A2__status__c
+    value:
+      FIELD:
+        path: CA10A2__status__c
+        undeterminedIf:
+          isEmpty: The knowledge base status is unavailable.
+  - name: CA10A2__sqlConfigType__c
+    value:
+      FIELD:
+        path: CA10A2__sqlConfigType__c
+  - name: CA10A2__foundationEmbeddingModel__c
+    value:
+      FIELD:
+        path: CA10A2__foundationEmbeddingModel__c

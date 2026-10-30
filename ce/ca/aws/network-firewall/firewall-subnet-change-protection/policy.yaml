@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS Network Firewall Subnet Change Protection is not enabled"
+  contextual: "Firewall Subnet Change Protection is not enabled"
+description: >
+  Ensure that AWS Network Firewall has subnet change protection enabled. This 
+  feature prevents changes to the subnets where firewall endpoints are located. 
+  Enabling this protection helps prevent accidental modifications that could disrupt 
+  traffic flow and network security.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/network-firewall/10"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[NetworkFirewall.10] Network Firewall firewalls should have subnet change protection enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/networkfirewall-controls.html#networkfirewall-10"

@@ -7,7 +7,7 @@ This policy flags AWS EBS Volumes that are considered idle. A volume is flagged 
 
 ## Rationale
 
-EBS volumes incur storage costs regardless of whether they are not attached to an instance or actively utilized.
+EBS volumes incur storage costs regardless of whether they are attached to an instance or actively utilized.
 
 - **Unattached Volumes**: Volumes left in an **available** state often represent forgotten resources from decommissioned instances.
 - **Attached but Inactive Volumes**: Volumes that remain attached but show no I/O activity may indicate they are no longer required, are remnants of incomplete configurations, or serve as secondary/failover disks that require explicit documentation and justification.
@@ -18,8 +18,8 @@ Identifying and addressing idle volumes helps reduce unnecessary monthly costs a
 
 This policy flags an *AWS EBS Volume* as `INCOMPLIANT` if:
 
-1. The *Volume* `Status` is **available** and both `CloudWatch: Write OPS Sum, 30-Day` and `CloudWatch: Write OPS Sum, 30-Day` metrics are **empty**.
-2. The *Volume* `Status` is **in-use** and both `CloudWatch: Write OPS Sum, 30-Day` and `CloudWatch: Write OPS Sum, 30-Day` metrics are either **empty** or **zero**.
+1. The *Volume* `Status` is **available** and both `CloudWatch: Write OPS Sum, 30-Day` and `CloudWatch: Read OPS Sum, 30-Day` metrics are **empty**.
+2. The *Volume* `Status` is **in-use** and both `CloudWatch: Write OPS Sum, 30-Day` and `CloudWatch: Read OPS Sum, 30-Day` metrics are either **empty** or **zero**.
 
 The *EBS Volume* is marked as `INAPPLICABLE` if:
 

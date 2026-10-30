@@ -2,12 +2,12 @@
 
 EC2 Instances without a public IPv4/IPv6 address are unable to connect to the internet through the Internet Gateway.
 
-If an EC2 Instance is intended to be public, it is necessary to assign it a public IP address.
-It is advisable to migrate an EC2 instance to a private subnet, if it does not require internet access.
+If an EC2 Instance is intended to be public, assign it a public IP address.
+If it does not require internet access, migrate the instance to a private subnet.
 
-In case the subnet is misconfigured, consider removing the direct route to an Internet Gateway within the public subnet consequently making it private.
+If the subnet is misconfigured, consider removing the direct route to an Internet Gateway, which makes the subnet private.
 
-## Rational
+## Rationale
 
 It is recommended to use a `Bastion Host` or `NAT Device` to provide internet access to EC2 instances in a private subnet.
 
@@ -20,7 +20,7 @@ EC2 Instances in a public subnet without a public IP address indicate a potentia
 
 This can result in security breaches, a convoluted network architecture, complicated management and troubleshooting processes.
 
-For example, malicious actor might gain unauthorized access to the virtual machine or the instance may unintentionally become inaccessible, disrupting service availability and operational continuity.
+For example, a malicious actor might gain unauthorized access to the virtual machine, or the instance may unintentionally become inaccessible, disrupting service availability and operational continuity.
 
 ## Audit
 

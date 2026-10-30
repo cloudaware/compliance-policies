@@ -8,12 +8,12 @@ importExtracts:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "AWS CloudTrail references a missing bucket."
-    remediationMessage: "Ensure that CloudTrail is referencing an active S3 bucket."
+    remediationMessage: "Configure CloudTrail to reference an active S3 bucket."
     check:
       IS_EMPTY_LOOKUP: "CA10__bucket__r"
   - status: "INCOMPLIANT"
     currentStateMessage: "Server access logging is not enabled."
-    remediationMessage: "Consider enabling server access logging."
+    remediationMessage: "Enable server access logging."
     check:
         IS_EMPTY:
           arg:
@@ -30,7 +30,7 @@ conditions:
           EXTRACT: "CA10__bucket__r.CA10__loggingDestinationBucketArn__c"
   - status: "INCOMPLIANT"
     currentStateMessage: "The destination bucket is missing."
-    remediationMessage: "Ensure that bucket access logging is referencing an active S3 bucket."
+    remediationMessage: "Configure bucket access logging to reference an active S3 bucket."
     check:
       IS_EMPTY_LOOKUP: "CA10__bucket__r.CA10__loggingDestinationBucket__r"
   - status: "COMPLIANT"

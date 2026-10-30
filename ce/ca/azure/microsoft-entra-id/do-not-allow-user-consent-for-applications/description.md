@@ -14,7 +14,7 @@ Enforcing this setting may create additional requests that administrators need t
 
 ### From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. In the Azure portal, open the portal menu.
 2. Select `Microsoft Entra ID`.
 3. Under `Manage`, select `Enterprise applications`.
 4. Under `Security`, select `Consent and permissions`.
@@ -31,7 +31,7 @@ If the command returns no values in response, the configuration complies with th
 
 ## Default Value
 
-By default, `Users consent for applications` is set to `Allow user consent for apps`.
+By default, `User consent for applications` is set to `Allow user consent for apps`.
 
 ## References
 

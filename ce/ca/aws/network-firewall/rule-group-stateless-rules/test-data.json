@@ -1,0 +1,114 @@
+[
+    {
+        "CA10A2__statelessRulesJson__c": "",
+        "CA10A2__disappearanceTime__c": "2026-01-15T10:42:39Z",
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10A2__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "CA10A2__ruleGroupStatus__c": "ACTIVE",
+        "Id": "test1",
+        "CA10A2__type__c": "STATEFUL"
+    },
+    {
+        "CA10A2__statelessRulesJson__c": "",
+        "CA10A2__disappearanceTime__c": null,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10A2__ruleGroupStatus__c') != 'ACTIVE'",
+            "conditionIndex": 199,
+            "status": "INAPPLICABLE"
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "CA10A2__ruleGroupStatus__c": "ERROR",
+        "Id": "test2",
+        "CA10A2__type__c": "STATEFUL"
+    },
+    {
+        "CA10A2__statelessRulesJson__c": "",
+        "CA10A2__disappearanceTime__c": null,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10A2__type__c') != 'STATELESS'",
+            "conditionIndex": 299,
+            "status": "INAPPLICABLE"
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "CA10A2__ruleGroupStatus__c": "ACTIVE",
+        "Id": "test3",
+        "CA10A2__type__c": "STATEFUL"
+    },
+    {
+        "CA10A2__statelessRulesJson__c": "[{\"ruleDefinition\":{\"matchAttributes\":{\"sources\":[{\"addressDefinition\":\"0.0.0.0/0\"}],\"destinations\":[{\"addressDefinition\":\"0.0.0.0/0\"}]},\"actions\":[\"aws:forward_to_sfe\"]},\"priority\":100}]",
+        "CA10A2__disappearanceTime__c": null,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "otherwise",
+            "conditionIndex": 500,
+            "status": "COMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "CA10A2__ruleGroupStatus__c": "ACTIVE",
+        "Id": "test4",
+        "CA10A2__type__c": "STATELESS"
+    },
+    {
+        "CA10A2__statelessRulesJson__c": "[]",
+        "CA10A2__disappearanceTime__c": null,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10A2__statelessRulesJson__c').asJson().jsonQueryText('length(@)') == number(0.0)",
+            "conditionIndex": 499,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "CA10A2__ruleGroupStatus__c": "ACTIVE",
+        "Id": "test5",
+        "CA10A2__type__c": "STATELESS"
+    },
+    {
+        "CA10A2__statelessRulesJson__c": "",
+        "CA10A2__disappearanceTime__c": null,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10A2__statelessRulesJson__c').isEmpty()",
+            "conditionIndex": 399,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "CA10A2__ruleGroupStatus__c": "ACTIVE",
+        "Id": "test6",
+        "CA10A2__type__c": "STATELESS"
+    },
+    {
+        "CA10A2__statelessRulesJson__c": null,
+        "CA10A2__disappearanceTime__c": null,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10A2__statelessRulesJson__c').isEmpty()",
+            "conditionIndex": 399,
+            "status": "INCOMPLIANT"
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "CA10A2__ruleGroupStatus__c": "ACTIVE",
+        "Id": "test7",
+        "CA10A2__type__c": "STATELESS"
+    }
+]

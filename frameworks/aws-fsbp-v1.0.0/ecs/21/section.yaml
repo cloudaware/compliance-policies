@@ -1,0 +1,11 @@
+name: "[ECS.21] ECS Task Definitions should configure non-administrator users in\
+  \ Windows container definitions"
+description: |-
+  When Windows containers run with administrator privileges, they pose several 
+  significant security risks. Administrators have unrestricted access within 
+  the container. This elevated access increases the risk of container escape attacks, 
+  where an attacker could potentially break out of container isolation and access 
+  the underlying host system.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ecs-controls.html#ecs-21

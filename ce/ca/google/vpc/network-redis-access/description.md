@@ -12,7 +12,7 @@ Redis instances should always be deployed in private subnets with access restric
 
 ## Impact
 
-All Redis connections from outside of the network to the concerned VPC(s) can be blocked. If external administrative access is required, firewall rules must restrict Redis connectivity to trusted source IPs explicitly whitelisted for access to port 6379.
+All Redis connections from outside of the network to the concerned VPC(s) can be blocked. If external administrative access is required, firewall rules must restrict Redis connectivity to trusted source IP ranges explicitly whitelisted for access to port 6379.
 
 ## Audit
 

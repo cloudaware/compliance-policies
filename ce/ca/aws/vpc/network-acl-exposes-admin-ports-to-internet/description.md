@@ -1,10 +1,10 @@
 # Description
 
-The Network Access Control List (NACL) function provide stateless filtering of ingress and egress network traffic to AWS resources. It is recommended that no NACL allows unrestricted ingress access to remote server administration ports, such as SSH to port 22 and RDP to port 3389, using either the TCP (6), UDP (17) or ALL (-1) protocol.
+The Network Access Control List (NACL) function provides stateless filtering of ingress and egress network traffic to AWS resources. It is recommended that no NACL allows unrestricted ingress access to remote server administration ports, such as SSH on port 22 and RDP on port 3389, using TCP (6), UDP (17), or ALL (-1) protocols.
 
 ## Rationale
 
-Public access to remote server administration ports, such as 22 and 3389, increases resource attack surface and unnecessarily raises the risk of resource compromise.
+Public access to remote server administration ports, such as 22 and 3389, increases the attack surface and raises the risk of resource compromise.
 
 ## Audit
 
@@ -12,7 +12,7 @@ Public access to remote server administration ports, such as 22 and 3389, increa
 
 Perform the following to determine if the account is configured as prescribed:
 
-1. Login to the AWS Management Console at <https://console.aws.amazon.com/vpc/home>.
+1. Log in to the AWS Management Console at <https://console.aws.amazon.com/vpc/home>.
 2. In the left pane, click `Network ACLs`.
 3. For each network ACL, perform the following:
 
@@ -20,7 +20,7 @@ Perform the following to determine if the account is configured as prescribed:
    - Click the `Inbound Rules` tab.
    - Ensure no rule exists that has a port range that includes port `22`, `3389`, using the protocols TCP (6), UDP (17) or ALL (-1) or other remote server administration ports for your environment and has a `Source` of `0.0.0.0/0` and shows `ALLOW`.
 
-**Note**: A Port value of `ALL` or a port range such as `0-1024` are inclusive of port `22`, `3389`, and other remote server administration ports.
+**Note**: A Port value of `ALL` or a port range such as `0-1024` includes port `22`, `3389`, and other remote server administration ports.
 
 ## References
 

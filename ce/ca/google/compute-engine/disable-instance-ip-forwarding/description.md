@@ -24,7 +24,10 @@ Deleting instance(s) acting as routers/packet forwarders may break the network c
 
 1. List all instances:
 
-            gcloud compute instances list --format='table(name,canIpForward)'
+    ```sh
+    gcloud compute instances list \
+        --format='table(name,canIpForward)'
+    ```
 
 2. Ensure that `CAN_IP_FORWARD` column in the output of above command does not contain `True` for any VM instance.
 

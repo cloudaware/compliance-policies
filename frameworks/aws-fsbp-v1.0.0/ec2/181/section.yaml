@@ -1,0 +1,19 @@
+name: "[EC2.181] EC2 launch templates should enable encryption for attached EBS volumes"
+description: |-
+  Amazon EBS encryption is a straightforward encryption solution for EBS resources 
+  that are associated with Amazon EC2 instances. With EBS encryption, you aren't 
+  required to build, maintain, and secure your own key management infrastructure. 
+  EBS encryption uses AWS KMS keys when creating encrypted volumes and snapshots. 
+  Encryption operations occur on the servers that host EC2 instances, which helps 
+  ensure the security of data at rest and data in transit between an EC2 instance 
+  and its attached EBS storage. For more information, see Amazon EBS encryption 
+  in the Amazon EBS User Guide.
+
+  You can enable EBS encryption during manual launches of individual EC2 instances. 
+  However, there are several benefits to using EC2 launch templates and configuring 
+  encryption settings in those templates. You can enforce encryption as a standard 
+  and ensure the use of consistent encryption settings. You can also reduce the risk 
+  of error and security gaps that might occur with manual launches of instances.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-181

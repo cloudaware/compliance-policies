@@ -7,7 +7,7 @@ The executing role must hold the **OWNERSHIP** privilege on the target user acco
 To assign a default role to a Snowflake user, execute the following SQL command:
 
 ```sql
-ALTER USER {{username}} 
+ALTER USER {{username}}
     SET DEFAULT_ROLE = {{role_name}};
 ```
 

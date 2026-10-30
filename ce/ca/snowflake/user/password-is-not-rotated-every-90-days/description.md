@@ -2,7 +2,7 @@
 
 Ensure that Snowflake user account passwords are rotated at regular intervals, with a default threshold of 90 days.
 
-## Rational
+## Rationale
 
 In the event a password is exposed or exfiltrated, limiting its validity period minimizes the window of opportunity for unauthorized access. Regular rotation also mitigates the risks associated with reused, forgotten, or improperly stored credentials.
 

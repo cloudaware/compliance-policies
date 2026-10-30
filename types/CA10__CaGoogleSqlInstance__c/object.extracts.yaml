@@ -112,6 +112,24 @@ extracts:
         undeterminedIf:
           evaluationError: "The JSON query has failed."
           resultTypeMismatch: "The JSON query did not return text type."
+  - name: "caJsonText__databaseFlagsCloudsqlIamAuthenticationFlagValue__c"
+    value:
+      JSON_QUERY_TEXT:
+        arg:
+          EXTRACT: "caJsonFrom__databaseFlagsJson__c"
+        expression: "to_string([?name == 'cloudsql.iam_authentication'].value[] | [0])"
+        undeterminedIf:
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return text type."
+  - name: "caJsonText__databaseFlagsCloudsqlIamAuthenticationMysqlFlagValue__c"
+    value:
+      JSON_QUERY_TEXT:
+        arg:
+          EXTRACT: "caJsonFrom__databaseFlagsJson__c"
+        expression: "to_string([?name == 'cloudsql_iam_authentication'].value[] | [0])"
+        undeterminedIf:
+          evaluationError: "The JSON query has failed."
+          resultTypeMismatch: "The JSON query did not return text type."
   - name: "caJsonText__databaseFlagsExternalScriptsEnabledFlagValue__c"
     value: 
       JSON_QUERY_TEXT:

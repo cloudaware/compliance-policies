@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10Z1__CaAzurePostgreSqlServer__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This is not the Flexible Server deployment mode."
+    currentStateMessage: "This is not the flexible server deployment mode."
     check:
       NOT_EQUAL:
         left:
@@ -15,7 +15,7 @@ conditions:
           TEXT: "Flexible"
   - status: "INCOMPLIANT"
     currentStateMessage: "PostgreSQL Flexible Server require_secure_transport configuration parameter is disabled."
-    remediationMessage: "Consider enabling PostgreSQL Flexible Server require_secure_transport configuration."
+    remediationMessage: "Enable require_secure_transport."
     check:
       IS_EQUAL:
         left:

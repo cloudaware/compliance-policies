@@ -1,0 +1,128 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": 99,
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "Id": "test1",
+        "CA10__disappearanceTime__c": "2026-01-10T10:42:39Z",
+        "CA10__policyType__c": "Customer managed",
+        "CA10__arn__c": "arn:aws:iam::123456789012:policy/CustomerManagedPolicy",
+        "CA10__attachable__c": true,
+        "CA10__attachmentCount__c": 1,
+        "CA10__policyDocument__c": "{\"Version\":\"2012-10-17\",\"Statement\":{\"Effect\":\"Allow\",\"Action\":\"kms:Decrypt\",\"Resource\":\"*\"}}"
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": 199,
+            "conditionText": "extract('CA10__policyType__c') == 'AWS managed'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "Id": "test2",
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyType__c": "AWS managed",
+        "CA10__arn__c": "arn:aws:iam::aws:policy/ReadOnlyAccess",
+        "CA10__attachable__c": true,
+        "CA10__attachmentCount__c": 3,
+        "CA10__policyDocument__c": "{\"Version\":\"2012-10-17\",\"Statement\":{\"Effect\":\"Allow\",\"Action\":\"kms:Decrypt\",\"Resource\":\"*\"}}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": 399,
+            "conditionText": "extract('caJsonFrom_policyDocument__c').jsonQueryText('(Statement.Effect == \\'Allow\\') && ((((type(Statement.Action) == \\'string\\') && (Statement.Action == \\'kms:Decrypt\\' || Statement.Action == \\'kms:ReEncryptFrom\\' || Statement.Action == \\'kms:*\\' || Statement.Action == \\'kms:ReEncrypt*\\')) || ((type(Statement.Action) == \\'array\\') && (contains(Statement.Action, \\'kms:Decrypt\\') || contains(Statement.Action, \\'kms:ReEncryptFrom\\') || contains(Statement.Action, \\'kms:*\\') || contains(Statement.Action, \\'kms:ReEncrypt*\\')))) && (((type(Statement.Resource) == \\'string\\') && (Statement.Resource == \\'*\\' || ((starts_with(Statement.Resource, \\'arn:aws:kms:\\') || starts_with(Statement.Resource, \\'arn:*:kms:\\')) && contains(Statement.Resource, \\':key/*\\')))) || ((type(Statement.Resource) == \\'array\\') && (contains(Statement.Resource, \\'*\\') || length(Statement.Resource[? (starts_with(@, \\'arn:aws:kms:\\') || starts_with(@, \\'arn:*:kms:\\')) && contains(@, \\':key/*\\')]) > `0`))))') == true",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "Id": "test3",
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyType__c": "Customer managed",
+        "CA10__arn__c": "arn:aws:iam::123456789012:policy/DetachedPolicy",
+        "CA10__attachable__c": true,
+        "CA10__attachmentCount__c": 0,
+        "CA10__policyDocument__c": "{\"Version\":\"2012-10-17\",\"Statement\":{\"Effect\":\"Allow\",\"Action\":\"kms:Decrypt\",\"Resource\":\"*\"}}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": 299,
+            "conditionText": "extract('caJsonFrom_policyDocument__c').jsonQueryText('type(Statement)') == 'array' && extract('caJsonFrom_policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Allow\\' && (((type(Action) == \\'array\\') && (contains(Action, \\'kms:Decrypt\\') || contains(Action, \\'kms:ReEncryptFrom\\') || contains(Action, \\'kms:*\\') || contains(Action, \\'kms:ReEncrypt*\\'))) || ((type(Action) == \\'string\\') && (Action == \\'kms:Decrypt\\' || Action == \\'kms:ReEncryptFrom\\' || Action == \\'kms:*\\' || Action == \\'kms:ReEncrypt*\\'))) && (((type(Resource) == \\'array\\') && (contains(Resource, \\'*\\') || length(Resource[? (starts_with(@, \\'arn:aws:kms:\\') || starts_with(@, \\'arn:*:kms:\\')) && contains(@, \\':key/*\\')]) > `0`)) || ((type(Resource) == \\'string\\') && (Resource == \\'*\\' || ((starts_with(Resource, \\'arn:aws:kms:\\') || starts_with(Resource, \\'arn:*:kms:\\')) && contains(Resource, \\':key/*\\')))))])') > number(0.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "Id": "test4",
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyType__c": "Customer managed",
+        "CA10__arn__c": "arn:aws:iam::123456789012:policy/CustomerManagedPolicy",
+        "CA10__attachable__c": true,
+        "CA10__attachmentCount__c": 4,
+        "CA10__policyDocument__c": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"kms:Decrypt\"],\"Resource\":\"*\"}]}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": 399,
+            "conditionText": "extract('caJsonFrom_policyDocument__c').jsonQueryText('(Statement.Effect == \\'Allow\\') && ((((type(Statement.Action) == \\'string\\') && (Statement.Action == \\'kms:Decrypt\\' || Statement.Action == \\'kms:ReEncryptFrom\\' || Statement.Action == \\'kms:*\\' || Statement.Action == \\'kms:ReEncrypt*\\')) || ((type(Statement.Action) == \\'array\\') && (contains(Statement.Action, \\'kms:Decrypt\\') || contains(Statement.Action, \\'kms:ReEncryptFrom\\') || contains(Statement.Action, \\'kms:*\\') || contains(Statement.Action, \\'kms:ReEncrypt*\\')))) && (((type(Statement.Resource) == \\'string\\') && (Statement.Resource == \\'*\\' || ((starts_with(Statement.Resource, \\'arn:aws:kms:\\') || starts_with(Statement.Resource, \\'arn:*:kms:\\')) && contains(Statement.Resource, \\':key/*\\')))) || ((type(Statement.Resource) == \\'array\\') && (contains(Statement.Resource, \\'*\\') || length(Statement.Resource[? (starts_with(@, \\'arn:aws:kms:\\') || starts_with(@, \\'arn:*:kms:\\')) && contains(@, \\':key/*\\')]) > `0`))))') == true",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "Id": "test5",
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyType__c": "Customer managed",
+        "CA10__arn__c": "arn:aws:iam::123456789012:policy/CustomerManagedPolicy",
+        "CA10__attachable__c": true,
+        "CA10__attachmentCount__c": 2,
+        "CA10__policyDocument__c": "{\"Version\":\"2012-10-17\",\"Statement\":{\"Effect\":\"Allow\",\"Action\":\"kms:Decrypt\",\"Resource\":\"*\"}}"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": 299,
+            "conditionText": "extract('caJsonFrom_policyDocument__c').jsonQueryText('type(Statement)') == 'array' && extract('caJsonFrom_policyDocument__c').jsonQueryText('length(Statement[? Effect == \\'Allow\\' && (((type(Action) == \\'array\\') && (contains(Action, \\'kms:Decrypt\\') || contains(Action, \\'kms:ReEncryptFrom\\') || contains(Action, \\'kms:*\\') || contains(Action, \\'kms:ReEncrypt*\\'))) || ((type(Action) == \\'string\\') && (Action == \\'kms:Decrypt\\' || Action == \\'kms:ReEncryptFrom\\' || Action == \\'kms:*\\' || Action == \\'kms:ReEncrypt*\\'))) && (((type(Resource) == \\'array\\') && (contains(Resource, \\'*\\') || length(Resource[? (starts_with(@, \\'arn:aws:kms:\\') || starts_with(@, \\'arn:*:kms:\\')) && contains(@, \\':key/*\\')]) > `0`)) || ((type(Resource) == \\'string\\') && (Resource == \\'*\\' || ((starts_with(Resource, \\'arn:aws:kms:\\') || starts_with(Resource, \\'arn:*:kms:\\')) && contains(Resource, \\':key/*\\')))))])') > number(0.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "Id": "test6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyType__c": "Customer managed",
+        "CA10__arn__c": "arn:aws:iam::123456789012:policy/CustomerManagedPolicyWildcardArn",
+        "CA10__attachable__c": true,
+        "CA10__attachmentCount__c": 1,
+        "CA10__policyDocument__c": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Action\":\"kms:Decrypt\",\"Resource\":\"arn:aws:kms:us-east-1:123456789012:key/*\"}]}"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": 400,
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-15T10:42:39Z"
+        },
+        "Id": "test7",
+        "CA10__disappearanceTime__c": null,
+        "CA10__policyType__c": "Customer managed",
+        "CA10__arn__c": "arn:aws:iam::123456789012:policy/CustomerManagedPolicy",
+        "CA10__attachable__c": true,
+        "CA10__attachmentCount__c": 1,
+        "CA10__policyDocument__c": "{\"Version\":\"2012-10-17\",\"Statement\":{\"Effect\":\"Allow\",\"Action\":\"kms:Decrypt\",\"Resource\":\"arn:aws:kms:us-east-1:123456789012:key/abcd-1234\"}}"
+    }
+]

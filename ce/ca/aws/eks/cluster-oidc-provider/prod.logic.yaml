@@ -5,24 +5,24 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Cluster has no IAM OpenID Connect Provider."
-    remediationMessage: "Consider creating an IAM OIDC provider for the Cluster."
+    currentStateMessage: "The cluster does not have an IAM OpenID Connect (OIDC) provider."
+    remediationMessage: "Create an IAM OIDC provider for the cluster."
     check:
       RELATED_LIST_HAS_NO:
         status: "COMPLIANT"
         relationshipName: "CA10A1__AWS_IAM_OpenID_Connect_Providers__r"
   - status: "COMPLIANT"
-    currentStateMessage: "The Cluster has an IAM OpenID Connect Provider."
+    currentStateMessage: "The cluster has an IAM OpenID Connect (OIDC) provider."
     check:
       RELATED_LIST_HAS:
         status: "COMPLIANT"
         relationshipName: "CA10A1__AWS_IAM_OpenID_Connect_Providers__r"
 otherwise:
   status: "UNDETERMINED"
-  currentStateMessage: "Cluster neither has, nor has no IAM OpenID Connect Providers. This condition should not match to any object"
+  currentStateMessage: "Unexpected state: the cluster could not be evaluated for IAM OIDC provider presence."
 relatedLists:
   - relationshipName: "CA10A1__AWS_IAM_OpenID_Connect_Providers__r"
     conditions: []
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "This is an IAM OpenID Connect Provider."
+      currentStateMessage: "This is an IAM OpenID Connect (OIDC) provider."

@@ -1,0 +1,104 @@
+[
+    {
+        "CA10A1__deletedDate__c": null,
+        "CA10A1__lastAccessedDate__c": "2026-01-13T00:00:00Z",
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "isDisappeared(CA10A1__disappearanceTime__c)",
+            "conditionIndex": 99,
+            "status": "DISAPPEARED"
+        },
+        "CA10A1__disappearanceTime__c": "2026-01-14T15:24:57Z",
+        "CA10A1__lastRotatedDate__c": null,
+        "context": {
+            "snapshotTime": "2026-01-19T05:26:35Z"
+        },
+        "Id": "test1",
+        "CA10A1__lastChangedDate__c": "2025-08-08T16:23:14Z"
+    },
+    {
+        "CA10A1__deletedDate__c": null,
+        "CA10A1__lastAccessedDate__c": null,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10A1__lastAccessedDate__c').isEmpty() && extract('CA10A1__lastChangedDate__c').beyondLastDays(90)",
+            "conditionIndex": 299,
+            "status": "INCOMPLIANT"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__lastRotatedDate__c": null,
+        "context": {
+            "snapshotTime": "2026-01-19T05:26:35Z"
+        },
+        "Id": "test2",
+        "CA10A1__lastChangedDate__c": "2025-07-21T21:16:52Z"
+    },
+    {
+        "CA10A1__deletedDate__c": null,
+        "CA10A1__lastAccessedDate__c": "2025-07-21T00:00:00Z",
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10A1__lastAccessedDate__c').beyondLastDays(90) && extract('CA10A1__lastRotatedDate__c').isEmpty()",
+            "conditionIndex": 399,
+            "status": "INCOMPLIANT"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__lastRotatedDate__c": null,
+        "context": {
+            "snapshotTime": "2026-01-19T05:26:35Z"
+        },
+        "Id": "test3",
+        "CA10A1__lastChangedDate__c": "2025-07-20T19:16:13Z"
+    },
+    {
+        "CA10A1__deletedDate__c": null,
+        "CA10A1__lastAccessedDate__c": "2026-01-14T00:00:00Z",
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "otherwise",
+            "conditionIndex": 500,
+            "status": "COMPLIANT"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__lastRotatedDate__c": null,
+        "context": {
+            "snapshotTime": "2026-01-19T05:26:35Z"
+        },
+        "Id": "test4",
+        "CA10A1__lastChangedDate__c": "2025-07-20T04:59:04Z"
+    },
+    {
+        "CA10A1__deletedDate__c": "2026-01-19T05:26:35Z",
+        "CA10A1__lastAccessedDate__c": null,
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10A1__deletedDate__c').isNotEmpty()",
+            "conditionIndex": 199,
+            "status": "INAPPLICABLE"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__lastRotatedDate__c": null,
+        "context": {
+            "snapshotTime": "2026-01-19T05:26:35Z"
+        },
+        "Id": "test5",
+        "CA10A1__lastChangedDate__c": "2025-07-21T21:16:52Z"
+    },
+    {
+        "CA10A1__deletedDate__c": null,
+        "CA10A1__lastAccessedDate__c": "2025-07-21T00:00:00Z",
+        "expectedResult": {
+            "runtimeError": null,
+            "conditionText": "extract('CA10A1__lastAccessedDate__c').beyondLastDays(90) && extract('CA10A1__lastRotatedDate__c').beyondLastDays(90)",
+            "conditionIndex": 499,
+            "status": "INCOMPLIANT"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__lastRotatedDate__c": "2025-07-21T00:00:00Z",
+        "context": {
+            "snapshotTime": "2026-01-19T05:26:35Z"
+        },
+        "Id": "test6",
+        "CA10A1__lastChangedDate__c": "2025-07-20T19:16:13Z"
+    }
+]

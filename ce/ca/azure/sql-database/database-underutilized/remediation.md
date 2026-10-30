@@ -14,20 +14,20 @@ Before making changes, confirm that the workload does not have periodic spikes o
 
 ```sh
 az sql db update \
-    --resource-group {{resource-group}} \
+    --resource-group {{resource-group-name}} \
     --server {{server-name}} \
     --name {{database-name}} \
     [--edition {{Standard}}] \
     [--capacity {{10}}] \
-    [--max-size {{250GB}}]
-    [--family {{Gen5}}] \
+    [--max-size {{250GB}}] \
+    [--family {{Gen5}}]
 ```
 
 ### **From PowerShell**
 
 ```ps
 Set-AzSqlDatabase `
-    -ResourceGroupName "{{resource-group}}" `
+    -ResourceGroupName "{{resource-group-name}}" `
     -ServerName "{{server-name}}" `
     -DatabaseName "{{database-name}}" `
     [-Edition "{{Standard}}"] `
@@ -44,7 +44,7 @@ Set-AzSqlDatabase `
 
 ```sh
 az sql elastic-pool create \
-    --resource-group {{resource-group}} \
+    --resource-group {{resource-group-name}} \
     --server {{server-name}} \
     --name {{pool-name}} \
     [--edition {{Standard}}] \
@@ -58,7 +58,7 @@ az sql elastic-pool create \
 
 ```sh
 az sql db update \
-    --resource-group {{resource-group}} \
+    --resource-group {{resource-group-name}} \
     --server {{server-name}} \
     --name {{database-name}} \
     --elastic-pool {{pool-name}}
@@ -70,7 +70,7 @@ az sql db update \
 
 ```ps
 New-AzSqlElasticPool `
-    -ResourceGroupName "{{resource-group}}" `
+    -ResourceGroupName "{{resource-group-name}}" `
     -ServerName "{{server-name}}" `
     -ElasticPoolName "{{pool-name}}" `
     [-Edition "{{Standard}}"] `
@@ -86,7 +86,7 @@ New-AzSqlElasticPool `
 
 ```ps
 Set-AzSqlDatabase `
-    -ResourceGroupName "{{resource-group}}" `
+    -ResourceGroupName "{{resource-group-name}}" `
     -ServerName "{{server-name}}" `
     -DatabaseName "{{database-name}}" `
     -ElasticPoolName "{{pool-name}}"
@@ -98,7 +98,7 @@ Set-AzSqlDatabase `
 
 ```sh
 az sql db update \
-    --resource-group {{resource-group}} \
+    --resource-group {{resource-group-name}} \
     --server {{server-name}} \
     --name {{database-name}} \
     --edition {{GeneralPurpose}} \
@@ -114,7 +114,7 @@ az sql db update \
 
 ```ps
 Set-AzSqlDatabase `
-    -ResourceGroupName "{{resource-group}}" `
+    -ResourceGroupName "{{resource-group-name}}" `
     -ServerName "{{server-name}}" `
     -DatabaseName "{{database-name}}" `
     -Edition "{{GeneralPurpose}}" `

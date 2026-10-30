@@ -1,0 +1,35 @@
+---
+names:
+  full: "AWS Lambda Function is not in a VPC"
+  contextual: "Function is not in a VPC"
+description: >
+  Ensure that AWS Lambda functions are configured to connect to a Virtual Private Cloud (VPC). 
+  This allows the function to access private resources and leverage VPC security 
+  controls like Security Groups and Network ACLs.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/network-exposure"
+  - "/frameworks/pci-dss-v3.2.1/01/02/01"
+  - "/frameworks/pci-dss-v3.2.1/01/03/01"
+  - "/frameworks/pci-dss-v3.2.1/01/03/02"
+  - "/frameworks/pci-dss-v3.2.1/01/03/04"
+  - "/frameworks/nist-sp-800-53-r5/ac/21"
+  - "/frameworks/nist-sp-800-53-r5/ac/03"
+  - "/frameworks/nist-sp-800-53-r5/ac/03/07"
+  - "/frameworks/nist-sp-800-53-r5/ac/04"
+  - "/frameworks/nist-sp-800-53-r5/ac/04/21"
+  - "/frameworks/nist-sp-800-53-r5/ac/06"
+  - "/frameworks/nist-sp-800-53-r5/sc/07"
+  - "/frameworks/nist-sp-800-53-r5/sc/07/11"
+  - "/frameworks/nist-sp-800-53-r5/sc/07/16"
+  - "/frameworks/nist-sp-800-53-r5/sc/07/20"
+  - "/frameworks/nist-sp-800-53-r5/sc/07/21"
+  - "/frameworks/nist-sp-800-53-r5/sc/07/03"
+  - "/frameworks/nist-sp-800-53-r5/sc/07/04"
+  - "/frameworks/nist-sp-800-53-r5/sc/07/09"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Lambda.3] Lambda functions should be in a VPC"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/lambda-controls.html#lambda-3"

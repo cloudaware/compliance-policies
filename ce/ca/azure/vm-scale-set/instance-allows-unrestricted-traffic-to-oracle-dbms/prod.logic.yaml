@@ -4,7 +4,7 @@ testData:
   - file: test-data.json
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Instance has a Network Interface with a NSG with a rule that allows Oracle DBMS access from the Internet."
+    currentStateMessage: "The instance has a network interface with an NSG that allows Oracle DBMS access from the Internet."
     remediationMessage: "Restrict inbound Oracle DBMS access from the Internet."
     check:
       RELATED_LIST_HAS:
@@ -12,21 +12,21 @@ conditions:
         relationshipName: "CA10Z1__Azure_VM_Scale_Set_Instance_Network_Ints__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Instance doesn't allow Oracle DBMS access from the Internet." 
+  currentStateMessage: "The instance does not allow Oracle DBMS access from the Internet."
 relatedLists:
   - relationshipName: "CA10Z1__Azure_VM_Scale_Set_Instance_Network_Ints__r"
     importExtracts:
       - file: "/types/CA10__CaAzureNetworkSecurityGroupRule__c/object.extracts.yaml"
     conditions:
       - status: "INCOMPLIANT"
-        currentStateMessage: "Interface with publicly accessible Network Security Group"
+        currentStateMessage: "Network interface with a publicly accessible Network Security Group."
         check:
           RELATED_LIST_HAS:
             status: "INCOMPLIANT"
             relationshipName:  "CA10Z1__networkSecurityGroup__r.CA10__Azure_Network_Security_Group_Rules__r"
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "Interface is not publicly accessible"
+      currentStateMessage: "Network interface is not publicly accessible."
     relatedLists:
       - relationshipName: "CA10Z1__networkSecurityGroup__r.CA10__Azure_Network_Security_Group_Rules__r"
         importExtracts:
@@ -105,8 +105,8 @@ relatedLists:
                             TEXT: "/0"
           # ports 1521, 1830, 2483 and 2484
           - status: "INCOMPLIANT"
-            currentStateMessage: "NSG Rule with Oracle DBMS port 1521 with public access from the Internet."
-            remediationMessage: "Restrict access to the Oracle DBMS port"
+            currentStateMessage: "NSG rule allows public access on the Oracle DBMS port."
+            remediationMessage: "Restrict public access to the Oracle DBMS port."
             check:
               OR:
                 args:
@@ -128,8 +128,8 @@ relatedLists:
                               right:
                                 NUMBER: 1521.0
           - status: "INCOMPLIANT"
-            currentStateMessage: "NSG Rule with Oracle DBMS port 1830 with public access from the Internet."
-            remediationMessage: "Restrict access to the Oracle DBMS port"
+            currentStateMessage: "NSG rule allows public access on the Oracle DBMS port."
+            remediationMessage: "Restrict public access to the Oracle DBMS port."
             check:
               OR:
                 args:
@@ -151,8 +151,8 @@ relatedLists:
                               right:
                                 NUMBER: 1830.0
           - status: "INCOMPLIANT"
-            currentStateMessage: "NSG Rule with Oracle DBMS port 2483 with public access from the Internet."
-            remediationMessage: "Restrict access to the Oracle DBMS port"
+            currentStateMessage: "NSG rule allows public access on the Oracle DBMS port."
+            remediationMessage: "Restrict public access to the Oracle DBMS port."
             check:
               OR:
                 args:
@@ -174,8 +174,8 @@ relatedLists:
                               right:
                                 NUMBER: 2483.0
           - status: "INCOMPLIANT"
-            currentStateMessage: "NSG Rule with Oracle DBMS port 2484 with public access from the Internet."
-            remediationMessage: "Restrict access to the Oracle DBMS port"
+            currentStateMessage: "NSG rule allows public access on the Oracle DBMS port."
+            remediationMessage: "Restrict public access to the Oracle DBMS port."
             check:
               OR:
                 args:
@@ -198,4 +198,7 @@ relatedLists:
                                 NUMBER: 2484.0
         otherwise:
           status: "COMPLIANT"
-          currentStateMessage: "NSG rule without public access on Oracle DBMS port"
+          currentStateMessage: "NSG rule without public access on the Oracle DBMS port."
+
+
+

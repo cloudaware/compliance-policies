@@ -1,0 +1,9 @@
+---
+name: 2.3 Ensure no network security groups allow ingress from 0.0.0.0/0 to port 22 - Level 1 (Automated)
+description: >
+  Network security groups provide stateful filtering of ingress/egress network
+  traffic to OCI resources. It is recommended that no security group allows
+  unrestricted ingress to port 22.
+similar:
+  internal:
+    - dec-c-e0d89e93

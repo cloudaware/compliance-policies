@@ -1,0 +1,9 @@
+---
+name: 2.1.6 Ensure delegated admins manage AWS Organizations-integrated services (Manual)
+description: |-
+  Ensure that AWS services (such as AWS CloudTrail) which integrate with AWS
+  Organizations and support delegated administration are managed through delegated
+  administrator member accounts instead of directly from the Organizations management
+  account. For each such service, the management account should enable trusted access
+  and register a purpose-built member account as the delegated administrator, so that
+  this account can perform service-level administration across all organization accounts.

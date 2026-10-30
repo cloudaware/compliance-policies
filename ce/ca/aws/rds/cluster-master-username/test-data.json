@@ -1,0 +1,98 @@
+[
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-20T07:40:03Z"
+        },
+        "CA10__disappearanceTime__c": "2026-01-14T15:05:12Z",
+        "CA10__status__c": "available",
+        "CA10__engine__c": "aurora-postgresql",
+        "CA10__masterUsername__c": "root",
+        "Id": "test1"
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__status__c') != 'available'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-20T07:40:03Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "stopped",
+        "CA10__engine__c": "aurora-postgresql",
+        "CA10__masterUsername__c": "test_ca_admin",
+        "Id": "test2"
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__engine__c') == 'neptune'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-20T07:40:03Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "available",
+        "CA10__engine__c": "neptune",
+        "CA10__masterUsername__c": "admin",
+        "Id": "test3"
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__engine__c') == 'docdb'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-20T07:40:03Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "available",
+        "CA10__engine__c": "docdb",
+        "CA10__masterUsername__c": "testuser",
+        "Id": "test4"
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "setOfText(['root', 'admin', 'administrator', 'adminuser', 'superuser', 'sa', 'sysadmin', 'dbadmin', 'user', 'dbuser', 'sys', 'system', 'awsuser', 'mysql', 'oracle', 'postgres']).contains(extract('CA10__masterUsername__c'))",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-20T07:40:03Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "available",
+        "CA10__engine__c": "aurora-mysql",
+        "CA10__masterUsername__c": "dbadmin",
+        "Id": "test5"
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "500",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-20T07:40:03Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "available",
+        "CA10__engine__c": "aurora-mysql",
+        "CA10__masterUsername__c": "auroramysql_admin",
+        "Id": "test6"
+    }
+]

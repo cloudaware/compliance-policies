@@ -18,7 +18,7 @@
     "CA10__credReportAttributesJson__c": "{\"password_last_used\":\"N/A\",\"access_key_1_last_used_region\":\"us-east-1\",\"password_enabled\":\"false\",\"access_key_1_last_used_date\":\"2025-12-05T03:52:00Z\",\"access_key_1_last_used_service\":\"s3\",\"mfa_active\":\"false\",\"access_key_2_last_used_date\":\"N/A\",\"user_creation_time\":\"2025-12-03T22:06:21Z\",\"cert_2_active\":\"false\",\"cert_1_active\":\"false\",\"cert_1_last_rotated\":\"N/A\",\"access_key_2_last_used_service\":\"N/A\",\"access_key_2_active\":\"false\",\"access_key_1_active\":\"true\",\"password_next_rotation\":\"N/A\",\"access_key_2_last_rotated\":\"N/A\",\"arn\":\"arn:aws:iam::343823317319:user/xfer-hfm\",\"access_key_1_last_rotated\":\"2025-12-03T22:27:25Z\",\"access_key_2_last_used_region\":\"N/A\",\"user\":\"xfer-hfm\",\"password_last_changed\":\"N/A\",\"cert_2_last_rotated\":\"N/A\"}",
     "expectedResult": {
       "runtimeError": null,
-      "conditionText": "CA10__createDate__c.withinLastDays(30)",
+      "conditionText": "extract('CA10__createDate__c').withinLastDays(30)",
       "conditionIndex": 199,
       "status": "INAPPLICABLE"
     },

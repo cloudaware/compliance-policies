@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS RDS Instance has a common master username"
+  contextual: "Instance has a common master username"
+description: >
+  Ensure that Amazon RDS database instances do not use common default administrative 
+  usernames such as 'admin', 'root', 'postgres', etc. Using non-default usernames 
+  adds a layer of security by making it harder for attackers to guess administrative 
+  credentials during brute-force attacks.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/identity-and-access-governance/credential-lifecycle-management"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/25"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[RDS.25] RDS database instances should use a custom administrator username"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-25"

@@ -1,0 +1,18 @@
+---
+names:
+  full: "Oracle IAAS Default Security List allows unrestricted non-ICMP traffic"
+  contextual: "IAAS Default Security List allows unrestricted non-ICMP traffic"
+description: >
+  Ensure that Oracle IAAS default security lists do not allow non-ICMP traffic
+  from or to the internet. Default security lists should not include ingress
+  rules sourced from 0.0.0.0/0 or egress rules targeting 0.0.0.0/0, except for
+  approved ICMP traffic.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cis-oracle-v3.1.0/02/05"
+  - "/frameworks/cloudaware/resource-security/network-exposure"
+similarPolicies:
+  internal:
+    - "dec-x-d3512f61"

@@ -1,5 +1,16 @@
 ---
 extracts:
+  - name: CA10A2__engineLifecycleSupportInfo__c
+    value:
+      FIELD:
+        path: CA10A2__engineLifecycleSupportInfo__c
+        returnType: BYTES
+  - name: CA10__engineVersion__c
+    value:
+      FIELD:
+        path: CA10__engineVersion__c
+        undeterminedIf:
+          isEmpty: The cluster engine version is missing.
   - name: CA10__engine__c
     value:
       FIELD:
@@ -13,6 +24,16 @@ extracts:
     value:
       FIELD:
         path: CA10__autoMinorVersionUpgrade__c
+# Number. Can't have no access, retrieved via rds:DescribeDBClusters
+  - name: CA10__backupRetentionPeriod__c
+    value:
+      FIELD:
+        path: CA10__backupRetentionPeriod__c
+# Number. Can't have no access, retrieved via rds:DescribeDBClusters
+  - name: CA10__backtrackWindow__c
+    value:
+      FIELD:
+        path: CA10__backtrackWindow__c
 # Checkbox.
   - name: CA10__multiAZ__c
     value:
@@ -23,3 +44,31 @@ extracts:
     value:
       FIELD:
         path: CA10__storageEncrypted__c
+# Text.
+  - name: CA10__masterUsername__c
+    value:
+      FIELD:
+        path: CA10__masterUsername__c
+# Checkbox.
+  - name: CA10__iamDatabaseAuthenticationEnabled__c
+    value:
+      FIELD:
+        path: CA10__iamDatabaseAuthenticationEnabled__c
+  - name: CA10__status__c
+    value:
+      FIELD:
+        path: CA10__status__c
+        undeterminedIf:
+          # https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-clusters.html
+          # "Engine" attribute represents a non-nullable string.
+          isEmpty: DB Status value cannot be empty. Potential data corruption.
+# Nullable. Can't have no access, retrieved via rds:DescribeDBClusters
+  - name: CA10__enabledCloudwatchLogsExports__c
+    value:
+      FIELD:
+        path: CA10__enabledCloudwatchLogsExports__c
+# Checkbox.
+  - name: CA10__copyTagsToSnapshot__c
+    value:
+      FIELD:
+        path: CA10__copyTagsToSnapshot__c

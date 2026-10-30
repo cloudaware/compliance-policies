@@ -17,7 +17,7 @@ conditions:
             search:
               TEXT: "SQLSERVER" 
   - status: "COMPLIANT"
-    currentStateMessage: "contained database authentication database flag isn't set to on."
+    currentStateMessage: "The contained database authentication database flag is not set to on."
     check:
       NOT:
         arg:
@@ -28,5 +28,8 @@ conditions:
               TEXT: "on"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "contained database authentication database flag is set to on."
-  remediationMessage: "Change contained database authentication database flag value to off."
+  currentStateMessage: "The contained database authentication database flag is set to on."
+  remediationMessage: "Set the contained database authentication database flag to off."
+
+
+

@@ -21,13 +21,14 @@ conditions:
         right:
           TEXT: "Disabled"
   - status: "UNDETERMINED"
-    currentStateMessage: "Amazon Inspector Lambda Standard scanning status is not available."
+    currentStateMessage: "Amazon Inspector Lambda standard scanning status is not available."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__inspectorLambdaStatus__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Amazon Inspector Lambda Standard scanning is disabled."
+    currentStateMessage: "Amazon Inspector Lambda standard scanning is disabled."
+    remediationMessage: "Enable Lambda standard scanning in Amazon Inspector."
     check:
       IS_EQUAL:
         left:
@@ -35,7 +36,7 @@ conditions:
         right:
           TEXT: "Disabled"
   - status: "COMPLIANT"
-    currentStateMessage: "Amazon Inspector Lambda Standard scanning is enabled."
+    currentStateMessage: "Amazon Inspector Lambda standard scanning is enabled."
     check:
       IS_EQUAL:
         left:

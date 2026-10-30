@@ -1,0 +1,51 @@
+---
+inputType: "CA10__CaAwsDbInstance__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsDbInstance__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The instance is not available."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "available"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This policy does not apply to cluster instances."
+    check:
+      NOT_EMPTY:
+        arg:
+          EXTRACT: "CA10__clusterArn__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "IAM database authentication is not supported for this database engine."
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              SET:
+                itemType: "TEXT"
+                items:
+                  - "postgres"
+                  - "mysql"
+                  - "mariadb"
+                  - "aurora"
+                  - "aurora-postgresql"
+                  - "aurora-mysql"
+            search:
+              EXTRACT: "CA10__engine__c"
+  - status: "COMPLIANT"
+    currentStateMessage: "The RDS instance has IAM database authentication enabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__iamDatabaseAuthenticationEnabled__c"
+        right:
+          BOOLEAN: true
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "IAM database authentication is disabled for this RDS instance."
+  remediationMessage: "Enable IAM database authentication for the RDS instance."

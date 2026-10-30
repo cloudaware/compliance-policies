@@ -8,7 +8,7 @@ Before downsizing, review historical performance metrics to ensure the volume ca
 aws ec2 modify-volume \
     --volume-id {{volume-id}} \
     --volume-type {{volume-type}} \
-    --iops {{3000}}
+    --iops {{iops}}
 ```
 
 ### Verify Performance After Downsizing

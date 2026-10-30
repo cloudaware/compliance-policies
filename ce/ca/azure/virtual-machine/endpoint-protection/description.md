@@ -4,11 +4,11 @@ Install endpoint protection for all virtual machines.
 
 ## Rationale
 
-Installing endpoint protection systems (like anti-malware for Azure) provides for real-time protection capability that helps identify and remove viruses, spyware, and other malicious software. These also offer configurable alerts when known-malicious or unwanted software attempts to install itself or run on Azure systems.
+Installing endpoint protection systems (like anti-malware for Azure) provides real-time protection that helps identify and remove viruses, spyware, and other malicious software. These also offer configurable alerts when known-malicious or unwanted software attempts to install itself or run on Azure systems.
 
 ## Impact
 
-Endpoint protection will incur an additional cost to you.
+Endpoint protection may incur additional costs.
 
 ## Audit
 
@@ -21,7 +21,7 @@ Endpoint protection will incur an additional cost to you.
 ### From Azure CLI
 
 ```sh
-az vm show -g <MyResourceGroup> -n <MyVm> -d --query "resources[?type=='Microsoft.Compute/virtualMachines/extensions'].{ExtensionName:name}" -o table
+az vm show -g {{resource-group-name}} -n {{vm-name}} -d --query "resources[?type=='Microsoft.Compute/virtualMachines/extensions'].{ExtensionName:name}" -o table
 ```
 
 If extensions are installed, it will list the installed extensions:
@@ -40,7 +40,7 @@ If referencing a digital copy of this Benchmark, clicking a Policy ID will open 
 
 ## Default Value
 
-By default Endpoint Protection is disabled.
+By default, Endpoint Protection is disabled.
 
 ## References
 

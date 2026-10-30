@@ -1,0 +1,10 @@
+# Remediation
+
+## Migrate the Spark job to a supported AWS Glue version
+
+1. Confirm the job owner, triggers, schedules, data sources, downstream dependencies, current Glue version, and whether the definition is still needed. Retire an obsolete job through the organization's normal change process.
+2. Review the current [AWS Glue support policy](https://docs.aws.amazon.com/glue/latest/dg/glue-version-support-policy.html), [available versions](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html), and the migration guidance linked from those release notes. Select a supported version compatible with the workload and Region.
+3. Preserve the existing job configuration and script. Create a separate test job with the target Glue version, compatible worker settings, dependencies, connectors, and IAM/Lake Formation permissions. Avoid overlapping production writes while testing.
+4. Update and test Spark, Python or Scala code and dependency versions as needed. Validate representative input data, output correctness, batch job bookmarks, retries, performance, logging, and downstream consumers. Streaming jobs use checkpoints rather than bookmarks: test checkpoint compatibility and restart behavior, and use separate test checkpoints and output destinations. Preserve production checkpoints; resetting them can reprocess data.
+5. In the AWS Glue console, open the production job, choose **Job details**, select the tested **Glue version**, and save it during an approved maintenance window. Coordinate triggers and stop/restart streaming runs with the workload owner. If using the [UpdateJob API](https://docs.aws.amazon.com/glue/latest/webapi/API_UpdateJob.html), preserve the complete applicable job configuration in `JobUpdate`: AWS overwrites the previous definition, so sending only `GlueVersion` can lose settings.
+6. Run and monitor the migrated workload. Confirm successful output and the collected Glue version, then reevaluate this policy. An EOL version cannot be assumed available for rollback; retain a tested recovery plan on a supported runtime.

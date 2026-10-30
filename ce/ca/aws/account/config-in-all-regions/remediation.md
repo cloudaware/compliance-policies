@@ -18,31 +18,33 @@ To implement AWS Config configuration:
 1. Ensure there is an appropriate S3 bucket, SNS topic, and IAM role per the [AWS Config Service prerequisites](http://docs.aws.amazon.com/config/latest/developerguide/gs-cli-prereq.html).
 2. Run this command to create a new configuration recorder:
 
-```sh
-aws configservice put-configuration-recorder --configuration-recorder name=default,roleARN=arn:aws:iam::012345678912:role/myConfigRole --recording-group allSupported=true,includeGlobalResourceTypes=true
-```
+    ```sh
+    aws configservice put-configuration-recorder \
+        --configuration-recorder name=default,roleARN=arn:aws:iam::012345678912:role/myConfigRole \
+        --recording-group allSupported=true,includeGlobalResourceTypes=true
+    ```
 
 3. Create a delivery channel configuration file locally which specifies the channel attributes, populated from the prerequisites set up previously:
 
-```json
-{ 
-    "name": "default", 
-    "s3BucketName": "my-config-bucket", 
-    "snsTopicARN": "arn:aws:sns:us-east-1:012345678912:my-config-notice", 
-    "configSnapshotDeliveryProperties": { 
-        "deliveryFrequency": "Twelve_Hours" 
-    } 
-}
-```
+    ```json
+    { 
+        "name": "default", 
+        "s3BucketName": "my-config-bucket", 
+        "snsTopicARN": "arn:aws:sns:us-east-1:012345678912:my-config-notice", 
+        "configSnapshotDeliveryProperties": { 
+            "deliveryFrequency": "Twelve_Hours" 
+        } 
+    }
+    ```
 
 4. Run this command to create a new delivery channel, referencing the json configuration file made in the previous step:
 
-```sh
-aws configservice put-delivery-channel --delivery-channel file://deliveryChannel.json
-```
+    ```sh
+    aws configservice put-delivery-channel --delivery-channel file://deliveryChannel.json
+    ```
 
 5. Start the configuration recorder by running the following command:
 
-```sh
-aws configservice start-configuration-recorder --configuration-recorder-name default
-```
+    ```sh
+    aws configservice start-configuration-recorder --configuration-recorder-name default
+    ```

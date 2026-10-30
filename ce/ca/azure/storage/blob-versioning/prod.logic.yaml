@@ -6,7 +6,7 @@ importExtracts:
   - file: /types/CA10__CaAzureStorageAccount__c/object.extracts.yaml
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "Blob Versioning is enabled for Azure Storage Account."
+    currentStateMessage: "Blob versioning is enabled for the storage account."
     check:
       IS_EQUAL:
         left:
@@ -15,6 +15,6 @@ conditions:
           TEXT: "Enabled"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "Blob Versioning is not enabled for Azure Storage Account."
-  remediationMessage: "Enable Blob Versioning for Azure Storage Account."
+  currentStateMessage: "Blob versioning is not enabled for the storage account."
+  remediationMessage: "Enable blob versioning for the storage account."
   

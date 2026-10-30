@@ -1,0 +1,20 @@
+name: "[ECS.20] ECS Task Definitions should configure non-root users in Linux container definitions"
+description: |-
+  When Linux containers run with root privileges, they pose several significant 
+  security risks. Root users have unrestricted access within the container. This 
+  elevated access increases the risk of container escape attacks, where an attacker 
+  could potentially break out of container isolation and access the underlying 
+  host system. If a container running as root is compromised, attackers may exploit 
+  this to access or modify host system resources, affecting other containers or 
+  the host itself. Furthermore, root access could enable privilege escalation attacks, 
+  allowing attackers to gain additional permissions beyond the container's intended 
+  scope. The user parameter in ECS task definitions can specify users in several 
+  formats, including username, user ID, username with group, or UID with group ID. 
+  It's important to be aware of these various formats when configuring task 
+  definitions to ensure no root access is inadvertently granted. Following the 
+  principle of least privilege, containers should run with the minimum required 
+  permissions using non-root users. This approach significantly reduces the potential 
+  attack surface and mitigates the impact of potential security breaches.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ecs-controls.html#ecs-20

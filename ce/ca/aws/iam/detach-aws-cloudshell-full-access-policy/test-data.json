@@ -39,6 +39,7 @@
         "Id": "test2",
         "CA10__disappearanceTime__c": null,
         "CA10__name__c": "policyName2",
+        "CA10__attachmentCount__c": 1,
         "CA10__AWS_IAM_Role_Policy_Attachments__r": [
             {
                 "Id": "test2_1",
@@ -57,7 +58,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "299",
-            "conditionText": "CA10__AWS_IAM_Role_Policy_Attachments__r.has(INCOMPLIANT)",
+            "conditionText": "extract('CA10__attachmentCount__c') > number(0.0)",
             "runtimeError": null
         },
         "context": {
@@ -66,6 +67,7 @@
         "Id": "test3",
         "CA10__disappearanceTime__c": null,
         "CA10__name__c": "AWSCloudShellFullAccess",
+        "CA10__attachmentCount__c": 1,
         "CA10__AWS_IAM_Role_Policy_Attachments__r": [
             {
                 "Id": "test3_1",
@@ -93,6 +95,7 @@
         "Id": "test4",
         "CA10__disappearanceTime__c": null,
         "CA10__name__c": "AWSCloudShellFullAccess",
+        "CA10__attachmentCount__c": 0,
         "CA10__AWS_IAM_Role_Policy_Attachments__r": [
             {
                 "Id": "test4_1",
@@ -120,6 +123,7 @@
         "Id": "test5",
         "CA10__disappearanceTime__c": null,
         "CA10__name__c": "AWSCloudShellFullAccess",
+        "CA10__attachmentCount__c": 0,
         "CA10__AWS_IAM_Role_Policy_Attachments__r": [
             {
                 "Id": "test5_1",
@@ -147,6 +151,7 @@
         "Id": "test6",
         "CA10__disappearanceTime__c": null,
         "CA10__name__c": "AWSCloudShellFullAccess",
+        "CA10__attachmentCount__c": 0,
         "CA10__AWS_IAM_Role_Policy_Attachments__r": []
     }
 ]

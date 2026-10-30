@@ -17,7 +17,7 @@
         "expectedResult": {
             "status": "INCOMPLIANT",
             "conditionIndex": "199",
-            "conditionText": "CA10__backupRetentionPeriod__c == number(0.0)",
+            "conditionText": "extract('CA10__backupRetentionPeriod__c') == number(0.0)",
             "runtimeError": null
         },
         "context": {

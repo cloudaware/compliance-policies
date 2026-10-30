@@ -16,7 +16,10 @@
 For each storage account requiring remediation, run the following command to set the SMB protocol version:
 
 ```sh
-az storage account file-service-properties update --resource-group <resource-group> --account-name <storage-account> --versions SMB3.1.1
+az storage account file-service-properties update \
+    --resource-group {{resource-group-name}} \
+    --account-name {{storage-account-name}} \
+    --versions SMB3.1.1
 ```
 
 ## From PowerShell
@@ -24,5 +27,8 @@ az storage account file-service-properties update --resource-group <resource-gro
 For each storage account requiring remediation, run the following command to set the SMB protocol version:
 
 ```ps
-Update-AzStorageFileServiceProperty -ResourceGroupName <resource-group> -StorageAccountName <storage-account> -SmbProtocolVersion SMB3.1.1
+Update-AzStorageFileServiceProperty `
+    -ResourceGroupName {{resource-group-name}} `
+    -StorageAccountName {{storage-account-name}} `
+    -SmbProtocolVersion SMB3.1.1
 ```

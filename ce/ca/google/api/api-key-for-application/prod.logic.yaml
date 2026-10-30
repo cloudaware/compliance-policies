@@ -7,15 +7,15 @@ importExtracts:
   - file: /types/CA10G1__CaGoogleApiKey__c/object.extracts.yaml
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "Key Restrictions section is empty."
-    remediationMessage: "Set API restrictions for the API Key."
+    currentStateMessage: "API restrictions are not configured for the API key."
+    remediationMessage: "Configure API restrictions for the API key."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: CA10G1__restrictionsApiTargets__c 
   - status: "INCOMPLIANT"
-    currentStateMessage: "API Restrictions are set to Google Cloud APIs, this option allows access to all services offered by Google Cloud."
-    remediationMessage: "Set API Restrictions for the API Key."
+    currentStateMessage: "API restrictions allow access to all Google Cloud APIs."
+    remediationMessage: "Restrict API access to only the required services."
     check:
       CONTAINS:
         arg:
@@ -24,4 +24,4 @@ conditions:
           TEXT: "service: 'cloudapis.googleapis.com'"          
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "API Key should only be used for services where other authentication methods are unavailable."
+  currentStateMessage: "API restrictions limit the key to specific services."

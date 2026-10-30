@@ -4,7 +4,7 @@ Limit guest user permissions.
 
 ## Rationale
 
-Limiting guest access ensures that guest accounts do not have permission for certain directory tasks, such as enumerating users, groups or other directory resources, and cannot be assigned to administrative roles in your directory. Guest access has three levels of restriction.
+Limiting guest access ensures that guest accounts do not have permission for certain directory tasks, such as enumerating users, groups, or other directory resources, and cannot be assigned to administrative roles in your directory. Guest access has three levels of restriction:
 
 1. Guest users have the same access as members (most inclusive).
 2. Guest users have limited access to properties and memberships of directory objects (default value).
@@ -16,9 +16,9 @@ The recommended option is the 3rd, most restrictive: "Guest user access is restr
 
 This may create additional requests for permissions to access resources that administrators will need to approve.
 
-According to <https://learn.microsoft.com/en-us/azure/active-directory/enterprise-users/users-restrict-guest-permissions#services-currently-not-supported>
+According to <https://learn.microsoft.com/en-us/azure/active-directory/enterprise-users/users-restrict-guest-permissions#services-currently-not-supported>,
 
-Service without current support might have compatibility issues with the new guest restriction setting.
+Services without current support might have compatibility issues with the new guest restriction setting.
 
 - Forms
 - Project

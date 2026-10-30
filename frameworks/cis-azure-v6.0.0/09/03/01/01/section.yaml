@@ -1,0 +1,10 @@
+---
+name: "9.3.1.1 Ensure That 'Enable key rotation reminders' is Enabled for Each Storage Account (Automated)"
+description: >
+  Access Keys authenticate application access requests to data contained in Storage 
+  Accounts. A periodic rotation of these keys is recommended to ensure that potentially 
+  compromised keys cannot result in a long-term exploitable credential. The "Rotation 
+  Reminder" is an automatic reminder feature for a manual procedure.
+similar:
+  sections:
+    - "/frameworks/cis-azure-v5.0.0/09/03/01/01"

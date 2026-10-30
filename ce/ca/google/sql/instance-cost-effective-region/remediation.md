@@ -18,8 +18,8 @@ gcloud sql instances describe {{primary-instance-name}}
 
 ```sh
 gcloud sql instances create {{replica-instance-name}} \
-  --master-instance-name={{primary-instance-name}} \
-  --region={{target-region}}
+    --master-instance-name={{primary-instance-name}} \
+    --region={{target-region}}
 ```
 
 ### 3. Prepare for Promotion

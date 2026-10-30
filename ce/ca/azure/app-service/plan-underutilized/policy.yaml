@@ -1,0 +1,10 @@
+---
+names:
+  full: "Azure App Service Plan is underutilized"
+  contextual: "App Service Plan is underutilized"
+description: "Detect paid, non-empty App Service Plans with low 30-day CPU and memory use."
+categories: 
+  - "COST"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-right-sizing"

@@ -12,7 +12,7 @@ There will be a substantial increase in log size if there are a large number of 
 
 ## Audit
 
-This policy evaluates *Azure Subscriptions* for the presence of an *Azure Activity Log Alert* that captures **Create or Update Public IP Addresses** events. A subscription is marked as `INCOMPLIANT` if it does **not** have an *Activity Log Alert* whose `Condition JSON` filters on the **Microsoft.Network/publicIPAddresses/write** operation.
+This policy flags an *Azure Subscription* as `INCOMPLIANT` if it does **not** have an enabled related *Azure Activity Log Alert* scoped to the subscription whose `Condition JSON` filters on the **Administrative** category and the **Microsoft.Network/publicIPAddresses/write** operation.
 
 ## Default Value
 

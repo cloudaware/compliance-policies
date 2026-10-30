@@ -7,7 +7,7 @@ importExtracts:
   - file: /types/CA10__CaAwsUser__c/object.extracts.yaml
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "Requirements of this policy are applicable only to the root user"
+    currentStateMessage: "This policy applies only to the root user."
     check:
       NOT_EQUAL:
         left:
@@ -16,7 +16,7 @@ conditions:
           TEXT: "root"
   - status: "INCOMPLIANT"
     currentStateMessage: "Either one or both access keys are active for the root user."
-    remediationMessage: "Disable all active access keys for the root user."
+    remediationMessage: "Disable any active access keys for the root user."
     check:
       OR:
         args:

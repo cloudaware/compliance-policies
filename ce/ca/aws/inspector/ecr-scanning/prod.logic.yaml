@@ -28,6 +28,7 @@ conditions:
           EXTRACT: "CA10__inspectorEcrStatus__c"
   - status: "INCOMPLIANT"
     currentStateMessage: "Amazon Inspector ECR scanning is disabled."
+    remediationMessage: "Enable ECR scanning in Amazon Inspector."
     check:
       IS_EQUAL:
         left:

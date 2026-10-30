@@ -2,7 +2,7 @@
 
 This policy identifies AWS ECS Task Definitions that contain environment variables potentially holding sensitive information. It inspects the `environment` parameters within container definitions for variable names that include keywords such as `PASSWORD`, `SECRET`, `API_KEY`, `ACCESS_KEY`, or `TOKEN`.
 
-Passing secrets as plaintext environment variables is insecure because these values are visible to anyone with access to the ECS Task Definition, via the AWS Console, CLI, or API, and may also appear in CloudFormation templates, logs, or audit records.
+Passing secrets as plaintext environment variables is insecure because these values are visible to anyone with access to the ECS Task Definition through the AWS Console, CLI, or API, and may also appear in CloudFormation templates, logs, or audit records.
 
 ## Rationale
 

@@ -2,11 +2,13 @@
   {
     "expectedResult": {
       "status": "COMPLIANT",
-      "conditionIndex": "199",
+      "conditionIndex": "299",
       "conditionText": "extract('CA10__flowLogs__c') == 'Enabled' && extract('CA10__logConfigState__c') == 'Enabled' && extract('CA10__logConfigAggregationInterval__c') == 'INTERVAL_5_SEC' && extract('CA10__logConfigFlowSampling__c') == number(1.0) && extract('CA10__logConfigMetadata__c') == 'INCLUDE_ALL_METADATA' && (extract('CA10__logConfigFilterExpr__c') == 'False' || extract('CA10__logConfigFilterExpr__c').isEmpty())",
       "runtimeError": null
     },
-    "context": { "snapshotTime": "2024-11-26T19:27:00Z" },
+    "context": {
+      "snapshotTime": "2024-11-26T19:27:00Z"
+    },
     "Id": "a4i0e1",
     "CA10__disappearanceTime__c": null,
     "CA10__flowLogs__c": "Enabled",
@@ -14,16 +16,19 @@
     "CA10__logConfigAggregationInterval__c": "INTERVAL_5_SEC",
     "CA10__logConfigFlowSampling__c": 1.0,
     "CA10__logConfigMetadata__c": "INCLUDE_ALL_METADATA",
-    "CA10__logConfigFilterExpr__c": "false"
+    "CA10__logConfigFilterExpr__c": "false",
+    "CA10__purpose__c": "PRIVATE"
   },
   {
     "expectedResult": {
       "status": "COMPLIANT",
-      "conditionIndex": "199",
+      "conditionIndex": "299",
       "conditionText": "extract('CA10__flowLogs__c') == 'Enabled' && extract('CA10__logConfigState__c') == 'Enabled' && extract('CA10__logConfigAggregationInterval__c') == 'INTERVAL_5_SEC' && extract('CA10__logConfigFlowSampling__c') == number(1.0) && extract('CA10__logConfigMetadata__c') == 'INCLUDE_ALL_METADATA' && (extract('CA10__logConfigFilterExpr__c') == 'False' || extract('CA10__logConfigFilterExpr__c').isEmpty())",
       "runtimeError": null
     },
-    "context": { "snapshotTime": "2024-11-26T19:27:00Z" },
+    "context": {
+      "snapshotTime": "2024-11-26T19:27:00Z"
+    },
     "Id": "a4i0e8_logConfigFilterExpr2",
     "CA10__disappearanceTime__c": null,
     "CA10__flowLogs__c": "Enabled",
@@ -31,16 +36,19 @@
     "CA10__logConfigAggregationInterval__c": "INTERVAL_5_SEC",
     "CA10__logConfigFlowSampling__c": 1.0,
     "CA10__logConfigMetadata__c": "INCLUDE_ALL_METADATA",
-    "CA10__logConfigFilterExpr__c": ""
+    "CA10__logConfigFilterExpr__c": "",
+    "CA10__purpose__c": "PRIVATE"
   },
   {
     "expectedResult": {
       "status": "INCOMPLIANT",
-      "conditionIndex": "200",
+      "conditionIndex": "300",
       "conditionText": "otherwise",
       "runtimeError": null
     },
-    "context": { "snapshotTime": "2024-11-26T19:27:00Z" },
+    "context": {
+      "snapshotTime": "2024-11-26T19:27:00Z"
+    },
     "Id": "a4i0e2_flowLogs",
     "CA10__disappearanceTime__c": null,
     "CA10__flowLogs__c": "Disabled",
@@ -48,16 +56,19 @@
     "CA10__logConfigAggregationInterval__c": "INTERVAL_5_SEC",
     "CA10__logConfigFlowSampling__c": 1.0,
     "CA10__logConfigMetadata__c": "INCLUDE_ALL_METADATA",
-    "CA10__logConfigFilterExpr__c": "false"
+    "CA10__logConfigFilterExpr__c": "false",
+    "CA10__purpose__c": "PRIVATE"
   },
   {
     "expectedResult": {
       "status": "INCOMPLIANT",
-      "conditionIndex": "200",
+      "conditionIndex": "300",
       "conditionText": "otherwise",
       "runtimeError": null
     },
-    "context": { "snapshotTime": "2024-11-26T19:27:00Z" },
+    "context": {
+      "snapshotTime": "2024-11-26T19:27:00Z"
+    },
     "Id": "a4i0e3_logConfigState",
     "CA10__disappearanceTime__c": null,
     "CA10__flowLogs__c": "Enabled",
@@ -65,16 +76,19 @@
     "CA10__logConfigAggregationInterval__c": "INTERVAL_5_SEC",
     "CA10__logConfigFlowSampling__c": 1.0,
     "CA10__logConfigMetadata__c": "INCLUDE_ALL_METADATA",
-    "CA10__logConfigFilterExpr__c": "false"
+    "CA10__logConfigFilterExpr__c": "false",
+    "CA10__purpose__c": "PRIVATE"
   },
   {
     "expectedResult": {
       "status": "INCOMPLIANT",
-      "conditionIndex": "200",
+      "conditionIndex": "300",
       "conditionText": "otherwise",
       "runtimeError": null
     },
-    "context": { "snapshotTime": "2024-11-26T19:27:00Z" },
+    "context": {
+      "snapshotTime": "2024-11-26T19:27:00Z"
+    },
     "Id": "a4i0e4_logConfigAggregationInterval",
     "CA10__disappearanceTime__c": null,
     "CA10__flowLogs__c": "Enabled",
@@ -82,16 +96,19 @@
     "CA10__logConfigAggregationInterval__c": "INTERVAL_30_SEC",
     "CA10__logConfigFlowSampling__c": 1.0,
     "CA10__logConfigMetadata__c": "INCLUDE_ALL_METADATA",
-    "CA10__logConfigFilterExpr__c": "false"
+    "CA10__logConfigFilterExpr__c": "false",
+    "CA10__purpose__c": "PRIVATE"
   },
   {
     "expectedResult": {
       "status": "INCOMPLIANT",
-      "conditionIndex": "200",
+      "conditionIndex": "300",
       "conditionText": "otherwise",
       "runtimeError": null
     },
-    "context": { "snapshotTime": "2024-11-26T19:27:00Z" },
+    "context": {
+      "snapshotTime": "2024-11-26T19:27:00Z"
+    },
     "Id": "a4i0e5_logConfigFlowSampling",
     "CA10__disappearanceTime__c": null,
     "CA10__flowLogs__c": "Enabled",
@@ -99,16 +116,19 @@
     "CA10__logConfigAggregationInterval__c": "INTERVAL_5_SEC",
     "CA10__logConfigFlowSampling__c": 0.5,
     "CA10__logConfigMetadata__c": "INCLUDE_ALL_METADATA",
-    "CA10__logConfigFilterExpr__c": "false"
+    "CA10__logConfigFilterExpr__c": "false",
+    "CA10__purpose__c": "PRIVATE"
   },
   {
     "expectedResult": {
       "status": "INCOMPLIANT",
-      "conditionIndex": "200",
+      "conditionIndex": "300",
       "conditionText": "otherwise",
       "runtimeError": null
     },
-    "context": { "snapshotTime": "2024-11-26T19:27:00Z" },
+    "context": {
+      "snapshotTime": "2024-11-26T19:27:00Z"
+    },
     "Id": "a4i0e6_logConfigMetadata",
     "CA10__disappearanceTime__c": null,
     "CA10__flowLogs__c": "Enabled",
@@ -116,16 +136,19 @@
     "CA10__logConfigAggregationInterval__c": "INTERVAL_5_SEC",
     "CA10__logConfigFlowSampling__c": 1.0,
     "CA10__logConfigMetadata__c": "CUSTOM_METADATA",
-    "CA10__logConfigFilterExpr__c": "false"
+    "CA10__logConfigFilterExpr__c": "false",
+    "CA10__purpose__c": "PRIVATE"
   },
   {
     "expectedResult": {
       "status": "INCOMPLIANT",
-      "conditionIndex": "200",
+      "conditionIndex": "300",
       "conditionText": "otherwise",
       "runtimeError": null
     },
-    "context": { "snapshotTime": "2024-11-26T19:27:00Z" },
+    "context": {
+      "snapshotTime": "2024-11-26T19:27:00Z"
+    },
     "Id": "a4i0e7_logConfigFilterExpr1",
     "CA10__disappearanceTime__c": null,
     "CA10__flowLogs__c": "Enabled",
@@ -133,6 +156,27 @@
     "CA10__logConfigAggregationInterval__c": "INTERVAL_5_SEC",
     "CA10__logConfigFlowSampling__c": 1.0,
     "CA10__logConfigMetadata__c": "INCLUDE_ALL_METADATA",
-    "CA10__logConfigFilterExpr__c": "true"
+    "CA10__logConfigFilterExpr__c": "true",
+    "CA10__purpose__c": "PRIVATE"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__purpose__c') != 'PRIVATE'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-11-26T19:27:00Z"
+    },
+    "Id": "a4i0e9_nonPrivatePurpose",
+    "CA10__disappearanceTime__c": null,
+    "CA10__purpose__c": "INTERNAL_HTTPS_LOAD_BALANCER",
+    "CA10__flowLogs__c": "Disabled",
+    "CA10__logConfigState__c": "Disabled",
+    "CA10__logConfigAggregationInterval__c": "",
+    "CA10__logConfigFlowSampling__c": 0.0,
+    "CA10__logConfigMetadata__c": "",
+    "CA10__logConfigFilterExpr__c": ""
   }
 ]

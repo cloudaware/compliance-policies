@@ -4,19 +4,19 @@
 
 ### Part 1 of 2 - Create the policy and enable it in `Report-only` mode
 
-1. From Azure Home open the portal menu in the top left and select `Microsoft Entra ID`.
+1. In the Azure portal, open the portal menu in the upper left and select `Microsoft Entra ID`.
 2. Scroll down in the menu on the left and select `Security`.
-3. Select on the left side `Conditional Access`.
+3. On the left, select `Conditional Access`.
 4. Select `Policies`.
 5. Click the `+ New policy` button, then:
 6. Provide a name for the policy.
-7. Under `Assignments`, select `Users` then:
+7. Under `Assignments`, select `Users`, then:
     - Under `Include`, select `All users`.
     - Under `Exclude`, check Users and groups and only select emergency access accounts.
-8. Under `Assignments`, select `Target resources` then:
+8. Under `Assignments`, select `Target resources`, then:
     - Under `Include`, select `All cloud apps`.
-    - Leave `Exclude` blank unless you have a well defined exception.
-9. Under `Conditions` > `Authentication Flows`, set Configure to `Yes` then:
+    - Leave `Exclude` blank unless you have a well-defined exception.
+9. Under `Conditions` > `Authentication Flows`, set `Configure` to `Yes`, then:
     - Select `Device code flow`.
     - Select `Done`.
 10. Under `Access Controls` > `Grant`, select `Block Access`.
@@ -25,12 +25,12 @@
 
 Allow some time to pass to ensure the sign-in logs capture relevant conditional access events. These events will need to be reviewed to determine if additional considerations are necessary for your organization (e.g. many legitimate use cases of device code authentication are observed).
 
-**NOTE**: The policy is not yet live, since `Report-only` is being used to audit the effect of the policy.
+**Note**: The policy is not yet live, since `Report-only` is being used to audit the effect of the policy.
 
 ### Part 2 of 2 - Confirm that the policy is not blocking access that should be granted, then toggle to `On`
 
 1. With your policy now in report-only mode, return to the Microsoft Entra blade and click on `Sign-in logs`.
-2. Review the recent sign-in events - click an event then review the event details (specifically the `Report-only` tab) to ensure:
+2. Review the recent sign-in events. Select an event, then review the event details (specifically the `Report-only` tab) to ensure:
     - The sign-in event you're reviewing occurred **after** turning on the policy in report-only mode.
     - The policy name from step 6 above is listed in the `Policy Name` column.
     - The `Result` column for the new policy shows that the policy was `Not applied` (indicating the device code authentication flow was not blocked).

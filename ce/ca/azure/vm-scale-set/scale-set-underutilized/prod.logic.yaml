@@ -1,0 +1,88 @@
+---
+inputType: "CA10__CaAzureVmScaleSet__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureVmScaleSet__c/object.extracts.yaml"
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "The Scale Set provisioning state is unavailable."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__provisioningState__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Scale Set is not successfully provisioned."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__provisioningState__c"
+        right:
+          TEXT: "Succeeded"
+  - status: "UNDETERMINED"
+    currentStateMessage: "The Scale Set capacity is unavailable."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__skuCapacity__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Scale Set has zero capacity."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__skuCapacity__c"
+        right:
+          NUMBER: 0.0
+  - status: "UNDETERMINED"
+    currentStateMessage: "The Scale Set creation time is unavailable."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__timeCreated__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Scale Set has not completed a 30-day observation period."
+    check:
+      NOT:
+        arg:
+          IS_BEYOND_LAST_DAYS:
+            offsetDays: 30
+            arg:
+              EXTRACT: "CA10__timeCreated__c"
+  - status: "UNDETERMINED"
+    currentStateMessage: "The 30-day CPU or network metrics are unavailable."
+    check:
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorCpuAvg30Day__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorNetworkInMbSum30Day__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__monitorNetworkOutMbSum30Day__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Scale Set has low CPU and network utilization over 30 days."
+    remediationMessage: "Review demand and autoscale constraints before rightsizing the Scale Set."
+    check:
+      AND:
+        args:
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__monitorCpuAvg30Day__c"
+              right:
+                NUMBER: 20.0
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__monitorNetworkInMbSum30Day__c"
+              right:
+                NUMBER: 100.0
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10__monitorNetworkOutMbSum30Day__c"
+              right:
+                NUMBER: 100.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Scale Set is not underutilized."

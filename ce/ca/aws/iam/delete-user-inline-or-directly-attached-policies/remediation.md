@@ -4,8 +4,8 @@ Perform the following to create an IAM group and assign a policy to it:
 
 1. Sign in to the AWS Management Console and open the IAM console at <https://console.aws.amazon.com/iam/>.
 2. In the navigation pane, click `Groups` and then click `Create New Group`.
-3. In the `Group Name` box, type the name of the group and then click `Next Step` .
-4. In the list of policies, select the check box for each policy that you want to apply to all members of the group. Then click `Next Step`.
+3. In the `Group Name` box, type the name of the group and then click `Next Step`.
+4. In the list of policies, select the checkbox for each policy that you want to apply to all members of the group. Then click `Next Step`.
 5. Click `Create Group`.
 
 Perform the following to add a user to a given group:
@@ -20,7 +20,7 @@ Perform the following to add a user to a given group:
 Perform the following to remove a direct association between a user and policy:
 
 1. Sign in to the AWS Management Console and open the IAM console at <https://console.aws.amazon.com/iam/>.
-2. In the left navigation pane, click on Users.
+2. In the left navigation pane, click `Users`.
 3. For each user:
     - Select the user.
     - Click on the `Permissions` tab.

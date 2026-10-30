@@ -17,7 +17,7 @@ conditions:
             search:
               TEXT: "SQLSERVER" 
   - status: "COMPLIANT"
-    currentStateMessage: "user options database flag is not listed."
+    currentStateMessage: "The user options database flag is not listed."
     check:
       IS_EQUAL:
         left:
@@ -26,5 +26,8 @@ conditions:
           TEXT: "null"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "user options database flag should not be configured."
-  remediationMessage: "Clear the user options database flag for every SQL Server Instance."
+  currentStateMessage: "The user options database flag should not be configured."
+  remediationMessage: "Clear the user options database flag for each SQL Server instance."
+
+
+

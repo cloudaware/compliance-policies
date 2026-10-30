@@ -6,7 +6,7 @@ importExtracts:
   - file: /types/CA10__CaAzureCosmosDbAccount__c/object.extracts.yaml
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "Azure Cosmos DB serverless account type."
+    currentStateMessage: "This is an Azure Cosmos DB serverless account."
     check:
       CONTAINS:
         arg:
@@ -14,10 +14,8 @@ conditions:
         search:
           TEXT: "EnableServerless"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Cosmos DB Account has zero Total Request Units for the 
-      past 30 days."
-    remediationMessage: "Consider deleting the Cosmos DB Account or switching to 
-      the serverless option."
+    currentStateMessage: "The Cosmos DB account has zero total request units for the past 30 days."
+    remediationMessage: "Delete the Cosmos DB account or switching to the serverless option."
     check:
       IS_EQUAL:
         left:
@@ -26,4 +24,4 @@ conditions:
           NUMBER: 0.0
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Cosmos DB Account has Total Request Units for the past 30 days."
+  currentStateMessage: "The Cosmos DB account has total request units for the past 30 days."

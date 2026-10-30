@@ -1,0 +1,248 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-15T00:00:00Z"
+    },
+    "Id": "gone",
+    "CA10__disappearanceTime__c": "2026-09-14T00:00:00Z",
+    "CA10__skuTier__c": "Premium",
+    "CA10__provisioningState__c": "Succeeded",
+    "CA10__createdAt__c": "2026-01-01T00:00:00Z",
+    "CA10__Azure_Service_Bus_Queues__r": [],
+    "CA10__Azure_Service_Bus_Topics__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__provisioningState__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-15T00:00:00Z"
+    },
+    "Id": "missing-provisioning-state",
+    "CA10__disappearanceTime__c": null,
+    "CA10__skuTier__c": "Premium",
+    "CA10__provisioningState__c": "",
+    "CA10__createdAt__c": "2026-01-01T00:00:00Z",
+    "CA10__Azure_Service_Bus_Queues__r": [],
+    "CA10__Azure_Service_Bus_Topics__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__provisioningState__c') != 'Succeeded'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-15T00:00:00Z"
+    },
+    "Id": "failed-provisioning",
+    "CA10__disappearanceTime__c": null,
+    "CA10__skuTier__c": "Premium",
+    "CA10__provisioningState__c": "Failed",
+    "CA10__createdAt__c": "2026-01-01T00:00:00Z",
+    "CA10__Azure_Service_Bus_Queues__r": [],
+    "CA10__Azure_Service_Bus_Topics__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__skuTier__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-15T00:00:00Z"
+    },
+    "Id": "missing-tier",
+    "CA10__disappearanceTime__c": null,
+    "CA10__skuTier__c": "",
+    "CA10__provisioningState__c": "Succeeded",
+    "CA10__createdAt__c": "2026-01-01T00:00:00Z",
+    "CA10__Azure_Service_Bus_Queues__r": [],
+    "CA10__Azure_Service_Bus_Topics__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10__skuTier__c') != 'Premium'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-15T00:00:00Z"
+    },
+    "Id": "standard-empty",
+    "CA10__disappearanceTime__c": null,
+    "CA10__skuTier__c": "Standard",
+    "CA10__provisioningState__c": "Succeeded",
+    "CA10__createdAt__c": "2026-01-01T00:00:00Z",
+    "CA10__Azure_Service_Bus_Queues__r": [],
+    "CA10__Azure_Service_Bus_Topics__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "599",
+      "conditionText": "extract('CA10__createdAt__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-15T00:00:00Z"
+    },
+    "Id": "missing-created-at",
+    "CA10__disappearanceTime__c": null,
+    "CA10__skuTier__c": "Premium",
+    "CA10__provisioningState__c": "Succeeded",
+    "CA10__createdAt__c": null,
+    "CA10__Azure_Service_Bus_Queues__r": [],
+    "CA10__Azure_Service_Bus_Topics__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "699",
+      "conditionText": "extract('CA10__createdAt__c').withinLastDays(30)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-15T00:00:00Z"
+    },
+    "Id": "age-boundary",
+    "CA10__disappearanceTime__c": null,
+    "CA10__skuTier__c": "Premium",
+    "CA10__provisioningState__c": "Succeeded",
+    "CA10__createdAt__c": "2026-08-16T00:00:00Z",
+    "CA10__Azure_Service_Bus_Queues__r": [],
+    "CA10__Azure_Service_Bus_Topics__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "799",
+      "conditionText": "CA10__Azure_Service_Bus_Queues__r.has(UNDETERMINED) || CA10__Azure_Service_Bus_Topics__r.has(UNDETERMINED)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-15T00:00:00Z"
+    },
+    "Id": "queue-without-id",
+    "CA10__disappearanceTime__c": null,
+    "CA10__skuTier__c": "Premium",
+    "CA10__provisioningState__c": "Succeeded",
+    "CA10__createdAt__c": "2026-01-01T00:00:00Z",
+    "CA10__Azure_Service_Bus_Queues__r": [
+      {
+        "Id": null,
+        "CA10__disappearanceTime__c": null,
+        "CA10__namespace__c": "queue-without-id"
+      }
+    ],
+    "CA10__Azure_Service_Bus_Topics__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "899",
+      "conditionText": "CA10__Azure_Service_Bus_Queues__r.hasNo(COMPLIANT) && CA10__Azure_Service_Bus_Topics__r.hasNo(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-15T00:00:00Z"
+    },
+    "Id": "empty",
+    "CA10__disappearanceTime__c": null,
+    "CA10__skuTier__c": "Premium",
+    "CA10__provisioningState__c": "Succeeded",
+    "CA10__createdAt__c": "2026-08-15T00:00:00Z",
+    "CA10__Azure_Service_Bus_Queues__r": [],
+    "CA10__Azure_Service_Bus_Topics__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "899",
+      "conditionText": "CA10__Azure_Service_Bus_Queues__r.hasNo(COMPLIANT) && CA10__Azure_Service_Bus_Topics__r.hasNo(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-15T00:00:00Z"
+    },
+    "Id": "only-disappeared-entities",
+    "CA10__disappearanceTime__c": null,
+    "CA10__skuTier__c": "Premium",
+    "CA10__provisioningState__c": "Succeeded",
+    "CA10__createdAt__c": "2026-01-01T00:00:00Z",
+    "CA10__Azure_Service_Bus_Queues__r": [
+      {
+        "Id": "queue-gone",
+        "CA10__disappearanceTime__c": "2026-09-14T00:00:00Z",
+        "CA10__namespace__c": "only-disappeared-entities"
+      }
+    ],
+    "CA10__Azure_Service_Bus_Topics__r": [
+      {
+        "Id": "topic-gone",
+        "CA10__disappearanceTime__c": "2026-09-14T00:00:00Z",
+        "CA10__namespace__c": "only-disappeared-entities"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "900",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-15T00:00:00Z"
+    },
+    "Id": "active-queue",
+    "CA10__disappearanceTime__c": null,
+    "CA10__skuTier__c": "Premium",
+    "CA10__provisioningState__c": "Succeeded",
+    "CA10__createdAt__c": "2026-01-01T00:00:00Z",
+    "CA10__Azure_Service_Bus_Queues__r": [
+      {
+        "Id": "queue-active",
+        "CA10__disappearanceTime__c": null,
+        "CA10__namespace__c": "active-queue"
+      }
+    ],
+    "CA10__Azure_Service_Bus_Topics__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "900",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-15T00:00:00Z"
+    },
+    "Id": "active-topic",
+    "CA10__disappearanceTime__c": null,
+    "CA10__skuTier__c": "Premium",
+    "CA10__provisioningState__c": "Succeeded",
+    "CA10__createdAt__c": "2026-01-01T00:00:00Z",
+    "CA10__Azure_Service_Bus_Queues__r": [],
+    "CA10__Azure_Service_Bus_Topics__r": [
+      {
+        "Id": "topic-active",
+        "CA10__disappearanceTime__c": null,
+        "CA10__namespace__c": "active-topic"
+      }
+    ]
+  }
+]

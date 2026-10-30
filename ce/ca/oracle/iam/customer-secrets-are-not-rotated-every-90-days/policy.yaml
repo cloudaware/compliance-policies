@@ -1,0 +1,17 @@
+---
+names:
+  full: "Oracle IAM Customer Secret Keys are not rotated every 90 days"
+  contextual: "IAM Customer Secret Keys are not rotated every 90 days"
+description: >
+  Oracle IAM customer secret keys should be rotated before they are more than
+  90 days old. Stale customer secret keys increase the exposure window for
+  compromised long-term credentials.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cis-oracle-v3.1.0/01/09"
+  - "/frameworks/cloudaware/identity-and-access-governance/credential-lifecycle-management"
+similarPolicies:
+  internal:
+    - "dec-x-087d4ffc"

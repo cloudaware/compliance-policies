@@ -1,10 +1,10 @@
 # Description
 
-Enable AppServiceHTTPLogs diagnostic log category for Azure App Service instances to ensure all http requests are captured and centrally logged.
+Enable the AppServiceHTTPLogs diagnostic log category for Azure App Service instances to ensure all HTTP requests are captured and centrally logged.
 
 ## Rationale
 
-Capturing web requests can be important supporting information for security analysts performing monitoring and incident response activities. Once logging, these logs can be ingested into SIEM or other central aggregation point for the organization.
+Capturing web requests can be important supporting information for security analysts performing monitoring and incident response activities. Once logging is enabled, these logs can be ingested into a SIEM or another central aggregation point for the organization.
 
 ## Impact
 

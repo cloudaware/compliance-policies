@@ -8,15 +8,15 @@ Azure virtual machine extensions are small applications that provide post-deploy
 
 ## Impact
 
-Functionality by unsupported extensions will be disabled.
+Functionality provided by unsupported extensions will be disabled.
 
 ## Audit
 
 ### From Azure Portal
 
 1. Go to `Virtual machines`.
-2. For each virtual machine, click on the server name to select it go to.
-3. In the new column menu, under `Settings` Click on `Extensions + applications`.
+2. For each virtual machine, click the server name to open it.
+3. In the new menu, under `Settings`, click `Extensions + applications`.
 4. Ensure that all the listed extensions are approved by your organization for use.
 
 ### From Azure CLI
@@ -24,7 +24,7 @@ Functionality by unsupported extensions will be disabled.
 Use the below command to list the extensions attached to a VM, and ensure the listed extensions are approved for use:
 
 ```sh
-az vm extension list --vm-name <vmName> --resource-group <sourceGroupName> --query [*].name
+az vm extension list --vm-name {{vm-name}} --resource-group {{resource-group-name}} --query [*].name
 ```
 
 ### From PowerShell
@@ -38,7 +38,7 @@ Get-AzVM
 For each VM run the following command:
 
 ```ps
-Get-AzVMExtension -ResourceGroupName <VM Resource Group> -VMName <VM Name>
+Get-AzVMExtension -ResourceGroupName {{resource-group-name}} -VMName {{vm-name}}
 ```
 
 Review each `Name`, `ExtensionType`, and `ProvisioningState` to make sure no unauthorized extensions are installed on any virtual machines.

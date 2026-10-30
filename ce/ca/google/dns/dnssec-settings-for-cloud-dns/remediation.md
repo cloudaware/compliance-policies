@@ -9,4 +9,7 @@
 
 Use the below command to enable `DNSSEC` for Cloud DNS Zone Name.
 
-            gcloud dns managed-zones update ZONE_NAME --dnssec-state on
+```sh
+gcloud dns managed-zones update {{zone-name}} \
+    --dnssec-state on
+```

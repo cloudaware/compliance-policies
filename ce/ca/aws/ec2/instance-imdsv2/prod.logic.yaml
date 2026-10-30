@@ -6,8 +6,8 @@ importExtracts:
   - file: "/types/CA10__CaAwsInstance__c/object.extracts.yaml"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "EC2 Instance IMDSv2 is not enabled."
-    remediationMessage: "Consider enabling EC2 Instance IMDSv2."
+    currentStateMessage: "IMDSv2 is not enabled for the EC2 instance."
+    remediationMessage: "Enable IMDSv2 for the EC2 instance."
     check:
       IS_EQUAL:
         left:
@@ -15,8 +15,8 @@ conditions:
         right:
           TEXT: "pending"
   - status: "INCOMPLIANT"
-    currentStateMessage: "EC2 Instance IMDSv2 is not required."
-    remediationMessage: "Ensure that EC2 Instance IMDSv2 is required."
+    currentStateMessage: "IMDSv2 is not required for the EC2 instance."
+    remediationMessage: "Require IMDSv2 for the EC2 instance."
     check:
       IS_EQUAL:
         left:
@@ -24,7 +24,7 @@ conditions:
         right:
           TEXT: "optional"
   - status: "COMPLIANT"
-    currentStateMessage: "EC2 Metadata Service only allows IMDSv2."
+    currentStateMessage: "The EC2 instance metadata service requires IMDSv2."
     check:
       AND:
         args:

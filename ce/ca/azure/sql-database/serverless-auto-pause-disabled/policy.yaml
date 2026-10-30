@@ -1,0 +1,12 @@
+---
+names:
+  full: "Azure SQL Database serverless auto-pause is disabled"
+  contextual: "Database serverless auto-pause is disabled"
+description: >
+  Detects General Purpose serverless Azure SQL Databases with auto-pause disabled,
+  which can incur unnecessary compute charges while idle.
+type: "BEST_PRACTICE"
+categories:
+  - "COST"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-optimization"

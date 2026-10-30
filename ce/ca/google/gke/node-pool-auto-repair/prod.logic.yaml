@@ -7,8 +7,8 @@ importExtracts:
   - file: "/types/CA10G1__CaGoogleGkeClusterNodePool__c/object.extracts.yaml"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "Node Pool auto repair feature is disabled."
-    remediationMessage: "Enable auto repair feature for the Cluster."
+    currentStateMessage: "Node pool auto-repair is disabled."
+    remediationMessage: "Enable node pool auto-repair."
     check:
       NOT_EQUAL:
         left:
@@ -17,4 +17,4 @@ conditions:
           TEXT: "Enabled"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "Cluster's auto repair feature is enabled."
+  currentStateMessage: "Node pool auto-repair is enabled."

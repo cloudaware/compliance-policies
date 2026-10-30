@@ -7,5 +7,5 @@ If admin accounts are being used for daily operations, consider the following:
 - Revoke any unnecessary administrative access.
 - Use Conditional Access to limit access to resources.
 - Ensure that administrators have separate admin and user accounts.
-- Use Microsoft Entra ID Protection helps organizations detect, investigate, and remediate identity-based risks.
+- Use Microsoft Entra ID Protection to help detect, investigate, and remediate identity-based risks.
 - Use Privileged Identity Management (PIM) in Microsoft Entra ID to limit standing administrator access to privileged roles, discover who has access, and review privileged access.

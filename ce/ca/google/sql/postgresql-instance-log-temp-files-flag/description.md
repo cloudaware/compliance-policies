@@ -1,6 +1,6 @@
 # Description
 
-PostgreSQL can create a temporary file for actions such as sorting, hashing and temporary query results when these operations exceed `work_mem`. The `log_temp_files` flag controls logging names and the file size when it is deleted. Configuring `log_temp_files` to `0` causes all temporary file information to be logged, while positive values log only files whose size is greater than or equal to the specified number of kilobytes. A value of -1 disables temporary file information logging.
+PostgreSQL can create a temporary file for actions such as sorting, hashing, and temporary query results when these operations exceed `work_mem`. The `log_temp_files` flag controls logging of temporary file names and file size when a file is deleted. Configuring `log_temp_files` to `0` causes all temporary file information to be logged, while positive values log only files whose size is greater than or equal to the specified number of kilobytes. A value of `-1` disables temporary file information logging.
 
 ## Rationale
 
@@ -16,7 +16,7 @@ The Instance is marked as `INAPPLICABLE` if its not a **PostgreSQL** instance.
 
 ## Default Value
 
-By default `log_temp_files` is `-1`.
+By default, `log_temp_files` is `-1`.
 
 ## References
 

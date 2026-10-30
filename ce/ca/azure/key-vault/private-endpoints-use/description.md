@@ -1,14 +1,14 @@
 # Description
 
-Use private endpoints to allow clients and services to securely access data located over a network via an encrypted Private Link. To do this, the private endpoint uses an IP address from the VNet for each service. Network traffic between disparate services securely traverses encrypted over the VNet. This VNet can also link addressing space, extending your network and accessing resources on it. Similarly, it can be a tunnel through public networks to connect remote infrastructures together. This creates further security through segmenting network traffic and preventing outside sources from accessing it.
+Use private endpoints to allow clients and services to securely access data over a network via an encrypted Private Link. The private endpoint uses an IP address from the VNet for each service, and traffic between services is encrypted over the VNet. A VNet can also extend address space to enable access to resources and can provide a tunnel through public networks to connect remote infrastructure. This adds security by segmenting network traffic and preventing outside sources from accessing it.
 
-Private endpoints will secure network traffic from Azure Key Vault to the resources requesting secrets and keys.
+Private endpoints secure network traffic between Azure Key Vault and the resources requesting secrets and keys.
 
 ## Rationale
 
 Securing traffic between services through encryption protects the data from easy interception and reading.
 
-Private endpoints will keep network requests to Azure Key Vault limited to the endpoints attached to the resources that are whitelisted to communicate with each other. Assigning the Key Vault to a network without an endpoint will allow other resources on that network to view all traffic from the Key Vault to its destination. In spite of the complexity in configuration, this is recommended for high security secrets.
+Private endpoints limit Azure Key Vault access to endpoints attached to approved resources. Assigning the Key Vault to a network without an endpoint can allow other resources on that network to view traffic from the Key Vault to its destination. Despite the configuration complexity, this is recommended for high-security secrets.
 
 ## Impact
 
@@ -38,6 +38,6 @@ By default, Private Endpoints are not enabled for any services within Azure.
 
 ## Additional Information
 
-This recommendation assumes that you have created a Resource Group containing a Virtual Network that the services are already associated with and configured private DNS. A Bastion on the virtual network is also required, and the service to which you are connecting must already have a Private Endpoint. For information concerning the installation of these services, please see the attached documentation.
+This recommendation assumes that you have created a resource group containing a virtual network that services are already associated with and that private DNS is configured. A Bastion on the virtual network is also required, and the service you are connecting to must already have a Private Endpoint. For setup details, see the referenced documentation.
 
 Microsoft's own documentation lists the requirements as: A Key Vault. An Azure virtual network. A subnet in the virtual network. Owner or contributor permissions for both the Key Vault and the virtual network.

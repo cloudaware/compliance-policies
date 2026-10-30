@@ -1,0 +1,40 @@
+---
+inputType: "CA10__CaAzureAccount__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Subscription activity logs have a diagnostic setting with a configured destination."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__Azure_Diagnostic_Settings__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Subscription activity logs do not have a diagnostic setting with a configured destination."
+  remediationMessage: "Create a subscription activity log diagnostic setting and configure a log destination."
+relatedLists:
+  - relationshipName: "CA10__Azure_Diagnostic_Settings__r"
+    recordTypes:
+      - "caDiagnosticSettingOnAzureSubscription"
+    importExtracts:
+      - file: "/types/CA10__CaAzureDiagnosticSetting__c/object.extracts.yaml"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The subscription diagnostic setting does not have a log destination."
+        remediationMessage: "Configure a Log Analytics workspace, storage account, or event hub destination."
+        check:
+          AND:
+            args:
+              - IS_EMPTY:
+                  arg:
+                    EXTRACT: "CA10__workspaceId__c"
+              - IS_EMPTY:
+                  arg:
+                    EXTRACT: "CA10__storageAccountId__c"
+              - IS_EMPTY:
+                  arg:
+                    EXTRACT: "CA10__eventHubAuthorizationRuleId__c"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This subscription diagnostic setting has a configured destination."

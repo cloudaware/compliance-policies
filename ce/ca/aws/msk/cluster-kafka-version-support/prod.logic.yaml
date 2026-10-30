@@ -1,0 +1,82 @@
+---
+# AWS MSK calendar verified 2026-10-27.
+# https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html
+# All listed cutoffs have passed; future cutoffs should use IS_BEFORE_TODAY.
+# shortcut: update the expired-version list when additional AWS support cutoffs pass.
+inputType: CA10__CaAwsMskCluster__c
+importExtracts:
+  - file: /types/CA10__CaAwsMskCluster__c/object.extracts.yaml
+testData:
+  - file: test-data.json
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: The MSK cluster is creating, failed, or being deleted and is outside the operational lifecycle scope.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - DELETING
+              - CREATING
+              - FAILED
+        search:
+          EXTRACT: CA10__state__c
+  - status: UNDETERMINED
+    currentStateMessage: The MSK cluster is not in a recognized operational state; verify the current broker version.
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              SET:
+                itemType: TEXT
+                items:
+                  - ACTIVE
+                  - UPDATING
+                  - HEALING
+                  - MAINTENANCE
+                  - REBOOTING_BROKER
+            search:
+              EXTRACT: CA10__state__c
+  - status: INCOMPLIANT
+    currentStateMessage: The current broker Kafka version is past its published AWS MSK end-of-support date.
+    remediationMessage: Verify the live version and plan a tested upgrade to a supported compatible Kafka version; AWS can automatically upgrade clusters after end of support.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - 1.1.1
+              - 2.1.0
+              - 2.2.1
+              - 2.3.1
+              - 2.4.1
+              - 2.4.1.1
+              - 2.5.1
+              - 2.6.0
+              - 2.6.1
+              - 2.6.2
+              - 2.6.3
+              - 2.7.0
+              - 2.7.1
+              - 2.7.2
+              - 2.8.0
+              - 2.8.1
+              - 3.1.1
+              - 3.2.0
+              - 3.3.1
+              - 3.3.2
+              - 2.8.2.tiered
+              - 2.8.2-tiered
+              - 3.4.0
+              - 3.5.1
+              - 3.6.0
+              - 3.7.x
+              - 3.7.x.kraft
+        search:
+          EXTRACT: CA10__currentBrokerKafkaVersion__c
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: The cluster uses a Kafka version that has not reached end of support on Amazon MSK.

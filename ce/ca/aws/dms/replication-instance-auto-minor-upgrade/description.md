@@ -8,7 +8,7 @@ Enabling auto minor version upgrades ensures that your DMS replication instances
 
 ## Impact
 
-Updates are deployed during the instance’s defined maintenance window, which may incur a brief service interruption. Schedule this setting during periods of low traffic to minimize impact on ongoing migrations.
+Updates are deployed during the instance's defined maintenance window, which may incur a brief service interruption. Schedule the maintenance window during periods of low traffic to minimize impact on ongoing migrations.
 
 ## Audit
 

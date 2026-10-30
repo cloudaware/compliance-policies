@@ -1,0 +1,13 @@
+---
+names:
+  full: AWS EKS managed node group Kubernetes version is unsupported or incompatible
+  contextual: Managed node group Kubernetes version is unsupported or incompatible
+description: >
+  Ensure that managed node groups use a Kubernetes minor version within the AWS
+  EKS support lifecycle and supported control plane version skew. Allow standard
+  and extended support without requiring the latest version.
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization

@@ -1,0 +1,47 @@
+---
+inputType: "CA10Z1__CaAzureNatGateway__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10Z1__CaAzureNatGateway__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The NAT gateway is not successfully provisioned."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__provisioningState__c"
+        right:
+          TEXT: "Succeeded"
+  - status: "UNDETERMINED"
+    currentStateMessage: "A related subnet provisioning state is unavailable."
+    check:
+      RELATED_LIST_HAS:
+        status: "UNDETERMINED"
+        relationshipName: "CA10Z1__Azure_Network_Subnets__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The NAT gateway has no active subnet."
+    remediationMessage: "Attach the NAT gateway to a needed subnet or remove it after dependency review."
+    check:
+      RELATED_LIST_HAS_NO:
+        status: "COMPLIANT"
+        relationshipName: "CA10Z1__Azure_Network_Subnets__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The NAT gateway has an active subnet."
+relatedLists:
+  - relationshipName: "CA10Z1__Azure_Network_Subnets__r"
+    importExtracts:
+      - file: "/types/CA10__CaAzureNetworkSubnet__c/object.extracts.yaml"
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "The subnet is not successfully provisioned."
+        check:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__provisioningState__c"
+            right:
+              TEXT: "Succeeded"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "An active subnet is attached."

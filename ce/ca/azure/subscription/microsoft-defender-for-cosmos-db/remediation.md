@@ -16,7 +16,9 @@
 Run the following command:
 
 ```sh
-az security pricing create -n 'CosmosDbs' --tier 'standard'
+az security pricing create \
+    -n CosmosDbs \
+    --tier Standard
 ```
 
 ## From PowerShell
@@ -24,5 +26,7 @@ az security pricing create -n 'CosmosDbs' --tier 'standard'
 Use the below command to enable Standard pricing tier for Azure Cosmos DB:
 
 ```ps
-Set-AzSecurityPricing -Name 'CosmosDbs' -PricingTier 'Standard
+Set-AzSecurityPricing `
+    -Name "CosmosDbs" `
+    -PricingTier "Standard"
 ```

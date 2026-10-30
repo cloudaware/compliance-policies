@@ -1,0 +1,10 @@
+---
+names:
+  full: AWS EKS Cluster Kubernetes version is outside standard support
+  contextual: Cluster Kubernetes version is outside standard support
+description: Ensure that EKS cluster control planes use a Kubernetes minor version within AWS standard support. Distinguish the extended support window from expiry of final AWS support.
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization

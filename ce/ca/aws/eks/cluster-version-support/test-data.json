@@ -1,0 +1,1176 @@
+[
+  {
+    "Id": "1.30-current",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && not('2026-11-26T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.32' && not('2027-03-23T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.33' && not('2027-07-29T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.34' && not('2027-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2028-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2028-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2028-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.30",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.31-before-final-end",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['1.31', '1.32', '1.33']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.34' && not('2026-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2027-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2027-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2027-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-11-25T23:59:59.999Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.31",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.31-final-end-boundary",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && not('2026-11-26T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.32' && not('2027-03-23T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.33' && not('2027-07-29T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.34' && not('2027-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2028-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2028-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2028-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-11-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.31",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.31-current",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['1.31', '1.32', '1.33']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.34' && not('2026-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2027-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2027-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2027-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.31",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.32-before-final-end",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['1.31', '1.32', '1.33']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.34' && not('2026-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2027-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2027-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2027-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-03-22T23:59:59.999Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.32",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.32-final-end-boundary",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && not('2026-11-26T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.32' && not('2027-03-23T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.33' && not('2027-07-29T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.34' && not('2027-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2028-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2028-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2028-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-03-23T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.32",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.32-current",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['1.31', '1.32', '1.33']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.34' && not('2026-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2027-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2027-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2027-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.32",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.33-before-final-end",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['1.31', '1.32', '1.33']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.34' && not('2026-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2027-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2027-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2027-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-07-28T23:59:59.999Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.33",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.33-final-end-boundary",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && not('2026-11-26T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.32' && not('2027-03-23T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.33' && not('2027-07-29T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.34' && not('2027-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2028-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2028-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2028-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-07-29T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.33",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.33-current",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['1.31', '1.32', '1.33']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.34' && not('2026-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2027-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2027-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2027-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.33",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.34-before-standard-end",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-12-01T23:59:59.999Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.34-standard-end-boundary",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['1.31', '1.32', '1.33']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.34' && not('2026-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2027-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2027-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2027-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-12-02T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.34-before-final-end",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['1.31', '1.32', '1.33']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.34' && not('2026-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2027-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2027-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2027-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-12-01T23:59:59.999Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.34-final-end-boundary",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && not('2026-11-26T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.32' && not('2027-03-23T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.33' && not('2027-07-29T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.34' && not('2027-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2028-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2028-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2028-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-12-02T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.34-current",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.35-before-standard-end",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-03-26T23:59:59.999Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.35",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.35-standard-end-boundary",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['1.31', '1.32', '1.33']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.34' && not('2026-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2027-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2027-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2027-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-03-27T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.35",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.35-before-final-end",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['1.31', '1.32', '1.33']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.34' && not('2026-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2027-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2027-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2027-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2028-03-26T23:59:59.999Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.35",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.35-final-end-boundary",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && not('2026-11-26T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.32' && not('2027-03-23T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.33' && not('2027-07-29T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.34' && not('2027-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2028-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2028-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2028-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2028-03-27T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.35",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.35-current",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.35",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.36-before-standard-end",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-08-01T23:59:59.999Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.36",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.36-standard-end-boundary",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['1.31', '1.32', '1.33']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.34' && not('2026-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2027-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2027-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2027-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-08-02T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.36",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.36-before-final-end",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['1.31', '1.32', '1.33']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.34' && not('2026-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2027-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2027-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2027-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2028-08-01T23:59:59.999Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.36",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.36-final-end-boundary",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && not('2026-11-26T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.32' && not('2027-03-23T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.33' && not('2027-07-29T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.34' && not('2027-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2028-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2028-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2028-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2028-08-02T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.36",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.36-current",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.36",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.37-before-standard-end",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-11-30T23:59:59.999Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.37",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.37-standard-end-boundary",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['1.31', '1.32', '1.33']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.34' && not('2026-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2027-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2027-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2027-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-12-01T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.37",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.37-before-final-end",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['1.31', '1.32', '1.33']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.34' && not('2026-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2027-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2027-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2027-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2028-11-30T23:59:59.999Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.37",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.37-final-end-boundary",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && not('2026-11-26T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.32' && not('2027-03-23T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.33' && not('2027-07-29T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.34' && not('2027-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2028-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2028-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2028-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2028-12-01T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.37",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.37-current",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.37",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "unknown-version-56",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 401,
+      "conditionText": "CA10A1__version__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": null,
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "unknown-version-57",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 401,
+      "conditionText": "CA10A1__version__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "unknown-version-58",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 401,
+      "conditionText": "CA10A1__version__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": " ",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "newer-version-1.38",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.38",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "newer-version-1.100",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.100",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "newer-version-1.340",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.340",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "unknown-status-68",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 101,
+      "conditionText": "CA10A1__status__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": null,
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "unknown-status-69",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 101,
+      "conditionText": "CA10A1__status__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "unknown-status-70",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 101,
+      "conditionText": "CA10A1__status__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": " ",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "unknown-status-71",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "runtimeError": null,
+      "conditionText": "setOfText(['CREATING', 'PENDING', 'FAILED', 'DELETING']).contains(extract('CA10A1__status__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "CREATING",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "unknown-status-72",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "runtimeError": null,
+      "conditionText": "setOfText(['CREATING', 'PENDING', 'FAILED', 'DELETING']).contains(extract('CA10A1__status__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "PENDING",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "unknown-status-73",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "runtimeError": null,
+      "conditionText": "setOfText(['CREATING', 'PENDING', 'FAILED', 'DELETING']).contains(extract('CA10A1__status__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "FAILED",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "unknown-status-74",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "FUTURE_STATUS",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "updating-standard",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "UPDATING",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "updating-extended",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['1.31', '1.32', '1.33']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.34' && not('2026-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2027-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2027-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2027-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "UPDATING",
+    "CA10A1__version__c": "1.33",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "deleting-expired",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATING', 'PENDING', 'FAILED', 'DELETING']).contains(extract('CA10A1__status__c'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "DELETING",
+    "CA10A1__version__c": "1.30",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "deleting-missing-version",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATING', 'PENDING', 'FAILED', 'DELETING']).contains(extract('CA10A1__status__c'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "DELETING",
+    "CA10A1__version__c": null,
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "platform-revision-independent",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "platform-revision-is-not-kubernetes",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 401,
+      "conditionText": "CA10A1__version__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": null,
+    "CA10A1__platformVersion__c": "eks.34"
+  },
+  {
+    "Id": "text-normalization",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "active",
+    "CA10A1__version__c": " 1.34 ",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "after-future-standard-boundary",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['1.31', '1.32', '1.33']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.34' && not('2026-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2027-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2027-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2027-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-12-01T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.37",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "after-future-final-boundary",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && not('2026-11-26T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.32' && not('2027-03-23T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.33' && not('2027-07-29T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.34' && not('2027-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2028-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2028-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2028-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2028-12-01T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.37",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "offset-standard-cutoff",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['1.31', '1.32', '1.33']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.34' && not('2026-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2027-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2027-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2027-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-12-02T05:00:00+05:00"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "offset-before-standard-cutoff",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-12-02T04:59:59.999+05:00"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "disappeared",
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": 99,
+      "conditionText": "isDisappeared(CA10A1__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": "2026-10-22T00:00:00Z",
+    "CA10A1__status__c": null,
+    "CA10A1__version__c": null,
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "1.29-current",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['1.29', '1.30']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.31' && not('2026-11-26T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.32' && not('2027-03-23T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.33' && not('2027-07-29T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.34' && not('2027-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2028-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2028-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2028-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.29",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "platform-null",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 201,
+      "conditionText": "CA10A1__platformVersion__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": null
+  },
+  {
+    "Id": "platform-empty",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 201,
+      "conditionText": "CA10A1__platformVersion__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": ""
+  },
+  {
+    "Id": "platform-whitespace",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 201,
+      "conditionText": "CA10A1__platformVersion__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": " "
+  },
+  {
+    "Id": "platform-unknown-family",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 399,
+      "conditionText": "not(extract('CA10A1__platformVersion__c').startsWith('eks.'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": "future-platform.1"
+  },
+  {
+    "Id": "legacy-outposts-expired-regional-version",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 299,
+      "conditionText": "extract('CA10A1__platformVersion__c').startsWith('eks-local-outposts.')",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.30",
+    "CA10A1__platformVersion__c": "eks-local-outposts.15"
+  },
+  {
+    "Id": "legacy-outposts-missing-version",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 299,
+      "conditionText": "extract('CA10A1__platformVersion__c').startsWith('eks-local-outposts.')",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": null,
+    "CA10A1__platformVersion__c": "eks-local-outposts.15"
+  },
+  {
+    "Id": "creating-without-version-data",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['CREATING', 'PENDING', 'FAILED', 'DELETING']).contains(extract('CA10A1__status__c'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "CREATING",
+    "CA10A1__version__c": null,
+    "CA10A1__platformVersion__c": null
+  },
+  {
+    "Id": "platform-high-revision-standard-version",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": "eks.71"
+  },
+  {
+    "Id": "platform-low-revision-extended-version",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['1.31', '1.32', '1.33']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.34' && not('2026-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2027-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2027-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2027-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.33",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "cn-north-1-standard",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": "eks.34",
+    "CA10A1__regionName__c": "cn-north-1"
+  },
+  {
+    "Id": "cn-north-1-extended",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['1.31', '1.32', '1.33']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.34' && not('2026-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2027-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2027-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2027-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.33",
+    "CA10A1__platformVersion__c": "eks.34",
+    "CA10A1__regionName__c": "cn-north-1"
+  },
+  {
+    "Id": "us-gov-west-1-standard",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": "eks.34",
+    "CA10A1__regionName__c": "us-gov-west-1"
+  },
+  {
+    "Id": "us-gov-west-1-extended",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['1.31', '1.32', '1.33']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.34' && not('2026-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2027-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2027-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2027-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.33",
+    "CA10A1__platformVersion__c": "eks.34",
+    "CA10A1__regionName__c": "us-gov-west-1"
+  },
+  {
+    "Id": "eu-west-1-standard",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.34",
+    "CA10A1__platformVersion__c": "eks.34",
+    "CA10A1__regionName__c": "eu-west-1"
+  },
+  {
+    "Id": "eu-west-1-extended",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 599,
+      "conditionText": "setOfText(['1.31', '1.32', '1.33']).contains(extract('CA10A1__version__c')) || (extract('CA10A1__version__c') == '1.34' && not('2026-12-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.35' && not('2027-03-27T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.36' && not('2027-08-02T00:00:00Z'.afterToday())) || (extract('CA10A1__version__c') == '1.37' && not('2027-12-01T00:00:00Z'.afterToday()))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.33",
+    "CA10A1__platformVersion__c": "eks.34",
+    "CA10A1__regionName__c": "eu-west-1"
+  },
+  {
+    "Id": "newer-major-version",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-26T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "2.0",
+    "CA10A1__platformVersion__c": "eks.1"
+  },
+  {
+    "Id": "newer-version-remains-default-without-calendar-update",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 600,
+      "runtimeError": null,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2030-01-01T00:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__status__c": "ACTIVE",
+    "CA10A1__version__c": "1.38",
+    "CA10A1__platformVersion__c": "eks.1"
+  }
+]

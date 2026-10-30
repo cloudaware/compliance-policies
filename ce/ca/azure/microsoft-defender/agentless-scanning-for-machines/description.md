@@ -1,6 +1,6 @@
 # Description
 
-Using disk snapshots, the agentless scanner scans for installed software, vulnerabilities, and plain text secrets.
+Using disk snapshots, the agentless scanner scans for installed software, vulnerabilities, and plaintext secrets.
 
 ## Rationale
 
@@ -17,8 +17,8 @@ Agentless scanning for machines requires licensing and is included in these plan
 
 ### From Azure Portal
 
-1. From the Azure Portal `Home` page, select `Microsoft Defender for Cloud`.
-2. Under `Management` select `Environment Settings`.
+1. From the Azure portal `Home` page, select `Microsoft Defender for Cloud`.
+2. Under `Management`, select `Environment Settings`.
 3. Select a subscription.
 4. Under `Settings` > `Defender Plans`, click `Settings & monitoring`.
 5. Under the Component column, locate the row for `Agentless scanning for machines`.
@@ -28,7 +28,7 @@ Repeat the above for any additional subscriptions.
 
 ## Default Value
 
-By default, Agentless scanning for machines is `off`.
+By default, agentless scanning for machines is `Off`.
 
 ## References
 

@@ -1,0 +1,13 @@
+---
+name: 4.15 Ensure a notification is configured for Oracle Cloud Guard problems detected - Level 1 (Automated)
+description: >
+  Cloud Guard detects misconfigured resources and insecure activity within a
+  tenancy and provides security administrators with the visibility to resolve
+  these issues. Upon detection, Cloud Guard generates a Problem. It is
+  recommended to setup an Event Rule and Notification that gets triggered when
+  Oracle Cloud Guard Problems are created, dismissed or remediated. Event Rules
+  are compartment scoped and will detect events in child compartments. It is
+  recommended to create the Event rule at the root compartment level.
+similar:
+  internal:
+    - dec-c-c1531e30

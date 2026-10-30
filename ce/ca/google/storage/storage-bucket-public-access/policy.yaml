@@ -7,8 +7,8 @@ type: COMPLIANCE_POLICY
 categories:
   - "SECURITY"
 frameworkMappings:
-  - /frameworks/cis-gcp-v3.0.0/05/01
-  - /frameworks/cloudaware/resource-security/public-and-anonymous-access
+  - /frameworks/cis-gcp-v5.0.0/05/01
+  - /frameworks/cloudaware/resource-security/public-data-access
   - /frameworks/nist-sp-800-53-r4/ac/02
   - /frameworks/nist-sp-800-53-r5/ac/03
   - /frameworks/nist-sp-800-53-r5/ac/05
@@ -30,3 +30,6 @@ similarPolicies:
   cloudConformity:
     - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudStorage/publicly-accessible-storage-buckets.html"
       name: "Check for Publicly Accessible Cloud Storage Buckets"
+  internal:
+    - "dec-x-30d6f14d"
+    - "dec-x-af1de99b"

@@ -1,10 +1,10 @@
 # Description
 
-Resource locking is a powerful protection mechanism that can prevent inadvertent modification/deletion of resources within Azure subscriptions/Resource Groups and is a recommended NIST configuration.
+Resource locking is a powerful protection mechanism that can prevent inadvertent modification or deletion of resources within Azure subscriptions or Resource Groups and is a recommended NIST configuration.
 
 ## Rationale
 
-Given the resource lock functionality is outside of standard Role Based Access Control(RBAC),s it would be prudent to create a resource lock administrator role to prevent inadvertent unlocking of resources.
+Given the resource lock functionality is outside of standard Role Based Access Control (RBAC), it is prudent to create a resource lock administrator role to prevent inadvertent unlocking of resources.
 
 ## Impact
 

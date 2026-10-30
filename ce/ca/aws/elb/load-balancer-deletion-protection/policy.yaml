@@ -1,0 +1,23 @@
+---
+names:
+  full: "AWS ELB Load Balancer Deletion Protection is disabled"
+  contextual: "Load Balancer Deletion Protection is disabled"
+description: >
+  Ensure that deletion protection is enabled for your Application, Network, and 
+  Gateway Load Balancers. This feature prevents your load balancer from being 
+  accidentally deleted, which could lead to significant service interruptions.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/elb/06"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ELB.6] Application, Gateway, and Network Load Balancers should have deletion protection enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-6"
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/ELBv2/deletion-protection.html
+      name: ELBv2 Elastic Load Balancing Deletion Protection
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/ELBv2/enable-gwlb-deletion-protection.html
+      name: Enable Deletion Protection

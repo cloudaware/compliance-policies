@@ -1,0 +1,83 @@
+---
+inputType: "CA10O1__CaOracleTenancy__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "This tenancy has root-level default tags for CreatedBy and CreatedOn."
+    check:
+      AND:
+        args:
+          - RELATED_LIST_HAS:
+              status: "COMPLIANT"
+              relationshipName: "CA10O1__Oracle_Resources__r"
+          - RELATED_LIST_HAS:
+              status: "INCOMPLIANT"
+              relationshipName: "CA10O1__Oracle_Resources__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This tenancy is missing the root-level default tag CreatedOn."
+    remediationMessage: "Create a root-level default tag named CreatedOn in the tenancy root compartment."
+    check:
+      AND:
+        args:
+          - RELATED_LIST_HAS:
+              status: "COMPLIANT"
+              relationshipName: "CA10O1__Oracle_Resources__r"
+          - RELATED_LIST_HAS_NO:
+              status: "INCOMPLIANT"
+              relationshipName: "CA10O1__Oracle_Resources__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This tenancy is missing the root-level default tag CreatedBy."
+    remediationMessage: "Create a root-level default tag named CreatedBy in the tenancy root compartment."
+    check:
+      AND:
+        args:
+          - RELATED_LIST_HAS_NO:
+              status: "COMPLIANT"
+              relationshipName: "CA10O1__Oracle_Resources__r"
+          - RELATED_LIST_HAS:
+              status: "INCOMPLIANT"
+              relationshipName: "CA10O1__Oracle_Resources__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "This tenancy does not have root-level default tags for CreatedBy and CreatedOn."
+  remediationMessage: "Create root-level default tags named CreatedBy and CreatedOn in the tenancy root compartment."
+relatedLists:
+  - relationshipName: "CA10O1__Oracle_Resources__r"
+    importExtracts:
+      - file: "/types/CA10O1__CaOracleResource__c/object.extracts.yaml"
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This Oracle resource is not a TagDefault."
+        check:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10O1__resourceType__c"
+            right:
+              TEXT: "TagDefault"
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This TagDefault is not configured at the tenancy root compartment."
+        check:
+          NOT_EMPTY:
+            arg:
+              EXTRACT: "CA10O1__compartmentOcid__c"
+      - status: "COMPLIANT"
+        currentStateMessage: "This root-level TagDefault defines the required CreatedBy tag."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "Name"
+            right:
+              TEXT: "createdby"
+      # Use INCOMPLIANT here only to distinguish CreatedOn from CreatedBy in the parent logic.
+      - status: "INCOMPLIANT"
+        currentStateMessage: "This root-level TagDefault defines the required CreatedOn tag."
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: "Name"
+            right:
+              TEXT: "createdon"
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "This root-level TagDefault is not named CreatedBy or CreatedOn."

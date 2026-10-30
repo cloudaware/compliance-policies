@@ -6,14 +6,17 @@
 2. Select the PostgreSQL instance for which you want to enable the database flag.
 3. Click `Edit`.
 4. Scroll down to the `Flags` section.
-5. To set a flag that has not been set on the instance before, click `Add a Database Flag`, choose the flag `log_error_verbosity` from the drop-down menu and set appropriate value.
+5. To set a flag that has not been set on the instance before, click `Add a Database Flag`, choose the flag `log_error_verbosity` from the drop-down menu, and set the value to `DEFAULT` or `VERBOSE`.
 6. Click `Save` to save your changes.
 7. Confirm your changes under `Flags` on the Overview page.
 
 ## From Google Cloud CLI
 
-1. Configure the log_error_verbosity database flag for every Cloud SQL PosgreSQL database instance using the below command.
+1. Configure the `log_error_verbosity` database flag for every Cloud SQL PostgreSQL database instance using the following command.
 
-        gcloud sql instances patch INSTANCE_NAME --database-flags log_error_verbosity=<TERSE|DEFAULT|VERBOSE>
+    ```sh
+    gcloud sql instances patch {{instance-name}} \
+        --database-flags log_error_verbosity={{DEFAULT|VERBOSE}}
+    ```
 
-Note: This command will overwrite all database flags previously set. To keep those and add new ones, include the values for all flags you want set on the instance; any flag not specifically included is set to its default value. For flags that do not take a value, specify the flag name followed by an equals sign ("=").
+    Note: This command will overwrite all database flags previously set. To keep those and add new ones, include the values for all flags you want set on the instance; any flag not specifically included is set to its default value. For flags that do not take a value, specify the flag name followed by an equals sign ("=").

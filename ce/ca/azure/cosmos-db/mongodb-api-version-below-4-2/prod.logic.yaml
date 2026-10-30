@@ -1,0 +1,71 @@
+---
+inputType: "CA10__CaAzureCosmosDbAccount__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: "/types/CA10__CaAzureCosmosDbAccount__c/object.extracts.yaml"
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "The Cosmos DB account kind is unavailable."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__kind__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Cosmos DB account does not use the MongoDB API."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__kind__c"
+        right:
+          TEXT: "MongoDB"
+  - status: "UNDETERMINED"
+    currentStateMessage: "The MongoDB API server version is unavailable."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__apiServerVersion__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The MongoDB API server version is below 4.2."
+    remediationMessage: "Upgrade the MongoDB API server version to 4.2 or a later supported version after compatibility testing."
+    check:
+      OR:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__apiServerVersion__c"
+              right:
+                TEXT: "3.2"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__apiServerVersion__c"
+              right:
+                TEXT: "3.6"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__apiServerVersion__c"
+              right:
+                TEXT: "4.0"
+  - status: "COMPLIANT"
+    currentStateMessage: "The MongoDB API server version is 4.2 or later."
+    check:
+      OR:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__apiServerVersion__c"
+              right:
+                TEXT: "4.2"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__apiServerVersion__c"
+              right:
+                TEXT: "5.0"
+          - IS_EQUAL:
+              left:
+                EXTRACT: "CA10__apiServerVersion__c"
+              right:
+                TEXT: "6.0"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "The MongoDB API server version is not recognized by this policy."

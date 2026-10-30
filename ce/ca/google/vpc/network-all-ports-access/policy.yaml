@@ -8,5 +8,7 @@ type: "COMPLIANCE_POLICY"
 categories:
   - "SECURITY"
 frameworkMappings:
-  - "/frameworks/pci-dss-v3.2.1/01/02/01"
-  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/cloudaware/resource-security/network-exposure"
+similarPolicies:
+  internal:
+    - dec-x-cd1c9f22

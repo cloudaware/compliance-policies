@@ -1,0 +1,35 @@
+---
+inputType: "CA10__CaAwsRedshiftCluster__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsRedshiftCluster__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The cluster is not available."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "available"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Enhanced VPC Routing is disabled for this Redshift cluster."
+    remediationMessage: "Enable enhanced VPC routing for the cluster."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__enhancedVpcRouting2__c"
+        right:
+          TEXT: "Disabled"
+  - status: "COMPLIANT"
+    currentStateMessage: "Enhanced VPC routing is enabled."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__enhancedVpcRouting2__c"
+        right:
+          TEXT: "Enabled"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

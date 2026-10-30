@@ -7,7 +7,7 @@ importExtracts:
   - file: /types/CA10__CaGoogleResourceManagerOrganization__c/object.extracts.yaml
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "Essential Contacts is configured for Organization."
+    currentStateMessage: "Essential Contacts is configured for the organization."
     check:
       OR:
         args:
@@ -40,5 +40,5 @@ conditions:
                       TEXT: "TECHNICAL"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "Essential Contacts is not configured for Organization."
-  remediationMessage: "Add organization Essential Contacts for following notification categories: LEGAL, SECURITY, SUSPENSION, TECHNICAL"
+  currentStateMessage: "Essential Contacts is not configured for the organization."
+  remediationMessage: "Configure Essential Contacts for LEGAL, SECURITY, SUSPENSION, and TECHNICAL notifications."

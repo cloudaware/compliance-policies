@@ -1,6 +1,6 @@
 # Description
 
-Security groups provide stateful filtering of ingress and egress network traffic to AWS resources. It is recommended that no security group allows unrestricted ingress access to remote server administration ports, such as SSH to port `22` and RDP to port `3389`, using either the TCP (6), UDP (17) or ALL (-1) protocols
+Security groups provide stateful filtering of ingress and egress network traffic to AWS resources. It is recommended that no security group allows unrestricted ingress access to remote server administration ports, such as SSH to port `22` and RDP to port `3389`, using either the TCP (6), UDP (17), or ALL (-1) protocols.
 
 ## Rationale
 
@@ -14,7 +14,7 @@ When updating an existing environment, ensure that administrators have access to
 
 Perform the following to determine if the account is configured as prescribed:
 
-1. Login to the AWS Management Console at <https://console.aws.amazon.com/vpc/home>.
+1. Log in to the AWS Management Console at <https://console.aws.amazon.com/vpc/home>.
 2. In the left pane, click `Security Groups`.
 3. For each security group, perform the following:
    - Select the security group.

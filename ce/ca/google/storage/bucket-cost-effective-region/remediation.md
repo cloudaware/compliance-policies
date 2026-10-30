@@ -21,7 +21,7 @@ The migration depends on the size of the data to transfer:
 
 **Note**: Bucket names must be globally unique. When retaining the same name, create the new bucket immediately after deleting the old one.
 
-## From gcloud CLI (< 1 TB)
+## From Google Cloud CLI (< 1 TB)
 
 Use this option when your data is small enough to be handled efficiently via `gcloud` CLI.
 
@@ -29,8 +29,8 @@ Use this option when your data is small enough to be handled efficiently via `gc
 
 ```sh
 gcloud storage buckets create gs://{{destination-bucket}} \
-  --location={{target-region}} \
-  --storage-class={{storage-class}}
+    --location={{target-region}} \
+    --storage-class={{storage-class}}
 ```
 
 ### Copy Data to the New Bucket
@@ -70,8 +70,8 @@ Use this option for large-scale transfers, as it provides managed reliability, p
 
 ```sh
 gcloud storage buckets add-iam-policy-binding gs://{{destination-bucket}} \
-  --member=serviceAccount:{{project-id}}@storage-transfer-service.iam.gserviceaccount.com \
-  --role=roles/storage.admin
+    --member=serviceAccount:{{project-id}}@storage-transfer-service.iam.gserviceaccount.com \
+    --role=roles/storage.admin
 ```
 
 ### Create a Storage Transfer Job

@@ -15,7 +15,7 @@ conditions:
           TEXT: "User Access Administrator"
   - status: "INCOMPLIANT"
     currentStateMessage: "User Access Administrator role is assigned."
-    remediationMessage: "Remove all role assignments."
+    remediationMessage: "Remove all role assignments for this role."
     check:
       RELATED_LIST_HAS:
         relationshipName: "CA10__Azure_Authorization_Role_Assignments__r"
@@ -28,4 +28,5 @@ relatedLists:
     conditions: []
     otherwise: 
       status: "INCOMPLIANT"
-      currentStateMessage: "Authorization Role Assignment exists."
+      currentStateMessage: "An authorization role assignment exists."
+

@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10__CaAwsBeanstalkEnvironment__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The Elastic Beanstalk Environment is not in the Ready status."
+    currentStateMessage: "The Elastic Beanstalk environment is not in the Ready state."
     check:
       NOT_EQUAL:
         left:
@@ -14,21 +14,21 @@ conditions:
         right:
           TEXT: "Ready"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Enhanced health reporting is not enabled for this Elastic Beanstalk Environment."
+    currentStateMessage: "Enhanced health reporting is not enabled for this Elastic Beanstalk environment."
     remediationMessage: "Enable enhanced health reporting for the environment."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__AWS_Beanstalk_Configuration_Settings__r"
   - status: "COMPLIANT"
-    currentStateMessage: "Enhanced health reporting is enabled for this Elastic Beanstalk Environment."
+    currentStateMessage: "Enhanced health reporting is enabled for this Elastic Beanstalk environment."
     check:
       RELATED_LIST_HAS:
         status: "COMPLIANT"
         relationshipName: "CA10__AWS_Beanstalk_Configuration_Settings__r"
 otherwise:
   status: "UNDETERMINED"
-  currentStateMessage: "Unable to determine health reporting status for this Elastic Beanstalk Environment."
+  currentStateMessage: "Unable to determine health reporting status for this Elastic Beanstalk environment."
 relatedLists:
   - relationshipName: "CA10__AWS_Beanstalk_Configuration_Settings__r"
     importExtracts:
@@ -37,7 +37,7 @@ relatedLists:
       - "caEnvironmentConfigurationSettings"
     conditions:
       - status: "COMPLIANT"
-        currentStateMessage: "Health Reporting is set to enhanced."
+        currentStateMessage: "Health reporting is set to enhanced."
         check:
           CONTAINS:
             arg:
@@ -45,7 +45,7 @@ relatedLists:
             search:
               TEXT: "aws:elasticbeanstalk:healthreporting:system SystemType enhanced"
       - status: "INCOMPLIANT"
-        currentStateMessage: "Health Reporting is set to basic."
+        currentStateMessage: "Health reporting is set to basic."
         check:
           CONTAINS:
             arg:
@@ -54,4 +54,4 @@ relatedLists:
               TEXT: "aws:elasticbeanstalk:healthreporting:system SystemType basic"
     otherwise:
       status: "INAPPLICABLE"
-      currentStateMessage: "There is no health reporting SystemType configuration setting."
+      currentStateMessage: "No health reporting SystemType configuration setting is defined."

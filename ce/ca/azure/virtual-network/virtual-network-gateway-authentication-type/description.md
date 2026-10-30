@@ -21,6 +21,14 @@ Azure VPN Gateways incur hourly charges, with additional costs for point-to-site
 5. Ensure `Authentication type` is set to `Azure Active Directory` only.
 6. Repeat steps 1-5 for each VPN gateway.
 
+### From Azure CLI
+
+```sh
+az network vnet-gateway show -g {{resource-group-name}} -n {{gateway-name}} --query "vpnClientConfiguration.vpnAuthenticationTypes"
+```
+
+Ensure the returned authentication type array is exactly `["AAD"]`, which indicates that Azure Active Directory authentication is the only configured method.
+
 ### From Azure Policy
 
 If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.

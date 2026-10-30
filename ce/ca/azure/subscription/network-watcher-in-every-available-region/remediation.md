@@ -12,5 +12,8 @@ Opting out of Network Watcher automatic enablement is a permanent change. Once y
 ## From Azure CLI
 
 ```sh
-az network watcher configure --locations <region> --enabled true --resource-group <resource_group>
+az network watcher configure \
+    --locations {{region}} \
+    --enabled true \
+    --resource-group {{resource-group-name}}
 ```

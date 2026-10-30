@@ -3,10 +3,11 @@ names:
   full: AWS EC2 Instance is idle
   contextual: Instance is idle
 description: >
-  Identify and address idle Amazon EC2 instances to optimize costs by stopping, 
-  terminating, or downscaling instances with low utilization. Instances are 
-  considered idle if their average CPU utilization is below 5%, maximum CPU 
-  utilization is below 15%, and average network I/O is below 100 MB over a 14-day period.
+  Identify and address idle Amazon EC2 instances to optimize costs by stopping,
+  terminating, or downscaling instances with low sustained utilization. The
+  policy evaluates 14-day CPU and network metrics, uses one available memory
+  metric when present, and also considers available disk utilization
+  metrics.
 type: "COMPLIANCE_POLICY"
 categories:
   - "PERFORMANCE"

@@ -15,17 +15,31 @@ For each Server, set retention policy to more than 90 days.
 ### Log Analytics Example
 
 ```ps
-Set-AzSqlServerAudit -ResourceGroupName <resource group name> -ServerName <SQL Server name> -RetentionInDays <Number of Days to retain the audit logs, should be more than 90 days> -LogAnalyticsTargetState Enabled -WorkspaceResourceId "/subscriptions/<subscription ID>/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/<workspace name>
+Set-AzSqlServerAudit `
+    -ResourceGroupName {{resource-group-name}} `
+    -ServerName {{sql-server-name}} `
+    -RetentionInDays {{retention-days-min-90}} `
+    -LogAnalyticsTargetState Enabled `
+    -WorkspaceResourceId "/subscriptions/{{subscription-id}}/resourceGroups/{{resource-group-name}}/providers/Microsoft.OperationalInsights/workspaces/{{workspace-name}}"
 ```
 
 ### Event Hub Example
 
 ```ps
-Set-AzSqlServerAudit -ResourceGroupName "<resource group name>" -ServerName "<SQL Server name>" -EventHubTargetState Enabled -EventHubName "<Event Hub name>" -EventHubAuthorizationRuleResourceId "<Event Hub Authorization Rule Resource ID>"
+Set-AzSqlServerAudit `
+    -ResourceGroupName "{{resource-group-name}}" `
+    -ServerName "{{sql-server-name}}" `
+    -EventHubTargetState Enabled `
+    -EventHubName "{{event-hub-name}}" `
+    -EventHubAuthorizationRuleResourceId "{{event-hub-authorization-rule-resource-id}}"
 ```
 
 ### Blob Storage Example
 
 ```ps
-Set-AzSqlServerAudit -ResourceGroupName "<resource group name>" -ServerName "<SQL Server name>" -BlobStorageTargetState Enabled -StorageAccountResourceId "/subscriptions/<subscription_ID>/resourceGroups/<Resource_Group>/providers/Microsoft.Stora ge/storageAccounts/<Storage Account name>"
+Set-AzSqlServerAudit `
+    -ResourceGroupName "{{resource-group-name}}" `
+    -ServerName "{{sql-server-name}}" `
+    -BlobStorageTargetState Enabled `
+    -StorageAccountResourceId "/subscriptions/{{subscription-id}}/resourceGroups/{{resource-group-name}}/providers/Microsoft.Storage/storageAccounts/{{storage-account-name}}"
 ```

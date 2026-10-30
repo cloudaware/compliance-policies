@@ -6,9 +6,9 @@ For increased security, regenerate storage account access keys periodically.
 
 When a storage account is created, Azure generates two 512-bit storage access keys which are used for authentication when the storage account is accessed. Rotating these keys periodically ensures that any inadvertent access or exposure does not result from the compromise of these keys.
 
-Cryptographic key rotation periods will vary depending on your organization's security requirements and the type of data which is being stored in the Storage Account. For example, PCI DSS mandates that cryptographic keys be replaced or rotated 'regularly,' and advises that keys for static data stores be rotated every 'few months.'
+Cryptographic key rotation periods will vary depending on your organization's security requirements and the type of data being stored in the Storage Account. For example, PCI DSS mandates that cryptographic keys be replaced or rotated 'regularly,' and advises that keys for static data stores be rotated every 'few months.'
 
-For the purposes of this recommendation, 90 days will prescribed for the reminder. Review and adjustment of the 90 day period is recommended, and may even be necessary. Your organization's security requirements should dictate the appropriate setting.
+For the purposes of this recommendation, 90 days will be prescribed for the reminder. Review and adjustment of the 90-day period is recommended and may be necessary. Your organization's security requirements should dictate the appropriate setting.
 
 ## Impact
 

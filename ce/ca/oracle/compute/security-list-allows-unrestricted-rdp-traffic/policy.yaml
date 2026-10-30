@@ -1,0 +1,18 @@
+---
+names:
+  full: "Oracle IAAS Security List allows unrestricted RDP traffic"
+  contextual: "IAAS Security List allows unrestricted RDP traffic"
+description: >
+  Ensure that Oracle IAAS Security Lists do not allow unrestricted ingress from the internet
+  (0.0.0.0/0 or ::/0) to RDP port 3389. Public RDP exposure increases the attack
+  surface of administrative interfaces and should be restricted to trusted CIDR
+  ranges, bastion hosts, VPN networks, or other approved access paths.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cis-oracle-v3.1.0/02/02"
+  - "/frameworks/cloudaware/resource-security/network-exposure"
+similarPolicies:
+  internal:
+    - "dec-x-afca7c62"

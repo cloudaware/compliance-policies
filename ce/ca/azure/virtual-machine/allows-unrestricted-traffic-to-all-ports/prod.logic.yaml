@@ -4,7 +4,7 @@ testData:
   - file: test-data.json
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Virtual Machine has a Network Security Group with public access to all ports."
+    currentStateMessage: "The virtual machine has a Network Security Group with public access to all ports."
     remediationMessage: "Restrict inbound access to all ports from the Internet."
     check:
       RELATED_LIST_HAS:
@@ -12,21 +12,21 @@ conditions:
         relationshipName: "CA10__Azure_Network_Interfaces__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Virtual Machine does not allow public access to all ports." 
+  currentStateMessage: "The virtual machine does not allow public access to all ports."
 relatedLists:
   - relationshipName: "CA10__Azure_Network_Interfaces__r"
     importExtracts:
       - file: "/types/CA10__CaAzureNetworkSecurityGroupRule__c/object.extracts.yaml"
     conditions:
       - status: "INCOMPLIANT"
-        currentStateMessage: "Network Interface with publicly accessible Network Security Group"
+        currentStateMessage: "Network interface with a publicly accessible network security group."
         check:
           RELATED_LIST_HAS:
             status: "INCOMPLIANT"
             relationshipName:  "CA10__networkSecurityGroup__r.CA10__Azure_Network_Security_Group_Rules__r"
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "Network Interface is not publicly accessible"
+      currentStateMessage: "Network interface is not publicly accessible."
     relatedLists:
       - relationshipName: "CA10__networkSecurityGroup__r.CA10__Azure_Network_Security_Group_Rules__r"
         importExtracts:
@@ -34,7 +34,7 @@ relatedLists:
         conditions:
 # sort public group rules
           - status: "INAPPLICABLE"
-            currentStateMessage: "NSG Outbound Rule."
+            currentStateMessage: "NSG outbound rule."
             check:
               NOT_EQUAL:
                 left:
@@ -42,7 +42,7 @@ relatedLists:
                 right:
                   TEXT: "Inbound"
           - status: "INAPPLICABLE"
-            currentStateMessage: "NSG Deny Rule."
+            currentStateMessage: "NSG deny rule."
             check:
               NOT_EQUAL:
                 left:
@@ -50,7 +50,7 @@ relatedLists:
                 right:
                   TEXT: "Allow"
           - status: "INAPPLICABLE"
-            currentStateMessage: "NSG Rule with the port other than TCP, UDP or Any."
+            currentStateMessage: "NSG rule with a protocol other than TCP, UDP, or Any."
             check:
               NOT:
                 arg:
@@ -77,7 +77,7 @@ relatedLists:
                           right:
                             TEXT: "null"
           - status: "INAPPLICABLE"
-            currentStateMessage: "NSG Rule source is not any address."
+            currentStateMessage: "NSG rule source is not any address."
             check:
               NOT:
                 arg:
@@ -111,7 +111,7 @@ relatedLists:
 # sort group rules by ports. PORTS : *, -1, 0-65535
           - status: "INCOMPLIANT"
             currentStateMessage: "NSG Rule with ports with public access from the Internet."
-            remediationMessage: "Restrict access to the public ports"
+            remediationMessage: "Restrict public access to all ports."
             check:
               OR:
                 args:
@@ -139,4 +139,7 @@ relatedLists:
                               NUMBER: 65535.0
         otherwise:
           status: "COMPLIANT"
-          currentStateMessage: "NSG rule without public access on any port"
+          currentStateMessage: "NSG rule without public access on all ports."
+
+
+

@@ -1,6 +1,6 @@
 # Description
 
-Ensure that AWS Backup Recovery Points marked **EXPIRED** are successfully deleted according to their lifecycle schedule. A deletion failure is detected when the `CalculatedLifecycleDeleteAt` timestamp is either missing or older than 2 days relative to the current date.
+Ensure that AWS Backup Recovery Points marked **EXPIRED** are successfully deleted according to their lifecycle schedule. A deletion failure is detected when the `CalculatedLifecycleDeleteAt` timestamp is missing or more than **2 days** older than the current date.
 
 ## Rationale
 
@@ -12,6 +12,6 @@ Persisting expired recovery points beyond their defined retention window:
 
 ## Audit
 
-This policy flags an *AWS Backup Recovery Point* as `INCOMPLIANT` if its `Status` field is set to **EXPIRED** and `Calc Lifecycle Delete At` is more than **2 days in the past** or **empty**, indicating that the Recovery Point has failed to delete.
+This policy flags an *AWS Backup Recovery Point* as `INCOMPLIANT` if its `Status` field is set to **EXPIRED** and `Calc Lifecycle Delete At` is more than **2 days in the past** or **empty**, indicating that the recovery point failed to delete.
 
 The Recovery Point is marked as `INAPPLICABLE` if `Status` is not equal to **EXPIRED**.

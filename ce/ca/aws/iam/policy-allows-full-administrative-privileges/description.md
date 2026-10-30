@@ -1,6 +1,6 @@
 # Description
 
-IAM policies are the means by which privileges are granted to users, groups, or roles. It is recommended and considered a standard security advice to grant least privilege -that is, granting only the permissions required to perform a task. Determine what users need to do and then craft policies for them that let the users perform only those tasks, instead of allowing full administrative privileges.
+IAM policies are the means by which privileges are granted to users, groups, or roles. It is recommended and considered standard security advice to grant least privilege, that is, granting only the permissions required to perform a task. Determine what users need to do and then craft policies for them that let the users perform only those tasks, instead of allowing full administrative privileges.
 
 ## Rationale
 
@@ -18,17 +18,17 @@ Perform the following to determine what policies are created:
 
 1. Run the following to get a list of IAM policies:
 
-```sh
-aws iam list-policies --only-attached --output text
-```
+    ```sh
+    aws iam list-policies --only-attached --output text
+    ```
 
-2. For each policy returned, run the following command to determine if any policies is allowing full administrative privileges on the account:
+2. For each policy returned, run the following command to determine whether any policy allows full administrative privileges on the account:
 
-```sh
-aws iam get-policy-version --policy-arn <policy_arn> --version-id <version>
-```
+    ```sh
+    aws iam get-policy-version --policy-arn {{policy_arn}} --version-id ((version))
+    ```
 
-3. In output ensure policy should not have any Statement block with `"Effect": "Allow"` and `Action` set to `"*"` and `Resource` set to `"*"`.
+3. In the output, ensure the policy does not have any Statement block with `"Effect": "Allow"` and `Action` set to `"*"` and `Resource` set to `"*"`.
 
 ## References
 

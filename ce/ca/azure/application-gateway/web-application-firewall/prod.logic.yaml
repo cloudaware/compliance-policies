@@ -15,5 +15,5 @@ conditions:
           BOOLEAN: true
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "Web Application Firewall (WAF) is not enabled on the Application Gateway." 
+  currentStateMessage: "Web Application Firewall (WAF) is not enabled on the Application Gateway."
   remediationMessage: "Enable Web Application Firewall (WAF) on the Application Gateway."

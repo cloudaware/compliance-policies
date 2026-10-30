@@ -6,6 +6,7 @@ testData:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "IAM policy on Cloud Storage bucket allows anonymous or public access."
+    remediationMessage: "Remove anonymous or public access from the bucket IAM policy."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"

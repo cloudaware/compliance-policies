@@ -10,13 +10,13 @@ To encrypt Amazon EBS volumes using AWS KMS customer-managed keys (CMKs), perfor
 
 ```sh
 KMS_KEY_ARN=$(aws kms create-key \
-  --region {{us-east-1}} \
+  --region {{region-name}} \
   --description "Customer-managed CMK for EBS volume encryption" \
   --query 'KeyMetadata.Arn' \
   --output text)
 
 aws kms create-alias \
-  --region {{us-east-1}} \
+  --region {{region-name}} \
   --alias-name {{alias/ebs-encryption-cmk}} \
   --target-key-id $KMS_KEY_ARN
 ```
@@ -27,7 +27,7 @@ aws kms create-alias \
 
     ```sh
     aws ec2 create-snapshot \
-    --region {{us-east-1}} \
+    --region {{region-name}} \
     --volume-id {{volume-id}}
     ```
 
@@ -35,8 +35,8 @@ aws kms create-alias \
 
     ```sh
     aws ec2 copy-snapshot \
-    --region {{us-east-1}} \
-    --source-region {{us-east-1}} \
+    --region {{region-name}} \
+    --source-region {{source-region}} \
     --source-snapshot-id {{snapshot-id}} \
     --encrypted \
     --kms-key-id {{kms-key-arn}}
@@ -46,8 +46,8 @@ aws kms create-alias \
 
     ```sh
     aws ec2 create-volume \
-    --region {{us-east-1}} \
-    --availability-zone {{us-east-1a}} \
+    --region {{region-name}} \
+    --availability-zone {{availability-zone}} \
     --snapshot-id {{snapshot-id}} \
     --encrypted \
     --kms-key-id {{kms-key-arn}}
@@ -60,7 +60,7 @@ aws kms create-alias \
 
     ```sh
     aws ec2 detach-volume \
-    --region {{us-east-1}} \
+    --region {{region-name}} \
     --volume-id {{unencrypted-volume-id}}
     ```
 
@@ -68,7 +68,7 @@ aws kms create-alias \
 
     ```sh
     aws ec2 attach-volume \
-    --region {{us-east-1}} \
+    --region {{region-name}} \
     --volume-id {{encrypted-volume-id}} \
     --instance-id {{instance-id}} \
     --device {{/dev/sdf}}

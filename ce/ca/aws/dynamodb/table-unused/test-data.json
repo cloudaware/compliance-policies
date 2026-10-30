@@ -17,7 +17,7 @@
     "expectedResult": {
       "status": "INAPPLICABLE",
       "conditionIndex": "299",
-      "conditionText": "CA10__creationDateTime__c.withinLastDays(30)",
+      "conditionText": "extract('CA10__creationDateTime__c').withinLastDays(30)",
       "runtimeError": null
     },
     "context": { "snapshotTime": "2025-12-02T01:10:46Z" },

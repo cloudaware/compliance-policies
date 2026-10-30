@@ -1,35 +1,35 @@
 # Description
 
-Azure Key Vault will store multiple types of sensitive information such as encryption keys, certificate thumbprints, and Managed Identity Credentials. Access to these 'Secrets' can be controlled through granular permissions.
+Azure Key Vault stores multiple types of sensitive information such as encryption keys, certificate thumbprints, and managed identity credentials. Access to these secrets can be controlled through granular permissions.
 
 ## Rationale
 
-The credentials given to an application have permissions to create, delete, or modify data stored within the systems they access. If these credentials are stored within the application itself, anyone with access to the application or a copy of the code has access to them. Storing within Azure Key Vault as secrets increases security by controlling access. This also allows for updates of the credentials without redeploying the entire application.
+The credentials given to an application have permissions to create, delete, or modify data stored within the systems they access. If these credentials are stored within the application itself, anyone with access to the application or a copy of the code has access to them. Storing them in Azure Key Vault as secrets increases security by controlling access. This also allows credential updates without redeploying the entire application.
 
 ## Impact
 
-Integrating references to secrets within the key vault are required to be specifically integrated within the application code. This will require additional configuration to be made during the writing of an application, or refactoring of an already written one. There are also additional costs that are charged per 10000 requests to the Key Vault.
+References to Key Vault secrets must be integrated into the application code. This requires additional configuration during application development or refactoring of an existing application. There are also additional costs charged per 10,000 requests to Key Vault.
 
 ## Audit
 
 ### From Azure Portal
 
-1. Login to Azure Portal.
-2. In the expandable menu on the left go to `Key Vaults`.
+1. Log in to the Azure portal.
+2. In the left navigation pane, go to `Key Vaults`.
 3. View the Key Vaults listed.
 
-### From Powershell
+### From PowerShell
 
-To list key vaults within a subscription run the following command:
+To list Key Vaults within a subscription, run the following command:
 
 ```ps
 Get-AzKeyVault
 ```
 
-To list all secrets in a key vault run the following command:
+To list all secrets in a Key Vault, run the following command:
 
 ```ps
-Get-AzKeyVaultSecret -VaultName '<vaultName>'
+Get-AzKeyVaultSecret -VaultName '{{vault-name}}'
 ```
 
 ## Default Value

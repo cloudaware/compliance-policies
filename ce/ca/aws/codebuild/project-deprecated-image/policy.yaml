@@ -1,0 +1,13 @@
+---
+names:
+  full: AWS CodeBuild Project uses a deprecated managed image
+  contextual: Project uses a deprecated managed image
+description: >
+  Identify AWS CodeBuild projects configured with managed images in AWS's
+  published deprecated-image list to reduce exposure to unpatched build
+  environments and unnecessary provisioning delays.
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization

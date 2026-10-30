@@ -1,14 +1,14 @@
 # Description
 
-It is recommended that a metric filter and alarm be established for changes to Identity and Access Management (IAM) role creation, deletion and updating activities.
+It is recommended that a metric filter and alarm be established for changes to Identity and Access Management (IAM) role creation, deletion, and updates.
 
 ## Rationale
 
-Google Cloud IAM provides predefined roles that give granular access to specific Google Cloud Platform resources and prevent unwanted access to other resources. However, to cater to organization-specific needs, Cloud IAM also provides the ability to create custom roles. Project owners and administrators with the Organization Role Administrator role or the IAM Role Administrator role can create custom roles. Monitoring role creation, deletion and updating activities will help in identifying any over-privileged role at early stages.
+Google Cloud IAM provides predefined roles that give granular access to specific Google Cloud Platform resources and prevent unwanted access to other resources. However, to meet organization-specific needs, Cloud IAM also provides the ability to create custom roles. Project owners and administrators with the Organization Role Administrator role or the IAM Role Administrator role can create custom roles. Monitoring role creation, deletion, and updates helps identify over-privileged roles early.
 
 ## Impact
 
-Enabling of logging may result in your project being charged for the additional logs usage.
+Enabling logging may result in your project being charged for additional log usage.
 
 ## Audit
 
@@ -17,12 +17,14 @@ Enabling of logging may result in your project being charged for the additional 
 Ensure that the prescribed log metric is present:
 
 1. Go to `Logging/Logs-based Metrics` by visiting <https://console.cloud.google.com/logs/metrics>.
-2. In the `User-defined Metrics` section, ensure that at least one metric `<Log_Metric_Name>` is present with filter text:
+2. In the `User-defined Metrics` section, ensure that at least one metric `{{log-metric-name}}` is present with filter text:
 
-        resource.type="iam_role" 
-        AND (protoPayload.methodName="google.iam.admin.v1.CreateRole" 
-        OR protoPayload.methodName="google.iam.admin.v1.DeleteRole" 
-        OR protoPayload.methodName="google.iam.admin.v1.UpdateRole")
+    ```txt
+    resource.type="iam_role" 
+    AND (protoPayload.methodName="google.iam.admin.v1.CreateRole" 
+    OR protoPayload.methodName="google.iam.admin.v1.DeleteRole" 
+    OR protoPayload.methodName="google.iam.admin.v1.UpdateRole")
+    ```
 
 Ensure that the prescribed alerting policy is present:
 
@@ -36,14 +38,19 @@ Ensure that the prescribed log metric is present:
 
 1. List the log metrics:
 
-        gcloud logging metrics list --format json
+    ```sh
+    gcloud logging metrics list \
+        --format=json
+    ```
 
 2. Ensure that the output contains at least one metric with the filter set to:
 
-        resource.type="iam_role" 
-        AND (protoPayload.methodName = "google.iam.admin.v1.CreateRole" 
-        OR protoPayload.methodName="google.iam.admin.v1.DeleteRole" 
-        OR protoPayload.methodName="google.iam.admin.v1.UpdateRole")
+    ```txt
+    resource.type="iam_role" 
+    AND (protoPayload.methodName = "google.iam.admin.v1.CreateRole" 
+    OR protoPayload.methodName="google.iam.admin.v1.DeleteRole" 
+    OR protoPayload.methodName="google.iam.admin.v1.UpdateRole")
+    ```
 
 3. Note the value of the property `metricDescriptor.type` for the identified metric, in the format `logging.googleapis.com/user/<Log Metric Name>`.
 
@@ -51,13 +58,16 @@ Ensure that the prescribed alerting policy is present:
 
 1. List the alerting policies:
 
-    gcloud alpha monitoring policies list --format json
+    ```sh
+    gcloud alpha monitoring policies list \
+        --format=json
+    ```
 
-2. Ensure that the output contains an least one alert policy where:
+2. Ensure that the output contains at least one alert policy where:
 
-    • `conditions.conditionThreshold.filter` is set to `metric.type=\"logging.googleapis.com/user/<Log Metric Name>\"`
+    - `conditions.conditionThreshold.filter` is set to `metric.type=\"logging.googleapis.com/user/<Log Metric Name>\"`
 
-    • AND `enabled` is set to `true`.
+    - AND `enabled` is set to `true`.
 
 ## References
 

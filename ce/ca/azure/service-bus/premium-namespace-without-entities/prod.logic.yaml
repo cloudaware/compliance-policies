@@ -1,0 +1,99 @@
+---
+inputType: "CA10__CaAzureServiceBusNamespace__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureServiceBusNamespace__c/object.extracts.yaml"
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "Provisioning state is unavailable."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__provisioningState__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The namespace is not successfully provisioned."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__provisioningState__c"
+        right:
+          TEXT: "Succeeded"
+  - status: "UNDETERMINED"
+    currentStateMessage: "SKU tier is unavailable."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__skuTier__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The namespace does not use the Premium tier."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__skuTier__c"
+        right:
+          TEXT: "Premium"
+  - status: "UNDETERMINED"
+    currentStateMessage: "Creation time is unavailable."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__createdAt__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The namespace is within its first 30 days."
+    check:
+      IS_WITHIN_LAST_DAYS:
+        offsetDays: 30
+        arg:
+          EXTRACT: "CA10__createdAt__c"
+  - status: "UNDETERMINED"
+    currentStateMessage: "A related queue or topic could not be evaluated."
+    check:
+      OR:
+        args:
+          - RELATED_LIST_HAS:
+              status: "UNDETERMINED"
+              relationshipName: "CA10__Azure_Service_Bus_Queues__r"
+          - RELATED_LIST_HAS:
+              status: "UNDETERMINED"
+              relationshipName: "CA10__Azure_Service_Bus_Topics__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Premium Service Bus namespace has no current queues or topics."
+    remediationMessage: "Confirm the namespace is unused, then remove it or move required entities to an appropriate namespace."
+    check:
+      AND:
+        args:
+          - RELATED_LIST_HAS_NO:
+              status: "COMPLIANT"
+              relationshipName: "CA10__Azure_Service_Bus_Queues__r"
+          - RELATED_LIST_HAS_NO:
+              status: "COMPLIANT"
+              relationshipName: "CA10__Azure_Service_Bus_Topics__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Premium Service Bus namespace has a current queue or topic."
+relatedLists:
+  - relationshipName: "CA10__Azure_Service_Bus_Queues__r"
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "This queue currently exists in CMDB."
+        check:
+          NOT_EMPTY:
+            arg:
+              FIELD:
+                path: "Id"
+    otherwise:
+      status: "UNDETERMINED"
+      currentStateMessage: "The queue record has no identifier."
+  - relationshipName: "CA10__Azure_Service_Bus_Topics__r"
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "This topic currently exists in CMDB."
+        check:
+          NOT_EMPTY:
+            arg:
+              FIELD:
+                path: "Id"
+    otherwise:
+      status: "UNDETERMINED"
+      currentStateMessage: "The topic record has no identifier."

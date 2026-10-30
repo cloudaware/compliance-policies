@@ -1,0 +1,357 @@
+---
+inputType: CA10A1__CaAwsEksClusterNodeGroup__c
+importExtracts:
+  - file: /types/CA10A1__CaAwsEksClusterNodeGroup__c/object.extracts.yaml
+  - file: /types/CA10A1__CaAwsEksCluster__c/object.extracts.yaml
+testData:
+  - file: test-data.json
+# AWS lifecycle dates and version skew reviewed 2026-10-26.
+# Unknown releases are diagnostic, never assumed unsupported.
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: The managed node group status is outside the active, degraded, and delete-failed states assessed
+      by this policy.
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              SET:
+                itemType: TEXT
+                items:
+                  - ACTIVE
+                  - DEGRADED
+                  - DELETE_FAILED
+            search:
+              EXTRACT: CA10A1__status__c
+  - status: INAPPLICABLE
+    currentStateMessage: Custom AMIs require separate verification of their embedded Kubernetes kubelet versions.
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10A1__amiType__c
+        right:
+          TEXT: CUSTOM
+  # 1.29 and 1.30 are already retired; no historical clock checks are needed.
+  # IS_BEFORE_TODAY compares the last supported UTC instant, preserving the published cutoff day.
+  - status: INCOMPLIANT
+    currentStateMessage: The node group Kubernetes minor version has reached the AWS EKS end of extended support date.
+    remediationMessage: Verify current AWS state and replace nodes with a supported Kubernetes version compatible with
+      the control plane.
+    check:
+      OR:
+        args:
+          - CONTAINS:
+              arg:
+                SET:
+                  itemType: TEXT
+                  items:
+                    - '1.29'
+                    - '1.30'
+              search:
+                EXTRACT: CA10A1__version__c
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.31'
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2026-11-25T23:59:59.999Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.32'
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2027-03-22T23:59:59.999Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.33'
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2027-07-28T23:59:59.999Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.34'
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2027-12-01T23:59:59.999Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.35'
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2028-03-26T23:59:59.999Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.36'
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2028-08-01T23:59:59.999Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.37'
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2028-11-30T23:59:59.999Z'
+  - status: UNDETERMINED
+    currentStateMessage: The managed node group cluster relationship is missing or unresolved.
+    check:
+      IS_EMPTY_LOOKUP: CA10A1__cluster__r
+  - status: INAPPLICABLE
+    currentStateMessage: The cluster is provisioning, updating, deleting, or failed; version skew assessment is deferred.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - CREATING
+              - PENDING
+              - UPDATING
+              - DELETING
+              - FAILED
+        search:
+          EXTRACT: CA10A1__cluster__r.CA10A1__status__c
+  - status: UNDETERMINED
+    currentStateMessage: The linked EKS cluster status is unrecognized.
+    check:
+      NOT:
+        arg:
+          IS_EQUAL:
+            left:
+              EXTRACT: CA10A1__cluster__r.CA10A1__status__c
+            right:
+              TEXT: ACTIVE
+  - status: COMPLIANT
+    currentStateMessage: The node group Kubernetes version remains within the AWS EKS support lifecycle and allowed control
+      plane version skew.
+    check:
+      OR:
+        args:
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__cluster__r.CA10A1__version__c
+                    right:
+                      TEXT: '1.29'
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - '1.29'
+                    search:
+                      EXTRACT: CA10A1__version__c
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__cluster__r.CA10A1__version__c
+                    right:
+                      TEXT: '1.30'
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - '1.29'
+                          - '1.30'
+                    search:
+                      EXTRACT: CA10A1__version__c
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__cluster__r.CA10A1__version__c
+                    right:
+                      TEXT: '1.31'
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - '1.29'
+                          - '1.30'
+                          - '1.31'
+                    search:
+                      EXTRACT: CA10A1__version__c
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__cluster__r.CA10A1__version__c
+                    right:
+                      TEXT: '1.32'
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - '1.29'
+                          - '1.30'
+                          - '1.31'
+                          - '1.32'
+                    search:
+                      EXTRACT: CA10A1__version__c
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__cluster__r.CA10A1__version__c
+                    right:
+                      TEXT: '1.33'
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - '1.30'
+                          - '1.31'
+                          - '1.32'
+                          - '1.33'
+                    search:
+                      EXTRACT: CA10A1__version__c
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__cluster__r.CA10A1__version__c
+                    right:
+                      TEXT: '1.34'
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - '1.31'
+                          - '1.32'
+                          - '1.33'
+                          - '1.34'
+                    search:
+                      EXTRACT: CA10A1__version__c
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__cluster__r.CA10A1__version__c
+                    right:
+                      TEXT: '1.35'
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - '1.32'
+                          - '1.33'
+                          - '1.34'
+                          - '1.35'
+                    search:
+                      EXTRACT: CA10A1__version__c
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__cluster__r.CA10A1__version__c
+                    right:
+                      TEXT: '1.36'
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - '1.33'
+                          - '1.34'
+                          - '1.35'
+                          - '1.36'
+                    search:
+                      EXTRACT: CA10A1__version__c
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__cluster__r.CA10A1__version__c
+                    right:
+                      TEXT: '1.37'
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - '1.34'
+                          - '1.35'
+                          - '1.36'
+                          - '1.37'
+                    search:
+                      EXTRACT: CA10A1__version__c
+  - status: INCOMPLIANT
+    currentStateMessage: The node group Kubernetes version is newer than the control plane or more than three minor versions
+      older.
+    remediationMessage: Verify both versions and update or replace the node group so its supported version is no newer
+      than and at most three minor versions behind the control plane.
+    check:
+      AND:
+        args:
+          - CONTAINS:
+              arg:
+                SET:
+                  itemType: TEXT
+                  items:
+                    - '1.29'
+                    - '1.30'
+                    - '1.31'
+                    - '1.32'
+                    - '1.33'
+                    - '1.34'
+                    - '1.35'
+                    - '1.36'
+                    - '1.37'
+              search:
+                EXTRACT: CA10A1__version__c
+          - CONTAINS:
+              arg:
+                SET:
+                  itemType: TEXT
+                  items:
+                    - '1.29'
+                    - '1.30'
+                    - '1.31'
+                    - '1.32'
+                    - '1.33'
+                    - '1.34'
+                    - '1.35'
+                    - '1.36'
+                    - '1.37'
+              search:
+                EXTRACT: CA10A1__cluster__r.CA10A1__version__c
+otherwise:
+  status: UNDETERMINED
+  currentStateMessage: The collected Kubernetes version pair has no verified lifecycle or compatibility decision; review
+    the AWS calendar and version skew requirements.

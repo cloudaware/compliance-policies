@@ -17,7 +17,7 @@ conditions:
             search:
               TEXT: "SQLSERVER" 
   - status: "COMPLIANT"
-    currentStateMessage: "cross db ownership chaining database flag is set to off."
+    currentStateMessage: "The cross db ownership chaining database flag is set to off."
     check:
       IS_EQUAL:
         left:
@@ -26,5 +26,9 @@ conditions:
           TEXT: "off"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "cross db ownership chaining database flag isn't set to off."
-  remediationMessage: "Set database flag cross db ownership chaining to off."
+  currentStateMessage: "The cross db ownership chaining database flag is not set to off."
+  remediationMessage: "Set the cross db ownership chaining database flag to off."
+
+
+
+

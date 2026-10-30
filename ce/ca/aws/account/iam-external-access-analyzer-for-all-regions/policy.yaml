@@ -12,12 +12,10 @@ description: "Enable IAM Access analyzer for IAM policies about all resources in
   \ policies that are applied to resources in the same AWS Region."
 type: COMPLIANCE_POLICY
 categories:
-  - SECURITY
-  - RELIABILITY
+  - "SECURITY"
 frameworkMappings:
-  - "/frameworks/cis-aws-v6.0.0/02/19"
+  - "/frameworks/cis-aws-v7.0.0/02/18"
   - "/frameworks/cloudaware/resource-security/secure-access"
-  - "/frameworks/cloudaware/resource-reliability/system-configuration"
 similarPolicies:
   internal:
     - dec-x-ab7fc52e

@@ -1,0 +1,17 @@
+---
+names:
+  full: Google GCE Instance is overutilized
+  contextual: Instance is overutilized
+description: >
+  Identify and address overutilized Google GCE Instances to prevent performance
+  degradation and optimize resource allocation. Instances are considered
+  overutilized if their average CPU utilization exceeds 80% and maximum CPU
+  utilization consistently spikes above 95% over a 14-day period, and, when available,
+  memory utilization exceeds 80%.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+  - "PERFORMANCE"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-right-sizing"
+  - "/frameworks/cloudaware/resource-performance/workload-efficiency"

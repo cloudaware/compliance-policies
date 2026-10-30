@@ -2,9 +2,9 @@
 
 ## Configure HTTP Desync Mitigation Mode
 
-Update the HTTP desync mitigation mode to `defensive` or `strictest` to prevent malformed or ambiguous HTTP requests from reaching backend targets. This helps protect applications from HTTP Request Smuggling–related attacks.
+Update the HTTP desync mitigation mode to `defensive` or `strictest` to prevent malformed or ambiguous HTTP requests from reaching backend targets. This helps protect applications from HTTP Request Smuggling-related attacks.
 
-> **Recommendation**: For most environments, the default `defensive` mode provides strong protection while maintaining application availability. Choose `strictest` for maximum security, but validate that your application can function with RFC-strict traffic, as it blocks all "Acceptable" and "Ambiguous" requests
+> **Recommendation**: For most environments, the default `defensive` mode provides strong protection while maintaining application availability. Choose `strictest` for maximum security, but validate that your application can function with RFC-strict traffic, as it blocks all "Acceptable" and "Ambiguous" requests.
 
 ### **From Command Line**
 

@@ -12,8 +12,7 @@ conditions:
       IS_WITHIN_LAST_DAYS:
         offsetDays: 30
         arg:
-          FIELD:
-            path: "CA10__createDate__c"
+          EXTRACT: "CA10__createDate__c"
   - status: "COMPLIANT"
     currentStateMessage: "The user has at least one active authentication method."
     check:
@@ -37,4 +36,4 @@ conditions:
 otherwise:
   status: "INCOMPLIANT"
   currentStateMessage: "The user has no console password and no active access keys."
-  remediationMessage: "Consider deleting this IAM user account."
+  remediationMessage: "Delete this IAM user account if it is no longer needed."

@@ -1,0 +1,120 @@
+---
+extracts:
+  # The source field contains serialized AWS lifecycle records, so parse it before querying phases.
+  - name: caJsonFrom__clusterEngineLifecycle
+    value:
+      JSON_FROM:
+        arg:
+          EXTRACT: CA10A2__engineLifecycleSupportInfo__c
+        undeterminedIf:
+          isEmpty: The cluster engine support calendar is missing.
+          isInvalid: The cluster engine support calendar is invalid JSON.
+  # New major versions can have an empty array until AWS publishes their calendar.
+  - name: caJsonQueryBoolean__clusterEngineCalendarEmpty
+    value:
+      JSON_QUERY_BOOLEAN:
+        arg:
+          EXTRACT: caJsonFrom__clusterEngineLifecycle
+        expression: "type(@) == 'array' && length(@) == `0`"
+        undeterminedIf:
+          evaluationError: The cluster engine support calendar cannot be interpreted.
+          resultTypeMismatch: The cluster engine support calendar has an unexpected structure.
+  # Require one standard phase and at most one Extended Support phase before selecting dates.
+  # Sorting UTC ISO strings checks date order within and between support periods.
+  - name: caJsonQueryBoolean__clusterEngineCalendarValid
+    value:
+      JSON_QUERY_BOOLEAN:
+        arg:
+          EXTRACT: caJsonFrom__clusterEngineLifecycle
+        expression: >-
+          type(@) == 'array' &&
+          length([?LifecycleSupportName == 'open-source-rds-standard-support']) == `1` &&
+          length([?LifecycleSupportName == 'open-source-rds-extended-support']) <= `1` &&
+          length([?LifecycleSupportName != 'open-source-rds-standard-support' && LifecycleSupportName != 'open-source-rds-extended-support']) == `0` &&
+          length([?type(LifecycleSupportStartDate) != 'string' || type(LifecycleSupportEndDate) != 'string']) == `0` &&
+          length([?sort([LifecycleSupportStartDate, LifecycleSupportEndDate])[0] != LifecycleSupportStartDate]) == `0` &&
+          (length([?LifecycleSupportName == 'open-source-rds-extended-support']) == `0` ||
+          sort([([?LifecycleSupportName == 'open-source-rds-standard-support'] | [0].LifecycleSupportEndDate), ([?LifecycleSupportName == 'open-source-rds-extended-support'] | [0].LifecycleSupportStartDate)])[0] == ([?LifecycleSupportName == 'open-source-rds-standard-support'] | [0].LifecycleSupportEndDate))
+        undeterminedIf:
+          evaluationError: The cluster engine support calendar cannot be interpreted.
+          resultTypeMismatch: The cluster engine support calendar has an unexpected structure.
+  # Midnight starts and end-of-day ends preserve inclusive AWS dates with CE's TODAY comparisons.
+  - name: caJsonQueryBoolean__clusterEngineCalendarWholeDays
+    value:
+      JSON_QUERY_BOOLEAN:
+        arg:
+          EXTRACT: caJsonFrom__clusterEngineLifecycle
+        expression: >-
+          length([?length(LifecycleSupportStartDate) != `24` || length(LifecycleSupportEndDate) != `24` || !ends_with(LifecycleSupportStartDate, 'T00:00:00.000Z') || !ends_with(LifecycleSupportEndDate, 'T23:59:59.999Z')]) == `0`
+        undeterminedIf:
+          evaluationError: The calendar timestamp precision cannot be interpreted.
+          resultTypeMismatch: The calendar timestamp precision has an unexpected structure.
+  # Zero means no Extended Support phase is published, not that enrollment is disabled.
+  - name: caJsonQueryNumber__clusterEngineExtendedPhaseCount
+    value:
+      JSON_QUERY_NUMBER:
+        arg:
+          EXTRACT: caJsonFrom__clusterEngineLifecycle
+        expression: "length([?LifecycleSupportName == 'open-source-rds-extended-support'])"
+        undeterminedIf:
+          evaluationError: The Extended Support phase cannot be interpreted.
+          resultTypeMismatch: The Extended Support phase has an unexpected structure.
+  # Select phases by name, independent of array order, and parse date text for UTC comparisons.
+  - name: caDateTimeFrom__clusterEngineStandardStart
+    # shortcut: ISO parsing can normalize impossible day numbers; use trusted AWS dates until the engine provides strict calendar parsing.
+    value:
+      DATE_TIME_FROM:
+        arg:
+          JSON_QUERY_TEXT:
+            arg:
+              EXTRACT: caJsonFrom__clusterEngineLifecycle
+            expression: "[?LifecycleSupportName == 'open-source-rds-standard-support'] | [0].LifecycleSupportStartDate"
+            undeterminedIf:
+              evaluationError: The standard support start date cannot be read.
+              resultTypeMismatch: The standard support start date is missing or invalid.
+        format: ISO_8601
+        undeterminedIf:
+          invalidFormat: The standard support start date is invalid.
+  - name: caDateTimeFrom__clusterEngineStandardEnd
+    value:
+      DATE_TIME_FROM:
+        arg:
+          JSON_QUERY_TEXT:
+            arg:
+              EXTRACT: caJsonFrom__clusterEngineLifecycle
+            expression: "[?LifecycleSupportName == 'open-source-rds-standard-support'] | [0].LifecycleSupportEndDate"
+            undeterminedIf:
+              evaluationError: The standard support end date cannot be read.
+              resultTypeMismatch: The standard support end date is missing or invalid.
+        format: ISO_8601
+        undeterminedIf:
+          invalidFormat: The standard support end date is invalid.
+  # These optional dates require an Extended Support phase; callers must check its count first.
+  - name: caDateTimeFrom__clusterEngineExtendedStart
+    value:
+      DATE_TIME_FROM:
+        arg:
+          JSON_QUERY_TEXT:
+            arg:
+              EXTRACT: caJsonFrom__clusterEngineLifecycle
+            expression: "[?LifecycleSupportName == 'open-source-rds-extended-support'] | [0].LifecycleSupportStartDate"
+            undeterminedIf:
+              evaluationError: The Extended Support start date cannot be read.
+              resultTypeMismatch: The Extended Support start date is missing or invalid.
+        format: ISO_8601
+        undeterminedIf:
+          invalidFormat: The Extended Support start date is invalid.
+  - name: caDateTimeFrom__clusterEngineExtendedEnd
+    value:
+      DATE_TIME_FROM:
+        arg:
+          JSON_QUERY_TEXT:
+            arg:
+              EXTRACT: caJsonFrom__clusterEngineLifecycle
+            expression: "[?LifecycleSupportName == 'open-source-rds-extended-support'] | [0].LifecycleSupportEndDate"
+            undeterminedIf:
+              evaluationError: The Extended Support end date cannot be read.
+              resultTypeMismatch: The Extended Support end date is missing or invalid.
+        format: ISO_8601
+        undeterminedIf:
+          invalidFormat: The Extended Support end date is invalid.

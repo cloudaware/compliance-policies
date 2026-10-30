@@ -1,0 +1,12 @@
+---
+names:
+  full: AWS Bedrock Provisioned Throughput should use an Active model
+  contextual: Provisioned Throughput should use an Active model
+description: >
+  Ensure that Amazon Bedrock Provisioned Throughput in the InService or Updating
+  state uses a current foundation model with an Active lifecycle status.
+type: BEST_PRACTICE
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization

@@ -7,7 +7,7 @@ importExtracts:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "SQL Server auditing is disabled."
-    remediationMessage: "Consider enabling SQL Server auditing."
+    remediationMessage: "Enable SQL Server auditing."
     check:
       IS_EQUAL:
         left:

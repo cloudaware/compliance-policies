@@ -20,4 +20,11 @@ It is not possible to configure a Log filter from the console.
 
 To enable VPC Flow Logs for a network subnet, run the following command:
 
-    gcloud compute networks subnets update [SUBNET_NAME] --region [REGION] --enable-flow-logs --logging-aggregation-interval=interval-5-sec --logging-flow-sampling=1 --logging-metadata=include-all
+```sh
+gcloud compute networks subnets update {{subnet-name}} \
+    --region {{region}} \
+    --enable-flow-logs \
+    --logging-aggregation-interval=interval-5-sec \
+    --logging-flow-sampling=1 \
+    --logging-metadata=include-all
+```

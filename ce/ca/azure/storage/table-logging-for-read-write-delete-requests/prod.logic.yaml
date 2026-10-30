@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "Storage Logging for Table Service is enabled."
+    currentStateMessage: "Storage logging for the Table service is enabled."
     check:
       AND:
         args:
@@ -26,8 +26,8 @@ conditions:
               right: 
                 TEXT: "Enabled"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Storage Logging for Table Service is disabled."
-    remediationMessage: "Consider enabling Storage Logging for read, write, and delete requests."    
+    currentStateMessage: "Storage logging for the Table service is disabled."
+    remediationMessage: "Enable storage logging for read, write, and delete requests."
     check:
       OR:
         args:

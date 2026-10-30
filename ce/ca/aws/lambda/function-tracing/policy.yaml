@@ -1,0 +1,21 @@
+---
+names:
+  full: "AWS Lambda Function X-Ray Tracing is not enabled"
+  contextual: "Function X-Ray Tracing is not enabled"
+description: >
+  Ensure that AWS X-Ray active tracing is enabled for Lambda functions. X-Ray provides 
+  visibility into the execution of your function, helping you identify performance 
+  bottlenecks and troubleshoot issues in distributed applications.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/nist-sp-800-53-r5/ca/07"
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/Lambda/tracing.html
+      name: Tracing Enabled
+  awsSecurityHub:
+    - name: "[Lambda.7] Lambda functions should have AWS X-Ray active tracing enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/lambda-controls.html#lambda-7"

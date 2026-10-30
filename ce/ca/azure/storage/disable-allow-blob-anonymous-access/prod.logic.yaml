@@ -6,8 +6,8 @@ importExtracts:
   - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "This Storage account allows Blob Anonymous Access."
-    remediationMessage: "Consider disabling Blob Anonymous Access."
+    currentStateMessage: "This storage account allows blob anonymous access."
+    remediationMessage: "Disable blob anonymous access."
     check:
       IS_EQUAL:
         left:
@@ -15,7 +15,7 @@ conditions:
         right:
           TEXT: "Allow"
   - status: "COMPLIANT"
-    currentStateMessage: "Allow Blob Anonymous Access is disabled."
+    currentStateMessage: "Blob anonymous access is disabled."
     check:
       IS_EQUAL:
         left:

@@ -1,0 +1,12 @@
+---
+names:
+  full: AWS Glue Spark Job uses a version past end of support
+  contextual: Spark Job uses a version past end of support
+description: >
+  Migrate Spark batch and streaming job definitions configured with an AWS Glue
+  version past end of support to reduce security and job execution risks.
+type: BEST_PRACTICE
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization

@@ -2,7 +2,7 @@
 
 Ensure that each Snowflake user account has a designated `Default Role` configured.
 
-## Rational
+## Rationale
 
 Assigning a `Default Role` to users reinforces the principle of least privilege by clearly defining the initial set of permissions available upon login. This practice:
 
@@ -11,4 +11,4 @@ Assigning a `Default Role` to users reinforces the principle of least privilege 
 
 ## Audit
 
-This policy marks a *Snowflake User* as `INCOMPLIANT` if `Default Role Name` field is **empty**.
+This policy marks a *Snowflake User* as `INCOMPLIANT` if the `Default Role Name` field is **empty**.

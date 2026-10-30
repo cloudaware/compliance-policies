@@ -13,7 +13,7 @@ conditions:
         right:
           TEXT: "ACTIVE"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The DynamoDB Table is not encrypted."
+    currentStateMessage: "The DynamoDB table is not encrypted."
     remediationMessage: "Enable server-side encryption for this DynamoDB table to protect data at rest."
     check:
       NOT_EQUAL:

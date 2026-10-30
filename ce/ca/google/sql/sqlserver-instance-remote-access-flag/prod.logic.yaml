@@ -17,7 +17,7 @@ conditions:
             search:
               TEXT: "SQLSERVER" 
   - status: "COMPLIANT"
-    currentStateMessage: "remote access database flag is set to off."
+    currentStateMessage: "The remote access database flag is set to off."
     check:
       IS_EQUAL:
         left:
@@ -26,5 +26,8 @@ conditions:
           TEXT: "off"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "remote access database flag isn't set to off."
+  currentStateMessage: "The remote access database flag is not set to off."
   remediationMessage: "Set remote access database flag to off."
+
+
+

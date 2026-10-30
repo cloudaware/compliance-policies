@@ -1,0 +1,12 @@
+---
+name: 4.12 Ensure a notification is configured for changes to network gateways - Level 1 (Automated)
+description: >
+  It is recommended to setup an Event Rule and Notification that gets triggered
+  when Network Gateways are created, updated, deleted, attached, detached, or
+  moved. This recommendation includes Internet Gateways, Dynamic Routing
+  Gateways, Service Gateways, Local Peering Gateways, and NAT Gateways. Event
+  Rules are compartment scoped and will detect events in child compartments, it
+  is recommended to create the Event rule at the root compartment level.
+similar:
+  internal:
+    - dec-c-46cbe97f

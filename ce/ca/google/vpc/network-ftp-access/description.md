@@ -11,7 +11,7 @@ File Transfer Protocol (FTP) is a legacy protocol that transmits data, including
 ## Impact
 
 All FTP connections from outside the affected VPC(s) can be blocked.
-If there is a legitimate business requirement for remote access, specific trusted source IP addresses should be explicitly defined in firewall rules to whitelist access only to the required FTP ports.
+If there is a legitimate business requirement for remote access, specific trusted source IP ranges should be explicitly defined in firewall rules to whitelist access only to the required FTP ports.
 
 ## Audit
 

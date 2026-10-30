@@ -1,0 +1,42 @@
+---
+inputType: "CA10__CaAwsDbCluster__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsDbCluster__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The cluster is not available."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "available"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "IAM database authentication works only with Aurora MySQL, Aurora PostgreSQL, and Neptune."
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              SET:
+                itemType: "TEXT"
+                items:
+                  - "aurora-postgresql"
+                  - "aurora-mysql"
+                  - "neptune"
+            search:
+              EXTRACT: "CA10__engine__c"
+  - status: "COMPLIANT"
+    currentStateMessage: "IAM database authentication is enabled for this cluster."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__iamDatabaseAuthenticationEnabled__c"
+        right:
+          BOOLEAN: true
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "IAM database authentication is disabled for this cluster."
+  remediationMessage: "Enable IAM database authentication for the cluster."

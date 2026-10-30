@@ -1,6 +1,6 @@
 # Description
 
-Ensure that network flow logs are captured and fed into a central log analytics workspace.
+Ensure that network flow logs are captured and sent to a central Log Analytics workspace.
 
 **Retirement Notice**
 On September 30, 2027, network security group (NSG) flow logs will be retired. Starting June 30, 2025, it will no longer be possible to create new NSG flow logs. Azure recommends migrating to virtual network flow logs. Review <https://azure.microsoft.com/en-gb/updates?id=Azure-NSG-flow-logs-Retirement> for more information.
@@ -8,11 +8,11 @@ For virtual network flow logs, consider applying the recommendation `Ensure that
 
 ## Rationale
 
-Network Flow Logs provide valuable insight into the flow of traffic around your network and feed into both Azure Monitor and Azure Sentinel (if in use), permitting the generation of visual flow diagrams to aid with analyzing for lateral movement, etc.
+Network Flow Logs provide valuable insight into traffic patterns and feed into both Azure Monitor and Azure Sentinel, if in use, which enables visual flow diagrams for analyzing lateral movement and other activity.
 
 ## Impact
 
-The impact of configuring NSG Flow logs is primarily one of cost and configuration. If deployed, it will create storage accounts that hold minimal amounts of data on a 5-day lifecycle before feeding to Log Analytics Workspace. This will increase the amount of data stored and used by Azure Monitor.
+The impact of configuring NSG Flow Logs is primarily cost and configuration. If deployed, it creates storage accounts that hold small amounts of data on a 5-day lifecycle before sending it to Log Analytics. This increases the amount of data stored and used by Azure Monitor.
 
 ## Audit
 
@@ -36,7 +36,7 @@ If referencing a digital copy of this Benchmark, clicking a Policy ID will open 
 
 ## Default Value
 
-By default Network Security Group logs are not sent to Log Analytics.
+By default, Network Security Group logs are not sent to Log Analytics.
 
 ## References
 

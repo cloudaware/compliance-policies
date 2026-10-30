@@ -1,6 +1,6 @@
 # Description
 
-The Storage Blob service provides scalable, cost-efficient object storage in the cloud. Storage Logging happens server-side and allows details for both successful and failed requests to be recorded in the storage account. These logs allow users to see the details of read, write, and delete operations against the blobs. Storage Logging log entries contain the following information about individual requests: timing information such as start time, end-to-end latency, and server latency; authentication details; concurrency information; and the sizes of the request and response messages.
+The Storage Blob service provides scalable, cost-efficient object storage in the cloud. Storage Logging happens server-side and allows details for both successful and failed requests to be recorded in the storage account. These logs allow users to see the details of read, write, and delete operations against the blobs. Storage Logging entries contain the following information about individual requests: timing information such as start time, end-to-end latency, and server latency; authentication details; concurrency information; and the sizes of the request and response messages.
 
 ## Rationale
 
@@ -10,7 +10,7 @@ Storage Analytics logging is not enabled by default for your storage account.
 
 ## Impact
 
-Being a level 2, enabling this setting can have a high impact on the cost of data storage used for logging more data per each request. Do not enable this without determining your need for this level of logging or forget to check in on data usage and projected cost.
+As a level 2 recommendation, enabling this setting can have a high impact on the cost of data storage used for logging more data per request. Do not enable this without determining your need for this level of logging or checking data usage and projected cost.
 
 ## Audit
 
@@ -25,10 +25,12 @@ Being a level 2, enabling this setting can have a high impact on the cost of dat
 
 ### From Azure CLI
 
-Ensure the below command's output contains properties delete, read and write set to true:
+Ensure the following command's output contains properties `delete`, `read`, and `write` set to `true`:
 
 ```sh
-az storage logging show --services b --account-name <storageAccountName>
+az storage logging show \
+    --services b \
+    --account-name {{storage-account-name}}
 ```
 
 ### From Azure Policy

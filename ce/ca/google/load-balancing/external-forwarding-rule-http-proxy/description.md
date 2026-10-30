@@ -4,7 +4,7 @@ This policy identifies Google GCE External Forwarding Rules that are configured 
 
 ## Rationale
 
-Using a Target HTTP Proxy transmits data in cleartext, which exposes sensitive information to potential eavesdropping or man-in-the-middle attacks. Enforcing the use of a Target HTTPS Proxy ensures that all traffic to the load balancer is encrypted via HTTPS, thereby maintaining data confidentiality and integrity.
+Using a Target HTTP Proxy transmits data in cleartext, which exposes sensitive information to potential eavesdropping or man-in-the-middle attacks. Enforcing the use of a Target HTTPS Proxy ensures that traffic to the load balancer is encrypted via HTTPS, thereby maintaining data confidentiality and integrity.
 
 ## Audit
 

@@ -6,15 +6,15 @@ importExtracts:
   - file: /types/CA10__CaAzureAppServicePlan__c/object.extracts.yaml
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "Azure App Service Plan has no Apps assigned."
-    remediationMessage: "Consider deleting the empty App Service Plan."
+    currentStateMessage: "The Azure App Service plan has no apps assigned."
+    remediationMessage: "Delete the empty App Service plan."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__numberOfSites__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Azure App Service Plan has no Apps assigned."
-    remediationMessage: "Consider deleting the empty App Service Plan."
+    currentStateMessage: "The Azure App Service plan has no apps assigned."
+    remediationMessage: "Delete the empty App Service plan."
     check:
       IS_EQUAL:
         left:
@@ -23,4 +23,4 @@ conditions:
           NUMBER: 0.0
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "Azure App Service Plan has Apps assigned."
+  currentStateMessage: "The Azure App Service plan has apps assigned."

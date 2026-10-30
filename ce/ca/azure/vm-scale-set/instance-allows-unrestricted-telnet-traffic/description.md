@@ -2,7 +2,7 @@
 
 Ensure that Azure VM Scale Set Instances are not configured to allow unrestricted inbound access to the Telnet port (TCP 23). Network Security Group (NSG) rules should prohibit inbound Telnet traffic from open IP ranges such as 0.0.0.0/0 due to the protocol's inherent security weaknesses.
 
-## Rational
+## Rationale
 
 Telnet is an insecure protocol that transmits data, including user credentials, in plaintext. Allowing unrestricted Telnet access exposes instances to significant security risks, including unauthorized access, credential theft, and man-in-the-middle (MITM) attacks. Restricting Telnet traffic to trusted IP addresses mitigates these risks. Furthermore, organizations are strongly encouraged to replace Telnet with secure alternatives like SSH, which offer encrypted communication and robust authentication mechanisms.
 
@@ -20,6 +20,6 @@ This policy flags an *Azure VM Scale Set Instance* as `INCOMPLIANT` if it is ass
 - `Source Address Prefix` is either **Internet**, `*` **0.0.0.0**, **/0**, or **Any**.
 - `Destination Port` is **23**.
 
-If the `Direction`, `Access`, `Protocol`, or `Source Address Prefix` fields do not match the criteria above, the VM is marked as `INAPPLICABLE`.
+If the `Direction`, `Access`, `Protocol`, or `Source Address Prefix` fields do not match the criteria above, the Azure VM Scale Set Instance is marked as `INAPPLICABLE`.
 
-If the `Destination Port` does not match, the VM is considered `COMPLIANT`.
+If the `Destination Port` does not match, the Azure VM Scale Set Instance is considered `COMPLIANT`.

@@ -1,0 +1,18 @@
+---
+names:
+  full: "Oracle IAAS Network Security Group allows unrestricted RDP traffic"
+  contextual: "IAAS Network Security Group allows unrestricted RDP traffic"
+description: >
+  Ensure that Oracle IAAS Network Security Groups do not allow unrestricted ingress from
+  the internet (0.0.0.0/0 or ::/0) to RDP port 3389. Public RDP exposure increases the
+  attack surface of administrative interfaces and should be restricted to trusted CIDR
+  ranges, bastion hosts, VPN networks, or other approved access paths.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cis-oracle-v3.1.0/02/04"
+  - "/frameworks/cloudaware/resource-security/network-exposure"
+similarPolicies:
+  internal:
+    - "dec-x-1122fe57"

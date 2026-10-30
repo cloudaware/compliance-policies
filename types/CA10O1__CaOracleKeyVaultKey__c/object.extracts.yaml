@@ -1,0 +1,22 @@
+---
+extracts:
+  - name: "CA10O1__name__c"
+    value:
+      FIELD:
+        path: "CA10O1__name__c"
+  - name: "CA10O1__lifecycleState__c"
+    value:
+      FIELD:
+        path: "CA10O1__lifecycleState__c"
+        undeterminedIf:
+          isEmpty: "Unable to determine the lifecycle state for this Oracle Key Vault key."
+  - name: "CA10O1__timeCreated__c"
+    value:
+      FIELD:
+        path: "CA10O1__timeCreated__c"
+        undeterminedIf:
+          isEmpty: "Unable to determine when this Oracle Key Vault key was created."
+  - name: "CA10O1__autoRotationStatus__c"
+    value:
+      FIELD:
+        path: "CA10O1__autoRotationStatus__c"

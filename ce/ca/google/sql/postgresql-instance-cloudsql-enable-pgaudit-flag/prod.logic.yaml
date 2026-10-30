@@ -17,7 +17,7 @@ conditions:
             search:
               TEXT: "POSTGRE" 
   - status: "COMPLIANT"
-    currentStateMessage: "cloudsql.enable_pgaudit database flag is set to on."
+    currentStateMessage: "The cloudsql.enable_pgaudit database flag is set to on."
     check:
       IS_EQUAL:
         left:
@@ -26,5 +26,9 @@ conditions:
           TEXT: "on"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "cloudsql.enable_pgaudit database flag isn't set to on."
-  remediationMessage: "cloudsql.enable_pgaudit set database flag to on."
+  currentStateMessage: "The cloudsql.enable_pgaudit database flag is not set to on."
+  remediationMessage: "Set the cloudsql.enable_pgaudit database flag to on."
+
+
+
+

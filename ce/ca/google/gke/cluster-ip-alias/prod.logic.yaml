@@ -7,7 +7,7 @@ importExtracts:
   - file: "/types/CA10G1__CaGoogleGkeCluster__c/object.extracts.yaml"
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "The Cluster Alias IP is enabled."
+    currentStateMessage: "Alias IP ranges are enabled for the cluster."
     check:
       IS_EQUAL:
         left:
@@ -16,5 +16,5 @@ conditions:
           TEXT: "ENABLED"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "The Cluster Alias IP is disabled."
-  remediationMessage: "Create a new Cluster with Alias IP ranges enabled."
+  currentStateMessage: "Alias IP ranges are disabled for the cluster."
+  remediationMessage: "Create a new cluster with Alias IP ranges enabled."

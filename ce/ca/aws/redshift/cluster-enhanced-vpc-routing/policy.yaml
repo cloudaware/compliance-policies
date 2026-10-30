@@ -1,0 +1,20 @@
+---
+names:
+  full: "AWS Redshift Cluster Enhanced VPC Routing is not enabled"
+  contextual: "Cluster Enhanced VPC Routing is not enabled"
+description: >
+  Ensure that Enhanced VPC Routing is enabled for AWS Redshift Clusters. This 
+  feature forces all COPY and UNLOAD traffic between your cluster and your data 
+  repositories through your VPC, allowing you to manage data security using VPC 
+  features like Security Groups and Endpoints.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/secure-access"
+  - "/frameworks/aws-fsbp-v1.0.0/redshift/07"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Redshift.7] Redshift clusters should use enhanced VPC routing"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/redshift-controls.html#redshift-7"
+    

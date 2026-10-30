@@ -1,0 +1,12 @@
+---
+names:
+  full: AWS DMS Replication Instance engine version has reached end of life
+  contextual: Replication Instance engine version has reached end of life
+description: >
+  Ensure that AWS DMS replication instances use an engine version that has not
+  reached its published AWS DMS end-of-life and automatic upgrade date.
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization

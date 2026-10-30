@@ -1,0 +1,56 @@
+---
+inputType: "CA10A1__CaAwsSecretsManagerSecret__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10A1__CaAwsSecretsManagerSecret__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This secret is not active."
+    check:
+      NOT_EMPTY:
+        arg:
+          EXTRACT: "CA10A1__deletedDate__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The secret has never been accessed and was last changed more than 90 days ago."
+    remediationMessage: "Determine if this secret is still required by any application. If not, consider deleting it."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10A1__lastAccessedDate__c"
+          - IS_BEYOND_LAST_DAYS:
+              offsetDays: 90
+              arg:
+                EXTRACT: "CA10A1__lastChangedDate__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The secret was last accessed more than 90 days ago and never rotated."
+    remediationMessage: "Determine if this secret is still required by any application. If not, consider deleting it."
+    check:
+      AND:
+        args:
+          - IS_BEYOND_LAST_DAYS:
+              offsetDays: 90
+              arg:
+                EXTRACT: "CA10A1__lastAccessedDate__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10A1__lastRotatedDate__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The secret was last accessed and rotated more than 90 days ago."
+    remediationMessage: "Determine if this secret is still required by any application. If not, consider deleting it."
+    check:
+      AND:
+        args:
+          - IS_BEYOND_LAST_DAYS:
+              offsetDays: 90
+              arg:
+                EXTRACT: "CA10A1__lastAccessedDate__c"
+          - IS_BEYOND_LAST_DAYS:
+              offsetDays: 90
+              arg:
+                EXTRACT: "CA10A1__lastRotatedDate__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The secret has been accessed, changed, or rotated within the last 90 days."

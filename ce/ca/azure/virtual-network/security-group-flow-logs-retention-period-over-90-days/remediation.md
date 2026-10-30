@@ -17,52 +17,52 @@ A ZIP file named `MigrateFlowLogs.zip` is downloaded.
 
 1. Extract `MigrateFlowLogs.zip` locally. The archive contains:
 
-   * `MigrationFromNsgToAzureFlowLogging.ps1`
-   * `RegionSubscriptionConfig.json`
+    - `MigrationFromNsgToAzureFlowLogging.ps1`
+    - `RegionSubscriptionConfig.json`
 2. Run the migration script:
 
-```ps
-.\MigrationFromNsgToAzureFlowLogging.ps1
-```
+    ```ps
+    .\MigrationFromNsgToAzureFlowLogging.ps1
+    ```
 
-4. Select **Run analysis** by entering `1`.
-5. When prompted, provide the path to the configuration file:
+3. Select **Run analysis** by entering `1`.
+4. When prompted, provide the path to the configuration file:
 
-```text
-.\RegionSubscriptionConfig.json
-```
+    ```text
+    .\RegionSubscriptionConfig.json
+    ```
 
-6. Enter the number of threads to use, or press **Enter** to accept the default value (`16`).
+5. Enter the number of threads to use, or press **Enter** to accept the default value (`16`).
 
 ## Review Analysis Results
 
 After the analysis completes:
 
-* A summary is displayed in the console.
-* A detailed HTML report is generated in the same directory:
+- A summary is displayed in the console.
+- A detailed HTML report is generated in the same directory:
 
-  ```
-  AnalysisReport-<subscriptionId>-<region>-<timestamp>.html
-  ```
+    ```txt
+    AnalysisReport-{{subscriptionId}}-{{region}}-{{timestamp}}.html
+    ```
 
 The report identifies:
 
-* NSG flow logs that will be disabled
-* Virtual network flow logs that will be created
-* The impact of migration **with aggregation** or **without aggregation**
+- NSG flow logs that will be disabled
+- Virtual network flow logs that will be created
+- The impact of migration **with aggregation** or **without aggregation**
 
 ## Perform the Migration
 
 1. Choose one of the following options:
 
-   * `2` – Proceed with migration **with aggregation**
-   * `3` – Proceed with migration **without aggregation**
+   - `2` – Proceed with migration **with aggregation**
+   - `3` – Proceed with migration **without aggregation**
 2. Review the migration summary.
 3. Confirm the migration when prompted:
 
-```text
-Do you want to rollback? You won't get the option to revert the actions done now again (y/n): n
-```
+    ```text
+    Do you want to rollback? You won't get the option to revert the actions done now again (y/n): n
+    ```
 
 > **Warning**
 > Once the migration proceeds, the changes cannot be reverted.
@@ -71,9 +71,9 @@ Do you want to rollback? You won't get the option to revert the actions done now
 
 After the migration completes:
 
-* Confirm that the original **NSG flow logs are disabled**
-* Confirm that new **Virtual Network flow logs** have been created and are enabled
-* Validate storage accounts, retention, and traffic analytics settings as required
+- Confirm that the original **NSG flow logs are disabled**
+- Confirm that new **Virtual Network flow logs** have been created and are enabled
+- Validate storage accounts, retention, and traffic analytics settings as required
 
 ## Optional Cleanup
 

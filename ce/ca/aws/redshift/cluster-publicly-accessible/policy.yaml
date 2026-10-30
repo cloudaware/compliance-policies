@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS Redshift Cluster is publicly accessible"
+  contextual: "Cluster is publicly accessible"
+description: >
+  Ensure that Amazon Redshift clusters are not publicly accessible to reduce the 
+  risk of unauthorized access and data exposure. Redshift clusters should be launched 
+  within a VPC and restricted to internal traffic.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/network-exposure"
+  - "/frameworks/aws-fsbp-v1.0.0/redshift/01"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Redshift.1] Amazon Redshift clusters should prohibit public access"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/redshift-controls.html#redshift-1"
+    

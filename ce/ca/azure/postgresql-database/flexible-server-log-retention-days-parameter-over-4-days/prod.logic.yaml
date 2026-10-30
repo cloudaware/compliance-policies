@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10Z1__CaAzurePostgreSqlServer__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This is not the Flexible Server deployment mode."
+    currentStateMessage: "This is not the flexible server deployment mode."
     check:
       NOT_EQUAL:
         left:
@@ -14,8 +14,8 @@ conditions:
         right:
           TEXT: "Flexible"
   - status: "INCOMPLIANT"
-    currentStateMessage: "PostgreSQL Server logfiles.retention_days configuration is not enabled."
-    remediationMessage: "Consider enabling PostgreSQL Server logfiles.retention_days configuration."
+    currentStateMessage: "PostgreSQL Flexible Server logfiles.retention_days is not set to more than 3 days."
+    remediationMessage: "Set logfiles.retention_days to more than 3 days."
     check:
       AND:
         args:
@@ -40,7 +40,7 @@ conditions:
                       evaluationError: "The JSON query has failed."
                       resultTypeMismatch: "The JSON query did not return number type."
   - status: "COMPLIANT"
-    currentStateMessage: "PostgreSQL Server logfiles.retention_days configuration is enabled."
+    currentStateMessage: "PostgreSQL Flexible Server logfiles.retention_days is set to more than 3 days."
     check:
       GREATER_THAN:
         left:

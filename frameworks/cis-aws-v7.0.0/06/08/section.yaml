@@ -1,0 +1,9 @@
+---
+name: 6.8 Ensure VPC Endpoints are used for access to AWS Services (Manual)
+description: >
+  Ensure that Amazon VPCs use VPC endpoints (gateway or interface endpoints) for
+  access to AWS services such as Amazon S3 and DynamoDB, so that traffic from
+  workloads to AWS services stays on the Amazon private network instead of traversing
+  the public internet. VPC endpoints provide private connectivity between VPCs and
+  supported AWS services without requiring an internet gateway, NAT gateway, or public
+  IP addresses.

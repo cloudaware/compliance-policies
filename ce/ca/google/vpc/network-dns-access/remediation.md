@@ -6,7 +6,7 @@
 2. Go to the `Firewall Rules`.
 3. Click the `Firewall Rule` to be modified.
 4. Click `Edit`.
-5. Modify `Source IP ranges` to specific `IP`.
+5. Modify `Source IP ranges` to specific IP ranges.
 6. Click `Save`.
 
 ## From Google Cloud CLI
@@ -15,8 +15,8 @@
 
     ```sh
     gcloud compute networks get-effective-firewalls default \
-        --format="table(NAME, DIRECTION, IP_RANGES)" \
-        --filter="IP_RANGES:0.0.0.0/0 AND DIRECTION:INGRESS"
+        --format="table(NAME, DIRECTION, {{ip-ranges}})" \
+        --filter="{{ip-ranges}}:0.0.0.0/0 AND DIRECTION:INGRESS"
     ```
 
 2. **Restrict the Source Range**

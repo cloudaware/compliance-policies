@@ -1,0 +1,14 @@
+---
+extracts:
+  - name: CA10A1__status__c
+    value:
+      FIELD:
+        path: CA10A1__status__c
+        undeterminedIf:
+          isEmpty: The MWAA environment status is missing.
+  - name: CA10A1__airflowVersion__c
+    value:
+      FIELD:
+        path: CA10A1__airflowVersion__c
+        undeterminedIf:
+          isEmpty: The environment's configured Airflow version is missing.

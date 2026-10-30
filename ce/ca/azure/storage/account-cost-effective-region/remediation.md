@@ -21,7 +21,7 @@ $resource = Get-AzResource `
     -ResourceName {{storage-account-name}} `
     -ResourceType Microsoft.Storage/storageAccounts
 Export-AzResourceGroup `
-    -ResourceGroupName <resource-group-name> `
+    -ResourceGroupName {{resource-group-name}} `
     -Resource $resource.ResourceId
 ```
 
@@ -62,7 +62,7 @@ New-AzResourceGroupDeployment `
 Use **AzCopy** or another data transfer tool to move data from the original storage account to the new account.
 
 ```sh
-azcopy copy 'https://{{source-account-name}}.blob.core.windows.net/{{container-name}}?{{SAS-token}}' 'https://{{destination-account-name}}.blob.core.windows.net/{{container-name}}?{{SAS-token}' --recursive
+azcopy copy "https://{{source-account-name}}.blob.core.windows.net/{{container-name}}?{{sas-token}}" "https://{{destination-account-name}}.blob.core.windows.net/{{container-name}}?{{sas-token}}" --recursive
 ```
 
 ### **6. Decommission the Original Storage Account**
@@ -71,8 +71,8 @@ After ensuring all data has been successfully transferred and applications are u
 
 ```ps
 Remove-AzStorageAccount `
-    -ResourceGroupName  $resourceGroup `
-    -AccountName $storageAccount
+    -ResourceGroupName {{resource-group-name}} `
+    -AccountName {{storage-account-name}}
 ```
 
 ### **Considerations**

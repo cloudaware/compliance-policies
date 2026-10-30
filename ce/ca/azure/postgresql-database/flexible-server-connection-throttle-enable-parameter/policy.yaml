@@ -5,12 +5,12 @@ names:
 description: Enable connection_throttling on PostgreSQL Servers.
 type: COMPLIANCE_POLICY
 categories:
-  - SECURITY
-  - RELIABILITY
-  - PERFORMANCE
+  - "RELIABILITY"
+  - "PERFORMANCE"
 frameworkMappings:
   - "/frameworks/cis-azure-v3.0.0/05/02/03"
-  - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/cloudaware/resource-performance/performance-tuning"
 similarPolicies:
   internal:
     - dec-x-850beea8

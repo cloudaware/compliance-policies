@@ -1,0 +1,92 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-05-13T00:00:00Z"
+    },
+    "Id": "a8Eiam0",
+    "CA10__disappearanceTime__c": "2026-01-01T00:00:00Z",
+    "CA10__databaseVersion__c": "POSTGRES_14",
+    "CA10__databaseFlagsJson__c": "[{\"name\":\"cloudsql.iam_authentication\",\"value\":\"on\"}]"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "not(extract('CA10__databaseVersion__c').contains('MYSQL') || extract('CA10__databaseVersion__c').contains('POSTGRES'))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-05-13T00:00:00Z"
+    },
+    "Id": "a8Eiam1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__databaseVersion__c": "SQLSERVER_2019_STANDARD",
+    "CA10__databaseFlagsJson__c": "[]"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__databaseVersion__c').contains('POSTGRES') && extract('caJsonText__databaseFlagsCloudsqlIamAuthenticationFlagValue__c') == 'on'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-05-13T00:00:00Z"
+    },
+    "Id": "a8Eiam2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__databaseVersion__c": "POSTGRES_16",
+    "CA10__databaseFlagsJson__c": "[{\"name\":\"cloudsql.iam_authentication\",\"value\":\"on\"}]"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10__databaseVersion__c').contains('MYSQL') && extract('caJsonText__databaseFlagsCloudsqlIamAuthenticationMysqlFlagValue__c') == 'on'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-05-13T00:00:00Z"
+    },
+    "Id": "a8Eiam3",
+    "CA10__disappearanceTime__c": null,
+    "CA10__databaseVersion__c": "MYSQL_8_0",
+    "CA10__databaseFlagsJson__c": "[{\"name\":\"cloudsql_iam_authentication\",\"value\":\"on\"}]"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "400",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-05-13T00:00:00Z"
+    },
+    "Id": "a8Eiam4",
+    "CA10__disappearanceTime__c": null,
+    "CA10__databaseVersion__c": "POSTGRES_14",
+    "CA10__databaseFlagsJson__c": "[{\"name\":\"cloudsql.iam_authentication\",\"value\":\"off\"}]"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "302",
+      "conditionText": "CA10__databaseFlagsJson__c.asJson().isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-05-13T00:00:00Z"
+    },
+    "Id": "a8Eiam5",
+    "CA10__disappearanceTime__c": null,
+    "CA10__databaseVersion__c": "MYSQL_8_0",
+    "CA10__databaseFlagsJson__c": ""
+  }
+]

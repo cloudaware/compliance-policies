@@ -1,0 +1,52 @@
+---
+inputType: "CA10__CaAwsWorkspace__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAwsWorkspace__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The WorkSpace is not available."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__state__c"
+        right:
+          TEXT: "AVAILABLE"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Both root and user WorkSpace volumes are not encrypted at rest."
+    remediationMessage: "Enable encryption for the WorkSpace volumes."
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10__rootVolumeEncryptionEnabled__c
+              right:
+                BOOLEAN: false
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10__userVolumeEncryptionEnabled__c
+              right:
+                BOOLEAN: false
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The root WorkSpace volume is not encrypted at rest."
+    remediationMessage: "Enable encryption for the root volume."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__rootVolumeEncryptionEnabled__c
+        right:
+          BOOLEAN: false
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The user WorkSpace volume is not encrypted at rest."
+    remediationMessage: "Enable encryption for the user volume."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__userVolumeEncryptionEnabled__c
+        right:
+          BOOLEAN: false
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The WorkSpace volumes are encrypted at rest."

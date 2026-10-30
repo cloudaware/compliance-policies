@@ -5,7 +5,7 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This is not a subscription Diagnostic Setting."
+    currentStateMessage: "This is not a subscription diagnostic setting."
     check:
       NOT_EQUAL:
         left:
@@ -15,7 +15,7 @@ conditions:
           TEXT: "caDiagnosticSettingOnAzureSubscription"
   - status: "INCOMPLIANT"
     currentStateMessage: "The diagnostic setting does not capture the appropriate activities from the management plane."
-    remediationMessage: "Consider configuring the diagnostic setting to capture Administrative, Alert, Policy, and Security log categories."
+    remediationMessage: "Capture the Administrative, Alert, Policy, and Security log categories in the diagnostic setting."
     check:
       NOT:
         arg:

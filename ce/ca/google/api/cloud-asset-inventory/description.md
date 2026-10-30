@@ -1,14 +1,14 @@
 # Description
 
-GCP Cloud Asset Inventory is services that provides a historical view of GCP resources and IAM policies through a time-series database. The information recorded includes metadata on Google Cloud resources, metadata on policies set on Google Cloud projects or resources, and runtime information gathered within a Google Cloud resource.
+GCP Cloud Asset Inventory is a service that provides a historical view of GCP resources and IAM policies through a time-series database. The information recorded includes metadata on Google Cloud resources, metadata on policies set on Google Cloud projects or resources, and runtime information gathered within a Google Cloud resource.
 
-Cloud Asset Inventory Service (CAIS) API enablement is not required for operation of the service, but rather enables the mechanism for searching/exporting CAIS asset data directly.
+Cloud Asset Inventory Service (CAIS) API enablement is not required for operation of the service, but it enables the mechanism for searching and exporting CAIS asset data directly.
 
 ## Rationale
 
-The GCP resources and IAM policies captured by GCP Cloud Asset Inventory enables security analysis, resource change tracking, and compliance auditing.
+The GCP resources and IAM policies captured by GCP Cloud Asset Inventory enable security analysis, resource change tracking, and compliance auditing.
 
-It is recommended GCP Cloud Asset Inventory be enabled for all GCP projects.
+It is recommended that GCP Cloud Asset Inventory be enabled for all GCP projects.
 
 ## Audit
 
@@ -26,9 +26,13 @@ Ensure that the Cloud Asset API is enabled:
 
 1. Query enabled services:
 
-            gcloud services list --enabled --filter=name:cloudasset.googleapis.com
+    ```sh
+    gcloud services list \
+        --enabled \
+        --filter=name:cloudasset.googleapis.com
+    ```
 
-If the API is listed, then it is enabled. If the response is `Listed 0 items` the API is not enabled.
+    If the API is listed, then it is enabled. If the response is `Listed 0 items` the API is not enabled.
 
 ## Default Value
 
@@ -42,4 +46,4 @@ The Cloud Asset Inventory API is disabled by default in each project.
 
 Cloud Asset Inventory only keeps a five-week history of Google Cloud asset metadata. If a longer history is desired, automation to export the history to Cloud Storage or BigQuery should be evaluated.
 
-Users need not enable CAI API if they don't have any plans to export.
+Users do not need to enable the CAI API if they do not plan to export.

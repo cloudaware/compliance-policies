@@ -6,8 +6,8 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "Default port 3306 used for MySQL-compatible database."
-    remediationMessage: "Change the port from 3306 to any other port number."
+    currentStateMessage: "Default port 3306 is used for a MySQL-compatible database."
+    remediationMessage: "Change the port from 3306 to a non-default value."
     check:
       AND:
         args:
@@ -39,8 +39,8 @@ conditions:
                     right:
                       TEXT: "mysql"
   - status: INCOMPLIANT
-    currentStateMessage: "Default port 1521 used for Oracle database."
-    remediationMessage: "Change the port from 1521 to any other port number."
+    currentStateMessage: "Default port 1521 is used for an Oracle database."
+    remediationMessage: "Change the port from 1521 to a non-default value."
     check:
       AND:
         args:
@@ -55,8 +55,8 @@ conditions:
               arg:
                 EXTRACT: "CA10__engine__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Default port 5432 used for PostgreSQL-compatible database."
-    remediationMessage: "Change the port from 5432 to any other port number."
+    currentStateMessage: "Default port 5432 is used for a PostgreSQL-compatible database."
+    remediationMessage: "Change the port from 5432 to a non-default value."
     check:
       AND:
         args:
@@ -78,8 +78,8 @@ conditions:
                     right:
                       TEXT: "postgres"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Default port 1433 used for MSSQL server."
-    remediationMessage: "Change the port from 1433 to any other port number."
+    currentStateMessage: "Default port 1433 is used for an MSSQL database."
+    remediationMessage: "Change the port from 1433 to a non-default value."
     check:
       AND:
         args:
@@ -94,8 +94,8 @@ conditions:
               arg:
                 EXTRACT: "CA10__engine__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Default port 27017 used for DocumentDB."
-    remediationMessage: "Change the port from 27017 to any other port number."
+    currentStateMessage: "Default port 27017 is used for DocumentDB."
+    remediationMessage: "Change the port from 27017 to a non-default value."
     check:
       AND:
         args:
@@ -110,7 +110,7 @@ conditions:
               right:
                 TEXT: "docdb"
   - status: "INAPPLICABLE"
-    currentStateMessage: "This Database Engine is not checked by the policy."
+    currentStateMessage: "This database engine is not checked by the policy."
     check:
       AND:
         args:
@@ -165,4 +165,4 @@ conditions:
                     EXTRACT: "CA10__engine__c"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "Database uses non-default port for its engine."
+  currentStateMessage: "The database uses a non-default port for its engine."

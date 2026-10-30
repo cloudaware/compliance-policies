@@ -1,0 +1,8 @@
+---
+extracts:
+  - name: "CA10O1__timeCreated__c"
+    value:
+      FIELD:
+        path: "CA10O1__timeCreated__c"
+        undeterminedIf:
+          isEmpty: "Unable to determine when this Oracle IAM database password was created."

@@ -6,7 +6,7 @@ Existing SageMaker endpoint configurations cannot be directly modified to add en
 
 ### **From Command Line**
 
-1. **Retrieve the existing endpoint configuration to obtain the `ProductionVariants` details.** 
+1. **Retrieve the existing endpoint configuration to obtain the `ProductionVariants` details.**
 
     Save the `ProductionVariants` array to a file named `production-variants.json`:
 
@@ -40,7 +40,7 @@ Existing SageMaker endpoint configurations cannot be directly modified to add en
         --kms-key-id {{kms-key-arn}}
     ```
 
-3. **Update the endpoint to use the new configuration.** 
+3. **Update the endpoint to use the new configuration.**
 
     The endpoint will enter the `Updating` state and may experience brief downtime during the transition:
 

@@ -1,0 +1,74 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10O1__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test1",
+    "CA10O1__disappearanceTime__c": "2026-04-11T00:00:00Z",
+    "CA10O1__platformConfigJson__c": "{\"isSecureBootEnabled\":false}"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "101",
+      "conditionText": "CA10O1__platformConfigJson__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test2",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__platformConfigJson__c": ""
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10O1__platformConfigJson__c') == bytes('null')",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test3",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__platformConfigJson__c": "null"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('caJsonFrom__platformConfigJson__c').jsonQueryText('isSecureBootEnabled') == true",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test4",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__platformConfigJson__c": "{\"isSecureBootEnabled\":true}"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "399",
+      "conditionText": "extract('caJsonFrom__platformConfigJson__c').jsonQueryText('isSecureBootEnabled') == false",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test5",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__platformConfigJson__c": "{\"isSecureBootEnabled\":false}"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "206",
+      "conditionText": "extract('caJsonFrom__platformConfigJson__c').jsonQueryText('isSecureBootEnabled').isResultEmpty()",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test6",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__platformConfigJson__c": "{\"type\":\"AMD_VM\"}"
+  }
+]

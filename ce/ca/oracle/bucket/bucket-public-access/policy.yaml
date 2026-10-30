@@ -1,0 +1,16 @@
+---
+names:
+  full: "Oracle Storage Bucket allows public access"
+  contextual: "Storage Bucket allows public access"
+description: >
+  Ensure that Oracle Storage Buckets do not allow public access. Public buckets 
+  can expose stored objects to anonymous users without requiring Oracle Cloud authentication.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cis-oracle-v3.1.0/05/01/01"
+  - "/frameworks/cloudaware/resource-security/public-data-access"
+similarPolicies:
+  internal:
+    - "dec-x-87b8e6c7"

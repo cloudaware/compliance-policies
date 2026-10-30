@@ -5,15 +5,15 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "The Network has an Egress deny rule."
+    currentStateMessage: "The network has an egress deny rule."
     check:
       RELATED_LIST_HAS:
         status: "COMPLIANT"
         relationshipName: "CA10__Google_GCE_Firewall_Rules__r"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "The Network has no egress GCE Firewall Rule which denies unwanted outbound traffic."
-  remediationMessage: "Set an Egress deny rule."
+  currentStateMessage: "The network has no egress firewall rule that denies unwanted outbound traffic."
+  remediationMessage: "Set an egress deny rule."
 relatedLists:
   - relationshipName: "CA10__Google_GCE_Firewall_Rules__r"
     importExtracts:
@@ -47,5 +47,5 @@ relatedLists:
                     NUMBER: 0.0
     otherwise:
       status: "INCOMPLIANT"
-      currentStateMessage: "Egress deny rule not set."
-      remediationMessage: "Set Egress deny rule."
+      currentStateMessage: "Egress deny rule is not set."
+      remediationMessage: "Set an egress deny rule."

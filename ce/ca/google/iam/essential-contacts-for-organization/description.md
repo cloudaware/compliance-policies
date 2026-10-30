@@ -18,13 +18,13 @@ There is no charge for Essential Contacts except for the 'Technical Incidents' c
 2. Make sure the organization appears in the resource selector at the top of the page. The resource selector tells you what project, folder, or organization you are currently managing contacts for.
 3. Ensure that appropriate email addresses are configured for each of the following notification categories:
 
-    •  Legal
+    - Legal
 
-    •  Security
+    - Security
 
-    •  Suspension
+    - Suspension
 
-    •  Technical
+    - Technical
 
 Alternatively, appropriate email addresses can be configured for the `All` notification category to receive all possible important notifications.
 
@@ -32,17 +32,20 @@ Alternatively, appropriate email addresses can be configured for the `All` notif
 
 1. To list all configured organization Essential Contacts run a command:
 
-    gcloud essential-contacts list --organization=<ORGANIZATION_ID>
+    ```sh
+    gcloud essential-contacts list \
+        --organization={{organization-id}}
+    ```
 
 2. Ensure at least one appropriate email address is configured for each of the following notification categories:
 
-    • LEGAL
+    - LEGAL
 
-    • SECURITY
+    - SECURITY
 
-    • SUSPENSION
+    - SUSPENSION
 
-    • TECHNICAL
+    - TECHNICAL
 
 Alternatively, appropriate email addresses can be configured for the `ALL` notification category to receive all possible important notifications.
 
@@ -52,11 +55,11 @@ By default, there are no Essential Contacts configured.
 
 In the absence of an Essential Contact, the following IAM roles are used to identify users to notify for the following categories:
 
-    • Legal: `roles/billing.admin`
-    • Security: `roles/resourcemanager.organizationAdmin`
-    • Suspension: `roles/owner`
-    • Technical: `roles/owner`
-    • Technical Incidents: `roles/owner`
+- Legal: `roles/billing.admin`
+- Security: `roles/resourcemanager.organizationAdmin`
+- Suspension: `roles/owner`
+- Technical: `roles/owner`
+- Technical Incidents: `roles/owner`
 
 ## References
 

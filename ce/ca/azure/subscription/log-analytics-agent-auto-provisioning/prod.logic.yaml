@@ -7,7 +7,7 @@ importExtracts:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "Automatic provisioning of the monitoring agent is not enabled."
-    remediationMessage: "Consider enabling automatic provisioning of the monitoring agent."
+    remediationMessage: "Enable automatic provisioning of the monitoring agent."
     check:
 # returns the number of json objects that satisfy the criteria of name == 'default' && autoProvision == 'Off'
       GREATER_THAN:
@@ -48,3 +48,4 @@ conditions:
 otherwise:
   status: "UNDETERMINED"
   currentStateMessage: "Unable to determine Auto Provisioning Settings."
+

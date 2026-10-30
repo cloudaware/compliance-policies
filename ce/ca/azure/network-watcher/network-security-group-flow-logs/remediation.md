@@ -5,24 +5,24 @@
 1. Navigate to `Network Watcher`.
 2. Under `Logs`, select `Flow logs`.
 3. Select `+ Create`.
-4. Select the desired Subscription.
+4. Select the desired subscription.
 5. For `Flow log type`, select `Network security group`.
 6. Select `+ Select target resource`.
 7. Select `Network security group`.
 8. Select a network security group.
 9. Click `Confirm selection`.
 10. Select or create a new Storage Account.
-11. If using a v2 storage account, input the retention in days to retain the log.
+11. If using a v2 storage account, enter the retention in days.
 12. Click `Next`.
 13. Under `Analytics`, for `Flow log version`, select `Version 2`.
 14. Check the box next to `Enable traffic analytics`.
 15. Select a processing interval.
 16. Select a `Log Analytics Workspace`.
 17. Select `Next`.
-18. Optionally add Tags.
+18. Optionally add tags.
 19. Select `Review + create`.
 20. Select `Create`.
 
 ## **Warning**
 
-The remediation policy creates remediation deployment and names them by concatenating the subscription name and the resource group name. The **MAXIMUM** permitted length of a deployment name is 64 characters. Exceeding this will cause the remediation task to fail.
+The remediation policy creates a remediation deployment and names it by concatenating the subscription name and the resource group name. The **MAXIMUM** permitted length of a deployment name is 64 characters. Exceeding this causes the remediation task to fail.

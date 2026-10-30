@@ -9,10 +9,10 @@ description: "S3 object-level API operations such as GetObject, DeleteObject, an
   \ events and so it is recommended to enable Object-level logging for S3 buckets."
 type: COMPLIANCE_POLICY
 categories:
-  - SECURITY
-  - RELIABILITY
+  - "SECURITY"
+  - "RELIABILITY"
 frameworkMappings:
-  - "/frameworks/cis-aws-v6.0.0/04/08"
+  - "/frameworks/cis-aws-v7.0.0/04/08"
   - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
 similarPolicies:
   internal:

@@ -1,14 +1,14 @@
 # Description
 
-API Keys should only be used for services in cases where other authentication methods are unavailable. Unused keys with their permissions in tact may still exist within a project. Keys are insecure because they can be viewed publicly, such as from within a browser, or they can be accessed on a device where the key resides. It is recommended to use standard authentication flow instead.
+API keys should only be used for services when other authentication methods are unavailable. Unused keys with their permissions intact may still exist within a project. Keys are insecure because they can be viewed publicly, such as from within a browser, or accessed on a device where the key resides. It is recommended to use the standard authentication flow instead.
 
 ## Rationale
 
-To avoid the security risk in using API keys, it is recommended to use standard authentication flow instead. Security risks involved in using API-Keys appear below:
+To avoid the security risk of using API keys, it is recommended to use the standard authentication flow instead. Security risks involved in using API keys include:
 
-    • API keys are simple encrypted strings
-    • API keys do not identify the user or the application making the API request
-    • API keys are typically accessible to clients, making it easy to discover and steal an API key
+- API keys are simple encrypted strings
+- API keys do not identify the user or the application making the API request
+- API keys are typically accessible to clients, making it easy to discover and steal an API key
 
 ## Impact
 
@@ -18,14 +18,17 @@ Deleting an API key will break dependent applications (if any).
 
 ### From Console
 
-1. From within the Project you wish to audit Go to `APIs & Services\Credentials`.
+1. From within the project you want to audit, go to `APIs & Services\Credentials`.
 2. In the section `API Keys`, no API key should be listed.
 
-### From Google Cloud Command Line
+### From Google Cloud CLI
 
-1. Run the following from within the project you wish to audit
+1. Run the following from within the project you want to audit:
 
-    gcloud services api-keys list --filter.
+    ```sh
+    gcloud services api-keys list \
+        --filter.
+    ```
 
 2. There should be no keys listed at the project level.
 

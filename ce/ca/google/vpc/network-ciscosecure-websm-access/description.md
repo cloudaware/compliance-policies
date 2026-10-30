@@ -10,7 +10,7 @@ Exposing management interfaces such as WebSM to the public internet creates a si
 
 ## Impact
 
-All external connections to WebSM from outside the affected VPC(s) can be blocked. If there is a legitimate business requirement for remote access (for example, administrative access to Cassandra resources), specific trusted source IP addresses should be explicitly defined in firewall rules to whitelist access to the required ports.
+All external connections to WebSM from outside the affected VPC(s) can be blocked. If there is a legitimate business requirement for remote access (for example, administrative access to WebSM resources), specific trusted source IP addresses should be explicitly defined in firewall rules to whitelist access to the required ports.
 
 ## Audit
 

@@ -1,0 +1,141 @@
+<MdxCard>
+    [Back](index.md)
+
+    # Browse Repository
+
+    Prototype for a repository navigation component that can show folders and policy pages in a compact, browseable structure.
+
+<MdxCard>
+    <Icon icon="star" color="yellow" weight="bold" /> [Repository] -> <Icon icon="folder" color="yellow" weight="bold" /> [Compliance Engine] -> <Icon icon="folder" color="yellow" weight="bold" /> [CloudAware]
+    # <Icon icon="folder-open" color="yellow" weight="bold" /> AWS
+
+    <MdxRow align="stretch">
+        <MdxCol s="3">
+            <MdxCard visualLevel="flat" fullHeight>
+                ## Browse Repository
+
+                <MdxTable
+                    isConfigurableCols
+                    items={[
+                        {
+                            id: "repository",
+                            parentId: "",
+                            fields: {
+                                Label: <><Icon icon="star" color="yellow" weight="bold" /> Repository</>
+                            }
+                        },
+                        {
+                            id: "/ce",
+                            parentId: "repository",
+                            fields: {
+                                Label: <><Icon icon="folder" color="yellow" weight="bold" /> Compliance Engine</>
+                            }
+                        },
+                        {
+                            id: "/ce/ca",
+                            parentId: "/ce",
+                            fields: {
+                                Label: <><Icon icon="folder" color="yellow" weight="bold" /> CloudAware</>
+                            }
+                        },
+                        {
+                            id: "/ce/ca/aws",
+                            parentId: "/ce/ca",
+                            fields: {
+                                Label: <><Icon icon="folder-open" color="yellow" weight="bold" /> <strong>AWS</strong></>
+                            }
+                        },
+                        {
+                            id: "/ce/ca/azure",
+                            parentId: "/ce/ca",
+                            fields: {
+                                Label: <><Icon icon="folder" color="yellow" weight="bold" /> Azure</>
+                            }
+                        },
+                        {
+                            id: "/ce/ca/breeze",
+                            parentId: "/ce/ca",
+                            fields: {
+                                Label: <><Icon icon="folder" color="yellow" weight="bold" /> Breeze</>
+                            }
+                        },
+                        {
+                            id: "/ce/ca/google",
+                            parentId: "/ce/ca",
+                            fields: {
+                                Label: <><Icon icon="folder" color="yellow" weight="bold" /> Google</>
+                            }
+                        },
+                        {
+                            id: "/ce/unit-tests",
+                            parentId: "/ce",
+                            fields: {
+                                Label: <><Icon icon="folder" color="yellow" weight="bold" /> Unit Tests</>
+                            }
+                        }
+                    ]}
+                />
+            </MdxCard>
+        </MdxCol>
+
+        <MdxCol s="9">
+            <MdxCard visualLevel="flat" fullHeight>
+                ## Contents
+
+                <MdxTable
+                    isConfigurableCols
+                    items={[
+                        { id: "/ce/ca/aws/account", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> Account</>, Policies: 11, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/acm", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> </>, Policies: 5, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/apigateway", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> API Gateway</>, Policies: 7, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/athena", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> Athena</>, Policies: 1, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/autoscaling", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> Auto Scaling</>, Policies: 7, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/backup", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> Backup</>, Policies: 2, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/cloudfront", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> CloudFront</>, Policies: 9, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/cloudtrail", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> CloudTrail</>, Policies: 19, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/cloudwatch", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> CloudWatch</>, Policies: 1, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/codebuild", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> CodeBuild</>, Policies: 1, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/cognito", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> Cognito</>, Policies: 3, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/connect", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> Connect</>, Policies: 1, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/data-sync", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> Data Sync</>, Policies: 1, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/dax", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> DAX</>, Policies: 1, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/dms", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> DMS</>, Policies: 5, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/dynamodb", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> DynamoDB</>, Policies: 6, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/ec2", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> EC2</>, Policies: 38, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/ecr", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> ECR</>, Policies: 3, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/ecs", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> ECS</>, Policies: 7, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/efs", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> EFS</>, Policies: 3, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/eks", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> EKS</>, Policies: 4, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/elastic-beanstalk", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> Elastic Beanstalk</>, Policies: 3, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/elasticache", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> ElastiCache</>, Policies: 5, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/elb", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> ELB</>, Policies: 12, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/emr", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> EMR</>, Policies: 2, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/guardduty", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> GuardDuty</>, Policies: 7, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/iam", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> IAM</>, Policies: 28, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/inspector", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> Inspector</>, Policies: 4, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/kinesis", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> Kinesis</>, Policies: 2, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/kms", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> KMS</>, Policies: 3, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/lambda", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> Lambda</>, Policies: 5, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/mq", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> MQ</>, Policies: 3, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/msk", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> MSK</>, Policies: 1, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/network-firewall", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> Network Firewall</>, Policies: 5, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/opensearch", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> OpenSearch</>, Policies: 10, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/rds", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> RDS</>, Policies: 35, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/redshift", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> Redshift</>, Policies: 10, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/s3", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> S3</>, Policies: 15, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/sagemaker", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> SageMaker</>, Policies: 6, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/secrets-manager", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> Secrets Manager</>, Policies: 3, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/security-hub", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> Security Hub</>, Policies: 1, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/shield", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> Shield</>, Policies: 1, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/sns", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> SNS</>, Policies: 1, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/sqs", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> SQS</>, Policies: 1, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/vpc", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> VPC</>, Policies: 8, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/waf", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> WAF</>, Policies: 2, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } },
+                        { id: "/ce/ca/aws/workspaces", parentId: "/ce/ca/aws", fields: { Folder: <><Icon icon="folder" color="yellow" weight="bold" /> WorkSpaces</>, Policies: 2, Stats: "Compliant: _; Incompliant: _; Inapplicable: _; Undetermined: _" } }
+                    ]}
+                />
+            </MdxCard>
+        </MdxCol>
+    </MdxRow>
+</MdxCard>
+</MdxCard>

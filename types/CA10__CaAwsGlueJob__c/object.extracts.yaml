@@ -1,0 +1,62 @@
+---
+extracts:
+  - name: CA10__commandName__c
+    value:
+      FIELD:
+        path: CA10__commandName__c
+        undeterminedIf:
+          isEmpty: The Glue job command is unavailable.
+  - name: CA10__commandPythonVersion__c
+    value:
+      FIELD:
+        path: CA10__commandPythonVersion__c
+        undeterminedIf:
+          isEmpty: The Glue Python shell version is unavailable.
+  - name: CA10__createdOn__c
+    value:
+      FIELD:
+        path: CA10__createdOn__c
+        undeterminedIf:
+          isEmpty: The Glue job creation date is unavailable.
+  - name: CA10__glueVersion__c
+    value:
+      FIELD:
+        path: CA10__glueVersion__c
+        undeterminedIf:
+          isEmpty: The Glue job version is unavailable.
+  - name: CA10__numCompletedTasksSum7d__c
+    value:
+      FIELD:
+        path: CA10__numCompletedTasksSum7d__c
+        undeterminedIf:
+          isEmpty: The 7-day completed-task count is unavailable.
+  - name: CA10__numCompletedTasksSum14d__c
+    value:
+      FIELD:
+        path: CA10__numCompletedTasksSum14d__c
+        undeterminedIf:
+          isEmpty: The 14-day completed-task count is unavailable.
+  - name: CA10__avgAllCpuSystemLoad14d__c
+    value:
+      FIELD:
+        path: CA10__avgAllCpuSystemLoad14d__c
+        undeterminedIf:
+          isEmpty: The 14-day executor CPU utilization is unavailable.
+  - name: CA10__avgAllJvmHeapUsage14d__c
+    value:
+      FIELD:
+        path: CA10__avgAllJvmHeapUsage14d__c
+        undeterminedIf:
+          isEmpty: The 14-day executor JVM heap utilization is unavailable.
+  - name: CA10__avgDriverCpuSystemLoad14d__c
+    value:
+      FIELD:
+        path: CA10__avgDriverCpuSystemLoad14d__c
+        undeterminedIf:
+          isEmpty: The 14-day driver CPU utilization is unavailable.
+  - name: CA10__avgDriverJvmHeapUsage14d__c
+    value:
+      FIELD:
+        path: CA10__avgDriverJvmHeapUsage14d__c
+        undeterminedIf:
+          isEmpty: The 14-day driver JVM heap utilization is unavailable.

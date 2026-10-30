@@ -7,7 +7,7 @@ importExtracts:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The CloudWatch alarm actions are disabled."
-    remediationMessage: "Consider enabling the alarm actions if the alarm is still required."
+    remediationMessage: "Enable alarm actions if the alarm is still required."
     check:
       NOT:
         arg:
@@ -33,3 +33,4 @@ conditions:
 otherwise:
   status: "COMPLIANT"
   currentStateMessage: "The CloudWatch alarm has at least one action configured."
+

@@ -12,7 +12,7 @@ Migrating workloads to different regions requires careful planning to avoid serv
 
 ## Audit
 
-This policy flagged an *Google Cloud SQL Instance* as `INCOMPLIANT` if it is **running** in one of the following regions identified as less cost-efficient:
+This policy flags a *Google Cloud SQL Instance* as `INCOMPLIANT` if it is **running** in one of the following regions identified as less cost-efficient:
 
 | Region                                                                  | Recommended Alternative               |
 | ----------------------------------------------------------------------- | ------------------------------------- |

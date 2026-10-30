@@ -1,6 +1,6 @@
 ---
 name: "8.3.6 Ensure that Role Based Access Control for Azure Key Vault is enabled (Automated)"
-description: >
+description: |-
   The recommended way to access Key Vaults is to use the Azure Role-Based Access 
   Control (RBAC) permissions model.
 
@@ -12,3 +12,4 @@ similar:
   sections:
     - "/frameworks/cis-azure-v3.0.0/03/03/06"
     - "/frameworks/cis-azure-v4.0.0/09/03/06"
+    - "/frameworks/cis-azure-v6.0.0/08/03/06"

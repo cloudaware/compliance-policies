@@ -16,4 +16,4 @@ conditions:
 otherwise:
   status: "INCOMPLIANT"
   currentStateMessage: "Microsoft Entra administrator is not configured for this SQL server."
-  remediationMessage: "Consider assigning an Administrator in Entra ID for authentication with SQL Server."
+  remediationMessage: "Configure a Microsoft Entra administrator for SQL Server authentication."

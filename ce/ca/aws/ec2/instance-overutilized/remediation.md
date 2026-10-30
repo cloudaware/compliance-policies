@@ -39,7 +39,7 @@ If your instance's configuration is incompatible with the new instance type, or 
 
 #### **Migration Process Overview**
 
-1. Backup critical data from the original instance.
+1. Back up critical data from the original instance.
 
 2. Create a new instance compatible with the desired instance type, and attach any EBS volumes that were attached to your original instance.
 
@@ -53,6 +53,6 @@ If your instance's configuration is incompatible with the new instance type, or 
 
 Identify usage patterns to select the most cost-effective options:
 
-- **Steady-State Usage** – The load remains at a relatively constant level over time, and you can accurately forecast the likely compute load. For this usage pattern, you might consider ***Reserved Instances***, which can provide significant savings.
+- **Steady-State Usage** - The load remains at a relatively constant level over time, and you can accurately forecast the likely compute load. For this usage pattern, you might consider ***Reserved Instances***, which can provide significant savings.
 
-- **Variable but Predictable Usage** – The load changes, but on a predictable schedule. ***Amazon EC2 Auto Scaling*** is well suited for applications that have stable demand patterns with hourly, daily, or weekly variability in usage. You can use this feature to scale Amazon EC2 capacity up or down when you experience spiky traffic or predictable fluctuations in traffic.
+- **Variable but Predictable Usage** - The load changes, but on a predictable schedule. ***Amazon EC2 Auto Scaling*** is well suited for applications that have stable demand patterns with hourly, daily, or weekly variability in usage. You can use this feature to scale Amazon EC2 capacity up or down when you experience spiky traffic or predictable fluctuations in traffic.

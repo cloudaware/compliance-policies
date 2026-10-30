@@ -11,7 +11,7 @@
 7. Use the slider to set the `Instance count`.
 8. Select the `Virtual network` or `Create new`.
 9. Select the `Subnet` named `AzureBastionSubnet`. Create a `Subnet` named `AzureBastionSubnet` using a `/26` CIDR range if it doesn't already exist.
-10. Selct the appropriate `Public IP address` option.
+10. Select the appropriate `Public IP address` option.
 11. If `Create new` is selected for the `Public IP address` option, provide a `Public IP address name`.
 12. If `Use existing` is selected for `Public IP address` option, select an IP address from `Choose public IP address`.
 13. Click `Next: Tags >`.
@@ -24,7 +24,17 @@
 ## From Azure CLI
 
 ```sh
-az network bastion create --location <location> --name <name of bastion host> --public-ip-address <public IP address name or ID> --resource-group <resource group name or ID> --vnet-name <virtual network containing subnet called "AzureBastionSubnet"> --scale-units <integer> --sku Standard --disable-copy-paste true|false --enable-ip-connect true|false --enable-tunneling true|false
+az network bastion create \
+    --location {{location}} \
+    --name {{bastion-host-name}} \
+    --public-ip-address {{public-ip-address-name-or-id}} \
+    --resource-group {{resource-group-name}} \
+    --vnet-name {{virtual-network-name}} \
+    --scale-units {{integer}} \
+    --sku Standard \
+    --disable-copy-paste true|false \
+    --enable-ip-connect true|false \
+    --enable-tunneling true|false
 ```
 
 ## From PowerShell
@@ -32,11 +42,32 @@ az network bastion create --location <location> --name <name of bastion host> --
 Create the appropriate `Virtual network` settings and `Public IP Address` settings:
 
 ```ps
-$subnetName = "AzureBastionSubnet" $subnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix <IP address range in CIDR notation making sure to use a /26> $virtualNet = New-AzVirtualNetwork -Name <virtual network name> -ResourceGroupName <resource group name> -Location <location> -AddressPrefix <IP address range in CIDR notation> -Subnet $subnet $publicip = New-AzPublicIpAddress -ResourceGroupName <resource group name> -Name <public IP address name> -Location <location> -AllocationMethod Dynamic -Sku Standard
+$subnetName = "AzureBastionSubnet"
+$subnet = New-AzVirtualNetworkSubnetConfig `
+    -Name $subnetName `
+    -AddressPrefix {{bastion-subnet-cidr-26}}
+$virtualNet = New-AzVirtualNetwork `
+    -Name {{virtual-network-name}} `
+    -ResourceGroupName {{resource-group-name}} `
+    -Location {{location}} `
+    -AddressPrefix {{virtual-network-cidr}} `
+    -Subnet $subnet
+$publicip = New-AzPublicIpAddress `
+    -ResourceGroupName {{resource-group-name}} `
+    -Name {{public-ip-address-name}} `
+    -Location {{location}} `
+    -AllocationMethod Dynamic `
+    -Sku Standard
 ```
 
 Create the `Azure Bastion` service using the information within the created variables from above:
 
 ```ps
-New-AzBastion -ResourceGroupName <resource group name> -Name <bastion name> -PublicIpAddress $publicip -VirtualNetwork $virtualNet -Sku "Standard" -ScaleUnit <integer>
+New-AzBastion `
+    -ResourceGroupName {{resource-group-name}} `
+    -Name {{bastion-host-name}} `
+    -PublicIpAddress $publicip `
+    -VirtualNetwork $virtualNet `
+    -Sku "Standard" `
+    -ScaleUnit {{scale-unit-count}}
 ```

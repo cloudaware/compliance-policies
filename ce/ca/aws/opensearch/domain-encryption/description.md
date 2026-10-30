@@ -17,7 +17,7 @@ The following components are not encrypted when you enable encryption at rest, b
 
 ## Rationale
 
-Enabling encryption at rest for OpenSearch domains helps protect data from unauthorized access to the underlying storage. It leverages AWS KMS to manage encryption keys, providing a strong layer of protection and supporting compliance with data security and privacy requirements.
+Enabling encryption at rest for OpenSearch domains helps protect data from unauthorized access to the underlying storage. It uses AWS KMS to manage encryption keys, providing a strong layer of protection and supporting compliance with data security and privacy requirements.
 
 ## Audit
 

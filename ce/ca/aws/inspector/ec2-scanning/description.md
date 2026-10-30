@@ -14,4 +14,4 @@ Enabling Amazon Inspector for EC2 provides the following benefits:
 
 ## Audit
 
-This policy flags an *AWS Account* as `INCOMPLIANT` if `Inspector: EC2 Status` or `Inspector: Status` is not set to Enabled for the Account.
+This policy flags an *AWS Account* as `INCOMPLIANT` if `Inspector: EC2 Status` or `Inspector: Status` is not set to **Enabled** for the account.

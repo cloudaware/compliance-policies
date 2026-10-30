@@ -8,6 +8,6 @@ Although proactively monitoring upcoming expirations is the recommended best pra
 
 ## Audit
 
-This policy flags an *Azure Reservation* is `INCOMPLIANT` if its `Expiry Date` falls within the **last 30 days**.
+This policy flags an *Azure Reservation* as `INCOMPLIANT` if its `Expiry Date` falls within the **last 30 days**.
 
 The *Reservation* is marked as `INAPPLICABLE` if its `Provisioning State` is **not** equal to **Expired** or the `Expiry Date` is **empty**.

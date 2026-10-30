@@ -1,0 +1,12 @@
+---
+names:
+  full: AWS EC2 Instance references a deprecated AMI
+  contextual: Instance references a deprecated AMI
+description: >
+  Identify existing EC2 instances whose source AMI has passed its scheduled
+  deprecation date. Review replacement images through the normal deployment process.
+type: BEST_PRACTICE
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization

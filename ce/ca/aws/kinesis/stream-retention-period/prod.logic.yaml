@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10__CaAwsKinesisStream__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The Kinesis Stream is not active."
+    currentStateMessage: "The Kinesis stream is not active."
     check:
       NOT_EQUAL:
         left:
@@ -14,13 +14,12 @@ conditions:
         right:
           TEXT: "ACTIVE"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Stream retention period is less than 168 hours (7 days)."
+    currentStateMessage: "The Kinesis stream retention period is less than 168 hours (7 days)."
     remediationMessage: "Increase the data stream retention period to 168 hours or more."
     check:
       LESS_THAN:
         left:
-          FIELD:
-            path: "CA10__retentionPeriodHours__c"
+          EXTRACT: "CA10__retentionPeriodHours__c"
         right:
           NUMBER: 168
 otherwise:

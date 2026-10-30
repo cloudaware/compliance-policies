@@ -1,6 +1,6 @@
 # Description
 
-Ensure that all non-default AWS VPC Network ACLs are actively associated with at least one subnet. Unused NACLs should be identified and removed to maintain a secure and well-managed network environment.
+This policy identifies non-default AWS VPC Network ACLs that are not associated with any subnets. Unused NACLs should be identified and removed to maintain a secure and well-managed network environment.
 
 ## Rationale
 
@@ -8,7 +8,7 @@ Network ACLs that are not associated with any subnets are considered unused. Whi
 
 ## Impact
 
-Removing unused NACLs has no operational impact on existing resources. However, it strengthens the overall security posture and simplifies audits by eliminating unnecessary configurations.
+Removing unused NACLs has no operational impact on existing resources. It strengthens the overall security posture and simplifies audits by eliminating unnecessary configurations.
 
 ## Audit
 

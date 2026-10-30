@@ -1,0 +1,12 @@
+---
+name: "[CloudFormation.3] CloudFormation stacks should have termination protection enabled"
+description: |-
+  CloudFormation helps to manage related resources as a single unit called a Stack. 
+  You can prevent a stack from being accidentally deleted by enabling termination 
+  protection on the stack. If a user attempts to delete a stack with termination 
+  protection enabled, the deletion fails and the stack, including its status, remains 
+  unchanged. You can set termination protection on a stack with any status except 
+  DELETE_IN_PROGRESS or DELETE_COMPLETE.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/cloudformation-controls.html#cloudformation-3

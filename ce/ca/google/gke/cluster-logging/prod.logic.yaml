@@ -7,7 +7,7 @@ importExtracts:
   - file: "/types/CA10G1__CaGoogleGkeCluster__c/object.extracts.yaml"
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "The Cluster logging enabled."
+    currentStateMessage: "Cluster logging is enabled."
     check:
       IS_EQUAL:
         left:
@@ -15,7 +15,8 @@ conditions:
         right:
           TEXT: "logging.googleapis.com/kubernetes"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Cluster uses legacy logging."
+    currentStateMessage: "The cluster uses legacy logging."
+    remediationMessage: "Use Kubernetes logging."
     check:
       IS_EQUAL:
         left:
@@ -24,5 +25,5 @@ conditions:
           TEXT: "logging.googleapis.com"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "The Cluster logging disabled."
-  remediationMessage: "Enable the Cluster logging."
+  currentStateMessage: "Cluster logging is disabled."
+  remediationMessage: "Enable cluster logging."

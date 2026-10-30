@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10__CaAwsWorkspace__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The WorkSpace is in transient state."
+    currentStateMessage: "The WorkSpace is in a transient state."
     check:
       AND:
         args:
@@ -22,14 +22,14 @@ conditions:
                 TEXT: "STOPPED"
   - status: "INCOMPLIANT"
     currentStateMessage: "The last user connection time for the WorkSpace is unknown."
-    remediationMessage: "Consider terminating the unused WorkSpace."
+    remediationMessage: "Terminate the unused WorkSpace."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__lastKnownUserConnectionTimestamp__c"
   - status: "INCOMPLIANT"
     currentStateMessage: "The WorkSpace has not been used in the last 30 days."
-    remediationMessage: "Consider terminating the unused WorkSpace."
+    remediationMessage: "Terminate the unused WorkSpace."
     check:
       IS_BEYOND_LAST_DAYS:
         offsetDays: 30

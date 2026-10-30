@@ -18,7 +18,7 @@ AWS Secrets Manager supports two rotation strategies:
 - **Option 2: Alternating Users Strategy**
 
   - Create a separate secret containing **superuser credentials**.
-  - Add the ARN of the superuser secret to the original secret’s JSON structure.
+  - Add the ARN of the superuser secret to the original secret's JSON structure.
   - Note: *Amazon RDS Proxy does not support the alternating users strategy.*
 
 For more information, see *[Lambda Function Rotation Strategies](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotation-strategy.html)*.
@@ -37,13 +37,13 @@ To create your function:
    - Otherwise, write your own rotation function. See *[Lambda Rotation Functions](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_lambda-functions.html)* for guidance.
 2. Package your function and dependencies into a ZIP file, for example:
 
-   ```sh
-   zip {{my-function}}.zip {{my_function}}.py
-   ```
+    ```sh
+    zip {{my-function}}.zip {{my_function}}.py
+    ```
 
 ## Step 2: Create the Lambda Function
 
-1. **Create a Trust Policy** for the Lambda execution role.
+1. **Create a trust policy** for the Lambda execution role.
    The policy must allow the following:
 
    - Secrets Manager operations on the secret.
@@ -51,33 +51,33 @@ To create your function:
 
 2. **Create the Lambda execution role and apply the trust policy:**
 
-   ```sh
-   aws iam create-role \
-       --role-name {{rotation-lambda-role}} \
-       --assume-role-policy-document file://{{trust-policy}}.json
-   ```
+    ```sh
+    aws iam create-role \
+        --role-name {{rotation-lambda-role}} \
+        --assume-role-policy-document file://{{trust-policy}}.json
+    ```
 
 3. **Create the Lambda Function using your ZIP file:**
 
-   ```sh
-   aws lambda create-function \
-       --function-name {{rotation-function}} \
-       --runtime python3.7 \
-       --zip-file fileb://{{my-function}}.zip \
-       --handler .{{handler}} \
-       --role {{rotation-lambda-role-arn}}
-   ```
+    ```sh
+    aws lambda create-function \
+        --function-name {{rotation-function}} \
+        --runtime python3.7 \
+        --zip-file fileb://{{my-function}}.zip \
+        --handler .{{handler}} \
+        --role {{rotation-lambda-role-arn}}
+    ```
 
-4. **Allow Secrets Manager to Invoke the Lambda Function:**
+4. **Allow Secrets Manager to invoke the Lambda Function:**
 
-   ```sh
-   aws lambda add-permission \
-       --function-name {{rotation-function}} \
-       --action lambda:InvokeFunction \
-       --statement-id SecretsManager \
-       --principal secretsmanager.amazonaws.com \
-       --source-account {{123456789012}}
-   ```
+    ```sh
+    aws lambda add-permission \
+        --function-name {{rotation-function}} \
+        --action lambda:InvokeFunction \
+        --statement-id SecretsManager \
+        --principal secretsmanager.amazonaws.com \
+        --source-account {{123456789012}}
+    ```
 
 ## Step 3: Set Up Network Access
 

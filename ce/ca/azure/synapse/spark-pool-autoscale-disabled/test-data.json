@@ -1,0 +1,121 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10Z1__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "gone",
+    "CA10Z1__disappearanceTime__c": "2026-09-09T00:00:00Z",
+    "CA10Z1__provisioningState__c": "Succeeded",
+    "CA10Z1__autoScaleState__c": "Disabled",
+    "CA10Z1__autoScaleMinNodeCount__c": 1,
+    "CA10Z1__autoScaleMaxNodeCount__c": 3
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10Z1__provisioningState__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "missing-provisioning-state",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": null,
+    "CA10Z1__autoScaleState__c": "Disabled",
+    "CA10Z1__autoScaleMinNodeCount__c": 1,
+    "CA10Z1__autoScaleMaxNodeCount__c": 3
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10Z1__provisioningState__c') != 'Succeeded'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "not-ready",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "Creating",
+    "CA10Z1__autoScaleState__c": "Disabled",
+    "CA10Z1__autoScaleMinNodeCount__c": 1,
+    "CA10Z1__autoScaleMaxNodeCount__c": 3
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10Z1__autoScaleState__c').isEmpty() || not(extract('CA10Z1__autoScaleState__c') == 'Enabled' || extract('CA10Z1__autoScaleState__c') == 'Disabled') || (extract('CA10Z1__autoScaleState__c') == 'Enabled' && (extract('CA10Z1__autoScaleMinNodeCount__c').isEmpty() || extract('CA10Z1__autoScaleMaxNodeCount__c').isEmpty() || extract('CA10Z1__autoScaleMinNodeCount__c') > extract('CA10Z1__autoScaleMaxNodeCount__c')))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "invalid-bounds",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "Succeeded",
+    "CA10Z1__autoScaleState__c": "Enabled",
+    "CA10Z1__autoScaleMinNodeCount__c": 4,
+    "CA10Z1__autoScaleMaxNodeCount__c": 3
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": "399",
+      "conditionText": "extract('CA10Z1__autoScaleState__c').isEmpty() || not(extract('CA10Z1__autoScaleState__c') == 'Enabled' || extract('CA10Z1__autoScaleState__c') == 'Disabled') || (extract('CA10Z1__autoScaleState__c') == 'Enabled' && (extract('CA10Z1__autoScaleMinNodeCount__c').isEmpty() || extract('CA10Z1__autoScaleMaxNodeCount__c').isEmpty() || extract('CA10Z1__autoScaleMinNodeCount__c') > extract('CA10Z1__autoScaleMaxNodeCount__c')))",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "unknown-autoscale-state",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "Succeeded",
+    "CA10Z1__autoScaleState__c": "Pending",
+    "CA10Z1__autoScaleMinNodeCount__c": 1,
+    "CA10Z1__autoScaleMaxNodeCount__c": 3
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10Z1__autoScaleState__c') == 'Disabled'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "disabled",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "Succeeded",
+    "CA10Z1__autoScaleState__c": "Disabled",
+    "CA10Z1__autoScaleMinNodeCount__c": 1,
+    "CA10Z1__autoScaleMaxNodeCount__c": 3
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "500",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-09-10T13:03:37Z"
+    },
+    "Id": "enabled",
+    "CA10Z1__disappearanceTime__c": null,
+    "CA10Z1__provisioningState__c": "Succeeded",
+    "CA10Z1__autoScaleState__c": "Enabled",
+    "CA10Z1__autoScaleMinNodeCount__c": 1,
+    "CA10Z1__autoScaleMaxNodeCount__c": 3
+  }
+]

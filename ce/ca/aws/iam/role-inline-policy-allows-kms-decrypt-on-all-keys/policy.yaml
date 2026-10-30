@@ -1,0 +1,19 @@
+---
+names:
+  full: AWS IAM Role Inline Policy allows KMS decryption actions on all KMS keys
+  contextual: Role Inline Policy allows KMS decryption actions on all KMS keys
+description: >
+  IAM role inline policies should grant AWS KMS decryption permissions only for
+  the specific KMS keys required by the role. Allowing decryption actions on
+  all KMS keys weakens least-privilege access control and can expose encrypted
+  data beyond the intended scope.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - "/frameworks/cloudaware/identity-and-access-governance/rbac-management"
+  - "/frameworks/aws-fsbp-v1.0.0/kms/02"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[KMS.2] IAM principals should not have IAM inline policies that allow decryption actions on all KMS keys"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/kms-controls.html#kms-2"

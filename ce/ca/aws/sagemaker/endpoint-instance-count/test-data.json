@@ -1,0 +1,149 @@
+[
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10A1__status__c') != 'InService'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-16T01:27:51Z"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__status__c": "Failed",
+        "CA10A1__endpointConfig__c": null,
+        "CA10A1__endpointConfigArn__c": "endpointConfigArn1",
+        "Id": "test1",
+        "CA10A1__endpointConfig__r": {
+            "Id": null,
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__productionVariantsJson__c": null
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "extract('caJsonFrom__productionVariantsJson__c').jsonQueryText('length([?initialInstanceCount < `2`])') > number(0.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-16T01:27:51Z"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__status__c": "InService",
+        "CA10A1__endpointConfig__c": "test2_1",
+        "CA10A1__endpointConfigArn__c": "endpointConfigArn2",
+        "Id": "test2",
+        "CA10A1__endpointConfig__r": {
+            "Id": "test2_1",
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__productionVariantsJson__c": "[{\"variantName\":\"AllTraffic\",\"modelName\":\"modelName\",\"initialInstanceCount\":1,\"instanceType\":\"ml.g5.2xlarge\",\"initialVariantWeight\":1.0,\"modelDataDownloadTimeoutInSeconds\":3600,\"containerStartupHealthCheckTimeoutInSeconds\":3600}]"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "299",
+            "conditionText": "isEmptyLookup('CA10A1__endpointConfig__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-16T01:27:51Z"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__status__c": "InService",
+        "CA10A1__endpointConfig__c": "",
+        "CA10A1__endpointConfigArn__c": "endpointConfigArn3",
+        "Id": "test3",
+        "CA10A1__endpointConfig__r": {
+            "Id": null,
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__productionVariantsJson__c": null
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "500",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-16T01:27:51Z"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__status__c": "InService",
+        "CA10A1__endpointConfig__c": "test4_1",
+        "CA10A1__endpointConfigArn__c": "endpointConfigArn2",
+        "Id": "test4",
+        "CA10A1__endpointConfig__r": {
+            "Id": "test4_1",
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__productionVariantsJson__c": "[]"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "304",
+            "conditionText": "CA10A1__productionVariantsJson__c.delegatedTo(CA10A1__productionVariantsJson__c).isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-16T01:27:51Z"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__status__c": "InService",
+        "CA10A1__endpointConfig__c": "test5_1",
+        "CA10A1__endpointConfigArn__c": "endpointConfigArn2",
+        "Id": "test5",
+        "CA10A1__endpointConfig__r": {
+            "Id": "test5_1",
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__productionVariantsJson__c": ""
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "UNDETERMINED",
+            "conditionIndex": "304",
+            "conditionText": "CA10A1__productionVariantsJson__c.delegatedTo(CA10A1__productionVariantsJson__c).isEmpty()",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-16T01:27:51Z"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__status__c": "InService",
+        "CA10A1__endpointConfig__c": "test6_1",
+        "CA10A1__endpointConfigArn__c": "endpointConfigArn2",
+        "Id": "test6",
+        "CA10A1__endpointConfig__r": {
+            "Id": "test6_1",
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__productionVariantsJson__c": null
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "extract('caJsonFrom__productionVariantsJson__c').jsonQueryText('length([?initialInstanceCount > `1`])') > number(0.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-16T01:27:51Z"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__status__c": "InService",
+        "CA10A1__endpointConfig__c": "test7_1",
+        "CA10A1__endpointConfigArn__c": "endpointConfigArn2",
+        "Id": "test7",
+        "CA10A1__endpointConfig__r": {
+            "Id": "test7_1",
+            "CA10A1__disappearanceTime__c": null,
+            "CA10A1__productionVariantsJson__c": "[{\"variantName\":\"AllTraffic\",\"modelName\":\"modelName\",\"initialInstanceCount\":3,\"instanceType\":\"ml.g5.2xlarge\",\"initialVariantWeight\":1.0,\"modelDataDownloadTimeoutInSeconds\":3600,\"containerStartupHealthCheckTimeoutInSeconds\":3600}]"
+        }
+    }
+]

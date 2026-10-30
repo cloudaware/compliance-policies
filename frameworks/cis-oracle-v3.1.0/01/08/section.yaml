@@ -1,0 +1,11 @@
+---
+name: 1.8 Ensure user API keys rotate within 90 days - Level 1 (Automated)
+description: >
+  API keys are used by administrators, developers, services and scripts for
+  accessing OCI APIs directly or via SDKs/OCI CLI to search, create, update or
+  delete OCI resources. The API key is an RSA key pair. The private key is used
+  for signing the API requests and the public key is associated with a local or
+  synchronized user's profile.
+similar:
+  internal:
+    - dec-c-f3e9e012

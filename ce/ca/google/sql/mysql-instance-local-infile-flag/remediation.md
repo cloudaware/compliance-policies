@@ -14,10 +14,15 @@
 
 1. List all Cloud SQL database instances using the following command:
 
-            gcloud sql instances list
+    ```sh
+    gcloud sql instances list
+    ```
 
-2. Configure the `local_infile` database flag for every Cloud SQL Mysql database instance using the below command:
+2. Configure the `local_infile` database flag for every Cloud SQL MySQL database instance using the following command:
 
-            gcloud sql instances patch <INSTANCE_NAME> --database-flags local_infile=off
+    ```sh
+    gcloud sql instances patch {{instance-name}} \
+        --database-flags local_infile=off
+    ```
 
 Note: This command will overwrite all database flags that were previously set. To keep those and add new ones, include the values for all flags to be set on the instance; any flag not specifically included is set to its default value. For flags that do not take a value, specify the flag name followed by an equals sign ("=").

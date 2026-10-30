@@ -2,7 +2,10 @@
 
 ## Overview
 
-The CloudAware MCP (Metadata and Query Proxy) Server provides a secure interface for discovering and querying metadata and data from your CloudAware datasets stored in Google BigQuery. It enables programmatic access to object types, fields, relationships, and direct SQL query execution, helping you explore and analyze your cloud infrastructure data efficiently. Note that the server is currently under active development, and its features, APIs, and behaviors may evolve significantly in future releases. For the latest updates, refer to the release notes or contact support.
+The CloudAware MCP (Metadata and Query Proxy) Server provides a secure interface for discovering and querying metadata and data from your CloudAware datasets stored in Google BigQuery. 
+It enables programmatic access to object types, fields, relationships, and direct SQL query execution, helping you explore and analyze your cloud infrastructure data efficiently. 
+Note that the server is currently under active development, and its features, APIs, and behaviors may evolve significantly in future releases. 
+For the latest updates, refer to the release notes or contact support.
 
 ## Tools Overview
 
@@ -11,9 +14,29 @@ The server exposes a set of tools via a JSON-RPC interface for metadata discover
 - **search_types**: Search for object types based on keywords to identify API names and table IDs.
 - **search_fields**: Retrieve field metadata for a specific type, including labels, types, and descriptions.
 - **get_relationship_graph**: Get a graph of relationships starting from a type to understand joins.
+- **analyze_field**: Provides statistics about the values of a specific field of a specific type.
 - **execute_query**: Run custom BigQuery SQL queries on your dataset.
 
 AI agent should follow a discovery-first approach: start with type and field searches before querying data. Detailed tool descriptions, inputs, and outputs are available in the API reference (accessible via the server's endpoint).
+
+## Configuration Parameters
+
+The MPC server requires 2 parameters to be accessible to operate:
+
+- `exportProject` - The GCP project where the data exported from CloudAware is located.
+- `sObjectsDataset` - The dataset within the `exportProject` where all the tables are located.
+
+Depending on the environment where the server is running, these parameters are retrieved differently:
+
+- Locally run servers use `repo-manager` and `gcloud` commands to obtain the values
+- Servers that run with OAuth and HTTP transport require these parameters to be provided explicitly via query parameter or HTTP header (see below)
+
+You also have an ability to switch the `exportProject` and `sObjectsDataset` on the fly, by asking your agent explicitly:
+
+> Use export project `my-export-project` and dataset `my-dataset`.
+> How many EC2 Instances I have?
+
+The agent should start using these new values for all subsequent requests to the MCP server.
 
 ## `stdio` Transport
 
@@ -63,6 +86,40 @@ Or in case you haven't created alias for `repo-manager`:
     "cloudaware-mcp": {
       "command": "java",
       "args": ["-jar", "path/to/your/repo-manager.jar", "mcp", "cloudaware"]
+    }
+  }
+}
+```
+
+### Kilo Code
+
+Configuration is the same as for the [Gemini CLI](#gemini-cli). The configuration file is usually located in `.kilocode/mcp.json` in your working directory.
+
+### OpenCode
+
+Add following to your `opencode.json`:
+
+```json
+{
+  "mcp": {
+    "cloudaware-mcp": {
+      "type": "local",
+      "command": ["repo-manager", "mcp", "cloudaware"],
+      "enabled": true
+    }
+  }
+}
+```
+
+Or in case you haven't created alias for `repo-manager`:
+
+```json
+{
+  "mcp": {
+    "cloudaware-mcp": {
+      "type": "local",
+      "command": ["-jar", "path/to/your/repo-manager.jar", "mcp", "cloudaware"],
+      "enabled": true
     }
   }
 }
@@ -153,3 +210,33 @@ mcpServers:
     timeout: 30000
     serverInstructions: true
 ```
+
+### n8n.cloud
+
+You can connect to Cloudaware MCP Server using the MCP Client node directly, or via the Tools section of the AI Agent node.
+
+To set up credentials, go to `Personal` → `Credentials` in your n8n dashboard. Click `Create Credentials` → `MCP Oauth2 API`.
+Use the following parameters:
+- Use dynamic client registration: leave turned on
+- Server URL: `https://inbound.prod.cloudaware.com/mcp`
+
+Use the following parameters in MCP Client node settings:
+- Server Transport: `HTTP Streamable`
+- MCP Endpoint URL: `https://inbound.prod.cloudaware.com/mcp?exportProject=your-export-project-id&sObjectsDataset=your-sobjects-dataset-name`
+- Authentication: `MCP OAuth2`
+- Credential for MCP OAuth2 API: credentials created in the previous step
+
+Replace `your-export-project-id` and `your-sobjects-dataset-name` with your actual values.
+
+### ChatGPT
+
+You can create an app that uses Cloudaware MCP, available with a Plus subscription.
+- Enable Developer Mode: Go to `Settings` → `Apps` → `Advanced Settings` → `Developer Mode`.
+- Create an Application: Click `Create App` next to `Advanced Settings`.
+
+Use the following settings:
+- Name: `cloudaware-mcp`
+- MCP Server URL: `https://inbound.prod.cloudaware.com/mcp?exportProject=your-export-project-id&sObjectsDataset=your-sobjects-dataset-name`
+- Authentication: `OAuth`
+
+Replace `your-export-project-id` and `your-sobjects-dataset-name` with your actual values.

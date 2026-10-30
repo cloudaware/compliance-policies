@@ -1,0 +1,35 @@
+---
+inputType: "CA10__CaAwsRedshiftCluster__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsRedshiftCluster__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The cluster is not available."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "available"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Redshift cluster is publicly accessible."
+    remediationMessage: "Modifying the cluster configuration to disable public access."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__publiclyAccessible__c"
+        right:
+          TEXT: "Yes"
+  - status: "COMPLIANT"
+    currentStateMessage: "The Redshift cluster is not publicly accessible."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__publiclyAccessible__c"
+        right:
+          TEXT: "No"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

@@ -1,11 +1,13 @@
 ---
-name: "[RDS.16] RDS DB clusters should be configured to copy tags to snapshots"
+name: "[RDS.16] Aurora DB clusters should be configured to copy tags to DB snapshots"
 description: |-
-  Identification and inventory of your IT assets is a crucial aspect of 
-  governance and security. You need to have visibility of all your RDS DB 
-  clusters so that you can assess their security posture and take action on 
-  potential areas of weakness. Snapshots should be tagged in the same way as 
-  their parent RDS database clusters.
+  Identification and inventory of your IT assets is a crucial aspect of governance 
+  and security. You need to have visibility of all your Amazon Aurora DB clusters 
+  so that you can assess their security posture and take action on potential areas 
+  of weakness. Aurora DB snapshots should have the same tags as their parent DB 
+  clusters. In Amazon Aurora, you can configure a DB cluster to automatically copy 
+  all the tags for the cluster to snapshots of the cluster. Enabling this setting 
+  ensures that DB snapshots inherit the same tags as their parent DB clusters.
 similar:
   internal:
     - dec-c-f51747d8

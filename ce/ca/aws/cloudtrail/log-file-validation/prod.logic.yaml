@@ -7,7 +7,7 @@ importExtracts:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "CloudTrail Log File Validation is disabled."
-    remediationMessage: "Consider enabling CloudTrail Log File Validation."
+    remediationMessage: "Enable CloudTrail log file validation."
     check:
       IS_EQUAL:
         left:
@@ -15,7 +15,7 @@ conditions:
         right:
           BOOLEAN: false
   - status: "COMPLIANT"
-    currentStateMessage: "CloudTrail Log File Validation is enabled."
+    currentStateMessage: "CloudTrail log file validation is enabled."
     check:
       IS_EQUAL:
         left:

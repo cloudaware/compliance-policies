@@ -5,7 +5,7 @@ Azure WAF helps protect applications from common exploits and attacks by inspect
 
 ## Rationale
 
-Using Azure Web Application Firewall with Azure Application Gateway reduces exposure to external threats by mitigating attacks on public facing applications.
+Using Azure Web Application Firewall with Azure Application Gateway reduces exposure to external threats by mitigating attacks on public-facing applications.
 
 ## Impact
 
@@ -17,7 +17,7 @@ This policy flags an *Azure Application Gateway* as `INCOMPLIANT` if its `WAF Po
 
 ## Default Value
 
-Azure Web Application Firewall is enabled by default for the `WAF V2` tier of Azure Application Gateway. It is not available in the `Basic` tier. Application gateways deployed using the `Standard V2` tier can be upgraded to the `WAF V2` tier to enable Azure Web Application Firewall.
+Azure Web Application Firewall is enabled by default for the `WAF V2` tier of Azure Application Gateway. It is not available in the `Basic` tier. Application Gateways deployed using the `Standard V2` tier can be upgraded to the `WAF V2` tier to enable Azure Web Application Firewall.
 
 ## References
 

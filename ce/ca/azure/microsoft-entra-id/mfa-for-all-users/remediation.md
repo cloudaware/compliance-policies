@@ -2,7 +2,7 @@
 
 ## From Azure Portal
 
-1. From Azure Home open Portal menu in the top left, and select `Microsoft Entra ID`.
+1. In the Azure portal, open the portal menu in the upper left and select `Microsoft Entra ID`.
 2. Select `Security`.
 3. Select `Conditional Access`.
 4. Select `Policies`.
@@ -11,7 +11,7 @@
 7. Click the blue text under `Users`.
 8. Under `Include`, select `All users`.
 9. Under `Exclude`, check `Users and groups`.
-10. Select users this policy should not apply to and click `Select`.
+10. Select the users this policy should not apply to and click `Select`.
 11. Click the blue text under `Target resources`.
 12. Select `All cloud apps`.
 13. Click the blue text under `Grant`.

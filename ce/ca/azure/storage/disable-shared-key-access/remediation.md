@@ -14,7 +14,10 @@
 For each storage account requiring remediation, run the following command to disallow shared key authorization:
 
 ```sh
-az storage account update --resource-group <resource-group> --name <storage-account> --allow-shared-key-access false
+az storage account update \
+    --resource-group {{resource-group-name}} \
+    --name {{storage-account-name}} \
+    --allow-shared-key-access false
 ```
 
 ## From PowerShell
@@ -22,5 +25,8 @@ az storage account update --resource-group <resource-group> --name <storage-acco
 For each storage account requiring remediation, run the following command to disallow shared key authorization:
 
 ```ps
-Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account> -AllowSharedKeyAccess $false
+Set-AzStorageAccount `
+    -ResourceGroupName {{resource-group-name}} `
+    -Name {{storage-account-name}} `
+    -AllowSharedKeyAccess $false
 ```

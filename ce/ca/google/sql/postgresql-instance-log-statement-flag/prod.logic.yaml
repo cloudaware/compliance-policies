@@ -17,7 +17,7 @@ conditions:
             search:
               TEXT: "POSTGRE" 
   - status: "COMPLIANT"
-    currentStateMessage: "log_statement database flag is set appropriately."
+    currentStateMessage: "The log_statement database flag is set appropriately."
     check:
       CONTAINS:
         arg:
@@ -31,5 +31,8 @@ conditions:
           EXTRACT: "caJsonText__databaseFlagsLogStatementFlagValue__c"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "log_statement database flag isn't set appropriately."
+  currentStateMessage: "The log_statement database flag is not set appropriately."
   remediationMessage: "Set log_statement database flag to appropriate value."
+
+
+

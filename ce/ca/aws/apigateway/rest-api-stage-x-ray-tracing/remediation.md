@@ -4,7 +4,7 @@
 
 ### Enable X-Ray tracing
 
-Use the following command to update the Stage settings and enable X-Ray tracing:
+Use the following command to update the stage settings and enable X-Ray tracing:
 
 ```sh
 aws apigateway update-stage \
@@ -15,4 +15,4 @@ aws apigateway update-stage \
 
 ### Test API calls
 
-Perform a few API calls and verify that traces appear in the AWS X-Ray console. Ensure that the traces show accurate request flows and performance metrics.
+Make a few API calls and verify that traces appear in AWS X-Ray. Ensure that the traces show accurate request flows and performance metrics.

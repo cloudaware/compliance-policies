@@ -1,0 +1,92 @@
+---
+inputType: "CA10O1__CaOracleIamDomainPasswordPolicy__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10O1__CaOracleIamDomainPasswordPolicy__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The default password policy is auto-created and is not evaluated by this policy."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10O1__name__c"
+        right:
+          TEXT: "defaultPasswordPolicy"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This non-default password policy is not assigned to any Oracle IAM group."
+    check:
+      RELATED_LIST_HAS_NO:
+        status: "COMPLIANT"
+        relationshipName: "CA10O1__Oracle_IAM_Groups__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The assigned simple password policy has a fixed minimum length below 14 characters."
+    remediationMessage: "Assign affected groups to a custom password policy that requires passwords to be at least 14 characters long and includes a numeric or special character."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10O1__name__c"
+        right:
+          TEXT: "simplePasswordPolicy"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The assigned standard password policy has a fixed minimum length below 14 characters."
+    remediationMessage: "Assign affected groups to a custom password policy that requires passwords to be at least 14 characters long and includes a numeric or special character."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10O1__name__c"
+        right:
+          TEXT: "standardPasswordPolicy"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This assigned password policy minimum length is empty or configured below 14 characters."
+    remediationMessage: "Update this assigned password policy to require passwords to be at least 14 characters long."
+    check:
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10O1__passwordLengthMinimum__c"
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10O1__passwordLengthMinimum__c"
+              right:
+                NUMBER: 14
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This assigned password policy numeric character minimum is empty or configured below 1."
+    remediationMessage: "Update this assigned password policy to require at least one numeric character."
+    check:
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10O1__minNumerals__c"
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10O1__minNumerals__c"
+              right:
+                NUMBER: 1
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This assigned password policy special character minimum is empty or configured below 1."
+    remediationMessage: "Update this assigned password policy to require at least one special character."
+    check:
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10O1__minSpecialCharacters__c"
+          - LESS_THAN:
+              left:
+                EXTRACT: "CA10O1__minSpecialCharacters__c"
+              right:
+                NUMBER: 1
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "This assigned password policy requires a minimum length of at least 14 characters, at least one numeric character, and at least one special character."
+relatedLists:
+  - relationshipName: "CA10O1__Oracle_IAM_Groups__r"
+    importExtracts:
+      - file: "/types/CA10O1__CaOracleIamGroup2__c/object.extracts.yaml"
+    conditions: []
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This Oracle IAM group is assigned to the password policy."

@@ -1,6 +1,6 @@
 ---
 name: "5.28 Ensure passwordless authentication methods are considered (Manual)"
-description: >
+description: |-
   Passwordless authentication methods improve security and user experience by replacing 
   passwords with something you have (e.g., a hardware key), something you are (biometrics), 
   or something you know, offering a convenient and secure way to access resources.
@@ -8,9 +8,9 @@ description: >
   Microsoft Entra ID and Azure Government integrate the following passwordless 
   authentication options:
 
-  •  Windows Hello for Business
-  •  Platform Credential for macOS
-  •  Platform single sign-on (PSSO) for macOS with smart card authentication
-  •  Microsoft Authenticator
-  •  Passkeys (FIDO2)
-  •  Certificate-based authentication
+  -  Windows Hello for Business
+  -  Platform Credential for macOS
+  -  Platform single sign-on (PSSO) for macOS with smart card authentication
+  -  Microsoft Authenticator
+  -  Passkeys (FIDO2)
+  -  Certificate-based authentication

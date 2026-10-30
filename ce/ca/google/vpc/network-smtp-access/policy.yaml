@@ -9,6 +9,13 @@ categories:
   - "SECURITY"
 frameworkMappings:
   - "/frameworks/nist-sp-800-53-r4/sc/07"
-  - "/frameworks/pci-dss-v3.2.1/01/02/01"
   - "/frameworks/iso-iec-27001-2013/13/01/01"
-  - "/frameworks/cloudaware/resource-security/public-and-anonymous-access"
+  - "/frameworks/iso-iec-27001-2013/09/01/02"
+  - "/frameworks/pci-dss-v4.0.1/01/04/01"
+  - "/frameworks/pci-dss-v4.0.1/01/04/02"
+  - "/frameworks/soc-2/cc6/01/07"
+  - "/frameworks/soc-2/cc6/06/01"
+  - "/frameworks/cloudaware/resource-security/network-exposure"
+similarPolicies:
+  internal:
+    - dec-x-7a66b002

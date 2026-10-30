@@ -24,7 +24,7 @@ conditions:
           TEXT: "FAILED"
   - status: "INCOMPLIANT"
     currentStateMessage: "The certificate validation has timed out."
-    remediationMessage: "Ensure that the validation requirements are met and re-initiate validation."
+    remediationMessage: "Confirm the validation requirements are met and re-initiate validation."
     check:
       IS_EQUAL:
         left:

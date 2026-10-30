@@ -1,0 +1,177 @@
+inputType: CA10A1__CaAwsEksClusterNodeGroup__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10A1__CaAwsEksClusterNodeGroup__c/object.extracts.yaml
+# AWS EKS lifecycle calendar: https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html
+# Future stream cutoffs use the last supported UTC day with IS_BEFORE_TODAY to fail from the published cutoff day.
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: The EKS managed node group is being created, failed creation, or is being deleted.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - CREATING
+              - CREATE_FAILED
+              - DELETING
+        search:
+          EXTRACT: CA10A1__status__c
+  # EKS AL2 support already ended on November 26, 2025, independently of Kubernetes Extended Support.
+  - status: INCOMPLIANT
+    currentStateMessage: The EKS-optimized AL2 AMI family reached end of support on November 26, 2025; AWS no longer publishes image updates.
+    remediationMessage: Test and migrate the node group to a supported AL2023 or Bottlerocket AMI family.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - AL2_x86_64
+              - AL2_x86_64_GPU
+              - AL2_ARM_64
+        search:
+          EXTRACT: CA10A1__amiType__c
+  # AL2023 maintenance includes security updates through June 30, 2029; this is not Kubernetes Extended Support.
+  - status: INCOMPLIANT
+    currentStateMessage: The AL2023 AMI family is past the Amazon Linux 2023 maintenance-support deadline of June 30, 2029.
+    remediationMessage: Verify the current AWS EKS AMI support schedule and migrate to a supported AMI family.
+    check:
+      AND:
+        args:
+          - CONTAINS:
+              arg:
+                SET:
+                  itemType: TEXT
+                  items:
+                    - AL2023_x86_64_STANDARD
+                    - AL2023_ARM_64_STANDARD
+                    - AL2023_x86_64_NEURON
+                    - AL2023_x86_64_NVIDIA
+                    - AL2023_ARM_64_NVIDIA
+              search:
+                EXTRACT: CA10A1__amiType__c
+          - IS_BEFORE_TODAY:
+              arg:
+                DATE_TIME: '2029-06-30T00:00:00Z'
+  - status: INAPPLICABLE
+    currentStateMessage: Custom and Windows AMI families require separate image and OS lifecycle assessment.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - CUSTOM
+              - WINDOWS_CORE_2019_x86_64
+              - WINDOWS_FULL_2019_x86_64
+              - WINDOWS_CORE_2022_x86_64
+              - WINDOWS_FULL_2022_x86_64
+              - WINDOWS_CORE_2025_x86_64
+              - WINDOWS_FULL_2025_x86_64
+        search:
+          EXTRACT: CA10A1__amiType__c
+  # Family retirement is conclusive above, but a changing or failed rollout can contain mixed node versions.
+  - status: INAPPLICABLE
+    currentStateMessage: The updating or degraded node group requires per-node AMI verification before version-specific support can be established.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - UPDATING
+              - DEGRADED
+        search:
+          EXTRACT: CA10A1__status__c
+  # The node-group version selects the AMI stream; the control-plane version may be newer.
+  - status: INCOMPLIANT
+    currentStateMessage: AWS EKS AMI maintenance for the node group Kubernetes version has reached the end of extended support.
+    remediationMessage: Update the control plane if needed, then roll the node group to a compatible supported Kubernetes version and maintained AMI.
+    check:
+      OR:
+        args:
+          - CONTAINS:
+              arg:
+                SET:
+                  itemType: TEXT
+                  items:
+                    - '1.29'
+                    - '1.30'
+              search:
+                EXTRACT: CA10A1__version__c
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.31'
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2026-11-25T00:00:00Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.32'
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2027-03-22T00:00:00Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.33'
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2027-07-28T00:00:00Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.34'
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2027-12-01T00:00:00Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.35'
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2028-03-26T00:00:00Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.36'
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2028-08-01T00:00:00Z'
+          - AND:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10A1__version__c
+                    right:
+                      TEXT: '1.37'
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2028-11-30T00:00:00Z'
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: No configured AMI family or Kubernetes-version retirement rule matches the node group.

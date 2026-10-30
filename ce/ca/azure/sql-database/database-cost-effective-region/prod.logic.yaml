@@ -6,8 +6,8 @@ testData:
   - file: 'test-data.json'
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in westus which is more expensive than westus3 or westus2."
-    remediationMessage: "Consider migrating the Database to westus3 or westus2."
+    currentStateMessage: "The database is running in westus which is more expensive than westus3 or westus2."
+    remediationMessage: "Migrate the database to westus3 or westus2."
     check:
       IS_EQUAL:
         left:
@@ -15,8 +15,8 @@ conditions:
         right:
           TEXT: "westus"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in westcentralus which is more expensive than westus3 or westus2."
-    remediationMessage: "Consider migrating the Database to westus3 or westus2."
+    currentStateMessage: "The database is running in westcentralus which is more expensive than westus3 or westus2."
+    remediationMessage: "Migrate the database to westus3 or westus2."
     check:
       IS_EQUAL:
         left:
@@ -24,8 +24,8 @@ conditions:
         right:
           TEXT: "westcentralus"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in southcentralus which is more expensive than northcentralus, westus3 or westus2."
-    remediationMessage: "Consider migrating the Database to northcentralus, westus3 or westus2."
+    currentStateMessage: "The database is running in southcentralus which is more expensive than northcentralus, westus3 or westus2."
+    remediationMessage: "Migrate the database to northcentralus, westus3 or westus2."
     check:
       IS_EQUAL:
         left:
@@ -33,8 +33,8 @@ conditions:
         right:
           TEXT: "southcentralus"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in centralus which is more expensive than northcentralus, westus3 or westus2."
-    remediationMessage: "Consider migrating the Database to northcentralus, westus3 or westus2."
+    currentStateMessage: "The database is running in centralus which is more expensive than northcentralus, westus3 or westus2."
+    remediationMessage: "Migrate the database to northcentralus, westus3 or westus2."
     check:
       IS_EQUAL:
         left:
@@ -42,8 +42,8 @@ conditions:
         right:
           TEXT: "centralus"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in canadaeast which is more expensive than eastus or eastus2."
-    remediationMessage: "Consider migrating the Database to eastus or eastus2."
+    currentStateMessage: "The database is running in canadaeast which is more expensive than eastus or eastus2."
+    remediationMessage: "Migrate the database to eastus or eastus2."
     check:
       IS_EQUAL:
         left:
@@ -51,8 +51,8 @@ conditions:
         right:
           TEXT: "canadaeast"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in canadacentral which is more expensive than eastus or eastus2."
-    remediationMessage: "Consider migrating the Database to eastus or eastus2."
+    currentStateMessage: "The database is running in canadacentral which is more expensive than eastus or eastus2."
+    remediationMessage: "Migrate the database to eastus or eastus2."
     check:
       IS_EQUAL:
         left:
@@ -60,8 +60,8 @@ conditions:
         right:
           TEXT: "canadacentral"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in ukwest which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
-    remediationMessage: "Consider migrating the Database to eu-west-1, eu-north-1, or eu-south-2."
+    currentStateMessage: "The database is running in ukwest which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Migrate the database to eu-west-1, eu-north-1, or eu-south-2."
     check:
       IS_EQUAL:
         left:
@@ -69,8 +69,8 @@ conditions:
         right:
           TEXT: "ukwest"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in uksouth which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
-    remediationMessage: "Consider migrating the Database to eu-west-1, eu-north-1, or eu-south-2."
+    currentStateMessage: "The database is running in uksouth which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Migrate the database to eu-west-1, eu-north-1, or eu-south-2."
     check:
       IS_EQUAL:
         left:
@@ -78,8 +78,8 @@ conditions:
         right:
           TEXT: "uksouth"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in francecentral which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
-    remediationMessage: "Consider migrating the Database to eu-west-1, eu-north-1, or eu-south-2."
+    currentStateMessage: "The database is running in francecentral which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Migrate the database to eu-west-1, eu-north-1, or eu-south-2."
     check:
       IS_EQUAL:
         left:
@@ -87,8 +87,8 @@ conditions:
         right:
           TEXT: "francecentral"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in francesouth which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
-    remediationMessage: "Consider migrating the Database to eu-west-1, eu-north-1, or eu-south-2."
+    currentStateMessage: "The database is running in francesouth which is more expensive than eu-west-1, eu-north-1, or eu-south-2."
+    remediationMessage: "Migrate the database to eu-west-1, eu-north-1, or eu-south-2."
     check:
       IS_EQUAL:
         left:
@@ -96,8 +96,8 @@ conditions:
         right:
           TEXT: "francesouth"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in westeurope which is more expensive than swedencentral or northeurope."
-    remediationMessage: "Consider migrating the Database to swedencentral or northeurope."
+    currentStateMessage: "The database is running in westeurope which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Migrate the database to swedencentral or northeurope."
     check:
       IS_EQUAL:
         left:
@@ -105,8 +105,8 @@ conditions:
         right:
           TEXT: "westeurope"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in germanywestcentral which is more expensive than swedencentral or northeurope."
-    remediationMessage: "Consider migrating the Database to swedencentral or northeurope."
+    currentStateMessage: "The database is running in germanywestcentral which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Migrate the database to swedencentral or northeurope."
     check:
       IS_EQUAL:
         left:
@@ -114,8 +114,8 @@ conditions:
         right:
           TEXT: "germanywestcentral"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in germanynorth which is more expensive than swedencentral or northeurope."
-    remediationMessage: "Consider migrating the Database to swedencentral or northeurope."
+    currentStateMessage: "The database is running in germanynorth which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Migrate the database to swedencentral or northeurope."
     check:
       IS_EQUAL:
         left:
@@ -123,8 +123,8 @@ conditions:
         right:
           TEXT: "germanynorth"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in switzerlandnorth which is more expensive than swedencentral or northeurope."
-    remediationMessage: "Consider migrating the Database to swedencentral or northeurope."
+    currentStateMessage: "The database is running in switzerlandnorth which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Migrate the database to swedencentral or northeurope."
     check:
       IS_EQUAL:
         left:
@@ -132,8 +132,8 @@ conditions:
         right:
           TEXT: "switzerlandnorth"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in switzerlandwest which is more expensive than swedencentral or northeurope."
-    remediationMessage: "Consider migrating the Database to swedencentral or northeurope."
+    currentStateMessage: "The database is running in switzerlandwest which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Migrate the database to swedencentral or northeurope."
     check:
       IS_EQUAL:
         left:
@@ -141,8 +141,8 @@ conditions:
         right:
           TEXT: "switzerlandwest"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in italynorth which is more expensive than swedencentral or northeurope."
-    remediationMessage: "Consider migrating the Database to swedencentral or northeurope."
+    currentStateMessage: "The database is running in italynorth which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Migrate the database to swedencentral or northeurope."
     check:
       IS_EQUAL:
         left:
@@ -150,8 +150,8 @@ conditions:
         right:
           TEXT: "italynorth"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in polandcentral which is more expensive than swedencentral or northeurope."
-    remediationMessage: "Consider migrating the Database to swedencentral or northeurope."
+    currentStateMessage: "The database is running in polandcentral which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Migrate the database to swedencentral or northeurope."
     check:
       IS_EQUAL:
         left:
@@ -159,8 +159,8 @@ conditions:
         right:
           TEXT: "polandcentral"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in norwayeast which is more expensive than swedencentral or northeurope."
-    remediationMessage: "Consider migrating the Database to swedencentral or northeurope."
+    currentStateMessage: "The database is running in norwayeast which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Migrate the database to swedencentral or northeurope."
     check:
       IS_EQUAL:
         left:
@@ -168,8 +168,8 @@ conditions:
         right:
           TEXT: "norwayeast"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in norwaywest which is more expensive than swedencentral or northeurope."
-    remediationMessage: "Consider migrating the Database to swedencentral or northeurope."
+    currentStateMessage: "The database is running in norwaywest which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Migrate the database to swedencentral or northeurope."
     check:
       IS_EQUAL:
         left:
@@ -177,8 +177,8 @@ conditions:
         right:
           TEXT: "norwaywest"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in swedensouth which is more expensive than swedencentral or northeurope."
-    remediationMessage: "Consider migrating the Database to swedencentral or northeurope."
+    currentStateMessage: "The database is running in swedensouth which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Migrate the database to swedencentral or northeurope."
     check:
       IS_EQUAL:
         left:
@@ -186,8 +186,8 @@ conditions:
         right:
           TEXT: "swedensouth"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in spaincentral which is more expensive than swedencentral or northeurope."
-    remediationMessage: "Consider migrating the Database to swedencentral or northeurope."
+    currentStateMessage: "The database is running in spaincentral which is more expensive than swedencentral or northeurope."
+    remediationMessage: "Migrate the database to swedencentral or northeurope."
     check:
       IS_EQUAL:
         left:
@@ -195,8 +195,8 @@ conditions:
         right:
           TEXT: "spaincentral"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in australiaeast which is more expensive than australiacentral or australiacentral2."
-    remediationMessage: "Consider migrating the Database to australiacentral or australiacentral2."
+    currentStateMessage: "The database is running in australiaeast which is more expensive than australiacentral or australiacentral2."
+    remediationMessage: "Migrate the database to australiacentral or australiacentral2."
     check:
       IS_EQUAL:
         left:
@@ -204,8 +204,8 @@ conditions:
         right:
           TEXT: "australiaeast"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in australiasoutheast which is more expensive than australiacentral or australiacentral2."
-    remediationMessage: "Consider migrating the Database to australiacentral or australiacentral2."
+    currentStateMessage: "The database is running in australiasoutheast which is more expensive than australiacentral or australiacentral2."
+    remediationMessage: "Migrate the database to australiacentral or australiacentral2."
     check:
       IS_EQUAL:
         left:
@@ -213,8 +213,8 @@ conditions:
         right:
           TEXT: "australiasoutheast"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in japaneast which is more expensive than koreasouth."
-    remediationMessage: "Consider migrating the Database to koreasouth."
+    currentStateMessage: "The database is running in japaneast which is more expensive than koreasouth."
+    remediationMessage: "Migrate the database to koreasouth."
     check:
       IS_EQUAL:
         left:
@@ -222,8 +222,8 @@ conditions:
         right:
           TEXT: "japaneast"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in japanwest which is more expensive than koreasouth."
-    remediationMessage: "Consider migrating the Database to koreasouth."
+    currentStateMessage: "The database is running in japanwest which is more expensive than koreasouth."
+    remediationMessage: "Migrate the database to koreasouth."
     check:
       IS_EQUAL:
         left:
@@ -231,8 +231,8 @@ conditions:
         right:
           TEXT: "japanwest"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Database is running in koreacentral which is more expensive than koreasouth."
-    remediationMessage: "Consider migrating the Database to koreasouth."
+    currentStateMessage: "The database is running in koreacentral which is more expensive than koreasouth."
+    remediationMessage: "Migrate the database to koreasouth."
     check:
       IS_EQUAL:
         left:
@@ -241,5 +241,5 @@ conditions:
           TEXT: "koreacentral"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The VM is located in a cost-effective region."
+  currentStateMessage: "The database is located in a cost-effective region."
 

@@ -1,0 +1,11 @@
+name: >
+  [RedshiftServerless.2] Connections to Redshift Serverless workgroups should be required to use SSL
+description: |-
+  An Amazon Redshift Serverless workgroup is a collection of compute resources that 
+  groups together compute resources like RPUs, VPC subnet groups, and security groups. 
+  Properties of a workgroup include network and security settings. These settings 
+  specify whether connections to a workgroup should be required to use SSL to 
+  encrypt data in transit.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/redshiftserverless-controls.html#redshiftserverless-2

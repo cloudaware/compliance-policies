@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10Z1__CaAzureMySqlServer__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This is not the Flexible Server deployment mode."
+    currentStateMessage: "This is not the flexible server deployment mode."
     check:
       NOT_EQUAL:
         left:
@@ -14,8 +14,8 @@ conditions:
         right:
           TEXT: "Flexible"
   - status: "INCOMPLIANT"
-    currentStateMessage: "MySQL Flexible Server tls_version configuration parameter is not set to TLSv1.2."
-    remediationMessage: "Consider setting MySQL Flexible Server tls_version configuration to TLSv1.2."
+    currentStateMessage: "MySQL Flexible Server tls_version is not set to TLSv1.2 or higher."
+    remediationMessage: "Set tls_version to TLSv1.2 or higher."
     check:
       IS_EQUAL:
         left:
@@ -29,8 +29,8 @@ conditions:
         right:
           TEXT: "TLSv1.0"
   - status: "INCOMPLIANT"
-    currentStateMessage: "MySQL Flexible Server tls_version configuration parameter is not set to TLSv1.2."
-    remediationMessage: "Consider setting MySQL Flexible Server tls_version configuration to TLSv1.2."
+    currentStateMessage: "MySQL Flexible Server tls_version is not set to TLSv1.2 or higher."
+    remediationMessage: "Set tls_version to TLSv1.2 or higher."
     check:
       IS_EQUAL:
         left:
@@ -44,7 +44,7 @@ conditions:
         right:
           TEXT: "TLSv1.1"
   - status: "COMPLIANT"
-    currentStateMessage: "MySQL Flexible Server tls_version configuration parameter is set to TLSv1.2."
+    currentStateMessage: "MySQL Flexible Server tls_version is set to TLSv1.2 or higher."
     check:
       IS_EQUAL:
         left:
@@ -58,7 +58,7 @@ conditions:
         right:
           TEXT: "TLSv1.2"
   - status: "COMPLIANT"
-    currentStateMessage: "MySQL Flexible Server tls_version configuration parameter is set to TLSv1.2."
+    currentStateMessage: "MySQL Flexible Server tls_version is set to TLSv1.2 or higher."
     check:
       IS_EQUAL:
         left:

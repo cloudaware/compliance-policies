@@ -33,7 +33,7 @@ conditions:
                 EXTRACT: "CA10__monitorStoragePercentAvg30Day__c"
   - status: "INCOMPLIANT"
     currentStateMessage: "The Elastic Pool DTU consumption is less than 20% and storage utilization is less than 10%."
-    remediationMessage: "Consider rightsizing the Elastic Pool."
+    remediationMessage: "Rightsize the Elastic Pool."
     check:
       AND:
         args:
@@ -52,7 +52,7 @@ conditions:
                 NUMBER: 10.0
   - status: "INCOMPLIANT"
     currentStateMessage: "The Elastic Pool CPU is less than 20% and storage utilization is less than 10%."
-    remediationMessage: "Consider rightsizing the Elastic Pool."
+    remediationMessage: "Rightsize the Elastic Pool."
     check:
       AND:
         args:

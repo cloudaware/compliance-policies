@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10__CaAwsGuardDutyDetector__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This GuardDuty Detector is not enabled."
+    currentStateMessage: "This GuardDuty detector is not enabled."
     check:
       NOT_EQUAL:
         left:
@@ -15,7 +15,7 @@ conditions:
           TEXT: "ENABLED"
   - status: "INCOMPLIANT"
     currentStateMessage: "Lambda Protection is not enabled for this detector."
-    remediationMessage: "Enable Lambda Protection to monitor your AWS Lambda functions."
+    remediationMessage: "Enable Lambda Protection to monitor AWS Lambda functions."
     check:
       IS_EQUAL:
         left:

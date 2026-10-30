@@ -1,0 +1,37 @@
+---
+inputType: "CA10Z1__CaAzureSavingsPlan__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10Z1__CaAzureSavingsPlan__c/object.extracts.yaml"
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "Provisioning state or expiry date is unavailable."
+    check:
+      OR:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10Z1__provisioningState__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10Z1__expiryDateTime__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Savings Plan is not successfully provisioned."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__provisioningState__c"
+        right:
+          TEXT: "Succeeded"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The Savings Plan expires in 60 days or less."
+    remediationMessage: "Review whether replacement Savings Plan coverage is needed."
+    check:
+      IS_WITHIN_NEXT_DAYS:
+        offsetDays: 60
+        arg:
+          EXTRACT: "CA10Z1__expiryDateTime__c"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "The Savings Plan is not expiring within the next 60 days."

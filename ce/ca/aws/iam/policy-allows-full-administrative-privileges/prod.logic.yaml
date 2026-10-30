@@ -6,7 +6,7 @@ importExtracts:
   - file: /types/CA10__CaAwsIamPolicy__c/object.extracts.yaml
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "This IAM Policy is not attached."
+    currentStateMessage: "This IAM policy is not attached."
     check:
       OR:
         args:
@@ -22,8 +22,8 @@ conditions:
                 NUMBER: 0.0
 # For the Statement of array type
   - status: "INCOMPLIANT"
-    currentStateMessage: "This IAM policy with admin privileges is attached."
-    remediationMessage: "Consider detaching the IAM policy with admin privileges "
+    currentStateMessage: "An IAM policy with administrative privileges is attached."
+    remediationMessage: "Detach the IAM policy with administrative privileges."
     check:
       AND:
         args:
@@ -84,8 +84,8 @@ conditions:
           TEXT: "Allow"
 # For the Statement of object type (Action == '*' OR Action == ['*']) AND (Resource == '*' OR Resource == ['*'])
   - status: "INCOMPLIANT"
-    currentStateMessage: "This IAM policy with admin privileges is attached."
-    remediationMessage: "Consider detaching the IAM policy with admin privileges "
+    currentStateMessage: "An IAM policy with administrative privileges is attached."
+    remediationMessage: "Detach the IAM policy with administrative privileges."
     check:
       AND:
         args:

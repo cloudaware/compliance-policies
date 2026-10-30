@@ -6,14 +6,14 @@ importExtracts:
   - file: "/types/CA10A1__CaAwsSecretsManagerSecret__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This secret is active."
+    currentStateMessage: "This secret is not active."
     check:
       NOT_EMPTY:
         arg:
           EXTRACT: "CA10A1__deletedDate__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Automatic rotation is not enabled for this Secret."
-    remediationMessage: "Enable automatic rotation for the secret to reduce the risk of long-lived credentials being compromised."    
+    currentStateMessage: "Automatic rotation is not enabled for this secret."
+    remediationMessage: "Enable automatic rotation to reduce the risk of long-lived credentials being compromised."
     check:
       IS_EQUAL:
         left:
@@ -21,7 +21,7 @@ conditions:
         right:
           BOOLEAN: false
   - status: "COMPLIANT"
-    currentStateMessage: "Automatic rotation is enabled for this Secret."
+    currentStateMessage: "Automatic rotation is enabled for this secret."
     check:
       IS_EQUAL:
         left:

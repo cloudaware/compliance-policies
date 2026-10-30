@@ -1,0 +1,12 @@
+---
+names:
+  full: "AWS EMR Cluster release has passed a support lifecycle deadline"
+  contextual: "Cluster release has passed a support lifecycle deadline"
+description: "Ensure that Amazon EMR clusters meet release support deadlines.\
+  \ Releases past their original or bridge support period require migration, even\
+  \ if a conditional support extension is available."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "RELIABILITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/infrastructure-modernization"

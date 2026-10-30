@@ -1,0 +1,18 @@
+---
+inputType: "CA10O1__CaOracleIamAuthToken2__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10O1__CaOracleIamAuthToken2__c/object.extracts.yaml"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This Oracle IAM auth token was created more than 90 days ago."
+    remediationMessage: "Create a replacement auth token, update dependent workloads, and delete this stale token."
+    check:
+      IS_BEYOND_LAST_DAYS:
+        arg:
+          EXTRACT: "CA10O1__timeCreated__c"
+        offsetDays: 90
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "This Oracle IAM auth token was created within the last 90 days."

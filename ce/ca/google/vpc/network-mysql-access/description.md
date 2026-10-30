@@ -10,7 +10,7 @@ Exposing a MySQL database directly to the public internet introduces significant
 
 ## Impact
 
-All MySQL connections from outside of the network to the concerned VPC(s) can be blocked. If there is a legitimate operational need for remote access, specific trusted source IP addresses should be explicitly defined in firewall rules to whitelist access only to port 3306.
+All MySQL connections from outside of the network to the concerned VPC(s) can be blocked. If there is a legitimate operational need for remote access, specific trusted source IP ranges should be explicitly defined in firewall rules to whitelist access only to port 3306.
 
 ## Audit
 

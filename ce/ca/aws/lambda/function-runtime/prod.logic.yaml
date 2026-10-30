@@ -1,0 +1,231 @@
+---
+# AWS Lambda Zip runtime schedule verified 2026-10-27:
+# https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html
+# Scheduled deprecation dates must be strictly before today (UTC); API blocking dates are separate.
+# Runtimes already deprecated as of 2026-10-27 are unconditional violations.
+# shortcut: unlisted runtimes pass; update tracked deprecations when AWS publishes new or revised dates.
+inputType: CA10__CaAwsLambdaFunction__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsLambdaFunction__c/object.extracts.yaml
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: The Lambda function uses a container image.
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__packageType__c
+        right:
+          TEXT: Image
+  - status: UNDETERMINED
+    currentStateMessage: The Lambda function package type is unrecognized.
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: CA10__packageType__c
+        right:
+          TEXT: Zip
+  - status: UNDETERMINED
+    currentStateMessage: The Zip deployment runtime is unavailable.
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: CA10__runtime__c
+  - status: INCOMPLIANT
+    currentStateMessage: The Lambda function runtime is past its AWS Lambda deprecation date.
+    remediationMessage: Test compatible code and dependencies, then update the function to a supported runtime.
+    check:
+      OR:
+        args:
+          - CONTAINS:
+              arg:
+                SET:
+                  itemType: TEXT
+                  items:
+                    - nodejs
+                    - dotnetcore2.0
+                    - dotnetcore1.0
+                    - nodejs6.10
+                    - nodejs4.3-edge
+                    - nodejs4.3
+                    - nodejs8.10
+                    - python2.7
+                    - ruby2.5
+                    - nodejs10.x
+                    - dotnetcore2.1
+                    - python3.6
+                    - nodejs12.x
+                    - dotnetcore3.1
+                    - python3.7
+                    - nodejs14.x
+                    - ruby2.7
+                    - provided
+                    - go1.x
+                    - java8
+                    - nodejs16.x
+                    - python3.8
+                    - dotnet6
+                    - nodejs18.x
+                    - python3.9
+                    - ruby3.2
+                    - nodejs20.x
+                    - provided.al2
+              search:
+                EXTRACT: CA10__runtime__c
+          - AND:
+              args:
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - python3.10
+                    search:
+                      EXTRACT: CA10__runtime__c
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2026-10-31T00:00:00Z'
+          - AND:
+              args:
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - dotnet8
+                    search:
+                      EXTRACT: CA10__runtime__c
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2026-11-10T00:00:00Z'
+          - AND:
+              args:
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - ruby3.3
+                    search:
+                      EXTRACT: CA10__runtime__c
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2027-03-31T00:00:00Z'
+          - AND:
+              args:
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - nodejs22.x
+                    search:
+                      EXTRACT: CA10__runtime__c
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2027-04-30T00:00:00Z'
+          - AND:
+              args:
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - python3.11
+                          - java8.al2
+                          - java11
+                          - java17
+                    search:
+                      EXTRACT: CA10__runtime__c
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2027-06-30T00:00:00Z'
+          - AND:
+              args:
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - ruby3.4
+                    search:
+                      EXTRACT: CA10__runtime__c
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2028-03-31T00:00:00Z'
+          - AND:
+              args:
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - nodejs24.x
+                    search:
+                      EXTRACT: CA10__runtime__c
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2028-04-30T00:00:00Z'
+          - AND:
+              args:
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - python3.12
+                    search:
+                      EXTRACT: CA10__runtime__c
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2028-10-31T00:00:00Z'
+          - AND:
+              args:
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - dotnet10
+                    search:
+                      EXTRACT: CA10__runtime__c
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2028-11-14T00:00:00Z'
+          - AND:
+              args:
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - ruby4.0
+                    search:
+                      EXTRACT: CA10__runtime__c
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2029-03-31T00:00:00Z'
+          - AND:
+              args:
+                - CONTAINS:
+                    arg:
+                      SET:
+                        itemType: TEXT
+                        items:
+                          - python3.13
+                          - python3.14
+                          - java8.al2023
+                          - java11.al2023
+                          - java17.al2023
+                          - java21
+                          - java25
+                          - provided.al2023
+                    search:
+                      EXTRACT: CA10__runtime__c
+                - IS_BEFORE_TODAY:
+                    arg:
+                      DATE_TIME: '2029-06-30T00:00:00Z'
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: No runtime deprecation is identified for the configured function runtime.

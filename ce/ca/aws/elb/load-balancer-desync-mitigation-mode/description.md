@@ -3,14 +3,14 @@
 This policy identifies AWS ELB Classic and Application Load Balancers that are not configured with an HTTP desync mitigation mode of `defensive` (default) or `strictest`.
 
 > **Note**:
-The `routing.http.drop_invalid_header_fields.enabled` attribute ([`AWS ELB Application Load Balancer is not configured to drop invalid HTTP headers`](ce\ca\aws\elb\load-balancer-drop-invalid-headers)) was introduced to provide baseline protection against HTTP desync by dropping malformed HTTP headers. The `routing.http.desync_mitigation_mode` attribute was later added to offer more comprehensive and configurable protection against HTTP desync attacks. You are not required to enable both attributes; instead, you should select the option that best aligns with your application’s security and compatibility requirements.
+The `routing.http.drop_invalid_header_fields.enabled` attribute ([`AWS ELB Application Load Balancer is not configured to drop invalid HTTP headers`](ce\ca\aws\elb\load-balancer-drop-invalid-headers)) was introduced to provide baseline protection against HTTP desync by dropping malformed HTTP headers. The `routing.http.desync_mitigation_mode` attribute was later added to offer more comprehensive and configurable protection against HTTP desync attacks. You are not required to enable both attributes; instead, you should select the option that best aligns with your application's security and compatibility requirements.
 
 ## Rationale
 
 HTTP desync occurs when a load balancer and its backend targets interpret HTTP request boundaries differently. This condition can be exploited through **HTTP Request Smuggling** attacks, enabling an attacker to:
 
 - Bypass security controls such as Web Application Firewalls (WAF).
-- Gain unauthorized access to other users’ data.
+- Gain unauthorized access to other users' data.
 - Poison shared or intermediary caches.
 
 When the desync mitigation mode is set to `monitor`, the load balancer continues to forward malformed or ambiguous requests to backend targets while only logging the events. This behavior leaves backend applications exposed.

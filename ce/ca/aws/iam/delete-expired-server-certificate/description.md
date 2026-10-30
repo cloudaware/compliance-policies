@@ -4,17 +4,17 @@ To enable HTTPS connections to your website or application in AWS, you need an S
 
 ## Rationale
 
-Removing expired SSL/TLS certificates eliminates the risk that an invalid certificate will be deployed accidentally to a resource such as AWS Elastic Load Balancer (ELB), which can damage the credibility of the application/website behind the ELB. As a best practice, it is recommended to delete expired certificates.
+Removing expired SSL/TLS certificates eliminates the risk that an invalid certificate will be deployed accidentally to a resource such as AWS Elastic Load Balancer (ELB), which can damage the credibility of the application or website behind the ELB. As a best practice, it is recommended to delete expired certificates.
 
 ## Impact
 
-Deleting the certificate could have implications for your application if you are using an expired server certificate with Elastic Load Balancing, CloudFront, etc. One has to make configurations at respective services to ensure there is no interruption in application functionality.
+Deleting the certificate could have implications for your application if you are using an expired server certificate with Elastic Load Balancing, CloudFront, etc. Update configuration in the relevant services to ensure there is no interruption in application functionality.
 
 ## Audit
 
 ### From Console
 
-Getting the certificates expiration information via AWS Management Console is not currently supported. To request information about the SSL/TLS certificates stored in IAM via the AWS API use the Command Line Interface (CLI).
+Getting certificate expiration information via the AWS Management Console is not currently supported. To request information about the SSL/TLS certificates stored in IAM via the AWS API, use the Command Line Interface (CLI).
 
 ### From Command Line
 
@@ -41,7 +41,7 @@ The command output should return an array that contains all the SSL/TLS certific
 }
 ```
 
-Verify the `ServerCertificateName` and `Expiration` parameter value (expiration date) for each SSL/TLS certificate returned by the list-server-certificates command and determine if there are any expired server certificates currently stored in AWS IAM. If so, use the AWS API to remove them.
+Verify the `ServerCertificateName` and `Expiration` parameter value (expiration date) for each SSL/TLS certificate returned by the list-server-certificates command and determine whether any expired server certificates are currently stored in AWS IAM. If so, use the AWS API to remove them.
 
 If this command returns:
 
@@ -49,7 +49,7 @@ If this command returns:
  { "ServerCertificateMetadataList": [] }
 ```
 
-This means that there are no expired certificates, It **DOES NOT** mean that no certificates exist.
+This means that there are no expired certificates. It **DOES NOT** mean that no certificates exist.
 
 ## Default Value
 

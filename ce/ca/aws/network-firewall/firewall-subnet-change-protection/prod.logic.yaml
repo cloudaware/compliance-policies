@@ -1,0 +1,35 @@
+---
+inputType: "CA10A2__CaAwsNetworkFirewallFirewall__c"
+importExtracts:
+  - file: "/types/CA10A2__CaAwsNetworkFirewallFirewall__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The firewall is not ready."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10A2__status__c"
+        right:
+          TEXT: "READY"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Subnet change protection is disabled for the network firewall."
+    remediationMessage: "Enable subnet change protection in the firewall settings to prevent accidental modification of firewall subnets."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10A2__subnetChangeProtection__c"
+        right:
+          TEXT: "false"
+  - status: "COMPLIANT"
+    currentStateMessage: "Subnet change protection is enabled for the network firewall."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10A2__subnetChangeProtection__c"
+        right:
+          TEXT: "true"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the field."

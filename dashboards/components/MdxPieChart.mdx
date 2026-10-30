@@ -1,0 +1,77 @@
+<MdxCard>
+[Back to Index](index.md)
+
+# MdxPieChart
+
+<MdxPieChart
+    height="250px"
+    title="Total"
+    series={[
+        { name: "Done", value: 75 },
+        { name: "Remaining", value: 25 }
+    ]}
+/>
+
+## height
+
+-   `height="150px"`: <MdxPieChart height="150px" title="Total" series={[{ name: "A", value: 60 }, { name: "B", value: 40 }]} />
+-   `height="250px"`: <MdxPieChart height="250px" title="Total" series={[{ name: "A", value: 60 }, { name: "B", value: 40 }]} />
+
+## title
+
+-   `title="Total"`: <MdxPieChart height="200px" title="Total" series={[{ name: "A", value: 75 }, { name: "B", value: 25 }]} />
+
+## series
+
+-   `series={[{ name: "A", value: 40 }, { name: "B", value: 35 }, { name: "C", value: 25 }]}`: <MdxPieChart height="200px" title="Total" series={[{ name: "A", value: 40 }, { name: "B", value: 35 }, { name: "C", value: 25 }]} />
+-   `series={[{ name: "A", value: 60, color: "green" }, { name: "B", value: 40, color: "red" }]}`: <MdxPieChart height="200px" title="Total" series={[{ name: "A", value: 60, color: "green" }, { name: "B", value: 40, color: "red" }]} />
+
+```js
+series: [
+    {
+        name: "A",
+        value: 40,
+        color: "green"
+    }
+];
+```
+
+## series.color
+
+-   `color="normal"`: <MdxPieChart height="120px" title="Total" series={[{ name: "A", value: 60, color: "normal" }, { name: "B", value: 40 }]} />
+-   `color="primary"`: <MdxPieChart height="120px" title="Total" series={[{ name: "A", value: 60, color: "primary" }, { name: "B", value: 40 }]} />
+-   `color="success"`: <MdxPieChart height="120px" title="Total" series={[{ name: "A", value: 60, color: "success" }, { name: "B", value: 40 }]} />
+-   `color="warning"`: <MdxPieChart height="120px" title="Total" series={[{ name: "A", value: 60, color: "warning" }, { name: "B", value: 40 }]} />
+-   `color="danger"`: <MdxPieChart height="120px" title="Total" series={[{ name: "A", value: 60, color: "danger" }, { name: "B", value: 40 }]} />
+-   `color="white"`: <MdxPieChart height="120px" title="Total" series={[{ name: "A", value: 60, color: "white" }, { name: "B", value: 40 }]} />
+-   `color="grey"`: <MdxPieChart height="120px" title="Total" series={[{ name: "A", value: 60, color: "grey" }, { name: "B", value: 40 }]} />
+-   `color="blue"`: <MdxPieChart height="120px" title="Total" series={[{ name: "A", value: 60, color: "blue" }, { name: "B", value: 40 }]} />
+-   `color="green"`: <MdxPieChart height="120px" title="Total" series={[{ name: "A", value: 60, color: "green" }, { name: "B", value: 40 }]} />
+-   `color="orange"`: <MdxPieChart height="120px" title="Total" series={[{ name: "A", value: 60, color: "orange" }, { name: "B", value: 40 }]} />
+-   `color="red"`: <MdxPieChart height="120px" title="Total" series={[{ name: "A", value: 60, color: "red" }, { name: "B", value: 40 }]} />
+-   `color="yellow"`: <MdxPieChart height="120px" title="Total" series={[{ name: "A", value: 60, color: "yellow" }, { name: "B", value: 40 }]} />
+-   `color="dark"`: <MdxPieChart height="120px" title="Total" series={[{ name: "A", value: 60, color: "dark" }, { name: "B", value: 40 }]} />
+-   `color="black"`: <MdxPieChart height="120px" title="Total" series={[{ name: "A", value: 60, color: "black" }, { name: "B", value: 40 }]} />
+
+## filled
+
+-   `filled={true}`: <MdxPieChart height="200px" title="Total" filled={true} series={[{ name: "A", value: 60 }, { name: "B", value: 40 }]} />
+
+## legendPosition
+
+-   `legendPosition="right"`: <MdxPieChart height="200px" title="Total" legendPosition="right" series={[{ name: "A", value: 60 }, { name: "B", value: 40 }]} />
+-   `legendPosition="left"`: <MdxPieChart height="200px" title="Total" legendPosition="left" series={[{ name: "A", value: 60 }, { name: "B", value: 40 }]} />
+
+## prefix
+
+-   `prefix="$"`: <MdxPieChart height="200px" title="$100" prefix="$" series={[{ name: "A", value: 60 }, { name: "B", value: 40 }]} />
+
+## postfix
+
+-   `postfix="%"`: <MdxPieChart height="200px" title="60%" postfix="%" series={[{ name: "A", value: 60 }, { name: "B", value: 40 }]} />
+
+## autoRound
+
+-   `autoRound={true}`: <MdxPieChart height="200px" title="Total" autoRound={true} series={[{ name: "A", value: 66.6667 }, { name: "B", value: 33.3333 }]} />
+
+</MdxCard>

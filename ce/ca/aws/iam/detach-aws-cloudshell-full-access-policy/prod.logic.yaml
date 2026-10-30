@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10__CaAwsIamPolicy__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This is not a AWSCloudShellFullAccess policy." 
+    currentStateMessage: "This is not an AWSCloudShellFullAccess policy."
     check:
       NOT_EQUAL:
         left:
@@ -14,23 +14,14 @@ conditions:
         right:
           TEXT: "AWSCloudShellFullAccess"
   - status: "INCOMPLIANT"
-    currentStateMessage: "AWSCloudShellFullAccess policy is attached to a role."
-    remediationMessage: "Consider detaching the AWSCloudShellFullAccess policy."
+    currentStateMessage: "AWSCloudShellFullAccess policy is attached to one or more IAM entities."
+    remediationMessage: "Detach the AWSCloudShellFullAccess policy from any users, groups, or roles where it is not required."
     check:
-      RELATED_LIST_HAS:
-        status: "INCOMPLIANT"
-        relationshipName: "CA10__AWS_IAM_Role_Policy_Attachments__r"
+      GREATER_THAN:
+        left:
+          EXTRACT: "CA10__attachmentCount__c"
+        right:
+          NUMBER: 0.0
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "AWSCloudShellFullAccess policy is not attached."
-relatedLists:
-  - relationshipName: "CA10__AWS_IAM_Role_Policy_Attachments__r"
-    conditions:
-      - status: "INCOMPLIANT"
-        currentStateMessage: "AWSCloudShellFullAccess policy is attached to a role."
-        remediationMessage: "Consider detaching the AWSCloudShellFullAccess policy."
-        check:
-          NOT_EMPTY_LOOKUP: "CA10__role__r"
-    otherwise:
-      status: "COMPLIANT"
-      currentStateMessage: "AWSCloudShellFullAccess policy is not attached."
+  currentStateMessage: "AWSCloudShellFullAccess policy is not attached to any IAM entities."

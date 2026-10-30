@@ -4,7 +4,7 @@ This policy identifies Azure PostgreSQL Servers that are potentially idle based 
 
 ## Rationale
 
-Over-provisioned servers increase expenses without delivering corresponding benefits. By identifying and decommissioning idle PostgreSQL servers helps reduce expenses and improve overall resource efficiency.
+Over-provisioned servers increase expenses without delivering corresponding benefits. Identifying and decommissioning idle PostgreSQL servers helps reduce expenses and improve overall resource efficiency.
 
 ## Impact
 
@@ -12,7 +12,7 @@ Carefully review to confirm that the new configuration will accommodate peak dem
 
 ## Audit
 
-This policy evaluates an *Azure Azure PostgreSQL Server* based on its 30-day performance metrics.
+This policy evaluates an *Azure PostgreSQL Server* based on its 30-day performance metrics.
 
 The *Server* is marked as `INCOMPLIANT` if:
 

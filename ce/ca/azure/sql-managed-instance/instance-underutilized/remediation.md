@@ -8,11 +8,11 @@ Before performing any changes, review historical performance metrics to ensure t
 
 ```sh
 az sql mi update \
-    --resource-group {{resource-group}} \
+    --resource-group {{resource-group-name}} \
     --name {{managed-instance-name}} \
-    --storage {{max-size-in-GB}}
-    --capacity {{2}}
-    --edition {{GeneralPurpose | BusinessCritical}}
+    --storage {{max-size-in-GB}} \
+    --capacity {{2}} \
+    --edition {{GeneralPurpose | BusinessCritical}} \
     --family {{Gen4}}
 ```
 
@@ -20,7 +20,7 @@ az sql mi update \
 
 ```ps
 Set-AzSqlInstance `
-    -ResourceGroupName "{{resource-group}}" `
+    -ResourceGroupName "{{resource-group-name}}" `
     -Name "{{managed-instance-name}}" `
     -VCore {{new-vcore-count}} `
     -StorageSizeInGB {{max-size-in-GB}} `

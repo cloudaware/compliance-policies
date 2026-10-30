@@ -1,10 +1,10 @@
 # Description
 
-It is recommended to check the `user connections` for a Cloud SQL SQL Server instance to ensure that it is not artificially limiting connections.
+It is recommended to check the `user connections` setting for a Cloud SQL SQL Server instance to ensure that it is not artificially limiting connections.
 
 ## Rationale
 
-The `user connections` option specifies the maximum number of simultaneous user connections that are allowed on an instance of SQL Server. The actual number of user connections allowed also depends on the version of SQL Server that you are using, and also the limits of your application or applications and hardware. SQL Server allows a maximum of 32,767 user connections. Because user connections is by default a self-configuring value, with SQL Server adjusting the maximum number of user connections automatically as needed, up to the maximum value allowable. For example, if only 10 users are logged in, 10 user connection objects are allocated. In most cases, you do not have to change the value for this option. The default is 0, which means that the maximum (32,767) user connections are allowed. However if there is a number defined here that limits connections, SQL Server will not allow anymore above this limit. If the connections are at the limit, any new requests will be dropped, potentially causing lost data or outages for those using the database.
+The `user connections` option specifies the maximum number of simultaneous user connections that are allowed on an instance of SQL Server. The actual number of user connections allowed also depends on the version of SQL Server and the limits of your applications and hardware. SQL Server allows a maximum of 32,767 user connections. Because user connections is, by default, a self-configuring value, SQL Server adjusts the maximum number of user connections automatically as needed, up to the maximum value allowable. For example, if only 10 users are logged in, 10 user connection objects are allocated. In most cases, you do not have to change the value for this option. The default is 0, which means that the maximum (32,767) user connections are allowed. However, if there is a number defined here that limits connections, SQL Server will not allow any more above this limit. If connections are at the limit, new requests will be dropped, potentially causing lost data or outages for users of the database.
 
 ## Impact
 
@@ -15,18 +15,21 @@ Setting custom flags via command line on certain instances will cause all omitte
 ### From Google Cloud Console
 
 1. Go to the Cloud SQL Instances page in the Google Cloud Console by visiting <https://console.cloud.google.com/sql/instances>.
-2. Select the instance to open its `Instance Overview` page
+2. Select the instance to open its `Instance Overview` page.
 3. Ensure the database flag `user connections` listed under the `Database flags` section is 0.
 
 ### From Google Cloud CLI
 
-1. Ensure the below command returns a value of 0, for every Cloud SQL SQL Server database instance.
+1. Ensure the following command returns a value of 0 for every Cloud SQL SQL Server database instance:
 
-            gcloud sql instances describe <INSTANCE_NAME> --format=json | jq '.settings.databaseFlags[] | select(.name=="user connections")|.value'
+    ```sh
+    gcloud sql instances describe {{instance-name}} \
+        --format=json | jq '.settings.databaseFlags[] | select(.name=="user connections") | .value'
+    ```
 
 ## Default Value
 
-By default `user connections` is set to '0' which does not limit the number of connections, giving the server free reign to facilitate a max of 32,767 connections.
+By default, `user connections` is set to `0`, which does not limit the number of connections, allowing the server to facilitate up to 32,767 connections.
 
 ## References
 

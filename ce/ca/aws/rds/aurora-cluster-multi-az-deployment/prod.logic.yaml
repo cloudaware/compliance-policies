@@ -1,0 +1,45 @@
+---
+inputType: "CA10__CaAwsDbCluster__c"
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsDbCluster__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The cluster is not available."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__status__c"
+        right:
+          TEXT: "available"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This policy applies only to AWS RDS Aurora clusters."
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__engine__c"
+            search:
+              TEXT: "aurora"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Multi-AZ deployment is disabled for the Aurora cluster."
+    remediationMessage: "Add an Aurora replica in a different availability zone to enable Multi-AZ high availability."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__multiAZ__c"
+        right:
+          BOOLEAN: false
+  - status: "COMPLIANT"
+    currentStateMessage: "Multi-AZ deployment is enabled for the Aurora cluster."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__multiAZ__c"
+        right:
+          BOOLEAN: true
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "Unexpected values in the fields."

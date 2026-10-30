@@ -17,7 +17,7 @@ conditions:
             search:
               TEXT: "POSTGRE" 
   - status: "COMPLIANT"
-    currentStateMessage: "log_error_verbosity database flag is set to DEFAULT or stricter."
+    currentStateMessage: "The log_error_verbosity database flag is set to DEFAULT or stricter."
     check:
       CONTAINS:
         arg:
@@ -25,11 +25,13 @@ conditions:
             itemType: TEXT
             items:
               - "DEFAULT"
-              - "TERSE"
               - "VERBOSE"
         search:
           EXTRACT: "caJsonText__databaseFlagsLogErrorVerbosityFlagValue__c"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "log_error_verbosity database flag isn't set to DEFAULT or stricter."
-  remediationMessage: "Set log_error_verbosity database flag to DEFAULT or stricter."
+  currentStateMessage: "The log_error_verbosity database flag is not set to DEFAULT or stricter."
+  remediationMessage: "Set the log_error_verbosity database flag to DEFAULT or VERBOSE."
+
+
+

@@ -1,0 +1,38 @@
+---
+inputType: "CA10O1__CaOracleTenancy__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Cloud Guard is enabled for the root compartment of this tenancy."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10O1__Oracle_Cloud_Guard_Targets__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Cloud Guard is not enabled for the root compartment of this tenancy."
+  remediationMessage: "Enable Oracle Cloud Guard and configure an active target for the root compartment."
+relatedLists:
+  - relationshipName: "CA10O1__Oracle_Cloud_Guard_Targets__r"
+    importExtracts:
+      - file: /types/CA10O1__CaOracleCloudGuardTarget__c/object.extracts.yaml
+    conditions:
+      - status: "COMPLIANT"
+        currentStateMessage: "This active Cloud Guard target monitors the root compartment."
+        check:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10O1__lifecycleState__c"
+                  right:
+                    TEXT: "ACTIVE"
+              - STARTS_WITH:
+                  arg:
+                    EXTRACT: "CA10O1__targetResourceOcid__c"
+                  search:
+                    TEXT: "ocid1.tenancy."
+    otherwise:
+      status: "INAPPLICABLE"
+      currentStateMessage: "This Cloud Guard target is inactive or does not monitor the root compartment."

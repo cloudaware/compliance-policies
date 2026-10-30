@@ -1,0 +1,52 @@
+---
+inputType: CA10__CaAwsGlueJob__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsGlueJob__c/object.extracts.yaml
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: The job does not use Python shell.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - glueetl
+              - gluestreaming
+              - glueray
+        search:
+          EXTRACT: CA10__commandName__c
+  - status: UNDETERMINED
+    currentStateMessage: The job type is unknown, so Python shell support cannot be assessed.
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: CA10__commandName__c
+        right:
+          TEXT: pythonshell
+  - status: INAPPLICABLE
+    currentStateMessage: The job's exact Python version is unknown, so its support status cannot be confirmed.
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__commandPythonVersion__c
+        right:
+          TEXT: "3"
+  - status: INCOMPLIANT
+    currentStateMessage: The job uses a Python shell version that AWS no longer supports.
+    remediationMessage: Migrate and test the job on a supported Python shell version, or retire it if it is no longer needed.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - "2"
+              - "3.6"
+        search:
+          EXTRACT: CA10__commandPythonVersion__c
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: The job uses a supported Python shell version.

@@ -1,0 +1,10 @@
+---
+names:
+  full: "Azure Redis Cache has no cache lookups for 30 days"
+  contextual: "Redis Cache has no cache lookups for 30 days"
+description: "Identify Azure Redis Cache instances with zero cache hits and misses over 30 days for review."
+categories:
+  - "COST"
+type: "BEST_PRACTICE"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/waste-reduction"

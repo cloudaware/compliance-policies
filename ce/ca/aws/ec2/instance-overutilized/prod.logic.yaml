@@ -22,7 +22,7 @@ conditions:
         right:
           NUMBER: 14.0
   - status: UNDETERMINED
-    currentStateMessage: "There is not enough data in the CMDB to identify if the instance is overutilized."
+    currentStateMessage: "There is not enough CMDB data to determine whether the instance is overutilized."
     check:
       OR:
         args:
@@ -32,13 +32,104 @@ conditions:
           - IS_EMPTY:
               arg:
                 EXTRACT: "CA10__maxCpuTwoWeeks__c"
+          - AND:
+              args:
+                - NOT_EMPTY:
+                    arg:
+                      EXTRACT: "CA10N__newRelicHost__c"
+                - IS_EMPTY:
+                    arg:
+                      EXTRACT: "CA10N__newRelicHostMemoryUsed14Day__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The instance is overutilized with Average CPU Utilization > 80%\
-      \ and Max CPU Utilization > 95%."
-    remediationMessage: "Consider scaling up the instance or implementing auto scaling."
+    currentStateMessage: "The instance is overutilized with average CPU and memory utilization > 80% and max CPU utilization > 95%."
+    remediationMessage: "Scale up the instance or implement auto scaling."
     check:
       AND:
         args:
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: "CA10N__newRelicHost__c"
+          - GREATER_THAN:
+              left:
+                EXTRACT: CA10__averageCpuTwoWeeks__c
+              right:
+                NUMBER: 80.0
+          - GREATER_THAN:
+              left:
+                EXTRACT: CA10__maxCpuTwoWeeks__c
+              right:
+                NUMBER: 95.0
+          - GREATER_THAN:
+              left:
+                EXTRACT: CA10N__newRelicHostMemoryUsed14Day__c
+              right:
+                NUMBER: 80.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The instance is overutilized with average CPU and memory utilization > 80% and max CPU utilization > 95%."
+    remediationMessage: "Scale up the instance or implement auto scaling."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10N__newRelicHost__c"
+          - GREATER_THAN:
+              left:
+                EXTRACT: CA10__averageCpuTwoWeeks__c
+              right:
+                NUMBER: 80.0
+          - GREATER_THAN:
+              left:
+                EXTRACT: CA10__maxCpuTwoWeeks__c
+              right:
+                NUMBER: 95.0
+          - GREATER_THAN:
+              left:
+                EXTRACT: CA10__averageMemoryUsedTwoWeeks__c
+              right:
+                NUMBER: 80.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The instance is overutilized with average CPU and memory utilization > 80% and max CPU utilization > 95%."
+    remediationMessage: "Scale up the instance or implement auto scaling."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10N__newRelicHost__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__averageMemoryUsedTwoWeeks__c"
+          - GREATER_THAN:
+              left:
+                EXTRACT: CA10__averageCpuTwoWeeks__c
+              right:
+                NUMBER: 80.0
+          - GREATER_THAN:
+              left:
+                EXTRACT: CA10__maxCpuTwoWeeks__c
+              right:
+                NUMBER: 95.0
+          - GREATER_THAN:
+              left:
+                EXTRACT: CA10__nagiosMemoryUtilization__c
+              right:
+                NUMBER: 80.0
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The instance is overutilized with average CPU utilization > 80% and max CPU utilization > 95%."
+    remediationMessage: "Scale up the instance or implement auto scaling."
+    check:
+      AND:
+        args:
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10N__newRelicHost__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__averageMemoryUsedTwoWeeks__c"
+          - IS_EMPTY:
+              arg:
+                EXTRACT: "CA10__nagiosMemoryUtilization__c"
           - GREATER_THAN:
               left:
                 EXTRACT: CA10__averageCpuTwoWeeks__c
@@ -51,4 +142,4 @@ conditions:
                 NUMBER: 95.0
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: 'The instance is not overutilized.'
+  currentStateMessage: "The instance is not overutilized."

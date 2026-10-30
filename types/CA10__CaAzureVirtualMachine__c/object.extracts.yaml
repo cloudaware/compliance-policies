@@ -20,6 +20,25 @@ extracts:
     value: 
       FIELD:
         path: "CA10__powerState__c" 
+  - name: "CA10N__newRelicHost__c"
+    value:
+      FIELD:
+        path: "CA10N__newRelicHost__c"
+# Percent
+  - name: "CA10N__newRelicHostMemoryUsed14Day__c"
+    value:
+      FIELD:
+        path: "CA10N__newRelicHostMemoryUsed14Day__c"
+# Percent
+  - name: "CA10N__newRelicHostDiskReadUtilization__c"
+    value:
+      FIELD:
+        path: "CA10N__newRelicHostDiskReadUtilization__c"
+# Percent
+  - name: "CA10N__newRelicHostDiskWriteUtilization__c"
+    value:
+      FIELD:
+        path: "CA10N__newRelicHostDiskWriteUtilization__c"
 # Percent
   - name: "CA10__monitorCpuAvg14Day__c"
     value: 
@@ -48,4 +67,3 @@ extracts:
     value:
       FIELD:
         path: "CA10__locationName__c"
-        

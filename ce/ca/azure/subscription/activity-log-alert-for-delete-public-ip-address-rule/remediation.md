@@ -23,12 +23,12 @@
 ## From Azure CLI
 
 ```sh
-az monitor activity-log alert create /
-    --resource-group {{resource-group-name}} /
-    --condition category=Administrative and operationName=Microsoft.Network/publicIPAddresses/delete and level={{verbose | information | warning | error | critical}} /
-    --scope /subscriptions/{{subscription-id}} /
-    --name {{activity-log-rule-name}} /
-    --subscription {{subscription-id}} /
+az monitor activity-log alert create \
+    --resource-group {{resource-group-name}} \
+    --condition category=Administrative and operationName=Microsoft.Network/publicIPAddresses/delete and level={{verbose | information | warning | error | critical}} \
+    --scope /subscriptions/{{subscription-id}} \
+    --name {{activity-log-rule-name}} \
+    --subscription {{subscription-id}} \
     --action-group {{action-group-id}}
 ```
 
@@ -52,7 +52,7 @@ $conditions += New-AzActivityLogAlertAlertRuleAnyOfOrLeafConditionObject `
     -Field level
 ```
 
-Retrieve the `Action Group`information and store in a variable, then create the `Actions object`:
+Retrieve the `Action Group` information and store in a variable, then create the `Actions` object:
 
 ```ps
 $actionGroup = Get-AzActionGroup `
@@ -66,7 +66,7 @@ $actionObject = New-AzActivityLogAlertActionGroupObject `
 Create the `Scope` object:
 
 ```ps
-$scope = /subscriptions/{{subscription-id}}
+$scope = "/subscriptions/{{subscription-id}}"
 ```
 
 Create the `Activity Log Alert Rule` for `Microsoft.Network/publicIPAddresses/delete`:

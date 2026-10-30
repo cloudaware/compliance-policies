@@ -1,0 +1,15 @@
+---
+names:
+  full: "Oracle Tenancy has CIS-scoped resources created in the root compartment"
+  contextual: "Tenancy has CIS-scoped resources created in the root compartment"
+description: >
+  CIS-scoped OCI network, compute, database, and storage resources should be
+  created in dedicated compartments instead of the tenancy root compartment to
+  support isolation, delegated administration, least-privilege access control,
+  and clearer tenancy governance.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/identity-and-access-governance/general-access-controls"
+  - "/frameworks/cis-oracle-v3.1.0/06/02"

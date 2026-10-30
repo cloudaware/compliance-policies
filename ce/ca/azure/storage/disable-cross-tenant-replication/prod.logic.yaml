@@ -6,8 +6,8 @@ importExtracts:
   - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "This Storage account allows Cross Tenant Replication."
-    remediationMessage: "Consider disabling Cross Tenant Replication if object replication policies will not involve storage accounts in different AAD tenants."
+    currentStateMessage: "This storage account allows cross-tenant replication."
+    remediationMessage: "Disable cross-tenant replication when object replication does not require cross-tenant access."
     check:
       IS_EQUAL:
         left:
@@ -15,14 +15,14 @@ conditions:
         right:
           TEXT: "Allow"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Cross Tenant Replication is not explicitly denied."
-    remediationMessage: "Consider disabling Cross Tenant Replication since the storage account can still participate in object replication policies across tenants."
+    currentStateMessage: "Cross-tenant replication is not explicitly denied."
+    remediationMessage: "Disable cross-tenant replication when object replication does not require cross-tenant access."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__crossTenantReplication__c"
   - status: "COMPLIANT"
-    currentStateMessage: "Cross Tenant Replication is denied."
+    currentStateMessage: "Cross-tenant replication is denied."
     check:
       IS_EQUAL:
         left:

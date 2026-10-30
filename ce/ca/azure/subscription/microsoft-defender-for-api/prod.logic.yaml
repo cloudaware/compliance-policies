@@ -4,8 +4,8 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "Microsoft Defender for APIs is in Free tier."
-    remediationMessage: "Consider enabling Defender for APIs Standard plan."
+    currentStateMessage: "Microsoft Defender for APIs is on the Free tier."
+    remediationMessage: "Enable Defender for APIs Standard plan."
     check:
       RELATED_LIST_HAS:
         relationshipName: "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r"
@@ -19,7 +19,7 @@ conditions:
 otherwise:
   status: "INCOMPLIANT"
   currentStateMessage: "Microsoft Defender for APIs is not enabled."
-  remediationMessage: "Consider enabling Microsoft Defender for APIs Standard plan."
+  remediationMessage: "Enable Microsoft Defender for APIs Standard plan."
 relatedLists:
   - relationshipName: "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r"
     importExtracts:
@@ -34,7 +34,7 @@ relatedLists:
             right: 
               TEXT: "Api"
       - status: "COMPLIANT"
-        currentStateMessage: "This is a Standard tier."
+        currentStateMessage: "This is the Standard tier."
         check:
           IS_EQUAL:
             left: 
@@ -42,7 +42,7 @@ relatedLists:
             right: 
               TEXT: "Standard"
       - status: "INCOMPLIANT"
-        currentStateMessage: "This is a Free tier."
+        currentStateMessage: "This is the Free tier."
         remediationMessage: "Enable Defender for APIs Standard plan."
         check:
           IS_EQUAL:
@@ -53,3 +53,4 @@ relatedLists:
     otherwise: 
       status: "UNDETERMINED"
       currentStateMessage: "Unexpected values in the fields."
+

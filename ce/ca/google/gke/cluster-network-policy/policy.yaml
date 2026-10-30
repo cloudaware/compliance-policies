@@ -10,8 +10,11 @@ description: "A network policy is a specification of how groups of pods are allo
 type: "COMPLIANCE_POLICY"
 categories:
   - "SECURITY"
-  - "RELIABILITY"
 frameworkMappings:
   - "/frameworks/nist-sp-800-53-r4/sc/07"
+  - "/frameworks/cloudaware/resource-security/secure-access"
   - "/frameworks/pci-dss-v3.2.1/01/03"
   - "/frameworks/iso-iec-27001-2013/13/01/01"
+similarPolicies:
+  internal:
+    - "dec-x-9869294d"

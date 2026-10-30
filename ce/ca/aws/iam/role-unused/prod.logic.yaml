@@ -6,15 +6,15 @@ importExtracts:
   - file: "/types/CA10__CaAwsRole__c/object.extracts.yaml"
 conditions:
   - status: INCOMPLIANT
-    currentStateMessage: "Role has not been used within the tracking period and meets the unused criteria"
-    remediationMessage: "Delete unused role"
+    currentStateMessage: "The role has not been used within the tracking period and meets the unused criteria."
+    remediationMessage: "Delete the unused role."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__lastUsedDate__c"
   - status: INCOMPLIANT
-    currentStateMessage: "Role has not been used in the past 90 days"
-    remediationMessage: "Delete unused role"
+    currentStateMessage: "The role has not been used in the past 90 days."
+    remediationMessage: "Delete the unused role."
     check:
       IS_BEYOND_LAST_DAYS:
         offsetDays: 90
@@ -22,4 +22,4 @@ conditions:
           EXTRACT: "CA10__lastUsedDate__c"
 otherwise:
   status: COMPLIANT
-  currentStateMessage: "The role was used."
+  currentStateMessage: "The role has been used recently."

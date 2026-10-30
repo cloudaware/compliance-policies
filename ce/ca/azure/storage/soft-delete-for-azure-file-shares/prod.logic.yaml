@@ -7,7 +7,7 @@ importExtracts:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The soft delete configuration for Azure Files is not enabled."
-    remediationMessage: "Consider enabling soft delete for Azure Files."
+    remediationMessage: "Enable soft delete for Azure Files."
     check:
       OR:
         args:
@@ -23,7 +23,7 @@ conditions:
               arg:
                 EXTRACT: "CA10Z1__shareDeleteRetentionPolicyDays__c"
   - status: "COMPLIANT"
-    currentStateMessage: "The soft delete for Azure Files is enabled."
+    currentStateMessage: "Soft delete for Azure Files is enabled."
     check:
       AND:
         args:

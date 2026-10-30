@@ -1,0 +1,12 @@
+---
+name: 1.12 Ensure API keys are not created for tenancy administrator users - Level 1 (Automated)
+description: >
+  Tenancy administrator users have full access to the organization's OCI
+  tenancy. API keys associated with user accounts are used for invoking the OCI
+  APIs via custom programs or clients like CLI/SDKs. The clients are typically
+  used for performing day-to- day operations and should never require full
+  tenancy access. Service-level administrative users with API keys should be
+  used instead.
+similar:
+  internal:
+    - dec-c-753e3343

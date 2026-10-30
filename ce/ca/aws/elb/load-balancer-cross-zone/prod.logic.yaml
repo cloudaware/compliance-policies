@@ -9,8 +9,8 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "Cross-zone load balancing is disabled for this Classic Load Balancer."
-    remediationMessage: "Enable cross-zone load balancing in the Load Balancer's attributes."
+    currentStateMessage: "Cross-zone load balancing is disabled for this Classic load balancer."
+    remediationMessage: "Enable cross-zone load balancing in the load balancer attributes."
     check:
       AND:
         args:
@@ -25,7 +25,7 @@ conditions:
               right:
                 BOOLEAN: false
   - status: "COMPLIANT"
-    currentStateMessage: "Cross-zone load balancing is enabled for this Classic Load Balancer."
+    currentStateMessage: "Cross-zone load balancing is enabled for this Classic load balancer."
     check:
       AND:
         args:
@@ -40,8 +40,8 @@ conditions:
               right:
                 BOOLEAN: true
   - status: "INCOMPLIANT"
-    currentStateMessage: "Cross-zone load balancing is disabled for this Load Balancer."
-    remediationMessage: "Enable the 'load_balancing.cross_zone.enabled' attribute for the Load Balancer."
+    currentStateMessage: "Cross-zone load balancing is disabled for this load balancer."
+    remediationMessage: "Enable the 'load_balancing.cross_zone.enabled' attribute for the load balancer."
     check:
       AND:
         args:
@@ -63,10 +63,8 @@ conditions:
               search:
                 TEXT: "load_balancing.cross_zone.enabled: false"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Cross-zone load balancing is disabled on at least one\
-      \ of the target groups associated with this Application Load Balancer."
-    remediationMessage: "Enable the 'load_balancing.cross_zone.enabled' attribute\
-      \ for all associated target groups."
+    currentStateMessage: "Cross-zone load balancing is disabled on at least one target group associated with this application load balancer."
+    remediationMessage: "Enable the 'load_balancing.cross_zone.enabled' attribute for all associated target groups."
     check:
       AND:
         args:
@@ -79,7 +77,7 @@ conditions:
               status: "INCOMPLIANT"
               relationshipName: "CA10__AWS_EC2_Load_Balancer_Target_Group_Links__r"
   - status: "COMPLIANT"
-    currentStateMessage: "Cross-zone load balancing is enabled for this Load Balancer."
+    currentStateMessage: "Cross-zone load balancing is enabled for this load balancer."
     check:
       AND:
         args:
@@ -92,7 +90,7 @@ conditions:
               status: "COMPLIANT"
               relationshipName: "CA10__AWS_EC2_Load_Balancer_Target_Group_Links__r"
   - status: "COMPLIANT"
-    currentStateMessage: "Cross-zone load balancing is enabled for this Load Balancer."
+    currentStateMessage: "Cross-zone load balancing is enabled for this load balancer."
     check:
       CONTAINS:
         arg:
@@ -130,4 +128,4 @@ relatedLists:
                   - "load_balancing.cross_zone.enabled: use_load_balancer_configuration"
     otherwise:
       status: "UNDETERMINED"
-      currentStateMessage: "The 'load_balancing.cross_zone.enabled' attribute does not exist."
+      currentStateMessage: "The 'load_balancing.cross_zone.enabled' attribute is not set."

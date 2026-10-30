@@ -7,8 +7,8 @@ description: Auditing tracks database events and writes them to an audit log in 
   and newly created databases on the SQL server instance are audited.
 type: COMPLIANCE_POLICY
 categories:
-  - RELIABILITY
-  - SECURITY
+  - "RELIABILITY"
+  - "SECURITY"
 frameworkMappings:
   - "/frameworks/cis-azure-v2.1.0/04/01/01"
   - "/frameworks/cis-azure-v3.0.0/05/01/01"

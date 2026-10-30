@@ -1,6 +1,6 @@
 # Remediation
 
-Each resource has its own process for upgrading from basic to standard SKUs that should be followed if required.
+Each resource has its own process for upgrading from Basic, Free, or Consumption SKUs to production-appropriate SKUs that should be followed if required.
 
 - Public IP Address: <https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-upgrade>.
 - Basic Load Balancer: <https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-basic-upgrade-guidance>.

@@ -34,11 +34,42 @@ Repeat the above procedure for each Private Endpoint required within every Stora
 ## From PowerShell
 
 ```ps
-$storageAccount = Get-AzStorageAccount -ResourceGroupName '<ResourceGroupName>' -Name '<storageaccountname>' $privateEndpointConnection = @{ Name = 'connectionName' PrivateLinkServiceId = $storageAccount.Id GroupID = "blob|blob_secondary|file|file_secondary|table|table_secondary|queue|queue_secondary|web|web_secondary|dfs|dfs_secondary" } $privateLinkServiceConnection = New-AzPrivateLinkServiceConnection @privateEndpointConnection $virtualNetDetails = Get-AzVirtualNetwork -ResourceGroupName '<ResourceGroupName>' -Name '<name>' $privateEndpoint = @{ ResourceGroupName = '<ResourceGroupName>' Name = '<PrivateEndpointName>' Location = '<location>' Subnet = $virtualNetDetails.Subnets[0] PrivateLinkServiceConnection = $privateLinkServiceConnection } New-AzPrivateEndpoint @privateEndpoint
+$storageAccount = Get-AzStorageAccount `
+    -ResourceGroupName "{{resource-group-name}}" `
+    -Name "{{storage-account-name}}"
+
+$privateEndpointConnection = @{
+    Name = "{{connection-name}}"
+    PrivateLinkServiceId = $storageAccount.Id
+    GroupID = "blob|blob_secondary|file|file_secondary|table|table_secondary|queue|queue_secondary|web|web_secondary|dfs|dfs_secondary"
+}
+
+$privateLinkServiceConnection = New-AzPrivateLinkServiceConnection @privateEndpointConnection
+$virtualNetDetails = Get-AzVirtualNetwork `
+    -ResourceGroupName "{{vnet-resource-group-name}}" `
+    -Name "{{vnet-name}}"
+
+$privateEndpoint = @{
+    ResourceGroupName = "{{resource-group-name}}"
+    Name = "{{private-endpoint-name}}"
+    Location = "{{location}}"
+    Subnet = $virtualNetDetails.Subnets[0]
+    PrivateLinkServiceConnection = $privateLinkServiceConnection
+}
+
+New-AzPrivateEndpoint @privateEndpoint
 ```
 
 ## From Azure CLI
 
 ```sh
-az network private-endpoint create --resource-group <ResourceGroupName --location <location> --name <private endpoint name> --vnet-name <VNET Name> --subnet <subnet name> --private-connection-resource-id <storage account ID> --connection-name <private link service connection name> --group-id <blob|blob_secondary|file|file_secondary|table|table_secondary|queue|queue_secondary|web|web_secondary|dfs|dfs_secondary>
+az network private-endpoint create \
+    --resource-group {{resource-group-name}} \
+    --location {{location}} \
+    --name {{private-endpoint-name}} \
+    --vnet-name {{vnet-name}} \
+    --subnet {{subnet-name}} \
+    --private-connection-resource-id {{storage-account-id}} \
+    --connection-name {{private-link-service-connection-name}} \
+    --group-id {{blob|blob_secondary|file|file_secondary|table|table_secondary|queue|queue_secondary|web|web_secondary|dfs|dfs_secondary}}
 ```

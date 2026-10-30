@@ -9,10 +9,10 @@ description: "S3 Bucket Access Logging generates a log that contains access reco
   \ bucket access logging be enabled on the CloudTrail S3 bucket."
 type: COMPLIANCE_POLICY
 categories:
-  - SECURITY
-  - RELIABILITY
+  - "SECURITY"
+  - "RELIABILITY"
 frameworkMappings:
-  - "/frameworks/cis-aws-v6.0.0/04/04"
+  - "/frameworks/cis-aws-v7.0.0/04/04"
   - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
   - "/frameworks/aws-fsbp-v1.0.0/s3/09"
 similarPolicies:

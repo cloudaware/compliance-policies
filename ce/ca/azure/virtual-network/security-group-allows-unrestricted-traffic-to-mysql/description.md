@@ -4,13 +4,13 @@ Ensure that Azure Network Security Groups hosting MySQL instances are not config
 
 Network Security Group (NSG) rules should be reviewed and adjusted to limit traffic to only trusted IP addresses or internal networks, reducing the risk of unauthorized access and exposure to external threats.
 
-## Rational
+## Rationale
 
 Unrestricted access to MySQL on port 3306 significantly increases the risk of unauthorized access, brute-force attacks, data exfiltration, and exploitation of SQL injection vulnerabilities. MySQL instances exposed to the internet without appropriate access controls are prime targets for malicious actors, who may attempt to exploit weak authentication mechanisms or known vulnerabilities in the MySQL server. By restricting access to trusted IP addresses or internal networks, only authorized users and systems can interact with the database, safeguarding sensitive data and reducing the attack surface.
 
 ## Impact
 
-Restricting access to MySQL may require careful configuration of Security Groups to ensure that legitimate applications and users retain necessary access to the database. Proper planning and testing are essential to maintain service availability while ensuring security.
+Restricting access to MySQL may require careful configuration of Network Security Groups to ensure that legitimate applications and users retain necessary access to the database. Proper planning and testing are essential to maintain service availability while ensuring security.
 
 ## Audit
 
@@ -22,6 +22,6 @@ This policy flags an *Azure Network Security Group* as `INCOMPLIANT` if it conta
 - `Source Address Prefix` is either **Internet**, `*` **0.0.0.0**, **/0**, or **Any**.
 - `Destination Port` is **3306**.
 
-If the `Direction`, `Access`, `Protocol`, or `Source Address Prefix` fields do not match the criteria above, the VM is marked as `INAPPLICABLE`.
+If the `Direction`, `Access`, `Protocol`, or `Source Address Prefix` fields do not match the criteria above, the Network Security Group is marked as `INAPPLICABLE`.
 
-If the `Destination Port` does not match, the VM is considered `COMPLIANT`.
+If the `Destination Port` does not match, the Network Security Group is considered `COMPLIANT`.

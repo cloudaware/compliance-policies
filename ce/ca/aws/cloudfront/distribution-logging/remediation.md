@@ -10,28 +10,28 @@ CloudFront delivers access logs via the CloudWatch vended logs. To enable and co
 
 1. Create a delivery source for the CloudFront Distribution logs:
 
-```sh
-aws logs put-delivery-source \
-    --name {{delivery-name}} \
-    --resource-arn {{distribution-arn}} \
-    --log-type ACCESS_LOGS
-```
+    ```sh
+    aws logs put-delivery-source \
+        --name {{delivery-name}} \
+        --resource-arn {{distribution-arn}} \
+        --log-type ACCESS_LOGS
+    ```
 
 2. Configure the delivery destination where the logs should be sent (CloudWatch Logs, Kinesis Data Firehose, or S3):
 
-```sh
-aws logs put-delivery-destination \
-    --name {{destination-name}} \
-    --delivery-destination-configuration {{delivery-destination-arn}}
-```
+    ```sh
+    aws logs put-delivery-destination \
+        --name {{destination-name}} \
+        --delivery-destination-configuration {{delivery-destination-arn}}
+    ```
 
 3. Link source and destination to bind your CloudFront distribution to the target destination:
 
-```sh
-aws logs create-delivery \
-    --delivery-source-name {{delivery-name}} \
-    --delivery-destination-arn {{delivery-destination-arn}}
-```
+    ```sh
+    aws logs create-delivery \
+        --delivery-source-name {{delivery-name}} \
+        --delivery-destination-arn {{delivery-destination-arn}}
+    ```
 
 ## Using CloudFormation
 

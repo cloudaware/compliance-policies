@@ -1,0 +1,82 @@
+<MdxCard>
+[Back to Index](index.md)
+
+# MdxCustomAggregateListView
+
+```jsx
+<MdxCustomAggregateListView
+    componentKey="bucket_requests_by_day"
+    viewSettings={{
+        keyPrefix: "a04",
+        sObjectName: "CA10__CaAwsBucket__c",
+        listViewPreset: {
+            filter: {
+                type: "condition",
+                field: "CA10__getObjectRequestsMtd__c",
+                operator: "notEquals",
+                value: "0"
+            },
+            aggregateQuery: {
+                columns: [
+                    {
+                        label: "day",
+                        fieldNameOrPath: "CreatedDate",
+                        convertFunction: "DAY"
+                    },
+                    {
+                        label: "Requests: GetObject, MTD",
+                        fieldNameOrPath: "CA10__getObjectRequestsMtd__c",
+                        aggregateFunction: "AVG"
+                    }
+                ],
+                orderBy: [
+                    {
+                        column: {
+                            label: "day",
+                            fieldNameOrPath: "CreatedDate",
+                            convertFunction: "DAY"
+                        },
+                        direction: "ASC"
+                    }
+                ]
+            }
+        }
+    }}
+/>
+```
+
+## componentKey
+
+-   `componentKey="my_aggregate"`
+-   Unique key for the view instance.
+
+## viewSettings.sObjectName
+
+-   `sObjectName="Account"`
+-   `sObjectName="Opportunity"`
+-   See [MdxCustomView](MdxCustomView.mdx).
+
+## viewSettings.keyPrefix
+
+-   `keyPrefix="001"`
+-   `keyPrefix="006"`
+-   See [MdxCustomView](MdxCustomView.mdx).
+
+## viewSettings.listViewPreset.aggregateQuery.columns
+
+-   Group column: `{ label: "Stage", fieldNameOrPath: "StageName" }`
+-   Aggregate column: `{ label: "Amount", fieldNameOrPath: "Amount", aggregateFunction: "SUM" }`
+-   Converted group column: `{ label: "Close Date", fieldNameOrPath: "CloseDate", convertFunction: "YEAR_MONTH" }`
+-   See [MdxCustomView](MdxCustomView.mdx).
+
+## viewSettings.listViewPreset.aggregateQuery.orderBy
+
+-   Optional aggregate sort settings.
+-   See [MdxCustomView](MdxCustomView.mdx).
+
+## viewSettings.listViewPreset.filter
+
+-   Optional ListView filter.
+-   See [MdxCustomView](MdxCustomView.mdx).
+
+</MdxCard>

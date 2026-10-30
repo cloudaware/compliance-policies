@@ -23,7 +23,7 @@ conditions:
             arg:
               EXTRACT: "CA10__createTime__c"
   - status: UNDETERMINED
-    currentStateMessage: "There is not enough data in the CMDB to identify if the cluster is underutilized."
+    currentStateMessage: "There is not enough data in the CMDB to determine whether the cluster is underutilized."
     check:
       OR:
         args:
@@ -37,9 +37,8 @@ conditions:
               arg:
                 EXTRACT: "CA10__diskWriteIopsAvg30d__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The cluster is underutilized with Average CPU Utilization < 20%, Average \
-      \ Disk I/O < 50 IOPS."
-    remediationMessage: "Consider rightsizing the cluster."
+    currentStateMessage: "The cluster is underutilized with average CPU utilization below 20% and average disk I/O below 50 IOPS."
+    remediationMessage: "Rightsize the cluster."
     check:
       AND:
         args:
@@ -60,4 +59,4 @@ conditions:
                 NUMBER: 50.0
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: 'The cluster is not underutilized.'
+  currentStateMessage: "The cluster is not underutilized."

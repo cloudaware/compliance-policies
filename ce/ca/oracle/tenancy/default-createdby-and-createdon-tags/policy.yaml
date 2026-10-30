@@ -1,0 +1,14 @@
+---
+names:
+  full: "Oracle Tenancy default CreatedBy and CreatedOn tags are not configured"
+  contextual: "Tenancy default CreatedBy and CreatedOn tags are not configured"
+description: >
+  Oracle Tenancies should be configured with root-level default tags named CreatedBy and
+  CreatedOn so supported resources inherit baseline creator and creation-time
+  metadata during provisioning.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-reliability/system-configuration"
+  - "/frameworks/cis-oracle-v3.1.0/04/01"

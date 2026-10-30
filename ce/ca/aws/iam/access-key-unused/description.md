@@ -8,6 +8,6 @@ IAM access keys provide programmatic access to AWS resources. Retaining active k
 
 # Audit
 
-This policy flags an *AWS IAM Access Key* as `INCOMPLIANT` if the `Last Used Date` field is **empty** or the date is beyond the past **90 days**.
+This policy flags an *AWS IAM Access Key* as `INCOMPLIANT` if the `Last Used Date` field is **empty** or the date is more than **90 days** ago.
 
 **Inactive** *Access Keys* are marked as `INAPPLICABLE`.

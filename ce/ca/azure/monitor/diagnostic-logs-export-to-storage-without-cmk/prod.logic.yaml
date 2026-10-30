@@ -7,12 +7,12 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This Diagnostic Setting logs are not sent to a Storage account."
+    currentStateMessage: "Diagnostic setting logs are not sent to a storage account."
     check:
       IS_EMPTY_LOOKUP: "CA10__storageAccount__r"
   - status: "INCOMPLIANT"
-    currentStateMessage: "This Diagnostic Setting logs are sent to a Storage account not encrypted with a Customer-managed Key."
-    remediationMessage: "Consider encrypting the destination Storage account with a Customer-managed encryption Key."
+    currentStateMessage: "Diagnostic setting logs are sent to a storage account without a customer-managed key."
+    remediationMessage: "Encrypt the destination storage account with a customer-managed key."
     check:
       AND:
         args:
@@ -25,7 +25,7 @@ conditions:
               arg:
                 EXTRACT: "CA10__storageAccount__r.CA10__encryptionKeyVaultUri__c"
   - status: "COMPLIANT"
-    currentStateMessage: "This Diagnostic Setting logs are sent to a Storage account encrypted with Customer-managed Key."
+    currentStateMessage: "Diagnostic setting logs are sent to a storage account encrypted with a customer-managed key."
     check:
       AND:
         args:

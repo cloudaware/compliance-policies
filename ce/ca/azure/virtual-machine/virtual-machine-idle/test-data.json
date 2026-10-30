@@ -14,10 +14,12 @@
         "CA10__disappearanceTime__c": "2025-04-17T10:19:57Z",
         "CA10__powerState__c": "VM running",
         "CA10__timeCreated__c": "2024-04-16T19:01:32Z",
-        "CA10__monitorCpuAvg14Day__c": 5.0,
+        "CA10__monitorCpuAvg14Day__c": 1.0,
         "CA10__monitorCpuMax14Day__c": 10.0,
         "CA10__monitorNetworkInMbSum14Day__c": 10.0,
         "CA10__monitorNetworkOutMbSum14Day__c": 10.0,
+        "CA10N__newRelicHost__c": null,
+        "CA10N__newRelicHostMemoryUsed14Day__c": null,
         "RecordType": {
             "DeveloperName": "caAzureRMVirtualMachine",
             "Id": "RecordTypeId"
@@ -38,10 +40,12 @@
         "CA10__disappearanceTime__c": null,
         "CA10__powerState__c": "VM deallocated",
         "CA10__timeCreated__c": "2024-04-02T04:10:49Z",
-        "CA10__monitorCpuAvg14Day__c": 5.0,
+        "CA10__monitorCpuAvg14Day__c": 1.0,
         "CA10__monitorCpuMax14Day__c": 10.0,
         "CA10__monitorNetworkInMbSum14Day__c": 10.0,
         "CA10__monitorNetworkOutMbSum14Day__c": 10.0,
+        "CA10N__newRelicHost__c": null,
+        "CA10N__newRelicHostMemoryUsed14Day__c": null,
         "RecordType": {
             "DeveloperName": "caAzureRMVirtualMachine",
             "Id": "RecordTypeId"
@@ -62,10 +66,12 @@
         "CA10__disappearanceTime__c": null,
         "CA10__powerState__c": "VM running",
         "CA10__timeCreated__c": "2025-04-24T01:44:28Z",
-        "CA10__monitorCpuAvg14Day__c": 5.0,
+        "CA10__monitorCpuAvg14Day__c": 1.0,
         "CA10__monitorCpuMax14Day__c": 10.0,
         "CA10__monitorNetworkInMbSum14Day__c": 10.0,
         "CA10__monitorNetworkOutMbSum14Day__c": 10.0,
+        "CA10N__newRelicHost__c": null,
+        "CA10N__newRelicHostMemoryUsed14Day__c": null,
         "RecordType": {
             "DeveloperName": "caAzureRMVirtualMachine",
             "Id": "RecordTypeId"
@@ -73,9 +79,9 @@
     },
     {
         "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "499",
-            "conditionText": "extract('CA10__monitorCpuAvg14Day__c') < number(5.0) && extract('CA10__monitorCpuMax14Day__c') < number(15.0) && extract('CA10__monitorNetworkInMbSum14Day__c') < number(100.0) && extract('CA10__monitorNetworkOutMbSum14Day__c') < number(100.0)",
+            "status": "UNDETERMINED",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__monitorCpuAvg14Day__c').isEmpty() || extract('CA10__monitorCpuMax14Day__c').isEmpty() || extract('CA10__monitorNetworkInMbSum14Day__c').isEmpty() || extract('CA10__monitorNetworkOutMbSum14Day__c').isEmpty() || (extract('CA10N__newRelicHost__c').isNotEmpty() && (extract('CA10N__newRelicHostMemoryUsed14Day__c').isEmpty() || extract('CA10N__newRelicHostDiskReadUtilization__c').isEmpty() || extract('CA10N__newRelicHostDiskWriteUtilization__c').isEmpty()))",
             "runtimeError": null
         },
         "context": {
@@ -86,10 +92,12 @@
         "CA10__disappearanceTime__c": null,
         "CA10__powerState__c": "VM running",
         "CA10__timeCreated__c": "2024-06-17T09:40:03Z",
-        "CA10__monitorCpuAvg14Day__c": 1.0,
+        "CA10__monitorCpuAvg14Day__c": null,
         "CA10__monitorCpuMax14Day__c": 10.0,
         "CA10__monitorNetworkInMbSum14Day__c": 10.0,
         "CA10__monitorNetworkOutMbSum14Day__c": 10.0,
+        "CA10N__newRelicHost__c": null,
+        "CA10N__newRelicHostMemoryUsed14Day__c": null,
         "RecordType": {
             "DeveloperName": "caAzureRMVirtualMachine",
             "Id": "RecordTypeId"
@@ -97,9 +105,9 @@
     },
     {
         "expectedResult": {
-            "status": "COMPLIANT",
-            "conditionIndex": "500",
-            "conditionText": "otherwise",
+            "status": "UNDETERMINED",
+            "conditionIndex": "399",
+            "conditionText": "extract('CA10__monitorCpuAvg14Day__c').isEmpty() || extract('CA10__monitorCpuMax14Day__c').isEmpty() || extract('CA10__monitorNetworkInMbSum14Day__c').isEmpty() || extract('CA10__monitorNetworkOutMbSum14Day__c').isEmpty() || (extract('CA10N__newRelicHost__c').isNotEmpty() && (extract('CA10N__newRelicHostMemoryUsed14Day__c').isEmpty() || extract('CA10N__newRelicHostDiskReadUtilization__c').isEmpty() || extract('CA10N__newRelicHostDiskWriteUtilization__c').isEmpty()))",
             "runtimeError": null
         },
         "context": {
@@ -109,11 +117,97 @@
         "RecordTypeId": "RecordTypeId",
         "CA10__disappearanceTime__c": null,
         "CA10__powerState__c": "VM running",
+        "CA10__timeCreated__c": "2024-06-17T09:40:03Z",
+        "CA10__monitorCpuAvg14Day__c": 1.0,
+        "CA10__monitorCpuMax14Day__c": 10.0,
+        "CA10__monitorNetworkInMbSum14Day__c": 10.0,
+        "CA10__monitorNetworkOutMbSum14Day__c": 10.0,
+        "CA10N__newRelicHost__c": "newRelicHost",
+        "CA10N__newRelicHostMemoryUsed14Day__c": 10.0,
+        "CA10N__newRelicHostDiskReadUtilization__c": null,
+        "CA10N__newRelicHostDiskWriteUtilization__c": 1.0,
+        "RecordType": {
+            "DeveloperName": "caAzureRMVirtualMachine",
+            "Id": "RecordTypeId"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "499",
+            "conditionText": "extract('CA10N__newRelicHost__c').isNotEmpty() && extract('CA10N__newRelicHostMemoryUsed14Day__c') < number(20.0) && extract('CA10N__newRelicHostDiskReadUtilization__c') < number(5.0) && extract('CA10N__newRelicHostDiskWriteUtilization__c') < number(5.0) && extract('CA10__monitorCpuAvg14Day__c') < number(5.0) && extract('CA10__monitorCpuMax14Day__c') < number(15.0) && extract('CA10__monitorNetworkInMbSum14Day__c') < number(100.0) && extract('CA10__monitorNetworkOutMbSum14Day__c') < number(100.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-24T01:44:28Z"
+        },
+        "Id": "test6",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__powerState__c": "VM running",
+        "CA10__timeCreated__c": "2024-06-17T09:40:03Z",
+        "CA10__monitorCpuAvg14Day__c": 1.0,
+        "CA10__monitorCpuMax14Day__c": 10.0,
+        "CA10__monitorNetworkInMbSum14Day__c": 10.0,
+        "CA10__monitorNetworkOutMbSum14Day__c": 10.0,
+        "CA10N__newRelicHost__c": "newRelicHost",
+        "CA10N__newRelicHostMemoryUsed14Day__c": 10.0,
+        "CA10N__newRelicHostDiskReadUtilization__c": 1.0,
+        "CA10N__newRelicHostDiskWriteUtilization__c": 1.0,
+        "RecordType": {
+            "DeveloperName": "caAzureRMVirtualMachine",
+            "Id": "RecordTypeId"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "599",
+            "conditionText": "extract('CA10N__newRelicHost__c').isEmpty() && extract('CA10__monitorCpuAvg14Day__c') < number(5.0) && extract('CA10__monitorCpuMax14Day__c') < number(15.0) && extract('CA10__monitorNetworkInMbSum14Day__c') < number(100.0) && extract('CA10__monitorNetworkOutMbSum14Day__c') < number(100.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-24T01:44:28Z"
+        },
+        "Id": "test7",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__powerState__c": "VM running",
+        "CA10__timeCreated__c": "2024-06-17T09:40:03Z",
+        "CA10__monitorCpuAvg14Day__c": 1.0,
+        "CA10__monitorCpuMax14Day__c": 10.0,
+        "CA10__monitorNetworkInMbSum14Day__c": 10.0,
+        "CA10__monitorNetworkOutMbSum14Day__c": 10.0,
+        "CA10N__newRelicHost__c": null,
+        "CA10N__newRelicHostMemoryUsed14Day__c": null,
+        "RecordType": {
+            "DeveloperName": "caAzureRMVirtualMachine",
+            "Id": "RecordTypeId"
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "600",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2025-04-24T01:44:28Z"
+        },
+        "Id": "test8",
+        "RecordTypeId": "RecordTypeId",
+        "CA10__disappearanceTime__c": null,
+        "CA10__powerState__c": "VM running",
         "CA10__timeCreated__c": "2024-04-01T21:29:13Z",
-        "CA10__monitorCpuAvg14Day__c": 9.0,
-        "CA10__monitorCpuMax14Day__c": 99.0,
-        "CA10__monitorNetworkInMbSum14Day__c": 1000.0,
-        "CA10__monitorNetworkOutMbSum14Day__c": 1000.0,
+        "CA10__monitorCpuAvg14Day__c": 1.0,
+        "CA10__monitorCpuMax14Day__c": 10.0,
+        "CA10__monitorNetworkInMbSum14Day__c": 10.0,
+        "CA10__monitorNetworkOutMbSum14Day__c": 10.0,
+        "CA10N__newRelicHost__c": "newRelicHost",
+        "CA10N__newRelicHostMemoryUsed14Day__c": 30.0,
+        "CA10N__newRelicHostDiskReadUtilization__c": 1.0,
+        "CA10N__newRelicHostDiskWriteUtilization__c": 1.0,
         "RecordType": {
             "DeveloperName": "caAzureRMVirtualMachine",
             "Id": "RecordTypeId"

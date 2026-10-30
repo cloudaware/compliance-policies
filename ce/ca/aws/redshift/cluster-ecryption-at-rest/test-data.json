@@ -1,0 +1,28 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__encryption__c') != 'Enabled'",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-21T23:51:55Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__encryption__c": "Disabled",
+    "Id": "001"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2025-12-21T23:51:55Z" },
+    "CA10__disappearanceTime__c": null,
+    "CA10__status__c": "available",
+    "CA10__encryption__c": "Enabled",
+    "Id": "002"
+  }
+]

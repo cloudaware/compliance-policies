@@ -1,15 +1,17 @@
 # Remediation
 
-## Right-Size Underutilized Instances
+## Right-Size Underutilized RDS Instances
 
-### Key considerations
+### Key Considerations
 
+- Review CPU, read IOPS, write IOPS, connection count, and workload seasonality before changing the instance class.
 - Ensure that the new instance class supports your workload and storage requirements.
 - Coordinate with application owners before resizing to avoid unexpected performance issues.
+- Prefer applying changes during a maintenance window for production workloads.
 
-### Downsize the DB instance
+### Modify the DB Instance Class
 
-#### **From Command Line**
+#### **From AWS CLI**
 
 To apply during the next maintenance window (recommended for production):
 

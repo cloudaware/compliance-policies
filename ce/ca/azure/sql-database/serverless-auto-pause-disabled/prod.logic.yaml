@@ -1,0 +1,63 @@
+---
+inputType: "CA10__CaAzureSqlDatabase__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10__CaAzureSqlDatabase__c/object.extracts.yaml"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "This is a system database."
+    check:
+      CONTAINS:
+        arg:
+          EXTRACT: "CA10__kind__c"
+        search:
+          TEXT: "system"
+  - status: "UNDETERMINED"
+    currentStateMessage: "The database kind is unavailable."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__kind__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Only serverless databases are in scope."
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              EXTRACT: "CA10__kind__c"
+            search:
+              TEXT: "serverless"
+  - status: "UNDETERMINED"
+    currentStateMessage: "The current SKU tier is unavailable."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__currentSkuTier__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Only General Purpose serverless databases are in scope."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__currentSkuTier__c"
+        right:
+          TEXT: "GeneralPurpose"
+  - status: "UNDETERMINED"
+    currentStateMessage: "The auto-pause delay is unavailable."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10__autoPauseDelay__c"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Serverless auto-pause is disabled."
+    remediationMessage: "Review workload constraints, then enable auto-pause."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__autoPauseDelay__c"
+        right:
+          NUMBER: -1.0
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "Serverless auto-pause is enabled."

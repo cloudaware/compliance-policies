@@ -1,0 +1,82 @@
+[
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10A1__status__c') != 'InService'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-16T01:27:51Z"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__status__c": "Stopped",
+        "CA10A1__subnet__c": "test1_1",
+        "CA10A1__subnetId__c": "subnet-id",
+        "Id": "test1",
+        "CA10A1__subnet__r": {
+            "Id": "test1_1",
+            "CA10__disappearanceTime__c": null
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "299",
+            "conditionText": "isEmptyLookup('CA10A1__subnet__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-16T01:27:51Z"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__status__c": "InService",
+        "CA10A1__subnet__c": "",
+        "CA10A1__subnetId__c": "",
+        "Id": "test2",
+        "CA10A1__subnet__r": {
+            "Id": null,
+            "CA10__disappearanceTime__c": null
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "notEmptyLookup('CA10A1__subnet__r')",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-16T01:27:51Z"
+        },
+        "CA10A1__disappearanceTime__c": null,
+        "CA10A1__status__c": "InService",
+        "CA10A1__subnet__c": "test3_1",
+        "CA10A1__subnetId__c": "subnet-id",
+        "Id": "test3",
+        "CA10A1__subnet__r": {
+            "Id": "test3_1",
+            "CA10__disappearanceTime__c": null
+        }
+    },
+    {
+        "expectedResult": {
+            "status": "DISAPPEARED",
+            "conditionIndex": "99",
+            "conditionText": "isDisappeared(CA10A1__disappearanceTime__c)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-01-16T01:27:51Z"
+        },
+        "CA10A1__disappearanceTime__c": "2026-01-16T01:27:51Z",
+        "CA10A1__status__c": "InService",
+        "CA10A1__subnet__c": "test4_1",
+        "CA10A1__subnetId__c": "subnet-id",
+        "Id": "test4",
+        "CA10A1__subnet__r": {
+            "Id": "test4_1",
+            "CA10__disappearanceTime__c": null
+        }
+    }
+]

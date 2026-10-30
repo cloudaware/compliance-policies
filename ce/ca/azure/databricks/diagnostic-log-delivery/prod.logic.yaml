@@ -64,7 +64,7 @@ relatedLists:
 # Verify that logs are being sent to one or more of the following destinations: Azure Log Analytics workspace, Azure Storage Account, Azure Event Hubs
       - status: "INCOMPLIANT"
         currentStateMessage: "Logs destination does not exist."
-        remediationMessage: "Set a destination for the logs"
+        remediationMessage: "Set a destination for the logs."
         check:
           AND:
             args:
@@ -79,4 +79,4 @@ relatedLists:
                     EXTRACT: CA10__eventHubAuthorizationRuleId__c
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "Diagnostic Settings are configured properly."
+      currentStateMessage: "Diagnostic settings are configured properly."

@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10__CaAwsElasticsearchDomain__c/object.extracts.yaml"
 conditions:
   - status: "UNDETERMINED"
-    currentStateMessage: "Unable to determine OpenSearch Domain endpoint configuration."
+    currentStateMessage: "Unable to determine the OpenSearch domain endpoint configuration."
     check:
       AND:
         args:

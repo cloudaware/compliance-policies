@@ -9,12 +9,12 @@ importExtracts:
 conditions: 
   - status: "INCOMPLIANT"
     currentStateMessage: "There is no DNS policy associated with the network."
-    remediationMessage: "Associate the policy to the network."
+    remediationMessage: "Associate a DNS policy with the network."
     check:
       IS_EMPTY_LOOKUP: "CA10__dnsPolicy__r"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Logging for existing DNS Policy not enabled."
-    remediationMessage: "Enable Logging for existing DNS Policy."
+    currentStateMessage: "Logging is not enabled for the DNS policy."
+    remediationMessage: "Enable logging for the DNS policy."
     check:
       NOT_EQUAL:
         left:
@@ -23,4 +23,4 @@ conditions:
           TEXT: "Enable"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "Cloud DNS Logging is enabled for all VPC Networks."
+  currentStateMessage: "Cloud DNS logging is enabled for all VPC networks."

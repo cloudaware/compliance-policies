@@ -1,6 +1,6 @@
 # Description
 
-Basic Authentication provides the ability to create identities and authentication for an App Service without a centralized Identity Provider. For a more effective, capable, and secure solution for Identity, Authentication, Authorization, and Accountability, a centralized Identity Provider such as Entra ID is strongly advised.
+Basic Authentication provides the ability to create identities and authentication for an App Service without a centralized identity provider. For a more effective, capable, and secure solution for identity, authentication, authorization, and accountability, a centralized identity provider such as Entra ID is strongly advised.
 
 ## Rationale
 
@@ -8,15 +8,15 @@ Basic Authentication introduces an identity silo which can produce privileged ac
 
 ## Impact
 
-An Identity Provider that can be used by the App Service for authenticating users is required.
+An identity provider that the App Service can use for authenticating users is required.
 
 ## Audit
 
 ### From Azure Portal
 
-1. Search for, and open `App Services` from the search bar.
-2. For each App Service listed.
-3. Click on the App Service name.
+1. Search for and open `App Services` from the search bar.
+2. For each App Service listed, do the following:
+3. Select the App Service name.
 4. Under the `Settings` menu item, click on `Configuration`.
 5. Under the `General settings` tab, scroll down to locate the two Basic Auth settings:
     - `SCM Basic Auth Publishing Credentials`.

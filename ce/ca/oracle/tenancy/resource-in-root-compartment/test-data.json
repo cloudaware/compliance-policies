@@ -1,0 +1,146 @@
+[
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10O1__Oracle_Resources__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test1",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_Resources__r": [
+      {
+        "Id": "test1_1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__tenancy__c": "test1",
+        "CA10O1__resourceType__c": "Instance",
+        "CA10O1__compartmentOcid__c": "",
+        "RecordType": {
+          "Id": "RecordType1",
+          "DeveloperName": "caOracleIaasInstance"
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test2",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_Resources__r": [
+      {
+        "Id": "test2_1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__tenancy__c": "test2",
+        "CA10O1__resourceType__c": "Instance",
+        "CA10O1__compartmentOcid__c": "ocid1.compartment.oc1..child",
+        "RecordType": {
+          "Id": "RecordType1",
+          "DeveloperName": "caOracleIaasInstance"
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test3",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_Resources__r": [
+      {
+        "Id": "test3_1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__tenancy__c": "test3",
+        "CA10O1__resourceType__c": "Alarm",
+        "CA10O1__compartmentOcid__c": "ocid1.tenancy.oc1..root",
+        "RecordType": {
+          "Id": "RecordType2",
+          "DeveloperName": "caOracleMonitoringAlarm"
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10O1__Oracle_Resources__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test4",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_Resources__r": [
+      {
+        "Id": "test4_1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__tenancy__c": "test4",
+        "CA10O1__resourceType__c": "Volume",
+        "CA10O1__compartmentOcid__c": "",
+        "RecordType": {
+          "Id": "RecordType3",
+          "DeveloperName": "caOracleIaasBlockVolume"
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10O1__Oracle_Resources__r.has(INCOMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test5",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_Resources__r": [
+      {
+        "Id": "test5_1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__tenancy__c": "test5",
+        "CA10O1__resourceType__c": "BootVolume",
+        "CA10O1__compartmentOcid__c": "",
+        "RecordType": {
+          "Id": "RecordType4",
+          "DeveloperName": "caOracleIaasBootVolume"
+        }
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "test6",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_Resources__r": [
+      {
+        "Id": "test6_1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__tenancy__c": "test6",
+        "CA10O1__resourceType__c": "VolumeAttachment",
+        "CA10O1__compartmentOcid__c": "ocid1.tenancy.oc1..root",
+        "RecordType": {
+          "Id": "RecordType5",
+          "DeveloperName": "caOracleIaasVolumeAttachment"
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,110 @@
+---
+extracts:
+  # Parse the collected JSON once, preserving phase names and timestamp strings.
+  - name: caJsonFrom__instanceEngineLifecycle
+    value:
+      JSON_FROM:
+        arg:
+          EXTRACT: CA10A2__engineLifecycleSupportInfo__c
+        undeterminedIf:
+          isEmpty: The instance engine support calendar is missing.
+          isInvalid: The instance engine support calendar is invalid JSON.
+  # Require one standard phase and at most one Extended Support phase, regardless of array order.
+  # sort compares strings; chronological ordering assumes the native, consistently formatted UTC timestamps.
+  - name: caJsonQueryBoolean__instanceEngineCalendarValid
+    value:
+      JSON_QUERY_BOOLEAN:
+        arg:
+          EXTRACT: caJsonFrom__instanceEngineLifecycle
+        expression: >-
+          type(@) == 'array' &&
+          length([?LifecycleSupportName == 'open-source-rds-standard-support']) == `1` &&
+          length([?LifecycleSupportName == 'open-source-rds-extended-support']) <= `1` &&
+          length([?LifecycleSupportName != 'open-source-rds-standard-support' && LifecycleSupportName != 'open-source-rds-extended-support']) == `0` &&
+          length([?type(LifecycleSupportStartDate) != 'string' || type(LifecycleSupportEndDate) != 'string']) == `0` &&
+          length([?sort([LifecycleSupportStartDate, LifecycleSupportEndDate])[0] != LifecycleSupportStartDate]) == `0` &&
+          (length([?LifecycleSupportName == 'open-source-rds-extended-support']) == `0` ||
+          sort([([?LifecycleSupportName == 'open-source-rds-standard-support'] | [0].LifecycleSupportEndDate), ([?LifecycleSupportName == 'open-source-rds-extended-support'] | [0].LifecycleSupportStartDate)])[0] == ([?LifecycleSupportName == 'open-source-rds-standard-support'] | [0].LifecycleSupportEndDate))
+        undeterminedIf:
+          evaluationError: The instance engine support calendar cannot be interpreted.
+          resultTypeMismatch: The instance engine support calendar has an unexpected structure.
+  # Midnight starts and inclusive end-of-day timestamps preserve AWS day boundaries in TODAY checks.
+  - name: caJsonQueryBoolean__instanceEngineCalendarWholeDays
+    value:
+      JSON_QUERY_BOOLEAN:
+        arg:
+          EXTRACT: caJsonFrom__instanceEngineLifecycle
+        expression: >-
+          length([?length(LifecycleSupportStartDate) != `24` || length(LifecycleSupportEndDate) != `24` || !ends_with(LifecycleSupportStartDate, 'T00:00:00.000Z') || !ends_with(LifecycleSupportEndDate, 'T23:59:59.999Z')]) == `0`
+        undeterminedIf:
+          evaluationError: The calendar timestamp precision cannot be interpreted.
+          resultTypeMismatch: The calendar timestamp precision has an unexpected structure.
+  # Zero means no Extended Support phase was published; this does not establish enrollment.
+  - name: caJsonQueryNumber__instanceEngineExtendedPhaseCount
+    value:
+      JSON_QUERY_NUMBER:
+        arg:
+          EXTRACT: caJsonFrom__instanceEngineLifecycle
+        expression: "length([?LifecycleSupportName == 'open-source-rds-extended-support'])"
+        undeterminedIf:
+          evaluationError: The Extended Support phase cannot be interpreted.
+          resultTypeMismatch: The Extended Support phase has an unexpected structure.
+  # Select dates by phase name, then parse ISO 8601 for date operations; validate the calendar first.
+  # shortcut: DATE_TIME_FROM normalizes impossible month-days; add strict validation if calendars stop coming directly from AWS.
+  - name: caDateTimeFrom__instanceEngineStandardStart
+    value:
+      DATE_TIME_FROM:
+        arg:
+          JSON_QUERY_TEXT:
+            arg:
+              EXTRACT: caJsonFrom__instanceEngineLifecycle
+            expression: "[?LifecycleSupportName == 'open-source-rds-standard-support'] | [0].LifecycleSupportStartDate"
+            undeterminedIf:
+              evaluationError: The standard support start date cannot be read.
+              resultTypeMismatch: The standard support start date is missing or invalid.
+        format: ISO_8601
+        undeterminedIf:
+          invalidFormat: The standard support start date is invalid.
+  - name: caDateTimeFrom__instanceEngineStandardEnd
+    value:
+      DATE_TIME_FROM:
+        arg:
+          JSON_QUERY_TEXT:
+            arg:
+              EXTRACT: caJsonFrom__instanceEngineLifecycle
+            expression: "[?LifecycleSupportName == 'open-source-rds-standard-support'] | [0].LifecycleSupportEndDate"
+            undeterminedIf:
+              evaluationError: The standard support end date cannot be read.
+              resultTypeMismatch: The standard support end date is missing or invalid.
+        format: ISO_8601
+        undeterminedIf:
+          invalidFormat: The standard support end date is invalid.
+  # Read Extended Support dates only after confirming that the optional phase exists.
+  - name: caDateTimeFrom__instanceEngineExtendedStart
+    value:
+      DATE_TIME_FROM:
+        arg:
+          JSON_QUERY_TEXT:
+            arg:
+              EXTRACT: caJsonFrom__instanceEngineLifecycle
+            expression: "[?LifecycleSupportName == 'open-source-rds-extended-support'] | [0].LifecycleSupportStartDate"
+            undeterminedIf:
+              evaluationError: The Extended Support start date cannot be read.
+              resultTypeMismatch: The Extended Support start date is missing or invalid.
+        format: ISO_8601
+        undeterminedIf:
+          invalidFormat: The Extended Support start date is invalid.
+  - name: caDateTimeFrom__instanceEngineExtendedEnd
+    value:
+      DATE_TIME_FROM:
+        arg:
+          JSON_QUERY_TEXT:
+            arg:
+              EXTRACT: caJsonFrom__instanceEngineLifecycle
+            expression: "[?LifecycleSupportName == 'open-source-rds-extended-support'] | [0].LifecycleSupportEndDate"
+            undeterminedIf:
+              evaluationError: The Extended Support end date cannot be read.
+              resultTypeMismatch: The Extended Support end date is missing or invalid.
+        format: ISO_8601
+        undeterminedIf:
+          invalidFormat: The Extended Support end date is invalid.

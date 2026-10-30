@@ -10,7 +10,7 @@ Requiring HTTPS between CloudFront edge locations and your origin ensures that d
 
 ## Audit
 
-This policy flags an *AWS CloudFront Web Distribution* as `INCOMPLIANT` if at least one custom *AWS CloudFront Origin* associated with the distribution (excluding S3 static websites as origin) meets one of the following conditions:
+This policy flags an *AWS CloudFront Web Distribution* as `INCOMPLIANT` if at least one custom *AWS CloudFront Origin* associated with the distribution (excluding S3 static websites as an origin) meets one of the following conditions:
 
 - The Origin's `Custom Origin Config Protocol Policy` field is set to **http-only**
 - The Origin's `Custom Origin Config Protocol Policy` field is set to **match-viewer** , and at least one associated *AWS CloudFront Cache Behavior* has the `Viewer Protocol Policy` field set to **allow-all**.

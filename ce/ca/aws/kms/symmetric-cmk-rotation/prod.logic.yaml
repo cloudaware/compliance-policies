@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10__CaAwsKmsKey__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This Key is not Customer-managed."
+    currentStateMessage: "This key is not customer-managed."
     check:
       NOT_EQUAL:
         left:
@@ -14,7 +14,7 @@ conditions:
         right:
           TEXT: "CUSTOMER"
   - status: "INAPPLICABLE"
-    currentStateMessage: "KMS Key rotation can not be enabled for any asymmetric CMK."
+    currentStateMessage: "KMS key rotation cannot be enabled for asymmetric CMKs."
     check:
       NOT_EQUAL:
         left:
@@ -22,8 +22,8 @@ conditions:
         right:
           TEXT: "SYMMETRIC_DEFAULT"
   - status: "INCOMPLIANT"
-    currentStateMessage: "AWS KMS Key rotation is disabled."
-    remediationMessage: "Consider enabling KMS Key rotation."
+    currentStateMessage: "KMS key rotation is disabled."
+    remediationMessage: "Enable KMS key rotation."
     check:
       IS_EQUAL:
         left:
@@ -31,7 +31,7 @@ conditions:
         right:
           BOOLEAN: false
   - status: "COMPLIANT"
-    currentStateMessage: "AWS KMS Key rotation is enabled."
+    currentStateMessage: "KMS key rotation is enabled."
     check:
       IS_EQUAL:
         left:

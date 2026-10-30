@@ -11,6 +11,8 @@ extracts:
     value: 
       FIELD:
         path: "CA10__state__c"
+        undeterminedIf:
+          isEmpty: "The AMI state is not collected."
 #Not nullable
   - name: "CA10__creationDate__c"
     value: 
@@ -21,3 +23,8 @@ extracts:
     value: 
       FIELD:
         path: "CA10__lastLaunchedTime__c"
+  # Optional. An absent date on a resolved AMI means no scheduled deprecation.
+  - name: CA10__deprecationTime__c
+    value:
+      FIELD:
+        path: CA10__deprecationTime__c

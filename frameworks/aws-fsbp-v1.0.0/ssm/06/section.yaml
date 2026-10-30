@@ -1,0 +1,13 @@
+---
+name: "[SSM.6] SSM Automation should have CloudWatch logging enabled"
+description: |-
+  SSM Automation is an AWS Systems Manager tool that helps you build automated 
+  solutions to deploy, configure, and manage AWS resources at scale using predefined 
+  or custom runbooks. To meet operational or security requirements for your organization, 
+  you might need to provide a record of the scripts that it runs. You can configure 
+  SSM Automation to send the output from aws:executeScript actions in your runbooks 
+  to an Amazon CloudWatch Logs log group that you specify. With CloudWatch Logs, 
+  you can monitor, store, and access log files from various AWS services.
+similar:
+  awsSecurityHub:
+    controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/ssm-controls.html#ssm-6

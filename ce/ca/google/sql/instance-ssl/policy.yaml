@@ -7,7 +7,7 @@ type: "COMPLIANCE_POLICY"
 categories:
   - "SECURITY"
 frameworkMappings:
-  - "/frameworks/cis-gcp-v3.0.0/06/04"
+  - "/frameworks/cis-gcp-v5.0.0/06/04"
   - "/frameworks/nist-sp-800-53-r4/sc/07"
   - "/frameworks/pci-dss-v3.2.1/04/01"
   - "/frameworks/iso-iec-27001-2013/13/02/01"
@@ -18,3 +18,5 @@ similarPolicies:
   cloudConformity:
     - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudSQL/enable-ssl-for-incoming-connections.html"
       name: "Enable SSL/TLS for Cloud SQL Incoming Connections"
+  internal:
+    - "dec-x-d75986a3"

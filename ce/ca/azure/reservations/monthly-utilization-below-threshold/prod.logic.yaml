@@ -1,0 +1,128 @@
+---
+inputType: "CA10Z1__CaAzureReservation__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: "/types/CA10Z1__CaAzureReservation__c/object.extracts.yaml"
+conditions:
+  - status: "UNDETERMINED"
+    currentStateMessage: "The Reservation provisioning state is unavailable."
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: "CA10Z1__provisioningState__c"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The Reservation is not successfully provisioned."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10Z1__provisioningState__c"
+        right:
+          TEXT: "Succeeded"
+  - status: "UNDETERMINED"
+    currentStateMessage: "A utilization record has missing or invalid required data."
+    check:
+      RELATED_LIST_HAS:
+        status: "UNDETERMINED"
+        relationshipName: "CA10Z1__Azure_Reservation_Utilizations__r"
+  - status: "UNDETERMINED"
+    currentStateMessage: "Recent utilization records disagree across the 80% threshold."
+    check:
+      AND:
+        args:
+          - RELATED_LIST_HAS:
+              status: "INCOMPLIANT"
+              relationshipName: "CA10Z1__Azure_Reservation_Utilizations__r"
+          - RELATED_LIST_HAS:
+              status: "COMPLIANT"
+              relationshipName: "CA10Z1__Azure_Reservation_Utilizations__r"
+  - status: "INCOMPLIANT"
+    currentStateMessage: "Recent monthly Reservation utilization is below 80%."
+    remediationMessage: "Review utilization across several periods and adjust Reservation scope or future commitment coverage if the shortfall is persistent."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10Z1__Azure_Reservation_Utilizations__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "Recent monthly Reservation utilization meets the 80% threshold."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10Z1__Azure_Reservation_Utilizations__r"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "No complete utilization record is available within the last 40 days."
+relatedLists:
+  - relationshipName: "CA10Z1__Azure_Reservation_Utilizations__r"
+    importExtracts:
+      - file: "/types/CA10Z1__CaAzureReservationUtilization__c/object.extracts.yaml"
+    conditions:
+      - status: "UNDETERMINED"
+        currentStateMessage: "Year Month or the parent Reservation is unavailable."
+        check:
+          OR:
+            args:
+              - IS_EMPTY:
+                  arg:
+                    EXTRACT: "CA10Z1__yearMonth__c"
+              - IS_EMPTY:
+                  arg:
+                    EXTRACT: "CA10Z1__reservation__c"
+      - status: "UNDETERMINED"
+        currentStateMessage: "Year Month is in the future."
+        check:
+          IS_AFTER_TODAY:
+            arg:
+              DATE_TIME_FROM:
+                arg:
+                  EXTRACT: "CA10Z1__yearMonth__c"
+                format: "ISO_8601"
+                undeterminedIf:
+                  invalidFormat: "Year Month is not a valid ISO 8601 date."
+                  isEmpty: "Year Month is unavailable."
+      - status: "INAPPLICABLE"
+        currentStateMessage: "The monthly utilization record is older than 40 days."
+        check:
+          IS_BEYOND_LAST_DAYS:
+            offsetDays: 40
+            arg:
+              DATE_TIME_FROM:
+                arg:
+                  EXTRACT: "CA10Z1__yearMonth__c"
+                format: "ISO_8601"
+                undeterminedIf:
+                  invalidFormat: "Year Month is not a valid ISO 8601 date."
+                  isEmpty: "Year Month is unavailable."
+      - status: "UNDETERMINED"
+        currentStateMessage: "Average utilization is unavailable."
+        check:
+          IS_EMPTY:
+            arg:
+              EXTRACT: "CA10Z1__avgUtilizationPercentage__c"
+      - status: "UNDETERMINED"
+        currentStateMessage: "Average utilization is outside the valid range of 0% through 100%."
+        check:
+          OR:
+            args:
+              - LESS_THAN:
+                  left:
+                    EXTRACT: "CA10Z1__avgUtilizationPercentage__c"
+                  right:
+                    NUMBER: 0.0
+              - GREATER_THAN:
+                  left:
+                    EXTRACT: "CA10Z1__avgUtilizationPercentage__c"
+                  right:
+                    NUMBER: 100.0
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Average utilization is below 80%."
+        remediationMessage: "Review Reservation utilization and future commitment requirements."
+        check:
+          LESS_THAN:
+            left:
+              EXTRACT: "CA10Z1__avgUtilizationPercentage__c"
+            right:
+              NUMBER: 80.0
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "Average utilization meets the 80% threshold."

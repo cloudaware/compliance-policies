@@ -1,0 +1,74 @@
+<MdxCard>
+[Back to Index](index.md)
+
+# MdxRelatedList
+
+```jsx
+<MdxRelatedList
+  type="Account"
+  id="001XXXXXXXXXXXXXXX"
+  ignoreRelationshipNames={["Contacts", "Cases"]}
+/>
+```
+
+## type
+
+- `type="Account"`:
+
+```jsx
+<MdxRelatedList type="Account" id="001XXXXXXXXXXXXXXX" />
+```
+
+- `type="Opportunity"`:
+
+```jsx
+<MdxRelatedList type="Opportunity" id="006XXXXXXXXXXXXXXX" />
+```
+
+## id
+
+- `id="001XXXXXXXXXXXXXXX"`:
+
+```jsx
+<MdxRelatedList type="Account" id="001XXXXXXXXXXXXXXX" />
+```
+
+## filter
+
+Provided by the current page query parameters.
+
+Supported keys depend on the rendered custom sections.
+
+- `filter={{ start: "1704067200", end: "1706745600" }}` - Application Cost date range:
+
+```jsx
+<MdxRelatedList
+  type="OBJECT_API_NAME"
+  id="RECORD_ID"
+  filter={{ start: "1704067200", end: "1706745600" }}
+/>
+```
+
+## ignoreRelationshipNames
+
+- `ignoreRelationshipNames={["Contacts"]}`:
+
+```jsx
+<MdxRelatedList
+  type="Account"
+  id="001XXXXXXXXXXXXXXX"
+  ignoreRelationshipNames={["Contacts"]}
+/>
+```
+
+- `ignoreRelationshipNames={["Contacts", "Cases", "Assets"]}`:
+
+```jsx
+<MdxRelatedList
+  type="Account"
+  id="001XXXXXXXXXXXXXXX"
+  ignoreRelationshipNames={["Contacts", "Cases", "Assets"]}
+/>
+```
+
+</MdxCard>

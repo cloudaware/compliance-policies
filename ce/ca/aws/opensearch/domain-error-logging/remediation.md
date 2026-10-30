@@ -19,13 +19,13 @@ Obtain the ARN of the log group, which will be required in later steps:
 
 ```sh
 aws logs describe-log-groups \
-    --log-group-name-prefix {{log-group-name}}
+    --log-group-name-prefix {{log-group-name}} \
     --query logGroups[*].arn
 ```
 
 ### Step 3: Grant OpenSearch Service Permission to Write Logs
 
-Attach a resource-based policy to CloudWatch Logs that allows OpenSearch Service to create log streams and publish log events. Replace `cw_log_group_arn` with your actual log group ARN.
+Attach a resource-based policy to CloudWatch Logs that allows OpenSearch Service to create log streams and publish log events. Replace `{{log-group-arn}}` with your actual log group ARN.
 
 ```sh
 aws logs put-resource-policy \
@@ -54,7 +54,7 @@ Update the OpenSearch domain configuration to enable error log publishing and as
 
 ```sh
 aws opensearch update-domain-config \
-    --domain-name my-domain \
+    --domain-name {{domain-name}} \
     --log-publishing-options \
     ES_APPLICATION_LOGS=CloudWatchLogsLogGroupArn={{log-group-arn}},Enabled=true
 ```

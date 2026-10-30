@@ -5,7 +5,7 @@ testData:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The Backup Vault contains one or more unencrypted Recovery Points."
-    remediationMessage: "Ensure all Recovery Points are encrypted. This might require configuring the source resource's encryption settings."
+    remediationMessage: "Ensure all Recovery Points are encrypted. This may require configuring the source resource's encryption settings."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
@@ -20,11 +20,11 @@ relatedLists:
     conditions:
       - status: "INCOMPLIANT"
         currentStateMessage: "The Recovery Point is not encrypted with a KMS key."
-        remediationMessage: "Consider encrypting this Recovery Point."
+        remediationMessage: "Encrypt this Recovery Point."
         check:
           IS_EMPTY:
             arg:
               EXTRACT: "CA10A1__kmsMasterKeyId__c"
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "The Recovery Point is encrypted with a KMS." 
+      currentStateMessage: "The Recovery Point is encrypted with a KMS key."

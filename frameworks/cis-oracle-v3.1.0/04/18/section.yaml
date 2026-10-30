@@ -1,0 +1,7 @@
+---
+name: 4.18 Ensure a notification is configured for Local OCI User Authentication (Automated)
+description: >
+  It is recommended that an Event Rule and Notification be set up when a user in
+  the via OCI local authentication. Event Rules are compartment-scoped and will
+  detect events in child compartments. This Event rule is required to be created
+  at the root compartment level.

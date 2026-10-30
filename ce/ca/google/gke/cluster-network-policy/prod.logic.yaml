@@ -7,7 +7,7 @@ importExtracts:
   - file: "/types/CA10G1__CaGoogleGkeCluster__c/object.extracts.yaml"
 conditions:
   - status: "UNDETERMINED"
-    currentStateMessage: "The Cluster Network policy state is indeterminate."
+    currentStateMessage: "The cluster network policy state is indeterminate."
     check:
       AND:
         args:
@@ -18,8 +18,8 @@ conditions:
               arg:
                 EXTRACT: "CA10G1__addonsNetworkPolicyConfig__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Cluster Network policy is disabled."
-    remediationMessage: "Enable the Cluster Network policy"
+    currentStateMessage: "The cluster network policy is disabled."
+    remediationMessage: "Enable the cluster network policy."
     check:
       OR:
         args:
@@ -34,7 +34,7 @@ conditions:
               right:
                 TEXT: "Disabled"
   - status: "COMPLIANT"
-    currentStateMessage: "The Cluster Network policy is enabled."
+    currentStateMessage: "The cluster network policy is enabled."
     check:
       OR:
         args:

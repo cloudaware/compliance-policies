@@ -7,7 +7,7 @@ importExtracts:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The bucket is not configured to block public access."
-    remediationMessage: "Consider configuring the bucket to block public access."
+    remediationMessage: "Configure the bucket to block public access."
     check:
       OR:
         args:

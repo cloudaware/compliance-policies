@@ -1,0 +1,13 @@
+---
+names:
+  full: AWS RDS Instance engine is outside standard support
+  contextual: Instance engine is outside standard support
+description: >-
+  Ensure that standalone Amazon RDS for MySQL, PostgreSQL, and MariaDB instances 
+  use an engine major version within AWS standard support to reduce lifecycle risk 
+  and reliance on paid Extended Support.
+type: COMPLIANCE_POLICY
+categories:
+  - RELIABILITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-reliability/infrastructure-modernization

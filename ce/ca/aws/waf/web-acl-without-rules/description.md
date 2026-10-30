@@ -4,9 +4,7 @@ This policy identifies AWS WAF Web ACLs that do not have any associated rules or
 
 ## Rationale
 
-Web ACLs are a key part of AWS WAF security. They examine incoming web requests and take actions based on defined rules, such as allowing, blocking, or counting requests. When a Web ACL has no rules or rule groups, it does not inspect any traffic. As a result, the web applications associated with that Web ACL remain unprotected.
-
-Ensuring that every Web ACL has at least one active rule or rule group helps maintain consistent security coverage and prevents gaps in protection.
+Web ACLs are the enforcement boundary for AWS WAF. When a Web ACL has no rules or rule groups, it does not inspect traffic and provides no mitigation. Ensuring every Web ACL has at least one active rule or rule group helps maintain consistent security coverage and reduces protection gaps.
 
 ## Audit
 

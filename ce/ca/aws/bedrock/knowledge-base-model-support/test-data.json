@@ -1,0 +1,1229 @@
+[
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-active",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-active",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "active",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1099,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModel__r.CA10A2__modelLifecycleStatus__c') == 'ACTIVE'"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-legacy",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-legacy",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "LEGACY",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "legacy",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1199,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModel__r.CA10A2__modelLifecycleStatus__c') == 'LEGACY'"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-eol-unrecognized-native-state",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-eol-unrecognized-native-state",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "EOL",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "eol-unrecognized-native-state",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 1200,
+      "conditionText": "otherwise"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-missing-lifecycle",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-missing-lifecycle",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": null,
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "missing-lifecycle",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 1004,
+      "conditionText": "CA10A2__modelLifecycleStatus__c.isEmpty()"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-blank-lifecycle",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-blank-lifecycle",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "blank-lifecycle",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 1004,
+      "conditionText": "CA10A2__modelLifecycleStatus__c.isEmpty()"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-unknown-lifecycle",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-unknown-lifecycle",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "UNKNOWN",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "unknown-lifecycle",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 1200,
+      "conditionText": "otherwise"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-wrong-case-lifecycle",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-wrong-case-lifecycle",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "active",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "wrong-case-lifecycle",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1099,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModel__r.CA10A2__modelLifecycleStatus__c') == 'ACTIVE'"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-whitespace-lifecycle",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-whitespace-lifecycle",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "   ",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "whitespace-lifecycle",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 1004,
+      "conditionText": "CA10A2__modelLifecycleStatus__c.isEmpty()"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": null,
+    "CA10A2__foundationEmbeddingModelArn__c": null,
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": null,
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "missing-model-reference",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModelArn__c').isEmpty() && extract('CA10A2__foundationEmbeddingModel__c').isEmpty()"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": null,
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": null,
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "uncollected-model",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 899,
+      "conditionText": "isEmptyLookup('CA10A2__foundationEmbeddingModel__r')"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-unresolved-model",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": null,
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": null,
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "unresolved-model",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 904,
+      "conditionText": "CA10A2__modelArn__c.isEmpty()"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-disappeared-active-model",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-disappeared-active-model",
+      "CA10A2__disappearanceTime__c": "2026-10-22T00:00:00Z",
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "disappeared-active-model",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 899,
+      "conditionText": "isEmptyLookup('CA10A2__foundationEmbeddingModel__r')"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-disappeared-legacy-model",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-disappeared-legacy-model",
+      "CA10A2__disappearanceTime__c": "2026-10-22T00:00:00Z",
+      "CA10A2__modelLifecycleStatus__c": "LEGACY",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "disappeared-legacy-model",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 899,
+      "conditionText": "isEmptyLookup('CA10A2__foundationEmbeddingModel__r')"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "DELETING",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-deleting",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-deleting",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "LEGACY",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "deleting",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10A2__status__c') == 'DELETING'"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": "2026-10-22T00:00:00Z",
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-disappeared-knowledge-base",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-disappeared-knowledge-base",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "disappeared-knowledge-base",
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "runtimeError": null,
+      "conditionIndex": 99,
+      "conditionText": "isDisappeared(CA10A2__disappearanceTime__c)"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "CREATING",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-configured-creating",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-configured-creating",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "LEGACY",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "configured-creating",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1199,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModel__r.CA10A2__modelLifecycleStatus__c') == 'LEGACY'"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "UPDATING",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-configured-updating",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-configured-updating",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "LEGACY",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "configured-updating",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1199,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModel__r.CA10A2__modelLifecycleStatus__c') == 'LEGACY'"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "FAILED",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-configured-failed",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-configured-failed",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "LEGACY",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "configured-failed",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1199,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModel__r.CA10A2__modelLifecycleStatus__c') == 'LEGACY'"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "DELETE_UNSUCCESSFUL",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-configured-delete_unsuccessful",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-configured-delete_unsuccessful",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "LEGACY",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "configured-delete_unsuccessful",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1199,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModel__r.CA10A2__modelLifecycleStatus__c') == 'LEGACY'"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "UPDATE_UNSUCCESSFUL",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-configured-update_unsuccessful",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-configured-update_unsuccessful",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "LEGACY",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "configured-update_unsuccessful",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1199,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModel__r.CA10A2__modelLifecycleStatus__c') == 'LEGACY'"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "UNKNOWN",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-unknown-status",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-unknown-status",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "unknown-status",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "not(setOfText(['CREATING', 'ACTIVE', 'UPDATING', 'FAILED', 'DELETE_UNSUCCESSFUL', 'UPDATE_UNSUCCESSFUL']).contains(extract('CA10A2__status__c')))"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": null,
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-missing-status",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-missing-status",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "missing-status",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 301,
+      "conditionText": "CA10A2__status__c.isEmpty()"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-blank-status",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-blank-status",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "blank-status",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 301,
+      "conditionText": "CA10A2__status__c.isEmpty()"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": "REDSHIFT",
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": null,
+    "CA10A2__foundationEmbeddingModelArn__c": null,
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": null,
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "sql-knowledge-base",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "extract('CA10A2__sqlConfigType__c') == 'REDSHIFT' || extract('CA10A2__kendraIndexArn__c').isNotEmpty()"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": "arn:aws:kendra:us-east-1:123456789012:index/kendra-test",
+    "CA10A2__foundationEmbeddingModel__c": null,
+    "CA10A2__foundationEmbeddingModelArn__c": null,
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": null,
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "kendra-knowledge-base",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "extract('CA10A2__sqlConfigType__c') == 'REDSHIFT' || extract('CA10A2__kendraIndexArn__c').isNotEmpty()"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": "arn:aws:kendra:us-east-1:123456789012:index/kendra-test",
+    "CA10A2__foundationEmbeddingModel__c": null,
+    "CA10A2__foundationEmbeddingModelArn__c": null,
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": null,
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "unresolved-kendra-reference",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "extract('CA10A2__sqlConfigType__c') == 'REDSHIFT' || extract('CA10A2__kendraIndexArn__c').isNotEmpty()"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": "REDSHIFT",
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-conflicting-sql-and-embedding",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-conflicting-sql-and-embedding",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "conflicting-sql-and-embedding",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModelArn__c').isNotEmpty() && (extract('CA10A2__sqlConfigType__c') == 'REDSHIFT' || extract('CA10A2__kendraIndexArn__c').isNotEmpty() || extract('CA10A2__sageMakerEmbeddingModelArn__c').isNotEmpty())"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": "arn:aws:kendra:us-east-1:123456789012:index/kendra-test",
+    "CA10A2__foundationEmbeddingModel__c": "model-conflicting-kendra-and-embedding",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-conflicting-kendra-and-embedding",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "conflicting-kendra-and-embedding",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModelArn__c').isNotEmpty() && (extract('CA10A2__sqlConfigType__c') == 'REDSHIFT' || extract('CA10A2__kendraIndexArn__c').isNotEmpty() || extract('CA10A2__sageMakerEmbeddingModelArn__c').isNotEmpty())"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2030-01-01T00:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-future-snapshot-active",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-future-snapshot-active",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "future-snapshot-active",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1099,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModel__r.CA10A2__modelLifecycleStatus__c') == 'ACTIVE'"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": null,
+    "CA10A2__foundationEmbeddingModelArn__c": null,
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": null,
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "kendra-helper-fk-only",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModelArn__c').isEmpty() && extract('CA10A2__foundationEmbeddingModel__c').isEmpty()"
+    },
+    "CA10A2__kendraIndex__c": "kendra-helper-only",
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-missing-native-embedding-arn",
+    "CA10A2__foundationEmbeddingModelArn__c": null,
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-missing-native-embedding-arn",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "missing-native-embedding-arn",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 799,
+      "conditionText": "not(extract('CA10A2__foundationEmbeddingModelArn__c').contains(bytes('::foundation-model/')))"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": null,
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:sagemaker:us-east-1:123456789012:endpoint/embedding",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": null,
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:sagemaker:us-east-1:123456789012:endpoint/embedding"
+    },
+    "Id": "sagemaker-embedding-excluded",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 599,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModelArn__c').contains(bytes(':sagemaker:')) || extract('CA10A2__sageMakerEmbeddingModelArn__c').contains(bytes(':sagemaker:'))"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-mismatched-model-arn",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-mismatched-model-arn",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v1"
+    },
+    "Id": "mismatched-model-arn",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 999,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModelArn__c') != extract('CA10A2__foundationEmbeddingModel__r.CA10A2__modelArn__c')"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-mismatched-model-region",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-mismatched-model-region",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "mismatched-model-region",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 999,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModelArn__c') != extract('CA10A2__foundationEmbeddingModel__r.CA10A2__modelArn__c')"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-missing-model-arn",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-missing-model-arn",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": null
+    },
+    "Id": "missing-model-arn",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 904,
+      "conditionText": "CA10A2__modelArn__c.isEmpty()"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-active-titan-g1",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v1",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-active-titan-g1",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v1"
+    },
+    "Id": "active-titan-g1",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1099,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModel__r.CA10A2__modelLifecycleStatus__c') == 'ACTIVE'"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-active-cohere-english",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-english-v3",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-active-cohere-english",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-english-v3"
+    },
+    "Id": "active-cohere-english",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1099,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModel__r.CA10A2__modelLifecycleStatus__c') == 'ACTIVE'"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-active-cohere-multilingual",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-active-cohere-multilingual",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3"
+    },
+    "Id": "active-cohere-multilingual",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1099,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModel__r.CA10A2__modelLifecycleStatus__c') == 'ACTIVE'"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-active-nova-multimodal",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-2-multimodal-embeddings-v1:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-active-nova-multimodal",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-2-multimodal-embeddings-v1:0"
+    },
+    "Id": "active-nova-multimodal",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1099,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModel__r.CA10A2__modelLifecycleStatus__c') == 'ACTIVE'"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-active-govcloud-titan",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws-us-gov:bedrock:us-gov-west-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-active-govcloud-titan",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws-us-gov:bedrock:us-gov-west-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "active-govcloud-titan",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1099,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModel__r.CA10A2__modelLifecycleStatus__c') == 'ACTIVE'"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": null,
+    "CA10A2__foundationEmbeddingModelArn__c": null,
+    "Id": "sagemaker-split-native-arn",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 599,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModelArn__c').contains(bytes(':sagemaker:')) || extract('CA10A2__sageMakerEmbeddingModelArn__c').contains(bytes(':sagemaker:'))"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": "arn:aws:sagemaker:us-east-1:123456789012:endpoint/embedding-model",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": null,
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    }
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-sagemaker-with-stale-foundation-helper",
+    "CA10A2__foundationEmbeddingModelArn__c": null,
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-sagemaker-with-stale-foundation-helper",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "sagemaker-with-stale-foundation-helper",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 599,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModelArn__c').contains(bytes(':sagemaker:')) || extract('CA10A2__sageMakerEmbeddingModelArn__c').contains(bytes(':sagemaker:'))"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": "arn:aws:sagemaker:us-east-1:123456789012:endpoint/embedding-model"
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-conflicting-foundation-and-sagemaker",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-conflicting-foundation-and-sagemaker",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "conflicting-foundation-and-sagemaker",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModelArn__c').isNotEmpty() && (extract('CA10A2__sqlConfigType__c') == 'REDSHIFT' || extract('CA10A2__kendraIndexArn__c').isNotEmpty() || extract('CA10A2__sageMakerEmbeddingModelArn__c').isNotEmpty())"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": "arn:aws:sagemaker:us-east-1:123456789012:endpoint/embedding-model"
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-empty-sagemaker-field",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-empty-sagemaker-field",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "empty-sagemaker-field",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1099,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModel__r.CA10A2__modelLifecycleStatus__c') == 'ACTIVE'"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": ""
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-non-foundation-arn-active",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1:123456789012:custom-model/embedding",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-non-foundation-arn-active",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1:123456789012:custom-model/embedding"
+    },
+    "Id": "non-foundation-arn-active",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 799,
+      "conditionText": "not(extract('CA10A2__foundationEmbeddingModelArn__c').contains(bytes('::foundation-model/')))"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-non-foundation-arn-legacy",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1:123456789012:custom-model/embedding",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-non-foundation-arn-legacy",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "LEGACY",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1:123456789012:custom-model/embedding"
+    },
+    "Id": "non-foundation-arn-legacy",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 799,
+      "conditionText": "not(extract('CA10A2__foundationEmbeddingModelArn__c').contains(bytes('::foundation-model/')))"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-case-sensitive-model-identity",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-case-sensitive-model-identity",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "ARN:AWS:BEDROCK:US-EAST-1::FOUNDATION-MODEL/AMAZON.TITAN-EMBED-TEXT-V2:0"
+    },
+    "Id": "case-sensitive-model-identity",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 999,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModelArn__c') != extract('CA10A2__foundationEmbeddingModel__r.CA10A2__modelArn__c')"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-whitespace-model-identity",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-whitespace-model-identity",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0 "
+    },
+    "Id": "whitespace-model-identity",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 999,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModelArn__c') != extract('CA10A2__foundationEmbeddingModel__r.CA10A2__modelArn__c')"
+    },
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  },
+  {
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10A2__disappearanceTime__c": null,
+    "CA10A2__status__c": "ACTIVE",
+    "CA10A2__sqlConfigType__c": null,
+    "CA10A2__kendraIndexArn__c": null,
+    "CA10A2__foundationEmbeddingModel__c": "model-storage-config-type-is-not-kb-variant",
+    "CA10A2__foundationEmbeddingModelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0",
+    "CA10A2__foundationEmbeddingModel__r": {
+      "Id": "model-storage-config-type-is-not-kb-variant",
+      "CA10A2__disappearanceTime__c": null,
+      "CA10A2__modelLifecycleStatus__c": "ACTIVE",
+      "CA10A2__modelArn__c": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    "Id": "storage-config-type-is-not-kb-variant",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 1099,
+      "conditionText": "extract('CA10A2__foundationEmbeddingModel__r.CA10A2__modelLifecycleStatus__c') == 'ACTIVE'"
+    },
+    "CA10A2__configType__c": "S3_VECTORS",
+    "CA10A2__sageMakerEmbeddingModelArn__c": null
+  }
+]

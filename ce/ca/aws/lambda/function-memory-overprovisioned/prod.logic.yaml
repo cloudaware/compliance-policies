@@ -1,0 +1,150 @@
+---
+inputType: "CA10__CaAwsLambdaFunction__c"
+importExtracts:
+  - file: "/types/CA10__CaAwsLambdaFunction__c/object.extracts.yaml"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Only the $LATEST function configuration is evaluated."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__version__c"
+        right:
+          TEXT: "$LATEST"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "Memory recommendations are unavailable for functions configured with more than 1792 MB."
+    check:
+      GREATER_THAN:
+        left:
+          EXTRACT: "CA10__memorySizeMb__c"
+        right:
+          NUMBER: 1792
+  - status: "UNDETERMINED"
+    currentStateMessage: "The configured memory size is below the 128 MB minimum."
+    check:
+      LESS_THAN:
+        left:
+          EXTRACT: "CA10__memorySizeMb__c"
+        right:
+          NUMBER: 128
+  - status: "INCOMPLIANT"
+    currentStateMessage: "The function's memory is overprovisioned; a lower memory setting is recommended."
+    remediationMessage: "Benchmark the recommended memory setting and confirm performance and cost savings before applying it."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r"
+  - status: "UNDETERMINED"
+    currentStateMessage: "Memory overprovisioning cannot be determined from the available recommendation data."
+    check:
+      RELATED_LIST_HAS:
+        status: "UNDETERMINED"
+        relationshipName: "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "No memory overprovisioning was found for the function."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r"
+otherwise:
+  status: "UNDETERMINED"
+  currentStateMessage: "No usable memory recommendation is available for the function."
+relatedLists:
+  - relationshipName: "CA10A2__AWS_Compute_Optimizer_Lambda_Func_Recs__r"
+    importExtracts:
+      - file: "/types/CA10A2__CaAwsComputeOptimizerLambdaFuncRec__c/object.extracts.yaml"
+      - file: "/types/CA10__CaAwsLambdaFunction__c/object.extracts.yaml"
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "The recommendation applies to a published function version."
+        check:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10A2__lambdaFunctionVersion__c"
+            right:
+              TEXT: "$LATEST"
+      - status: "UNDETERMINED"
+        currentStateMessage: "The recommendation's analysis period is not 14 days."
+        check:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10A2__lookbackPeriodInDays__c"
+            right:
+              NUMBER: 14
+      - status: "UNDETERMINED"
+        currentStateMessage: "The analysis includes fewer than the required 50 invocations."
+        check:
+          LESS_THAN:
+            left:
+              EXTRACT: "CA10A2__numberOfInvocations__c"
+            right:
+              NUMBER: 50
+      - status: "UNDETERMINED"
+        currentStateMessage: "The analyzed memory size does not match the function's configured memory."
+        check:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10A2__currentMemorySize__c"
+            right:
+              EXTRACT: "CA10A2__lambdaFunction__r.CA10__memorySizeMb__c"
+      - status: "COMPLIANT"
+        currentStateMessage: "The function's memory allocation is optimized for the analyzed workload."
+        check:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10A2__finding__c"
+                  right:
+                    TEXT: "Optimized"
+              - IS_EMPTY:
+                  arg:
+                    EXTRACT: "CA10A2__findingReasonCodes__c"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The function's memory is overprovisioned; a lower memory setting is recommended."
+        remediationMessage: "Benchmark the recommended memory setting and confirm performance and cost savings before applying it."
+        check:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10A2__finding__c"
+                  right:
+                    TEXT: "NotOptimized"
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10A2__findingReasonCodes__c"
+                  right:
+                    TEXT: "MemoryOverprovisioned"
+              - LESS_THAN:
+                  left:
+                    JSON_QUERY_NUMBER:
+                      arg:
+                        EXTRACT: "caJsonFrom__memorySizeRecommendationOptionsJson__c"
+                      expression: '[?rank == `1` && memorySize >= `128`].memorySize | [0]'
+                      undeterminedIf:
+                        evaluationError: "The recommended memory size could not be retrieved."
+                        resultTypeMismatch: "The recommended memory size is not a number."
+                        resultIsEmpty: "The top-ranked recommendation has no valid memory size of at least 128 MB."
+                  right:
+                    EXTRACT: "CA10A2__currentMemorySize__c"
+      - status: "COMPLIANT"
+        currentStateMessage: "The function's memory is underprovisioned for the analyzed workload."
+        check:
+          AND:
+            args:
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10A2__finding__c"
+                  right:
+                    TEXT: "NotOptimized"
+              - IS_EQUAL:
+                  left:
+                    EXTRACT: "CA10A2__findingReasonCodes__c"
+                  right:
+                    TEXT: "MemoryUnderprovisioned"
+    otherwise:
+      status: "UNDETERMINED"
+      currentStateMessage: "The recommendation's memory finding is unrecognized or inconsistent."

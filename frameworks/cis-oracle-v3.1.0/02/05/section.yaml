@@ -1,0 +1,11 @@
+---
+name: 2.5 Ensure the default security list of every VCN restricts all traffic except ICMP within VCN - Level 1 (Automated)
+description: >
+  A default security list is created when a Virtual Cloud Network (VCN) is
+  created and attached to the public subnets in the VCN. Security lists provide
+  stateful or stateless filtering of ingress and egress network traffic to OCI
+  resources in the VCN. It is recommended that the default security list does
+  not allow unrestricted ingress and egress access to resources in the VCN.
+similar:
+  internal:
+    - dec-c-2d8f4d0d

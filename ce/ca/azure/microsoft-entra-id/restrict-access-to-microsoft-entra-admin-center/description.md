@@ -2,7 +2,7 @@
 
 Restrict access to the Microsoft Entra ID administration center to administrators only.
 
-**NOTE**: This only affects access to the Entra ID administrator's web portal. This setting does not prohibit privileged users from using other methods such as Rest API or Powershell to obtain sensitive information from Microsoft Entra ID.
+**Note**: This only affects access to the Entra ID administrator's web portal. This setting does not prohibit privileged users from using other methods such as REST API or PowerShell to obtain sensitive information from Microsoft Entra ID.
 
 ## Rationale
 
@@ -16,7 +16,7 @@ All administrative tasks will need to be done by Administrators, causing additio
 
 ### From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. In the Azure portal, open the portal menu.
 2. Select `Microsoft Entra ID`.
 3. Under `Manage`, select `Users`.
 4. Under `Manage`, select `User settings`.

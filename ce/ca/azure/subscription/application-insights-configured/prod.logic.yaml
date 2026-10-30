@@ -4,17 +4,19 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "Application Insights are configured and successfully provisioned."
+    currentStateMessage: "Application Insights is configured and successfully provisioned."
     check:
       RELATED_LIST_HAS:
         relationshipName: "CA10__Azure_Application_Insights_Components__r"
         status: "COMPLIANT"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "Application Insights are not configured."
+  currentStateMessage: "Application Insights is not configured."
+  remediationMessage: "Configure Application Insights for application monitoring and diagnostics."
 relatedLists:
   - relationshipName: "CA10__Azure_Application_Insights_Components__r"
     conditions: []
     otherwise: 
       status: "COMPLIANT"
-      currentStateMessage: "Application Insights are configured."
+      currentStateMessage: "Application Insights is configured."
+

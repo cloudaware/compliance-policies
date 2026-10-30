@@ -10,8 +10,8 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "S3 Object Lock is enabled"
-    remediationMessage: "Consider enabling Object Lock feature"
+    currentStateMessage: "S3 Object Lock is not enabled."
+    remediationMessage: "Enable Object Lock for the bucket."
     check:
       IS_EQUAL:
         left:
@@ -19,7 +19,7 @@ conditions:
         right:
           TEXT: "no"
   - status: "COMPLIANT"
-    currentStateMessage: "S3 Object Lock is enabled"
+    currentStateMessage: "S3 Object Lock is enabled."
     check:
       IS_EQUAL:
         left:
@@ -28,4 +28,4 @@ conditions:
           TEXT: "yes"
 otherwise:
   status: "UNDETERMINED"
-  currentStateMessage: "Unexpected value in the field"
+  currentStateMessage: "Unexpected value in the field."

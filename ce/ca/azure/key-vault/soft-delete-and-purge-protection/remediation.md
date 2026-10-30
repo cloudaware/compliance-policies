@@ -16,7 +16,11 @@
 For each key vault requiring remediation, run the following command to enable purge protection:
 
 ```sh
-az resource update --resource-group <resource-group> --name <key-vault> --resource-type "Microsoft.KeyVault/vaults" --set properties.enablePurgeProtection=true
+az resource update \
+    --resource-group {{resource-group-name}} \
+    --name {{key-vault-name}} \
+    --resource-type "Microsoft.KeyVault/vaults" \
+    --set properties.enablePurgeProtection=true
 ```
 
 ## From PowerShell
@@ -24,5 +28,8 @@ az resource update --resource-group <resource-group> --name <key-vault> --resour
 For each key vault requiring remediation, run the following command to enable purge protection:
 
 ```ps
-Update-AzKeyVault -ResourceGroupName <resource-group> -VaultName <key-vault> -EnablePurgeProtection
+Update-AzKeyVault `
+    -ResourceGroupName {{resource-group-name}} `
+    -VaultName {{key-vault-name}} `
+    -EnablePurgeProtection
 ```

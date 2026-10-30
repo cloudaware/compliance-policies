@@ -16,3 +16,12 @@ extracts:
     value: 
       FIELD:
         path: CA10A1__calcLifecycleDeleteAt__c
+# Not nullable.
+  - name: "CA10A1__creationDate__c"
+    value: 
+      FIELD:
+        path: "CA10A1__creationDate__c"
+        undeterminedIf:
+          noAccessDelegate:
+            path: "CA10A1__creationDate__c"
+            currentStateMessage: "Backup Recovery Point creation date cannot be empty."

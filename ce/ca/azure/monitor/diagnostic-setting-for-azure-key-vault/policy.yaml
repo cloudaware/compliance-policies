@@ -4,12 +4,11 @@ names:
   contextual: Diagnostic Setting for Azure Key Vault is not enabled
 description: Enable AuditEvent logging for key vault instances to ensure interactions
   with key vaults are logged and available.
-impossible: true
 type: COMPLIANCE_POLICY
 categories:
   - SECURITY
 frameworkMappings:
-  - "/frameworks/cis-azure-v5.0.0/06/01/01/04"
+  - "/frameworks/cis-azure-v6.0.0/06/01/01/04"
   - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
 similarPolicies:
   internal:

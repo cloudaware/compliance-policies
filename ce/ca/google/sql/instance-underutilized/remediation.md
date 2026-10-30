@@ -1,17 +1,17 @@
 # Remediation
 
-Before taking any action, review the instance's usage patterns in to confirm that underutilization is consistent and does not spike temporarily.
+Before taking any action, review the instance's usage patterns to confirm that underutilization is consistent and does not spike temporarily.
 
 ## Downsize (Resize) the Instance
 
-### **From gcloud CLI**
+### **From Google Cloud CLI**
 
 If the instance is required but over-provisioned, you can resize it to a smaller, more cost-effective machine type:
 
 ```sh
 gcloud sql instances patch {{instance-name}} \
-    --cpu={{new-cpu}} 
-    --memory={{new-memory}}
+    --cpu={{new-cpu}} \
+    --memory={{new-memory}} \
     [--tier={{new-machine-type}}] \
     --region={{region}}
 ```

@@ -1,0 +1,61 @@
+[
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "CA10O1__Oracle_Compartments__r.has(COMPLIANT)",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "tenancy-comp-1",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_Compartments__r": [
+      {
+        "Id": "compartment-1",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__tenancy__c": "tenancy-comp-1",
+        "Name": "Operations",
+        "CA10O1__lifecycleState__c": "ACTIVE"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "tenancy-comp-2",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_Compartments__r": [
+      {
+        "Id": "compartment-2",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__tenancy__c": "tenancy-comp-2",
+        "Name": "ManagedCompartmentForPaaS",
+        "CA10O1__lifecycleState__c": "ACTIVE"
+      },
+      {
+        "Id": "compartment-3",
+        "CA10O1__disappearanceTime__c": null,
+        "CA10O1__tenancy__c": "tenancy-comp-2",
+        "Name": "Legacy",
+        "CA10O1__lifecycleState__c": "INACTIVE"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "200",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": { "snapshotTime": "2026-04-12T00:00:00Z" },
+    "Id": "tenancy-comp-3",
+    "CA10O1__disappearanceTime__c": null,
+    "CA10O1__Oracle_Compartments__r": []
+  }
+]

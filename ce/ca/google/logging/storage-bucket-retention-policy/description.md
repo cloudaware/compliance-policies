@@ -1,12 +1,12 @@
 # Description
 
-Enabling retention policies on log buckets will protect logs stored in cloud storage buckets from being overwritten or accidentally deleted. It is recommended to set up retention policies and configure Bucket Lock on all storage buckets that are used as log sinks.
+Enabling retention policies on log buckets protects logs stored in Cloud Storage buckets from being overwritten or accidentally deleted. It is recommended to set up retention policies and configure Bucket Lock on all storage buckets that are used as log sinks.
 
 ## Rationale
 
 Logs can be exported by creating one or more sinks that include a log filter and a destination. As Cloud Logging receives new log entries, they are compared against each sink. If a log entry matches a sink's filter, then a copy of the log entry is written to the destination.
 
-Sinks can be configured to export logs in storage buckets. It is recommended to configure a data retention policy for these cloud storage buckets and to lock the data retention policy; thus permanently preventing the policy from being reduced or removed. This way, if the system is ever compromised by an attacker or a malicious insider who wants to cover their tracks, the activity logs are definitely preserved for forensics and security investigations.
+Sinks can be configured to export logs to storage buckets. It is recommended to configure a data retention policy for these Cloud Storage buckets and lock the retention policy, which permanently prevents the policy from being reduced or removed. This way, if the system is compromised by an attacker or a malicious insider who wants to cover their tracks, the activity logs are preserved for forensics and security investigations.
 
 ## Impact
 
@@ -24,11 +24,18 @@ Locking a bucket is an irreversible action. Once you lock a bucket, you cannot r
 
 1. To list all sinks destined to storage buckets:
 
-        gcloud logging sinks list --folder=FOLDER_ID | --organization=ORGANIZATION_ID | --project=PROJECT_ID
+    ```sh
+    gcloud logging sinks list \
+        --folder={{folder-id}} \
+        --organization={{organization-id}} \
+        --project={{project-id}}
+    ```
 
 2. For every storage bucket listed above, verify that retention policies and Bucket Lock are enabled:
 
-        gsutil retention get gs://BUCKET_NAME
+    ```sh
+    gsutil retention get gs://{{bucket-name}}
+    ```
 
 For more information, see <https://cloud.google.com/storage/docs/using-bucket-lock#view-policy>.
 

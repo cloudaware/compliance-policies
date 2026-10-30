@@ -100,6 +100,6 @@ Configure Amazon RDS event subscriptions to receive notifications for **maintena
     }
     ```
 
-7. Repeat steps 1–6 for additional RDS DB clusters in the same AWS Region, if required.
+7. Repeat steps 1-6 for additional RDS DB clusters in the same AWS Region, if required.
 
 8. Update the `--region` parameter and repeat the remediation steps for other AWS Regions.

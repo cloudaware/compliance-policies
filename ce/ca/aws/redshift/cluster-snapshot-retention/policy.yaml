@@ -1,0 +1,21 @@
+---
+names:
+  full: "AWS Redshift Cluster Automated Snapshot Retention Period is not set"
+  contextual: "Cluster Automated Snapshot Retention Period is not set"
+description: >
+  Ensure that automated snapshots are enabled for Amazon Redshift clusters by setting 
+  a retention period greater than 0. Automated snapshots provide a reliable mechanism 
+  for data protection and point-in-time recovery.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-protection-and-recovery"
+  - "/frameworks/aws-fsbp-v1.0.0/redshift/03"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[Redshift.3] Amazon Redshift clusters should have automatic snapshots enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/redshift-controls.html#redshift-3"
+  cloudConformity:
+    - url: "https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/Redshift/automated-snapshot-retention-period.html"
+      name: Redshift Automated Snapshot Retention Period

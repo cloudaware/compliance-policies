@@ -1,0 +1,185 @@
+[
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "199",
+            "conditionText": "extract('CA10__status__c') != 'available'",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-02-02T09:33:27Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "paused",
+        "CA10__endpointPort2__c": 5439,
+        "Id": "test1",
+        "CA10__AWS_Redshift_Cluster_VPC_SG_Links__r": [
+            {
+                "CA10__disappearanceTime__c": null,
+                "CA10__cluster__c": "test1",
+                "Id": "test1_1",
+                "CA10__securityGroup__c": "test1_2",
+                "CA10__securityGroup__r": {
+                    "Id": "test1_2",
+                    "CA10__AWS_EC2_Security_Group_Rules1__r": [
+                        {
+                            "CA10__disappearanceTime__c": null,
+                            "CA10__direction__c": "Inbound",
+                            "CA10__source__c": "Group",
+                            "CA10__sourceIpRange__c": "",
+                            "CA10__protocol__c": "tcp",
+                            "CA10__fromPort__c": 0,
+                            "CA10__toPort__c": 65535,
+                            "CA10__sourceGroup__c": "test1_2",
+                            "Id": "test1_3"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INAPPLICABLE",
+            "conditionIndex": "299",
+            "conditionText": "extract('CA10__endpointPort2__c') != number(5439.0)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-02-02T09:33:27Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "available",
+        "CA10__endpointPort2__c": 5640,
+        "Id": "test2",
+        "CA10__AWS_Redshift_Cluster_VPC_SG_Links__r": [
+            {
+                "CA10__disappearanceTime__c": null,
+                "CA10__cluster__c": "test2",
+                "Id": "test2_1",
+                "CA10__securityGroup__c": "test2_2",
+                "CA10__securityGroup__r": {
+                    "Id": "test2_2",
+                    "CA10__AWS_EC2_Security_Group_Rules1__r": []
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "COMPLIANT",
+            "conditionIndex": "400",
+            "conditionText": "otherwise",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-02-02T09:33:27Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "available",
+        "CA10__endpointPort2__c": 5439,
+        "Id": "test3",
+        "CA10__AWS_Redshift_Cluster_VPC_SG_Links__r": [
+            {
+                "CA10__disappearanceTime__c": null,
+                "CA10__cluster__c": "test3",
+                "Id": "test3_1",
+                "CA10__securityGroup__c": "test3_2",
+                "CA10__securityGroup__r": {
+                    "Id": "test3_2",
+                    "CA10__AWS_EC2_Security_Group_Rules1__r": [
+                        {
+                            "CA10__disappearanceTime__c": null,
+                            "CA10__direction__c": "Inbound",
+                            "CA10__source__c": "Group",
+                            "CA10__sourceIpRange__c": "",
+                            "CA10__protocol__c": "tcp",
+                            "CA10__fromPort__c": 0,
+                            "CA10__toPort__c": 65535,
+                            "CA10__sourceGroup__c": "test3_2",
+                            "Id": "test3_3"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "CA10__AWS_Redshift_Cluster_VPC_SG_Links__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-02-02T09:33:27Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "available",
+        "CA10__endpointPort2__c": 5439,
+        "Id": "test4",
+        "CA10__AWS_Redshift_Cluster_VPC_SG_Links__r": [
+            {
+                "CA10__disappearanceTime__c": null,
+                "CA10__cluster__c": "test4",
+                "Id": "test4_1",
+                "CA10__securityGroup__c": "test4_2",
+                "CA10__securityGroup__r": {
+                    "Id": "test4_2",
+                    "CA10__AWS_EC2_Security_Group_Rules1__r": [
+                        {
+                            "CA10__disappearanceTime__c": null,
+                            "CA10__direction__c": "Inbound",
+                            "CA10__source__c": "IP",
+                            "CA10__sourceIpRange__c": "0.0.0.0/0",
+                            "CA10__protocol__c": "tcp",
+                            "CA10__fromPort__c": 0,
+                            "CA10__toPort__c": 65535,
+                            "CA10__sourceGroup__c": "test4_2",
+                            "Id": "test4_3"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "expectedResult": {
+            "status": "INCOMPLIANT",
+            "conditionIndex": "399",
+            "conditionText": "CA10__AWS_Redshift_Cluster_VPC_SG_Links__r.has(INCOMPLIANT)",
+            "runtimeError": null
+        },
+        "context": {
+            "snapshotTime": "2026-02-02T09:33:27Z"
+        },
+        "CA10__disappearanceTime__c": null,
+        "CA10__status__c": "available",
+        "CA10__endpointPort2__c": 5439,
+        "Id": "test5",
+        "CA10__AWS_Redshift_Cluster_VPC_SG_Links__r": [
+            {
+                "CA10__disappearanceTime__c": null,
+                "CA10__cluster__c": "test5",
+                "Id": "test5_1",
+                "CA10__securityGroup__c": "test5_2",
+                "CA10__securityGroup__r": {
+                    "Id": "test5_2",
+                    "CA10__AWS_EC2_Security_Group_Rules1__r": [
+                        {
+                            "CA10__disappearanceTime__c": null,
+                            "CA10__direction__c": "Inbound",
+                            "CA10__source__c": "IP",
+                            "CA10__sourceIpRange__c": "0.0.0.0/0",
+                            "CA10__protocol__c": "tcp",
+                            "CA10__fromPort__c": 5439,
+                            "CA10__toPort__c": 5439,
+                            "CA10__sourceGroup__c": "test5_2",
+                            "Id": "test5_3"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+]

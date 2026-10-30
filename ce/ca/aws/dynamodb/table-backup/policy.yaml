@@ -1,0 +1,28 @@
+---
+names:
+  full: "AWS DynamoDB Table does not have on-demand backups in the past 90 days"
+  contextual: "Table does not have on-demand backups in the past 90 days"
+description: >
+  Ensure that DynamoDB tables without Point-in-Time Recovery (PITR) have 
+  a recent on-demand backup or AWS Backup recovery point to reduce the risk of
+  data loss.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-protection-and-recovery"
+  - "/frameworks/nist-sp-800-53-r5/cp/10"
+  - "/frameworks/nist-sp-800-53-r5/cp/06"
+  - "/frameworks/nist-sp-800-53-r5/cp/06/01"
+  - "/frameworks/nist-sp-800-53-r5/cp/06/02"
+  - "/frameworks/nist-sp-800-53-r5/cp/09"
+  - "/frameworks/nist-sp-800-53-r5/sc/05/02"
+  - "/frameworks/nist-sp-800-53-r5/si/12"
+  - "/frameworks/nist-sp-800-53-r5/si/13/05"
+similarPolicies:
+  cloudConformity:
+    - url: https://www.trendmicro.com/cloudoneconformity/knowledge-base/aws/DynamoDB/backup-and-restore.html
+      name: DynamoDB Backup and Restore
+  awsSecurityHub:
+    - name: "[DynamoDB.4] DynamoDB tables should be present in a backup plan"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/dynamodb-controls.html#dynamodb-4"

@@ -8,12 +8,12 @@ Anyone who has access to the keys will be able to access resources through the s
 
 For user-managed keys, the user has to take ownership of key management activities which include:
 
-     • Key storage
-     • Key distribution
-     • Key revocation
-     • Key rotation
-     • Protecting the keys from unauthorized users
-     • Key recovery
+     - Key storage
+     - Key distribution
+     - Key revocation
+     - Key rotation
+     - Protecting the keys from unauthorized users
+     - Key recovery
 
 Even with key owner precautions, keys can be easily leaked by common development malpractices like checking keys into the source code or leaving them in the Downloads directory, or accidentally leaving them on support blogs/channels.
 
@@ -33,13 +33,19 @@ Deleting user-managed service account keys may break communication with the appl
 
 ### From Google Cloud CLI
 
-List All the service accounts:
+List all service accounts:
 
+     ```sh
      gcloud iam service-accounts list
+     ```
 
-Identify user-managed service accounts which have an account `EMAIL` ending with `iam.gserviceaccount.com` For each user-managed service account, list the keys managed by the user:
+Identify user-managed service accounts with an `EMAIL` ending in `iam.gserviceaccount.com`. For each user-managed service account, list the keys managed by the user:
 
-     gcloud iam service-accounts keys list --iam-account=<Service Account> --managed-by=user
+     ```sh
+     gcloud iam service-accounts keys list \
+         --iam-account={{service-account-email}} \
+         --managed-by=user
+     ```
 
 No keys should be listed.
 

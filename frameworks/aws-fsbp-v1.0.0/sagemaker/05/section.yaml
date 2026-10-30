@@ -1,14 +1,18 @@
 name: >
-  [SageMaker.5] SageMaker models should block inbound traffic
+  [SageMaker.5] SageMaker models should have network isolation enabled
 description: |-
+  This control checks whether an Amazon SageMaker AI hosted model has network 
+  isolation enabled. The control fails if the EnableNetworkIsolation parameter 
+  for the hosted model is set to False.
+
   SageMaker AI training and deployed inference containers are internet-enabled 
   by default. If you don't want SageMaker AI to provide external network access 
   to your training or inference containers, you can enable network isolation. 
-  If you enable network isolation, the containers can't make any outbound 
-  network calls, even to other AWS services. Additionally, no AWS credentials 
-  are made available to the container runtime environment. Enabling network 
-  isolation helps prevent unintended access to your SageMaker AI resources from 
-  the internet.
+  If you enable network isolation, no inbound or outbound network calls can be 
+  made to or from the model container, including calls to or from other AWS services. 
+  Additionally, no AWS credentials are made available to the container runtime 
+  environment. Enabling network isolation helps prevent unintended access to your 
+  SageMaker AI resources from the internet.
 similar:
   awsSecurityHub:
     controlUrl: https://docs.aws.amazon.com/securityhub/latest/userguide/sagemaker-controls.html#sagemaker-5

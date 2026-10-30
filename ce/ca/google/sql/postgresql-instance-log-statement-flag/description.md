@@ -1,15 +1,15 @@
 # Description
 
-The value of `log_statement` flag determined the SQL statements that are logged. Valid values are:
+The value of the `log_statement` flag determines the SQL statements that are logged. Valid values are:
 
-            • none
-            • ddl
-            • mod
-            • all
+- none
+- ddl
+- mod
+- all
 
-The value `ddl` logs all data definition statements. The value `mod` logs all ddl statements, plus data-modifying statements.
+The value `ddl` logs all data definition statements. The value `mod` logs all DDL statements, plus data-modifying statements.
 
-The statements are logged after a basic parsing is done and statement type is determined, thus this does not logs statements with errors. When using extended query protocol, logging occurs after an Execute message is received and values of the Bind parameters are included.
+Statements are logged after basic parsing is done and the statement type is determined, so this does not log statements with errors. When using extended query protocol, logging occurs after an Execute message is received and values of the Bind parameters are included.
 
 A value of `ddl` is recommended unless otherwise directed by your organization's logging policy.
 
@@ -26,15 +26,18 @@ Turning on logging will increase the required storage over time. Mismanaged logs
 ### From Google Cloud Console
 
 1. Go to the Cloud SQL Instances page in the Google Cloud Console by visiting <https://console.cloud.google.com/sql/instances>.
-2. Select the instance to open its `Instance Overview` page
-3. Go to `Configuration` card
-4. Under `Database flags`, check the value of `log_statement` flag is set to appropriately.
+2. Select the instance to open its `Instance Overview` page.
+3. Go to the `Configuration` card.
+4. Under `Database flags`, check that the value of the `log_statement` flag is set appropriately.
 
 ### From Google Cloud CLI
 
-1. Use the below command for every Cloud SQL PostgreSQL database instance to verify the value of `log_statement`
+1. Use the following command for every Cloud SQL PostgreSQL database instance to verify the value of `log_statement`:
 
-            gcloud sql instances list --format=json | jq '.[].settings.databaseFlags[] | select(.name=="log_statement")|.value'
+    ```sh
+    gcloud sql instances describe {{instance-name}} \
+        --format=json | jq '.settings.databaseFlags[] | select(.name=="log_statement") | .value'
+    ```
 
 ## References
 

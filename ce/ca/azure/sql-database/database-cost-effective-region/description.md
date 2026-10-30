@@ -1,6 +1,6 @@
 # Description
 
-This policy identifies Azure SQL Database that are provisioned in Azure regions known to have higher pricing compared to nearby alternatives.
+This policy identifies Azure SQL Databases that are provisioned in Azure regions known to have higher pricing compared to nearby alternatives.
 
 ## Rationale
 

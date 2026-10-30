@@ -7,7 +7,7 @@ importExtracts:
   - file: "/types/CA10__CaAwsEcsContainerDefinition__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "The Task Definition is not active."
+    currentStateMessage: "The task definition is not active."
     check:
       NOT_EQUAL:
         left:
@@ -15,15 +15,15 @@ conditions:
         right:
           TEXT: "ACTIVE"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Task Definition has at least one container without a log configuration."
-    remediationMessage: "Configure a log driver (e.g., awslogs) for all containers in the Task Definition."
+    currentStateMessage: "The task definition has at least one container without a log configuration."
+    remediationMessage: "Configure a log driver (e.g., awslogs) for all containers in the task definition."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__AWS_ECS_Container_Definitions__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "All containers in the Task Definition have a log configuration."
+  currentStateMessage: "All containers in the task definition have a log configuration."
 relatedLists:
   - relationshipName: "CA10__AWS_ECS_Container_Definitions__r"
     conditions:

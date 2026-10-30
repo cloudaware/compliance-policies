@@ -1,6 +1,6 @@
 # Description
 
-Identify Azure Virtual Machines that exhibit signs of overutilization and initiate a scale-up (resize) action where appropriate. A VM is classified as overutilized if, over a 14-day period, its average CPU utilization exceeds 80% and its maximum CPU utilization consistently surpasses 95%.
+Identify Azure Virtual Machines that exhibit signs of overutilization and initiate a scale-up (resize) action where appropriate. When a linked New Relic host is available, this policy also evaluates memory utilization. Otherwise, it falls back to CPU metrics only. A VM is classified as overutilized if, over a 14-day period, its average CPU utilization exceeds 80% and its maximum CPU utilization consistently surpasses 95%, with memory utilization above 80% when New Relic data is available.
 
 ## Rational
 
@@ -14,13 +14,22 @@ Resizing or scaling operations may incur additional Azure consumption costs. How
 
 ## Audit
 
-This policy evaluates an *Azure Virtual Machine* based on CPU performance data collected over a 14-day period.
+This policy evaluates an *Azure Virtual Machine* over the last 14 days using CPU metrics and optional New Relic memory metrics.
 
-The VM is marked as `INCOMPLIANT` if both of the following conditions are met:
+Memory is evaluated as follows:
 
-- `CPU Utilization, Average, %` field is greater than **80%**.
-- `CPU Utilization, Max, %` field is greater than **95%**.
+- If `New Relic Host` is present, use `New Relic Host: Memory Used, 14-Day`.
+- If `New Relic Host` is empty, fall back to CPU only.
+
+The VM is marked as `INCOMPLIANT` when all of these baseline conditions are true:
+
+- `Monitor: CPU Average, 14-Day` is greater than 80%.
+- `Monitor: CPU Max, 14-Day` is greater than 95%.
+
+And this metric path applies if exists:
+
+- `New Relic Host` is present and `New Relic Host: Memory Used, 14-Day` is greater than 80%.
 
 The VM is flagged as `INAPPLICABLE` if it is not currently running or has been operational for fewer than 14 consecutive days.
 
-The VM is marked as `UNDETERMINED` if the required performance metrics are missing or incomplete, indicating insufficient data in the CMDB for evaluation.
+The VM is marked as `UNDETERMINED` if either required CPU metric is empty, or if `New Relic Host` is present but `New Relic Host: Memory Used, 14-Day` is empty.

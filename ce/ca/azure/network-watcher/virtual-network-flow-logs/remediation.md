@@ -7,7 +7,7 @@
 3. Select `+ Create`.
 4. Select a subscription.
 5. Next to `Flow log type`, select `Virtual network`.
-6. Click + `Select target resource`.
+6. Click `+ Select target resource`.
 7. Select `Virtual network`.
 8. Select a virtual network.
 9. Click `Confirm selection`.

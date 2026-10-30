@@ -6,11 +6,11 @@ In GCP, **Firewall Rules** are defined at the **VPC Network** level. Each rule e
 
 ## Rationale
 
-SSH is the primary protocol for remote administration of Linux-based virtual machines. Exposing the SSH port to the entire internet makes it a persistent target for automated attacks. Malicious actors continuously scan for open port 22 to launch brute-force password attacks, credential stuffing, or exploit known vulnerabilities in SSH daemons. A successful attack can lead to complete compromise of the virtual machine. Access should be restricted to trusted IP addresses, such as a corporate VPN or bastion host, or managed through more secure mechanisms like Google Cloud's Identity-Aware Proxy (IAP).
+SSH is the primary protocol for remote administration of Linux-based virtual machines. Exposing the SSH port to the entire internet makes it a persistent target for automated attacks. Malicious actors continuously scan for open port 22 to launch brute-force password attacks, credential stuffing, or exploit known vulnerabilities in SSH daemons. A successful attack can lead to complete compromise of the virtual machine. Access should be restricted to trusted IP ranges, such as a corporate VPN or bastion host, or managed through more secure mechanisms like Google Cloud's Identity-Aware Proxy (IAP).
 
 ## Impact
 
-All Secure Shell (SSH) connections from outside of the network to the concerned VPC(s) can be blocked. If remote SSH access is required for legitimate business purposes, firewall rules should explicitly whitelist trusted source IP addresses to limit exposure.
+All Secure Shell (SSH) connections from outside of the network to the concerned VPC(s) can be blocked. If remote SSH access is required for legitimate business purposes, firewall rules should explicitly whitelist trusted source IP ranges to limit exposure.
 
 ## Audit
 

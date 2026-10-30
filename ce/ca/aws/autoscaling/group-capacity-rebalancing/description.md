@@ -1,6 +1,6 @@
 # Description
 
-This policy checks that AWS EC2 Auto Scaling Groups that use a mixed instances launch template but do not have Capacity Rebalancing enabled.
+This policy checks for AWS EC2 Auto Scaling Groups that use a mixed instances launch template but do not have Capacity Rebalancing enabled.
 
 Capacity Rebalancing helps you maintain application availability by proactively launching a new Spot Instance to replace one that is at an increased risk of interruption.
 
@@ -14,6 +14,6 @@ If Capacity Rebalancing is not enabled, your application may experience reduced 
 
 ## Audit
 
-This policy flags an *AWS EC2 Auto Scaling Group* as `INCOMPLIANT` if it uses a mixed instances launch template and `Capacity Rebalancing` is not set to **Enable**.
+This policy flags an *AWS EC2 Auto Scaling Group* as `INCOMPLIANT` if it uses a mixed instances launch template and `Capacity Rebalancing` is not set to **Enabled**.
 
 The ASG is marked as `INAPPLICABLE` if the `Mixed Instances Launch Template ID` is empty.

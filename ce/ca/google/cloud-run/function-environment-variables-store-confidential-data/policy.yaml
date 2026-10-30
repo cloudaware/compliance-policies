@@ -10,10 +10,10 @@ categories:
   - "SECURITY"
 impossible: true
 frameworkMappings:
-  - /frameworks/cis-gcp-v3.0.0/01/17
+  - /frameworks/cis-gcp-v5.0.0/01/18
   - /frameworks/cloudaware/resource-security/secure-access
 similarPolicies:
   cloudConformity:
-    - url: https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudFunctions/functions-secrets-manager.html"
-      name: "Use Secrets Manager for Managing Secrets in Google Cloud Functions"
+    - url: "https://www.trendmicro.com/cloudoneconformity-staging/knowledge-base/gcp/CloudFunctions/functions-secrets-manager.html"
+      name: "Use Secret Manager for Managing Secrets in Google Cloud Functions"
  

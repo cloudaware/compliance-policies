@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS RDS Instance IAM Database Authentication is not enabled"
+  contextual: "Instance IAM Database Authentication is not enabled"
+description: >
+  IAM database authentication allows you to authenticate to your DB instance using 
+  IAM users or roles. This centralized approach improves security by using short-lived 
+  tokens instead of long-lived database passwords.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/secure-access"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/10"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[RDS.10] IAM authentication should be configured for RDS instances"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-10"

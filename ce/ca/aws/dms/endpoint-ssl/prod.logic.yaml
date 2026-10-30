@@ -6,7 +6,7 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "Endpoint SSL Mode doesn't apply to this DMS Endpoint engine."
+    currentStateMessage: "Endpoint SSL mode doesn't apply to this DMS endpoint engine."
     check:
       NOT:
         arg:
@@ -28,8 +28,8 @@ conditions:
             search:
               EXTRACT: "CA10A1__engineName__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The DMS Endpoint connection is not encrypted with SSL."
-    remediationMessage: "Modify the DMS endpoint to set the SSL mode."
+    currentStateMessage: "The DMS endpoint connection is not encrypted with SSL."
+    remediationMessage: "Configure the DMS endpoint SSL mode."
     check:
       IS_EQUAL:
         left:

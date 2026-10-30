@@ -1,0 +1,61 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-06-19T07:55:48Z"
+    },
+    "Id": "a01",
+    "CA10__disappearanceTime__c": "2024-05-20T12:40:12Z",
+    "CA10__credReportAttributesJson__c": "{\"password_last_used\":\"2024-07-17T17:37:46Z\",\"access_key_1_last_used_region\":\"N/A\",\"password_enabled\":\"true\",\"access_key_1_last_used_date\":\"N/A\",\"access_key_1_last_used_service\":\"N/A\",\"mfa_active\":\"true\",\"access_key_2_last_used_date\":\"N/A\",\"user_creation_time\":\"2017-09-27T19:51:41Z\",\"cert_2_active\":\"false\",\"cert_1_active\":\"false\",\"cert_1_last_rotated\":\"N/A\",\"access_key_2_last_used_service\":\"N/A\",\"access_key_2_active\":\"false\",\"access_key_1_active\":\"false\",\"password_next_rotation\":\"2024-10-15T17:38:45Z\",\"access_key_2_last_rotated\":\"N/A\",\"arn\":\"userArn\",\"access_key_1_last_rotated\":\"N/A\",\"access_key_2_last_used_region\":\"N/A\",\"user\":\"user\",\"password_last_changed\":\"2024-07-17T17:38:45Z\",\"cert_2_last_rotated\":\"N/A\"}"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10__userName__c') != 'root'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-06-19T07:55:48Z"
+    },
+    "Id": "a02",
+    "CA10__disappearanceTime__c": null,
+    "CA10__credReportAttributesJson__c": "{\"password_last_used\":\"2024-07-17T17:37:46Z\",\"access_key_1_last_used_region\":\"N/A\",\"password_enabled\":\"true\",\"access_key_1_last_used_date\":\"N/A\",\"access_key_1_last_used_service\":\"N/A\",\"mfa_active\":\"true\",\"access_key_2_last_used_date\":\"N/A\",\"user_creation_time\":\"2017-09-27T19:51:41Z\",\"cert_2_active\":\"false\",\"cert_1_active\":\"false\",\"cert_1_last_rotated\":\"N/A\",\"access_key_2_last_used_service\":\"N/A\",\"access_key_2_active\":\"false\",\"access_key_1_active\":\"false\",\"password_next_rotation\":\"2024-10-15T17:38:45Z\",\"access_key_2_last_rotated\":\"N/A\",\"arn\":\"userArn\",\"access_key_1_last_rotated\":\"N/A\",\"access_key_2_last_used_region\":\"N/A\",\"user\":\"user\",\"password_last_changed\":\"2024-07-17T17:38:45Z\",\"cert_2_last_rotated\":\"N/A\"}",
+    "CA10__userName__c": "userName"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10__credReportCert1Active__c') == true || extract('CA10__credReportCert2Active__c') == true",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-06-19T07:55:48Z"
+    },
+    "Id": "a03I",
+    "CA10__disappearanceTime__c": null,
+    "CA10__credReportAttributesJson__c": "{\"password_last_used\":\"2024-07-17T17:37:46Z\",\"access_key_1_last_used_region\":\"N/A\",\"password_enabled\":\"true\",\"access_key_1_last_used_date\":\"N/A\",\"access_key_1_last_used_service\":\"N/A\",\"mfa_active\":\"true\",\"access_key_2_last_used_date\":\"N/A\",\"user_creation_time\":\"2017-09-27T19:51:41Z\",\"cert_2_active\":\"false\",\"cert_1_active\":\"true\",\"cert_1_last_rotated\":\"N/A\",\"access_key_2_last_used_service\":\"N/A\",\"access_key_2_active\":\"true\",\"access_key_1_active\":\"false\",\"password_next_rotation\":\"2024-10-15T17:38:45Z\",\"access_key_2_last_rotated\":\"N/A\",\"arn\":\"userArn\",\"access_key_1_last_rotated\":\"N/A\",\"access_key_2_last_used_region\":\"N/A\",\"user\":\"<root_account>\",\"password_last_changed\":\"2024-07-17T17:38:45Z\",\"cert_2_last_rotated\":\"N/A\"}",
+    "CA10__userName__c": "root"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "300",
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2024-06-19T07:55:48Z"
+    },
+    "Id": "a03",
+    "CA10__disappearanceTime__c": null,
+    "CA10__credReportAttributesJson__c": "{\"password_last_used\":\"2024-07-17T17:37:46Z\",\"access_key_1_last_used_region\":\"N/A\",\"password_enabled\":\"true\",\"access_key_1_last_used_date\":\"N/A\",\"access_key_1_last_used_service\":\"N/A\",\"mfa_active\":\"true\",\"access_key_2_last_used_date\":\"N/A\",\"user_creation_time\":\"2017-09-27T19:51:41Z\",\"cert_2_active\":\"false\",\"cert_1_active\":\"false\",\"cert_1_last_rotated\":\"N/A\",\"access_key_2_last_used_service\":\"N/A\",\"access_key_2_active\":\"false\",\"access_key_1_active\":\"false\",\"password_next_rotation\":\"2024-10-15T17:38:45Z\",\"access_key_2_last_rotated\":\"N/A\",\"arn\":\"userArn\",\"access_key_1_last_rotated\":\"N/A\",\"access_key_2_last_used_region\":\"N/A\",\"user\":\"<root_account>\",\"password_last_changed\":\"2024-07-17T17:38:45Z\",\"cert_2_last_rotated\":\"N/A\"}",
+    "CA10__userName__c": "root"
+  }
+]

@@ -1,0 +1,55 @@
+---
+extracts:
+  - name: "CA10A2__lambdaFunctionVersion__c"
+    value:
+      FIELD:
+        path: "CA10A2__lambdaFunctionVersion__c"
+        undeterminedIf:
+          isEmpty: "The function version associated with the recommendation is unavailable."
+  - name: "CA10A2__lastRefreshTimestamp__c"
+    value:
+      FIELD:
+        path: "CA10A2__lastRefreshTimestamp__c"
+        undeterminedIf:
+          isEmpty: "The recommendation's refresh timestamp is unavailable."
+  - name: "CA10A2__lookbackPeriodInDays__c"
+    value:
+      FIELD:
+        path: "CA10A2__lookbackPeriodInDays__c"
+        undeterminedIf:
+          isEmpty: "The recommendation's analysis period is unavailable."
+  - name: "CA10A2__numberOfInvocations__c"
+    value:
+      FIELD:
+        path: "CA10A2__numberOfInvocations__c"
+        undeterminedIf:
+          isEmpty: "The number of analyzed invocations is unavailable."
+  - name: "CA10A2__currentMemorySize__c"
+    value:
+      FIELD:
+        path: "CA10A2__currentMemorySize__c"
+        undeterminedIf:
+          isEmpty: "The analyzed memory size is unavailable."
+  - name: "CA10A2__finding__c"
+    value:
+      FIELD:
+        path: "CA10A2__finding__c"
+        undeterminedIf:
+          isEmpty: "The recommendation's memory finding is unavailable."
+  - name: "CA10A2__findingReasonCodes__c"
+    value:
+      FIELD:
+        path: "CA10A2__findingReasonCodes__c"
+  - name: "CA10A2__memorySizeRecommendationOptionsJson__c"
+    value:
+      FIELD:
+        path: "CA10A2__memorySizeRecommendationOptionsJson__c"
+        returnType: "BYTES"
+  - name: "caJsonFrom__memorySizeRecommendationOptionsJson__c"
+    value:
+      JSON_FROM:
+        arg:
+          EXTRACT: "CA10A2__memorySizeRecommendationOptionsJson__c"
+        undeterminedIf:
+          isEmpty: "The memory recommendation options are unavailable."
+          isInvalid: "The memory recommendation options contain invalid JSON."

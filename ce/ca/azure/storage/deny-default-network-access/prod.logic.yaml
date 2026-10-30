@@ -6,7 +6,7 @@ importExtracts:
   - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "This recommendation is only applicable if Public Network Access has not been disabled due to necessity or exception."
+    currentStateMessage: "This recommendation applies only when public network access is not disabled by necessity or exception."
     check:
       IS_EQUAL:
         left:
@@ -15,7 +15,7 @@ conditions:
           TEXT: "Disabled"  
   - status: "INCOMPLIANT"
     currentStateMessage: "The Default network access is not restricted."
-    remediationMessage: "Consider configuring the default action to deny access to traffic from all networks."
+    remediationMessage: "Set the default action to deny access from all networks."
     check:
       IS_EQUAL:
         left:
@@ -23,7 +23,7 @@ conditions:
         right:
           TEXT: "Allow"
   - status: "COMPLIANT"
-    currentStateMessage: "The default action is configured to deny access to traffic from all networks."
+    currentStateMessage: "The default action is set to deny access from all networks."
     check:
       IS_EQUAL:
         left:

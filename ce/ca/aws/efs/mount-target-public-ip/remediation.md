@@ -13,7 +13,7 @@ aws efs create-mount-target \
     --file-system-id {{file-system-id}} \
     --subnet-id {{private-subnet-id}} \
     --security-groups {{security-group-id}} \
-    --region {{aws-region}}
+    --region {{region-name}}
 ```
 
 > **Note:**
@@ -26,10 +26,10 @@ Confirm that the new mount target is in the **available** state before proceedin
 ```sh
 aws efs describe-mount-targets \
     --file-system-id {{file-system-id}} \
-    --region {{aws-region}}
+    --region {{region-name}}
 ```
 
-Verify application connectivity to the EFS file system
+Verify application connectivity to the EFS file system.
 
 ### 3. Delete the existing mount target in the public subnet
 
@@ -38,5 +38,5 @@ After verification, remove the old mount target:
 ```sh
 aws efs delete-mount-target \
     --mount-target-id {{old-mount-target-id}} \
-    --region {{aws-region}}
+    --region {{region-name}}
 ```

@@ -14,7 +14,10 @@
 Run the following command to enable Defender CSPM:
 
 ```sh
-az security pricing create --name CloudPosture --tier Standard --extensions name=ApiPosture isEnabled=true
+az security pricing create \
+    --name CloudPosture \
+    --tier Standard \
+    --extensions name=ApiPosture isEnabled=true
 ```
 
 ## From PowerShell
@@ -22,5 +25,8 @@ az security pricing create --name CloudPosture --tier Standard --extensions name
 Run the following command to enable Defender CSPM:
 
 ```ps
-Set-AzSecurityPricing -Name CloudPosture -PricingTier Standard -Extension '[{"name":"ApiPosture","isEnabled":"True"}]'
+Set-AzSecurityPricing `
+    -Name CloudPosture `
+    -PricingTier Standard `
+    -Extension '[{"name":"ApiPosture","isEnabled":"True"}]'
 ```

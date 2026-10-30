@@ -10,3 +10,8 @@ extracts:
     value: 
       FIELD:
         path: CA10__mapPublicIpOnLaunch__c
+# Checkbox. Can't have no access, retrieved via ec2:DescribeSubnets
+  - name: CA10__assignIpv6AddressOnCreation__c
+    value: 
+      FIELD:
+        path: CA10__assignIpv6AddressOnCreation__c

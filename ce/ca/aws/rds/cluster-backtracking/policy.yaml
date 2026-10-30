@@ -1,0 +1,19 @@
+---
+names:
+  full: "AWS RDS Aurora Cluster Backtracking is not enabled"
+  contextual: "Aurora Cluster Backtracking is not enabled"
+description: >
+  Ensure that Amazon Aurora MySQL DB clusters have backtracking enabled.
+  Backtracking allows a cluster to be rewound to a recent point in time without
+  restoring from backup, which improves recovery from accidental changes and
+  reduces recovery time for supported workloads.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/resource-security/data-protection-and-recovery"
+  - "/frameworks/aws-fsbp-v1.0.0/rds/14"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[RDS.14] Amazon Aurora clusters should have backtracking enabled"
+      url: "https://docs.aws.amazon.com/securityhub/latest/userguide/rds-controls.html#rds-14"

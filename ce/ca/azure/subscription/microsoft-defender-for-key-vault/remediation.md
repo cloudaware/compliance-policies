@@ -14,7 +14,9 @@
 Enable Standard pricing tier for Key Vault:
 
 ```sh
-az security pricing create -n 'KeyVaults' --tier 'Standard'
+az security pricing create \
+    -n KeyVaults \
+    --tier Standard
 ```
 
 ### From PowerShell
@@ -22,5 +24,7 @@ az security pricing create -n 'KeyVaults' --tier 'Standard'
 Enable Standard pricing tier for Key Vault:
 
 ```ps
-Set-AzSecurityPricing -Name 'KeyVaults' -PricingTier 'Standard'
+Set-AzSecurityPricing `
+    -Name "KeyVaults" `
+    -PricingTier "Standard"
 ```

@@ -46,17 +46,17 @@ Where `{{policy-details.json}}` includes the following:
     "PolicyLanguage": "SIMPLIFIED",
     "PolicyType": "EBS_SNAPSHOT_MANAGEMENT",
     "ResourceType": "VOLUME",
-    "CopyTags": true | false,
-    "CreateInterval": creation_frequency_in_days (1-7),
-    "RetainInterval": retention_period_in_days (2-14),
-    "ExtendDeletion": true | false, 
-    "CrossRegionCopyTargets": [{"TargetRegion":"destination_region_code"}],
+    "CopyTags": {{true|false}},
+    "CreateInterval": {{creation-frequency-in-days}},
+    "RetainInterval": {{retention-period-in-days}},
+    "ExtendDeletion": {{true|false}}, 
+    "CrossRegionCopyTargets": [{"TargetRegion":"{{destination-region-code}}"}],
     "Exclusions": {
-        "ExcludeBootVolume": true | false,
-        "ExcludeVolumeTypes": ["standard | gp2 | gp3 | io1 | io2 | st1 | sc1"],
+        "ExcludeBootVolume": {{true|false}},
+        "ExcludeVolumeTypes": ["{{standard|gp2|gp3|io1|io2|st1|sc1}}"],
         "ExcludeTags": [{ 
-            "Key": "exclusion_tag_key",
-            "Value": "exclusion_tag_value"
+            "Key": "{{exclusion-tag-key}}",
+            "Value": "{{exclusion-tag-value}}"
         }]
     }
 }

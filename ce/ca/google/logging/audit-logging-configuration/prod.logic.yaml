@@ -7,15 +7,15 @@ importExtracts:
   - file: /types/CA10__CaGoogleProject__c/object.extracts.yaml
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "Cloud Audit Logging is configured to track all admin activities and read, write access to user data."
+    currentStateMessage: "Cloud Audit Logging is configured to track all admin activity and read/write access to user data."
     check:
       RELATED_LIST_HAS:
         status: "COMPLIANT"
         relationshipName: "CA10__Google_Resource_Manager_Projects__r"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "Cloud Audit Logging is not configured to track all admin activities and read, write access to user data."
-  remediationMessage: "Configure Cloud Audit Logging to track all admin activities and read, write access to user data."
+  currentStateMessage: "Cloud Audit Logging is not configured to track all admin activity and read/write access to user data."
+  remediationMessage: "Configure Cloud Audit Logging to track all admin activity and read/write access to user data."
 relatedLists:
   - relationshipName: "CA10__Google_Resource_Manager_Projects__r"
     importExtracts:
@@ -23,7 +23,7 @@ relatedLists:
       - file: /types/CA10__CaGoogleIamPolicyAuditLogConfig__c/object.extracts.yaml
     conditions:
       - status: "COMPLIANT"
-        currentStateMessage: "Cloud Audit Logging is configured to track all admin activities and read, write access to user data."
+        currentStateMessage: "Cloud Audit Logging is configured to track all admin activity and read/write access to user data."
         check:
           OR:
             args:
@@ -38,7 +38,7 @@ relatedLists:
                   relationshipName: "CA10__resourceManagerOrganization__r.CA10__Google_IAM_Policy_Audit_Configs__r"
     otherwise:
       status: "INCOMPLIANT"
-      currentStateMessage: "Resource Manager Project is not configured to track all admin activities and read, write access to user data."
+      currentStateMessage: "The Resource Manager project is not configured to track all admin activity and read/write access to user data."
     relatedLists:
     # PROJECT level
       - relationshipName: "CA10__Google_IAM_Policy_Audit_Configs__r"
@@ -46,7 +46,7 @@ relatedLists:
         - "caGoogleIamPolicyAuditConfigProject"
         conditions:
           - status: "COMPLIANT"
-            currentStateMessage: "Project Audit Config is configured to track all admin activities and read, write access to user data." 
+            currentStateMessage: "Project audit config tracks all admin activity and read/write access to user data."
             check:
               AND:
                 args:
@@ -67,12 +67,12 @@ relatedLists:
                         TEXT: "allServices"
         otherwise:
           status: "INCOMPLIANT"
-          currentStateMessage: "Project Audit Config is not configured to track all admin activities and read, write access to user data."
+          currentStateMessage: "Project audit config does not track all admin activity and read/write access to user data."
         relatedLists:
           - relationshipName: "CA10__Google_IAM_Policy_Audit_Log_Config1__r"
             conditions:
               - status: "COMPLIANT"
-                currentStateMessage: "COMPLIANT Audit Log Configs"
+                currentStateMessage: "Compliant audit log configs."
                 check:
                  AND:
                    args:
@@ -93,14 +93,14 @@ relatedLists:
                           EXTRACT: "CA10__exemptedMembers__c" # Audit_Log_Config
             otherwise:
               status: "INCOMPLIANT"
-              currentStateMessage: "INCOMPLIANT Audit Log Configs"
+              currentStateMessage: "Noncompliant audit log configs."
 # FOLDER level
       - relationshipName: "CA10__resourceManagerFolder__r.CA10__Google_IAM_Policy_Audit_Configs__r"
         recordTypes:
         - "caGoogleIamPolicyAuditConfigFolder"
         conditions:
           - status: "COMPLIANT"
-            currentStateMessage: "Folder Audit Config is configured to track all admin activities and read, write access to user data." 
+            currentStateMessage: "Folder audit config tracks all admin activity and read/write access to user data."
             check:
               AND:
                 args:
@@ -121,12 +121,12 @@ relatedLists:
                         TEXT: "allServices"
         otherwise:
           status: "INCOMPLIANT"
-          currentStateMessage: "Folder Audit Config is not configured to track all admin activities and read, write access to user data."
+          currentStateMessage: "Folder audit config does not track all admin activity and read/write access to user data."
         relatedLists:
           - relationshipName: "CA10__Google_IAM_Policy_Audit_Log_Config1__r"
             conditions:
               - status: "COMPLIANT"
-                currentStateMessage: "COMPLIANT Audit Log Configs"
+                currentStateMessage: "Compliant audit log configs."
                 check:
                  AND:
                    args:
@@ -147,14 +147,14 @@ relatedLists:
                           EXTRACT: "CA10__exemptedMembers__c" # Audit_Log_Config
             otherwise:
               status: "INCOMPLIANT"
-              currentStateMessage: "INCOMPLIANT Audit Log Configs"
+              currentStateMessage: "Noncompliant audit log configs."
 # ORG level
       - relationshipName: "CA10__resourceManagerOrganization__r.CA10__Google_IAM_Policy_Audit_Configs__r"
         recordTypes:
         - "caGoogleIamPolicyAuditConfigOrganization"
         conditions:
           - status: "COMPLIANT"
-            currentStateMessage: "Organization Audit Config is configured to track all admin activities and read, write access to user data." 
+            currentStateMessage: "Organization audit config tracks all admin activity and read/write access to user data."
             check:
               AND:
                 args:
@@ -175,12 +175,12 @@ relatedLists:
                         TEXT: "allServices"
         otherwise:
           status: "INCOMPLIANT"
-          currentStateMessage: "Organization Audit Config is not configured to track all admin activities and read, write access to user data."
+          currentStateMessage: "Organization audit config does not track all admin activity and read/write access to user data."
         relatedLists:
           - relationshipName: "CA10__Google_IAM_Policy_Audit_Log_Config1__r"
             conditions:
               - status: "COMPLIANT"
-                currentStateMessage: "COMPLIANT Audit Log Configs"
+                currentStateMessage: "Compliant audit log configs."
                 check:
                  AND:
                    args:
@@ -201,4 +201,5 @@ relatedLists:
                           EXTRACT: "CA10__exemptedMembers__c" # Audit_Log_Config
             otherwise:
               status: "INCOMPLIANT"
-              currentStateMessage: "INCOMPLIANT Audit Log Configs"
+              currentStateMessage: "Noncompliant audit log configs."
+

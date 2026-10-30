@@ -1,10 +1,10 @@
 # Description
 
-The use of Basic or Free SKUs in Azure whilst cost effective have significant limitations in terms of what can be monitored and what support can be realized from Microsoft. Typically, these SKU’s do not have a service SLA and Microsoft may refuse to provide support for them. Consequently Basic/Free SKUs should never be used for production workloads.
+The use of Basic, Free, or Consumption SKUs in Azure, while cost effective, has significant limitations in terms of what can be monitored, supported, and covered by service level agreements. These SKUs should not be used for production artifacts that require monitoring and SLA coverage.
 
 ## Rationale
 
-Typically, production workloads need to be monitored and should have an SLA with Microsoft, using Basic SKUs for any deployed product will mean that that these capabilities do not exist.
+Typically, production workloads need to be monitored and should have an SLA with Microsoft. Using Basic, Free, or Consumption SKUs for production artifacts can mean these capabilities do not exist.
 
 The following resource types should use standard SKUs as a minimum.
 
@@ -16,7 +16,7 @@ The following resource types should use standard SKUs as a minimum.
 
 ## Impact
 
-The impact of enforcing Standard SKU's is twofold:
+The impact of enforcing Standard SKUs is twofold:
 
 1. There will be a cost increase
 2. The monitoring and service level agreements will be available and will support the production service.
@@ -46,10 +46,10 @@ Resources | where sku contains 'Basic' or sku contains 'consumption' | order by 
 az graph query -q "Resources | where sku contains 'Basic' or sku contains 'consumption' | order by type"
 ```
 
-Alternatively, to filter on a specific resource group: 
+Alternatively, to filter on a specific resource group:
 
 ```sh
-az graph query -q "Resources | where resourceGroup == '<resourceGroupName>' | where sku contains 'Basic' or sku contains 'consumption' | order by type"
+az graph query -q "Resources | where resourceGroup == '{{resource-group-name}}' | where sku contains 'Basic' or sku contains 'consumption' | order by type"
 ```
 
 Ensure that no production artifacts are returned.
@@ -57,7 +57,7 @@ Ensure that no production artifacts are returned.
 ### From PowerShell
 
 ```ps
-Get-AzResource | ?{ $_.Sku -EQ "Basic"}
+Get-AzResource | Where-Object {$_.Sku -EQ "Basic"}
 ```
 
 Ensure that no production artifacts are returned.

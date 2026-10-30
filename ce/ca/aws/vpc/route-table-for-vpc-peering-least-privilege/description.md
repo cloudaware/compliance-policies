@@ -1,14 +1,14 @@
 # Description
 
-Once a VPC peering connection is established, routing tables must be updated to establish any connections between the peered VPCs. These routes can be as specific as desired - even peering a VPC to only a single host on the other side of the connection.
+Once a VPC peering connection is established, routing tables must be updated to enable connectivity between the peered VPCs. These routes can be as specific as needed, even peering a VPC to a single host on the other side of the connection.
 
 ## Rationale
 
-Being highly selective in peering routing tables is a very effective way of minimizing the impact of breach as resources outside of these routes are inaccessible to the peered VPC.
+Being highly selective in peering route tables is an effective way to minimize the impact of a breach because resources outside these routes are inaccessible to the peered VPC.
 
 ## Audit
 
-Review routing tables of peered VPCs for whether they route all subnets of each VPC and whether that is necessary to accomplish the intended purposes for peering the VPCs.
+Review route tables of peered VPCs to determine whether they route all subnets of each VPC and whether that is necessary for the intended purpose of peering.
 
 ### From Command Line
 
@@ -25,4 +25,4 @@ aws ec2 describe-route-tables --filter "Name=vpc-id,Values=<vpc_id>" --query "Ro
 
 ## Additional Information
 
-If an organization has AWS transit gateway implemented in their VPC architecture they should look to apply the recommendation above for `least access` routing architecture at the AWS transit gateway level in combination with what must be implemented at the standard VPC route table. More specifically, to route traffic between two or more VPCs via a transit gateway VPCs must have an attachment to a transit gateway route table as well as a route, therefore to avoid routing traffic between VPCs an attachment to the transit gateway route table should only be added where there is an intention to route traffic between the VPCs. As transit gateways are able to host multiple route tables it is possible to group VPCs by attaching them to a common route table.
+If an organization uses AWS Transit Gateway in its VPC architecture, apply the same least-access routing principles at the transit gateway level in addition to the VPC route table. To route traffic between two or more VPCs via a transit gateway, VPCs must have an attachment to a transit gateway route table and a route. To avoid unintended routing, add route table attachments only when there is an explicit need to route traffic between VPCs. Because transit gateways can host multiple route tables, you can group VPCs by attaching them to a common route table.

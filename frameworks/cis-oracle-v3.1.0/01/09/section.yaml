@@ -1,0 +1,11 @@
+---
+name: 1.9 Ensure user customer secret keys rotate every 90 days - Level 1 (Automated)
+description: >
+  Object Storage provides an API to enable interoperability with Amazon S3. To
+  use this Amazon S3 Compatibility API, you need to generate the signing key
+  required to authenticate with Amazon S3. This special signing key is an Access
+  Key/Secret Key pair. Oracle generates the Customer Secret key to pair with the
+  Access Key.
+similar:
+  internal:
+    - dec-c-df58e323

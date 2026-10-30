@@ -6,7 +6,7 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INAPPLICABLE"
-    currentStateMessage: "Access logs are not supported for Gateway Load Balancers."
+    currentStateMessage: "Access logs are not supported for gateway load balancers."
     check:
       IS_EQUAL:
         left:
@@ -14,8 +14,8 @@ conditions:
         right:
           TEXT: "gateway"
   - status: "INCOMPLIANT"
-    currentStateMessage: "Load Balancer Access Logging is not enabled."
-    remediationMessage: "Enable Load Balancer Access Logging."
+    currentStateMessage: "Load balancer access logging is not enabled."
+    remediationMessage: "Enable load balancer access logging."
     check:
       IS_EQUAL:
         left:
@@ -23,7 +23,7 @@ conditions:
         right:
           BOOLEAN: false
   - status: "COMPLIANT"
-    currentStateMessage: "Load Balancer Access Logging is enabled."
+    currentStateMessage: "Load balancer access logging is enabled."
     check:
       IS_EQUAL:
         left:

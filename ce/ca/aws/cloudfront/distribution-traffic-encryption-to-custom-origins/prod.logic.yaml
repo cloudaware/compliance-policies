@@ -8,21 +8,21 @@ recordTypes:
   - "caWebDistribution"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Distribution has at least one custom origin that is set to HTTP Only."
-    remediationMessage: "Update the Origin Protocol Policy for the custom origins to HTTPS Only."
+    currentStateMessage: "The distribution has at least one custom origin that is set to HTTP Only."
+    remediationMessage: "Update the origin protocol policy for custom origins to HTTPS Only."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__AWS_CloudFront_Origins__r"
   - status: "UNDETERMINED"
-    currentStateMessage: "The Distribution has at least one custom origin that is set to Match Viewer\
+    currentStateMessage: "The distribution has at least one custom origin that is set to Match Viewer\
       \ but the default cache behavior is not present in the CMDB."
     check:
       IS_EMPTY_LOOKUP: "CA10__defaultCacheBehavior__r"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Distribution has at least one custom origin that is set to Match Viewer\
+    currentStateMessage: "The distribution has at least one custom origin that is set to Match Viewer\
       \ while Viewers can use both protocols."
-    remediationMessage: "Update the Origin Protocol Policy for the custom origins to HTTPS Only."
+    remediationMessage: "Update the origin protocol policy for custom origins to HTTPS Only."
     check:
       AND:
         args:
@@ -35,9 +35,9 @@ conditions:
               right:
                 TEXT: "allow-all"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Distribution has at least one custom origin that is set to Match Viewer\
+    currentStateMessage: "The distribution has at least one custom origin that is set to Match Viewer\
       \ while Viewers can use both protocols."
-    remediationMessage: "Update the Origin Protocol Policy for the custom origins to HTTPS Only."
+    remediationMessage: "Update the origin protocol policy for custom origins to HTTPS Only."
     check:
       AND:
         args:
@@ -48,7 +48,7 @@ conditions:
               status: "INCOMPLIANT"
               relationshipName: "CA10__AWS_CloudFront_Cache_Behaviors__r"
   - status: "UNDETERMINED"
-    currentStateMessage: "The Distribution doesn't have any Origins in the CMDB."
+    currentStateMessage: "The distribution doesn't have any origins in the CMDB."
     check:
       AND:
         args:
@@ -63,7 +63,7 @@ conditions:
               relationshipName: "CA10__AWS_CloudFront_Origins__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "All custom Origins for this Distribution are configured to use\
+  currentStateMessage: "All custom origins for this distribution are configured to use\
     \ encrypted traffic whenever applicable."
 relatedLists:
   - relationshipName: "CA10__AWS_CloudFront_Origins__r"

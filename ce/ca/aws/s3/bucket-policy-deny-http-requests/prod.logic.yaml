@@ -6,15 +6,15 @@ importExtracts:
  - file: /types/CA10__CaAwsBucket__c/object.extracts.yaml
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The bucket policy hasn't been configured for this bucket and by default it's allowing both HTTP and HTTPS requests."
-    remediationMessage: "Consider configuring the bucket policy that will deny HTTP requests."
+    currentStateMessage: "No bucket policy is configured, so both HTTP and HTTPS requests are allowed by default."
+    remediationMessage: "Configure a bucket policy that denies HTTP requests."
     check:
       IS_EMPTY:
         arg:
           EXTRACT: "CA10__policyDocument__c"
   - status: "INCOMPLIANT"
-    currentStateMessage: "The bucket policy hasn't been configured to deny HTTP requests."
-    remediationMessage: "Consider configuring the bucket policy that will deny HTTP requests."
+    currentStateMessage: "The bucket policy is not configured to deny HTTP requests."
+    remediationMessage: "Configure a bucket policy that denies HTTP requests."
     check:
       AND:
         args:

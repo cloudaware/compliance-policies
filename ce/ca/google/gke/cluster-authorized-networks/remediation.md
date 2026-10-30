@@ -7,7 +7,7 @@
 To enable Control Plane Authorized Networks for an existing cluster, run the following command:
 
     ```sh
-    gcloud container clusters update <cluster_name> \
+    gcloud container clusters update {{cluster-name}} \
         --location {{location}} \
         --enable-master-authorized-networks
     ```

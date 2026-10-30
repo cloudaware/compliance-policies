@@ -39,7 +39,7 @@ If your instance's configuration is incompatible with the new instance type, or 
 
 #### **Migration Process Overview**
 
-1. Backup critical data from the original instance.
+1. Back up critical data from the original instance.
 
 2. Create a new instance compatible with the desired instance type, and attach any EBS volumes that were attached to your original instance.
 
@@ -53,15 +53,15 @@ If your instance's configuration is incompatible with the new instance type, or 
 
 Identify usage patterns to select the most cost-effective options:
 
-- **Steady-State Usage** – The load remains at a relatively constant level over time, and you can accurately forecast the likely compute load. For this usage pattern, you might consider ***Reserved Instances***, which can provide significant savings.
+- **Steady-State Usage** - The load remains at a relatively constant level over time, and you can accurately forecast the likely compute load. For this usage pattern, you might consider ***Reserved Instances***, which can provide significant savings.
 
-- **Variable but Predictable Usage** – The load changes, but on a predictable schedule. ***Amazon EC2 Auto Scaling*** is well suited for applications that have stable demand patterns with hourly, daily, or weekly variability in usage. You can use this feature to scale Amazon EC2 capacity up or down when you experience spiky traffic or predictable fluctuations in traffic.
+- **Variable but Predictable Usage** - The load changes, but on a predictable schedule. ***Amazon EC2 Auto Scaling*** is well suited for applications that have stable demand patterns with hourly, daily, or weekly variability in usage. You can use this feature to scale Amazon EC2 capacity up or down when you experience spiky traffic or predictable fluctuations in traffic.
 
 ## Stopping or Terminating Underutilized Instances
 
 ### Prerequisites
 
-- Verify that the root device of the instance is an EBS volume. You can't stop instances with instance store root device.
+- Verify that the root device of the instance is an EBS volume. You can't stop instances with an instance store root device.
 
 - **Warning**: When you stop an instance, the data on any instance store volumes is erased. Before you stop an instance, verify that you've copied any data that you need from the instance store volumes to persistent storage, such as Amazon EBS or Amazon S3.
 
@@ -73,7 +73,7 @@ Stop underutilized instances that are no longer being used to retain their confi
 aws ec2 stop-instances --instance-ids {{instance-id}}
 ```
 
-If applicable, initiate hibernation using the `--hibernate` flag for On-Demand or Spot Instances. Hibernation is supported only for EBS-backed instances that are enabled for hibernation and meet the prerequisites. Hibernation saves the contents of the RAM to the Amazon EBS root volume.
+If applicable, initiate hibernation using the `--hibernate` flag for On-Demand or Spot Instances. Hibernation is supported only for EBS-backed instances that are enabled for hibernation and meet the prerequisites. It saves the contents of RAM to the Amazon EBS root volume.
 
 ### Terminate Underutilized Instances (If No Longer Needed)
 

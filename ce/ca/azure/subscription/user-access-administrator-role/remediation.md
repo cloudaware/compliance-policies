@@ -2,7 +2,7 @@
 
 ## From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. From Azure Home, select the Portal Menu.
 2. Select `Subscriptions`.
 3. Select a subscription.
 4. Select `Access control (IAM)`.

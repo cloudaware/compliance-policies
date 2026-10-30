@@ -1,5 +1,38 @@
 ---
 extracts:
+  - name: "CA10__monitorTransactionsSum30Day__c"
+    value:
+      FIELD:
+        path: "CA10__monitorTransactionsSum30Day__c"
+  - name: "CA10__monitorUsedCapacityBytesAvg30Day__c"
+    value:
+      FIELD:
+        path: "CA10__monitorUsedCapacityBytesAvg30Day__c"
+# Nullable. Classic service logging retention settings.
+  - name: "CA10__blobLoggingRetentionPolicyState__c"
+    value:
+      FIELD:
+        path: "CA10__blobLoggingRetentionPolicyState__c"
+  - name: "CA10__blobLoggingRetentionPolicyDays__c"
+    value:
+      FIELD:
+        path: "CA10__blobLoggingRetentionPolicyDays__c"
+  - name: "CA10__queueLoggingRetentionPolicyState__c"
+    value:
+      FIELD:
+        path: "CA10__queueLoggingRetentionPolicyState__c"
+  - name: "CA10__queueLoggingRetentionPolicyDays__c"
+    value:
+      FIELD:
+        path: "CA10__queueLoggingRetentionPolicyDays__c"
+  - name: "CA10__tableLoggingRetentionPolicyState__c"
+    value:
+      FIELD:
+        path: "CA10__tableLoggingRetentionPolicyState__c"
+  - name: "CA10__tableLoggingRetentionPolicyDays__c"
+    value:
+      FIELD:
+        path: "CA10__tableLoggingRetentionPolicyDays__c"
 # This is a checkbox. Not nullable. Can't have no access, retrieved via Microsoft.Storage/storageAccounts
   - name: "CA10__secureTransferRequired__c"
     value: 

@@ -1,0 +1,12 @@
+---
+extracts:
+# Not nullable. Can't have no access, retrieved via secretsmanager:ListSecretVersionIds
+  - name: CA10A1__createdDate__c
+    value:
+      FIELD:
+        path: CA10A1__createdDate__c
+# Not nullable. Can't have no access, retrieved via secretsmanager:ListSecretVersionIds
+  - name: CA10A1__versionStages__c
+    value:
+      FIELD:
+        path: CA10A1__versionStages__c

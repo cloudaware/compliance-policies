@@ -14,5 +14,8 @@
 For each storage account requiring remediation, run the following command to enable `defaultToOAuthAuthentication`:
 
 ```sh
-az storage account update --resource-group <resource-group> --name <storage-account> --set defaultToOAuthAuthentication=true
+az storage account update \
+    --resource-group {{resource-group-name}} \
+    --name {{storage-account-name}} \
+    --set defaultToOAuthAuthentication=true
 ```

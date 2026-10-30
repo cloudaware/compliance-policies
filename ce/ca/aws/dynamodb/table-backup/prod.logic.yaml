@@ -1,0 +1,92 @@
+inputType: "CA10__CaAwsDynamoDbTable__c"
+testData:
+  - file: "test-data.json"
+importExtracts:
+  - file: /types/CA10__CaAwsDynamoDbTable__c/object.extracts.yaml
+conditions:
+  - status: "INAPPLICABLE"
+    currentStateMessage: "The table is not active."
+    check:
+      NOT_EQUAL:
+        left:
+          EXTRACT: "CA10__tableStatus__c"
+        right:
+          TEXT: "ACTIVE"
+  - status: "COMPLIANT"
+    currentStateMessage: "At least one backup exists and was created within the last 90 days."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__AWS_DynamoDB_Backups__r"
+  - status: "COMPLIANT"
+    currentStateMessage: "At least one backup recovery point exists and was created within the last 90 days."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10A1__AWS_Backup_Recovery_Points__r"
+  - status: "INAPPLICABLE"
+    currentStateMessage: "No recent on-demand backup or AWS Backup recovery point was found, but point-in-time recovery is enabled for this table."
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: "CA10__pointInTimeRecoveryStatus__c"
+        right:
+          TEXT: "ENABLED"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "No on-demand or AWS Backup recovery point was created in the last 90 days."
+  remediationMessage: "Create an on-demand backup for the table or assign the table to an AWS Backup plan."
+relatedLists:
+  - relationshipName: "CA10__AWS_DynamoDB_Backups__r"
+    importExtracts:
+      - file: /types/CA10__CaAwsDynamoDbBackup__c/object.extracts.yaml
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "The DynamoDB Backup is not available."
+        check:
+          NOT_EQUAL:
+            left:
+              EXTRACT: "CA10__status__c"
+            right:
+              TEXT: "AVAILABLE"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The DynamoDB Backup is available but was created more than 90 days ago."
+        remediationMessage: "Create a new DynamoDB backup and decommission the old one."
+        check:
+          IS_BEYOND_LAST_DAYS:
+            offsetDays: 90
+            arg:
+              EXTRACT: "CA10__creationDateTime__c"
+    otherwise: 
+      status: "COMPLIANT"
+      currentStateMessage: "The backup exists and was created within the last 90 days."
+  - relationshipName: "CA10A1__AWS_Backup_Recovery_Points__r"
+    importExtracts:
+      - file: /types/CA10A1__CaAwsBackupRecoveryPoint__c/object.extracts.yaml
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "The recovery point is not completed or available."
+        check:
+          AND:
+            args:
+              - NOT_EQUAL:
+                  left:
+                    EXTRACT: "CA10A1__status__c"
+                  right:
+                    TEXT: "COMPLETED"
+              - NOT_EQUAL:
+                  left:
+                    EXTRACT: "CA10A1__status__c"
+                  right:
+                    TEXT: "AVAILABLE"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "The recovery point is available but was created more than 90 days ago."
+        remediationMessage: "Create a backup plan to automate on-demand backups."
+        check:
+          IS_BEYOND_LAST_DAYS:
+            offsetDays: 90
+            arg:
+              EXTRACT: "CA10A1__creationDate__c"
+    otherwise: 
+      status: "COMPLIANT"
+      currentStateMessage: "The backup recovery point exists."

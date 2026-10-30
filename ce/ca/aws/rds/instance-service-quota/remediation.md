@@ -14,8 +14,8 @@ If the number of Amazon RDS instances is approaching or has reached the configur
 
 4. Identify the quota you want to increase. If the quota is adjustable, you may request an increase at one of the following levels, depending on the value shown in the **Adjustability** column:
 
-   * **Account-level** – Request an increase for account-wide quotas (for example, total RDS instances per Region).
-   * **Resource-level** – Request an increase for quotas that apply to specific resources, where applicable.
+   * **Account-level** - Request an increase for account-wide quotas (for example, total RDS instances per Region).
+   * **Resource-level** - Request an increase for quotas that apply to specific resources, where applicable.
 
 5. Select the quota and choose **Request increase** at the appropriate level.
 

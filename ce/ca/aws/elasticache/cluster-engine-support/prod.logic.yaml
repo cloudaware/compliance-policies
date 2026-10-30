@@ -1,0 +1,149 @@
+---
+inputType: CA10__CaAwsCacheCluster__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAwsCacheCluster__c/object.extracts.yaml
+conditions:
+  # Exclude undeployed/retiring clusters before requiring current engine data.
+  - status: INAPPLICABLE
+    currentStateMessage: The ElastiCache cluster is creating, deleting, deleted, or failed to restore.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - creating
+              - deleting
+              - deleted
+              - restore-failed
+        search:
+          EXTRACT: CA10__status__c
+  - status: UNDETERMINED
+    currentStateMessage: The ElastiCache cluster status or engine is unrecognized.
+    check:
+      NOT:
+        arg:
+          AND:
+            args:
+              - CONTAINS:
+                  arg:
+                    SET:
+                      itemType: TEXT
+                      items:
+                        - available
+                        - modifying
+                        - rebooting cluster nodes
+                        - snapshotting
+                        - incompatible-network
+                  search:
+                    EXTRACT: CA10__status__c
+              - CONTAINS:
+                  arg:
+                    SET:
+                      itemType: TEXT
+                      items:
+                        - redis
+                        - valkey
+                        - memcached
+                  search:
+                    EXTRACT: CA10__engine__c
+  - status: COMPLIANT
+    currentStateMessage: The Valkey or Memcached engine version has no known elapsed AWS support deadline.
+    check:
+      AND:
+        args:
+          - NOT_EQUAL:
+              left:
+                EXTRACT: CA10__engine__c
+              right:
+                TEXT: redis
+          - NOT_EMPTY:
+              arg:
+                EXTRACT: CA10__engineVersion__c
+  # Past lifecycle events are unconditional; only future transitions use the clock.
+  - status: INCOMPLIANT
+    currentStateMessage: Redis OSS 2 or 3 reached AWS ElastiCache end of life in 2023.
+    remediationMessage: Verify the current version and upgrade to an engine version in AWS standard support.
+    check:
+      OR:
+        args:
+          - STARTS_WITH:
+              arg:
+                EXTRACT: CA10__engineVersion__c
+              search:
+                TEXT: "2."
+          - STARTS_WITH:
+              arg:
+                EXTRACT: CA10__engineVersion__c
+              search:
+                TEXT: "3."
+  - status: INCOMPLIANT
+    currentStateMessage: Redis OSS 4 or 5 is past the final AWS ElastiCache Extended Support and version EOL date of January 31, 2029.
+    remediationMessage: Verify the current version and upgrade to an engine version in AWS standard support.
+    check:
+      AND:
+        args:
+          - OR:
+              args:
+                - STARTS_WITH:
+                    arg:
+                      EXTRACT: CA10__engineVersion__c
+                    search:
+                      TEXT: "4."
+                - STARTS_WITH:
+                    arg:
+                      EXTRACT: CA10__engineVersion__c
+                    search:
+                      TEXT: "5."
+          - IS_BEFORE_TODAY:
+              arg:
+                DATE_TIME: "2029-01-31T00:00:00Z"
+  - status: INCOMPLIANT
+    currentStateMessage: Redis OSS 6 is past the final AWS ElastiCache Extended Support and version EOL date of January 31, 2030.
+    remediationMessage: Verify the current version and upgrade to an engine version in AWS standard support.
+    check:
+      AND:
+        args:
+          - STARTS_WITH:
+              arg:
+                EXTRACT: CA10__engineVersion__c
+              search:
+                TEXT: "6."
+          - IS_BEFORE_TODAY:
+              arg:
+                DATE_TIME: "2030-01-31T00:00:00Z"
+  - status: INCOMPLIANT
+    currentStateMessage: Redis OSS 4 or 5 is outside standard support, which ended January 31, 2026; the AWS Extended Support window runs through January 31, 2029 and requires the latest supported patch.
+    remediationMessage: Upgrade to an engine version in standard support; if temporarily retaining Redis OSS 4 or 5, verify the required patch and Extended Support charges.
+    check:
+      OR:
+        args:
+          - STARTS_WITH:
+              arg:
+                EXTRACT: CA10__engineVersion__c
+              search:
+                TEXT: "4."
+          - STARTS_WITH:
+              arg:
+                EXTRACT: CA10__engineVersion__c
+              search:
+                TEXT: "5."
+  - status: INCOMPLIANT
+    currentStateMessage: Redis OSS 6 is outside standard support, which ended January 31, 2027; the AWS Extended Support window runs through January 31, 2030 and requires the latest supported patch.
+    remediationMessage: Upgrade to an engine version in standard support; verify any temporary Extended Support arrangement and charges.
+    check:
+      AND:
+        args:
+          - STARTS_WITH:
+              arg:
+                EXTRACT: CA10__engineVersion__c
+              search:
+                TEXT: "6."
+          - IS_BEFORE_TODAY:
+              arg:
+                DATE_TIME: "2027-01-31T00:00:00Z"
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: The ElastiCache cluster uses an engine version within AWS standard support.

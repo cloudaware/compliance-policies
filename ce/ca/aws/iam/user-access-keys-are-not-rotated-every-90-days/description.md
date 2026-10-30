@@ -6,7 +6,7 @@ Access keys consist of an access key ID and secret access key, which are used to
 
 Rotating access keys will reduce the window of opportunity for an access key that is associated with a compromised or terminated account to be used.
 
-Access keys should be rotated to ensure that data cannot be accessed with an old key which might have been lost, cracked, or stolen.
+Access keys should be rotated to ensure that data cannot be accessed with an old key that might have been lost, cracked, or stolen.
 
 ## Audit
 
@@ -24,15 +24,15 @@ Perform the following to determine if access keys are rotated as prescribed:
 
 1. Run the following command:
 
-```sh
-aws iam generate-credential-report
-```
+    ```sh
+    aws iam generate-credential-report
+    ```
 
-```sh
-aws iam get-credential-report --query 'Content' --output text | base64 -d
-```
+    ```sh
+    aws iam get-credential-report --query 'Content' --output text | base64 -d
+    ```
 
-The `access_key_1_last_rotated` and the `access_key_2_last_rotated` fields in this file notes The date and time, in ISO 8601 date-time format, when the user's access key was created or last changed. If the user does not have an active access key, the value in this field is N/A (not applicable).
+    The `access_key_1_last_rotated` and `access_key_2_last_rotated` fields in this file note the date and time, in ISO 8601 date-time format, when the user's access key was created or last changed. If the user does not have an active access key, the value in this field is N/A (not applicable).
 
 ## References
 

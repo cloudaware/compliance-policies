@@ -15,7 +15,7 @@ Amazon EMR security configurations define encryption settings for **data at rest
     ```
 
     ```sh
-    aws emr create-security-configuration --name "{{security-config}}" --security-configuration '{
+    aws emr create-security-configuration --name "{{security-config-name}}" --security-configuration '{
         "EncryptionConfiguration": {
             "EnableInTransitEncryption": true,
             "EnableAtRestEncryption": true,
@@ -39,7 +39,7 @@ Amazon EMR security configurations define encryption settings for **data at rest
     }'    
     ```
 
-1. Launch a new EMR cluster with the security configuration applied:
+2. Launch a new EMR cluster with the security configuration applied:
 
     ```sh
     aws emr create-cluster \

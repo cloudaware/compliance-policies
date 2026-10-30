@@ -6,14 +6,23 @@
 
 For each VPC network that needs a DNS policy with logging enabled:
 
-    gcloud dns policies create enable-dns-logging --enable-logging --description="Enable DNS Logging" --networks=VPC_NETWORK_NAME
+```sh
+gcloud dns policies create enable-dns-logging \
+    --enable-logging \
+    --description="Enable DNS Logging" \
+    --networks={{vpc-network-name}}
+```
 
-The VPC_NETWORK_NAME can be one or more networks in comma-separated list
+The `{{vpc-network-name}}` value can include one or more networks in a comma-separated list.
 
 ### Enable Logging for Existing DNS Policy
 
 For each VPC network that has an existing DNS policy that needs logging enabled:
 
-    gcloud dns policies update POLICY_NAME --enable-logging --networks=VPC_NETWORK_NAME
+```sh
+gcloud dns policies update {{policy-name}} \
+    --enable-logging \
+    --networks={{vpc-network-name}}
+```
 
-The VPC_NETWORK_NAME can be one or more networks in comma-separated list
+The `{{vpc-network-name}}` value can include one or more networks in a comma-separated list.

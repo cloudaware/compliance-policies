@@ -4,9 +4,9 @@
 
 Perform one of the following commands to renew the expiring certificate:
 
-- request a new managed private certificate
-- reimport a new externally obtained certificate
-- issue a client certificate using private CA:
+- Request a new managed private certificate.
+- Reimport a new externally obtained certificate.
+- Issue a client certificate using a private CA.
 
 ### Request a new private certificate
 
@@ -39,7 +39,7 @@ Before issuing a private end-entity certificate, you need to generate a `Certifi
 openssl req -out {{csr.pem}} -new -newkey rsa:2048 -nodes -keyout private-key.pem
 ```
 
-Once you have the CSR, you can issue a base end-entity certificate:
+Once you have the CSR, you can issue a private end-entity certificate:
 
 ```sh
 aws acm-pca issue-certificate \

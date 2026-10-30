@@ -17,7 +17,7 @@ This policy flags an *Azure Application Gateway* as `INCOMPLIANT` if:
 
 - it has no *WAF Policy* configured, or
 - the *WAF Policy* has no managed rule set with the **ruleSetType** of **Microsoft_BotManagerRuleSet**, or
-- the **Microsoft_BotManagerRuleSet** has **ruleGroupOverrides** for the **KnownBadBots** ruleGroupName in **Disabled** state.
+- the **Microsoft_BotManagerRuleSet** has **ruleGroupOverrides** for the **KnownBadBots** ruleGroupName in the **Disabled** state.
 
 ## Default Value
 

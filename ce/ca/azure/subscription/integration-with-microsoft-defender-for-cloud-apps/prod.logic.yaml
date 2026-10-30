@@ -7,7 +7,7 @@ testData:
 conditions:
       - status: "INCOMPLIANT"
         currentStateMessage: "Microsoft Defender for Cloud Apps is not enabled."
-        remediationMessage: "Consider enabling Microsoft Defender for Cloud Apps."
+        remediationMessage: "Enable Microsoft Defender for Cloud Apps."
         check:
           NOT:
             arg:
@@ -31,3 +31,4 @@ conditions:
 otherwise:
   status: "UNDETERMINED"
   currentStateMessage: "Unexpected value in the field."
+

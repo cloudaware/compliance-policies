@@ -17,7 +17,7 @@ conditions:
             search:
               TEXT: "POSTGRE" 
   - status: "COMPLIANT"
-    currentStateMessage: "log_min_duration_statement database flag is set appropriately."
+    currentStateMessage: "The log_min_duration_statement database flag is set appropriately."
     check:
       IS_EQUAL:
         left:
@@ -26,5 +26,8 @@ conditions:
           TEXT: "-1"
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "log_min_duration_statement database flag isn't set appropriately."
+  currentStateMessage: "The log_min_duration_statement database flag is not set appropriately."
   remediationMessage: "Set log_min_duration_statement database flag to appropriate value."
+
+
+

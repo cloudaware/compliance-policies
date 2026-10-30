@@ -1,6 +1,6 @@
 # Description
 
-Password policies are, in part, used to enforce password complexity requirements. IAM password policies can be used to ensure password are at least a given length. It is recommended that the password policy require a minimum password length 14.
+Password policies are used, in part, to enforce password complexity requirements. IAM password policies can be used to ensure passwords are at least a given length. It is recommended that the password policy require a minimum password length of 14.
 
 ## Rationale
 

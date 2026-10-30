@@ -1,6 +1,6 @@
 # Description
 
-This policy identifies AWS ECR Repositories that are not configured with image tag immutability. When enabled, image tag immutability prevents existing image tags from being overwritten by subsequent pushes with the same tag.
+This policy identifies AWS ECR Repositories that are not configured for image tag immutability. When enabled, image tag immutability prevents existing image tags from being overwritten by subsequent pushes with the same tag.
 
 ## Rationale
 

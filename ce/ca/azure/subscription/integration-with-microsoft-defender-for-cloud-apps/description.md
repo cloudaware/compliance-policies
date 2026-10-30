@@ -4,7 +4,7 @@ This integration setting enables Microsoft Defender for Cloud Apps (formerly 'Mi
 
 ## Rationale
 
-Microsoft Defender for Cloud offers an additional layer of protection by using Azure Resource Manager events, which is considered to be the control plane for Azure. By analyzing the Azure Resource Manager records, Microsoft Defender for Cloud detects unusual or potentially harmful operations in the Azure subscription environment. Several of the preceding analytics are powered by Microsoft Defender for Cloud Apps. To benefit from these analytics, subscription must have a Cloud App Security license.
+Microsoft Defender for Cloud offers an additional layer of protection by using Azure Resource Manager events, which is considered to be the control plane for Azure. By analyzing the Azure Resource Manager records, Microsoft Defender for Cloud detects unusual or potentially harmful operations in the Azure subscription environment. Several of the preceding analytics are powered by Microsoft Defender for Cloud Apps. To benefit from these analytics, the subscription must have a Cloud App Security license.
 
 Microsoft Defender for Cloud Apps works only with Standard Tier subscriptions.
 
@@ -16,7 +16,7 @@ Microsoft Defender for Cloud Apps works with Standard pricing tier Subscription.
 
 ### From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. From Azure Home, select the Portal Menu.
 2. Select `Microsoft Defender for Cloud`.
 3. Under `Management`, select `Environment Settings`.
 4. Click on the subscription name.
@@ -28,7 +28,7 @@ Microsoft Defender for Cloud Apps works with Standard pricing tier Subscription.
 Ensure the output of the below command is `True`:
 
 ```sh
-az account get-access-token --query "{subscription:subscription,accessToken:accessToken}" --out tsv | xargs -L1 bash -c 'curl -X GET -H "Authorization: Bearer $1" -H "Content-Type: application/json" https://management.azure.com/subscriptions/<subscription_ID>/providers/Microsoft.Security/settings?api-version=2021-06-01' | jq '.|.value[] | select(.name=="MCAS")'|jq '.properties.enabled'
+az account get-access-token --query "{subscription:subscription,accessToken:accessToken}" --out tsv | xargs -L1 bash -c 'curl -X GET -H "Authorization: Bearer $1" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{{subscription-id}}/providers/Microsoft.Security/settings?api-version=2021-06-01' | jq '.|.value[] | select(.name=="MCAS")' | jq '.properties.enabled'
 ```
 
 ### From PowerShell
@@ -36,7 +36,9 @@ az account get-access-token --query "{subscription:subscription,accessToken:acce
 Run the following series of commands to audit this configuration:
 
 ```ps
-Get-AzAccount Set-AzContext -Subscription <subscription ID> Get-AzSecuritySetting | Select-Object name,enabled |where-object {$_.name -eq "MCAS"}
+Get-AzAccount
+Set-AzContext -Subscription {{subscription-id}}
+Get-AzSecuritySetting | Select-Object name,enabled | Where-Object {$_.name -eq "MCAS"}
 ```
 
 ### PowerShell Output - Non-Compliant

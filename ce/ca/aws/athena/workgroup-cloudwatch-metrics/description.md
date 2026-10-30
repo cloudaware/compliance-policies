@@ -1,6 +1,6 @@
 # Description
 
-Ensure that CloudWatch Metrics are enabled for the AWS Athena Workgroup. This setting provides visibility into query performance and operational behavior, enabling effective monitoring, diagnostics, and optimization.
+Ensure that CloudWatch Metrics are enabled for the AWS Athena Workgroup. This setting provides visibility into query performance and operational behavior, supporting effective monitoring, diagnostics, and optimization.
 
 ## Rationale
 

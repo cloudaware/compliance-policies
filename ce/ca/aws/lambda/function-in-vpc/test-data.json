@@ -1,0 +1,89 @@
+[
+  {
+    "CA10__AWS_Lambda_Function_Versions__r": [],
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "conditionIndex": 99,
+      "status": "DISAPPEARED"
+    },
+    "context": {
+      "snapshotTime": "2026-01-12T23:29:54Z"
+    },
+    "Id": "test1",
+    "CA10__disappearanceTime__c": "2025-07-29T12:38:18Z",
+    "CA10__vpcId__c": ""
+  },
+  {
+    "CA10__AWS_Lambda_Function_Versions__r": [
+      {
+        "CA10__function__c": "test2",
+        "CA10__AWS_CloudFront_Lambda_Func_Associations__r": [
+          {
+            "Id": "test2_2",
+            "CA10__disappearanceTime__c": null,
+            "CA10__lambdaFunctionVersion__c": "test2_1"
+          }
+        ],
+        "Id": "test2_1",
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "CA10__AWS_Lambda_Function_Versions__r.has(COMPLIANT)",
+      "conditionIndex": 199,
+      "status": "INAPPLICABLE"
+    },
+    "context": {
+      "snapshotTime": "2026-01-12T23:29:54Z"
+    },
+    "Id": "test2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__vpcId__c": ""
+  },
+  {
+    "CA10__AWS_Lambda_Function_Versions__r": [
+      {
+        "CA10__function__c": "test3",
+        "CA10__AWS_CloudFront_Lambda_Func_Associations__r": [],
+        "Id": "test3_1",
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "CA10__vpcId__c.isEmpty()",
+      "conditionIndex": 299,
+      "status": "INCOMPLIANT"
+    },
+    "context": {
+      "snapshotTime": "2026-01-12T23:29:54Z"
+    },
+    "Id": "test3",
+    "CA10__disappearanceTime__c": null,
+    "CA10__vpcId__c": ""
+  },
+  {
+    "CA10__AWS_Lambda_Function_Versions__r": [
+      {
+        "CA10__function__c": "test4",
+        "CA10__AWS_CloudFront_Lambda_Func_Associations__r": [],
+        "Id": "test4_1",
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "otherwise",
+      "conditionIndex": 300,
+      "status": "COMPLIANT"
+    },
+    "context": {
+      "snapshotTime": "2026-01-12T23:29:54Z"
+    },
+    "Id": "test4",
+    "CA10__disappearanceTime__c": null,
+    "CA10__vpcId__c": "vpcId"
+  }
+]

@@ -32,7 +32,7 @@ The **Block Public Access** settings for an S3 Access Point are immutable and **
 
     Before deleting the old access point, validate that all applications and processes function correctly using the new access point. Conduct integration tests to verify data accessibility and operational workflows.
 
-    Once validation is complete and you are confident that the new access point is fully operational, delete the old access point"
+    Once validation is complete and you are confident that the new access point is fully operational, delete the old access point.
 
     ```sh
     aws s3control delete-access-point \

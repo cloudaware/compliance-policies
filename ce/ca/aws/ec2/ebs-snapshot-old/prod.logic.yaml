@@ -14,8 +14,8 @@ conditions:
         right:
           TEXT: "completed"
   - status: "INCOMPLIANT"
-    currentStateMessage: "EBS Snapshot is 90 days old or more."
-    remediationMessage: "Consider deleting or archiving the old snapshot."
+    currentStateMessage: "The EBS snapshot is 90 days old or more."
+    remediationMessage: "Delete or archive the old snapshot."
     check:
       IS_BEYOND_LAST_DAYS:
         offsetDays: 90
@@ -23,4 +23,4 @@ conditions:
           EXTRACT: "CA10__startTime__c"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "EBS snapshot is less than 90 days old."
+  currentStateMessage: "The EBS snapshot is less than 90 days old."

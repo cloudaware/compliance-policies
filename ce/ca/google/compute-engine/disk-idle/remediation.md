@@ -21,8 +21,8 @@ gcloud compute disks snapshot {{disk-name}} \
 
 Permanently remove an unused persistent disk
 
-   ```sh
-   gcloud compute disks delete {{disk-name}} \
-       --zone {{zone}} \
-       --project {{project-id}}
-   ```
+```sh
+gcloud compute disks delete {{disk-name}} \
+    --zone {{zone}} \
+    --project {{project-id}}
+```

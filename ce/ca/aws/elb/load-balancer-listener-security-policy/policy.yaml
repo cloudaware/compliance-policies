@@ -1,0 +1,18 @@
+---
+names:
+  full: "AWS ELB Load Balancer listener is configured with an outdated security policy"
+  contextual: "Load Balancer listener is configured with an outdated security policy"
+description: >
+  Ensure that your Application and Network Load Balancers use the latest recommended 
+  security policies for their HTTPS/SSL listeners. Outdated policies may support 
+  vulnerable protocols and weak ciphers, increasing the risk of man-in-the-middle attacks.
+type: "COMPLIANCE_POLICY"
+categories:
+  - "SECURITY"
+frameworkMappings:
+  - "/frameworks/cloudaware/secret-and-certificate-governance/cryptographic-configuration"
+  - "/frameworks/aws-fsbp-v1.0.0/elb/17"
+similarPolicies:
+  awsSecurityHub:
+    - name: "[ELB.17] Application and Network Load Balancers with listeners should use recommended security policies"
+      url: https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-17

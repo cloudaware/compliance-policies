@@ -1,0 +1,44 @@
+[
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": "99",
+      "conditionText": "isDisappeared(CA10A1__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": "2026-04-15T12:00:00Z",
+    "CA10A1__multiAz__c": true,
+    "Id": "test1"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": "199",
+      "conditionText": "extract('CA10A1__multiAz__c') == false",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__multiAz__c": false,
+    "Id": "test2"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": "299",
+      "conditionText": "extract('CA10A1__multiAz__c') == true",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-04-16T12:00:00Z"
+    },
+    "CA10A1__disappearanceTime__c": null,
+    "CA10A1__multiAz__c": true,
+    "Id": "test3"
+  }
+]

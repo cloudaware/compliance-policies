@@ -11,7 +11,7 @@ Exposing an Elasticsearch cluster to the public internet is highly risky and has
 ## Impact
 
 All external connections to Elasticsearch from outside the affected VPC(s) can be blocked.
-If there is a legitimate business need for remote access, specific trusted source IP addresses should be explicitly defined in firewall rules to whitelist access to the required Elasticsearch ports.
+If there is a legitimate business need for remote access, specific trusted source IP ranges should be explicitly defined in firewall rules to whitelist access to the required Elasticsearch ports.
 
 ## Audit
 

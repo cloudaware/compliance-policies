@@ -1,0 +1,1430 @@
+[
+  {
+    "Id": "supported-runtime",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.14",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "image-excluded",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "conditionText": "extract('CA10__packageType__c') == 'Image'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "",
+    "CA10__packageType__c": "Image"
+  },
+  {
+    "Id": "disappeared-function",
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "conditionIndex": 99,
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": "2026-10-22T00:00:00Z",
+    "CA10__runtime__c": "python3.14",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "legacy-deprecated",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "go1.x",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "ruby32-deprecated",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "ruby3.2",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "provided-al2-deprecated",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "provided.al2",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "unknown-runtime",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python99",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "empty-runtime",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__runtime__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "null-runtime",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__runtime__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": null,
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "malformed-runtime",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "nodejs20.x.extra",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "prefix-is-not-runtime",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.140",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "preview-runtime",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "nodejs26.x",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "unknown-package",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 299,
+      "conditionText": "extract('CA10__packageType__c') != 'Zip'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.14",
+    "CA10__packageType__c": "Other"
+  },
+  {
+    "Id": "empty-package",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 101,
+      "conditionText": "CA10__packageType__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.14",
+    "CA10__packageType__c": ""
+  },
+  {
+    "Id": "supported-runtime-ignores-retained-deprecated-version",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.14",
+    "CA10__packageType__c": "Zip",
+    "CA10__AWS_Lambda_Function_Versions__r": [
+      {
+        "Id": "supported-runtime-ignores-retained-deprecated-version-old-version",
+        "CA10__function__c": "supported-runtime-ignores-retained-deprecated-version",
+        "CA10__runtime__c": "nodejs16.x",
+        "CA10__packageType__c": "Zip",
+        "CA10__disappearanceTime__c": null
+      }
+    ]
+  },
+  {
+    "Id": "supported-runtime-without-version-inventory",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.14",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "python3.10-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-30T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.10",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "python3.10-deprecation-midnight",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-31T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.10",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "python3.10-after-deprecation",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-11-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.10",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "dotnet8-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-11-09T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "dotnet8",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "dotnet8-deprecation-midnight",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-11-10T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "dotnet8",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "dotnet8-after-deprecation",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-11-11T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "dotnet8",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "ruby3.3-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-03-30T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "ruby3.3",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "ruby3.3-deprecation-midnight",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-03-31T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "ruby3.3",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "ruby3.3-after-deprecation",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-04-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "ruby3.3",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "nodejs22.x-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-04-29T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "nodejs22.x",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "nodejs22.x-deprecation-midnight",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-04-30T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "nodejs22.x",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "nodejs22.x-after-deprecation",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-05-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "nodejs22.x",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "python3.11-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-06-29T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.11",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "python3.11-deprecation-midnight",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-06-30T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.11",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "python3.11-after-deprecation",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-07-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.11",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java8.al2-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-06-29T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java8.al2",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java8.al2-deprecation-midnight",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-06-30T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java8.al2",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java8.al2-after-deprecation",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-07-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java8.al2",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java11-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-06-29T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java11",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java11-deprecation-midnight",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-06-30T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java11",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java11-after-deprecation",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-07-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java11",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java17-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-06-29T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java17",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java17-deprecation-midnight",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-06-30T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java17",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java17-after-deprecation",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-07-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java17",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "ruby3.4-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2028-03-30T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "ruby3.4",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "ruby3.4-deprecation-midnight",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2028-03-31T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "ruby3.4",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "ruby3.4-after-deprecation",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2028-04-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "ruby3.4",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "nodejs24.x-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2028-04-29T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "nodejs24.x",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "nodejs24.x-deprecation-midnight",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2028-04-30T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "nodejs24.x",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "nodejs24.x-after-deprecation",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2028-05-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "nodejs24.x",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "python3.12-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2028-10-30T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.12",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "python3.12-deprecation-midnight",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2028-10-31T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.12",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "python3.12-after-deprecation",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2028-11-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.12",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "dotnet10-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2028-11-13T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "dotnet10",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "dotnet10-deprecation-midnight",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2028-11-14T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "dotnet10",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "dotnet10-after-deprecation",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2028-11-15T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "dotnet10",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "ruby4.0-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-03-30T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "ruby4.0",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "ruby4.0-deprecation-midnight",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-03-31T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "ruby4.0",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "ruby4.0-after-deprecation",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-04-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "ruby4.0",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "python3.13-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-06-29T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.13",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "python3.13-deprecation-midnight",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-06-30T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.13",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "python3.13-after-deprecation",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-07-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.13",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "python3.14-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-06-29T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.14",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "python3.14-deprecation-midnight",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-06-30T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.14",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "python3.14-after-deprecation",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-07-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.14",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java8.al2023-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-06-29T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java8.al2023",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java8.al2023-deprecation-midnight",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-06-30T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java8.al2023",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java8.al2023-after-deprecation",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-07-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java8.al2023",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java11.al2023-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-06-29T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java11.al2023",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java11.al2023-deprecation-midnight",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-06-30T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java11.al2023",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java11.al2023-after-deprecation",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-07-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java11.al2023",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java17.al2023-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-06-29T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java17.al2023",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java17.al2023-deprecation-midnight",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-06-30T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java17.al2023",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java17.al2023-after-deprecation",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-07-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java17.al2023",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java21-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-06-29T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java21",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java21-deprecation-midnight",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-06-30T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java21",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java21-after-deprecation",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-07-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java21",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java25-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-06-29T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java25",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java25-deprecation-midnight",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-06-30T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java25",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "java25-after-deprecation",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-07-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "java25",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "provided.al2023-day-before",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-06-29T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "provided.al2023",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "provided.al2023-deprecation-midnight",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-06-30T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "provided.al2023",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "provided.al2023-after-deprecation",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2029-07-01T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "provided.al2023",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "missing-current-runtime-ignores-retained-version",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__runtime__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "",
+    "CA10__packageType__c": "Zip",
+    "CA10__AWS_Lambda_Function_Versions__r": [
+      {
+        "Id": "missing-current-runtime-ignores-retained-version-old-version",
+        "CA10__function__c": "missing-current-runtime-ignores-retained-version",
+        "CA10__runtime__c": "nodejs16.x",
+        "CA10__packageType__c": "Zip",
+        "CA10__disappearanceTime__c": null
+      }
+    ]
+  },
+  {
+    "Id": "unlisted-runtime-dotnet5.0",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "dotnet5.0",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "unlisted-runtime-dotnet7",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "dotnet7",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "unlisted-runtime-dotnet9",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "dotnet9",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "unlisted-runtime-python3.15",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.15",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "image-null-runtime",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "conditionText": "extract('CA10__packageType__c') == 'Image'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": null,
+    "CA10__packageType__c": "Image"
+  },
+  {
+    "Id": "image-stale-deprecated-runtime",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "conditionIndex": 199,
+      "conditionText": "extract('CA10__packageType__c') == 'Image'",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.9",
+    "CA10__packageType__c": "Image"
+  },
+  {
+    "Id": "whitespace-runtime",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__runtime__c').isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": " \t\n",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "null-package",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "conditionIndex": 101,
+      "conditionText": "CA10__packageType__c.isEmpty()",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.14",
+    "CA10__packageType__c": null
+  },
+  {
+    "Id": "supported-older-runtime",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-27T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.10",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "deprecated-before-api-blocks",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-07-28T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "provided.al2",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "deprecated-after-api-update-block",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2027-09-01T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "provided.al2",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "python3.10-deprecation-day-end",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-31T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.10",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "current-runtime-following-midnight",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "conditionIndex": 499,
+      "conditionText": "setOfText(['nodejs', 'dotnetcore2.0', 'dotnetcore1.0', 'nodejs6.10', 'nodejs4.3-edge', 'nodejs4.3', 'nodejs8.10', 'python2.7', 'ruby2.5', 'nodejs10.x', 'dotnetcore2.1', 'python3.6', 'nodejs12.x', 'dotnetcore3.1', 'python3.7', 'nodejs14.x', 'ruby2.7', 'provided', 'go1.x', 'java8', 'nodejs16.x', 'python3.8', 'dotnet6', 'nodejs18.x', 'python3.9', 'ruby3.2', 'nodejs20.x', 'provided.al2']).contains(extract('CA10__runtime__c')) || (setOfText(['python3.10']).contains(extract('CA10__runtime__c')) && '2026-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet8']).contains(extract('CA10__runtime__c')) && '2026-11-10T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.3']).contains(extract('CA10__runtime__c')) && '2027-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs22.x']).contains(extract('CA10__runtime__c')) && '2027-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.11', 'java8.al2', 'java11', 'java17']).contains(extract('CA10__runtime__c')) && '2027-06-30T00:00:00Z'.beforeToday()) || (setOfText(['ruby3.4']).contains(extract('CA10__runtime__c')) && '2028-03-31T00:00:00Z'.beforeToday()) || (setOfText(['nodejs24.x']).contains(extract('CA10__runtime__c')) && '2028-04-30T00:00:00Z'.beforeToday()) || (setOfText(['python3.12']).contains(extract('CA10__runtime__c')) && '2028-10-31T00:00:00Z'.beforeToday()) || (setOfText(['dotnet10']).contains(extract('CA10__runtime__c')) && '2028-11-14T00:00:00Z'.beforeToday()) || (setOfText(['ruby4.0']).contains(extract('CA10__runtime__c')) && '2029-03-31T00:00:00Z'.beforeToday()) || (setOfText(['python3.13', 'python3.14', 'java8.al2023', 'java11.al2023', 'java17.al2023', 'java21', 'java25', 'provided.al2023']).contains(extract('CA10__runtime__c')) && '2029-06-30T00:00:00Z'.beforeToday())",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-11-01T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "python3.10",
+    "CA10__packageType__c": "Zip"
+  },
+  {
+    "Id": "new-runtime-compliant",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "conditionIndex": 500,
+      "conditionText": "otherwise",
+      "runtimeError": null
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T12:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__runtime__c": "nodejs28.x",
+    "CA10__packageType__c": "Zip"
+  }
+]

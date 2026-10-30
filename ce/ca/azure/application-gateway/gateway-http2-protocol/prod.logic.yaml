@@ -6,7 +6,7 @@ importExtracts:
   - file: /types/CA10__CaAzureApplicationGateway__c/object.extracts.yaml
 conditions:
   - status: "COMPLIANT"
-    currentStateMessage: "The HTTP2 protocol is enabled."
+    currentStateMessage: "HTTP/2 is enabled."
     check:
       IS_EQUAL:
         left:
@@ -15,5 +15,5 @@ conditions:
           BOOLEAN: true
 otherwise:
   status: "INCOMPLIANT"
-  currentStateMessage: "The HTTP2 protocol is not enabled." 
-  remediationMessage: "Consider enabling the HTTP2 protocol."
+  currentStateMessage: "HTTP/2 is not enabled."
+  remediationMessage: "Enable HTTP/2."

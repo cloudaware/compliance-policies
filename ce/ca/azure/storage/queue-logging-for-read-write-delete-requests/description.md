@@ -25,10 +25,12 @@ Enabling this setting can have a high impact on the cost of the log analytics se
 
 ### From Azure CLI
 
-Ensure the below command's output contains properties `delete`, `read` and `write` set to `true`:
+Ensure the following command's output contains properties `delete`, `read`, and `write` set to `true`:
 
 ```sh
-az storage logging show --services q --account-name <storageAccountName>
+az storage logging show \
+    --services q \
+    --account-name {{storage-account-name}}
 ```
 
 ### From Azure Policy
@@ -39,7 +41,7 @@ If referencing a digital copy of this Benchmark, clicking a Policy ID will open 
 
 ## Default Value
 
-By default storage account queue services are not logged.
+By default, storage account queue services are not logged.
 
 ## References
 

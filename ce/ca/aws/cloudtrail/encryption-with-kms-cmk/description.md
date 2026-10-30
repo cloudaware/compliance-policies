@@ -12,26 +12,13 @@ Customer created keys incur an additional cost. See <https://aws.amazon.com/kms/
 
 ## Audit
 
-Perform the following to determine if CloudTrail is configured to use SSE-KMS:
-
-### From Console
-
-1. Sign in to the AWS Management Console and open the CloudTrail console at <https://console.aws.amazon.com/cloudtrail>.
-2. In the left navigation pane, choose `Trails`.
-3. Select a Trail.
-4. In the `General details` section, select `Edit` to edit the trail configuration.
-5. Ensure the box at `Log file SSE-KMS encryption` is checked and that a valid
-`AWS KMS alias` of a KMS key is entered in the respective text box.
-
-### From Command Line
-
-1. Run the following command:
+To determine if CloudTrail is configured to use SSE-KMS, run the following command:
 
 ```sh
 aws cloudtrail describe-trails
 ```
 
-2. For each trail listed, SSE-KMS is enabled if the trail has a `KmsKeyId` property defined.
+For each trail listed, SSE-KMS is enabled if the trail has a `KmsKeyId` property defined.
 
 ## References
 

@@ -1,6 +1,6 @@
 # Description
 
-Expire shared access signature tokens within an hour.
+Expire shared access signature tokens within one hour.
 
 ## Rationale
 

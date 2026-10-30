@@ -1,0 +1,80 @@
+[
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__analyticalStorage__c') == 'Disabled'",
+      "conditionIndex": 199,
+      "status": "INAPPLICABLE"
+    },
+    "CA10__backupPolicyType__c": "Periodic",
+    "context": {"snapshotTime": "2026-09-10T13:03:37Z"},
+    "Id": "analytical-storage-disabled",
+    "CA10__disappearanceTime__c": null,
+    "CA10__analyticalStorage__c": "Disabled"
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
+      "conditionIndex": 99,
+      "status": "DISAPPEARED"
+    },
+    "CA10__backupPolicyType__c": "Periodic",
+    "context": {"snapshotTime": "2026-09-10T13:03:37Z"},
+    "Id": "disappeared",
+    "CA10__disappearanceTime__c": "2026-09-09T00:00:00Z",
+    "CA10__analyticalStorage__c": "Enabled"
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__analyticalStorage__c').isEmpty() || extract('CA10__backupPolicyType__c').isEmpty()",
+      "conditionIndex": 299,
+      "status": "UNDETERMINED"
+    },
+    "CA10__backupPolicyType__c": null,
+    "context": {"snapshotTime": "2026-09-10T13:03:37Z"},
+    "Id": "backup-policy-unavailable",
+    "CA10__disappearanceTime__c": null,
+    "CA10__analyticalStorage__c": "Enabled"
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__analyticalStorage__c') == 'Enabled' && extract('CA10__backupPolicyType__c') == 'Periodic'",
+      "conditionIndex": 399,
+      "status": "INCOMPLIANT"
+    },
+    "CA10__backupPolicyType__c": "Periodic",
+    "context": {"snapshotTime": "2026-09-10T13:03:37Z"},
+    "Id": "periodic-backup",
+    "CA10__disappearanceTime__c": null,
+    "CA10__analyticalStorage__c": "Enabled"
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "extract('CA10__analyticalStorage__c') == 'Enabled' && extract('CA10__backupPolicyType__c') == 'Continuous'",
+      "conditionIndex": 499,
+      "status": "COMPLIANT"
+    },
+    "CA10__backupPolicyType__c": "Continuous",
+    "context": {"snapshotTime": "2026-09-10T13:03:37Z"},
+    "Id": "continuous-backup",
+    "CA10__disappearanceTime__c": null,
+    "CA10__analyticalStorage__c": "Enabled"
+  },
+  {
+    "expectedResult": {
+      "runtimeError": null,
+      "conditionText": "otherwise",
+      "conditionIndex": 500,
+      "status": "UNDETERMINED"
+    },
+    "CA10__backupPolicyType__c": "OnDemand",
+    "context": {"snapshotTime": "2026-09-10T13:03:37Z"},
+    "Id": "unexpected-backup-policy",
+    "CA10__disappearanceTime__c": null,
+    "CA10__analyticalStorage__c": "Enabled"
+  }
+]

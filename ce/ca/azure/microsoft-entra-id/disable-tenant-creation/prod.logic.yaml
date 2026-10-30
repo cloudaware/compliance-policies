@@ -5,7 +5,7 @@ testData:
 conditions:
       - status: "INCOMPLIANT"
         currentStateMessage: "The default user role can create tenants."
-        remediationMessage: "Consider restricting the default user role from creating tenants."
+        remediationMessage: "Prevent the default user role from creating tenants."
         check:
           RELATED_LIST_HAS:
             status: "INCOMPLIANT"
@@ -32,7 +32,7 @@ relatedLists:
     conditions:
       - status: "INCOMPLIANT"
         currentStateMessage: "The default user role can create tenants."
-        remediationMessage: "Consider restricting the default user role from creating tenants."
+        remediationMessage: "Prevent the default user role from creating tenants."
         check:
           IS_EQUAL:
             left:

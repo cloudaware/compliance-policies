@@ -4,29 +4,29 @@ testData:
   - file: test-data.json
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Instance has a Network Security Group with public access to all ports."
-    remediationMessage: "Restrict public inbound access"
+    currentStateMessage: "The instance has a network interface with an NSG that allows access on all ports from the Internet."
+    remediationMessage: "Restrict inbound access on all ports from the Internet."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10Z1__Azure_VM_Scale_Set_Instance_Network_Ints__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The Instance does not allow public access to all ports." 
+  currentStateMessage: "The instance does not allow access on all ports from the Internet."
 relatedLists:
   - relationshipName: "CA10Z1__Azure_VM_Scale_Set_Instance_Network_Ints__r"
     importExtracts:
       - file: "/types/CA10__CaAzureNetworkSecurityGroupRule__c/object.extracts.yaml"
     conditions:
       - status: "INCOMPLIANT"
-        currentStateMessage: "Interface with publicly accessible Network Security Group"
+        currentStateMessage: "Network interface with a publicly accessible Network Security Group."
         check:
           RELATED_LIST_HAS:
             status: "INCOMPLIANT"
             relationshipName:  "CA10Z1__networkSecurityGroup__r.CA10__Azure_Network_Security_Group_Rules__r"
     otherwise:
       status: "COMPLIANT"
-      currentStateMessage: "Interface is not publicly accessible"
+      currentStateMessage: "Network interface is not publicly accessible."
     relatedLists:
       - relationshipName: "CA10Z1__networkSecurityGroup__r.CA10__Azure_Network_Security_Group_Rules__r"
         importExtracts:
@@ -110,8 +110,8 @@ relatedLists:
                             TEXT: "/0"
 # sort group rules by ports. PORTS : *, -1, 0-65535
           - status: "INCOMPLIANT"
-            currentStateMessage: "NSG Rule with ports with public access from the Internet."
-            remediationMessage: "Close public ports"
+            currentStateMessage: "NSG rule allows public access on all ports."
+            remediationMessage: "Restrict public access to all ports."
             check:
               OR:
                 args:
@@ -139,4 +139,6 @@ relatedLists:
                               NUMBER: 65535.0
         otherwise:
           status: "COMPLIANT"
-          currentStateMessage: "NSG rule without public access on any port"
+          currentStateMessage: "NSG rule without public access on all ports."
+
+

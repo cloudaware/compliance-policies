@@ -4,13 +4,13 @@
 
 ### **From Console**
 
-1. Log in to the AWS Console.
+1. Sign in to the AWS Management Console.
 2. Navigate to the **API Gateway** service.
 3. In the navigation panel, select **APIs** to view all API Gateway APIs.
 4. Click the API you want to reconfigure.
 5. Select **Stages** from the API menu to access its stages.
 6. Click the stage you want to modify and open the **Logs/Tracing** tab.
-7. In the **CloudWatch Settings** section, enable **Detailed CloudWatch Metrics** and click **Save Changes**. Once enabled, each API method will start generating metrics such as API calls, Latency, Integration Latency, 4XX, and 5XX errors.
+7. In the **CloudWatch Settings** section, enable **Detailed CloudWatch Metrics** and click **Save Changes**. Once enabled, each API method will start generating metrics such as API calls, latency, integration latency, 4XX, and 5XX errors.
 8. Repeat steps 6–7 for all stages of the selected API.
 9. Repeat steps 4–8 for each API in the current AWS region.
 10. Switch regions from the navigation bar and repeat the process for other regions.
@@ -21,7 +21,7 @@
 
     ```sh
     aws apigateway update-stage \
-        --region {{us-east-1}} \
+        --region {{region-name}} \
         --rest-api-id {{rest-api-id}} \
         --stage-name {{stage-name}} \
         --patch-operations op=replace,path=/*/*/metrics/enabled,value=true

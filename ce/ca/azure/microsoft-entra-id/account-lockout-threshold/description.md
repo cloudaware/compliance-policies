@@ -16,7 +16,7 @@ If account lockout threshold is set too high (more than 10), malicious actors ca
 
 ### From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. In the Azure portal, open the portal menu.
 2. Select `Microsoft Entra ID`.
 3. Under `Manage`, select `Security`.
 4. Under `Manage`, select `Authentication methods`.

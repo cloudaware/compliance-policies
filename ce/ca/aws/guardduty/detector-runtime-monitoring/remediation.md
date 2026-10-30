@@ -11,7 +11,7 @@ In a multi-account environment, only the delegated GuardDuty administrator accou
 ```sh
 aws guardduty update-member-detectors \
     --detector-id {{detector-id}} \
-    --account-ids {{account-id1}} {{account-id2}} ...
+    --account-ids {{account-id-1}} {{account-id-2}} ...
     --region {{region}} \
     --features 'Name=RUNTIME_MONITORING,Status=ENABLED,AdditionalConfiguration=[{Name={{EKS_ADDON_MANAGEMENT|ECS_FARGATE_AGENT_MANAGEMENT|EC2_AGENT_MANAGEMENT}},Status=ENABLED}]' 'Name=EKS_RUNTIME_MONITORING,Status=DISABLED'
 ```
@@ -21,7 +21,7 @@ The delegated administrator account can also automatically enable Runtime Monito
 ```sh
 aws guardduty update-organization-configuration \
     --detector-id {{detector-id}} \
-    --features 'Name=RUNTIME_MONITORING,AutoEnable={{NEW | ALL}},AdditionalConfiguration=[{ Name={{EKS_ADDON_MANAGEMENT|ECS_FARGATE_AGENT_MANAGEMENT|EC2_AGENT_MANAGEMENT}},AutoEnable={{NEW | ALL}} }]' 'Name=EKS_RUNTIME_MONITORING,AutoEnable=NONE'
+    --features 'Name=RUNTIME_MONITORING,AutoEnable={{NEW | ALL}},AdditionalConfiguration=[{ Name={{EKS_ADDON_MANAGEMENT|ECS_FARGATE_AGENT_MANAGEMENT|EC2_AGENT_MANAGEMENT}},AutoEnable={{NEW | ALL}} }]' 'Name=EKS_RUNTIME_MONITORING,AutoEnable=NONE' \
     --region {{region}}
 ```
 

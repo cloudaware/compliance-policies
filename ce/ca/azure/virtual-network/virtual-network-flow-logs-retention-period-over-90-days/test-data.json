@@ -1,8 +1,8 @@
 [
   {
     "expectedResult": {
-      "status": "INAPPLICABLE",
-      "conditionIndex": "199",
+      "status": "INCOMPLIANT",
+      "conditionIndex": "299",
       "conditionText": "extract('CA10Z1__logStatus__c') != 'Enabled'",
       "runtimeError": null
     },
@@ -22,7 +22,7 @@
   {
     "expectedResult": {
       "status": "INAPPLICABLE",
-      "conditionIndex": "299",
+      "conditionIndex": "199",
       "conditionText": "isEmptyLookup('CA10Z1__virtualNetwork__r')",
       "runtimeError": null
     },
@@ -47,9 +47,9 @@
   },
   {
     "expectedResult": {
-      "status": "INCOMPLIANT",
-      "conditionIndex": "399",
-      "conditionText": "extract('CA10Z1__retentionPolicyStatus__c') != 'Enabled'",
+      "status": "COMPLIANT",
+      "conditionIndex": "499",
+      "conditionText": "extract('CA10Z1__retentionPolicyDays__c') == number(0.0) || (extract('CA10Z1__retentionPolicyStatus__c') == 'Enabled' && extract('CA10Z1__retentionPolicyDays__c') >= number(90.0))",
       "runtimeError": null
     },
     "context": { "snapshotTime": "2025-07-03T06:52:36Z" },
@@ -89,7 +89,7 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "499",
-      "conditionText": "extract('CA10Z1__retentionPolicyDays__c') == number(0.0) || extract('CA10Z1__retentionPolicyDays__c') >= number(90.0)",
+      "conditionText": "extract('CA10Z1__retentionPolicyDays__c') == number(0.0) || (extract('CA10Z1__retentionPolicyStatus__c') == 'Enabled' && extract('CA10Z1__retentionPolicyDays__c') >= number(90.0))",
       "runtimeError": null
     },
     "context": { "snapshotTime": "2025-07-03T06:52:36Z" },
@@ -109,7 +109,7 @@
     "expectedResult": {
       "status": "COMPLIANT",
       "conditionIndex": "499",
-      "conditionText": "extract('CA10Z1__retentionPolicyDays__c') == number(0.0) || extract('CA10Z1__retentionPolicyDays__c') >= number(90.0)",
+      "conditionText": "extract('CA10Z1__retentionPolicyDays__c') == number(0.0) || (extract('CA10Z1__retentionPolicyStatus__c') == 'Enabled' && extract('CA10Z1__retentionPolicyDays__c') >= number(90.0))",
       "runtimeError": null
     },
     "context": { "snapshotTime": "2025-07-03T06:52:36Z" },

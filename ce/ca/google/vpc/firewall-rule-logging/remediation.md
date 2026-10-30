@@ -4,13 +4,13 @@
 
 Enabling logging on firewall rules allows you to capture traffic information for auditing, monitoring, and troubleshooting purposes.
 
-### **From gcloud CLI**
+### **From Google Cloud CLI**
 
-    ```sh
-    gcloud compute firewall-rules update {{firewall-rule-name}} \
-        --enable-logging
-    ```
+```sh
+gcloud compute firewall-rules update {{firewall-rule-name}} \
+    --enable-logging
+```
 
-### Consideration
+### Considerations
 
 After enabling logging, traffic matching this rule will be captured in Cloud Logging, which may incur additional costs.

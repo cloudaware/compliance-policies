@@ -1,0 +1,50 @@
+---
+inputType: "CA10O1__CaOracleTenancy__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "INCOMPLIANT"
+    currentStateMessage: "This tenancy contains CIS-scoped resources in the root compartment."
+    remediationMessage: "Move CIS-scoped resources from the root compartment into dedicated OCI compartments."
+    check:
+      RELATED_LIST_HAS:
+        status: "INCOMPLIANT"
+        relationshipName: "CA10O1__Oracle_Resources__r"
+otherwise:
+  status: "COMPLIANT"
+  currentStateMessage: "This tenancy does not contain CIS-scoped resources in the root compartment."
+relatedLists:
+  - relationshipName: "CA10O1__Oracle_Resources__r"
+    importExtracts:
+      - file: "/types/CA10O1__CaOracleResource__c/object.extracts.yaml"
+    conditions:
+      - status: "INAPPLICABLE"
+        currentStateMessage: "This Oracle resource is outside the CIS Oracle scope for this control."
+        check:
+          NOT:
+            arg:
+              CONTAINS:
+                arg:
+                  SET:
+                    itemType: "TEXT"
+                    items:
+                      - "Vcn"
+                      - "Instance"
+                      - "BootVolume"
+                      - "Volume"
+                      - "FileSystem"
+                      - "Bucket"
+                      - "AutonomousDatabase"
+                      - "Database"
+                      - "DbSystem"
+                search:
+                  EXTRACT: "CA10O1__resourceType__c"
+      - status: "INCOMPLIANT"
+        currentStateMessage: "This CIS-scoped Oracle resource is created in the root compartment."
+        check:
+          IS_EMPTY:
+            arg:
+              EXTRACT: "CA10O1__compartmentOcid__c"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This CIS-scoped Oracle resource is not created in the root compartment."

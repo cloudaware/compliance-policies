@@ -1,8 +1,8 @@
-# Remediating
+# Remediation
 
 ## From Azure Portal
 
-1. From Azure Home select the Portal Menu.
+1. In the Azure portal, open the portal menu.
 2. Select `Microsoft Entra ID`.
 3. Under `Manage`, select `Users`.
 4. Click on `Add filter`.
@@ -18,13 +18,13 @@
 Before deleting the user, set it to inactive using the ID from the Audit Procedure to determine if there are any dependent systems:
 
 ```sh
-az ad user update --id <exampleaccountid@domain.com> --account-enabled {false}
+az ad user update --id {{exampleaccountid@domain.com}} --account-enabled {false}
 ```
 
-After determining that there are no dependent systems delete the user:
+After determining that there are no dependent systems, delete the user:
 
 ```sh
-Remove-AzureADUser -ObjectId <exampleaccountid@domain.com>
+Remove-AzureADUser -ObjectId {{exampleaccountid@domain.com}}
 ```
 
 ## From Azure PowerShell
@@ -32,11 +32,11 @@ Remove-AzureADUser -ObjectId <exampleaccountid@domain.com>
 Before deleting the user, set it to inactive using the ID from the Audit Procedure to determine if there are any dependent systems:
 
 ```ps
-Set-AzureADUser -ObjectId "<exampleaccountid@domain.com>" -AccountEnabled false
+Set-AzureADUser -ObjectId "{{exampleaccountid@domain.com}}" -AccountEnabled false
 ```
 
-After determining that there are no dependent systems delete the user:
+After determining that there are no dependent systems, delete the user:
 
 ```ps
-PS C:\>Remove-AzureADUser -ObjectId <exampleaccountid@domain.com>
+Remove-AzureADUser -ObjectId {{exampleaccountid@domain.com}}
 ```

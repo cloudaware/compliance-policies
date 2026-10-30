@@ -9,10 +9,9 @@ description: "AWS Config is a web service that performs configuration management
   \ resources. It is recommended AWS Config be enabled in all regions."
 type: COMPLIANCE_POLICY
 categories:
-  - RELIABILITY
-  - SECURITY
+  - "RELIABILITY"
 frameworkMappings:
-  - "/frameworks/cis-aws-v6.0.0/04/03"
+  - "/frameworks/cis-aws-v7.0.0/04/03"
   - "/frameworks/cloudaware/resource-reliability/system-configuration"
   - "/frameworks/aws-fsbp-v1.0.0/config/01"
 similarPolicies:

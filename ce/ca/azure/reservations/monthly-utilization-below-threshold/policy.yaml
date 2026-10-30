@@ -1,0 +1,10 @@
+---
+names:
+  full: "Azure Reservation monthly utilization is below 80%"
+  contextual: "Reservation monthly utilization is below 80%"
+description: "Identify successfully provisioned Azure Reservations whose recent monthly average utilization is below 80%."
+categories:
+  - "COST"
+type: "COMPLIANCE_POLICY"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-optimization"

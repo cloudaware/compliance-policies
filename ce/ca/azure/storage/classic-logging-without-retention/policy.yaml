@@ -1,0 +1,10 @@
+---
+names:
+  full: "Azure Storage classic logging has no bounded retention"
+  contextual: "Classic logging has no bounded retention"
+description: "Identify enabled Azure Storage classic logging configured without a positive retention period."
+type: "COMPLIANCE_POLICY"
+categories:
+  - "COST"
+frameworkMappings:
+  - "/frameworks/cloudaware/cost-efficiency-and-optimization/resource-optimization"

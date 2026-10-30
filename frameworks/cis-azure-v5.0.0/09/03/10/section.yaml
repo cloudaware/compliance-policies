@@ -1,6 +1,6 @@
 ---
 name: "9.3.10 Ensure Azure Resource Manager ReadOnly locks are considered for Azure Storage Accounts (Manual)"
-description: >
+description: |-
   Adding an Azure Resource Manager ReadOnly lock can prevent users from accidentally 
   or maliciously deleting a storage account, modifying its properties and containers, or 
   creating access assignments. The lock must be removed before the storage account 
@@ -24,3 +24,4 @@ description: >
 similar:
   sections:
   - "/frameworks/cis-azure-v4.0.0/10/03/11"
+  - "/frameworks/cis-azure-v6.0.0/09/03/10"

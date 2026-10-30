@@ -7,8 +7,7 @@ importExtracts:
 conditions:
   - status: "INCOMPLIANT"
     currentStateMessage: "The OpenSearch domain is not encrypted at rest."
-    remediationMessage: "Encryption at rest cannot be enabled on an existing domain.\
-      \ A new domain must be created with encryption enabled."
+    remediationMessage: "Encryption at rest cannot be enabled on an existing domain. Create a new domain with encryption enabled."
     check:
       NOT:
         arg:

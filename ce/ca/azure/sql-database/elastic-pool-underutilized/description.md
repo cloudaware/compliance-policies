@@ -34,4 +34,4 @@ A *Elastic Pool* is marked as `INAPPLICABLE` if it meets any of the following co
 - It is not currently **Ready**.
 - It has been created within the last 30 days.
 
-The *Elastic Pool* is marked as `UNDETERMINED` if both `Monitor: CPU Percent, 30-Day` metric is empty, indicating insufficient data in the CMDB to assess utilization.
+The *Elastic Pool* is marked as `UNDETERMINED` if `Monitor: CPU Percent, 30-Day` metrics are empty, indicating insufficient data in the CMDB to assess utilization.

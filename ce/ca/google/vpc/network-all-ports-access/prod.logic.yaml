@@ -5,15 +5,15 @@ testData:
   - file: test-data.json
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The Network has GCE Firewall Rules which allow unrestricted access to all ports."
-    remediationMessage: "Modify the firewall rule to restrict access."
+    currentStateMessage: "The network has firewall rules that allow unrestricted access to all ports."
+    remediationMessage: "Restrict access to all ports in firewall rules."
     check:
       RELATED_LIST_HAS:
         status: "INCOMPLIANT"
         relationshipName: "CA10__Google_GCE_Firewall_Rules__r"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "Unrestricted ingress traffic to all ports is not allowed by any firewall rule in this network."
+  currentStateMessage: "No firewall rule in this network allows unrestricted ingress traffic to all ports."
 relatedLists:
   - relationshipName: "CA10__Google_GCE_Firewall_Rules__r"
     importExtracts:
@@ -44,7 +44,7 @@ relatedLists:
                     TEXT: "::/0"
       - status: "INCOMPLIANT"
         currentStateMessage: "This firewall rule allows traffic on all ports."
-        remediationMessage: "Modify the firewall rule to restrict port access."
+        remediationMessage: "Restrict access to all ports in the firewall rule."
         check:
           GREATER_THAN:
             left:

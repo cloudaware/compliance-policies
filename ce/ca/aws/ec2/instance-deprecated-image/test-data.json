@@ -1,0 +1,1171 @@
+[
+  {
+    "Id": "past-running",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "extract('CA10__image__r.CA10__deprecationTime__c').beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-past-running",
+    "CA10__image__r": {
+      "Id": "image-past-running",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:59Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "past-stopped",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "extract('CA10__image__r.CA10__deprecationTime__c').beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "stopped",
+    "CA10__image__c": "image-past-stopped",
+    "CA10__image__r": {
+      "Id": "image-past-stopped",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:59Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "past-stopping",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "extract('CA10__image__r.CA10__deprecationTime__c').beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "stopping",
+    "CA10__image__c": "image-past-stopping",
+    "CA10__image__r": {
+      "Id": "image-past-stopping",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:59Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "past-pending",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "extract('CA10__image__r.CA10__deprecationTime__c').beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "pending",
+    "CA10__image__c": "image-past-pending",
+    "CA10__image__r": {
+      "Id": "image-past-pending",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:59Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "future",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "extract('CA10__image__r.CA10__deprecationTime__c').afterToday()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-future",
+    "CA10__image__r": {
+      "Id": "image-future",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-24T00:00:00Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "no-deprecation-date",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 599,
+      "conditionText": "extract('CA10__image__r.CA10__deprecationTime__c').isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-no-deprecation-date",
+    "CA10__image__r": {
+      "Id": "image-no-deprecation-date",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": null
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "today-midnight",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-today-midnight",
+    "CA10__image__r": {
+      "Id": "image-today-midnight",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-23T00:00:00Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "today-before-snapshot",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-today-before-snapshot",
+    "CA10__image__r": {
+      "Id": "image-today-before-snapshot",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-23T12:00:00Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "today-after-snapshot",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-today-after-snapshot",
+    "CA10__image__r": {
+      "Id": "image-today-after-snapshot",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-23T23:59:59Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "next-utc-day-expired",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "extract('CA10__image__r.CA10__deprecationTime__c').beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-24T00:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-next-utc-day-expired",
+    "CA10__image__r": {
+      "Id": "image-next-utc-day-expired",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-23T23:59:59Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "prior-utc-day-future",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "extract('CA10__image__r.CA10__deprecationTime__c').afterToday()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-22T23:59:59Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-prior-utc-day-future",
+    "CA10__image__r": {
+      "Id": "image-prior-utc-day-future",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-23T00:00:00Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "terminated",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['terminated', 'shutting-down']).contains(extract('CA10__stateName__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "terminated",
+    "CA10__image__c": "image-terminated",
+    "CA10__image__r": {
+      "Id": "image-terminated",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:59Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "shutting-down",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['terminated', 'shutting-down']).contains(extract('CA10__stateName__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "shutting-down",
+    "CA10__image__c": "image-shutting-down",
+    "CA10__image__r": {
+      "Id": "image-shutting-down",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:59Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "unknown-state",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "extract('CA10__image__r.CA10__deprecationTime__c').beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "unexpected",
+    "CA10__image__c": "image-unknown-state",
+    "CA10__image__r": {
+      "Id": "image-unknown-state",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:59Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "missing-state",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 101,
+      "conditionText": "CA10__stateName__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": null,
+    "CA10__image__c": "image-missing-state",
+    "CA10__image__r": {
+      "Id": "image-missing-state",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:59Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "blank-state",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 101,
+      "conditionText": "CA10__stateName__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "",
+    "CA10__image__c": "image-blank-state",
+    "CA10__image__r": {
+      "Id": "image-blank-state",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:59Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "missing-image-lookup",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "isEmptyLookup('CA10__image__r')"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": null,
+    "CA10__image__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": null
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "unresolved-image-lookup",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 304,
+      "conditionText": "CA10__state__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-unresolved-image-lookup",
+    "CA10__image__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": null,
+      "CA10__deprecationTime__c": null
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "disappeared-image-no-date",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "isEmptyLookup('CA10__image__r')"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-disappeared-image-no-date",
+    "CA10__image__r": {
+      "Id": "image-disappeared-image-no-date",
+      "CA10__disappearanceTime__c": "2026-10-22T00:00:00Z",
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": null
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "disappeared-image-past-date",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "isEmptyLookup('CA10__image__r')"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-disappeared-image-past-date",
+    "CA10__image__r": {
+      "Id": "image-disappeared-image-past-date",
+      "CA10__disappearanceTime__c": "2026-10-22T00:00:00Z",
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-22T00:00:00Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "missing-image-state",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 304,
+      "conditionText": "CA10__state__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-missing-image-state",
+    "CA10__image__r": {
+      "Id": "image-missing-image-state",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": null,
+      "CA10__deprecationTime__c": null
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "deregistered-image",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__image__r.CA10__state__c') != 'available'"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-deregistered-image",
+    "CA10__image__r": {
+      "Id": "image-deregistered-image",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "deregistered",
+      "CA10__deprecationTime__c": null
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "disappeared-instance",
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "runtimeError": null,
+      "conditionIndex": 99,
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": "2026-10-22T00:00:00Z",
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-disappeared-instance",
+    "CA10__image__r": {
+      "Id": "image-disappeared-instance",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-22T00:00:00Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "missing-native-image-id",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "isEmptyLookup('CA10__image__r')"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-missing-native-image-id",
+    "CA10__image__r": {
+      "Id": "image-missing-native-image-id",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:59Z"
+    },
+    "CA10__imageId__c": null
+  },
+  {
+    "Id": "unknown-image-state",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__image__r.CA10__state__c') != 'available'"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-unknown-image-state",
+    "CA10__image__r": {
+      "Id": "image-unknown-image-state",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "future-state",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:59Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "pending-image-past-deprecation",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__image__r.CA10__state__c') != 'available'"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-pending-image-past-deprecation",
+    "CA10__image__r": {
+      "Id": "image-pending-image-past-deprecation",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "pending",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:00Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "pending-image-no-deprecation",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__image__r.CA10__state__c') != 'available'"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-pending-image-no-deprecation",
+    "CA10__image__r": {
+      "Id": "image-pending-image-no-deprecation",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "pending",
+      "CA10__deprecationTime__c": null
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "invalid-image-past-deprecation",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__image__r.CA10__state__c') != 'available'"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-invalid-image-past-deprecation",
+    "CA10__image__r": {
+      "Id": "image-invalid-image-past-deprecation",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "invalid",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:00Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "invalid-image-no-deprecation",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__image__r.CA10__state__c') != 'available'"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-invalid-image-no-deprecation",
+    "CA10__image__r": {
+      "Id": "image-invalid-image-no-deprecation",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "invalid",
+      "CA10__deprecationTime__c": null
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "deregistered-image-past-deprecation",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__image__r.CA10__state__c') != 'available'"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-deregistered-image-past-deprecation",
+    "CA10__image__r": {
+      "Id": "image-deregistered-image-past-deprecation",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "deregistered",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:00Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "transient-image-past-deprecation",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__image__r.CA10__state__c') != 'available'"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-transient-image-past-deprecation",
+    "CA10__image__r": {
+      "Id": "image-transient-image-past-deprecation",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "transient",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:00Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "transient-image-no-deprecation",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__image__r.CA10__state__c') != 'available'"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-transient-image-no-deprecation",
+    "CA10__image__r": {
+      "Id": "image-transient-image-no-deprecation",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "transient",
+      "CA10__deprecationTime__c": null
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "failed-image-past-deprecation",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__image__r.CA10__state__c') != 'available'"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-failed-image-past-deprecation",
+    "CA10__image__r": {
+      "Id": "image-failed-image-past-deprecation",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "failed",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:00Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "failed-image-no-deprecation",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__image__r.CA10__state__c') != 'available'"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-failed-image-no-deprecation",
+    "CA10__image__r": {
+      "Id": "image-failed-image-no-deprecation",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "failed",
+      "CA10__deprecationTime__c": null
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "error-image-past-deprecation",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__image__r.CA10__state__c') != 'available'"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-error-image-past-deprecation",
+    "CA10__image__r": {
+      "Id": "image-error-image-past-deprecation",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "error",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:00Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "error-image-no-deprecation",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__image__r.CA10__state__c') != 'available'"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-error-image-no-deprecation",
+    "CA10__image__r": {
+      "Id": "image-error-image-no-deprecation",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "error",
+      "CA10__deprecationTime__c": null
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "disabled-image-past-deprecation",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__image__r.CA10__state__c') != 'available'"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-disabled-image-past-deprecation",
+    "CA10__image__r": {
+      "Id": "image-disabled-image-past-deprecation",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "disabled",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:00Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "disabled-image-no-deprecation",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__image__r.CA10__state__c') != 'available'"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-disabled-image-no-deprecation",
+    "CA10__image__r": {
+      "Id": "image-disabled-image-no-deprecation",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "disabled",
+      "CA10__deprecationTime__c": null
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "disabled-image-future-deprecation",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__image__r.CA10__state__c') != 'available'"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-disabled-image-future-deprecation",
+    "CA10__image__r": {
+      "Id": "image-disabled-image-future-deprecation",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "disabled",
+      "CA10__deprecationTime__c": "2026-10-24T00:00:00Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "public-image-deprecated",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "extract('CA10__image__r.CA10__deprecationTime__c').beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-public-image-deprecated",
+    "CA10__image__r": {
+      "Id": "image-public-image-deprecated",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:00Z",
+      "CA10__ownerId__c": "222222222222",
+      "CA10__public__c": true
+    },
+    "CA10__imageId__c": "ami-test",
+    "CA10__ownerId__c": "111111111111"
+  },
+  {
+    "Id": "private-owned-image-deprecated",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "extract('CA10__image__r.CA10__deprecationTime__c').beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-private-owned-image-deprecated",
+    "CA10__image__r": {
+      "Id": "image-private-owned-image-deprecated",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:00Z",
+      "CA10__ownerId__c": "111111111111",
+      "CA10__public__c": false
+    },
+    "CA10__imageId__c": "ami-test",
+    "CA10__ownerId__c": "111111111111"
+  },
+  {
+    "Id": "private-shared-image-deprecated",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "extract('CA10__image__r.CA10__deprecationTime__c').beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-private-shared-image-deprecated",
+    "CA10__image__r": {
+      "Id": "image-private-shared-image-deprecated",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:00Z",
+      "CA10__ownerId__c": "222222222222",
+      "CA10__public__c": false
+    },
+    "CA10__imageId__c": "ami-test",
+    "CA10__ownerId__c": "111111111111"
+  },
+  {
+    "Id": "old-image-no-deprecation",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 599,
+      "conditionText": "extract('CA10__image__r.CA10__deprecationTime__c').isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-old-image-no-deprecation",
+    "CA10__image__r": {
+      "Id": "image-old-image-no-deprecation",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": null,
+      "CA10__creationDate__c": "2016-01-01T00:00:00Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "recent-image-deprecated",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "extract('CA10__image__r.CA10__deprecationTime__c').beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-recent-image-deprecated",
+    "CA10__image__r": {
+      "Id": "image-recent-image-deprecated",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:00Z",
+      "CA10__creationDate__c": "2026-10-21T00:00:00Z"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "deprecated-source-current-backup",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "extract('CA10__image__r.CA10__deprecationTime__c').beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-deprecated-source-current-backup",
+    "CA10__image__r": {
+      "Id": "image-deprecated-source-current-backup",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-22T00:00:00Z"
+    },
+    "CA10__imageId__c": "ami-test",
+    "CA10__lastBackupImage__c": "backup-deprecated-source-current-backup",
+    "CA10__lastBackupImage__r": {
+      "Id": "backup-deprecated-source-current-backup",
+      "CA10__state__c": "available",
+      "CA10__disappearanceTime__c": null,
+      "CA10__deprecationTime__c": null
+    }
+  },
+  {
+    "Id": "current-source-deprecated-backup",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 599,
+      "conditionText": "extract('CA10__image__r.CA10__deprecationTime__c').isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-current-source-deprecated-backup",
+    "CA10__image__r": {
+      "Id": "image-current-source-deprecated-backup",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": null
+    },
+    "CA10__imageId__c": "ami-test",
+    "CA10__lastBackupImage__c": "backup-current-source-deprecated-backup",
+    "CA10__lastBackupImage__r": {
+      "Id": "backup-current-source-deprecated-backup",
+      "CA10__state__c": "available",
+      "CA10__disappearanceTime__c": null,
+      "CA10__deprecationTime__c": "2026-10-22T00:00:00Z"
+    }
+  },
+  {
+    "Id": "terminated-missing-image",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['terminated', 'shutting-down']).contains(extract('CA10__stateName__c'))"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "terminated",
+    "CA10__image__c": null,
+    "CA10__imageId__c": null,
+    "CA10__image__r": {
+      "Id": null,
+      "CA10__state__c": null,
+      "CA10__disappearanceTime__c": null,
+      "CA10__deprecationTime__c": null
+    }
+  },
+  {
+    "Id": "blank-image-state",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 304,
+      "conditionText": "CA10__state__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-blank-image-state",
+    "CA10__image__r": {
+      "Id": "image-blank-image-state",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": " ",
+      "CA10__deprecationTime__c": null
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "missing-image-details",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 304,
+      "conditionText": "CA10__state__c.isEmpty()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-missing-image-details",
+    "CA10__image__r": {
+      "Id": "image-missing-image-details",
+      "CA10__state__c": null,
+      "CA10__disappearanceTime__c": null,
+      "CA10__deprecationTime__c": null
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "blank-native-image-id",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "isEmptyLookup('CA10__image__r')"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-blank-native-image-id",
+    "CA10__image__r": {
+      "Id": "image-blank-native-image-id",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-22T23:59:00Z"
+    },
+    "CA10__imageId__c": " "
+  },
+  {
+    "Id": "offset-time-prior-utc-day",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "extract('CA10__image__r.CA10__deprecationTime__c').beforeToday()"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-offset-time-prior-utc-day",
+    "CA10__image__r": {
+      "Id": "image-offset-time-prior-utc-day",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-23T01:00:00+05:00"
+    },
+    "CA10__imageId__c": "ami-test"
+  },
+  {
+    "Id": "offset-time-current-utc-day",
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2026-10-23T18:00:00Z"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__stateName__c": "running",
+    "CA10__image__c": "image-offset-time-current-utc-day",
+    "CA10__image__r": {
+      "Id": "image-offset-time-current-utc-day",
+      "CA10__disappearanceTime__c": null,
+      "CA10__state__c": "available",
+      "CA10__deprecationTime__c": "2026-10-24T02:30:00+05:00"
+    },
+    "CA10__imageId__c": "ami-test"
+  }
+]

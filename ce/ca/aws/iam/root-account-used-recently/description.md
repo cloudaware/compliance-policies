@@ -16,6 +16,6 @@ May require additional administrative effort to configure and maintain IAM roles
 
 This policy marks a Root User as `INCOMPLIANT` based on the **Credential Report**'s *`password_last_used`* attribute. If the *`password_last_used`* value is within the last 30 days, the Root User is marked as `INCOMPLIANT`.
 
-For Non-Root Users, the status is set to `INAPPLICABLE`.
+For non-Root Users, the status is set to `INAPPLICABLE`.
 
 A status of `UNDETERMINED` may indicate a permissions issue with the `iam:GetCredentialReport` API call.

@@ -6,10 +6,10 @@ testData:
   - file: "test-data.json"
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The DMS Replication Instance is publicly accessible."
-    remediationMessage: "Consider changing the public access setting by deleting your current instance, and then recreating it."    
+    currentStateMessage: "The DMS replication instance is publicly accessible."
+    remediationMessage: "Disable public access by recreating the instance with private networking."
     check:
       EXTRACT: "CA10A1__publiclyAccessible__c"
 otherwise:
   status: "COMPLIANT"
-  currentStateMessage: "The DMS Replication Instance is not publicly accessible."
+  currentStateMessage: "The DMS replication instance is not publicly accessible."

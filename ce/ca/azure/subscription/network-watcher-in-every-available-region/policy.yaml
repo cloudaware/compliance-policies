@@ -1,15 +1,16 @@
 ---
 names:
-  full: Azure Subscription Network Watcher is not enabled in every available region
-  contextual: Network Watcher is not enabled in every available region
+  full: Azure Subscription Network Watcher is not enabled in every region in use
+  contextual: Network Watcher is not enabled in every region in use
 description: "Network diagnostic and visualization tools available with Network Watcher\
   \ help users understand, diagnose, and gain insights to the network in Azure."
+impossible: true
 type: COMPLIANCE_POLICY
 categories:
-  - SECURITY
-  - RELIABILITY
+  - "SECURITY"
+  - "RELIABILITY"
 frameworkMappings:
-  - "/frameworks/cis-azure-v5.0.0/07/06"
+  - "/frameworks/cis-azure-v6.0.0/07/06"
   - "/frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration"
 similarPolicies:
   internal:

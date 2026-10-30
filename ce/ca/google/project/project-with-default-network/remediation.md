@@ -10,12 +10,16 @@
 
 ## From Google Cloud CLI
 
-For each Google Cloud Platform project,
+For each Google Cloud Platform project:
 
 1. Delete the default network:
 
-            gcloud compute networks delete default
+    ```sh
+    gcloud compute networks delete default
+    ```
 
 2. If needed, create a new network to replace it:
 
-            gcloud compute networks create NETWORK_NAME
+    ```sh
+    gcloud compute networks create {{network-name}}
+    ```

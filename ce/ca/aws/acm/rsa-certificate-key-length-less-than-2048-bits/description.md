@@ -1,6 +1,6 @@
 # Description
 
-All RSA certificates managed by AWS Certificate Manager (ACM) must have a key length of at least 2048 bits. This includes certificates imported into ACM by users. Ensuring the use of 2048-bit keys enhances the security of the certificates, aligning with modern cryptographic standards and reducing vulnerabilities to brute-force attacks.
+All RSA certificates managed by AWS Certificate Manager (ACM) must have a key length of at least 2048 bits. This includes certificates imported into ACM by users. Ensuring the use of 2048-bit keys enhances certificate security, aligns with modern cryptographic standards, and reduces vulnerabilities to brute-force attacks.
 
 ## Rationale
 
@@ -12,6 +12,6 @@ May require updates to legacy systems or certificates.
 
 ## Audit
 
-This policy will mark a certificate as `INCOMPLIANT` if the `Key Algorithm` is **RSA-1024** and the `Status` field is set to **Issued**.
+This policy flags an *AWS ACM Certificate* as `INCOMPLIANT` if the `Key Algorithm` is **RSA-1024** and the `Status` field is set to **Issued**.
 
 If the `Status` field is not **Issued**, the certificate will be marked as `INAPPLICABLE`.

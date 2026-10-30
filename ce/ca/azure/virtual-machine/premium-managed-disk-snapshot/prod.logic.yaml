@@ -6,8 +6,8 @@ importExtracts:
   - file: /types/CA10__CaAzureSnapshot__c/object.extracts.yaml
 conditions:
   - status: "INCOMPLIANT"
-    currentStateMessage: "The snapshot is stored on Premium SSDs Managed Disk storage."
-    remediationMessage: "Consider changing the storage SKU to Standard storage."
+    currentStateMessage: "The snapshot is stored on Premium SSD managed disk storage."
+    remediationMessage: "Change the storage SKU to Standard storage."
     check:
       CONTAINS:
         arg:

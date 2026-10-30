@@ -1,0 +1,69 @@
+---
+inputType: "CA10__CaAzureKeyVault__c"
+testData:
+  - file: "test-data.json"
+conditions:
+  - status: "COMPLIANT"
+    currentStateMessage: "Key Vault diagnostic logging is enabled and sent to a destination."
+    check:
+      RELATED_LIST_HAS:
+        status: "COMPLIANT"
+        relationshipName: "CA10__resource__r.CA10__Azure_Diagnostic_Settings__r"
+otherwise:
+  status: "INCOMPLIANT"
+  currentStateMessage: "Key Vault diagnostic logging is not enabled and sent to a destination."
+  remediationMessage: "Enable Key Vault diagnostic logging and configure a log destination."
+relatedLists:
+  - relationshipName: "CA10__resource__r.CA10__Azure_Diagnostic_Settings__r"
+    importExtracts:
+      - file: "/types/CA10__CaAzureDiagnosticSetting__c/object.extracts.yaml"
+    conditions:
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Key Vault diagnostic logging is not enabled for the required log categories."
+        remediationMessage: "Enable the audit and allLogs category groups, or the legacy AuditEvent category."
+        check:
+          NOT:
+            arg:
+              OR:
+                args:
+                  - JSON_QUERY_BOOLEAN:
+                      arg:
+                        EXTRACT: "caJsonFrom__logsJson__c"
+                      expression: "contains([? category == `AuditEvent`].enabled, `true`)"
+                      undeterminedIf:
+                        evaluationError: "The JSON query has failed."
+                        resultTypeMismatch: "The JSON query did not return boolean type."
+                  - AND:
+                      args:
+                        - JSON_QUERY_BOOLEAN:
+                            arg:
+                              EXTRACT: "caJsonFrom__logsJson__c"
+                            expression: "contains([? categoryGroup == `audit`].enabled, `true`)"
+                            undeterminedIf:
+                              evaluationError: "The JSON query has failed."
+                              resultTypeMismatch: "The JSON query did not return boolean type."
+                        - JSON_QUERY_BOOLEAN:
+                            arg:
+                              EXTRACT: "caJsonFrom__logsJson__c"
+                            expression: "contains([? categoryGroup == `allLogs`].enabled, `true`)"
+                            undeterminedIf:
+                              evaluationError: "The JSON query has failed."
+                              resultTypeMismatch: "The JSON query did not return boolean type."
+      - status: "INCOMPLIANT"
+        currentStateMessage: "Key Vault diagnostic logging does not have a log destination."
+        remediationMessage: "Configure a Log Analytics workspace, storage account, or event hub destination."
+        check:
+          AND:
+            args:
+              - IS_EMPTY:
+                  arg:
+                    EXTRACT: "CA10__workspaceId__c"
+              - IS_EMPTY:
+                  arg:
+                    EXTRACT: "CA10__storageAccountId__c"
+              - IS_EMPTY:
+                  arg:
+                    EXTRACT: "CA10__eventHubAuthorizationRuleId__c"
+    otherwise:
+      status: "COMPLIANT"
+      currentStateMessage: "This Key Vault diagnostic setting enables the required logs and has a configured destination."

@@ -14,7 +14,9 @@
 Use the below command to enable Standard pricing tier for Defender for Resource Manager:
 
 ```sh
-az security pricing create -n 'Arm' --tier 'Standard'
+az security pricing create \
+    -n Arm \
+    --tier Standard
 ```
 
 ## From PowerShell
@@ -22,5 +24,7 @@ az security pricing create -n 'Arm' --tier 'Standard'
 Use the below command to enable Standard pricing tier for Defender for Resource Manager:
 
 ```ps
-Set-AzSecurityPricing -Name 'Arm' -PricingTier 'Standard'
+Set-AzSecurityPricing `
+    -Name "Arm" `
+    -PricingTier "Standard"
 ```
