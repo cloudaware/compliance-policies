@@ -1,0 +1,11 @@
+---
+names:
+  full: Azure Network Security Group allows unrestricted WinRM traffic
+  contextual: Network Security Group allows unrestricted WinRM traffic
+description: Ensure that WinRM Access from the Internet is Evaluated and Restricted.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-security/network-exposure
+  - /frameworks/cis-azure-v7.0.0/07/01/02

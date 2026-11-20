@@ -1,0 +1,9 @@
+---
+name: 8.1.11 Ensure that Microsoft Defender for Cloud is Configured to Check VM Operating Systems for
+  Updates (Automated)
+description: Defender for Cloud reports missing operating system updates on machines from Azure Update
+  Manager assessment data. A machine's periodic assessment setting is ImageDefault, which runs no scheduled
+  check, or AutomaticByPlatform, which checks for missing updates every 24 hours.
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/08/01/10

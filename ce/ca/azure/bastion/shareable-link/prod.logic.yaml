@@ -1,0 +1,53 @@
+---
+inputType: CA10Z1__CaAzureBastionHost__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10Z1__CaAzureBastionHost__c/object.extracts.yaml
+conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: This Bastion SKU does not support shareable links.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - Basic
+              - Developer
+        search:
+          EXTRACT: CA10Z1__skuName__c
+  - status: UNDETERMINED
+    currentStateMessage: The Bastion SKU is unexpected.
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              SET:
+                itemType: TEXT
+                items:
+                  - Standard
+                  - Premium
+            search:
+              EXTRACT: CA10Z1__skuName__c
+  - status: INCOMPLIANT
+    currentStateMessage: Shareable links are enabled on this Bastion host.
+    remediationMessage: Disable shareable links on the Bastion host.
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10Z1__shareableLinkState__c
+        right:
+          TEXT: Enabled
+  - status: COMPLIANT
+    currentStateMessage: Shareable links are disabled on this Bastion host.
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10Z1__shareableLinkState__c
+        right:
+          TEXT: Disabled
+otherwise:
+  status: UNDETERMINED
+  currentStateMessage: The Bastion shareable-link setting is missing or unexpected.

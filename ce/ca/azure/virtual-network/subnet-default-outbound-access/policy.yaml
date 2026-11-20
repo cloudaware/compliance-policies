@@ -1,0 +1,12 @@
+---
+names:
+  full: Azure Network Subnet default outbound access is not disabled
+  contextual: Network Subnet default outbound access is not disabled
+description: Ensure 'Default outbound access' is Set to 'Disabled' for Virtual Network Subnets.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-security/network-exposure
+  - /frameworks/cis-azure-v7.0.0/07/11
+impossible: true

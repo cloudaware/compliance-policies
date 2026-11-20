@@ -1,64 +1,123 @@
 ---
-inputType: "CA10__CaAzureAccount__c"
+inputType: CA10__CaAzureAccount__c
 testData:
-  - file: "test-data.json"
+  - file: test-data.json
 conditions:
-  - status: "COMPLIANT"
-    currentStateMessage: "This subscription has an Activity Log Alert for Delete Policy Assignment."
+  - status: COMPLIANT
+    currentStateMessage: An enabled subscription-wide delete policy assignment alert has an action group.
     check:
       RELATED_LIST_HAS:
-        status: "COMPLIANT"
-        relationshipName: "CA10__Azure_Activity_Log_Alerts__r"
+        relationshipName: CA10__Azure_Activity_Log_Alerts__r
+        status: COMPLIANT
+  - status: UNDETERMINED
+    currentStateMessage: A candidate delete policy assignment alert has unresolved scope or configuration.
+    check:
+      RELATED_LIST_HAS:
+        relationshipName: CA10__Azure_Activity_Log_Alerts__r
+        status: UNDETERMINED
 otherwise:
-  status: "INCOMPLIANT"
-  currentStateMessage: "This subscription does not have an Activity Log Alert for Delete Policy Assignment."
-  remediationMessage: "Create an Activity Log Alert for Delete Policy Assignment."
+  status: INCOMPLIANT
+  currentStateMessage: No qualifying subscription-wide delete policy assignment alert exists.
+  remediationMessage: Create an enabled Administrative Microsoft.Authorization/policyAssignments/delete
+    alert covering the subscription, with an action group and no extra filters.
 relatedLists:
-  - relationshipName: "CA10__Azure_Activity_Log_Alerts__r"
+  - relationshipName: CA10__Azure_Activity_Log_Alerts__r
     importExtracts:
-      - file: "/types/CA10__CaAzureActivityLogAlert__c/object.extracts.yaml"
+      - file: /types/CA10__CaAzureActivityLogAlert__c/object.extracts.yaml
+      - file: /types/CA10__CaAzureAccount__c/object.extracts.yaml
     conditions:
-      - status: "INAPPLICABLE"
-        currentStateMessage: "This Activity Log Alert is disabled."
+      - status: INAPPLICABLE
+        currentStateMessage: This alert is disabled.
         check:
-          NOT_EQUAL:
+          IS_EQUAL:
             left:
-              EXTRACT: "CA10__enabledStatus__c"
+              EXTRACT: CA10__enabledStatus__c
             right:
-              TEXT: "Enabled"
-      - status: "COMPLIANT"
-        currentStateMessage: "This Activity Log Alert is for Delete Policy Assignment."
+              TEXT: Disabled
+      - status: UNDETERMINED
+        currentStateMessage: The alert enablement state is unexpected.
         check:
-          AND:
-            args:
-              - JSON_QUERY_BOOLEAN:
-                  arg:
-                    EXTRACT: "caJsonFrom__conditionJson__c"
-                  expression: "contains(allOf[*].equals, 'Microsoft.Authorization/policyAssignments/delete')"
-                  undeterminedIf:
-                    evaluationError: "The JSON query has failed."
-                    resultTypeMismatch: "The JSON query did not return boolean type."
-              - JSON_QUERY_BOOLEAN:
-                  arg:
-                    EXTRACT: "caJsonFrom__conditionJson__c"
-                  expression: "contains(allOf[*].equals, 'Administrative')"
-                  undeterminedIf:
-                    evaluationError: "The JSON query has failed."
-                    resultTypeMismatch: "The JSON query did not return boolean type."
-              - CONTAINS:
-                  arg:
-                    EXTRACT: "CA10__scopes__c"
-                  search:
-                    TEXT: "/subscriptions/"
-              - NOT:
-                  arg:
-                    CONTAINS:
+          NOT:
+            arg:
+              IS_EQUAL:
+                left:
+                  EXTRACT: CA10__enabledStatus__c
+                right:
+                  TEXT: Enabled
+      - status: INAPPLICABLE
+        currentStateMessage: This alert does not cover the required unfiltered Administrative operation.
+        check:
+          NOT:
+            arg:
+              JSON_QUERY_BOOLEAN:
+                arg:
+                  EXTRACT: caJsonFrom__conditionJson__c
+                expression: length(allOf) == `2` && length(allOf[?field=='category' && equals=='Administrative'])
+                  == `1` && length(allOf[?field=='operationName' && equals=='Microsoft.Authorization/policyAssignments/delete'])
+                  == `1`
+                undeterminedIf:
+                  evaluationError: The collected JSON cannot be evaluated.
+                  resultTypeMismatch: The JSON query did not return a boolean.
+      - status: INAPPLICABLE
+        currentStateMessage: This alert is scoped to a different subscription.
+        check:
+          NOT:
+            arg:
+              CONTAINS:
+                arg:
+                  EXTRACT: CA10__scopes__c
+                search:
+                  EXTRACT: CA10__subscription__r.CA10__subscriptionId__c
+      - status: UNDETERMINED
+        currentStateMessage: The alert scope needs manual review for subscription-wide coverage.
+        check:
+          NOT:
+            arg:
+              AND:
+                args:
+                  - STARTS_WITH:
                       arg:
-                        EXTRACT: "CA10__scopes__c"
+                        EXTRACT: CA10__scopes__c
                       search:
-                        TEXT: "/resourceGroups/"
+                        TEXT: /subscriptions/
+                  - ENDS_WITH:
+                      arg:
+                        EXTRACT: CA10__scopes__c
+                      search:
+                        EXTRACT: CA10__subscription__r.CA10__subscriptionId__c
+                  - IS_EQUAL:
+                      left:
+                        SIZE:
+                          arg:
+                            SET_FROM:
+                              arg:
+                                EXTRACT: CA10__scopes__c
+                              separator: /
+                      right:
+                        NUMBER: 2
+      - status: COMPLIANT
+        currentStateMessage: This alert covers the operation across the subscription and has an action
+          group.
+        check:
+          RELATED_LIST_HAS:
+            relationshipName: CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r
+            status: COMPLIANT
+      - status: UNDETERMINED
+        currentStateMessage: The configured action group cannot be resolved.
+        check:
+          RELATED_LIST_HAS:
+            relationshipName: CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r
+            status: UNDETERMINED
     otherwise:
-      status: "INAPPLICABLE"
-      currentStateMessage: "This Activity Log Alert is unrelated."
-
-
+      status: INAPPLICABLE
+      currentStateMessage: This alert has no current action group.
+    relatedLists:
+      - relationshipName: CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r
+        conditions:
+          - status: COMPLIANT
+            currentStateMessage: The alert action group is resolved.
+            check:
+              NOT_EMPTY_LOOKUP: CA10Z1__actionGroup__r
+        otherwise:
+          status: UNDETERMINED
+          currentStateMessage: The configured alert action group is unavailable.

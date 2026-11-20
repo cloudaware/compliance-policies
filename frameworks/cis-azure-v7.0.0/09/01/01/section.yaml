@@ -1,0 +1,8 @@
+---
+name: 9.1.1 Ensure That Soft Delete for Blobs on Azure Blob Storage Storage Accounts is Enabled (Automated)
+description: Blob soft delete keeps deleted blobs, snapshots, and versions recoverable for 1 to 365 days,
+  and also keeps overwritten blobs on accounts without a hierarchical namespace. It is enabled or disabled
+  per storage account with the Blob service; the compliant state is enabled with at least 7 days of retention.
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/09/02/01

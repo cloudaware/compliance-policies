@@ -12,9 +12,11 @@ Secrets cannot be used beyond their assigned expiration dates. Secrets must be r
 
 ## Audit
 
-This policy flags an *Azure Key Vault* as `INCOMPLIANT` if any related *Azure Key Vault Secret* has an **empty** `Expiration Date`.
+This policy marks an *Azure Key Vault* as `INCOMPLIANT` if a current enabled secret has no `Expiration Date`.
 
-A *Key Vault* is marked as `INAPPLICABLE` if `RBAC Authorization` is set to **Enabled**.
+The policy applies to authorization mode **Disabled**. A vault is `COMPLIANT` when at least one current enabled secret is assessed and all current enabled secrets have an expiration date. Vaults using mode **Enabled** or containing only current disabled secrets are `INAPPLICABLE`.
+
+An empty collected secret list is `UNDETERMINED` because absence and incomplete collection cannot be distinguished.
 
 ## Default Value
 

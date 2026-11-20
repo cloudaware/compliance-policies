@@ -1,36 +1,43 @@
 ---
-inputType: "CA10__CaAzureStorageAccount__c"
+inputType: CA10__CaAzureStorageAccount__c
 testData:
-  - file: "test-data.json"
+- file: test-data.json
 importExtracts:
-  - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
+- file: /types/CA10__CaAzureStorageAccount__c/object.extracts.yaml
 conditions:
-  - status: "INCOMPLIANT"
-    currentStateMessage: "This storage account uses legacy TLS 1.0."
-    remediationMessage: "Set the minimum TLS version to TLS 1.2."
-    check:
-      IS_EQUAL:
-        left:
-          EXTRACT: "CA10__minimumTlsVersion__c"
-        right:
-          TEXT: "TLS1_0"
-  - status: "INCOMPLIANT"
-    currentStateMessage: "This storage account uses legacy TLS 1.1."
-    remediationMessage: "Set the minimum TLS version to TLS 1.2."
-    check:
-      IS_EQUAL:
-        left:
-          EXTRACT: "CA10__minimumTlsVersion__c"
-        right:
-          TEXT: "TLS1_1"
-  - status: "COMPLIANT"
-    currentStateMessage: "The minimum TLS version is set to TLS 1.2."
-    check:
-      IS_EQUAL:
-        left:
-          EXTRACT: "CA10__minimumTlsVersion__c"
-        right:
-          TEXT: "TLS1_2"
+- status: INCOMPLIANT
+  currentStateMessage: The storage account has no explicit minimum TLS version.
+  check:
+    IS_EMPTY:
+      arg:
+        EXTRACT: CA10__minimumTlsVersion__c
+  remediationMessage: Set the minimum TLS version to TLS 1.2.
+- status: INCOMPLIANT
+  currentStateMessage: This storage account uses legacy TLS 1.0.
+  remediationMessage: Set the minimum TLS version to TLS 1.2.
+  check:
+    IS_EQUAL:
+      left:
+        EXTRACT: CA10__minimumTlsVersion__c
+      right:
+        TEXT: TLS1_0
+- status: INCOMPLIANT
+  currentStateMessage: This storage account uses legacy TLS 1.1.
+  remediationMessage: Set the minimum TLS version to TLS 1.2.
+  check:
+    IS_EQUAL:
+      left:
+        EXTRACT: CA10__minimumTlsVersion__c
+      right:
+        TEXT: TLS1_1
+- status: COMPLIANT
+  currentStateMessage: The minimum TLS version is set to TLS 1.2.
+  check:
+    IS_EQUAL:
+      left:
+        EXTRACT: CA10__minimumTlsVersion__c
+      right:
+        TEXT: TLS1_2
 otherwise:
-  status: "UNDETERMINED"
-  currentStateMessage: "Unexpected value in the field."
+  status: UNDETERMINED
+  currentStateMessage: Unexpected value in the field.

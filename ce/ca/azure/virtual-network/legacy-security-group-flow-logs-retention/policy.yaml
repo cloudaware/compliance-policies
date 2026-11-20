@@ -1,0 +1,12 @@
+---
+names:
+  full: Azure Legacy NSG Flow Log retention is insufficient
+  contextual: Legacy NSG Flow Log retention is insufficient
+description: Assess retention on collected NSG flow logs still in use; disabled logs require manual migration
+  review because collection does not identify migration leftovers.
+type: COMPLIANCE_POLICY
+categories:
+- SECURITY
+frameworkMappings:
+- /frameworks/cis-azure-v7.0.0/07/12
+- /frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration

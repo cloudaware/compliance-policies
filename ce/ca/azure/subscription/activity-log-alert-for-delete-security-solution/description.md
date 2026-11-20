@@ -8,7 +8,9 @@ Monitoring for Delete Security Solution events gives insight into changes to the
 
 ## Audit
 
-This policy flags an *Azure Subscription* as `INCOMPLIANT` if it does **not** have an enabled related *Azure Activity Log Alert* scoped to the subscription whose `Condition JSON` filters on the **Administrative** category and the **Microsoft.Security/securitySolutions/delete** operation.
+This policy marks an *Azure Subscription* as `INCOMPLIANT` if no current enabled *Activity Log Alert* covers category **Administrative** and operation **Microsoft.Security/securitySolutions/delete** across the subscription with a resolved action group and no additional condition filters. Field/value pairs must occur in the same condition.
+
+A qualifying alert makes the subscription `COMPLIANT`. Otherwise, unassessable alert configuration produces `UNDETERMINED`.
 
 ## Default Value
 

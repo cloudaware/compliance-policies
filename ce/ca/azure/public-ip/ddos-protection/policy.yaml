@@ -1,0 +1,12 @@
+---
+names:
+  full: Azure Public IP Address DDoS protection is not enabled
+  contextual: Public IP Address DDoS protection is not enabled
+description: Ensure Azure DDoS Protection is Enabled on Public IP Addresses.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-security/threat-protection
+  - /frameworks/cis-azure-v7.0.0/08/05
+impossible: true

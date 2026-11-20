@@ -62,3 +62,5 @@ az network perimeter association create \
     --private-link-resource "{id:{{paas-resource-id}}}" \
     --profile "{{profile-id}}"
 ```
+
+After validating the required access rules and reviewing access logs, set every in-scope resource association to **Enforced**. Verify that required clients can still connect. Learning mode alone does not satisfy this policy.

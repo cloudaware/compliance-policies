@@ -1,0 +1,727 @@
+[
+  {
+    "Id": "database-port-1433",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-port-1433-rule",
+        "CA10__networkSecurityGroup__c": "database-port-1433",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1433",
+        "CA10__destinationPortFrom__c": 1433,
+        "CA10__destinationPortTo__c": 1433
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    }
+  },
+  {
+    "Id": "database-port-1434",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-port-1434-rule",
+        "CA10__networkSecurityGroup__c": "database-port-1434",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1434",
+        "CA10__destinationPortFrom__c": 1434,
+        "CA10__destinationPortTo__c": 1434
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    }
+  },
+  {
+    "Id": "database-port-1521",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-port-1521-rule",
+        "CA10__networkSecurityGroup__c": "database-port-1521",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1521",
+        "CA10__destinationPortFrom__c": 1521,
+        "CA10__destinationPortTo__c": 1521
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    }
+  },
+  {
+    "Id": "database-port-3306",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-port-3306-rule",
+        "CA10__networkSecurityGroup__c": "database-port-3306",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "3306",
+        "CA10__destinationPortFrom__c": 3306,
+        "CA10__destinationPortTo__c": 3306
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    }
+  },
+  {
+    "Id": "database-port-5432",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-port-5432-rule",
+        "CA10__networkSecurityGroup__c": "database-port-5432",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5432",
+        "CA10__destinationPortFrom__c": 5432,
+        "CA10__destinationPortTo__c": 5432
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    }
+  },
+  {
+    "Id": "database-port-6379",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-port-6379-rule",
+        "CA10__networkSecurityGroup__c": "database-port-6379",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "6379",
+        "CA10__destinationPortFrom__c": 6379,
+        "CA10__destinationPortTo__c": 6379
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    }
+  },
+  {
+    "Id": "database-port-27017",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-port-27017-rule",
+        "CA10__networkSecurityGroup__c": "database-port-27017",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "27017",
+        "CA10__destinationPortFrom__c": 27017,
+        "CA10__destinationPortTo__c": 27017
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    }
+  },
+  {
+    "Id": "database-wildcard",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-wildcard-rule",
+        "CA10__networkSecurityGroup__c": "database-wildcard",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "*",
+        "CA10__destinationPortFrom__c": 0,
+        "CA10__destinationPortTo__c": 65535
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    }
+  },
+  {
+    "Id": "database-range",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-range-rule",
+        "CA10__networkSecurityGroup__c": "database-range",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1-65535",
+        "CA10__destinationPortFrom__c": 1,
+        "CA10__destinationPortTo__c": 65535
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    }
+  },
+  {
+    "Id": "database-private",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-private-rule",
+        "CA10__networkSecurityGroup__c": "database-private",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "10.0.0.0/24",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1433",
+        "CA10__destinationPortFrom__c": 1433,
+        "CA10__destinationPortTo__c": 1433
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "database-ipv6",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-ipv6-rule",
+        "CA10__networkSecurityGroup__c": "database-ipv6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "::/0",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1433",
+        "CA10__destinationPortFrom__c": 1433,
+        "CA10__destinationPortTo__c": 1433
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    }
+  },
+  {
+    "Id": "database-prefix-list",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-prefix-list-rule",
+        "CA10__networkSecurityGroup__c": "database-prefix-list",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": null,
+        "CA10__sourceAddressPrefixes__c": "10.0.0.0/24\n0.0.0.0/0",
+        "CA10__destinationPortRange__c": "1433",
+        "CA10__destinationPortFrom__c": 1433,
+        "CA10__destinationPortTo__c": 1433
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    }
+  },
+  {
+    "Id": "database-deny",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-deny-rule",
+        "CA10__networkSecurityGroup__c": "database-deny",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Deny",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1433",
+        "CA10__destinationPortFrom__c": 1433,
+        "CA10__destinationPortTo__c": 1433
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "database-outbound",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-outbound-rule",
+        "CA10__networkSecurityGroup__c": "database-outbound",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Outbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1433",
+        "CA10__destinationPortFrom__c": 1433,
+        "CA10__destinationPortTo__c": 1433
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "database-unrelated",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-unrelated-rule",
+        "CA10__networkSecurityGroup__c": "database-unrelated",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "80",
+        "CA10__destinationPortFrom__c": 80,
+        "CA10__destinationPortTo__c": 80
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "database-missing-protocol",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-missing-protocol-rule",
+        "CA10__networkSecurityGroup__c": "database-missing-protocol",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": null,
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1433",
+        "CA10__destinationPortFrom__c": 1433,
+        "CA10__destinationPortTo__c": 1433
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "database-missing-source",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-missing-source-rule",
+        "CA10__networkSecurityGroup__c": "database-missing-source",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": null,
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1433",
+        "CA10__destinationPortFrom__c": 1433,
+        "CA10__destinationPortTo__c": 1433
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "database-empty",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "database-mixed",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-mixed-bad",
+        "CA10__networkSecurityGroup__c": "database-mixed",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1433",
+        "CA10__destinationPortFrom__c": 1433,
+        "CA10__destinationPortTo__c": 1433
+      },
+      {
+        "Id": "database-mixed-unknown",
+        "CA10__networkSecurityGroup__c": "database-mixed",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": null,
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1433",
+        "CA10__destinationPortFrom__c": 1433,
+        "CA10__destinationPortTo__c": 1433
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    }
+  },
+  {
+    "Id": "database-unknown-access",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-unknown-access-rule",
+        "CA10__networkSecurityGroup__c": "database-unknown-access",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Future",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1433",
+        "CA10__destinationPortFrom__c": 1433,
+        "CA10__destinationPortTo__c": 1433
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "database-unknown-direction",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-unknown-direction-rule",
+        "CA10__networkSecurityGroup__c": "database-unknown-direction",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Future",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1433",
+        "CA10__destinationPortFrom__c": 1433,
+        "CA10__destinationPortTo__c": 1433
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "database-protocol-udp",
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-protocol-udp-rule",
+        "CA10__networkSecurityGroup__c": "database-protocol-udp",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Udp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1433",
+        "CA10__destinationPortFrom__c": 1433,
+        "CA10__destinationPortTo__c": 1433
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "database-protocol-unknown",
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-protocol-unknown-rule",
+        "CA10__networkSecurityGroup__c": "database-protocol-unknown",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Unexpected",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1433",
+        "CA10__destinationPortFrom__c": 1433,
+        "CA10__destinationPortTo__c": 1433
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(UNDETERMINED)"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "database-protocol-icmp",
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-protocol-icmp-rule",
+        "CA10__networkSecurityGroup__c": "database-protocol-icmp",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Icmp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1433",
+        "CA10__destinationPortFrom__c": 1433,
+        "CA10__destinationPortTo__c": 1433
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "database-protocol-esp",
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-protocol-esp-rule",
+        "CA10__networkSecurityGroup__c": "database-protocol-esp",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Esp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1433",
+        "CA10__destinationPortFrom__c": 1433,
+        "CA10__destinationPortTo__c": 1433
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "database-protocol-ah",
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-protocol-ah-rule",
+        "CA10__networkSecurityGroup__c": "database-protocol-ah",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Ah",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1433",
+        "CA10__destinationPortFrom__c": 1433,
+        "CA10__destinationPortTo__c": 1433
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "database-protocol-violation-unknown",
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-protocol-violation-unknown-0",
+        "CA10__networkSecurityGroup__c": "database-protocol-violation-unknown",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1433",
+        "CA10__destinationPortFrom__c": 1433,
+        "CA10__destinationPortTo__c": 1433
+      },
+      {
+        "Id": "database-protocol-violation-unknown-1",
+        "CA10__networkSecurityGroup__c": "database-protocol-violation-unknown",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Unexpected",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1433",
+        "CA10__destinationPortFrom__c": 1433,
+        "CA10__destinationPortTo__c": 1433
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "database-protocol-excluded-unknown",
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "database-protocol-excluded-unknown-0",
+        "CA10__networkSecurityGroup__c": "database-protocol-excluded-unknown",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Icmp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1433",
+        "CA10__destinationPortFrom__c": 1433,
+        "CA10__destinationPortTo__c": 1433
+      },
+      {
+        "Id": "database-protocol-excluded-unknown-1",
+        "CA10__networkSecurityGroup__c": "database-protocol-excluded-unknown",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Unexpected",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1433",
+        "CA10__destinationPortFrom__c": 1433,
+        "CA10__destinationPortTo__c": 1433
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(UNDETERMINED)"
+    },
+    "CA10__disappearanceTime__c": null
+  }
+]

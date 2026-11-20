@@ -1,0 +1,11 @@
+---
+name: 6.2 Ensure that Resource Locks are set for Mission-Critical Azure Resources (Manual)
+description: Resource Manager locks restrict deletion or modification of a subscription, resource group,
+  or resource for all users, regardless of their role assignments. A CanNotDelete lock lets authorized
+  users read and modify a resource but not delete it; a ReadOnly lock lets them read it but not modify
+  or delete it, similar to the Reader role. While an automated assessment procedure exists for this recommendation,
+  the assessment status remains manual. Determining resources that require resource locks depends on the
+  context and requirements of each organization and environment.
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/06/02

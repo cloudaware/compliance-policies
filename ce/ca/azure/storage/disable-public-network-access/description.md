@@ -4,7 +4,7 @@ Disallowing public network access for a storage account overrides the public acc
 
 ## Rationale
 
-Disabling public network access improves security by ensuring that a storage account is not exposed on the public internet. If public network access is required for a storage account, it should be restricted to selected networks by setting the default network access rule to `Deny`, and the trusted Azure services exception should be enabled where those services require access.
+Disabling public network access improves security by ensuring that a storage account is not exposed on the public internet. Selected networks and trusted-service exceptions still leave public network access enabled and do not satisfy this control.
 
 The default network configuration for a storage account permits a user with appropriate permissions to configure public network access to containers and blobs in a storage account. Keep in mind that public access to a container is always turned off by default and must be explicitly configured to permit anonymous requests. It grants read-only access to these resources without sharing the account key, and without requiring a shared access signature. It is recommended not to provide public network access to storage accounts until, and unless, it is strongly desired. A shared access signature token or Azure AD RBAC should be used for providing controlled and timed access to blob containers.
 
@@ -22,12 +22,9 @@ Access will have to be managed using shared access signatures or via Azure AD RB
 
 ## Audit
 
-This policy flags an *Azure Storage Account* as `INCOMPLIANT` when `Public Network Access State` is **Enabled** and the account is not configured with both of the following compensating network controls:
+This policy marks an *Azure Storage Account* as `INCOMPLIANT` unless `Public Network Access State` is **Disabled**, for all recognized settings. An unset value uses the native **Enabled** default. **Enabled**, including selected networks with the **AzureServices** exception, and **SecuredByPerimeter** do not satisfy this control.
 
-- `Network ACLs: Default Action` is **Deny**.
-- `Network ACLs: Bypass` contains **AzureServices**.
-
-If public network access is **Enabled** and both compensating controls are present, the storage account is marked `INAPPLICABLE` for this recommendation because the related network restriction recommendations govern that selected-network configuration.
+**Disabled** is `COMPLIANT`. The separate default-network and trusted-services policies assess their own requirements.
 
 ## Default Value
 

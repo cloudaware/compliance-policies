@@ -6,3 +6,9 @@ extracts:
         path: "CA10__provisioningState__c"
         undeterminedIf:
           isEmpty: "The subnet provisioning state is unavailable."
+  - name: "CA10__name__c"
+    value:
+      FIELD:
+        path: "CA10__name__c"
+        undeterminedIf:
+          isEmpty: "The CA10__name__c value is unavailable."

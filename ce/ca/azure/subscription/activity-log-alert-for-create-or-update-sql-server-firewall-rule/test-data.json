@@ -1,257 +1,1050 @@
 [
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test1",
-        "CA10__Azure_Activity_Log_Alerts__r": []
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
     },
-    {
-        "expectedResult": {
-            "status": "COMPLIANT",
-            "conditionIndex": "199",
-            "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(COMPLIANT)",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test2",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test2_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__conditionJson__c": "{\"allOf\":[{\"field\":\"category\",\"equals\":\"Administrative\"},{\"field\":\"operationName\",\"equals\":\"Microsoft.Sql/servers/firewallRules/write\"}]}",
-                "CA10__subscription__c": "test2"        
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
-        ]
+    "context": {
+      "snapshotTime": "2024-06-14T06:19:32Z"
     },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test3",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test3_1",
-                "CA10__disappearanceTime__c": "2024-06-14T06:19:32Z",
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__conditionJson__c": "{\"allOf\":[{\"field\":\"category\",\"equals\":\"Administrative\"},{\"field\":\"operationName\",\"equals\":\"Microsoft.Sql/servers/firewallRules/write\"}]}",
-                "CA10__subscription__c": "test3"        
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
-        ]
+    "Id": "test1",
+    "CA10__Azure_Activity_Log_Alerts__r": [],
+    "CA10__subscriptionId__c": "test1"
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(COMPLIANT)"
     },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test4",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test4_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Disabled",
-                "CA10__conditionJson__c": "{\"allOf\":[{\"field\":\"category\",\"equals\":\"Administrative\"},{\"field\":\"operationName\",\"equals\":\"Microsoft.Sql/servers/firewallRules/write\"}]}",
-                "CA10__subscription__c": "test4"        
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
-        ]
+    "context": {
+      "snapshotTime": "2024-06-14T06:19:32Z"
     },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
+    "Id": "test2",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "test2_1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\":[{\"field\":\"category\",\"equals\":\"Administrative\"},{\"field\":\"operationName\",\"equals\":\"Microsoft.Sql/servers/firewallRules/write\"}]}",
+        "CA10__subscription__c": "test2",
+        "CA10__scopes__c": "/subscriptions/test2",
+        "CA10__subscription__r": {
+          "Id": "test2",
+          "CA10__subscriptionId__c": "test2"
         },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test5",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test5_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__conditionJson__c": "{\"allOf\":[{\"field\":\"category\",\"equals\":\"Administrative\"},{\"field\":\"operationName\",\"equals\":\"Microsoft.Sql/servers/firewallRules/read\"}]}",
-                "CA10__subscription__c": "test5"        
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "test2-link",
+            "CA10Z1__activityLogAlert__c": "test2_1",
+            "CA10Z1__actionGroupId__c": "/subscriptions/test2/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "test2-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "test2-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
         ]
+      }
+    ],
+    "CA10__subscriptionId__c": "test2"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
     },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test6",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test6_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__conditionJson__c": "{\"allOf\":[{\"field\":\"category\",\"equals\":\"Administrative\"},{\"field\":\"operationName\",\"equals\":\"\"}]}",
-                "CA10__subscription__c": "test6"        
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
-        ]
+    "context": {
+      "snapshotTime": "2024-06-14T06:19:32Z"
     },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
+    "Id": "test3",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "test3_1",
+        "CA10__disappearanceTime__c": "2024-06-14T06:19:32Z",
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\":[{\"field\":\"category\",\"equals\":\"Administrative\"},{\"field\":\"operationName\",\"equals\":\"Microsoft.Sql/servers/firewallRules/write\"}]}",
+        "CA10__subscription__c": "test3",
+        "CA10__scopes__c": "/subscriptions/test3",
+        "CA10__subscription__r": {
+          "Id": "test3",
+          "CA10__subscriptionId__c": "test3"
         },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test7",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test7_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__conditionJson__c": "{\"allOf\":[{}]}",
-                "CA10__subscription__c": "test7"        
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "test3-link",
+            "CA10Z1__activityLogAlert__c": "test3_1",
+            "CA10Z1__actionGroupId__c": "/subscriptions/test3/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "test3-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "test3-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
         ]
+      }
+    ],
+    "CA10__subscriptionId__c": "test3"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
     },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test8",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test8_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__conditionJson__c": "{\"allOf\":[]}",
-                "CA10__subscription__c": "test8"        
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
-        ]
+    "context": {
+      "snapshotTime": "2024-06-14T06:19:32Z"
     },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
+    "Id": "test4",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "test4_1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__enabledStatus__c": "Disabled",
+        "CA10__conditionJson__c": "{\"allOf\":[{\"field\":\"category\",\"equals\":\"Administrative\"},{\"field\":\"operationName\",\"equals\":\"Microsoft.Sql/servers/firewallRules/write\"}]}",
+        "CA10__subscription__c": "test4",
+        "CA10__scopes__c": "/subscriptions/test4",
+        "CA10__subscription__r": {
+          "Id": "test4",
+          "CA10__subscriptionId__c": "test4"
         },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test9",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test9_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__conditionJson__c": "{}",
-                "CA10__subscription__c": "test9"        
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "test4-link",
+            "CA10Z1__activityLogAlert__c": "test4_1",
+            "CA10Z1__actionGroupId__c": "/subscriptions/test4/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "test4-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "test4-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
         ]
+      }
+    ],
+    "CA10__subscriptionId__c": "test4"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
     },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test10",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test10_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__conditionJson__c": "",
-                "CA10__subscription__c": "test10"        
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
-        ]
+    "context": {
+      "snapshotTime": "2024-06-14T06:19:32Z"
     },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
+    "Id": "test5",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "test5_1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\":[{\"field\":\"category\",\"equals\":\"Administrative\"},{\"field\":\"operationName\",\"equals\":\"Microsoft.Sql/servers/firewallRules/read\"}]}",
+        "CA10__subscription__c": "test5",
+        "CA10__scopes__c": "/subscriptions/test5",
+        "CA10__subscription__r": {
+          "Id": "test5",
+          "CA10__subscriptionId__c": "test5"
         },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test11",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test11_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__conditionJson__c": null,
-                "CA10__subscription__c": "test11"       
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "test5-link",
+            "CA10Z1__activityLogAlert__c": "test5_1",
+            "CA10Z1__actionGroupId__c": "/subscriptions/test5/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "test5-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "test5-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
         ]
+      }
+    ],
+    "CA10__subscriptionId__c": "test5"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
     },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
+    "context": {
+      "snapshotTime": "2024-06-14T06:19:32Z"
+    },
+    "Id": "test6",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "test6_1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\":[{\"field\":\"category\",\"equals\":\"Administrative\"},{\"field\":\"operationName\",\"equals\":\"\"}]}",
+        "CA10__subscription__c": "test6",
+        "CA10__scopes__c": "/subscriptions/test6",
+        "CA10__subscription__r": {
+          "Id": "test6",
+          "CA10__subscriptionId__c": "test6"
         },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test12",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test12_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__conditionJson__c": "{\"anyOf\":[]}",
-                "CA10__subscription__c": "test12"        
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "test6-link",
+            "CA10Z1__activityLogAlert__c": "test6_1",
+            "CA10Z1__actionGroupId__c": "/subscriptions/test6/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "test6-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "test6-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
         ]
+      }
+    ],
+    "CA10__subscriptionId__c": "test6"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2024-06-14T06:19:32Z"
+    },
+    "Id": "test7",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "test7_1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\":[{}]}",
+        "CA10__subscription__c": "test7",
+        "CA10__scopes__c": "/subscriptions/test7",
+        "CA10__subscription__r": {
+          "Id": "test7",
+          "CA10__subscriptionId__c": "test7"
+        },
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "test7-link",
+            "CA10Z1__activityLogAlert__c": "test7_1",
+            "CA10Z1__actionGroupId__c": "/subscriptions/test7/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "test7-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "test7-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
+        ]
+      }
+    ],
+    "CA10__subscriptionId__c": "test7"
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2024-06-14T06:19:32Z"
+    },
+    "Id": "test8",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "test8_1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\":[]}",
+        "CA10__subscription__c": "test8",
+        "CA10__scopes__c": "/subscriptions/test8",
+        "CA10__subscription__r": {
+          "Id": "test8",
+          "CA10__subscriptionId__c": "test8"
+        },
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "test8-link",
+            "CA10Z1__activityLogAlert__c": "test8_1",
+            "CA10Z1__actionGroupId__c": "/subscriptions/test8/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "test8-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "test8-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
+        ]
+      }
+    ],
+    "CA10__subscriptionId__c": "test8"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    },
+    "context": {
+      "snapshotTime": "2024-06-14T06:19:32Z"
+    },
+    "Id": "test9",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "test9_1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{}",
+        "CA10__subscription__c": "test9",
+        "CA10__scopes__c": "/subscriptions/test9",
+        "CA10__subscription__r": {
+          "Id": "test9",
+          "CA10__subscriptionId__c": "test9"
+        },
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "test9-link",
+            "CA10Z1__activityLogAlert__c": "test9_1",
+            "CA10Z1__actionGroupId__c": "/subscriptions/test9/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "test9-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "test9-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
+        ]
+      }
+    ],
+    "CA10__subscriptionId__c": "test9"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    },
+    "context": {
+      "snapshotTime": "2024-06-14T06:19:32Z"
+    },
+    "Id": "test10",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "test10_1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "",
+        "CA10__subscription__c": "test10",
+        "CA10__scopes__c": "/subscriptions/test10",
+        "CA10__subscription__r": {
+          "Id": "test10",
+          "CA10__subscriptionId__c": "test10"
+        },
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "test10-link",
+            "CA10Z1__activityLogAlert__c": "test10_1",
+            "CA10Z1__actionGroupId__c": "/subscriptions/test10/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "test10-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "test10-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
+        ]
+      }
+    ],
+    "CA10__subscriptionId__c": "test10"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    },
+    "context": {
+      "snapshotTime": "2024-06-14T06:19:32Z"
+    },
+    "Id": "test11",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "test11_1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": null,
+        "CA10__subscription__c": "test11",
+        "CA10__scopes__c": "/subscriptions/test11",
+        "CA10__subscription__r": {
+          "Id": "test11",
+          "CA10__subscriptionId__c": "test11"
+        },
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "test11-link",
+            "CA10Z1__activityLogAlert__c": "test11_1",
+            "CA10Z1__actionGroupId__c": "/subscriptions/test11/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "test11-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "test11-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
+        ]
+      }
+    ],
+    "CA10__subscriptionId__c": "test11"
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    },
+    "context": {
+      "snapshotTime": "2024-06-14T06:19:32Z"
+    },
+    "Id": "test12",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "test12_1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"anyOf\":[]}",
+        "CA10__subscription__c": "test12",
+        "CA10__scopes__c": "/subscriptions/test12",
+        "CA10__subscription__r": {
+          "Id": "test12",
+          "CA10__subscriptionId__c": "test12"
+        },
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "test12-link",
+            "CA10Z1__activityLogAlert__c": "test12_1",
+            "CA10Z1__actionGroupId__c": "/subscriptions/test12/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "test12-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "test12-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
+        ]
+      }
+    ],
+    "CA10__subscriptionId__c": "test12"
+  },
+  {
+    "Id": "create-or-update-sql-server-firewall-rule-regression-valid",
+    "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-valid",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-or-update-sql-server-firewall-rule-regression-valid-alert",
+        "CA10__subscription__c": "create-or-update-sql-server-firewall-rule-regression-valid",
+        "CA10__subscription__r": {
+          "Id": "create-or-update-sql-server-firewall-rule-regression-valid",
+          "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-valid"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Sql/servers/firewallRules/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-valid",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-or-update-sql-server-firewall-rule-regression-valid-link",
+            "CA10Z1__activityLogAlert__c": "create-or-update-sql-server-firewall-rule-regression-valid-alert",
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-valid/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "create-or-update-sql-server-firewall-rule-regression-valid-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-or-update-sql-server-firewall-rule-regression-valid-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
+        ],
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(COMPLIANT)"
     }
+  },
+  {
+    "Id": "create-or-update-sql-server-firewall-rule-regression-no-group",
+    "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-no-group",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-or-update-sql-server-firewall-rule-regression-no-group-alert",
+        "CA10__subscription__c": "create-or-update-sql-server-firewall-rule-regression-no-group",
+        "CA10__subscription__r": {
+          "Id": "create-or-update-sql-server-firewall-rule-regression-no-group",
+          "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-no-group"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Sql/servers/firewallRules/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-no-group",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [],
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "create-or-update-sql-server-firewall-rule-regression-extra-filter",
+    "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-extra-filter",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-or-update-sql-server-firewall-rule-regression-extra-filter-alert",
+        "CA10__subscription__c": "create-or-update-sql-server-firewall-rule-regression-extra-filter",
+        "CA10__subscription__r": {
+          "Id": "create-or-update-sql-server-firewall-rule-regression-extra-filter",
+          "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-extra-filter"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Sql/servers/firewallRules/write\"}, {\"field\": \"resourceGroup\", \"equals\": \"narrow\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-extra-filter",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-or-update-sql-server-firewall-rule-regression-extra-filter-link",
+            "CA10Z1__activityLogAlert__c": "create-or-update-sql-server-firewall-rule-regression-extra-filter-alert",
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-extra-filter/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "create-or-update-sql-server-firewall-rule-regression-extra-filter-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-or-update-sql-server-firewall-rule-regression-extra-filter-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
+        ],
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "create-or-update-sql-server-firewall-rule-regression-wrong-fields",
+    "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-wrong-fields",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-or-update-sql-server-firewall-rule-regression-wrong-fields-alert",
+        "CA10__subscription__c": "create-or-update-sql-server-firewall-rule-regression-wrong-fields",
+        "CA10__subscription__r": {
+          "Id": "create-or-update-sql-server-firewall-rule-regression-wrong-fields",
+          "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-wrong-fields"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"resourceGroup\", \"equals\": \"Administrative\"}, {\"field\": \"resourceProvider\", \"equals\": \"Microsoft.Sql/servers/firewallRules/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-wrong-fields",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-or-update-sql-server-firewall-rule-regression-wrong-fields-link",
+            "CA10Z1__activityLogAlert__c": "create-or-update-sql-server-firewall-rule-regression-wrong-fields-alert",
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-wrong-fields/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "create-or-update-sql-server-firewall-rule-regression-wrong-fields-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-or-update-sql-server-firewall-rule-regression-wrong-fields-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
+        ],
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "create-or-update-sql-server-firewall-rule-regression-other-subscription",
+    "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-other-subscription",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-or-update-sql-server-firewall-rule-regression-other-subscription-alert",
+        "CA10__subscription__c": "create-or-update-sql-server-firewall-rule-regression-other-subscription",
+        "CA10__subscription__r": {
+          "Id": "create-or-update-sql-server-firewall-rule-regression-other-subscription",
+          "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-other-subscription"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Sql/servers/firewallRules/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/some-other-subscription",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-or-update-sql-server-firewall-rule-regression-other-subscription-link",
+            "CA10Z1__activityLogAlert__c": "create-or-update-sql-server-firewall-rule-regression-other-subscription-alert",
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-other-subscription/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "create-or-update-sql-server-firewall-rule-regression-other-subscription-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-or-update-sql-server-firewall-rule-regression-other-subscription-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
+        ],
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "create-or-update-sql-server-firewall-rule-regression-narrow-scope",
+    "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-narrow-scope",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-or-update-sql-server-firewall-rule-regression-narrow-scope-alert",
+        "CA10__subscription__c": "create-or-update-sql-server-firewall-rule-regression-narrow-scope",
+        "CA10__subscription__r": {
+          "Id": "create-or-update-sql-server-firewall-rule-regression-narrow-scope",
+          "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-narrow-scope"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Sql/servers/firewallRules/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-narrow-scope/resourceGroups/rg",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-or-update-sql-server-firewall-rule-regression-narrow-scope-link",
+            "CA10Z1__activityLogAlert__c": "create-or-update-sql-server-firewall-rule-regression-narrow-scope-alert",
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-narrow-scope/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "create-or-update-sql-server-firewall-rule-regression-narrow-scope-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-or-update-sql-server-firewall-rule-regression-narrow-scope-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
+        ],
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "create-or-update-sql-server-firewall-rule-regression-unknown-enabled",
+    "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-unknown-enabled",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-or-update-sql-server-firewall-rule-regression-unknown-enabled-alert",
+        "CA10__subscription__c": "create-or-update-sql-server-firewall-rule-regression-unknown-enabled",
+        "CA10__subscription__r": {
+          "Id": "create-or-update-sql-server-firewall-rule-regression-unknown-enabled",
+          "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-unknown-enabled"
+        },
+        "CA10__enabledStatus__c": "Unexpected",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Sql/servers/firewallRules/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-unknown-enabled",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-or-update-sql-server-firewall-rule-regression-unknown-enabled-link",
+            "CA10Z1__activityLogAlert__c": "create-or-update-sql-server-firewall-rule-regression-unknown-enabled-alert",
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-unknown-enabled/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "create-or-update-sql-server-firewall-rule-regression-unknown-enabled-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-or-update-sql-server-firewall-rule-regression-unknown-enabled-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
+        ],
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "create-or-update-sql-server-firewall-rule-regression-missing-enabled",
+    "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-missing-enabled",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-or-update-sql-server-firewall-rule-regression-missing-enabled-alert",
+        "CA10__subscription__c": "create-or-update-sql-server-firewall-rule-regression-missing-enabled",
+        "CA10__subscription__r": {
+          "Id": "create-or-update-sql-server-firewall-rule-regression-missing-enabled",
+          "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-missing-enabled"
+        },
+        "CA10__enabledStatus__c": null,
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Sql/servers/firewallRules/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-missing-enabled",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-or-update-sql-server-firewall-rule-regression-missing-enabled-link",
+            "CA10Z1__activityLogAlert__c": "create-or-update-sql-server-firewall-rule-regression-missing-enabled-alert",
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-missing-enabled/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "create-or-update-sql-server-firewall-rule-regression-missing-enabled-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-or-update-sql-server-firewall-rule-regression-missing-enabled-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
+        ],
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "create-or-update-sql-server-firewall-rule-regression-unresolved-group",
+    "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-unresolved-group",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-or-update-sql-server-firewall-rule-regression-unresolved-group-alert",
+        "CA10__subscription__c": "create-or-update-sql-server-firewall-rule-regression-unresolved-group",
+        "CA10__subscription__r": {
+          "Id": "create-or-update-sql-server-firewall-rule-regression-unresolved-group",
+          "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-unresolved-group"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Sql/servers/firewallRules/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-unresolved-group",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-or-update-sql-server-firewall-rule-regression-unresolved-group-link",
+            "CA10Z1__activityLogAlert__c": "create-or-update-sql-server-firewall-rule-regression-unresolved-group-alert",
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-unresolved-group/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": null,
+            "CA10Z1__actionGroup__r": {
+              "Id": null,
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
+        ],
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "create-or-update-sql-server-firewall-rule-regression-disappeared-group",
+    "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-disappeared-group",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-or-update-sql-server-firewall-rule-regression-disappeared-group-alert",
+        "CA10__subscription__c": "create-or-update-sql-server-firewall-rule-regression-disappeared-group",
+        "CA10__subscription__r": {
+          "Id": "create-or-update-sql-server-firewall-rule-regression-disappeared-group",
+          "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-disappeared-group"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Sql/servers/firewallRules/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-disappeared-group",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-or-update-sql-server-firewall-rule-regression-disappeared-group-link",
+            "CA10Z1__activityLogAlert__c": "create-or-update-sql-server-firewall-rule-regression-disappeared-group-alert",
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-disappeared-group/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "create-or-update-sql-server-firewall-rule-regression-disappeared-group-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-or-update-sql-server-firewall-rule-regression-disappeared-group-group",
+              "CA10Z1__disappearanceTime__c": "2026-10-01T00:00:00Z"
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
+        ],
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "create-or-update-sql-server-firewall-rule-regression-disappeared-link",
+    "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-disappeared-link",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-or-update-sql-server-firewall-rule-regression-disappeared-link-alert",
+        "CA10__subscription__c": "create-or-update-sql-server-firewall-rule-regression-disappeared-link",
+        "CA10__subscription__r": {
+          "Id": "create-or-update-sql-server-firewall-rule-regression-disappeared-link",
+          "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-disappeared-link"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Sql/servers/firewallRules/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-disappeared-link",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-or-update-sql-server-firewall-rule-regression-disappeared-link-link",
+            "CA10Z1__activityLogAlert__c": "create-or-update-sql-server-firewall-rule-regression-disappeared-link-alert",
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-disappeared-link/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "create-or-update-sql-server-firewall-rule-regression-disappeared-link-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-or-update-sql-server-firewall-rule-regression-disappeared-link-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": "2026-10-01T00:00:00Z"
+          }
+        ],
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "create-or-update-sql-server-firewall-rule-regression-malformed-json",
+    "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-malformed-json",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-or-update-sql-server-firewall-rule-regression-malformed-json-alert",
+        "CA10__subscription__c": "create-or-update-sql-server-firewall-rule-regression-malformed-json",
+        "CA10__subscription__r": {
+          "Id": "create-or-update-sql-server-firewall-rule-regression-malformed-json",
+          "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-malformed-json"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{",
+        "CA10__scopes__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-malformed-json",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-or-update-sql-server-firewall-rule-regression-malformed-json-link",
+            "CA10Z1__activityLogAlert__c": "create-or-update-sql-server-firewall-rule-regression-malformed-json-alert",
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-malformed-json/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "create-or-update-sql-server-firewall-rule-regression-malformed-json-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-or-update-sql-server-firewall-rule-regression-malformed-json-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
+        ],
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "create-or-update-sql-server-firewall-rule-regression-valid-plus-unknown",
+    "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-valid-plus-unknown",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-or-update-sql-server-firewall-rule-regression-valid-plus-unknown-alert",
+        "CA10__subscription__c": "create-or-update-sql-server-firewall-rule-regression-valid-plus-unknown",
+        "CA10__subscription__r": {
+          "Id": "create-or-update-sql-server-firewall-rule-regression-valid-plus-unknown",
+          "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-valid-plus-unknown"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Sql/servers/firewallRules/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-valid-plus-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-or-update-sql-server-firewall-rule-regression-valid-plus-unknown-link",
+            "CA10Z1__activityLogAlert__c": "create-or-update-sql-server-firewall-rule-regression-valid-plus-unknown-alert",
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-valid-plus-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "create-or-update-sql-server-firewall-rule-regression-valid-plus-unknown-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-or-update-sql-server-firewall-rule-regression-valid-plus-unknown-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
+        ],
+        "CA10__disappearanceTime__c": null
+      },
+      {
+        "Id": "create-or-update-sql-server-firewall-rule-regression-valid-plus-unknown-alert-unknown",
+        "CA10__subscription__c": "create-or-update-sql-server-firewall-rule-regression-valid-plus-unknown",
+        "CA10__subscription__r": {
+          "Id": "create-or-update-sql-server-firewall-rule-regression-valid-plus-unknown",
+          "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-valid-plus-unknown"
+        },
+        "CA10__enabledStatus__c": null,
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Sql/servers/firewallRules/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-valid-plus-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [],
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(COMPLIANT)"
+    }
+  },
+  {
+    "Id": "create-or-update-sql-server-firewall-rule-regression-only-disappeared",
+    "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-only-disappeared",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-or-update-sql-server-firewall-rule-regression-only-disappeared-alert",
+        "CA10__subscription__c": "create-or-update-sql-server-firewall-rule-regression-only-disappeared",
+        "CA10__subscription__r": {
+          "Id": "create-or-update-sql-server-firewall-rule-regression-only-disappeared",
+          "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-only-disappeared"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Sql/servers/firewallRules/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-only-disappeared",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-or-update-sql-server-firewall-rule-regression-only-disappeared-link",
+            "CA10Z1__activityLogAlert__c": "create-or-update-sql-server-firewall-rule-regression-only-disappeared-alert",
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-only-disappeared/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "create-or-update-sql-server-firewall-rule-regression-only-disappeared-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-or-update-sql-server-firewall-rule-regression-only-disappeared-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
+        ],
+        "CA10__disappearanceTime__c": "2026-10-01T00:00:00Z"
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "create-or-update-sql-server-firewall-rule-regression-multiple-scopes",
+    "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-multiple-scopes",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-or-update-sql-server-firewall-rule-regression-multiple-scopes-alert",
+        "CA10__subscription__c": "create-or-update-sql-server-firewall-rule-regression-multiple-scopes",
+        "CA10__subscription__r": {
+          "Id": "create-or-update-sql-server-firewall-rule-regression-multiple-scopes",
+          "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-multiple-scopes"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Sql/servers/firewallRules/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-multiple-scopes\n/subscriptions/another-subscription",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-or-update-sql-server-firewall-rule-regression-multiple-scopes-link",
+            "CA10Z1__activityLogAlert__c": "create-or-update-sql-server-firewall-rule-regression-multiple-scopes-alert",
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-multiple-scopes/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/group",
+            "CA10Z1__actionGroup__c": "create-or-update-sql-server-firewall-rule-regression-multiple-scopes-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-or-update-sql-server-firewall-rule-regression-multiple-scopes-group",
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__disappearanceTime__c": null
+          }
+        ],
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "create-or-update-sql-server-firewall-rule-regression-invalid-plus-unknown",
+    "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-invalid-plus-unknown",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-or-update-sql-server-firewall-rule-regression-invalid-plus-unknown-alert",
+        "CA10__subscription__c": "create-or-update-sql-server-firewall-rule-regression-invalid-plus-unknown",
+        "CA10__subscription__r": {
+          "Id": "create-or-update-sql-server-firewall-rule-regression-invalid-plus-unknown",
+          "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-invalid-plus-unknown"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Sql/servers/firewallRules/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-invalid-plus-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [],
+        "CA10__disappearanceTime__c": null
+      },
+      {
+        "Id": "create-or-update-sql-server-firewall-rule-regression-invalid-plus-unknown-alert-unknown",
+        "CA10__subscription__c": "create-or-update-sql-server-firewall-rule-regression-invalid-plus-unknown",
+        "CA10__subscription__r": {
+          "Id": "create-or-update-sql-server-firewall-rule-regression-invalid-plus-unknown",
+          "CA10__subscriptionId__c": "create-or-update-sql-server-firewall-rule-regression-invalid-plus-unknown"
+        },
+        "CA10__enabledStatus__c": null,
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Sql/servers/firewallRules/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-or-update-sql-server-firewall-rule-regression-invalid-plus-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [],
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  }
 ]

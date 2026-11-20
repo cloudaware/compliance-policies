@@ -1,0 +1,11 @@
+---
+names:
+  full: Azure Key Vault default network access is not restricted
+  contextual: Key Vault default network access is not restricted
+description: Ensure the Default Network Access Rule for Key Vaults is Set to Deny.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-security/network-exposure
+  - /frameworks/cis-azure-v7.0.0/08/03/10

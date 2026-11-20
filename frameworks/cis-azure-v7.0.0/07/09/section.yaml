@@ -1,0 +1,13 @@
+---
+name: 7.9 Ensure Azure Network Security Perimeter is Used to Secure Azure Platform-as-a-service Resources
+  (Manual)
+description: 'A network security perimeter association places a PaaS resource in one of three access modes:
+  Transition (API value Learning), which falls back to the resource''s firewall when no perimeter rule
+  matches; Audit, which logs access decisions; or Enforced, which applies only perimeter rules. The Access
+  mode setting selects among them. Note: Although this recommendation can be audited by command, it is
+  Manual because which resources belong in which perimeter and profile depends on each organization. Prerequisites:
+  Enable the perimeter''s diagnostic logs, review them in Transition mode, and add access rules for every
+  legitimate caller before setting Enforced, or that traffic is denied.'
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/07/16

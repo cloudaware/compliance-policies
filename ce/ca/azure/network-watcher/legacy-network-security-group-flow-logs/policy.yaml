@@ -1,0 +1,16 @@
+---
+names:
+  full: Azure Legacy NSG Flow Logs are not sent to Log Analytics
+  contextual: Legacy NSG Flow Logs are not sent to Log Analytics
+description: Review every existing NSG flow log still in use for enabled logging and traffic analytics
+  to a central workspace; review migration exclusions and use the virtual network assessment when no legacy
+  logs remain.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+- SECURITY
+- RELIABILITY
+- PERFORMANCE
+frameworkMappings:
+- /frameworks/cis-azure-v7.0.0/06/01/01/05
+- /frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration

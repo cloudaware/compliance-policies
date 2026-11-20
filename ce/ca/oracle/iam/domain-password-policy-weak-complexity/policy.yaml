@@ -3,16 +3,15 @@ names:
   full: "Oracle IAM Domain Password Policy has weak complexity requirements"
   contextual: "Domain Password Policy has weak complexity requirements"
 description: >
-  Oracle IAM password policies assigned to groups should require passwords to be
-  at least 14 characters long and require at least one numeric character and at
-  least one special character. Strong password policy baselines reduce exposure
+  Oracle IAM password policies should require at least 14 characters and at least
+  one numeric or special character. Strong password requirements reduce exposure
   to weak local IAM passwords.
-type: "COMPLIANCE_POLICY"
+type: COMPLIANCE_POLICY
 categories:
-  - "SECURITY"
+  - SECURITY
 frameworkMappings:
-  - "/frameworks/cis-oracle-v3.1.0/01/04"
-  - "/frameworks/cloudaware/identity-and-access-governance/credential-lifecycle-management"
+  - /frameworks/cis-oracle-v3.1.1/01/04
+  - /frameworks/cloudaware/identity-and-access-governance/credential-lifecycle-management
 similarPolicies:
   internal:
-    - "dec-x-2e229fb4"
+    - dec-x-2e229fb4

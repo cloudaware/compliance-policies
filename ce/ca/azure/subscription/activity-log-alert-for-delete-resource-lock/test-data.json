@@ -1,0 +1,467 @@
+[
+  {
+    "Id": "delete-resource-lock-good",
+    "CA10__subscriptionId__c": "delete-resource-lock-good",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-resource-lock-good-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-resource-lock-good",
+        "CA10__subscription__r": {
+          "Id": "delete-resource-lock-good",
+          "CA10__subscriptionId__c": "delete-resource-lock-good"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/locks/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-resource-lock-good",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-resource-lock-good-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-resource-lock-good-alert",
+            "CA10Z1__actionGroup__c": "delete-resource-lock-good-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-resource-lock-good-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-resource-lock-good/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-resource-lock-good-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-resource-lock-good/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-resource-lock-good-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(COMPLIANT)"
+    }
+  },
+  {
+    "Id": "delete-resource-lock-disabled",
+    "CA10__subscriptionId__c": "delete-resource-lock-disabled",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-resource-lock-disabled-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-resource-lock-disabled",
+        "CA10__subscription__r": {
+          "Id": "delete-resource-lock-disabled",
+          "CA10__subscriptionId__c": "delete-resource-lock-disabled"
+        },
+        "CA10__enabledStatus__c": "Disabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/locks/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-resource-lock-disabled",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-resource-lock-disabled-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-resource-lock-disabled-alert",
+            "CA10Z1__actionGroup__c": "delete-resource-lock-disabled-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-resource-lock-disabled-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-resource-lock-disabled/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-resource-lock-disabled-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-resource-lock-disabled/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-resource-lock-disabled-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "delete-resource-lock-wrong-operation",
+    "CA10__subscriptionId__c": "delete-resource-lock-wrong-operation",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-resource-lock-wrong-operation-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-resource-lock-wrong-operation",
+        "CA10__subscription__r": {
+          "Id": "delete-resource-lock-wrong-operation",
+          "CA10__subscriptionId__c": "delete-resource-lock-wrong-operation"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Resources/subscriptions/resourceGroups/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-resource-lock-wrong-operation",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-resource-lock-wrong-operation-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-resource-lock-wrong-operation-alert",
+            "CA10Z1__actionGroup__c": "delete-resource-lock-wrong-operation-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-resource-lock-wrong-operation-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-resource-lock-wrong-operation/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-resource-lock-wrong-operation-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-resource-lock-wrong-operation/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-resource-lock-wrong-operation-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "delete-resource-lock-extra-filter",
+    "CA10__subscriptionId__c": "delete-resource-lock-extra-filter",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-resource-lock-extra-filter-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-resource-lock-extra-filter",
+        "CA10__subscription__r": {
+          "Id": "delete-resource-lock-extra-filter",
+          "CA10__subscriptionId__c": "delete-resource-lock-extra-filter"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/locks/delete\"}, {\"field\": \"status\", \"equals\": \"Succeeded\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-resource-lock-extra-filter",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-resource-lock-extra-filter-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-resource-lock-extra-filter-alert",
+            "CA10Z1__actionGroup__c": "delete-resource-lock-extra-filter-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-resource-lock-extra-filter-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-resource-lock-extra-filter/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-resource-lock-extra-filter-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-resource-lock-extra-filter/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-resource-lock-extra-filter-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "delete-resource-lock-no-group",
+    "CA10__subscriptionId__c": "delete-resource-lock-no-group",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-resource-lock-no-group-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-resource-lock-no-group",
+        "CA10__subscription__r": {
+          "Id": "delete-resource-lock-no-group",
+          "CA10__subscriptionId__c": "delete-resource-lock-no-group"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/locks/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-resource-lock-no-group",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": []
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "delete-resource-lock-broken-group",
+    "CA10__subscriptionId__c": "delete-resource-lock-broken-group",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-resource-lock-broken-group-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-resource-lock-broken-group",
+        "CA10__subscription__r": {
+          "Id": "delete-resource-lock-broken-group",
+          "CA10__subscriptionId__c": "delete-resource-lock-broken-group"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/locks/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-resource-lock-broken-group",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-resource-lock-broken-group-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-resource-lock-broken-group-alert",
+            "CA10Z1__actionGroup__c": null,
+            "CA10Z1__actionGroup__r": {
+              "Id": null,
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-resource-lock-broken-group/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-resource-lock-broken-group-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "delete-resource-lock-unknown-state",
+    "CA10__subscriptionId__c": "delete-resource-lock-unknown-state",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-resource-lock-unknown-state-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-resource-lock-unknown-state",
+        "CA10__subscription__r": {
+          "Id": "delete-resource-lock-unknown-state",
+          "CA10__subscriptionId__c": "delete-resource-lock-unknown-state"
+        },
+        "CA10__enabledStatus__c": "Future",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/locks/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-resource-lock-unknown-state",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-resource-lock-unknown-state-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-resource-lock-unknown-state-alert",
+            "CA10Z1__actionGroup__c": "delete-resource-lock-unknown-state-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-resource-lock-unknown-state-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-resource-lock-unknown-state/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-resource-lock-unknown-state-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-resource-lock-unknown-state/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-resource-lock-unknown-state-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "delete-resource-lock-none",
+    "CA10__subscriptionId__c": "delete-resource-lock-none",
+    "CA10__Azure_Activity_Log_Alerts__r": [],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "delete-resource-lock-mixed-good-unknown",
+    "CA10__subscriptionId__c": "delete-resource-lock-mixed-good-unknown",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-resource-lock-mixed-good-unknown-good-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-resource-lock-mixed-good-unknown",
+        "CA10__subscription__r": {
+          "Id": "delete-resource-lock-mixed-good-unknown",
+          "CA10__subscriptionId__c": "delete-resource-lock-mixed-good-unknown"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/locks/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-resource-lock-mixed-good-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-resource-lock-mixed-good-unknown-good-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-resource-lock-mixed-good-unknown-good-alert",
+            "CA10Z1__actionGroup__c": "delete-resource-lock-mixed-good-unknown-good-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-resource-lock-mixed-good-unknown-good-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-resource-lock-mixed-good-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-resource-lock-mixed-good-unknown-good-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-resource-lock-mixed-good-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-resource-lock-mixed-good-unknown-good-link"
+          }
+        ]
+      },
+      {
+        "Id": "delete-resource-lock-mixed-good-unknown-broken-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-resource-lock-mixed-good-unknown",
+        "CA10__subscription__r": {
+          "Id": "delete-resource-lock-mixed-good-unknown",
+          "CA10__subscriptionId__c": "delete-resource-lock-mixed-good-unknown"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/locks/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-resource-lock-mixed-good-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-resource-lock-mixed-good-unknown-broken-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-resource-lock-mixed-good-unknown-broken-alert",
+            "CA10Z1__actionGroup__c": null,
+            "CA10Z1__actionGroup__r": {
+              "Id": null,
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-resource-lock-mixed-good-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-resource-lock-mixed-good-unknown-broken-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(COMPLIANT)"
+    }
+  },
+  {
+    "Id": "delete-resource-lock-mixed-bad-unknown",
+    "CA10__subscriptionId__c": "delete-resource-lock-mixed-bad-unknown",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-resource-lock-mixed-bad-unknown-disabled-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-resource-lock-mixed-bad-unknown",
+        "CA10__subscription__r": {
+          "Id": "delete-resource-lock-mixed-bad-unknown",
+          "CA10__subscriptionId__c": "delete-resource-lock-mixed-bad-unknown"
+        },
+        "CA10__enabledStatus__c": "Disabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/locks/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-resource-lock-mixed-bad-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-resource-lock-mixed-bad-unknown-disabled-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-resource-lock-mixed-bad-unknown-disabled-alert",
+            "CA10Z1__actionGroup__c": "delete-resource-lock-mixed-bad-unknown-disabled-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-resource-lock-mixed-bad-unknown-disabled-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-resource-lock-mixed-bad-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-resource-lock-mixed-bad-unknown-disabled-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-resource-lock-mixed-bad-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-resource-lock-mixed-bad-unknown-disabled-link"
+          }
+        ]
+      },
+      {
+        "Id": "delete-resource-lock-mixed-bad-unknown-broken-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-resource-lock-mixed-bad-unknown",
+        "CA10__subscription__r": {
+          "Id": "delete-resource-lock-mixed-bad-unknown",
+          "CA10__subscriptionId__c": "delete-resource-lock-mixed-bad-unknown"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/locks/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-resource-lock-mixed-bad-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-resource-lock-mixed-bad-unknown-broken-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-resource-lock-mixed-bad-unknown-broken-alert",
+            "CA10Z1__actionGroup__c": null,
+            "CA10Z1__actionGroup__r": {
+              "Id": null,
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-resource-lock-mixed-bad-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-resource-lock-mixed-bad-unknown-broken-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "delete-resource-lock-deleted-alert",
+    "CA10__subscriptionId__c": "delete-resource-lock-deleted-alert",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-resource-lock-deleted-alert-deleted-alert",
+        "CA10__disappearanceTime__c": "2026-01-01T00:00:00Z",
+        "CA10__subscription__c": "delete-resource-lock-deleted-alert",
+        "CA10__subscription__r": {
+          "Id": "delete-resource-lock-deleted-alert",
+          "CA10__subscriptionId__c": "delete-resource-lock-deleted-alert"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/locks/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-resource-lock-deleted-alert",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-resource-lock-deleted-alert-deleted-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-resource-lock-deleted-alert-deleted-alert",
+            "CA10Z1__actionGroup__c": "delete-resource-lock-deleted-alert-deleted-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-resource-lock-deleted-alert-deleted-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-resource-lock-deleted-alert/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-resource-lock-deleted-alert-deleted-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-resource-lock-deleted-alert/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-resource-lock-deleted-alert-deleted-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "delete-resource-lock-narrow",
+    "CA10__subscriptionId__c": "delete-resource-lock-narrow",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-resource-lock-narrow-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-resource-lock-narrow",
+        "CA10__subscription__r": {
+          "Id": "delete-resource-lock-narrow",
+          "CA10__subscriptionId__c": "delete-resource-lock-narrow"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/locks/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-resource-lock-narrow/resourceGroups/limited",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-resource-lock-narrow-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-resource-lock-narrow-alert",
+            "CA10Z1__actionGroup__c": "delete-resource-lock-narrow-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-resource-lock-narrow-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-resource-lock-narrow/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-resource-lock-narrow-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-resource-lock-narrow/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-resource-lock-narrow-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  }
+]

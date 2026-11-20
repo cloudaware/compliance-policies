@@ -13,7 +13,9 @@ Minor administrative effort is required to ensure subnets are associated with ne
 
 ## Audit
 
-This policy flags an *Azure Network Subnet* as `INCOMPLIANT` if it has no associated `Network Security Group`.
+This policy marks an *Azure Network Subnet* as `INCOMPLIANT` if it has no associated `Network Security Group`, except for `GatewaySubnet`, `AzureFirewallSubnet`, `RouteServerSubnet`, and `AzureFirewallManagementSubnet`, which are `INAPPLICABLE` platform subnets.
+
+An associated NSG is `COMPLIANT`.
 
 ## Default Value
 

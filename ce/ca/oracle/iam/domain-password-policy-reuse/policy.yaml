@@ -1,0 +1,11 @@
+---
+names:
+  full: Oracle IAM Domain Password Policy does not remember 24 passwords
+  contextual: Domain Password Policy does not remember 24 passwords
+description: Set Previous passwords remembered to at least 24.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-oracle-v3.1.1/01/06
+  - /frameworks/cloudaware/identity-and-access-governance/credential-lifecycle-management

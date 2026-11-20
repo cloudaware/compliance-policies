@@ -2,9 +2,9 @@
   {
     "expectedResult": {
       "status": "DISAPPEARED",
-      "conditionIndex": "99",
-      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
-      "runtimeError": null
+      "runtimeError": null,
+      "conditionIndex": 99,
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)"
     },
     "context": {
       "snapshotTime": "2026-04-27T00:00:00Z"
@@ -19,14 +19,15 @@
     "RecordType": {
       "DeveloperName": "caAzureRMStorageAccount",
       "Id": "RecordTypeId"
-    }
+    },
+    "CA10__kind__c": "StorageV2"
   },
   {
     "expectedResult": {
       "status": "INCOMPLIANT",
-      "conditionIndex": "199",
-      "conditionText": "extract('CA10__blobRetentionPolicyState__c') == 'Disabled' || extract('CA10__blobRetentionPolicyState__c').isEmpty() || extract('CA10__blobRetentionPolicyDays__c').isEmpty()",
-      "runtimeError": null
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__blobRetentionPolicyState__c') == 'Disabled' || extract('CA10__blobRetentionPolicyState__c').isEmpty()"
     },
     "context": {
       "snapshotTime": "2026-04-27T00:00:00Z"
@@ -41,14 +42,15 @@
     "RecordType": {
       "DeveloperName": "caAzureRMStorageAccount",
       "Id": "RecordTypeId"
-    }
+    },
+    "CA10__kind__c": "StorageV2"
   },
   {
     "expectedResult": {
       "status": "INCOMPLIANT",
-      "conditionIndex": "199",
-      "conditionText": "extract('CA10__blobRetentionPolicyState__c') == 'Disabled' || extract('CA10__blobRetentionPolicyState__c').isEmpty() || extract('CA10__blobRetentionPolicyDays__c').isEmpty()",
-      "runtimeError": null
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10__blobRetentionPolicyState__c') == 'Disabled' || extract('CA10__blobRetentionPolicyState__c').isEmpty()"
     },
     "context": {
       "snapshotTime": "2026-04-27T00:00:00Z"
@@ -63,14 +65,15 @@
     "RecordType": {
       "DeveloperName": "caAzureRMStorageAccount",
       "Id": "RecordTypeId"
-    }
+    },
+    "CA10__kind__c": "StorageV2"
   },
   {
     "expectedResult": {
       "status": "COMPLIANT",
-      "conditionIndex": "200",
-      "conditionText": "otherwise",
-      "runtimeError": null
+      "runtimeError": null,
+      "conditionIndex": 600,
+      "conditionText": "otherwise"
     },
     "context": {
       "snapshotTime": "2026-04-27T00:00:00Z"
@@ -85,6 +88,187 @@
     "RecordType": {
       "DeveloperName": "caAzureRMStorageAccount",
       "Id": "RecordTypeId"
+    },
+    "CA10__kind__c": "StorageV2"
+  },
+  {
+    "Id": "blob-one",
+    "CA10__kind__c": "StorageV2",
+    "CA10__blobRetentionPolicyState__c": "Enabled",
+    "CA10__blobRetentionPolicyDays__c": 1,
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 599,
+      "conditionText": "extract('CA10__blobRetentionPolicyDays__c').isEmpty() || extract('CA10__blobRetentionPolicyDays__c') < number(7.0)"
+    },
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "RecordTypeId",
+    "RecordType": {
+      "Id": "RecordTypeId",
+      "DeveloperName": "caAzureRMStorageAccount"
+    }
+  },
+  {
+    "Id": "blob-six",
+    "CA10__kind__c": "StorageV2",
+    "CA10__blobRetentionPolicyState__c": "Enabled",
+    "CA10__blobRetentionPolicyDays__c": 6,
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 599,
+      "conditionText": "extract('CA10__blobRetentionPolicyDays__c').isEmpty() || extract('CA10__blobRetentionPolicyDays__c') < number(7.0)"
+    },
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "RecordTypeId",
+    "RecordType": {
+      "Id": "RecordTypeId",
+      "DeveloperName": "caAzureRMStorageAccount"
+    }
+  },
+  {
+    "Id": "blob-seven",
+    "CA10__kind__c": "StorageV2",
+    "CA10__blobRetentionPolicyState__c": "Enabled",
+    "CA10__blobRetentionPolicyDays__c": 7,
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 600,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "RecordTypeId",
+    "RecordType": {
+      "Id": "RecordTypeId",
+      "DeveloperName": "caAzureRMStorageAccount"
+    }
+  },
+  {
+    "Id": "blob-365",
+    "CA10__kind__c": "BlockBlobStorage",
+    "CA10__blobRetentionPolicyState__c": "Enabled",
+    "CA10__blobRetentionPolicyDays__c": 365,
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 600,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "RecordTypeId",
+    "RecordType": {
+      "Id": "RecordTypeId",
+      "DeveloperName": "caAzureRMStorageAccount"
+    }
+  },
+  {
+    "Id": "blob-files",
+    "CA10__kind__c": "FileStorage",
+    "CA10__blobRetentionPolicyState__c": null,
+    "CA10__blobRetentionPolicyDays__c": null,
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "extract('CA10__kind__c') == 'FileStorage'"
+    },
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "RecordTypeId",
+    "RecordType": {
+      "Id": "RecordTypeId",
+      "DeveloperName": "caAzureRMStorageAccount"
+    }
+  },
+  {
+    "Id": "blob-unknown-kind",
+    "CA10__kind__c": "Other",
+    "CA10__blobRetentionPolicyState__c": "Enabled",
+    "CA10__blobRetentionPolicyDays__c": 7,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "not(setOfText(['Storage', 'StorageV2', 'BlobStorage', 'BlockBlobStorage']).contains(extract('CA10__kind__c')))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "RecordTypeId",
+    "RecordType": {
+      "Id": "RecordTypeId",
+      "DeveloperName": "caAzureRMStorageAccount"
+    }
+  },
+  {
+    "Id": "blob-missing-kind",
+    "CA10__kind__c": null,
+    "CA10__blobRetentionPolicyState__c": "Enabled",
+    "CA10__blobRetentionPolicyDays__c": 7,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 101,
+      "conditionText": "CA10__kind__c.isEmpty()"
+    },
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "RecordTypeId",
+    "RecordType": {
+      "Id": "RecordTypeId",
+      "DeveloperName": "caAzureRMStorageAccount"
+    }
+  },
+  {
+    "Id": "blob-unknown-state",
+    "CA10__kind__c": "StorageV2",
+    "CA10__blobRetentionPolicyState__c": "Other",
+    "CA10__blobRetentionPolicyDays__c": 7,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "not(extract('CA10__blobRetentionPolicyState__c') == 'Enabled')"
+    },
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "RecordTypeId",
+    "RecordType": {
+      "Id": "RecordTypeId",
+      "DeveloperName": "caAzureRMStorageAccount"
+    }
+  },
+  {
+    "Id": "blob-enabled-no-days",
+    "CA10__kind__c": "BlobStorage",
+    "CA10__blobRetentionPolicyState__c": "Enabled",
+    "CA10__blobRetentionPolicyDays__c": null,
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 599,
+      "conditionText": "extract('CA10__blobRetentionPolicyDays__c').isEmpty() || extract('CA10__blobRetentionPolicyDays__c') < number(7.0)"
+    },
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "RecordTypeId",
+    "RecordType": {
+      "Id": "RecordTypeId",
+      "DeveloperName": "caAzureRMStorageAccount"
+    }
+  },
+  {
+    "Id": "blob-zero",
+    "CA10__kind__c": "Storage",
+    "CA10__blobRetentionPolicyState__c": "Enabled",
+    "CA10__blobRetentionPolicyDays__c": 0,
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 599,
+      "conditionText": "extract('CA10__blobRetentionPolicyDays__c').isEmpty() || extract('CA10__blobRetentionPolicyDays__c') < number(7.0)"
+    },
+    "CA10__disappearanceTime__c": null,
+    "RecordTypeId": "RecordTypeId",
+    "RecordType": {
+      "Id": "RecordTypeId",
+      "DeveloperName": "caAzureRMStorageAccount"
     }
   }
 ]

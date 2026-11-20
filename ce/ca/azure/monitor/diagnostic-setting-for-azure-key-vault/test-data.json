@@ -2,12 +2,9 @@
   {
     "expectedResult": {
       "status": "COMPLIANT",
-      "conditionIndex": "199",
-      "conditionText": "CA10__resource__r.CA10__Azure_Diagnostic_Settings__r.has(COMPLIANT)",
-      "runtimeError": null
-    },
-    "context": {
-      "snapshotTime": "2026-04-27T00:00:00Z"
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__resource__r.CA10__Azure_Diagnostic_Settings__r.has(COMPLIANT)"
     },
     "Id": "kv-001",
     "CA10__disappearanceTime__c": null,
@@ -35,12 +32,9 @@
   {
     "expectedResult": {
       "status": "COMPLIANT",
-      "conditionIndex": "199",
-      "conditionText": "CA10__resource__r.CA10__Azure_Diagnostic_Settings__r.has(COMPLIANT)",
-      "runtimeError": null
-    },
-    "context": {
-      "snapshotTime": "2026-04-27T00:00:00Z"
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__resource__r.CA10__Azure_Diagnostic_Settings__r.has(COMPLIANT)"
     },
     "Id": "kv-002",
     "CA10__disappearanceTime__c": null,
@@ -67,13 +61,10 @@
   },
   {
     "expectedResult": {
-      "status": "INCOMPLIANT",
-      "conditionIndex": "200",
-      "conditionText": "otherwise",
-      "runtimeError": null
-    },
-    "context": {
-      "snapshotTime": "2026-04-27T00:00:00Z"
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__resource__r.CA10__Azure_Diagnostic_Settings__r.has(COMPLIANT)"
     },
     "Id": "kv-003",
     "CA10__disappearanceTime__c": null,
@@ -101,12 +92,9 @@
   {
     "expectedResult": {
       "status": "INCOMPLIANT",
-      "conditionIndex": "200",
-      "conditionText": "otherwise",
-      "runtimeError": null
-    },
-    "context": {
-      "snapshotTime": "2026-04-27T00:00:00Z"
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
     },
     "Id": "kv-004",
     "CA10__disappearanceTime__c": null,
@@ -134,12 +122,9 @@
   {
     "expectedResult": {
       "status": "INCOMPLIANT",
-      "conditionIndex": "200",
-      "conditionText": "otherwise",
-      "runtimeError": null
-    },
-    "context": {
-      "snapshotTime": "2026-04-27T00:00:00Z"
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
     },
     "Id": "kv-005",
     "CA10__disappearanceTime__c": null,
@@ -147,6 +132,66 @@
     "CA10__resource__r": {
       "Id": "resource-005",
       "CA10__Azure_Diagnostic_Settings__r": []
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__resource__r.CA10__Azure_Diagnostic_Settings__r.has(COMPLIANT)"
+    },
+    "Id": "kv-single-group-0",
+    "CA10__disappearanceTime__c": null,
+    "CA10__resource__c": "kv-single-group-0-resource",
+    "CA10__resource__r": {
+      "Id": "kv-single-group-0-resource",
+      "CA10__Azure_Diagnostic_Settings__r": [
+        {
+          "Id": "kv-single-group-0-diagnostic",
+          "RecordTypeId": "rt-resource",
+          "CA10__disappearanceTime__c": null,
+          "CA10__monitoredResource__c": "kv-single-group-0-resource",
+          "CA10__logsJson__c": "[{\"categoryGroup\": \"audit\", \"enabled\": true}]",
+          "CA10__workspaceId__c": "/subscriptions/sub-001/resourceGroups/rg/providers/Microsoft.OperationalInsights/workspaces/workspace",
+          "CA10__storageAccountId__c": "",
+          "CA10__eventHubAuthorizationRuleId__c": "",
+          "RecordType": {
+            "DeveloperName": "caDiagnosticSettingOnAzureResource",
+            "Id": "rt-resource"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__resource__r.CA10__Azure_Diagnostic_Settings__r.has(COMPLIANT)"
+    },
+    "Id": "kv-single-group-1",
+    "CA10__disappearanceTime__c": null,
+    "CA10__resource__c": "kv-single-group-1-resource",
+    "CA10__resource__r": {
+      "Id": "kv-single-group-1-resource",
+      "CA10__Azure_Diagnostic_Settings__r": [
+        {
+          "Id": "kv-single-group-1-diagnostic",
+          "RecordTypeId": "rt-resource",
+          "CA10__disappearanceTime__c": null,
+          "CA10__monitoredResource__c": "kv-single-group-1-resource",
+          "CA10__logsJson__c": "[{\"categoryGroup\": \"allLogs\", \"enabled\": true}]",
+          "CA10__workspaceId__c": "/subscriptions/sub-001/resourceGroups/rg/providers/Microsoft.OperationalInsights/workspaces/workspace",
+          "CA10__storageAccountId__c": "",
+          "CA10__eventHubAuthorizationRuleId__c": "",
+          "RecordType": {
+            "DeveloperName": "caDiagnosticSettingOnAzureResource",
+            "Id": "rt-resource"
+          }
+        }
+      ]
     }
   }
 ]

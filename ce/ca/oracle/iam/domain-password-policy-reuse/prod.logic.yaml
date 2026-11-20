@@ -1,0 +1,25 @@
+---
+inputType: CA10O1__CaOracleIamDomainPasswordPolicy__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10O1__CaOracleIamDomainPasswordPolicy__c/object.extracts.yaml
+conditions:
+  - status: UNDETERMINED
+    currentStateMessage: The password history setting is not available.
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: CA10O1__previousPasswordsRemembered__c
+  - status: INCOMPLIANT
+    currentStateMessage: The password policy does not remember 24 passwords.
+    remediationMessage: Set Previous passwords remembered to at least 24.
+    check:
+      LESS_THAN:
+        left:
+          EXTRACT: CA10O1__previousPasswordsRemembered__c
+        right:
+          NUMBER: 24
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: The password policy remembers at least 24 previous passwords.

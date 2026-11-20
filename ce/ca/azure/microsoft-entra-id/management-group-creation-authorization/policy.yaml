@@ -1,0 +1,12 @@
+---
+names:
+  full: Azure Tenant management group creation does not require authorization
+  contextual: Tenant management group creation does not require authorization
+description: Ensure creating management groups requires write permission on the root management group.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/identity-and-access-governance/general-access-controls
+  - /frameworks/cis-azure-v7.0.0/05/09
+impossible: true

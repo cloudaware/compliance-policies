@@ -1,0 +1,6 @@
+---
+name: 5.10 Ensure Emergency Access Accounts Can Regain Azure Resource Access (Manual)
+description: Microsoft Entra ID roles grant no Azure RBAC, so a tenant can lose all ability to manage
+  its subscriptions while Global Administrators remain. A Global Administrator restores access by setting
+  Access management for Azure resources to Yes, which grants root-scope access. Maintain emergency access
+  accounts (aka "break-glass accounts") and a tested recovery procedure.

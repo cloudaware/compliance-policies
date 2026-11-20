@@ -1,0 +1,602 @@
+[
+  {
+    "Id": "winrm-port-5985",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-port-5985-rule",
+        "CA10__networkSecurityGroup__c": "winrm-port-5985",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5985",
+        "CA10__destinationPortFrom__c": 5985,
+        "CA10__destinationPortTo__c": 5985
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    }
+  },
+  {
+    "Id": "winrm-port-5986",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-port-5986-rule",
+        "CA10__networkSecurityGroup__c": "winrm-port-5986",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5986",
+        "CA10__destinationPortFrom__c": 5986,
+        "CA10__destinationPortTo__c": 5986
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    }
+  },
+  {
+    "Id": "winrm-wildcard",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-wildcard-rule",
+        "CA10__networkSecurityGroup__c": "winrm-wildcard",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "*",
+        "CA10__destinationPortFrom__c": 0,
+        "CA10__destinationPortTo__c": 65535
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    }
+  },
+  {
+    "Id": "winrm-range",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-range-rule",
+        "CA10__networkSecurityGroup__c": "winrm-range",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "1-65535",
+        "CA10__destinationPortFrom__c": 1,
+        "CA10__destinationPortTo__c": 65535
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    }
+  },
+  {
+    "Id": "winrm-private",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-private-rule",
+        "CA10__networkSecurityGroup__c": "winrm-private",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "10.0.0.0/24",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5985",
+        "CA10__destinationPortFrom__c": 5985,
+        "CA10__destinationPortTo__c": 5985
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "winrm-ipv6",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-ipv6-rule",
+        "CA10__networkSecurityGroup__c": "winrm-ipv6",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "::/0",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5985",
+        "CA10__destinationPortFrom__c": 5985,
+        "CA10__destinationPortTo__c": 5985
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    }
+  },
+  {
+    "Id": "winrm-prefix-list",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-prefix-list-rule",
+        "CA10__networkSecurityGroup__c": "winrm-prefix-list",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": null,
+        "CA10__sourceAddressPrefixes__c": "10.0.0.0/24\n0.0.0.0/0",
+        "CA10__destinationPortRange__c": "5985",
+        "CA10__destinationPortFrom__c": 5985,
+        "CA10__destinationPortTo__c": 5985
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    }
+  },
+  {
+    "Id": "winrm-deny",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-deny-rule",
+        "CA10__networkSecurityGroup__c": "winrm-deny",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Deny",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5985",
+        "CA10__destinationPortFrom__c": 5985,
+        "CA10__destinationPortTo__c": 5985
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "winrm-outbound",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-outbound-rule",
+        "CA10__networkSecurityGroup__c": "winrm-outbound",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Outbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5985",
+        "CA10__destinationPortFrom__c": 5985,
+        "CA10__destinationPortTo__c": 5985
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "winrm-unrelated",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-unrelated-rule",
+        "CA10__networkSecurityGroup__c": "winrm-unrelated",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "80",
+        "CA10__destinationPortFrom__c": 80,
+        "CA10__destinationPortTo__c": 80
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "winrm-missing-protocol",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-missing-protocol-rule",
+        "CA10__networkSecurityGroup__c": "winrm-missing-protocol",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": null,
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5985",
+        "CA10__destinationPortFrom__c": 5985,
+        "CA10__destinationPortTo__c": 5985
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "winrm-missing-source",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-missing-source-rule",
+        "CA10__networkSecurityGroup__c": "winrm-missing-source",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": null,
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5985",
+        "CA10__destinationPortFrom__c": 5985,
+        "CA10__destinationPortTo__c": 5985
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "winrm-empty",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "winrm-mixed",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-mixed-bad",
+        "CA10__networkSecurityGroup__c": "winrm-mixed",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5985",
+        "CA10__destinationPortFrom__c": 5985,
+        "CA10__destinationPortTo__c": 5985
+      },
+      {
+        "Id": "winrm-mixed-unknown",
+        "CA10__networkSecurityGroup__c": "winrm-mixed",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": null,
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5985",
+        "CA10__destinationPortFrom__c": 5985,
+        "CA10__destinationPortTo__c": 5985
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    }
+  },
+  {
+    "Id": "winrm-unknown-access",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-unknown-access-rule",
+        "CA10__networkSecurityGroup__c": "winrm-unknown-access",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Future",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5985",
+        "CA10__destinationPortFrom__c": 5985,
+        "CA10__destinationPortTo__c": 5985
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "winrm-unknown-direction",
+    "CA10__disappearanceTime__c": null,
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-unknown-direction-rule",
+        "CA10__networkSecurityGroup__c": "winrm-unknown-direction",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Future",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5985",
+        "CA10__destinationPortFrom__c": 5985,
+        "CA10__destinationPortTo__c": 5985
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "winrm-protocol-udp",
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-protocol-udp-rule",
+        "CA10__networkSecurityGroup__c": "winrm-protocol-udp",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Udp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5985",
+        "CA10__destinationPortFrom__c": 5985,
+        "CA10__destinationPortTo__c": 5985
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "winrm-protocol-unknown",
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-protocol-unknown-rule",
+        "CA10__networkSecurityGroup__c": "winrm-protocol-unknown",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Unexpected",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5985",
+        "CA10__destinationPortFrom__c": 5985,
+        "CA10__destinationPortTo__c": 5985
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(UNDETERMINED)"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "winrm-protocol-icmp",
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-protocol-icmp-rule",
+        "CA10__networkSecurityGroup__c": "winrm-protocol-icmp",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Icmp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5985",
+        "CA10__destinationPortFrom__c": 5985,
+        "CA10__destinationPortTo__c": 5985
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "winrm-protocol-esp",
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-protocol-esp-rule",
+        "CA10__networkSecurityGroup__c": "winrm-protocol-esp",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Esp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5985",
+        "CA10__destinationPortFrom__c": 5985,
+        "CA10__destinationPortTo__c": 5985
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "winrm-protocol-ah",
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-protocol-ah-rule",
+        "CA10__networkSecurityGroup__c": "winrm-protocol-ah",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Ah",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5985",
+        "CA10__destinationPortFrom__c": 5985,
+        "CA10__destinationPortTo__c": 5985
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "winrm-protocol-violation-unknown",
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-protocol-violation-unknown-0",
+        "CA10__networkSecurityGroup__c": "winrm-protocol-violation-unknown",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Tcp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5985",
+        "CA10__destinationPortFrom__c": 5985,
+        "CA10__destinationPortTo__c": 5985
+      },
+      {
+        "Id": "winrm-protocol-violation-unknown-1",
+        "CA10__networkSecurityGroup__c": "winrm-protocol-violation-unknown",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Unexpected",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5985",
+        "CA10__destinationPortFrom__c": 5985,
+        "CA10__destinationPortTo__c": 5985
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(INCOMPLIANT)"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "winrm-protocol-excluded-unknown",
+    "CA10__Azure_Network_Security_Group_Rules__r": [
+      {
+        "Id": "winrm-protocol-excluded-unknown-0",
+        "CA10__networkSecurityGroup__c": "winrm-protocol-excluded-unknown",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Icmp",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5985",
+        "CA10__destinationPortFrom__c": 5985,
+        "CA10__destinationPortTo__c": 5985
+      },
+      {
+        "Id": "winrm-protocol-excluded-unknown-1",
+        "CA10__networkSecurityGroup__c": "winrm-protocol-excluded-unknown",
+        "CA10__disappearanceTime__c": null,
+        "CA10__access__c": "Allow",
+        "CA10__direction__c": "Inbound",
+        "CA10__protocol__c": "Unexpected",
+        "CA10__sourceAddressPrefix__c": "Internet",
+        "CA10__sourceAddressPrefixes__c": null,
+        "CA10__destinationPortRange__c": "5985",
+        "CA10__destinationPortFrom__c": 5985,
+        "CA10__destinationPortTo__c": 5985
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Network_Security_Group_Rules__r.has(UNDETERMINED)"
+    },
+    "CA10__disappearanceTime__c": null
+  }
+]

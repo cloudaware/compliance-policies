@@ -17,10 +17,13 @@ This keeps IP traffic logs for longer than 90 days. First determine your need to
 
 ## Audit
 
-This policy marks an *Azure Network Security Group* as `INCOMPLIANT` if any of the following conditions are met:
+This policy marks an *Azure Network Security Group* as `INCOMPLIANT` if any of the following conditions apply.
 
-- `Flow Logs Retention Policy Enabled` is set to **false**.
-- `Flow Logs Retention Policy Days` is configured to fewer than **90** days.
+- `Flow Logs Enabled` is **false**.
+- `Flow Logs Retention Policy Days` is less than **90** and not equal to **0**.
+- `Flow Logs Retention Policy Enabled` is **false** and `Flow Logs Retention Policy Days` is not **0**.
+
+A network security group with flow logging enabled is `COMPLIANT` when retention is **0** (indefinite) or when the retention policy is enabled for at least **90 days**.
 
 ## References
 

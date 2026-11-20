@@ -1,0 +1,113 @@
+[
+  {
+    "Id": "microsoft-defender-for-ai-0",
+    "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r": [
+      {
+        "Id": "microsoft-defender-for-ai-0-plan",
+        "CA10Z1__subscription__c": "microsoft-defender-for-ai-0",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__name__c": "AI",
+        "CA10Z1__pricingTier__c": "Standard",
+        "CA10Z1__extensions__c": "[{\"name\":\"AIPromptEvidence\",\"isEnabled\":\"True\"}]"
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r.has(COMPLIANT)"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "microsoft-defender-for-ai-1",
+    "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r": [
+      {
+        "Id": "microsoft-defender-for-ai-1-plan",
+        "CA10Z1__subscription__c": "microsoft-defender-for-ai-1",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__name__c": "AI",
+        "CA10Z1__pricingTier__c": "Free",
+        "CA10Z1__extensions__c": "[]"
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "microsoft-defender-for-ai-2",
+    "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r": [
+      {
+        "Id": "microsoft-defender-for-ai-2-plan",
+        "CA10Z1__subscription__c": "microsoft-defender-for-ai-2",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__name__c": "AI",
+        "CA10Z1__pricingTier__c": "Standard",
+        "CA10Z1__extensions__c": "[{\"name\":\"AIPromptEvidence\",\"isEnabled\":\"False\"}]"
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r.has(COMPLIANT)"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "microsoft-defender-for-ai-3",
+    "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r": [
+      {
+        "Id": "microsoft-defender-for-ai-3-plan",
+        "CA10Z1__subscription__c": "microsoft-defender-for-ai-3",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__name__c": "AI",
+        "CA10Z1__pricingTier__c": "Standard",
+        "CA10Z1__extensions__c": "[]"
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r.has(COMPLIANT)"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "microsoft-defender-for-ai-4",
+    "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r": [
+      {
+        "Id": "microsoft-defender-for-ai-4-plan",
+        "CA10Z1__subscription__c": "microsoft-defender-for-ai-4",
+        "CA10Z1__disappearanceTime__c": null,
+        "CA10Z1__name__c": "AI",
+        "CA10Z1__pricingTier__c": "Future",
+        "CA10Z1__extensions__c": "[]"
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r.has(UNDETERMINED)"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "microsoft-defender-for-ai-missing",
+    "CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r": [],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null
+  }
+]

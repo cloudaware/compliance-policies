@@ -16,11 +16,13 @@ extracts:
           EXTRACT: "CA10__defaultActionsJson__c"
         undeterminedIf:
           isInvalid: "The Actions JSON is invalid"
-# Nullable. Text.
+# Native listener protocol is required; its absence is a collection diagnostic.
   - name: CA10__protocol__c
     value: 
       FIELD:
         path: CA10__protocol__c
+        undeterminedIf:
+          isEmpty: "The load balancer listener protocol is not collected."
   - name: CA10__loadBalancerPort__c
     value: 
       FIELD:

@@ -1,0 +1,467 @@
+[
+  {
+    "Id": "update-key-vault-access-policy-good",
+    "CA10__subscriptionId__c": "update-key-vault-access-policy-good",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "update-key-vault-access-policy-good-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "update-key-vault-access-policy-good",
+        "CA10__subscription__r": {
+          "Id": "update-key-vault-access-policy-good",
+          "CA10__subscriptionId__c": "update-key-vault-access-policy-good"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.KeyVault/vaults/accessPolicies/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/update-key-vault-access-policy-good",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "update-key-vault-access-policy-good-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "update-key-vault-access-policy-good-alert",
+            "CA10Z1__actionGroup__c": "update-key-vault-access-policy-good-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "update-key-vault-access-policy-good-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/update-key-vault-access-policy-good/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/update-key-vault-access-policy-good-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/update-key-vault-access-policy-good/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/update-key-vault-access-policy-good-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(COMPLIANT)"
+    }
+  },
+  {
+    "Id": "update-key-vault-access-policy-disabled",
+    "CA10__subscriptionId__c": "update-key-vault-access-policy-disabled",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "update-key-vault-access-policy-disabled-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "update-key-vault-access-policy-disabled",
+        "CA10__subscription__r": {
+          "Id": "update-key-vault-access-policy-disabled",
+          "CA10__subscriptionId__c": "update-key-vault-access-policy-disabled"
+        },
+        "CA10__enabledStatus__c": "Disabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.KeyVault/vaults/accessPolicies/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/update-key-vault-access-policy-disabled",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "update-key-vault-access-policy-disabled-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "update-key-vault-access-policy-disabled-alert",
+            "CA10Z1__actionGroup__c": "update-key-vault-access-policy-disabled-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "update-key-vault-access-policy-disabled-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/update-key-vault-access-policy-disabled/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/update-key-vault-access-policy-disabled-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/update-key-vault-access-policy-disabled/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/update-key-vault-access-policy-disabled-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "update-key-vault-access-policy-wrong-operation",
+    "CA10__subscriptionId__c": "update-key-vault-access-policy-wrong-operation",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "update-key-vault-access-policy-wrong-operation-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "update-key-vault-access-policy-wrong-operation",
+        "CA10__subscription__r": {
+          "Id": "update-key-vault-access-policy-wrong-operation",
+          "CA10__subscriptionId__c": "update-key-vault-access-policy-wrong-operation"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Resources/subscriptions/resourceGroups/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/update-key-vault-access-policy-wrong-operation",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "update-key-vault-access-policy-wrong-operation-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "update-key-vault-access-policy-wrong-operation-alert",
+            "CA10Z1__actionGroup__c": "update-key-vault-access-policy-wrong-operation-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "update-key-vault-access-policy-wrong-operation-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/update-key-vault-access-policy-wrong-operation/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/update-key-vault-access-policy-wrong-operation-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/update-key-vault-access-policy-wrong-operation/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/update-key-vault-access-policy-wrong-operation-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "update-key-vault-access-policy-extra-filter",
+    "CA10__subscriptionId__c": "update-key-vault-access-policy-extra-filter",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "update-key-vault-access-policy-extra-filter-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "update-key-vault-access-policy-extra-filter",
+        "CA10__subscription__r": {
+          "Id": "update-key-vault-access-policy-extra-filter",
+          "CA10__subscriptionId__c": "update-key-vault-access-policy-extra-filter"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.KeyVault/vaults/accessPolicies/write\"}, {\"field\": \"status\", \"equals\": \"Succeeded\"}]}",
+        "CA10__scopes__c": "/subscriptions/update-key-vault-access-policy-extra-filter",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "update-key-vault-access-policy-extra-filter-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "update-key-vault-access-policy-extra-filter-alert",
+            "CA10Z1__actionGroup__c": "update-key-vault-access-policy-extra-filter-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "update-key-vault-access-policy-extra-filter-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/update-key-vault-access-policy-extra-filter/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/update-key-vault-access-policy-extra-filter-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/update-key-vault-access-policy-extra-filter/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/update-key-vault-access-policy-extra-filter-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "update-key-vault-access-policy-no-group",
+    "CA10__subscriptionId__c": "update-key-vault-access-policy-no-group",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "update-key-vault-access-policy-no-group-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "update-key-vault-access-policy-no-group",
+        "CA10__subscription__r": {
+          "Id": "update-key-vault-access-policy-no-group",
+          "CA10__subscriptionId__c": "update-key-vault-access-policy-no-group"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.KeyVault/vaults/accessPolicies/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/update-key-vault-access-policy-no-group",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": []
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "update-key-vault-access-policy-broken-group",
+    "CA10__subscriptionId__c": "update-key-vault-access-policy-broken-group",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "update-key-vault-access-policy-broken-group-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "update-key-vault-access-policy-broken-group",
+        "CA10__subscription__r": {
+          "Id": "update-key-vault-access-policy-broken-group",
+          "CA10__subscriptionId__c": "update-key-vault-access-policy-broken-group"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.KeyVault/vaults/accessPolicies/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/update-key-vault-access-policy-broken-group",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "update-key-vault-access-policy-broken-group-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "update-key-vault-access-policy-broken-group-alert",
+            "CA10Z1__actionGroup__c": null,
+            "CA10Z1__actionGroup__r": {
+              "Id": null,
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/update-key-vault-access-policy-broken-group/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/update-key-vault-access-policy-broken-group-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "update-key-vault-access-policy-unknown-state",
+    "CA10__subscriptionId__c": "update-key-vault-access-policy-unknown-state",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "update-key-vault-access-policy-unknown-state-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "update-key-vault-access-policy-unknown-state",
+        "CA10__subscription__r": {
+          "Id": "update-key-vault-access-policy-unknown-state",
+          "CA10__subscriptionId__c": "update-key-vault-access-policy-unknown-state"
+        },
+        "CA10__enabledStatus__c": "Future",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.KeyVault/vaults/accessPolicies/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/update-key-vault-access-policy-unknown-state",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "update-key-vault-access-policy-unknown-state-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "update-key-vault-access-policy-unknown-state-alert",
+            "CA10Z1__actionGroup__c": "update-key-vault-access-policy-unknown-state-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "update-key-vault-access-policy-unknown-state-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/update-key-vault-access-policy-unknown-state/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/update-key-vault-access-policy-unknown-state-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/update-key-vault-access-policy-unknown-state/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/update-key-vault-access-policy-unknown-state-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "update-key-vault-access-policy-none",
+    "CA10__subscriptionId__c": "update-key-vault-access-policy-none",
+    "CA10__Azure_Activity_Log_Alerts__r": [],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "update-key-vault-access-policy-mixed-good-unknown",
+    "CA10__subscriptionId__c": "update-key-vault-access-policy-mixed-good-unknown",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "update-key-vault-access-policy-mixed-good-unknown-good-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "update-key-vault-access-policy-mixed-good-unknown",
+        "CA10__subscription__r": {
+          "Id": "update-key-vault-access-policy-mixed-good-unknown",
+          "CA10__subscriptionId__c": "update-key-vault-access-policy-mixed-good-unknown"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.KeyVault/vaults/accessPolicies/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/update-key-vault-access-policy-mixed-good-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "update-key-vault-access-policy-mixed-good-unknown-good-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "update-key-vault-access-policy-mixed-good-unknown-good-alert",
+            "CA10Z1__actionGroup__c": "update-key-vault-access-policy-mixed-good-unknown-good-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "update-key-vault-access-policy-mixed-good-unknown-good-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/update-key-vault-access-policy-mixed-good-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/update-key-vault-access-policy-mixed-good-unknown-good-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/update-key-vault-access-policy-mixed-good-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/update-key-vault-access-policy-mixed-good-unknown-good-link"
+          }
+        ]
+      },
+      {
+        "Id": "update-key-vault-access-policy-mixed-good-unknown-broken-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "update-key-vault-access-policy-mixed-good-unknown",
+        "CA10__subscription__r": {
+          "Id": "update-key-vault-access-policy-mixed-good-unknown",
+          "CA10__subscriptionId__c": "update-key-vault-access-policy-mixed-good-unknown"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.KeyVault/vaults/accessPolicies/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/update-key-vault-access-policy-mixed-good-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "update-key-vault-access-policy-mixed-good-unknown-broken-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "update-key-vault-access-policy-mixed-good-unknown-broken-alert",
+            "CA10Z1__actionGroup__c": null,
+            "CA10Z1__actionGroup__r": {
+              "Id": null,
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/update-key-vault-access-policy-mixed-good-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/update-key-vault-access-policy-mixed-good-unknown-broken-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(COMPLIANT)"
+    }
+  },
+  {
+    "Id": "update-key-vault-access-policy-mixed-bad-unknown",
+    "CA10__subscriptionId__c": "update-key-vault-access-policy-mixed-bad-unknown",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "update-key-vault-access-policy-mixed-bad-unknown-disabled-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "update-key-vault-access-policy-mixed-bad-unknown",
+        "CA10__subscription__r": {
+          "Id": "update-key-vault-access-policy-mixed-bad-unknown",
+          "CA10__subscriptionId__c": "update-key-vault-access-policy-mixed-bad-unknown"
+        },
+        "CA10__enabledStatus__c": "Disabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.KeyVault/vaults/accessPolicies/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/update-key-vault-access-policy-mixed-bad-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "update-key-vault-access-policy-mixed-bad-unknown-disabled-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "update-key-vault-access-policy-mixed-bad-unknown-disabled-alert",
+            "CA10Z1__actionGroup__c": "update-key-vault-access-policy-mixed-bad-unknown-disabled-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "update-key-vault-access-policy-mixed-bad-unknown-disabled-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/update-key-vault-access-policy-mixed-bad-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/update-key-vault-access-policy-mixed-bad-unknown-disabled-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/update-key-vault-access-policy-mixed-bad-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/update-key-vault-access-policy-mixed-bad-unknown-disabled-link"
+          }
+        ]
+      },
+      {
+        "Id": "update-key-vault-access-policy-mixed-bad-unknown-broken-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "update-key-vault-access-policy-mixed-bad-unknown",
+        "CA10__subscription__r": {
+          "Id": "update-key-vault-access-policy-mixed-bad-unknown",
+          "CA10__subscriptionId__c": "update-key-vault-access-policy-mixed-bad-unknown"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.KeyVault/vaults/accessPolicies/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/update-key-vault-access-policy-mixed-bad-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "update-key-vault-access-policy-mixed-bad-unknown-broken-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "update-key-vault-access-policy-mixed-bad-unknown-broken-alert",
+            "CA10Z1__actionGroup__c": null,
+            "CA10Z1__actionGroup__r": {
+              "Id": null,
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/update-key-vault-access-policy-mixed-bad-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/update-key-vault-access-policy-mixed-bad-unknown-broken-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "update-key-vault-access-policy-deleted-alert",
+    "CA10__subscriptionId__c": "update-key-vault-access-policy-deleted-alert",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "update-key-vault-access-policy-deleted-alert-deleted-alert",
+        "CA10__disappearanceTime__c": "2026-01-01T00:00:00Z",
+        "CA10__subscription__c": "update-key-vault-access-policy-deleted-alert",
+        "CA10__subscription__r": {
+          "Id": "update-key-vault-access-policy-deleted-alert",
+          "CA10__subscriptionId__c": "update-key-vault-access-policy-deleted-alert"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.KeyVault/vaults/accessPolicies/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/update-key-vault-access-policy-deleted-alert",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "update-key-vault-access-policy-deleted-alert-deleted-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "update-key-vault-access-policy-deleted-alert-deleted-alert",
+            "CA10Z1__actionGroup__c": "update-key-vault-access-policy-deleted-alert-deleted-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "update-key-vault-access-policy-deleted-alert-deleted-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/update-key-vault-access-policy-deleted-alert/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/update-key-vault-access-policy-deleted-alert-deleted-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/update-key-vault-access-policy-deleted-alert/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/update-key-vault-access-policy-deleted-alert-deleted-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "update-key-vault-access-policy-narrow",
+    "CA10__subscriptionId__c": "update-key-vault-access-policy-narrow",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "update-key-vault-access-policy-narrow-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "update-key-vault-access-policy-narrow",
+        "CA10__subscription__r": {
+          "Id": "update-key-vault-access-policy-narrow",
+          "CA10__subscriptionId__c": "update-key-vault-access-policy-narrow"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.KeyVault/vaults/accessPolicies/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/update-key-vault-access-policy-narrow/resourceGroups/limited",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "update-key-vault-access-policy-narrow-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "update-key-vault-access-policy-narrow-alert",
+            "CA10Z1__actionGroup__c": "update-key-vault-access-policy-narrow-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "update-key-vault-access-policy-narrow-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/update-key-vault-access-policy-narrow/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/update-key-vault-access-policy-narrow-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/update-key-vault-access-policy-narrow/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/update-key-vault-access-policy-narrow-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  }
+]

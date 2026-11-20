@@ -14,7 +14,9 @@ Additional storage costs may be incurred as deleted blobs and snapshots are reta
 
 ## Audit
 
-This policy flags an *Azure Storage Account* as `INCOMPLIANT` if the `Blob Retention Policy State` is not set to **Enabled**, or if `Blob Retention Policy Days` is **empty**.
+This policy marks an *Azure Storage Account* as `INCOMPLIANT` if `Blob Retention Policy: State` is disabled or unset, or enabled with `Blob Retention Policy: Days` unset or below **7**. Enabled retention of at least seven days is `COMPLIANT`.
+
+`Kind` **FileStorage** is `INAPPLICABLE` because premium file shares do not provide the Blob service.
 
 ## Default Value
 

@@ -14,17 +14,13 @@ Additional consideration may be required for exceptional circumstances where ele
 
 ## Audit
 
-This policy flags an *Azure Storage Account* as `INCOMPLIANT` if its `Blob Public Access` is **not** set to **Deny**.
+This policy marks an *Azure Storage Account* as `INCOMPLIANT` if **Blob Public Access** is `Allow` or unset. `Deny` is `COMPLIANT`.
 
 ## Default Value
 
-By default, `allowBlobPublicAccess` is `Disabled`.
+An unset `allowBlobPublicAccess` is noncompliant. Explicitly set it to false (`Deny` in CMDB).
 
 ## References
 
 1. <https://learn.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent?tabs=portal>
 2. <https://learn.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent?source=recommendations&tabs=portal>
-
-## Additional Information
-
-Azure Storage accounts that use the classic deployment model will be retired on August 31, 2024.

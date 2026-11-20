@@ -1,0 +1,12 @@
+---
+name: 7.4 Ensure Subnets Are Associated with Network Security Groups (Automated)
+description: 'Each subnet must have an associated network security group to filter its traffic; an unassociated
+  subnet''s Network security group setting shows None. GatewaySubnet, AzureFirewallSubnet, and RouteServerSubnet
+  do not support a network security group, and Microsoft reserves AzureFirewallManagementSubnet for the
+  firewall''s management traffic, so all four are out of scope. Prerequisites: (Only if using Azure Bastion)
+  Before associating a network security group with AzureBastionSubnet, add every inbound and outbound
+  rule Azure Bastion requires; Azure rejects the association otherwise, and a later deny rule that shadows
+  them breaks Bastion connections.'
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/07/11

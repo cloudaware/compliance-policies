@@ -1,0 +1,15 @@
+---
+name: 8.3.5 Ensure that the Expiration Date is set for All Secrets in Key Vaults using access policies
+  (legacy) (Automated)
+description: 'Ensure that all Secrets in Azure Key Vaults with access policies have an expiration date
+  set. Note: Using access policies is a legacy method. For improved security, use the Role-Based Access
+  Control (RBAC) permission model instead of access policies when managing Azure Key Vault. RBAC restricts
+  permission management to only the Owner and User Access Administrator roles, ensuring a clear separation
+  between security and administrative tasks. With the Access Policy permission model, users with the Contributor,
+  Key Vault Contributor, or any role that includes Microsoft.KeyVault/vaults/write permissions can grant
+  themselves data plane access by configuring a Key Vault access policy. This can result in unauthorized
+  access and management of your key vaults, keys, secrets, and certificates. To reduce this risk, limit
+  Contributor role access to key vaults when using the Access Policy model.'
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/08/03/04

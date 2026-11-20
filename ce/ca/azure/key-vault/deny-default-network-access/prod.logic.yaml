@@ -1,0 +1,51 @@
+---
+inputType: CA10__CaAzureKeyVault__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAzureKeyVault__c/object.extracts.yaml
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: The vault restricts public access.
+    check:
+      OR:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10__publicNetworkAccess__c
+              right:
+                TEXT: Disabled
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10__networkRuleSetDefaultAction__c
+              right:
+                TEXT: Deny
+  - status: INCOMPLIANT
+    currentStateMessage: The vault allows access from all public networks.
+    remediationMessage: Set the default network action to Deny or disable public network access.
+    check:
+      AND:
+        args:
+          - OR:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10__publicNetworkAccess__c
+                    right:
+                      TEXT: Enabled
+                - IS_EMPTY:
+                    arg:
+                      EXTRACT: CA10__publicNetworkAccess__c
+          - OR:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10__networkRuleSetDefaultAction__c
+                    right:
+                      TEXT: Allow
+                - IS_EMPTY:
+                    arg:
+                      EXTRACT: CA10__networkRuleSetDefaultAction__c
+otherwise:
+  status: UNDETERMINED
+  currentStateMessage: The vault network access settings are unexpected.

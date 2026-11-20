@@ -13,7 +13,9 @@ There will be a substantial increase in log size if there are a large number of 
 
 ## Audit
 
-This policy flags an *Azure Subscription* as `INCOMPLIANT` if it does **not** have an enabled related *Azure Activity Log Alert* scoped to the subscription whose `Condition JSON` filters on the **Administrative** category and the **Microsoft.Network/publicIPAddresses/delete** operation.
+This policy marks an *Azure Subscription* as `INCOMPLIANT` if no current enabled *Activity Log Alert* covers category **Administrative** and operation **Microsoft.Network/publicIPAddresses/delete** across the subscription with a resolved action group and no additional condition filters. Field/value pairs must occur in the same condition.
+
+A qualifying alert makes the subscription `COMPLIANT`. Otherwise, unassessable alert configuration produces `UNDETERMINED`. Complex or narrower scopes require manual review. Action-group recipients, receiver enablement and actual notification delivery are not verified. Service-specific exceptions require a recorded organizational scoping decision.
 
 ## Default Value
 

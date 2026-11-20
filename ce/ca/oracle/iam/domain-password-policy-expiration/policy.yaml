@@ -1,0 +1,11 @@
+---
+names:
+  full: Oracle IAM Domain Password Policy does not expire passwords within 365 days
+  contextual: Domain Password Policy does not expire passwords within 365 days
+description: Set Expires after (days) to a value from 1 to 365.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cis-oracle-v3.1.1/01/05
+  - /frameworks/cloudaware/identity-and-access-governance/credential-lifecycle-management

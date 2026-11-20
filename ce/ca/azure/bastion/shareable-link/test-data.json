@@ -1,0 +1,86 @@
+[
+  {
+    "Id": "bastion-0",
+    "CA10Z1__skuName__c": "Basic",
+    "CA10Z1__shareableLinkState__c": null,
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['Basic', 'Developer']).contains(extract('CA10Z1__skuName__c'))"
+    },
+    "CA10Z1__disappearanceTime__c": null
+  },
+  {
+    "Id": "bastion-1",
+    "CA10Z1__skuName__c": "Developer",
+    "CA10Z1__shareableLinkState__c": null,
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['Basic', 'Developer']).contains(extract('CA10Z1__skuName__c'))"
+    },
+    "CA10Z1__disappearanceTime__c": null
+  },
+  {
+    "Id": "bastion-2",
+    "CA10Z1__skuName__c": "Standard",
+    "CA10Z1__shareableLinkState__c": "Enabled",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10Z1__shareableLinkState__c') == 'Enabled'"
+    },
+    "CA10Z1__disappearanceTime__c": null
+  },
+  {
+    "Id": "bastion-3",
+    "CA10Z1__skuName__c": "Premium",
+    "CA10Z1__shareableLinkState__c": "Disabled",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "extract('CA10Z1__shareableLinkState__c') == 'Disabled'"
+    },
+    "CA10Z1__disappearanceTime__c": null
+  },
+  {
+    "Id": "bastion-4",
+    "CA10Z1__skuName__c": "Standard",
+    "CA10Z1__shareableLinkState__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 500,
+      "conditionText": "otherwise"
+    },
+    "CA10Z1__disappearanceTime__c": null
+  },
+  {
+    "Id": "bastion-5",
+    "CA10Z1__skuName__c": "Other",
+    "CA10Z1__shareableLinkState__c": "Disabled",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "not(setOfText(['Standard', 'Premium']).contains(extract('CA10Z1__skuName__c')))"
+    },
+    "CA10Z1__disappearanceTime__c": null
+  },
+  {
+    "Id": "bastion-6",
+    "CA10Z1__skuName__c": null,
+    "CA10Z1__shareableLinkState__c": "Disabled",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 101,
+      "conditionText": "CA10Z1__skuName__c.isEmpty()"
+    },
+    "CA10Z1__disappearanceTime__c": null
+  }
+]

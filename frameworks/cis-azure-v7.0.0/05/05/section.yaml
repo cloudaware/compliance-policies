@@ -1,0 +1,6 @@
+---
+name: 5.5 Ensure that a Dedicated Role is Assigned Permissions for Administering Resource Locks (Manual)
+description: Resource locks prevent deletion or modification of a subscription, resource group, or resource
+  regardless of a user's role. A dedicated role that grants only lock permissions, either the built-in
+  Locks Contributor role or a custom role, lets designated administrators manage locks without holding
+  Owner or User Access Administrator.

@@ -19,7 +19,9 @@ Users would require two forms of authentication before any access is granted. Ad
 
 ## Audit
 
-This policy flags an *Azure Active Directory User* as `INCOMPLIANT` if the `MFA State` is **Disabled** or empty.
+This policy marks an *Azure Active Directory User* as `INCOMPLIANT` if the `MFA State` is **Disabled** or empty.
+
+Per-user MFA states `Enabled` and `Enforced` are `COMPLIANT`. This checks per-user MFA state rather than Conditional Access enforcement.
 
 ## Default Value
 

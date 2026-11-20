@@ -1,0 +1,7 @@
+---
+name: 7.2.3 Ensure the SSL Policy's 'Min protocol version' is Set to 'TLSv1_3' on Azure Application Gateway
+  (Automated)
+description: 'Azure Application Gateway sets the minimum TLS version for client connections through its
+  SSL policy, at the gateway and in each SSL profile. The Min protocol version selects TLSv1_2 or TLSv1_3
+  on a supported policy, and only a CustomV2 policy can select TLSv1_3. Prerequisites: Confirm from the
+  gateway''s Client TLS protocol metric that no client that must keep access still connects with TLS 1.2.'

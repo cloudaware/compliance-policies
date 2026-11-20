@@ -1,0 +1,8 @@
+---
+name: 7.8 Ensure that Network Security Groups override the default 'VirtualNetwork' allow rules (Automated)
+description: 'A network security group filters traffic by security rules evaluated in priority order until
+  the first match. By default, the AllowVnetInBound and AllowVnetOutBound rules permit all traffic identified
+  with the VirtualNetwork service tag. A default-deny posture adds an explicit rule, evaluated after every
+  allow rule, that denies all other traffic. Prerequisites: Identify every required inbound and outbound
+  path, including Azure platform traffic such as load balancer health probes, and create narrowly scoped
+  higher-priority allow rules before adding the deny rule.'

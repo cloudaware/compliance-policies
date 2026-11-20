@@ -1,0 +1,9 @@
+---
+name: 6.1.1.2 Ensure Diagnostic Setting Captures Appropriate Categories (Automated)
+description: 'A subscription''s activity log diagnostic setting exports only the categories selected in
+  it, from eight: Administrative, ServiceHealth, ResourceHealth, Alert, Autoscale, Recommendation, Security,
+  and Policy. Four are required: Administrative, Alert, Policy, and Security. The setting''s existence
+  is covered by Ensure that a ''Diagnostic Setting'' Exists for Subscription Activity Logs.'
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/06/01/01/02

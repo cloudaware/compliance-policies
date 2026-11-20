@@ -16,7 +16,8 @@ Use the below command to enable Standard pricing tier for Defender for Resource 
 ```sh
 az security pricing create \
     -n Arm \
-    --tier Standard
+    --tier Standard \
+    --subplan PerSubscription
 ```
 
 ## From PowerShell
@@ -26,5 +27,6 @@ Use the below command to enable Standard pricing tier for Defender for Resource 
 ```ps
 Set-AzSecurityPricing `
     -Name "Arm" `
-    -PricingTier "Standard"
+    -PricingTier "Standard" `
+    -SubPlan "PerSubscription"
 ```

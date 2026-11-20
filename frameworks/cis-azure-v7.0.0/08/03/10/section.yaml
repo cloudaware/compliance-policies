@@ -1,0 +1,8 @@
+---
+name: 8.3.10 Ensure the Default Network Access Rule for Key Vaults is Set to Deny (Automated)
+description: 'A key vault accepts data-plane connections from all networks, only from allowed virtual
+  networks and IP addresses, or only through private endpoints. The Allow access from setting selects
+  between Allow public access from all networks, Allow public access from specific virtual networks and
+  IP addresses, and Disable public access. Prerequisites: Add a virtual network rule, an IP address rule,
+  or a private endpoint for every client that needs data-plane access before setting the default action
+  to deny.'

@@ -1,0 +1,11 @@
+---
+names:
+  full: Azure Subscription Microsoft Defender for AI is not enabled
+  contextual: Subscription Microsoft Defender for AI is not enabled
+description: Ensure That Microsoft Defender for AI Services Is Set To 'On'.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-security/microsoft-defender-configuration
+  - /frameworks/cis-azure-v7.0.0/08/01/10/01

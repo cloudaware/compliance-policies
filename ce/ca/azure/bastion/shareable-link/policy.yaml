@@ -1,0 +1,11 @@
+---
+names:
+  full: Azure Bastion Host shareable links are enabled
+  contextual: Bastion Host shareable links are enabled
+description: Ensure 'Shareable Link' is Disabled on Azure Bastion Hosts.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-security/secure-access
+  - /frameworks/cis-azure-v7.0.0/08/04/02

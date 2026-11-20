@@ -1,0 +1,11 @@
+---
+name: 5.3.5 Ensure Disabled User Accounts do not Have Read, Write, or Owner Permissions (Manual)
+description: When a user account is disabled, any Azure role assignments it holds (including read, write,
+  or owner permissions) remain in place unless they are explicitly removed, leaving latent access attached
+  to an account that is no longer in active use. Remove read, write, and owner role assignments from disabled
+  Azure user accounts. While an automated assessment procedure exists for this recommendation, the assessment
+  status remains manual. Removing role assignments from disabled user accounts depends on the context
+  and requirements of each organization and environment.
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/05/03/05

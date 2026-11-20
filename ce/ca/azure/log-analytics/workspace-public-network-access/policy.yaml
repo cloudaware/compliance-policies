@@ -1,0 +1,12 @@
+---
+names:
+  full: Azure Log Analytics Workspace public network access is not disabled
+  contextual: Log Analytics Workspace public network access is not disabled
+description: Ensure that 'Public Network Access' for Ingestion and Queries is 'Disabled' for Log Analytics
+  Workspaces.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-security/network-exposure
+  - /frameworks/cis-azure-v7.0.0/06/01/06

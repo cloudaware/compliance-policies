@@ -1,0 +1,467 @@
+[
+  {
+    "Id": "delete-diagnostic-setting-good",
+    "CA10__subscriptionId__c": "delete-diagnostic-setting-good",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-diagnostic-setting-good-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-diagnostic-setting-good",
+        "CA10__subscription__r": {
+          "Id": "delete-diagnostic-setting-good",
+          "CA10__subscriptionId__c": "delete-diagnostic-setting-good"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Insights/diagnosticSettings/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-diagnostic-setting-good",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-diagnostic-setting-good-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-diagnostic-setting-good-alert",
+            "CA10Z1__actionGroup__c": "delete-diagnostic-setting-good-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-diagnostic-setting-good-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-diagnostic-setting-good/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-diagnostic-setting-good-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-diagnostic-setting-good/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-diagnostic-setting-good-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(COMPLIANT)"
+    }
+  },
+  {
+    "Id": "delete-diagnostic-setting-disabled",
+    "CA10__subscriptionId__c": "delete-diagnostic-setting-disabled",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-diagnostic-setting-disabled-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-diagnostic-setting-disabled",
+        "CA10__subscription__r": {
+          "Id": "delete-diagnostic-setting-disabled",
+          "CA10__subscriptionId__c": "delete-diagnostic-setting-disabled"
+        },
+        "CA10__enabledStatus__c": "Disabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Insights/diagnosticSettings/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-diagnostic-setting-disabled",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-diagnostic-setting-disabled-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-diagnostic-setting-disabled-alert",
+            "CA10Z1__actionGroup__c": "delete-diagnostic-setting-disabled-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-diagnostic-setting-disabled-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-diagnostic-setting-disabled/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-diagnostic-setting-disabled-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-diagnostic-setting-disabled/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-diagnostic-setting-disabled-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "delete-diagnostic-setting-wrong-operation",
+    "CA10__subscriptionId__c": "delete-diagnostic-setting-wrong-operation",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-diagnostic-setting-wrong-operation-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-diagnostic-setting-wrong-operation",
+        "CA10__subscription__r": {
+          "Id": "delete-diagnostic-setting-wrong-operation",
+          "CA10__subscriptionId__c": "delete-diagnostic-setting-wrong-operation"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Resources/subscriptions/resourceGroups/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-diagnostic-setting-wrong-operation",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-diagnostic-setting-wrong-operation-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-diagnostic-setting-wrong-operation-alert",
+            "CA10Z1__actionGroup__c": "delete-diagnostic-setting-wrong-operation-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-diagnostic-setting-wrong-operation-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-diagnostic-setting-wrong-operation/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-diagnostic-setting-wrong-operation-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-diagnostic-setting-wrong-operation/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-diagnostic-setting-wrong-operation-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "delete-diagnostic-setting-extra-filter",
+    "CA10__subscriptionId__c": "delete-diagnostic-setting-extra-filter",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-diagnostic-setting-extra-filter-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-diagnostic-setting-extra-filter",
+        "CA10__subscription__r": {
+          "Id": "delete-diagnostic-setting-extra-filter",
+          "CA10__subscriptionId__c": "delete-diagnostic-setting-extra-filter"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Insights/diagnosticSettings/delete\"}, {\"field\": \"status\", \"equals\": \"Succeeded\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-diagnostic-setting-extra-filter",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-diagnostic-setting-extra-filter-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-diagnostic-setting-extra-filter-alert",
+            "CA10Z1__actionGroup__c": "delete-diagnostic-setting-extra-filter-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-diagnostic-setting-extra-filter-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-diagnostic-setting-extra-filter/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-diagnostic-setting-extra-filter-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-diagnostic-setting-extra-filter/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-diagnostic-setting-extra-filter-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "delete-diagnostic-setting-no-group",
+    "CA10__subscriptionId__c": "delete-diagnostic-setting-no-group",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-diagnostic-setting-no-group-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-diagnostic-setting-no-group",
+        "CA10__subscription__r": {
+          "Id": "delete-diagnostic-setting-no-group",
+          "CA10__subscriptionId__c": "delete-diagnostic-setting-no-group"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Insights/diagnosticSettings/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-diagnostic-setting-no-group",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": []
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "delete-diagnostic-setting-broken-group",
+    "CA10__subscriptionId__c": "delete-diagnostic-setting-broken-group",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-diagnostic-setting-broken-group-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-diagnostic-setting-broken-group",
+        "CA10__subscription__r": {
+          "Id": "delete-diagnostic-setting-broken-group",
+          "CA10__subscriptionId__c": "delete-diagnostic-setting-broken-group"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Insights/diagnosticSettings/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-diagnostic-setting-broken-group",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-diagnostic-setting-broken-group-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-diagnostic-setting-broken-group-alert",
+            "CA10Z1__actionGroup__c": null,
+            "CA10Z1__actionGroup__r": {
+              "Id": null,
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-diagnostic-setting-broken-group/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-diagnostic-setting-broken-group-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "delete-diagnostic-setting-unknown-state",
+    "CA10__subscriptionId__c": "delete-diagnostic-setting-unknown-state",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-diagnostic-setting-unknown-state-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-diagnostic-setting-unknown-state",
+        "CA10__subscription__r": {
+          "Id": "delete-diagnostic-setting-unknown-state",
+          "CA10__subscriptionId__c": "delete-diagnostic-setting-unknown-state"
+        },
+        "CA10__enabledStatus__c": "Future",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Insights/diagnosticSettings/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-diagnostic-setting-unknown-state",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-diagnostic-setting-unknown-state-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-diagnostic-setting-unknown-state-alert",
+            "CA10Z1__actionGroup__c": "delete-diagnostic-setting-unknown-state-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-diagnostic-setting-unknown-state-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-diagnostic-setting-unknown-state/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-diagnostic-setting-unknown-state-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-diagnostic-setting-unknown-state/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-diagnostic-setting-unknown-state-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "delete-diagnostic-setting-none",
+    "CA10__subscriptionId__c": "delete-diagnostic-setting-none",
+    "CA10__Azure_Activity_Log_Alerts__r": [],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "delete-diagnostic-setting-mixed-good-unknown",
+    "CA10__subscriptionId__c": "delete-diagnostic-setting-mixed-good-unknown",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-diagnostic-setting-mixed-good-unknown-good-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-diagnostic-setting-mixed-good-unknown",
+        "CA10__subscription__r": {
+          "Id": "delete-diagnostic-setting-mixed-good-unknown",
+          "CA10__subscriptionId__c": "delete-diagnostic-setting-mixed-good-unknown"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Insights/diagnosticSettings/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-diagnostic-setting-mixed-good-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-diagnostic-setting-mixed-good-unknown-good-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-diagnostic-setting-mixed-good-unknown-good-alert",
+            "CA10Z1__actionGroup__c": "delete-diagnostic-setting-mixed-good-unknown-good-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-diagnostic-setting-mixed-good-unknown-good-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-diagnostic-setting-mixed-good-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-diagnostic-setting-mixed-good-unknown-good-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-diagnostic-setting-mixed-good-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-diagnostic-setting-mixed-good-unknown-good-link"
+          }
+        ]
+      },
+      {
+        "Id": "delete-diagnostic-setting-mixed-good-unknown-broken-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-diagnostic-setting-mixed-good-unknown",
+        "CA10__subscription__r": {
+          "Id": "delete-diagnostic-setting-mixed-good-unknown",
+          "CA10__subscriptionId__c": "delete-diagnostic-setting-mixed-good-unknown"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Insights/diagnosticSettings/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-diagnostic-setting-mixed-good-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-diagnostic-setting-mixed-good-unknown-broken-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-diagnostic-setting-mixed-good-unknown-broken-alert",
+            "CA10Z1__actionGroup__c": null,
+            "CA10Z1__actionGroup__r": {
+              "Id": null,
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-diagnostic-setting-mixed-good-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-diagnostic-setting-mixed-good-unknown-broken-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(COMPLIANT)"
+    }
+  },
+  {
+    "Id": "delete-diagnostic-setting-mixed-bad-unknown",
+    "CA10__subscriptionId__c": "delete-diagnostic-setting-mixed-bad-unknown",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-diagnostic-setting-mixed-bad-unknown-disabled-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-diagnostic-setting-mixed-bad-unknown",
+        "CA10__subscription__r": {
+          "Id": "delete-diagnostic-setting-mixed-bad-unknown",
+          "CA10__subscriptionId__c": "delete-diagnostic-setting-mixed-bad-unknown"
+        },
+        "CA10__enabledStatus__c": "Disabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Insights/diagnosticSettings/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-diagnostic-setting-mixed-bad-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-diagnostic-setting-mixed-bad-unknown-disabled-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-diagnostic-setting-mixed-bad-unknown-disabled-alert",
+            "CA10Z1__actionGroup__c": "delete-diagnostic-setting-mixed-bad-unknown-disabled-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-diagnostic-setting-mixed-bad-unknown-disabled-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-diagnostic-setting-mixed-bad-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-diagnostic-setting-mixed-bad-unknown-disabled-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-diagnostic-setting-mixed-bad-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-diagnostic-setting-mixed-bad-unknown-disabled-link"
+          }
+        ]
+      },
+      {
+        "Id": "delete-diagnostic-setting-mixed-bad-unknown-broken-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-diagnostic-setting-mixed-bad-unknown",
+        "CA10__subscription__r": {
+          "Id": "delete-diagnostic-setting-mixed-bad-unknown",
+          "CA10__subscriptionId__c": "delete-diagnostic-setting-mixed-bad-unknown"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Insights/diagnosticSettings/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-diagnostic-setting-mixed-bad-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-diagnostic-setting-mixed-bad-unknown-broken-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-diagnostic-setting-mixed-bad-unknown-broken-alert",
+            "CA10Z1__actionGroup__c": null,
+            "CA10Z1__actionGroup__r": {
+              "Id": null,
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-diagnostic-setting-mixed-bad-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-diagnostic-setting-mixed-bad-unknown-broken-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "delete-diagnostic-setting-deleted-alert",
+    "CA10__subscriptionId__c": "delete-diagnostic-setting-deleted-alert",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-diagnostic-setting-deleted-alert-deleted-alert",
+        "CA10__disappearanceTime__c": "2026-01-01T00:00:00Z",
+        "CA10__subscription__c": "delete-diagnostic-setting-deleted-alert",
+        "CA10__subscription__r": {
+          "Id": "delete-diagnostic-setting-deleted-alert",
+          "CA10__subscriptionId__c": "delete-diagnostic-setting-deleted-alert"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Insights/diagnosticSettings/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-diagnostic-setting-deleted-alert",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-diagnostic-setting-deleted-alert-deleted-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-diagnostic-setting-deleted-alert-deleted-alert",
+            "CA10Z1__actionGroup__c": "delete-diagnostic-setting-deleted-alert-deleted-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-diagnostic-setting-deleted-alert-deleted-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-diagnostic-setting-deleted-alert/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-diagnostic-setting-deleted-alert-deleted-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-diagnostic-setting-deleted-alert/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-diagnostic-setting-deleted-alert-deleted-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "delete-diagnostic-setting-narrow",
+    "CA10__subscriptionId__c": "delete-diagnostic-setting-narrow",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-diagnostic-setting-narrow-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-diagnostic-setting-narrow",
+        "CA10__subscription__r": {
+          "Id": "delete-diagnostic-setting-narrow",
+          "CA10__subscriptionId__c": "delete-diagnostic-setting-narrow"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Insights/diagnosticSettings/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-diagnostic-setting-narrow/resourceGroups/limited",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-diagnostic-setting-narrow-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-diagnostic-setting-narrow-alert",
+            "CA10Z1__actionGroup__c": "delete-diagnostic-setting-narrow-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-diagnostic-setting-narrow-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-diagnostic-setting-narrow/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-diagnostic-setting-narrow-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-diagnostic-setting-narrow/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-diagnostic-setting-narrow-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  }
+]

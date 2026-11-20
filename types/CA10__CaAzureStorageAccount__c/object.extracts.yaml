@@ -45,13 +45,11 @@ extracts:
         path: "CA10__requireInfrastructureEncryptionState__c"
         undeterminedIf:
           isEmpty: "Corrupted data. Require Infrastructure Encryption setting cannot be empty."
-# Values: Enabled, Disabled. Not Nullable. Can't have no access, retrieved via Microsoft.Storage/storageAccounts
+# Optional; absent publicNetworkAccess has the native Enabled default.
   - name: "CA10__publicNetworkAccessState__c"
     value: 
       FIELD:
         path: "CA10__publicNetworkAccessState__c"
-        undeterminedIf:
-          isEmpty: "Corrupted data. Public Network Access cannot be empty."
 # Values: Allow, Deny. Not nullable. Can't have no access, retrieved via Microsoft.Storage/storageAccounts.
   - name: "CA10__networkAclsDefaultAction__c"
     value: 
@@ -67,26 +65,22 @@ extracts:
         path: "CA10__networkAclsBypass__c"
         undeterminedIf:
           isEmpty: "Corrupted data. Network Bypass cannot be empty."
-# Values TLS1_0, TLS1_1, TLS1_2. Not nullable. Can't have no access, retrieved via Microsoft.Storage/storageAccounts.
+# Optional minimum TLS configuration; absence does not establish an explicit protocol floor.
   - name: "CA10__minimumTlsVersion__c"
     value: 
       FIELD:
         path: "CA10__minimumTlsVersion__c"
-        undeterminedIf:
-          isEmpty: "Corrupted data. TLS Version cannot be empty."
 # Values: Allow, Deny, null (Old storage accounts can have null, which means that the account can still have replication). 
 # Nullable. Can't have no access, retrieved via Microsoft.Storage/storageAccounts.
   - name: "CA10__crossTenantReplication__c"
     value: 
       FIELD:
         path: "CA10__crossTenantReplication__c"
-# Values: Allow, Deny. Not nullable. Can't have no access, retrieved via Microsoft.Storage/storageAccounts.
+# Optional; absent allowBlobPublicAccess has the native allow default.
   - name: "CA10__blobPublicAccess__c"
     value: 
       FIELD:
         path: "CA10__blobPublicAccess__c"
-        undeterminedIf:
-          isEmpty: "Corrupted data. Allow Blob Anonymous Access cannot be empty."
 # Values Enabled, Disabled. Not Nullable
   - name: "CA10__blobLoggingReadState__c"
     value: 
@@ -250,4 +244,10 @@ extracts:
       FIELD:
         path: "CA10__keyExpirationPeriodDays__c"
 
-        
+# Native storage account kind, required to identify available services.
+  - name: CA10__kind__c
+    value:
+      FIELD:
+        path: CA10__kind__c
+        undeterminedIf:
+          isEmpty: Storage account kind is not collected.

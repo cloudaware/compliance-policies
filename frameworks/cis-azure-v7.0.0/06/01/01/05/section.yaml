@@ -1,0 +1,9 @@
+---
+name: 6.1.1.5 Ensure that Network Security Group Flow Logs are Captured and Sent to Log Analytics (LEGACY)
+  (Manual)
+description: 'Existing network security group flow logs should stay enabled and send traffic analytics
+  to a central Log Analytics workspace until they are migrated to virtual network flow logs. Where a subscription
+  has no network security group flow logs, this recommendation is satisfied by Ensure that Virtual Network
+  Flow Logs are Captured and Sent to Log Analytics. Warning: Network security group flow logs retire on
+  September 30, 2027; new ones cannot be created after June 30, 2025, and Azure deletes the remaining
+  flow log resources at retirement.'

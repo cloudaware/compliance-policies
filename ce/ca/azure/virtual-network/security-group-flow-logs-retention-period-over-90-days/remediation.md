@@ -1,5 +1,7 @@
 # Remediation
 
+This historical assessment requires enabled NSG flow logging. For an existing legacy log still in use, set **Status** to **On** and **Retention days** to **0** (indefinite) or at least **90**, then verify collection. New NSG flow logs cannot be created after June 30, 2025.
+
 ## Migrate Network Security Group (NSG) Flow Logs to Virtual Network Flow Logs
 
 Azure Network Security Group (NSG) flow logs must be migrated to Azure Virtual Network flow logs. This process disables existing NSG flow logs and creates equivalent virtual network flow logs.

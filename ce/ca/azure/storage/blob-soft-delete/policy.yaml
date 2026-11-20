@@ -1,7 +1,7 @@
 ---
 names:
-  full: Azure Storage Blob Soft Delete is not enabled
-  contextual: Blob Soft Delete is not enabled
+  full: Azure Storage Blob Soft Delete is disabled or retained for fewer than 7 days
+  contextual: Blob Soft Delete is disabled or retained for fewer than 7 days
 description: Enable soft delete for Azure Blob Storage blobs so deleted blobs and
   blob snapshots can be recovered during the configured retention period. This reduces
   the risk of permanent data loss from accidental deletion, application errors, or
@@ -11,7 +11,7 @@ categories:
   - "RELIABILITY"
   - "SECURITY"
 frameworkMappings:
-  - "/frameworks/cis-azure-v6.0.0/09/02/01"
+  - "/frameworks/cis-azure-v7.0.0/09/01/01"
   - "/frameworks/cloudaware/resource-security/data-protection-and-recovery"
   - "/frameworks/cloudaware/resource-reliability/system-configuration"
 similarPolicies:

@@ -1,0 +1,12 @@
+---
+names:
+  full: Azure Managed HSM purge protection is not enabled
+  contextual: Managed HSM purge protection is not enabled
+description: Ensure 'Purge protection' is Set to 'Enabled' for Azure Key Vault Managed HSM.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-security/data-protection-and-recovery
+  - /frameworks/cis-azure-v7.0.0/08/03/01/04
+impossible: true

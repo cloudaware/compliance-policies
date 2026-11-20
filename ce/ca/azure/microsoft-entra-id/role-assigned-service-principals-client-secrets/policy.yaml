@@ -1,0 +1,12 @@
+---
+names:
+  full: Azure Role-assigned Service Principal uses client secrets
+  contextual: Role-assigned Service Principal uses client secrets
+description: Ensure Service Principals Holding Azure Role Assignments Do Not Use Client Secrets.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/identity-and-access-governance/credential-lifecycle-management
+  - /frameworks/cis-azure-v7.0.0/05/11
+impossible: true

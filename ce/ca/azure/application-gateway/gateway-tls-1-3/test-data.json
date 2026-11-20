@@ -1,0 +1,68 @@
+[
+  {
+    "Id": "tls13-0",
+    "CA10__sslPolicyMinProtocolVersion__c": "TLSv1_3",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "extract('CA10__sslPolicyMinProtocolVersion__c') == 'TLSv1_3'"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "tls13-1",
+    "CA10__sslPolicyMinProtocolVersion__c": "TLSv1_2",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['TLSv1_0', 'TLSv1_1', 'TLSv1_2']).contains(extract('CA10__sslPolicyMinProtocolVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "tls13-2",
+    "CA10__sslPolicyMinProtocolVersion__c": "TLSv1_1",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['TLSv1_0', 'TLSv1_1', 'TLSv1_2']).contains(extract('CA10__sslPolicyMinProtocolVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "tls13-3",
+    "CA10__sslPolicyMinProtocolVersion__c": "TLSv1_0",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "setOfText(['TLSv1_0', 'TLSv1_1', 'TLSv1_2']).contains(extract('CA10__sslPolicyMinProtocolVersion__c'))"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "tls13-4",
+    "CA10__sslPolicyMinProtocolVersion__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "tls13-5",
+    "CA10__sslPolicyMinProtocolVersion__c": "future",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null
+  }
+]

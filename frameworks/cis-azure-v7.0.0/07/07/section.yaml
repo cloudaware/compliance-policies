@@ -1,0 +1,11 @@
+---
+name: 7.7 Ensure 'Authentication type' is Set to 'Microsoft Entra ID' Only for Azure VPN Gateway Point-to-Site
+  Configuration (Automated)
+description: 'Azure VPN Gateway point-to-site connections authenticate clients with any combination of
+  Azure certificate, RADIUS authentication, and Microsoft Entra ID. The Authentication type setting selects
+  which of these methods the gateway accepts. Prerequisites: Before removing certificate or RADIUS authentication,
+  add Microsoft Entra ID alongside it and deploy the Azure VPN Client profile to every point-to-site user,
+  as the first remediation step describes.'
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/07/09

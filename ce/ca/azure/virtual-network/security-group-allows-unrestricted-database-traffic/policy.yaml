@@ -1,0 +1,11 @@
+---
+names:
+  full: Azure Network Security Group allows unrestricted database traffic
+  contextual: Network Security Group allows unrestricted database traffic
+description: Ensure that Database Port Access from the Internet is Evaluated and Restricted.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-security/network-exposure
+  - /frameworks/cis-azure-v7.0.0/07/01/06

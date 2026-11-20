@@ -3,9 +3,9 @@
 ## From Azure Portal
 
 1. Go to `Storage Accounts`.
-2. For each Storage Account, under `Data management`, go to `Data protection`.
+2. For each Storage Account whose Kind is not `FileStorage`, under `Data management`, go to `Data protection`.
 3. Check the box next to `Enable soft delete for blobs`.
-4. Set the retention period to a sufficient length for your organization.
+4. Set the retention period to at least **7 days**, or longer if required by your organization.
 5. Click `Save`.
 
 ## From Azure CLI
@@ -15,7 +15,7 @@ Update blob retention with the following command:
 ```sh
 az storage account blob-service-properties update \
     --enable-delete-retention true \
-    --delete-retention-days {{retention-days}} \
+    --delete-retention-days {{retention-days-at-least-7}} \
     --account-name {{storage-account-name}} \
     --resource-group {{resource-group-name}}
 ```

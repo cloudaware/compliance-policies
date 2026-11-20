@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "domain-password-policy-expiration-0",
+    "CA10O1__name__c": "customPolicy",
+    "CA10O1__passwordExpiresAfterDays__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "extract('CA10O1__passwordExpiresAfterDays__c').isEmpty()"
+    },
+    "CA10O1__disappearanceTime__c": null
+  },
+  {
+    "Id": "domain-password-policy-expiration-1",
+    "CA10O1__name__c": "defaultPasswordPolicy",
+    "CA10O1__passwordExpiresAfterDays__c": -1,
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "extract('CA10O1__passwordExpiresAfterDays__c') <= number(0.0) || extract('CA10O1__passwordExpiresAfterDays__c') > number(365.0)"
+    },
+    "CA10O1__disappearanceTime__c": null
+  },
+  {
+    "Id": "domain-password-policy-expiration-2",
+    "CA10O1__name__c": "customPolicy",
+    "CA10O1__passwordExpiresAfterDays__c": 0,
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "extract('CA10O1__passwordExpiresAfterDays__c') <= number(0.0) || extract('CA10O1__passwordExpiresAfterDays__c') > number(365.0)"
+    },
+    "CA10O1__disappearanceTime__c": null
+  },
+  {
+    "Id": "domain-password-policy-expiration-3",
+    "CA10O1__name__c": "defaultPasswordPolicy",
+    "CA10O1__passwordExpiresAfterDays__c": 1,
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    },
+    "CA10O1__disappearanceTime__c": null
+  },
+  {
+    "Id": "domain-password-policy-expiration-4",
+    "CA10O1__name__c": "customPolicy",
+    "CA10O1__passwordExpiresAfterDays__c": 364,
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    },
+    "CA10O1__disappearanceTime__c": null
+  },
+  {
+    "Id": "domain-password-policy-expiration-5",
+    "CA10O1__name__c": "defaultPasswordPolicy",
+    "CA10O1__passwordExpiresAfterDays__c": 365,
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    },
+    "CA10O1__disappearanceTime__c": null
+  },
+  {
+    "Id": "domain-password-policy-expiration-6",
+    "CA10O1__name__c": "customPolicy",
+    "CA10O1__passwordExpiresAfterDays__c": 366,
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "extract('CA10O1__passwordExpiresAfterDays__c') <= number(0.0) || extract('CA10O1__passwordExpiresAfterDays__c') > number(365.0)"
+    },
+    "CA10O1__disappearanceTime__c": null
+  },
+  {
+    "Id": "domain-password-policy-expiration-deleted",
+    "CA10O1__name__c": "customPolicy",
+    "CA10O1__passwordExpiresAfterDays__c": 366,
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "runtimeError": null,
+      "conditionIndex": 99,
+      "conditionText": "isDisappeared(CA10O1__disappearanceTime__c)"
+    },
+    "CA10O1__disappearanceTime__c": "2026-01-01T00:00:00Z"
+  }
+]

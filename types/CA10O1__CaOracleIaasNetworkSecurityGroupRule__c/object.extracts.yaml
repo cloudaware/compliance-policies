@@ -1,22 +1,26 @@
 ---
 extracts:
-  - name: "CA10O1__direction__c"
+  - name: CA10O1__direction__c
     value:
       FIELD:
-        path: "CA10O1__direction__c"
-  - name: "CA10O1__source__c"
+        path: CA10O1__direction__c
+        undeterminedIf:
+          isEmpty: The network security group rule direction is not available.
+  - name: CA10O1__source__c
     value:
       FIELD:
-        path: "CA10O1__source__c"
-  - name: "CA10O1__protocol__c"
+        path: CA10O1__source__c
+  - name: CA10O1__protocol__c
     value:
       FIELD:
-        path: "CA10O1__protocol__c"
-  - name: "CA10O1__destinationPortMin__c"
+        path: CA10O1__protocol__c
+        undeterminedIf:
+          isEmpty: The network security group rule protocol is not available.
+  - name: CA10O1__destinationPortMin__c
     value:
       FIELD:
-        path: "CA10O1__destinationPortMin__c"
-  - name: "CA10O1__destinationPortMax__c"
+        path: CA10O1__destinationPortMin__c
+  - name: CA10O1__destinationPortMax__c
     value:
       FIELD:
-        path: "CA10O1__destinationPortMax__c"
+        path: CA10O1__destinationPortMax__c

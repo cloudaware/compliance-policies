@@ -1,0 +1,9 @@
+---
+name: 6.1.1.4 Ensure that Logging for Azure Key Vault is 'Enabled' (Automated)
+description: A key vault exports resource logs only through a diagnostic setting, which captures the AuditEvent
+  log of vault requests through the audit category group, the allLogs category group, or the AuditEvent
+  category. allLogs also adds AzurePolicyEvaluationDetails, which is optional because it records Azure
+  Policy evaluations rather than vault requests.
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/06/01/01/04

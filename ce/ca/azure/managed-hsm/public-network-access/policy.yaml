@@ -1,0 +1,12 @@
+---
+names:
+  full: Azure Managed HSM public network access is not disabled
+  contextual: Managed HSM public network access is not disabled
+description: Ensure 'Public Network Access' is 'Disabled' for Azure Key Vault Managed HSM.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-security/network-exposure
+  - /frameworks/cis-azure-v7.0.0/08/03/01/05
+impossible: true

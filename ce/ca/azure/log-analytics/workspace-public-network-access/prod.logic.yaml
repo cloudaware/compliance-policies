@@ -1,0 +1,49 @@
+---
+inputType: CA10Z1__CaAzureLogAnalyticsWorkspace__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10Z1__CaAzureLogAnalyticsWorkspace__c/object.extracts.yaml
+conditions:
+  - status: INCOMPLIANT
+    currentStateMessage: Public network access is enabled for ingestion or queries.
+    remediationMessage: Disable public network access for both ingestion and queries.
+    check:
+      OR:
+        args:
+          - CONTAINS:
+              arg:
+                SET:
+                  itemType: TEXT
+                  items:
+                    - Enabled
+                    - SecuredByPerimeter
+              search:
+                EXTRACT: CA10Z1__publicNetworkAccessForIngestion__c
+          - CONTAINS:
+              arg:
+                SET:
+                  itemType: TEXT
+                  items:
+                    - Enabled
+                    - SecuredByPerimeter
+              search:
+                EXTRACT: CA10Z1__publicNetworkAccessForQuery__c
+  - status: COMPLIANT
+    currentStateMessage: Public network access is disabled for ingestion and queries.
+    check:
+      AND:
+        args:
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10Z1__publicNetworkAccessForIngestion__c
+              right:
+                TEXT: Disabled
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10Z1__publicNetworkAccessForQuery__c
+              right:
+                TEXT: Disabled
+otherwise:
+  status: UNDETERMINED
+  currentStateMessage: The workspace public network access settings are missing or unexpected.

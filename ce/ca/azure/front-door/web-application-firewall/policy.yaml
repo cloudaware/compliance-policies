@@ -1,0 +1,12 @@
+---
+names:
+  full: Azure Front Door Web Application Firewall is not enabled
+  contextual: Front Door Web Application Firewall is not enabled
+description: Ensure Azure Web Application Firewall (WAF) is Enabled on Azure Front Door.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-security/threat-protection
+  - /frameworks/cis-azure-v7.0.0/07/10
+impossible: true

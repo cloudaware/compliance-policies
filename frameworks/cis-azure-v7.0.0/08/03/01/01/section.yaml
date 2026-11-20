@@ -1,0 +1,10 @@
+---
+name: 8.3.1.1 Ensure that Azure Key Vault Managed HSM is Used when Required (Manual)
+description: 'Key Vault Premium uses multitenant HSMs that Microsoft operates; Managed HSM is a single-tenant
+  HSM pool with a customer-owned security domain. Managed HSM and Premium key versions on HSM Platform
+  2 are FIPS 140-3 Level 3 validated; Premium key versions on HSM Platform 1 are FIPS 140-2 Level 2. Note:
+  Although this recommendation can be audited by command, it is Manual because it applies only where a
+  regulatory or contractual requirement mandates a dedicated, customer-controlled HSM.'
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/08/03/10

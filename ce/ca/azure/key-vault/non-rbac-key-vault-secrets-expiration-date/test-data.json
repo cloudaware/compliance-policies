@@ -1,124 +1,355 @@
 [
-    {
-        "expectedResult": {
-            "status": "DISAPPEARED",
-            "conditionIndex": "99",
-            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-27T20:33:04Z"
-        },
-        "Id": "test1",
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "runtimeError": null,
+      "conditionIndex": 99,
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)"
+    },
+    "context": {
+      "snapshotTime": "2024-06-27T20:33:04Z"
+    },
+    "Id": "test1",
+    "CA10__disappearanceTime__c": "2024-06-27T20:33:04Z",
+    "CA10__rbacAuthorization__c": "Enabled",
+    "CA10__Azure_Key_Vault_Secrets__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "extract('CA10__rbacAuthorization__c') == 'Enabled'"
+    },
+    "context": {
+      "snapshotTime": "2024-06-27T20:33:04Z"
+    },
+    "Id": "test2",
+    "CA10__disappearanceTime__c": null,
+    "CA10__rbacAuthorization__c": "Enabled",
+    "CA10__Azure_Key_Vault_Secrets__r": []
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "CA10__Azure_Key_Vault_Secrets__r.has(INCOMPLIANT)"
+    },
+    "context": {
+      "snapshotTime": "2024-06-27T20:33:04Z"
+    },
+    "Id": "test3",
+    "CA10__disappearanceTime__c": null,
+    "CA10__rbacAuthorization__c": "Disabled",
+    "CA10__Azure_Key_Vault_Secrets__r": [
+      {
+        "Id": "test3_1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__expirationDate__c": null,
+        "CA10__keyVault__c": "test3"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 599,
+      "conditionText": "CA10__Azure_Key_Vault_Secrets__r.has(COMPLIANT)"
+    },
+    "context": {
+      "snapshotTime": "2024-06-27T20:33:04Z"
+    },
+    "Id": "test4",
+    "CA10__disappearanceTime__c": null,
+    "CA10__rbacAuthorization__c": "Disabled",
+    "CA10__Azure_Key_Vault_Secrets__r": [
+      {
+        "Id": "test4_1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__expirationDate__c": "2024-06-27T20:33:04Z",
+        "CA10__keyVault__c": "test4"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "CA10__Azure_Key_Vault_Secrets__r.has(INAPPLICABLE)"
+    },
+    "context": {
+      "snapshotTime": "2024-06-27T20:33:04Z"
+    },
+    "Id": "test5",
+    "CA10__disappearanceTime__c": null,
+    "CA10__rbacAuthorization__c": "Disabled",
+    "CA10__Azure_Key_Vault_Secrets__r": [
+      {
+        "Id": "test5_1",
+        "CA10__disappearanceTime__c": null,
+        "CA10__enabledStatus__c": "Disabled",
+        "CA10__expirationDate__c": "2024-06-27T20:33:04Z",
+        "CA10__keyVault__c": "test5"
+      }
+    ]
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "context": {
+      "snapshotTime": "2024-06-27T20:33:04Z"
+    },
+    "Id": "test6",
+    "CA10__disappearanceTime__c": null,
+    "CA10__rbacAuthorization__c": "Disabled",
+    "CA10__Azure_Key_Vault_Secrets__r": [
+      {
+        "Id": "test6_1",
         "CA10__disappearanceTime__c": "2024-06-27T20:33:04Z",
-        "CA10__rbacAuthorization__c": "Enabled",
-        "CA10__Azure_Key_Vault_Secrets__r": []
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__expirationDate__c": "2024-06-27T20:33:04Z",
+        "CA10__keyVault__c": "test6"
+      }
+    ]
+  },
+  {
+    "Id": "non-rbac-secrets-pass-unknown",
+    "CA10__rbacAuthorization__c": "Disabled",
+    "CA10__Azure_Key_Vault_Secrets__r": [
+      {
+        "Id": "non-rbac-secrets-pass-unknown-0",
+        "CA10__keyVault__c": "non-rbac-secrets-pass-unknown",
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__expirationDate__c": "2027-01-01T00:00:00Z",
+        "CA10__disappearanceTime__c": null
+      },
+      {
+        "Id": "non-rbac-secrets-pass-unknown-1",
+        "CA10__keyVault__c": "non-rbac-secrets-pass-unknown",
+        "CA10__enabledStatus__c": null,
+        "CA10__expirationDate__c": "2027-01-01T00:00:00Z",
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "CA10__Azure_Key_Vault_Secrets__r.has(UNDETERMINED)"
     },
-    {
-        "expectedResult": {
-            "status": "INAPPLICABLE",
-            "conditionIndex": "199",
-            "conditionText": "extract('CA10__rbacAuthorization__c') == 'Enabled'",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-27T20:33:04Z"
-        },
-        "Id": "test2",
-        "CA10__disappearanceTime__c": null,
-        "CA10__rbacAuthorization__c": "Enabled",
-        "CA10__Azure_Key_Vault_Secrets__r": []
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "non-rbac-secrets-fail-unknown",
+    "CA10__rbacAuthorization__c": "Disabled",
+    "CA10__Azure_Key_Vault_Secrets__r": [
+      {
+        "Id": "non-rbac-secrets-fail-unknown-0",
+        "CA10__keyVault__c": "non-rbac-secrets-fail-unknown",
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__expirationDate__c": null,
+        "CA10__disappearanceTime__c": null
+      },
+      {
+        "Id": "non-rbac-secrets-fail-unknown-1",
+        "CA10__keyVault__c": "non-rbac-secrets-fail-unknown",
+        "CA10__enabledStatus__c": null,
+        "CA10__expirationDate__c": "2027-01-01T00:00:00Z",
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "CA10__Azure_Key_Vault_Secrets__r.has(INCOMPLIANT)"
     },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "299",
-            "conditionText": "CA10__Azure_Key_Vault_Secrets__r.has(INCOMPLIANT)",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-27T20:33:04Z"
-        },
-        "Id": "test3",
-        "CA10__disappearanceTime__c": null,
-        "CA10__rbacAuthorization__c": "Disabled",
-        "CA10__Azure_Key_Vault_Secrets__r": [
-            {
-                "Id": "test3_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__expirationDate__c": null,
-                "CA10__keyVault__c": "test3"
-            }
-        ]
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "non-rbac-secrets-excluded-unknown",
+    "CA10__rbacAuthorization__c": "Disabled",
+    "CA10__Azure_Key_Vault_Secrets__r": [
+      {
+        "Id": "non-rbac-secrets-excluded-unknown-0",
+        "CA10__keyVault__c": "non-rbac-secrets-excluded-unknown",
+        "CA10__enabledStatus__c": "Disabled",
+        "CA10__expirationDate__c": "2027-01-01T00:00:00Z",
+        "CA10__disappearanceTime__c": null
+      },
+      {
+        "Id": "non-rbac-secrets-excluded-unknown-1",
+        "CA10__keyVault__c": "non-rbac-secrets-excluded-unknown",
+        "CA10__enabledStatus__c": null,
+        "CA10__expirationDate__c": "2027-01-01T00:00:00Z",
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "CA10__Azure_Key_Vault_Secrets__r.has(UNDETERMINED)"
     },
-    {
-        "expectedResult": {
-            "status": "COMPLIANT",
-            "conditionIndex": "399",
-            "conditionText": "CA10__Azure_Key_Vault_Secrets__r.has(COMPLIANT)",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-27T20:33:04Z"
-        },
-        "Id": "test4",
-        "CA10__disappearanceTime__c": null,
-        "CA10__rbacAuthorization__c": "Disabled",
-        "CA10__Azure_Key_Vault_Secrets__r": [
-            {
-                "Id": "test4_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__expirationDate__c": "2024-06-27T20:33:04Z",
-                "CA10__keyVault__c": "test4"
-            }
-        ]
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "non-rbac-secrets-pass-fail",
+    "CA10__rbacAuthorization__c": "Disabled",
+    "CA10__Azure_Key_Vault_Secrets__r": [
+      {
+        "Id": "non-rbac-secrets-pass-fail-0",
+        "CA10__keyVault__c": "non-rbac-secrets-pass-fail",
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__expirationDate__c": "2027-01-01T00:00:00Z",
+        "CA10__disappearanceTime__c": null
+      },
+      {
+        "Id": "non-rbac-secrets-pass-fail-1",
+        "CA10__keyVault__c": "non-rbac-secrets-pass-fail",
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__expirationDate__c": null,
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "CA10__Azure_Key_Vault_Secrets__r.has(INCOMPLIANT)"
     },
-    {
-        "expectedResult": {
-            "status": "INAPPLICABLE",
-            "conditionIndex": "499",
-            "conditionText": "CA10__Azure_Key_Vault_Secrets__r.has(INAPPLICABLE)",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-27T20:33:04Z"
-        },
-        "Id": "test5",
-        "CA10__disappearanceTime__c": null,
-        "CA10__rbacAuthorization__c": "Disabled",
-        "CA10__Azure_Key_Vault_Secrets__r": [
-            {
-                "Id": "test5_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Disabled",
-                "CA10__expirationDate__c": "2024-06-27T20:33:04Z",
-                "CA10__keyVault__c": "test5"
-            }
-        ]
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "non-rbac-secrets-empty",
+    "CA10__rbacAuthorization__c": "Disabled",
+    "CA10__Azure_Key_Vault_Secrets__r": [],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
     },
-    {
-        "expectedResult": {
-            "status": "UNDETERMINED",
-            "conditionIndex": "500",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-27T20:33:04Z"
-        },
-        "Id": "test6",
-        "CA10__disappearanceTime__c": null,
-        "CA10__rbacAuthorization__c": "Disabled",
-        "CA10__Azure_Key_Vault_Secrets__r": [
-            {
-                "Id": "test6_1",
-                "CA10__disappearanceTime__c": "2024-06-27T20:33:04Z",
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__expirationDate__c": "2024-06-27T20:33:04Z",
-                "CA10__keyVault__c": "test6"
-            }
-        ]
-    }
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "non-rbac-secrets-all-excluded",
+    "CA10__rbacAuthorization__c": "Disabled",
+    "CA10__Azure_Key_Vault_Secrets__r": [
+      {
+        "Id": "non-rbac-secrets-all-excluded-0",
+        "CA10__keyVault__c": "non-rbac-secrets-all-excluded",
+        "CA10__enabledStatus__c": "Disabled",
+        "CA10__expirationDate__c": "2027-01-01T00:00:00Z",
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "CA10__Azure_Key_Vault_Secrets__r.has(INAPPLICABLE)"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "non-rbac-secrets-only-disappeared",
+    "CA10__rbacAuthorization__c": "Disabled",
+    "CA10__Azure_Key_Vault_Secrets__r": [
+      {
+        "Id": "non-rbac-secrets-only-disappeared-0",
+        "CA10__keyVault__c": "non-rbac-secrets-only-disappeared",
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__expirationDate__c": "2027-01-01T00:00:00Z",
+        "CA10__disappearanceTime__c": "2026-10-01T00:00:00Z"
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 700,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "non-rbac-secrets-pass-disappeared",
+    "CA10__rbacAuthorization__c": "Disabled",
+    "CA10__Azure_Key_Vault_Secrets__r": [
+      {
+        "Id": "non-rbac-secrets-pass-disappeared-0",
+        "CA10__keyVault__c": "non-rbac-secrets-pass-disappeared",
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__expirationDate__c": "2027-01-01T00:00:00Z",
+        "CA10__disappearanceTime__c": null
+      },
+      {
+        "Id": "non-rbac-secrets-pass-disappeared-1",
+        "CA10__keyVault__c": "non-rbac-secrets-pass-disappeared",
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__expirationDate__c": "2027-01-01T00:00:00Z",
+        "CA10__disappearanceTime__c": "2026-10-01T00:00:00Z"
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 599,
+      "conditionText": "CA10__Azure_Key_Vault_Secrets__r.has(COMPLIANT)"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "non-rbac-secrets-unsupported-state",
+    "CA10__rbacAuthorization__c": "Disabled",
+    "CA10__Azure_Key_Vault_Secrets__r": [
+      {
+        "Id": "non-rbac-secrets-unsupported-state-0",
+        "CA10__keyVault__c": "non-rbac-secrets-unsupported-state",
+        "CA10__enabledStatus__c": "Unexpected",
+        "CA10__expirationDate__c": "2027-01-01T00:00:00Z",
+        "CA10__disappearanceTime__c": null
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "CA10__Azure_Key_Vault_Secrets__r.has(UNDETERMINED)"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "non-rbac-key-vault-secrets-expiration-date-missing-authorization",
+    "CA10__disappearanceTime__c": null,
+    "CA10__rbacAuthorization__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 101,
+      "conditionText": "CA10__rbacAuthorization__c.isEmpty()"
+    },
+    "CA10__Azure_Key_Vault_Secrets__r": []
+  },
+  {
+    "Id": "non-rbac-key-vault-secrets-expiration-date-unknown-authorization",
+    "CA10__disappearanceTime__c": null,
+    "CA10__rbacAuthorization__c": "Unexpected",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "not(extract('CA10__rbacAuthorization__c') == 'Disabled')"
+    },
+    "CA10__Azure_Key_Vault_Secrets__r": []
+  }
 ]

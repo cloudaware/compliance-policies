@@ -1,13 +1,29 @@
 ---
-inputType: "CA10__CaAzureNetworkSubnet__c"
+inputType: CA10__CaAzureNetworkSubnet__c
+importExtracts:
+  - file: /types/CA10__CaAzureNetworkSubnet__c/object.extracts.yaml
 testData:
-  - file: "test-data.json"
+  - file: test-data.json
 conditions:
-  - status: "COMPLIANT"
-    currentStateMessage: "The subnet is associated with a Network Security Group."
+  - status: INAPPLICABLE
+    currentStateMessage: This platform subnet is excluded from NSG association requirements.
     check:
-      NOT_EMPTY_LOOKUP: "CA10__networkSecurityGroup__r"
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - GatewaySubnet
+              - AzureFirewallSubnet
+              - RouteServerSubnet
+              - AzureFirewallManagementSubnet
+        search:
+          EXTRACT: CA10__name__c
+  - status: COMPLIANT
+    currentStateMessage: The subnet is associated with a Network Security Group.
+    check:
+      NOT_EMPTY_LOOKUP: CA10__networkSecurityGroup__r
 otherwise:
-  status: "INCOMPLIANT"
-  currentStateMessage: "The subnet is not associated with a Network Security Group."
-  remediationMessage: "Associate the subnet with a Network Security Group."
+  status: INCOMPLIANT
+  currentStateMessage: The subnet is not associated with a Network Security Group.
+  remediationMessage: Associate the subnet with a Network Security Group.

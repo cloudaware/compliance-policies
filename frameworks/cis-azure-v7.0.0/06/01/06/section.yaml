@@ -1,0 +1,9 @@
+---
+name: 6.1.6 Ensure that 'Public Network Access' for Ingestion and Queries is 'Disabled' for Log Analytics
+  Workspaces (Automated)
+description: 'A Log Analytics workspace accepts ingestion and queries from any network, or only from networks
+  connected through an Azure Monitor Private Link Scope (AMPLS). The Allow public network access for ingestion
+  and Allow public network access for queries settings select between them; each is Enabled (Yes), Disabled
+  (No), or SecuredByPerimeter. Prerequisites: Link the workspace to an Azure Monitor Private Link Scope
+  reached through a private endpoint with private DNS from every network whose agents, clients, or users
+  send data to or query it.'

@@ -1,0 +1,8 @@
+---
+name: 8.3.4 Ensure that the Expiration Date is set for All Secrets in Key Vaults using RBAC (Automated)
+description: 'Ensure that all Secrets in Azure Key Vaults using Role Based Access Control (RBAC) have
+  an expiration date set. Note: The audit commands require data-plane access to each Key Vault in addition
+  to the management-plane Reader role. Without data-plane access these commands return empty results silently.'
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/08/03/03

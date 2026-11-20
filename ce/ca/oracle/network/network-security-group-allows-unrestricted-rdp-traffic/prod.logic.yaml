@@ -1,102 +1,154 @@
 ---
-inputType: "CA10O1__CaOracleIaasNetworkSecurityGroup__c"
+inputType: CA10O1__CaOracleIaasNetworkSecurityGroup__c
 testData:
-  - file: "test-data.json"
+  - file: test-data.json
 conditions:
-  - status: "INCOMPLIANT"
-    currentStateMessage: "The network security group has ingress rules that allow unrestricted RDP access."
-    remediationMessage: "Remove public RDP ingress or restrict it to approved source CIDRs."
+  - status: INCOMPLIANT
+    currentStateMessage: The network security group has ingress rules that allow unrestricted RDP access.
+    remediationMessage: Remove public RDP ingress or restrict it to approved source CIDRs.
     check:
       RELATED_LIST_HAS:
-        status: "INCOMPLIANT"
-        relationshipName: "CA10O1__Oracle_IAAS_Network_Security_Group_Rules__r"
+        status: INCOMPLIANT
+        relationshipName: CA10O1__Oracle_IAAS_Network_Security_Group_Rules__r
+  - status: UNDETERMINED
+    currentStateMessage: The network security group has rules with incomplete or inconsistent data.
+    check:
+      RELATED_LIST_HAS:
+        status: UNDETERMINED
+        relationshipName: CA10O1__Oracle_IAAS_Network_Security_Group_Rules__r
 otherwise:
-  status: "COMPLIANT"
-  currentStateMessage: "The network security group does not allow unrestricted RDP access."
+  status: COMPLIANT
+  currentStateMessage: The network security group does not allow unrestricted RDP access.
 relatedLists:
-  - relationshipName: "CA10O1__Oracle_IAAS_Network_Security_Group_Rules__r"
+  - relationshipName: CA10O1__Oracle_IAAS_Network_Security_Group_Rules__r
     importExtracts:
-      - file: "/types/CA10O1__CaOracleIaasNetworkSecurityGroupRule__c/object.extracts.yaml"
+      - file: /types/CA10O1__CaOracleIaasNetworkSecurityGroupRule__c/object.extracts.yaml
     conditions:
-      - status: "INAPPLICABLE"
-        currentStateMessage: "This is not an ingress rule."
+      - status: INAPPLICABLE
+        currentStateMessage: This is an egress rule.
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: CA10O1__direction__c
+            right:
+              TEXT: Egress
+      - status: UNDETERMINED
+        currentStateMessage: The rule direction is missing or unexpected.
         check:
           NOT_EQUAL:
             left:
-              EXTRACT: "CA10O1__direction__c"
+              EXTRACT: CA10O1__direction__c
             right:
-              TEXT: "INGRESS"
-      - status: "INAPPLICABLE"
-        currentStateMessage: "This ingress rule is not sourced from the internet."
+              TEXT: Ingress
+      - status: UNDETERMINED
+        currentStateMessage: The ingress rule source is not available.
+        check:
+          IS_EMPTY:
+            arg:
+              EXTRACT: CA10O1__source__c
+      - status: INAPPLICABLE
+        currentStateMessage: This ingress rule is not sourced from the internet.
         check:
           AND:
             args:
               - NOT_EQUAL:
                   left:
-                    EXTRACT: "CA10O1__source__c"
+                    EXTRACT: CA10O1__source__c
                   right:
-                    TEXT: "0.0.0.0/0"
+                    TEXT: 0.0.0.0/0
               - NOT_EQUAL:
                   left:
-                    EXTRACT: "CA10O1__source__c"
+                    EXTRACT: CA10O1__source__c
                   right:
-                    TEXT: "::/0"
-      - status: "INAPPLICABLE"
-        currentStateMessage: "This ingress rule does not use ALL or TCP protocol."
+                    TEXT: ::/0
+      - status: INAPPLICABLE
+        currentStateMessage: This ingress rule does not use ALL or TCP protocol.
         check:
           NOT:
             arg:
               CONTAINS:
                 arg:
                   SET:
-                    itemType: "TEXT"
+                    itemType: TEXT
                     items:
-                      - "ALL"
-                      - "TCP"
+                      - ALL
+                      - TCP
                 search:
-                  EXTRACT: "CA10O1__protocol__c"
-      - status: "INCOMPLIANT"
-        currentStateMessage: "This ingress rule allows RDP access from the internet."
-        remediationMessage: "Remove this rule or restrict the source CIDR to approved administrative ranges."
+                  EXTRACT: CA10O1__protocol__c
+      - status: INCOMPLIANT
+        currentStateMessage: This ingress rule allows RDP access from the internet.
+        remediationMessage: Remove this rule or restrict the source CIDR to approved administrative ranges.
         check:
           IS_EQUAL:
             left:
-              EXTRACT: "CA10O1__protocol__c"
+              EXTRACT: CA10O1__protocol__c
             right:
-              TEXT: "ALL"
-      - status: "INCOMPLIANT"
-        currentStateMessage: "This ingress rule allows RDP access from the internet."
-        remediationMessage: "Remove this rule or restrict the source CIDR to approved administrative ranges."
+              TEXT: ALL
+      - status: UNDETERMINED
+        currentStateMessage: The TCP destination port range is incomplete or invalid.
         check:
-          AND:
+          OR:
             args:
-              - IS_EQUAL:
+              - NOT_EQUAL:
                   left:
-                    EXTRACT: "CA10O1__protocol__c"
+                    IS_EMPTY:
+                      arg:
+                        EXTRACT: CA10O1__destinationPortMin__c
                   right:
-                    TEXT: "TCP"
-              - OR:
+                    IS_EMPTY:
+                      arg:
+                        EXTRACT: CA10O1__destinationPortMax__c
+              - AND:
                   args:
-                    - AND:
+                    - NOT_EMPTY:
+                        arg:
+                          EXTRACT: CA10O1__destinationPortMin__c
+                    - NOT_EMPTY:
+                        arg:
+                          EXTRACT: CA10O1__destinationPortMax__c
+                    - OR:
                         args:
-                          - IS_EMPTY:
-                              arg:
-                                EXTRACT: "CA10O1__destinationPortMin__c"
-                          - IS_EMPTY:
-                              arg:
-                                EXTRACT: "CA10O1__destinationPortMax__c"
-                    - AND:
-                        args:
-                          - LESS_THAN_EQUAL:
+                          - LESS_THAN:
                               left:
-                                EXTRACT: "CA10O1__destinationPortMin__c"
+                                EXTRACT: CA10O1__destinationPortMin__c
                               right:
-                                NUMBER: 3389.0
-                          - GREATER_THAN_EQUAL:
+                                NUMBER: 0
+                          - GREATER_THAN:
                               left:
-                                EXTRACT: "CA10O1__destinationPortMax__c"
+                                EXTRACT: CA10O1__destinationPortMax__c
                               right:
-                                NUMBER: 3389.0
+                                NUMBER: 65535
+                          - GREATER_THAN:
+                              left:
+                                EXTRACT: CA10O1__destinationPortMin__c
+                              right:
+                                EXTRACT: CA10O1__destinationPortMax__c
+      - status: INCOMPLIANT
+        currentStateMessage: This ingress rule allows RDP access from the internet.
+        remediationMessage: Remove this rule or restrict the source CIDR to approved administrative ranges.
+        check:
+          OR:
+            args:
+              - AND:
+                  args:
+                    - IS_EMPTY:
+                        arg:
+                          EXTRACT: CA10O1__destinationPortMin__c
+                    - IS_EMPTY:
+                        arg:
+                          EXTRACT: CA10O1__destinationPortMax__c
+              - AND:
+                  args:
+                    - LESS_THAN_EQUAL:
+                        left:
+                          EXTRACT: CA10O1__destinationPortMin__c
+                        right:
+                          NUMBER: 3389
+                    - GREATER_THAN_EQUAL:
+                        left:
+                          EXTRACT: CA10O1__destinationPortMax__c
+                        right:
+                          NUMBER: 3389
     otherwise:
-      status: "COMPLIANT"
-      currentStateMessage: "This ingress rule does not allow unrestricted RDP access."
+      status: COMPLIANT
+      currentStateMessage: This ingress rule does not allow unrestricted RDP access.

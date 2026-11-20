@@ -1,27 +1,72 @@
 ---
-inputType: "CA10__CaAzureStorageAccount__c"
+inputType: CA10__CaAzureStorageAccount__c
 importExtracts:
-  - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
+- file: /types/CA10__CaAzureStorageAccount__c/object.extracts.yaml
 testData:
-  - file: "test-data.json"
+- file: test-data.json
 conditions:
-  - status: "INCOMPLIANT"
-    currentStateMessage: "The soft delete configuration for Azure Storage Blob Storage is not enabled."
-    remediationMessage: "Enable soft delete for blob storage."
-    check:
-      OR:
-        args:
-          - IS_EQUAL:
-              left:
-                EXTRACT: "CA10__blobRetentionPolicyState__c"
-              right:
-                TEXT: "Disabled"
-          - IS_EMPTY:
-              arg:
-                EXTRACT: "CA10__blobRetentionPolicyState__c"
-          - IS_EMPTY:
-              arg:
-                EXTRACT: "CA10__blobRetentionPolicyDays__c"
+- status: INAPPLICABLE
+  currentStateMessage: FileStorage accounts do not provide the Blob service.
+  check:
+    IS_EQUAL:
+      left:
+        EXTRACT: CA10__kind__c
+      right:
+        TEXT: FileStorage
+- status: UNDETERMINED
+  currentStateMessage: The storage account kind is unexpected.
+  check:
+    NOT:
+      arg:
+        CONTAINS:
+          arg:
+            SET:
+              itemType: TEXT
+              items:
+              - Storage
+              - StorageV2
+              - BlobStorage
+              - BlockBlobStorage
+          search:
+            EXTRACT: CA10__kind__c
+- status: INCOMPLIANT
+  currentStateMessage: Blob soft delete is disabled or has no collected configuration.
+  check:
+    OR:
+      args:
+      - IS_EQUAL:
+          left:
+            EXTRACT: CA10__blobRetentionPolicyState__c
+          right:
+            TEXT: Disabled
+      - IS_EMPTY:
+          arg:
+            EXTRACT: CA10__blobRetentionPolicyState__c
+  remediationMessage: Enable blob soft delete with at least seven days of retention.
+- status: UNDETERMINED
+  currentStateMessage: The blob soft-delete state is unexpected.
+  check:
+    NOT:
+      arg:
+        IS_EQUAL:
+          left:
+            EXTRACT: CA10__blobRetentionPolicyState__c
+          right:
+            TEXT: Enabled
+- status: INCOMPLIANT
+  currentStateMessage: Blob soft-delete retention is unset or shorter than seven days.
+  check:
+    OR:
+      args:
+      - IS_EMPTY:
+          arg:
+            EXTRACT: CA10__blobRetentionPolicyDays__c
+      - LESS_THAN:
+          left:
+            EXTRACT: CA10__blobRetentionPolicyDays__c
+          right:
+            NUMBER: 7
+  remediationMessage: Set blob soft-delete retention to at least seven days.
 otherwise:
-  status: "COMPLIANT"
-  currentStateMessage: "Soft delete for Azure Storage Blob Storage is enabled."
+  status: COMPLIANT
+  currentStateMessage: Blob soft delete is enabled with at least seven days of retention.

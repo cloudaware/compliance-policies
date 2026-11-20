@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "vault-0",
+    "CA10__publicNetworkAccess__c": "Disabled",
+    "CA10__networkRuleSetDefaultAction__c": "Allow",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "extract('CA10__publicNetworkAccess__c') == 'Disabled' || extract('CA10__networkRuleSetDefaultAction__c') == 'Deny'"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "vault-1",
+    "CA10__publicNetworkAccess__c": "Enabled",
+    "CA10__networkRuleSetDefaultAction__c": "Deny",
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "extract('CA10__publicNetworkAccess__c') == 'Disabled' || extract('CA10__networkRuleSetDefaultAction__c') == 'Deny'"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "vault-2",
+    "CA10__publicNetworkAccess__c": "Enabled",
+    "CA10__networkRuleSetDefaultAction__c": "Allow",
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "(extract('CA10__publicNetworkAccess__c') == 'Enabled' || extract('CA10__publicNetworkAccess__c').isEmpty()) && (extract('CA10__networkRuleSetDefaultAction__c') == 'Allow' || extract('CA10__networkRuleSetDefaultAction__c').isEmpty())"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "vault-3",
+    "CA10__publicNetworkAccess__c": null,
+    "CA10__networkRuleSetDefaultAction__c": null,
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "(extract('CA10__publicNetworkAccess__c') == 'Enabled' || extract('CA10__publicNetworkAccess__c').isEmpty()) && (extract('CA10__networkRuleSetDefaultAction__c') == 'Allow' || extract('CA10__networkRuleSetDefaultAction__c').isEmpty())"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "vault-4",
+    "CA10__publicNetworkAccess__c": "Enabled",
+    "CA10__networkRuleSetDefaultAction__c": null,
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "(extract('CA10__publicNetworkAccess__c') == 'Enabled' || extract('CA10__publicNetworkAccess__c').isEmpty()) && (extract('CA10__networkRuleSetDefaultAction__c') == 'Allow' || extract('CA10__networkRuleSetDefaultAction__c').isEmpty())"
+    },
+    "CA10__disappearanceTime__c": null
+  },
+  {
+    "Id": "vault-5",
+    "CA10__publicNetworkAccess__c": "future",
+    "CA10__networkRuleSetDefaultAction__c": "Allow",
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    },
+    "CA10__disappearanceTime__c": null
+  }
+]

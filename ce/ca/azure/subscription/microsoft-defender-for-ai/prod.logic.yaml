@@ -1,0 +1,60 @@
+---
+inputType: CA10__CaAzureAccount__c
+testData:
+  - file: test-data.json
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: The subscription has the required AI Defender configuration.
+    check:
+      RELATED_LIST_HAS:
+        relationshipName: CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r
+        status: COMPLIANT
+  - status: UNDETERMINED
+    currentStateMessage: The AI Defender plan cannot be assessed.
+    check:
+      RELATED_LIST_HAS:
+        relationshipName: CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r
+        status: UNDETERMINED
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: The subscription lacks the required AI Defender configuration.
+  remediationMessage: Enable the AI Defender Standard plan.
+relatedLists:
+  - relationshipName: CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r
+    importExtracts:
+      - file: /types/CA10Z1__CaAzureDefenderPlan__c/object.extracts.yaml
+    conditions:
+      - status: INAPPLICABLE
+        currentStateMessage: This Defender plan is not the AI plan.
+        check:
+          NOT:
+            arg:
+              IS_EQUAL:
+                left:
+                  EXTRACT: CA10Z1__name__c
+                right:
+                  TEXT: AI
+      - status: COMPLIANT
+        currentStateMessage: The AI Defender configuration meets the requirement.
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: CA10Z1__pricingTier__c
+            right:
+              TEXT: Standard
+      - status: INCOMPLIANT
+        currentStateMessage: The AI Defender configuration does not meet the requirement.
+        remediationMessage: Enable the required AI Defender configuration.
+        check:
+          CONTAINS:
+            arg:
+              SET:
+                itemType: TEXT
+                items:
+                  - Free
+                  - Standard
+            search:
+              EXTRACT: CA10Z1__pricingTier__c
+    otherwise:
+      status: UNDETERMINED
+      currentStateMessage: The AI Defender plan configuration is unexpected.

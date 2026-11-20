@@ -1,0 +1,9 @@
+---
+name: 9.2.4 Ensure the 'Minimum TLS version' for Storage Accounts is Set to 'Version 1.2' (Automated)
+description: 'A storage account''s Minimum TLS version setting defines the lowest Transport Layer Security
+  (TLS) version it accepts for requests, and it is either set to a version or left unset. The compliant
+  value is Version 1.2. Warning: Azure Storage stopped supporting TLS 1.0 and 1.1 for all storage accounts
+  on February 3, 2026, so requests that use those versions fail regardless of this setting.'
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/09/03/06

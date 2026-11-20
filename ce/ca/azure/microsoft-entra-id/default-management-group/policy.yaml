@@ -1,0 +1,12 @@
+---
+names:
+  full: Azure Tenant default management group is the root group
+  contextual: Tenant default management group is the root group
+description: Ensure the default management group for new subscriptions is not the root management group.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/identity-and-access-governance/general-access-controls
+  - /frameworks/cis-azure-v7.0.0/05/08
+impossible: true

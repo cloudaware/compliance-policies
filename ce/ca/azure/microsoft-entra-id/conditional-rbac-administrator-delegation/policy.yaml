@@ -1,0 +1,13 @@
+---
+names:
+  full: Azure Role assignment delegation lacks conditional RBAC administration
+  contextual: Role assignment delegation lacks conditional RBAC administration
+description: Ensure Role Assignment Management is Delegated with the 'Role Based Access Control Administrator'
+  Role and Conditions.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/identity-and-access-governance/rbac-management
+  - /frameworks/cis-azure-v7.0.0/05/12
+impossible: true

@@ -1,63 +1,131 @@
 ---
-inputType: "CA10O1__CaOracleIaasSecurityList__c"
+inputType: CA10O1__CaOracleIaasSecurityList__c
 testData:
-  - file: "test-data.json"
+  - file: test-data.json
 conditions:
-  - status: "INCOMPLIANT"
-    currentStateMessage: "The security list has ingress rules that allow unrestricted SSH access."
-    remediationMessage: "Remove public SSH ingress or restrict it to approved source CIDRs."
+  - status: INCOMPLIANT
+    currentStateMessage: The security list has ingress rules that allow unrestricted SSH access.
+    remediationMessage: Remove public SSH ingress or restrict it to approved source CIDRs.
     check:
       RELATED_LIST_HAS:
-        status: "INCOMPLIANT"
-        relationshipName: "CA10O1__Oracle_IAAS_Security_List_Rules1__r"
+        status: INCOMPLIANT
+        relationshipName: CA10O1__Oracle_IAAS_Security_List_Rules1__r
+  - status: UNDETERMINED
+    currentStateMessage: The security list has rules with incomplete or inconsistent data.
+    check:
+      RELATED_LIST_HAS:
+        status: UNDETERMINED
+        relationshipName: CA10O1__Oracle_IAAS_Security_List_Rules1__r
 otherwise:
-  status: "COMPLIANT"
-  currentStateMessage: "The security list does not allow unrestricted SSH access."
+  status: COMPLIANT
+  currentStateMessage: The security list does not allow unrestricted SSH access.
 relatedLists:
-  - relationshipName: "CA10O1__Oracle_IAAS_Security_List_Rules1__r"
+  - relationshipName: CA10O1__Oracle_IAAS_Security_List_Rules1__r
     importExtracts:
-      - file: "/types/CA10O1__CaOracleIaasSecurityListRule__c/object.extracts.yaml"
+      - file: /types/CA10O1__CaOracleIaasSecurityListRule__c/object.extracts.yaml
     conditions:
-      - status: "INAPPLICABLE"
-        currentStateMessage: "This is not an ingress rule."
+      - status: INAPPLICABLE
+        currentStateMessage: This is an egress rule.
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: CA10O1__direction__c
+            right:
+              TEXT: Egress
+      - status: UNDETERMINED
+        currentStateMessage: The rule direction is missing or unexpected.
         check:
           NOT_EQUAL:
             left:
-              EXTRACT: "CA10O1__direction__c"
+              EXTRACT: CA10O1__direction__c
             right:
-              TEXT: "Ingress"
-      - status: "INAPPLICABLE"
-        currentStateMessage: "This ingress rule is not sourced from the internet."
+              TEXT: Ingress
+      - status: UNDETERMINED
+        currentStateMessage: The ingress rule source is not available.
+        check:
+          IS_EMPTY:
+            arg:
+              EXTRACT: CA10O1__source__c
+      - status: INAPPLICABLE
+        currentStateMessage: This ingress rule is not sourced from the internet.
         check:
           AND:
             args:
               - NOT_EQUAL:
                   left:
-                    EXTRACT: "CA10O1__source__c"
+                    EXTRACT: CA10O1__source__c
                   right:
-                    TEXT: "0.0.0.0/0"
+                    TEXT: 0.0.0.0/0
               - NOT_EQUAL:
                   left:
-                    EXTRACT: "CA10O1__source__c"
+                    EXTRACT: CA10O1__source__c
                   right:
-                    TEXT: "::/0"
-      - status: "INAPPLICABLE"
-        currentStateMessage: "This ingress rule does not use ALL or TCP protocol."
+                    TEXT: ::/0
+      - status: INAPPLICABLE
+        currentStateMessage: This ingress rule does not use ALL or TCP protocol.
         check:
           NOT:
             arg:
               CONTAINS:
                 arg:
                   SET:
-                    itemType: "TEXT"
+                    itemType: TEXT
                     items:
-                      - "ALL"
-                      - "TCP"
+                      - ALL
+                      - TCP
                 search:
-                  EXTRACT: "CA10O1__protocol__c"
-      - status: "INCOMPLIANT"
-        currentStateMessage: "This ingress rule allows SSH access from the internet."
-        remediationMessage: "Remove this rule or restrict the source CIDR to approved administrative ranges."
+                  EXTRACT: CA10O1__protocol__c
+      - status: INCOMPLIANT
+        currentStateMessage: This ingress rule allows SSH access from the internet.
+        remediationMessage: Remove this rule or restrict the source CIDR to approved administrative ranges.
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: CA10O1__protocol__c
+            right:
+              TEXT: ALL
+      - status: UNDETERMINED
+        currentStateMessage: The TCP destination port range is incomplete or invalid.
+        check:
+          OR:
+            args:
+              - NOT_EQUAL:
+                  left:
+                    IS_EMPTY:
+                      arg:
+                        EXTRACT: CA10O1__destinationPortMin__c
+                  right:
+                    IS_EMPTY:
+                      arg:
+                        EXTRACT: CA10O1__destinationPortMax__c
+              - AND:
+                  args:
+                    - NOT_EMPTY:
+                        arg:
+                          EXTRACT: CA10O1__destinationPortMin__c
+                    - NOT_EMPTY:
+                        arg:
+                          EXTRACT: CA10O1__destinationPortMax__c
+                    - OR:
+                        args:
+                          - LESS_THAN:
+                              left:
+                                EXTRACT: CA10O1__destinationPortMin__c
+                              right:
+                                NUMBER: 0
+                          - GREATER_THAN:
+                              left:
+                                EXTRACT: CA10O1__destinationPortMax__c
+                              right:
+                                NUMBER: 65535
+                          - GREATER_THAN:
+                              left:
+                                EXTRACT: CA10O1__destinationPortMin__c
+                              right:
+                                EXTRACT: CA10O1__destinationPortMax__c
+      - status: INCOMPLIANT
+        currentStateMessage: This ingress rule allows SSH access from the internet.
+        remediationMessage: Remove this rule or restrict the source CIDR to approved administrative ranges.
         check:
           OR:
             args:
@@ -65,22 +133,22 @@ relatedLists:
                   args:
                     - IS_EMPTY:
                         arg:
-                          EXTRACT: "CA10O1__destinationPortMin__c"
+                          EXTRACT: CA10O1__destinationPortMin__c
                     - IS_EMPTY:
                         arg:
-                          EXTRACT: "CA10O1__destinationPortMax__c"
+                          EXTRACT: CA10O1__destinationPortMax__c
               - AND:
                   args:
                     - LESS_THAN_EQUAL:
                         left:
-                          EXTRACT: "CA10O1__destinationPortMin__c"
+                          EXTRACT: CA10O1__destinationPortMin__c
                         right:
-                          NUMBER: 22.0
+                          NUMBER: 22
                     - GREATER_THAN_EQUAL:
                         left:
-                          EXTRACT: "CA10O1__destinationPortMax__c"
+                          EXTRACT: CA10O1__destinationPortMax__c
                         right:
-                          NUMBER: 22.0
+                          NUMBER: 22
     otherwise:
-      status: "COMPLIANT"
-      currentStateMessage: "This ingress rule does not allow unrestricted SSH access."
+      status: COMPLIANT
+      currentStateMessage: This ingress rule does not allow unrestricted SSH access.

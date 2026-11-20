@@ -1,0 +1,10 @@
+---
+name: 9.2.2.1 Ensure that 'Default to Microsoft Entra authorization in the Azure portal' is Set to 'Enabled'
+  (Automated)
+description: The Azure portal authorizes access to blob, file share, and queue data with either the account
+  access key or the signed-in user's Microsoft Entra account. The Default to Microsoft Entra authorization
+  in the Azure portal setting, Enabled or Disabled, selects whether the portal uses Microsoft Entra ID
+  by default.
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/09/03/03/01

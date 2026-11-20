@@ -1,0 +1,10 @@
+---
+name: 7.12 Ensure that Network Security Group Flow Log Retention Days is Set to Greater than or equal
+  to 90 (LEGACY) (Automated)
+description: 'Network security group (NSG) flow logs record IP traffic that passes through an NSG to a
+  storage account. Each flow log''s Retention days setting is 0, which keeps records indefinitely, or
+  a number of days after which records are deleted. Warning: NSG flow logs retire on September 30, 2027,
+  and new NSG flow logs cannot be created after June 30, 2025; migrate to virtual network flow logs and
+  apply the recommendation Ensure that Virtual Network Flow Log Retention Days is Set to Greater than
+  or Equal to 90. Note: This recommendation applies only to NSG flow logs still in use; an NSG flow log
+  left disabled by migration to virtual network flow logs is out of scope and should be deleted, not re-enabled.'

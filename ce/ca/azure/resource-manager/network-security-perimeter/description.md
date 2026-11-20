@@ -83,3 +83,5 @@ The current list of resources that can be associated with a network security per
 - Azure OpenAI Service
 
 While network security perimeter is generally available, Cosmos DB, SQL DB, and Azure OpenAI Service are in public preview.
+
+Each in-scope resource association must use **Enforced** access mode. A perimeter association left in Learning mode does not satisfy the control. Association access mode is not collected for automated evaluation.

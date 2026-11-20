@@ -1,0 +1,11 @@
+---
+names:
+  full: Azure Subscription Microsoft Defender AI prompt evidence is not enabled
+  contextual: Subscription Microsoft Defender AI prompt evidence is not enabled
+description: Ensure that 'Suspicious prompt evidence' Component Status is Set to 'On'.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-security/microsoft-defender-configuration
+  - /frameworks/cis-azure-v7.0.0/08/01/10/02

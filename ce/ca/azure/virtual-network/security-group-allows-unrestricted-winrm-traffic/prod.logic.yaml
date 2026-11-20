@@ -1,0 +1,186 @@
+---
+inputType: CA10__CaAzureNetworkSecurityGroup__c
+testData:
+- file: test-data.json
+conditions:
+- status: INCOMPLIANT
+  currentStateMessage: The network security group exposes winrm ports to the internet.
+  remediationMessage: Remove or restrict public winrm ingress rules.
+  check:
+    RELATED_LIST_HAS:
+      relationshipName: CA10__Azure_Network_Security_Group_Rules__r
+      status: INCOMPLIANT
+- status: UNDETERMINED
+  currentStateMessage: Some network security group rules cannot be assessed.
+  check:
+    RELATED_LIST_HAS:
+      relationshipName: CA10__Azure_Network_Security_Group_Rules__r
+      status: UNDETERMINED
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: No current assessed rule exposes winrm ports to the internet.
+relatedLists:
+- relationshipName: CA10__Azure_Network_Security_Group_Rules__r
+  importExtracts:
+  - file: /types/CA10__CaAzureNetworkSecurityGroupRule__c/object.extracts.yaml
+  conditions:
+  - status: INAPPLICABLE
+    currentStateMessage: This rule denies traffic.
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__access__c
+        right:
+          TEXT: Deny
+  - status: INAPPLICABLE
+    currentStateMessage: This is an outbound rule.
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__direction__c
+        right:
+          TEXT: Outbound
+  - status: UNDETERMINED
+    currentStateMessage: The rule access value is unexpected.
+    check:
+      NOT:
+        arg:
+          IS_EQUAL:
+            left:
+              EXTRACT: CA10__access__c
+            right:
+              TEXT: Allow
+  - status: UNDETERMINED
+    currentStateMessage: The rule direction is unexpected.
+    check:
+      NOT:
+        arg:
+          IS_EQUAL:
+            left:
+              EXTRACT: CA10__direction__c
+            right:
+              TEXT: Inbound
+  - status: INAPPLICABLE
+    currentStateMessage: The recognized protocol does not carry the assessed traffic.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+            - Udp
+            - Icmp
+            - Esp
+            - Ah
+        search:
+          EXTRACT: CA10__protocol__c
+  - status: UNDETERMINED
+    currentStateMessage: The rule protocol is unsupported.
+    check:
+      NOT:
+        arg:
+          CONTAINS:
+            arg:
+              SET:
+                itemType: TEXT
+                items:
+                - Tcp
+                - '*'
+            search:
+              EXTRACT: CA10__protocol__c
+  - status: UNDETERMINED
+    currentStateMessage: The rule has no collected source range.
+    check:
+      AND:
+        args:
+        - IS_EMPTY:
+            arg:
+              EXTRACT: CA10__sourceAddressPrefix__c
+        - IS_EMPTY:
+            arg:
+              EXTRACT: CA10__sourceAddressPrefixes__c
+  - status: INAPPLICABLE
+    currentStateMessage: The rule does not permit traffic from all internet addresses.
+    check:
+      NOT:
+        arg:
+          OR:
+            args:
+            - CONTAINS:
+                arg:
+                  SET:
+                    itemType: TEXT
+                    items:
+                    - '*'
+                    - Internet
+                    - Any
+                    - 0.0.0.0/0
+                    - ::/0
+                    - 0.0.0.0
+                search:
+                  EXTRACT: CA10__sourceAddressPrefix__c
+            - CONTAINS:
+                arg:
+                  EXTRACT: CA10__sourceAddressPrefixes__c
+                search:
+                  TEXT: /0
+  - status: INCOMPLIANT
+    currentStateMessage: The rule exposes winrm ports to the internet.
+    remediationMessage: Restrict the source addresses or remove the exposed winrm ports.
+    check:
+      OR:
+        args:
+        - IS_EQUAL:
+            left:
+              EXTRACT: CA10__destinationPortRange__c
+            right:
+              TEXT: '*'
+        - CONTAINS:
+            arg:
+              SET:
+                itemType: TEXT
+                items:
+                - '5985'
+                - '5986'
+            search:
+              EXTRACT: CA10__destinationPortRange__c
+        - OR:
+            args:
+            - AND:
+                args:
+                - LESS_THAN_EQUAL:
+                    left:
+                      EXTRACT: CA10__destinationPortFrom__c
+                    right:
+                      NUMBER: 5985
+                - GREATER_THAN_EQUAL:
+                    left:
+                      EXTRACT: CA10__destinationPortTo__c
+                    right:
+                      NUMBER: 5985
+            - AND:
+                args:
+                - LESS_THAN_EQUAL:
+                    left:
+                      EXTRACT: CA10__destinationPortFrom__c
+                    right:
+                      NUMBER: 5986
+                - GREATER_THAN_EQUAL:
+                    left:
+                      EXTRACT: CA10__destinationPortTo__c
+                    right:
+                      NUMBER: 5986
+  - status: UNDETERMINED
+    currentStateMessage: The collected destination port range cannot be assessed.
+    check:
+      OR:
+        args:
+        - IS_EMPTY:
+            arg:
+              EXTRACT: CA10__destinationPortFrom__c
+        - IS_EMPTY:
+            arg:
+              EXTRACT: CA10__destinationPortTo__c
+  otherwise:
+    status: INAPPLICABLE
+    currentStateMessage: This rule does not expose the assessed winrm ports.

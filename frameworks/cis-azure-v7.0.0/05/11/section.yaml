@@ -1,0 +1,6 @@
+---
+name: 5.11 Ensure Service Principals Holding Azure Role Assignments Do Not Use Client Secrets (Automated)
+description: 'A service principal that holds an Azure role assignment signs in with a client secret, a
+  certificate, or a federated credential, unless it is a managed identity, which has no readable credential.
+  Prerequisites: Move each workload that signs in with a client secret to a managed identity, a federated
+  credential, or a certificate, and confirm it works before removing the secret.'

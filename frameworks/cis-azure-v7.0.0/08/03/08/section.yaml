@@ -1,0 +1,13 @@
+---
+name: 8.3.8 Ensure 'Purge protection' is Set to 'Enabled' (Automated)
+description: 'Key vaults contain object keys, secrets, and certificates. Deletion of a key vault can cause
+  immediate data loss or loss of security functions (authentication, validation, verification, non-repudiation,
+  etc.) supported by the key vault objects. It is recommended the key vault be made recoverable by enabling
+  the "purge protection" function. This is to prevent the loss of encrypted data, including storage accounts,
+  SQL databases, and/or dependent services provided by key vault objects (keys, secrets, certificates,
+  etc.). Note: In February 2025, Microsoft enabled soft delete protection on all key vaults. Users can
+  no longer opt out of or turn off soft delete. Warning: A current limitation is that role assignments
+  disappear when a key vault is deleted. All role assignments will need to be recreated after recovery.'
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/08/03/05

@@ -1,0 +1,32 @@
+---
+inputType: CA10__CaAzureApplicationGateway__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10__CaAzureApplicationGateway__c/object.extracts.yaml
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: The gateway-level minimum TLS version is 1.3.
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__sslPolicyMinProtocolVersion__c
+        right:
+          TEXT: TLSv1_3
+  - status: INCOMPLIANT
+    currentStateMessage: The gateway-level minimum TLS version is below 1.3.
+    remediationMessage: Set the gateway and listener-specific SSL policies to TLS 1.3.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - TLSv1_0
+              - TLSv1_1
+              - TLSv1_2
+        search:
+          EXTRACT: CA10__sslPolicyMinProtocolVersion__c
+otherwise:
+  status: UNDETERMINED
+  currentStateMessage: The gateway-level minimum TLS version is unavailable or unexpected.

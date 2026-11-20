@@ -1,0 +1,9 @@
+---
+name: 6.1.1.1 Ensure that a 'Diagnostic Setting' Exists for Subscription Activity Logs (Automated)
+description: A subscription's activity log is exported only when the subscription has a diagnostic setting
+  that sends it to a Log Analytics workspace, storage account, event hub, or partner solution. Diagnostic
+  settings for individual resources are covered by the recommendation Ensure that Azure Monitor Resource
+  Logging is Enabled for All Services that Support it.
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/06/01/01/01

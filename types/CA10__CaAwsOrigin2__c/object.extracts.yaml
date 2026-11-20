@@ -1,5 +1,10 @@
 ---
 extracts:
+# Nullable. A populated value positively identifies an S3 origin using an origin access identity.
+  - name: "CA10__s3OriginAccessIdentity__c"
+    value:
+      FIELD:
+        path: "CA10__s3OriginAccessIdentity__c"
 # Values: http-only | match-viewer | https-only. Nullable. In case it's a Custom Origin, cannot be null. 
 # Can't have no access, retrieved via cloudfront:GetDistribution.
   - name: "CA10__configProtocolPolicy__c"

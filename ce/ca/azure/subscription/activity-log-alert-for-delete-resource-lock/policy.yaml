@@ -1,0 +1,11 @@
+---
+names:
+  full: Azure Subscription Activity Log Alert for Delete Resource Lock does not exist
+  contextual: Subscription Activity Log Alert for Delete Resource Lock does not exist
+description: Ensure that Activity Log Alert Exists for Delete Resource Lock.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/logging-and-monitoring/alerting-and-notification
+  - /frameworks/cis-azure-v7.0.0/06/01/02/16

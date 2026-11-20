@@ -1,0 +1,15 @@
+---
+name: 6.1.5 Ensure Basic, Free, and Consumption SKUs are not used on Production artifacts requiring monitoring
+  and SLA (Manual)
+description: The use of Basic, Free, or Consumption SKUs in Azure, whilst cost effective, have significant
+  limitations in terms of what can be monitored and what support can be realized from Microsoft. Typically,
+  these SKUs do not have a service SLA and Microsoft may refuse to provide support for them. Furthermore,
+  they offer reduced or no high availability guarantees and have limited observability and diagnostic
+  capabilities. As a result, Microsoft may limit or refuse support for workloads running on these SKUs.
+  Consequently Basic, Free, or Consumption SKUs should never be used for production workloads unless your
+  organization explicitly approved it as an exception. While an automated assessment procedure exists
+  for this recommendation, the assessment status remains manual. Determining appropriate SKUs depends
+  on the context and requirements of each organization and environment.
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/06/01/05

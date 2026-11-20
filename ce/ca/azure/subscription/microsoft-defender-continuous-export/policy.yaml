@@ -1,0 +1,12 @@
+---
+names:
+  full: Azure Subscription Microsoft Defender continuous export is not configured
+  contextual: Subscription Microsoft Defender continuous export is not configured
+description: Ensure Continuous Export of Microsoft Defender for Cloud alerts is configured to a SIEM.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/logging-and-monitoring/alerting-and-notification
+  - /frameworks/cis-azure-v7.0.0/08/01/12
+impossible: true

@@ -2,11 +2,10 @@
   {
     "expectedResult": {
       "status": "DISAPPEARED",
-      "conditionIndex": "99",
-      "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
-      "runtimeError": null
+      "runtimeError": null,
+      "conditionIndex": 99,
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)"
     },
-    "context": { "snapshotTime": "2025-11-10T11:11:03Z" },
     "CA10__disappearanceTime__c": "2025-10-31T16:09:45Z",
     "CA10__networkSecurityGroup__c": "",
     "CA10__networkSecurityGroupId__c": "",
@@ -16,16 +15,18 @@
       "Id": null,
       "CA10__disappearanceTime__c": null
     },
-    "RecordType": { "Id": "0124x000001OkZ6AAK" }
+    "RecordType": {
+      "Id": "0124x000001OkZ6AAK"
+    },
+    "CA10__name__c": "workload-001"
   },
   {
     "expectedResult": {
       "status": "COMPLIANT",
-      "conditionIndex": "199",
-      "conditionText": "notEmptyLookup('CA10__networkSecurityGroup__r')",
-      "runtimeError": null
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "notEmptyLookup('CA10__networkSecurityGroup__r')"
     },
-    "context": { "snapshotTime": "2025-11-10T11:11:03Z" },
     "CA10__disappearanceTime__c": null,
     "CA10__networkSecurityGroup__c": "g002",
     "CA10__networkSecurityGroupId__c": "/subscriptions/groupId",
@@ -35,16 +36,18 @@
       "Id": "g002",
       "CA10__disappearanceTime__c": null
     },
-    "RecordType": { "Id": "0124x000001OkZ6AAK" }
+    "RecordType": {
+      "Id": "0124x000001OkZ6AAK"
+    },
+    "CA10__name__c": "workload-002"
   },
   {
     "expectedResult": {
       "status": "INCOMPLIANT",
-      "conditionIndex": "200",
-      "conditionText": "otherwise",
-      "runtimeError": null
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
     },
-    "context": { "snapshotTime": "2025-11-10T11:11:03Z" },
     "CA10__disappearanceTime__c": null,
     "CA10__networkSecurityGroup__c": "",
     "CA10__networkSecurityGroupId__c": "",
@@ -54,6 +57,93 @@
       "Id": null,
       "CA10__disappearanceTime__c": null
     },
-    "RecordType": { "Id": "0124x000001OkZ6AAK" }
+    "RecordType": {
+      "Id": "0124x000001OkZ6AAK"
+    },
+    "CA10__name__c": "workload-003"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['GatewaySubnet', 'AzureFirewallSubnet', 'RouteServerSubnet', 'AzureFirewallManagementSubnet']).contains(extract('CA10__name__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__networkSecurityGroup__c": null,
+    "CA10__networkSecurityGroupId__c": null,
+    "Id": "platform-subnet-0",
+    "RecordTypeId": "0124x000001OkZ6AAK",
+    "CA10__networkSecurityGroup__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null
+    },
+    "RecordType": {
+      "Id": "0124x000001OkZ6AAK"
+    },
+    "CA10__name__c": "GatewaySubnet"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['GatewaySubnet', 'AzureFirewallSubnet', 'RouteServerSubnet', 'AzureFirewallManagementSubnet']).contains(extract('CA10__name__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__networkSecurityGroup__c": null,
+    "CA10__networkSecurityGroupId__c": null,
+    "Id": "platform-subnet-1",
+    "RecordTypeId": "0124x000001OkZ6AAK",
+    "CA10__networkSecurityGroup__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null
+    },
+    "RecordType": {
+      "Id": "0124x000001OkZ6AAK"
+    },
+    "CA10__name__c": "AzureFirewallSubnet"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['GatewaySubnet', 'AzureFirewallSubnet', 'RouteServerSubnet', 'AzureFirewallManagementSubnet']).contains(extract('CA10__name__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__networkSecurityGroup__c": null,
+    "CA10__networkSecurityGroupId__c": null,
+    "Id": "platform-subnet-2",
+    "RecordTypeId": "0124x000001OkZ6AAK",
+    "CA10__networkSecurityGroup__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null
+    },
+    "RecordType": {
+      "Id": "0124x000001OkZ6AAK"
+    },
+    "CA10__name__c": "RouteServerSubnet"
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "setOfText(['GatewaySubnet', 'AzureFirewallSubnet', 'RouteServerSubnet', 'AzureFirewallManagementSubnet']).contains(extract('CA10__name__c'))"
+    },
+    "CA10__disappearanceTime__c": null,
+    "CA10__networkSecurityGroup__c": null,
+    "CA10__networkSecurityGroupId__c": null,
+    "Id": "platform-subnet-3",
+    "RecordTypeId": "0124x000001OkZ6AAK",
+    "CA10__networkSecurityGroup__r": {
+      "Id": null,
+      "CA10__disappearanceTime__c": null
+    },
+    "RecordType": {
+      "Id": "0124x000001OkZ6AAK"
+    },
+    "CA10__name__c": "AzureFirewallManagementSubnet"
   }
 ]

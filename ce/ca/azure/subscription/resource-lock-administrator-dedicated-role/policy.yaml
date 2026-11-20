@@ -1,0 +1,13 @@
+---
+names:
+  full: Azure Subscription Dedicated Resource Lock Administrator Role is not assigned
+  contextual: Dedicated Resource Lock Administrator Role is not assigned
+description: Assign the built-in Locks Contributor role or a custom role granting only the required lock
+  permissions to designated lock administrators at the required scope.
+impossible: true
+type: COMPLIANCE_POLICY
+categories:
+- SECURITY
+frameworkMappings:
+- /frameworks/cis-azure-v7.0.0/05/05
+- /frameworks/cloudaware/identity-and-access-governance/rbac-management

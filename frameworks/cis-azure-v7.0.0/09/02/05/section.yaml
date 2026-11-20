@@ -1,0 +1,8 @@
+---
+name: 9.2.5 Ensure that 'Allow Blob anonymous access' is Set to 'Disabled' (Automated)
+description: A storage account either allows or disallows anonymous read access to its blob data. The
+  Allow Blob anonymous access setting selects between Enabled and Disabled; when Disabled, it overrides
+  the anonymous access level of every container in the account.
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/09/03/08

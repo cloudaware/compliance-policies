@@ -1,0 +1,5 @@
+---
+name: 8.3.1.6 Ensure Private Endpoints are Used to Access Azure Key Vault Managed HSM (Automated)
+description: A Managed HSM is reached through its public endpoint or through private endpoints that connect
+  a virtual network to it over Azure Private Link. Each private endpoint connection is Pending, Approved,
+  Rejected, or Disconnected, and only an Approved connection carries traffic.

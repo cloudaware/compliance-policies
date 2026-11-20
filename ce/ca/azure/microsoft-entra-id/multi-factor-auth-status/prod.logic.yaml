@@ -1,34 +1,38 @@
 ---
-inputType: "CA10__CaAzureActiveDirectoryUser__c"
+inputType: CA10__CaAzureActiveDirectoryUser__c
 testData:
-  - file: "test-data.json"
+  - file: test-data.json
 importExtracts:
-  - file: "/types/CA10__CaAzureActiveDirectoryUser__c/object.extracts.yaml"
+  - file: /types/CA10__CaAzureActiveDirectoryUser__c/object.extracts.yaml
 conditions:
-      - status: "INCOMPLIANT"
-        currentStateMessage: "MFA is not enabled for the Active Directory user."
-        remediationMessage: "Enable MFA for the user."
-        check:
-          IS_EMPTY:
-            arg:
-              EXTRACT: "CA10__mfaState__c"
-      - status: "INCOMPLIANT"
-        currentStateMessage: "MFA is disabled for the Active Directory user."
-        remediationMessage: "Enable MFA for the user."
-        check:
-          IS_EQUAL:
-            left:
-              EXTRACT: "CA10__mfaState__c"
-            right:
-              TEXT: "disabled"
-      - status: "COMPLIANT"
-        currentStateMessage: "MFA is enabled for the Active Directory user."
-        check:
-          IS_EQUAL:
-            left:
-              EXTRACT: "CA10__mfaState__c"
-            right:
-              TEXT: "enabled"
+  - status: INCOMPLIANT
+    currentStateMessage: MFA is not enabled for the Active Directory user.
+    remediationMessage: Enable MFA for the user.
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: CA10__mfaState__c
+  - status: INCOMPLIANT
+    currentStateMessage: MFA is disabled for the Active Directory user.
+    remediationMessage: Enable MFA for the user.
+    check:
+      IS_EQUAL:
+        left:
+          EXTRACT: CA10__mfaState__c
+        right:
+          TEXT: disabled
+  - status: COMPLIANT
+    currentStateMessage: Per-user MFA is enabled or enforced for this user.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - enabled
+              - enforced
+        search:
+          EXTRACT: CA10__mfaState__c
 otherwise:
-  status: "UNDETERMINED"
-  currentStateMessage: "Unexpected MFA state value."
+  status: UNDETERMINED
+  currentStateMessage: Unexpected MFA state value.

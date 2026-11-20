@@ -1,0 +1,87 @@
+---
+inputType: CA10__CaAzureAccount__c
+testData:
+  - file: test-data.json
+conditions:
+  - status: COMPLIANT
+    currentStateMessage: The subscription has the required AI Defender configuration.
+    check:
+      RELATED_LIST_HAS:
+        relationshipName: CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r
+        status: COMPLIANT
+  - status: UNDETERMINED
+    currentStateMessage: The AI Defender plan cannot be assessed.
+    check:
+      RELATED_LIST_HAS:
+        relationshipName: CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r
+        status: UNDETERMINED
+otherwise:
+  status: INCOMPLIANT
+  currentStateMessage: The subscription lacks the required AI Defender configuration.
+  remediationMessage: Enable the AI Defender Standard plan and AIPromptEvidence extension.
+relatedLists:
+  - relationshipName: CA10Z1__Azure_SQL_Server_Vulnerability_Assessmnt__r
+    importExtracts:
+      - file: /types/CA10Z1__CaAzureDefenderPlan__c/object.extracts.yaml
+    conditions:
+      - status: INAPPLICABLE
+        currentStateMessage: This Defender plan is not the AI plan.
+        check:
+          NOT:
+            arg:
+              IS_EQUAL:
+                left:
+                  EXTRACT: CA10Z1__name__c
+                right:
+                  TEXT: AI
+      - status: INCOMPLIANT
+        currentStateMessage: The AI Defender plan is on the Free tier.
+        check:
+          IS_EQUAL:
+            left:
+              EXTRACT: CA10Z1__pricingTier__c
+            right:
+              TEXT: Free
+        remediationMessage: Enable the AI Standard plan and prompt evidence.
+      - status: UNDETERMINED
+        currentStateMessage: The AI Defender plan tier is unexpected.
+        check:
+          NOT:
+            arg:
+              IS_EQUAL:
+                left:
+                  EXTRACT: CA10Z1__pricingTier__c
+                right:
+                  TEXT: Standard
+      - status: UNDETERMINED
+        currentStateMessage: The AI extension configuration is not collected.
+        check:
+          IS_EMPTY:
+            arg:
+              EXTRACT: CA10Z1__extensions__c
+      - status: COMPLIANT
+        currentStateMessage: AI prompt evidence is enabled.
+        check:
+          JSON_QUERY_BOOLEAN:
+            arg:
+              EXTRACT: caJsonFrom__extensions__c
+            expression: length([?name=='AIPromptEvidence']) == `1` && length([?name=='AIPromptEvidence'
+              && isEnabled=='True']) == `1`
+            undeterminedIf:
+              evaluationError: The collected AI extensions cannot be evaluated.
+              resultTypeMismatch: The AI extension query did not return a boolean.
+      - status: INCOMPLIANT
+        currentStateMessage: AI prompt evidence is absent or disabled.
+        check:
+          JSON_QUERY_BOOLEAN:
+            arg:
+              EXTRACT: caJsonFrom__extensions__c
+            expression: length([?name=='AIPromptEvidence']) == `0` || (length([?name=='AIPromptEvidence'])
+              == `1` && length([?name=='AIPromptEvidence' && isEnabled=='False']) == `1`)
+            undeterminedIf:
+              evaluationError: The collected AI extensions cannot be evaluated.
+              resultTypeMismatch: The AI extension query did not return a boolean.
+        remediationMessage: Enable AIPromptEvidence in the AI Defender plan settings.
+    otherwise:
+      status: UNDETERMINED
+      currentStateMessage: The AI Defender plan configuration is unexpected.

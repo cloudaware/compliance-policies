@@ -1,0 +1,32 @@
+---
+inputType: CA10O1__CaOracleIamDomainPasswordPolicy__c
+testData:
+  - file: test-data.json
+importExtracts:
+  - file: /types/CA10O1__CaOracleIamDomainPasswordPolicy__c/object.extracts.yaml
+conditions:
+  - status: UNDETERMINED
+    currentStateMessage: The password policy expiration setting is not available.
+    check:
+      IS_EMPTY:
+        arg:
+          EXTRACT: CA10O1__passwordExpiresAfterDays__c
+  - status: INCOMPLIANT
+    currentStateMessage: The password policy does not expire passwords within 365 days.
+    remediationMessage: Set Expires after (days) to a value from 1 to 365.
+    check:
+      OR:
+        args:
+          - LESS_THAN_EQUAL:
+              left:
+                EXTRACT: CA10O1__passwordExpiresAfterDays__c
+              right:
+                NUMBER: 0
+          - GREATER_THAN:
+              left:
+                EXTRACT: CA10O1__passwordExpiresAfterDays__c
+              right:
+                NUMBER: 365
+otherwise:
+  status: COMPLIANT
+  currentStateMessage: The password policy expires passwords within 365 days.

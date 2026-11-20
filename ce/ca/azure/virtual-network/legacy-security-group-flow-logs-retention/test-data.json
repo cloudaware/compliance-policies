@@ -1,0 +1,254 @@
+[
+  {
+    "Id": "legacy-89",
+    "CA10Z1__targetResourceId__c": "/subscriptions/s/resourceGroups/rg/providers/Microsoft.Network/networkSecurityGroups/nsg",
+    "CA10Z1__logStatus__c": "Enabled",
+    "CA10Z1__retentionPolicyDays__c": 89,
+    "CA10Z1__retentionPolicyStatus__c": "Enabled",
+    "CA10Z1__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 799,
+      "conditionText": "extract('CA10Z1__retentionPolicyDays__c') < number(90.0)"
+    }
+  },
+  {
+    "Id": "legacy-90",
+    "CA10Z1__targetResourceId__c": "/subscriptions/s/resourceGroups/rg/providers/Microsoft.Network/networkSecurityGroups/nsg",
+    "CA10Z1__logStatus__c": "Enabled",
+    "CA10Z1__retentionPolicyDays__c": 90,
+    "CA10Z1__retentionPolicyStatus__c": "Enabled",
+    "CA10Z1__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 899,
+      "conditionText": "extract('CA10Z1__retentionPolicyStatus__c') == 'Enabled'"
+    }
+  },
+  {
+    "Id": "legacy-91",
+    "CA10Z1__targetResourceId__c": "/subscriptions/s/resourceGroups/rg/providers/Microsoft.Network/networkSecurityGroups/nsg",
+    "CA10Z1__logStatus__c": "Enabled",
+    "CA10Z1__retentionPolicyDays__c": 91,
+    "CA10Z1__retentionPolicyStatus__c": "Enabled",
+    "CA10Z1__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 899,
+      "conditionText": "extract('CA10Z1__retentionPolicyStatus__c') == 'Enabled'"
+    }
+  },
+  {
+    "Id": "legacy-zero",
+    "CA10Z1__targetResourceId__c": "/subscriptions/s/resourceGroups/rg/providers/Microsoft.Network/networkSecurityGroups/nsg",
+    "CA10Z1__logStatus__c": "Enabled",
+    "CA10Z1__retentionPolicyDays__c": 0,
+    "CA10Z1__retentionPolicyStatus__c": "Disabled",
+    "CA10Z1__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 699,
+      "conditionText": "extract('CA10Z1__retentionPolicyDays__c') == number(0.0)"
+    }
+  },
+  {
+    "Id": "legacy-disabled-migration-unknown",
+    "CA10Z1__targetResourceId__c": "/subscriptions/s/resourceGroups/rg/providers/Microsoft.Network/networkSecurityGroups/nsg",
+    "CA10Z1__logStatus__c": "Disabled",
+    "CA10Z1__retentionPolicyDays__c": 7,
+    "CA10Z1__retentionPolicyStatus__c": "Enabled",
+    "CA10Z1__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "extract('CA10Z1__logStatus__c') == 'Disabled'"
+    }
+  },
+  {
+    "Id": "legacy-disabled-retention",
+    "CA10Z1__targetResourceId__c": "/subscriptions/s/resourceGroups/rg/providers/Microsoft.Network/networkSecurityGroups/nsg",
+    "CA10Z1__logStatus__c": "Enabled",
+    "CA10Z1__retentionPolicyDays__c": 90,
+    "CA10Z1__retentionPolicyStatus__c": "Disabled",
+    "CA10Z1__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 999,
+      "conditionText": "extract('CA10Z1__retentionPolicyStatus__c') == 'Disabled'"
+    }
+  },
+  {
+    "Id": "legacy-missing-days",
+    "CA10Z1__targetResourceId__c": "/subscriptions/s/resourceGroups/rg/providers/Microsoft.Network/networkSecurityGroups/nsg",
+    "CA10Z1__logStatus__c": "Enabled",
+    "CA10Z1__retentionPolicyDays__c": null,
+    "CA10Z1__retentionPolicyStatus__c": "Enabled",
+    "CA10Z1__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 599,
+      "conditionText": "extract('CA10Z1__retentionPolicyDays__c').isEmpty() || extract('CA10Z1__retentionPolicyDays__c') < number(0.0)"
+    }
+  },
+  {
+    "Id": "legacy-negative-days",
+    "CA10Z1__targetResourceId__c": "/subscriptions/s/resourceGroups/rg/providers/Microsoft.Network/networkSecurityGroups/nsg",
+    "CA10Z1__logStatus__c": "Enabled",
+    "CA10Z1__retentionPolicyDays__c": -1,
+    "CA10Z1__retentionPolicyStatus__c": "Enabled",
+    "CA10Z1__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 599,
+      "conditionText": "extract('CA10Z1__retentionPolicyDays__c').isEmpty() || extract('CA10Z1__retentionPolicyDays__c') < number(0.0)"
+    }
+  },
+  {
+    "Id": "legacy-unknown-state",
+    "CA10Z1__targetResourceId__c": "/subscriptions/s/resourceGroups/rg/providers/Microsoft.Network/networkSecurityGroups/nsg",
+    "CA10Z1__logStatus__c": "Other",
+    "CA10Z1__retentionPolicyDays__c": 90,
+    "CA10Z1__retentionPolicyStatus__c": "Enabled",
+    "CA10Z1__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "not(extract('CA10Z1__logStatus__c') == 'Enabled')"
+    }
+  },
+  {
+    "Id": "legacy-missing-state",
+    "CA10Z1__targetResourceId__c": "/subscriptions/s/resourceGroups/rg/providers/Microsoft.Network/networkSecurityGroups/nsg",
+    "CA10Z1__logStatus__c": null,
+    "CA10Z1__retentionPolicyDays__c": 90,
+    "CA10Z1__retentionPolicyStatus__c": "Enabled",
+    "CA10Z1__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 499,
+      "conditionText": "not(extract('CA10Z1__logStatus__c') == 'Enabled')"
+    }
+  },
+  {
+    "Id": "legacy-unknown-retention",
+    "CA10Z1__targetResourceId__c": "/subscriptions/s/resourceGroups/rg/providers/Microsoft.Network/networkSecurityGroups/nsg",
+    "CA10Z1__logStatus__c": "Enabled",
+    "CA10Z1__retentionPolicyDays__c": 90,
+    "CA10Z1__retentionPolicyStatus__c": "Other",
+    "CA10Z1__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 1000,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "legacy-missing-retention",
+    "CA10Z1__targetResourceId__c": "/subscriptions/s/resourceGroups/rg/providers/Microsoft.Network/networkSecurityGroups/nsg",
+    "CA10Z1__logStatus__c": "Enabled",
+    "CA10Z1__retentionPolicyDays__c": 90,
+    "CA10Z1__retentionPolicyStatus__c": null,
+    "CA10Z1__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 1000,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "legacy-vnet",
+    "CA10Z1__targetResourceId__c": "/subscriptions/s/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnet",
+    "CA10Z1__logStatus__c": "Enabled",
+    "CA10Z1__retentionPolicyDays__c": 7,
+    "CA10Z1__retentionPolicyStatus__c": "Enabled",
+    "CA10Z1__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "extract('CA10Z1__targetResourceId__c').contains('/virtualNetworks/') || extract('CA10Z1__targetResourceId__c').contains('/networkInterfaces/')"
+    }
+  },
+  {
+    "Id": "legacy-subnet",
+    "CA10Z1__targetResourceId__c": "/subscriptions/s/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnet/subnets/subnet",
+    "CA10Z1__logStatus__c": "Enabled",
+    "CA10Z1__retentionPolicyDays__c": 7,
+    "CA10Z1__retentionPolicyStatus__c": "Enabled",
+    "CA10Z1__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "extract('CA10Z1__targetResourceId__c').contains('/virtualNetworks/') || extract('CA10Z1__targetResourceId__c').contains('/networkInterfaces/')"
+    }
+  },
+  {
+    "Id": "legacy-nic",
+    "CA10Z1__targetResourceId__c": "/subscriptions/s/resourceGroups/rg/providers/Microsoft.Network/networkInterfaces/nic",
+    "CA10Z1__logStatus__c": "Enabled",
+    "CA10Z1__retentionPolicyDays__c": 7,
+    "CA10Z1__retentionPolicyStatus__c": "Enabled",
+    "CA10Z1__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "extract('CA10Z1__targetResourceId__c').contains('/virtualNetworks/') || extract('CA10Z1__targetResourceId__c').contains('/networkInterfaces/')"
+    }
+  },
+  {
+    "Id": "legacy-unknown-target",
+    "CA10Z1__targetResourceId__c": "/unknown",
+    "CA10Z1__logStatus__c": "Enabled",
+    "CA10Z1__retentionPolicyDays__c": 90,
+    "CA10Z1__retentionPolicyStatus__c": "Enabled",
+    "CA10Z1__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "not(extract('CA10Z1__targetResourceId__c').contains('/networkSecurityGroups/'))"
+    }
+  },
+  {
+    "Id": "legacy-missing-target",
+    "CA10Z1__targetResourceId__c": null,
+    "CA10Z1__logStatus__c": "Enabled",
+    "CA10Z1__retentionPolicyDays__c": 90,
+    "CA10Z1__retentionPolicyStatus__c": "Enabled",
+    "CA10Z1__disappearanceTime__c": null,
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "not(extract('CA10Z1__targetResourceId__c').contains('/networkSecurityGroups/'))"
+    }
+  },
+  {
+    "Id": "legacy-disappeared",
+    "CA10Z1__targetResourceId__c": "/subscriptions/s/resourceGroups/rg/providers/Microsoft.Network/networkSecurityGroups/nsg",
+    "CA10Z1__logStatus__c": "Enabled",
+    "CA10Z1__retentionPolicyDays__c": 7,
+    "CA10Z1__retentionPolicyStatus__c": "Enabled",
+    "CA10Z1__disappearanceTime__c": "2026-10-01T00:00:00Z",
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "runtimeError": null,
+      "conditionIndex": 99,
+      "conditionText": "isDisappeared(CA10Z1__disappearanceTime__c)"
+    }
+  }
+]

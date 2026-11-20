@@ -1,0 +1,12 @@
+---
+names:
+  full: Azure Managed HSM diagnostic logging is not enabled
+  contextual: Managed HSM diagnostic logging is not enabled
+description: Ensure that Logging for Azure Key Vault Managed HSM is 'Enabled'.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/logging-and-monitoring/logging-and-monitoring-configuration
+  - /frameworks/cis-azure-v7.0.0/08/03/01/02
+impossible: true

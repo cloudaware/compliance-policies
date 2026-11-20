@@ -1,0 +1,7 @@
+---
+name: 5.9 Ensure creating management groups requires write permission on the root management group (Automated)
+description: 'A tenant permits management group creation under one of two rules: any user or service principal
+  in the tenant, or only principals granted management group write permission on the root management group.
+  The Require write permissions for creating new management groups setting selects between them. Prerequisites:
+  Grant management group write permission on the root management group to every user and pipeline identity
+  that must continue to create management groups.'

@@ -1,0 +1,9 @@
+---
+name: 8.1.14 Ensure that Microsoft Defender for Cloud Sends Security Alert Emails to Users with the 'Owner'
+  Role (Automated)
+description: Defender for Cloud alert emails go to the addresses in the subscription's security contact
+  and, optionally, to every holder of selected subscription roles. The All users with the following roles
+  setting selects any of Owner, Contributor, ServiceAdmin, and AccountAdmin.
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/08/01/12

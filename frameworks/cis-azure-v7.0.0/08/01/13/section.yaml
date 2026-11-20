@@ -1,0 +1,14 @@
+---
+name: 8.1.13 Ensure that non-deprecated Microsoft Cloud Security Benchmark policies are not set to 'Disabled'
+  (Manual)
+description: 'The Microsoft Cloud Security Benchmark (MCSB) is an Azure Policy initiative automatically
+  assigned to all subscriptions that evaluates resource configurations against Microsoft security best
+  practice recommendations. Policies set to a Disabled effect are not evaluated, removing visibility into
+  the associated recommendation. Microsoft deprecates policies when controls are superseded or no longer
+  applicable; deprecated policies are set to Disabled by default and require no corrective action. Non-deprecated
+  policies should not be set to Disabled without a documented organizational exception. Note: A policy
+  is considered deprecated when its definition name is prefixed with [Deprecated]: in the Azure Policy
+  portal and its policyDeprecated metadata property is true.'
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/08/01/11

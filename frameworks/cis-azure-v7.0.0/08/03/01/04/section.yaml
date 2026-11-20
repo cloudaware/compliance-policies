@@ -1,0 +1,5 @@
+---
+name: 8.3.1.4 Ensure 'Purge protection' is Set to 'Enabled' for Azure Key Vault Managed HSM (Automated)
+description: A deleted Managed HSM and its deleted keys stay recoverable for a soft-delete retention period
+  of 7 to 90 days. The Purge protection setting, Enabled or Disabled, decides whether a deleted HSM or
+  key can be purged, which deletes it permanently, before that period ends.

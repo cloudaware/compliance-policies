@@ -1,257 +1,467 @@
 [
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
+  {
+    "Id": "create-policy-assignment-good",
+    "CA10__subscriptionId__c": "create-policy-assignment-good",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-policy-assignment-good-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "create-policy-assignment-good",
+        "CA10__subscription__r": {
+          "Id": "create-policy-assignment-good",
+          "CA10__subscriptionId__c": "create-policy-assignment-good"
         },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test1",
-        "CA10__Azure_Activity_Log_Alerts__r": []
-    },
-    {
-        "expectedResult": {
-            "status": "COMPLIANT",
-            "conditionIndex": "199",
-            "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(COMPLIANT)",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test2",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test2_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__conditionJson__c": "{\"allOf\":[{\"field\":\"category\",\"equals\":\"Administrative\"},{\"field\":\"operationName\",\"equals\":\"Microsoft.Authorization/policyAssignments/write\"}]}",
-                "CA10__subscription__c": "test2"        
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/policyAssignments/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-policy-assignment-good",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-policy-assignment-good-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "create-policy-assignment-good-alert",
+            "CA10Z1__actionGroup__c": "create-policy-assignment-good-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-policy-assignment-good-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/create-policy-assignment-good/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/create-policy-assignment-good-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-policy-assignment-good/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/create-policy-assignment-good-link"
+          }
         ]
-    },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test3",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test3_1",
-                "CA10__disappearanceTime__c": "2024-06-14T06:19:32Z",
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__conditionJson__c": "{\"allOf\":[{\"field\":\"category\",\"equals\":\"Administrative\"},{\"field\":\"operationName\",\"equals\":\"Microsoft.Authorization/policyAssignments/write\"}]}",
-                "CA10__subscription__c": "test3"        
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
-        ]
-    },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test4",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test4_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Disabled",
-                "CA10__conditionJson__c": "{\"allOf\":[{\"field\":\"category\",\"equals\":\"Administrative\"},{\"field\":\"operationName\",\"equals\":\"Microsoft.Authorization/policyAssignments/write\"}]}",
-                "CA10__subscription__c": "test4"        
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
-        ]
-    },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test5",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test5_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__conditionJson__c": "{\"allOf\":[{\"field\":\"category\",\"equals\":\"Administrative\"},{\"field\":\"operationName\",\"equals\":\"Microsoft.Authorization/policyAssignments/read\"}]}",
-                "CA10__subscription__c": "test5"        
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
-        ]
-    },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test6",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test6_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__conditionJson__c": "{\"allOf\":[{\"field\":\"category\",\"equals\":\"Administrative\"},{\"field\":\"operationName\",\"equals\":\"\"}]}",
-                "CA10__subscription__c": "test6"        
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
-        ]
-    },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test7",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test7_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__conditionJson__c": "{\"allOf\":[{}]}",
-                "CA10__subscription__c": "test7"        
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
-        ]
-    },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test8",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test8_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__conditionJson__c": "{\"allOf\":[]}",
-                "CA10__subscription__c": "test8"        
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
-        ]
-    },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test9",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test9_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__conditionJson__c": "{}",
-                "CA10__subscription__c": "test9"        
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
-        ]
-    },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test10",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test10_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__conditionJson__c": "",
-                "CA10__subscription__c": "test10"        
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
-        ]
-    },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test11",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test11_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__conditionJson__c": null,
-                "CA10__subscription__c": "test11"      
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
-        ]
-    },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "200",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-14T06:19:32Z"
-        },
-        "Id": "test12",
-        "CA10__Azure_Activity_Log_Alerts__r": [
-            {
-                "Id": "test12_1",
-                "CA10__disappearanceTime__c": null,
-                "CA10__enabledStatus__c": "Enabled",
-                "CA10__conditionJson__c": "{\"anyOf\":[]}",
-                "CA10__subscription__c": "test12"        
-            ,
-                "CA10__scopes__c": "/subscriptions/subscriptionId"}
-        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(COMPLIANT)"
     }
+  },
+  {
+    "Id": "create-policy-assignment-disabled",
+    "CA10__subscriptionId__c": "create-policy-assignment-disabled",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-policy-assignment-disabled-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "create-policy-assignment-disabled",
+        "CA10__subscription__r": {
+          "Id": "create-policy-assignment-disabled",
+          "CA10__subscriptionId__c": "create-policy-assignment-disabled"
+        },
+        "CA10__enabledStatus__c": "Disabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/policyAssignments/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-policy-assignment-disabled",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-policy-assignment-disabled-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "create-policy-assignment-disabled-alert",
+            "CA10Z1__actionGroup__c": "create-policy-assignment-disabled-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-policy-assignment-disabled-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/create-policy-assignment-disabled/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/create-policy-assignment-disabled-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-policy-assignment-disabled/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/create-policy-assignment-disabled-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "create-policy-assignment-wrong-operation",
+    "CA10__subscriptionId__c": "create-policy-assignment-wrong-operation",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-policy-assignment-wrong-operation-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "create-policy-assignment-wrong-operation",
+        "CA10__subscription__r": {
+          "Id": "create-policy-assignment-wrong-operation",
+          "CA10__subscriptionId__c": "create-policy-assignment-wrong-operation"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Resources/subscriptions/resourceGroups/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-policy-assignment-wrong-operation",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-policy-assignment-wrong-operation-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "create-policy-assignment-wrong-operation-alert",
+            "CA10Z1__actionGroup__c": "create-policy-assignment-wrong-operation-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-policy-assignment-wrong-operation-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/create-policy-assignment-wrong-operation/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/create-policy-assignment-wrong-operation-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-policy-assignment-wrong-operation/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/create-policy-assignment-wrong-operation-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "create-policy-assignment-extra-filter",
+    "CA10__subscriptionId__c": "create-policy-assignment-extra-filter",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-policy-assignment-extra-filter-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "create-policy-assignment-extra-filter",
+        "CA10__subscription__r": {
+          "Id": "create-policy-assignment-extra-filter",
+          "CA10__subscriptionId__c": "create-policy-assignment-extra-filter"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/policyAssignments/write\"}, {\"field\": \"status\", \"equals\": \"Succeeded\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-policy-assignment-extra-filter",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-policy-assignment-extra-filter-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "create-policy-assignment-extra-filter-alert",
+            "CA10Z1__actionGroup__c": "create-policy-assignment-extra-filter-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-policy-assignment-extra-filter-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/create-policy-assignment-extra-filter/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/create-policy-assignment-extra-filter-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-policy-assignment-extra-filter/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/create-policy-assignment-extra-filter-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "create-policy-assignment-no-group",
+    "CA10__subscriptionId__c": "create-policy-assignment-no-group",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-policy-assignment-no-group-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "create-policy-assignment-no-group",
+        "CA10__subscription__r": {
+          "Id": "create-policy-assignment-no-group",
+          "CA10__subscriptionId__c": "create-policy-assignment-no-group"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/policyAssignments/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-policy-assignment-no-group",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": []
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "create-policy-assignment-broken-group",
+    "CA10__subscriptionId__c": "create-policy-assignment-broken-group",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-policy-assignment-broken-group-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "create-policy-assignment-broken-group",
+        "CA10__subscription__r": {
+          "Id": "create-policy-assignment-broken-group",
+          "CA10__subscriptionId__c": "create-policy-assignment-broken-group"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/policyAssignments/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-policy-assignment-broken-group",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-policy-assignment-broken-group-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "create-policy-assignment-broken-group-alert",
+            "CA10Z1__actionGroup__c": null,
+            "CA10Z1__actionGroup__r": {
+              "Id": null,
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-policy-assignment-broken-group/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/create-policy-assignment-broken-group-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "create-policy-assignment-unknown-state",
+    "CA10__subscriptionId__c": "create-policy-assignment-unknown-state",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-policy-assignment-unknown-state-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "create-policy-assignment-unknown-state",
+        "CA10__subscription__r": {
+          "Id": "create-policy-assignment-unknown-state",
+          "CA10__subscriptionId__c": "create-policy-assignment-unknown-state"
+        },
+        "CA10__enabledStatus__c": "Future",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/policyAssignments/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-policy-assignment-unknown-state",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-policy-assignment-unknown-state-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "create-policy-assignment-unknown-state-alert",
+            "CA10Z1__actionGroup__c": "create-policy-assignment-unknown-state-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-policy-assignment-unknown-state-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/create-policy-assignment-unknown-state/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/create-policy-assignment-unknown-state-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-policy-assignment-unknown-state/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/create-policy-assignment-unknown-state-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "create-policy-assignment-none",
+    "CA10__subscriptionId__c": "create-policy-assignment-none",
+    "CA10__Azure_Activity_Log_Alerts__r": [],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "create-policy-assignment-mixed-good-unknown",
+    "CA10__subscriptionId__c": "create-policy-assignment-mixed-good-unknown",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-policy-assignment-mixed-good-unknown-good-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "create-policy-assignment-mixed-good-unknown",
+        "CA10__subscription__r": {
+          "Id": "create-policy-assignment-mixed-good-unknown",
+          "CA10__subscriptionId__c": "create-policy-assignment-mixed-good-unknown"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/policyAssignments/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-policy-assignment-mixed-good-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-policy-assignment-mixed-good-unknown-good-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "create-policy-assignment-mixed-good-unknown-good-alert",
+            "CA10Z1__actionGroup__c": "create-policy-assignment-mixed-good-unknown-good-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-policy-assignment-mixed-good-unknown-good-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/create-policy-assignment-mixed-good-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/create-policy-assignment-mixed-good-unknown-good-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-policy-assignment-mixed-good-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/create-policy-assignment-mixed-good-unknown-good-link"
+          }
+        ]
+      },
+      {
+        "Id": "create-policy-assignment-mixed-good-unknown-broken-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "create-policy-assignment-mixed-good-unknown",
+        "CA10__subscription__r": {
+          "Id": "create-policy-assignment-mixed-good-unknown",
+          "CA10__subscriptionId__c": "create-policy-assignment-mixed-good-unknown"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/policyAssignments/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-policy-assignment-mixed-good-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-policy-assignment-mixed-good-unknown-broken-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "create-policy-assignment-mixed-good-unknown-broken-alert",
+            "CA10Z1__actionGroup__c": null,
+            "CA10Z1__actionGroup__r": {
+              "Id": null,
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-policy-assignment-mixed-good-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/create-policy-assignment-mixed-good-unknown-broken-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(COMPLIANT)"
+    }
+  },
+  {
+    "Id": "create-policy-assignment-mixed-bad-unknown",
+    "CA10__subscriptionId__c": "create-policy-assignment-mixed-bad-unknown",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-policy-assignment-mixed-bad-unknown-disabled-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "create-policy-assignment-mixed-bad-unknown",
+        "CA10__subscription__r": {
+          "Id": "create-policy-assignment-mixed-bad-unknown",
+          "CA10__subscriptionId__c": "create-policy-assignment-mixed-bad-unknown"
+        },
+        "CA10__enabledStatus__c": "Disabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/policyAssignments/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-policy-assignment-mixed-bad-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-policy-assignment-mixed-bad-unknown-disabled-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "create-policy-assignment-mixed-bad-unknown-disabled-alert",
+            "CA10Z1__actionGroup__c": "create-policy-assignment-mixed-bad-unknown-disabled-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-policy-assignment-mixed-bad-unknown-disabled-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/create-policy-assignment-mixed-bad-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/create-policy-assignment-mixed-bad-unknown-disabled-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-policy-assignment-mixed-bad-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/create-policy-assignment-mixed-bad-unknown-disabled-link"
+          }
+        ]
+      },
+      {
+        "Id": "create-policy-assignment-mixed-bad-unknown-broken-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "create-policy-assignment-mixed-bad-unknown",
+        "CA10__subscription__r": {
+          "Id": "create-policy-assignment-mixed-bad-unknown",
+          "CA10__subscriptionId__c": "create-policy-assignment-mixed-bad-unknown"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/policyAssignments/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-policy-assignment-mixed-bad-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-policy-assignment-mixed-bad-unknown-broken-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "create-policy-assignment-mixed-bad-unknown-broken-alert",
+            "CA10Z1__actionGroup__c": null,
+            "CA10Z1__actionGroup__r": {
+              "Id": null,
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-policy-assignment-mixed-bad-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/create-policy-assignment-mixed-bad-unknown-broken-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "create-policy-assignment-deleted-alert",
+    "CA10__subscriptionId__c": "create-policy-assignment-deleted-alert",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-policy-assignment-deleted-alert-deleted-alert",
+        "CA10__disappearanceTime__c": "2026-01-01T00:00:00Z",
+        "CA10__subscription__c": "create-policy-assignment-deleted-alert",
+        "CA10__subscription__r": {
+          "Id": "create-policy-assignment-deleted-alert",
+          "CA10__subscriptionId__c": "create-policy-assignment-deleted-alert"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/policyAssignments/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-policy-assignment-deleted-alert",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-policy-assignment-deleted-alert-deleted-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "create-policy-assignment-deleted-alert-deleted-alert",
+            "CA10Z1__actionGroup__c": "create-policy-assignment-deleted-alert-deleted-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-policy-assignment-deleted-alert-deleted-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/create-policy-assignment-deleted-alert/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/create-policy-assignment-deleted-alert-deleted-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-policy-assignment-deleted-alert/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/create-policy-assignment-deleted-alert-deleted-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "create-policy-assignment-narrow",
+    "CA10__subscriptionId__c": "create-policy-assignment-narrow",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "create-policy-assignment-narrow-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "create-policy-assignment-narrow",
+        "CA10__subscription__r": {
+          "Id": "create-policy-assignment-narrow",
+          "CA10__subscriptionId__c": "create-policy-assignment-narrow"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/policyAssignments/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/create-policy-assignment-narrow/resourceGroups/limited",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "create-policy-assignment-narrow-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "create-policy-assignment-narrow-alert",
+            "CA10Z1__actionGroup__c": "create-policy-assignment-narrow-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "create-policy-assignment-narrow-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/create-policy-assignment-narrow/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/create-policy-assignment-narrow-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/create-policy-assignment-narrow/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/create-policy-assignment-narrow-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  }
 ]

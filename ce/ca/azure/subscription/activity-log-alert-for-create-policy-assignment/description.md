@@ -8,18 +8,6 @@ Monitoring for create policy assignment events gives insight into changes done i
 
 ## Audit
 
-This policy flags an *Azure Subscription* as `INCOMPLIANT` if it does **not** have an enabled related *Azure Activity Log Alert* scoped to the subscription whose `Condition JSON` filters on the **Administrative** category and the **Microsoft.Authorization/policyAssignments/write** operation.
+This policy marks an *Azure Subscription* as `INCOMPLIANT` if no current enabled Activity Log Alert covers **Administrative / Microsoft.Authorization/policyAssignments/write**, has a resolved action group, and covers the subscription root. Category and operation must occur on their matching JSON fields, with no additional Level, Status, Caller, or other filter.
 
-## Default Value
-
-By default, no monitoring alerts are created.
-
-## References
-
-1. <https://azure.microsoft.com/en-us/updates?id=classic-alerting-monitoring-retirement>
-2. <https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-activity-log-alert-rule>
-3. <https://learn.microsoft.com/en-us/rest/api/monitor/activity-log-alerts/create-or-update>
-4. <https://learn.microsoft.com/en-us/rest/api/monitor/activity-log-alerts/list-by-subscription-id>
-5. <https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-logging-threat-detection#lt-3-enable-logging-for-security-investigation>
-6. <https://learn.microsoft.com/en-us/rest/api/policy/policy-assignments>
-7. <https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule>
+A qualifying alert makes the subscription `COMPLIANT`. Otherwise, unassessable alert configuration produces `UNDETERMINED`. Complex or narrower scope strings require manual review and do not prove subscription-wide coverage. Notification recipients and delivery must be verified operationally.

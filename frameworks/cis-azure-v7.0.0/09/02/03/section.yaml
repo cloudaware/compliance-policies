@@ -1,0 +1,9 @@
+---
+name: 9.2.3 Ensure that 'Secure transfer required' is Set to 'Enabled' (Automated)
+description: A storage account either accepts requests over insecure connections or rejects them. The
+  Secure transfer required setting is Enabled or Disabled; when Enabled, it rejects REST API requests
+  over HTTP and, unless a per-protocol encryption-in-transit setting is enabled, unencrypted SMB and NFS
+  connections to Azure file shares.
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/09/03/04

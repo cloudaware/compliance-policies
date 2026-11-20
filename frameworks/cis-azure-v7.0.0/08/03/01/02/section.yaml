@@ -1,0 +1,5 @@
+---
+name: 8.3.1.2 Ensure that Logging for Azure Key Vault Managed HSM is 'Enabled' (Automated)
+description: A Managed HSM keeps its AuditEvent resource log, the record of authenticated requests and
+  key operations, only when a diagnostic setting sends that log category to a Log Analytics workspace,
+  storage account, or event hub.

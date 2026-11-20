@@ -1,6 +1,6 @@
 # Description
 
-In some cases, Azure Storage sets the minimum TLS version to be version 1.0 by default. TLS 1.0 is a legacy version and has known vulnerabilities. This minimum TLS version can be configured to be later protocols such as TLS 1.2.
+Set an explicit TLS 1.2 minimum on each storage account. An unset configuration relies on platform behavior and does not satisfy this policy.
 
 ## Rationale
 
@@ -12,13 +12,15 @@ When set to TLS 1.2 all requests must leverage this version of the protocol. App
 
 ## Audit
 
-This policy flags an *Azure Storage Account* as `INCOMPLIANT` if its `Minimum TLS Version` is **not** set to **TLS1_2**.
+This policy marks an *Azure Storage Account* as `INCOMPLIANT` if `Minimum TLS Version` is unset, **TLS1_0**, or **TLS1_1**. **TLS1_2** is `COMPLIANT`.
+
+This checks an explicit account setting. Azure Storage rejects TLS 1.0 and 1.1 at the platform level after February 3, 2026.
 
 ## Default Value
 
 If a storage account is created through the portal, the MinimumTlsVersion property for that storage account will be set to TLS 1.2.
 
-If a storage account is created through PowerShell or CLI, the MinimumTlsVersion property for that storage account will not be set, and defaults to TLS 1.0.
+PowerShell, CLI and templates may leave MinimumTlsVersion unset. The historical unset-property interpretation was TLS 1.0; platform rejection of legacy TLS now overrides that behavior. Configure TLS1_2 explicitly.
 
 ## References
 

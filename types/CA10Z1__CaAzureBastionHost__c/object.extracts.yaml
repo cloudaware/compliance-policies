@@ -1,0 +1,12 @@
+---
+extracts:
+  - name: "CA10Z1__skuName__c"
+    value:
+      FIELD:
+        path: "CA10Z1__skuName__c"
+        undeterminedIf:
+          isEmpty: "The CA10Z1__skuName__c value is unavailable."
+  - name: "CA10Z1__shareableLinkState__c"
+    value:
+      FIELD:
+        path: "CA10Z1__shareableLinkState__c"

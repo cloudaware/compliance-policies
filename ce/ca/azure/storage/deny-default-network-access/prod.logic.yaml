@@ -1,35 +1,51 @@
 ---
-inputType: "CA10__CaAzureStorageAccount__c"
+inputType: CA10__CaAzureStorageAccount__c
 testData:
-  - file: "test-data.json"
+  - file: test-data.json
 importExtracts:
-  - file: "/types/CA10__CaAzureStorageAccount__c/object.extracts.yaml"
+  - file: /types/CA10__CaAzureStorageAccount__c/object.extracts.yaml
 conditions:
-  - status: "INAPPLICABLE"
-    currentStateMessage: "This recommendation applies only when public network access is not disabled by necessity or exception."
+  - status: COMPLIANT
+    currentStateMessage: Public access is disabled or secured by a network perimeter.
+    check:
+      CONTAINS:
+        arg:
+          SET:
+            itemType: TEXT
+            items:
+              - Disabled
+              - SecuredByPerimeter
+        search:
+          EXTRACT: CA10__publicNetworkAccessState__c
+  - status: COMPLIANT
+    currentStateMessage: The default network action denies unlisted traffic.
     check:
       IS_EQUAL:
         left:
-          EXTRACT: "CA10__publicNetworkAccessState__c"
+          EXTRACT: CA10__networkAclsDefaultAction__c
         right:
-          TEXT: "Disabled"  
-  - status: "INCOMPLIANT"
-    currentStateMessage: "The Default network access is not restricted."
-    remediationMessage: "Set the default action to deny access from all networks."
+          TEXT: Deny
+  - status: INCOMPLIANT
+    currentStateMessage: Public access is enabled and the default network action allows unlisted traffic.
+    remediationMessage: Set the default network action to Deny or restrict public access.
     check:
-      IS_EQUAL:
-        left:
-          EXTRACT: "CA10__networkAclsDefaultAction__c"
-        right:
-          TEXT: "Allow"
-  - status: "COMPLIANT"
-    currentStateMessage: "The default action is set to deny access from all networks."
-    check:
-      IS_EQUAL:
-        left:
-          EXTRACT: "CA10__networkAclsDefaultAction__c"
-        right:
-          TEXT: "Deny"
+      AND:
+        args:
+          - OR:
+              args:
+                - IS_EQUAL:
+                    left:
+                      EXTRACT: CA10__publicNetworkAccessState__c
+                    right:
+                      TEXT: Enabled
+                - IS_EMPTY:
+                    arg:
+                      EXTRACT: CA10__publicNetworkAccessState__c
+          - IS_EQUAL:
+              left:
+                EXTRACT: CA10__networkAclsDefaultAction__c
+              right:
+                TEXT: Allow
 otherwise:
-  status: "UNDETERMINED"
-  currentStateMessage: "Unexpected value in the field."
+  status: UNDETERMINED
+  currentStateMessage: Unexpected value in the field.

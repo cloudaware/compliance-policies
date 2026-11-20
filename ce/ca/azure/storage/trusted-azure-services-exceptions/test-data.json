@@ -1,149 +1,128 @@
 [
-    {
-        "expectedResult": {
-            "status": "DISAPPEARED",
-            "conditionIndex": "99",
-            "conditionText": "isDisappeared(CA10__disappearanceTime__c)",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-13T04:17:29Z"
-        },
-        "Id": "test1",
-        "RecordTypeId": "recordType",
-        "CA10__disappearanceTime__c": "2024-06-07T14:13:24Z",
-        "CA10__networkAclsBypass__c": "AzureServices",
-        "CA10__publicNetworkAccessState__c": "Enabled",
-        "CA10__networkAclsDefaultAction__c": "Deny",
-        "RecordType": {
-            "DeveloperName": "StorageAccount",
-            "Id": "test1_1"
-        }
+  {
+    "expectedResult": {
+      "status": "DISAPPEARED",
+      "runtimeError": null,
+      "conditionIndex": 99,
+      "conditionText": "isDisappeared(CA10__disappearanceTime__c)"
     },
-    {
-        "expectedResult": {
-            "status": "INCOMPLIANT",
-            "conditionIndex": "399",
-            "conditionText": "not(extract('CA10__networkAclsBypass__c').contains('azureservices'))",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-13T04:17:29Z"
-        },
-        "Id": "test2",
-        "RecordTypeId": "recordType",
-        "CA10__disappearanceTime__c": null,
-        "CA10__networkAclsBypass__c": "Logging, Metrics",
-        "CA10__publicNetworkAccessState__c": "Enabled",
-        "CA10__networkAclsDefaultAction__c": "Deny",
-        "RecordType": {
-            "DeveloperName": "StorageAccount",
-            "Id": "test2_1"
-        }
-    },
-    {
-        "expectedResult": {
-            "status": "COMPLIANT",
-            "conditionIndex": "400",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-13T04:17:29Z"
-        },
-        "Id": "test3",
-        "RecordTypeId": "recordType",
-        "CA10__disappearanceTime__c": null,
-        "CA10__networkAclsBypass__c": "AzureServices",
-        "CA10__publicNetworkAccessState__c": "Enabled",
-        "CA10__networkAclsDefaultAction__c": "Deny",
-        "RecordType": {
-            "DeveloperName": "StorageAccount",
-            "Id": "test3_1"
-        }
-    },
-    {
-        "expectedResult": {
-            "status": "COMPLIANT",
-            "conditionIndex": "400",
-            "conditionText": "otherwise",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-13T04:17:29Z"
-        },
-        "Id": "test4",
-        "RecordTypeId": "recordType",
-        "CA10__disappearanceTime__c": null,
-        "CA10__networkAclsBypass__c": "AzureServices, Logging, Metrics",
-        "CA10__publicNetworkAccessState__c": "Enabled",
-        "CA10__networkAclsDefaultAction__c": "Deny",
-        "RecordType": {
-            "DeveloperName": "StorageAccount",
-            "Id": "test4_1"
-        }
-    },
-    {
-        "expectedResult": {
-            "status": "UNDETERMINED",
-            "conditionIndex": "301",
-            "conditionText": "CA10__networkAclsBypass__c.isEmpty()",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-13T04:17:29Z"
-        },
-        "Id": "test5",
-        "RecordTypeId": "recordType",
-        "CA10__disappearanceTime__c": null,
-        "CA10__networkAclsBypass__c": "",
-        "CA10__publicNetworkAccessState__c": "Enabled",
-        "CA10__networkAclsDefaultAction__c": "Deny",
-        "RecordType": {
-            "DeveloperName": "StorageAccount",
-            "Id": "test5_1"
-        }
-    },
-    {
-        "expectedResult": {
-            "status": "INAPPLICABLE",
-            "conditionIndex": "199",
-            "conditionText": "extract('CA10__publicNetworkAccessState__c') == 'Disabled'",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-13T04:17:29Z"
-        },
-        "Id": "test6",
-        "RecordTypeId": "recordType",
-        "CA10__disappearanceTime__c": null,
-        "CA10__networkAclsBypass__c": "Logging, Metrics",
-        "CA10__publicNetworkAccessState__c": "Disabled",
-        "CA10__networkAclsDefaultAction__c": "Deny",
-        "RecordType": {
-            "DeveloperName": "StorageAccount",
-            "Id": "test6_1"
-        }
-    },
-    {
-        "expectedResult": {
-            "status": "INAPPLICABLE",
-            "conditionIndex": "299",
-            "conditionText": "extract('CA10__networkAclsDefaultAction__c') == 'Allow'",
-            "runtimeError": null
-        },
-        "context": {
-            "snapshotTime": "2024-06-13T04:17:29Z"
-        },
-        "Id": "test7",
-        "RecordTypeId": "recordType",
-        "CA10__disappearanceTime__c": null,
-        "CA10__networkAclsBypass__c": "Logging, Metrics",
-        "CA10__publicNetworkAccessState__c": "Enabled",
-        "CA10__networkAclsDefaultAction__c": "Allow",
-        "RecordType": {
-            "DeveloperName": "StorageAccount",
-            "Id": "test7_1"
-        }
+    "Id": "test1",
+    "RecordTypeId": "recordType",
+    "CA10__disappearanceTime__c": "2024-06-07T14:13:24Z",
+    "CA10__networkAclsBypass__c": "AzureServices",
+    "CA10__publicNetworkAccessState__c": "Enabled",
+    "CA10__networkAclsDefaultAction__c": "Deny",
+    "RecordType": {
+      "DeveloperName": "StorageAccount",
+      "Id": "test1_1"
     }
+  },
+  {
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 399,
+      "conditionText": "not(extract('CA10__networkAclsBypass__c').contains('azureservices'))"
+    },
+    "Id": "test2",
+    "RecordTypeId": "recordType",
+    "CA10__disappearanceTime__c": null,
+    "CA10__networkAclsBypass__c": "Logging, Metrics",
+    "CA10__publicNetworkAccessState__c": "Enabled",
+    "CA10__networkAclsDefaultAction__c": "Deny",
+    "RecordType": {
+      "DeveloperName": "StorageAccount",
+      "Id": "test2_1"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 400,
+      "conditionText": "otherwise"
+    },
+    "Id": "test3",
+    "RecordTypeId": "recordType",
+    "CA10__disappearanceTime__c": null,
+    "CA10__networkAclsBypass__c": "AzureServices",
+    "CA10__publicNetworkAccessState__c": "Enabled",
+    "CA10__networkAclsDefaultAction__c": "Deny",
+    "RecordType": {
+      "DeveloperName": "StorageAccount",
+      "Id": "test3_1"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 400,
+      "conditionText": "otherwise"
+    },
+    "Id": "test4",
+    "RecordTypeId": "recordType",
+    "CA10__disappearanceTime__c": null,
+    "CA10__networkAclsBypass__c": "AzureServices, Logging, Metrics",
+    "CA10__publicNetworkAccessState__c": "Enabled",
+    "CA10__networkAclsDefaultAction__c": "Deny",
+    "RecordType": {
+      "DeveloperName": "StorageAccount",
+      "Id": "test4_1"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 301,
+      "conditionText": "CA10__networkAclsBypass__c.isEmpty()"
+    },
+    "Id": "test5",
+    "RecordTypeId": "recordType",
+    "CA10__disappearanceTime__c": null,
+    "CA10__networkAclsBypass__c": "",
+    "CA10__publicNetworkAccessState__c": "Enabled",
+    "CA10__networkAclsDefaultAction__c": "Deny",
+    "RecordType": {
+      "DeveloperName": "StorageAccount",
+      "Id": "test5_1"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "extract('CA10__publicNetworkAccessState__c') == 'Disabled'"
+    },
+    "Id": "test6",
+    "RecordTypeId": "recordType",
+    "CA10__disappearanceTime__c": null,
+    "CA10__networkAclsBypass__c": "Logging, Metrics",
+    "CA10__publicNetworkAccessState__c": "Disabled",
+    "CA10__networkAclsDefaultAction__c": "Deny",
+    "RecordType": {
+      "DeveloperName": "StorageAccount",
+      "Id": "test6_1"
+    }
+  },
+  {
+    "expectedResult": {
+      "status": "INAPPLICABLE",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "extract('CA10__networkAclsDefaultAction__c') == 'Allow'"
+    },
+    "Id": "test7",
+    "RecordTypeId": "recordType",
+    "CA10__disappearanceTime__c": null,
+    "CA10__networkAclsBypass__c": "Logging, Metrics",
+    "CA10__publicNetworkAccessState__c": "Enabled",
+    "CA10__networkAclsDefaultAction__c": "Allow",
+    "RecordType": {
+      "DeveloperName": "StorageAccount",
+      "Id": "test7_1"
+    }
+  }
 ]

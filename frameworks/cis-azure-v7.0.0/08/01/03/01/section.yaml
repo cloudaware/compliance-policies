@@ -1,0 +1,9 @@
+---
+name: 8.1.3.1 Ensure that Defender for Servers is Set to 'On' (Automated)
+description: Defender for Servers is a Microsoft Defender for Cloud plan that protects Azure and non-Azure
+  machines. Its Status is On or Off; when On, the subplan is Plan 1, which provides the Defender for Endpoint
+  integration, or Plan 2, which adds agentless scanning, file integrity monitoring, and just-in-time VM
+  access.
+similar:
+  sections:
+    - /frameworks/cis-azure-v6.0.0/08/01/03/01

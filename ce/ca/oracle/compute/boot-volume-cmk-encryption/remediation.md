@@ -4,6 +4,12 @@
 
 Configure the affected boot volume to use a customer managed key from OCI Vault. Before applying the change, confirm that the target key is enabled and that the Compute and Block Volume services have permission to use it.
 
+Authorize the Block Volume service to use the intended key in its compartment:
+
+```text
+Allow service blockstorage to use keys in compartment {{key-compartment-name}} where target.key.id='{{kms-key-ocid}}'
+```
+
 ### **From Oracle Cloud Console**
 
 1. Follow the audit procedure above.
@@ -18,7 +24,7 @@ Configure the affected boot volume to use a customer managed key from OCI Vault.
 For each affected boot volume, assign the target Vault key:
 
 ```sh
-oci bv boot-volume update \
+oci bv boot-volume-kms-key update \
     --boot-volume-id {{boot-volume-ocid}} \
     --kms-key-id {{kms-key-ocid}}
 ```

@@ -1,0 +1,12 @@
+---
+names:
+  full: Azure Network Security Group default VirtualNetwork allow rules are not overridden
+  contextual: Network Security Group default VirtualNetwork allow rules are not overridden
+description: Ensure that Network Security Groups override the default 'VirtualNetwork' allow rules.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/resource-security/network-exposure
+  - /frameworks/cis-azure-v7.0.0/07/08
+impossible: true

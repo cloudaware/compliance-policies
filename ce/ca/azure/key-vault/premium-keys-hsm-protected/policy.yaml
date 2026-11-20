@@ -1,0 +1,12 @@
+---
+names:
+  full: Azure Key Vault Premium keys are not HSM-protected
+  contextual: Key Vault Premium keys are not HSM-protected
+description: Ensure Keys in Azure Key Vault Premium are HSM-Protected.
+type: COMPLIANCE_POLICY
+categories:
+  - SECURITY
+frameworkMappings:
+  - /frameworks/cloudaware/secret-and-certificate-governance/cryptographic-configuration
+  - /frameworks/cis-azure-v7.0.0/08/03/01/03
+impossible: true

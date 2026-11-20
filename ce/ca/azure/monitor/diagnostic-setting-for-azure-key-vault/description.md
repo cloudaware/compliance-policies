@@ -59,14 +59,16 @@ For each key vault, run the following:
 Get-AzDiagnosticSetting -ResourceId {{key-vault-id}}
 ```
 
-Ensure that `StorageAccountId`, `ServiceBusRuleId`, `MarketplacePartnerId`, or `WorkspaceId` is set as appropriate. Also, ensure that `enabled` is set to `true`, and that `categoryGroup` reflects both `audit` and `allLogs` category groups.
+Ensure that `StorageAccountId`, `ServiceBusRuleId`, `MarketplacePartnerId`, or `WorkspaceId` is set as appropriate. Also, ensure that `enabled` is set to `true`, and that `categoryGroup` reflects either `audit` or `allLogs` category groups.
 
 ### From Azure Policy
 
-If referencing a digital copy of this Benchmark, clicking a Policy ID will open a link to the associated Policy definition in Azure.
+Open the following Azure Policy definition to review its configuration.
 
 - **Policy ID**: [cf820ca0-f99e-4f3e-84fb-66e913812d21](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) - **Name**: `Resource logs in Key Vault should be enabled`
 
 ## Default Value
 
 By default, Diagnostic AuditEvent logging is not enabled for Key Vault instances.
+
+This policy accepts an enabled `AuditEvent` category, `audit` category group, or `allLogs` category group with a configured destination. A valid setting satisfies the check even if a separate candidate cannot be assessed.

@@ -14,10 +14,10 @@ To enable security defaults in your directory:
 
 ```ps
 Connect-MgGraph `
-    -Scopes "Policy.ReadWrite.ApplicationConfiguration"
+    -Scopes "Policy.Read.All", "Policy.ReadWrite.SecurityDefaults"
 
 Update-MgPolicyIdentitySecurityDefaultEnforcementPolicy `
-    -IsEnabled $true
+    -IsEnabled:$true
 
 (Get-MgPolicyIdentitySecurityDefaultEnforcementPolicy).IsEnabled
 ```

@@ -1,0 +1,467 @@
+[
+  {
+    "Id": "delete-role-assignment-good",
+    "CA10__subscriptionId__c": "delete-role-assignment-good",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-role-assignment-good-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-role-assignment-good",
+        "CA10__subscription__r": {
+          "Id": "delete-role-assignment-good",
+          "CA10__subscriptionId__c": "delete-role-assignment-good"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/roleAssignments/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-role-assignment-good",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-role-assignment-good-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-role-assignment-good-alert",
+            "CA10Z1__actionGroup__c": "delete-role-assignment-good-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-role-assignment-good-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-role-assignment-good/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-role-assignment-good-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-role-assignment-good/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-role-assignment-good-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(COMPLIANT)"
+    }
+  },
+  {
+    "Id": "delete-role-assignment-disabled",
+    "CA10__subscriptionId__c": "delete-role-assignment-disabled",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-role-assignment-disabled-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-role-assignment-disabled",
+        "CA10__subscription__r": {
+          "Id": "delete-role-assignment-disabled",
+          "CA10__subscriptionId__c": "delete-role-assignment-disabled"
+        },
+        "CA10__enabledStatus__c": "Disabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/roleAssignments/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-role-assignment-disabled",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-role-assignment-disabled-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-role-assignment-disabled-alert",
+            "CA10Z1__actionGroup__c": "delete-role-assignment-disabled-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-role-assignment-disabled-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-role-assignment-disabled/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-role-assignment-disabled-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-role-assignment-disabled/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-role-assignment-disabled-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "delete-role-assignment-wrong-operation",
+    "CA10__subscriptionId__c": "delete-role-assignment-wrong-operation",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-role-assignment-wrong-operation-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-role-assignment-wrong-operation",
+        "CA10__subscription__r": {
+          "Id": "delete-role-assignment-wrong-operation",
+          "CA10__subscriptionId__c": "delete-role-assignment-wrong-operation"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Resources/subscriptions/resourceGroups/write\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-role-assignment-wrong-operation",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-role-assignment-wrong-operation-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-role-assignment-wrong-operation-alert",
+            "CA10Z1__actionGroup__c": "delete-role-assignment-wrong-operation-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-role-assignment-wrong-operation-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-role-assignment-wrong-operation/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-role-assignment-wrong-operation-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-role-assignment-wrong-operation/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-role-assignment-wrong-operation-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "delete-role-assignment-extra-filter",
+    "CA10__subscriptionId__c": "delete-role-assignment-extra-filter",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-role-assignment-extra-filter-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-role-assignment-extra-filter",
+        "CA10__subscription__r": {
+          "Id": "delete-role-assignment-extra-filter",
+          "CA10__subscriptionId__c": "delete-role-assignment-extra-filter"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/roleAssignments/delete\"}, {\"field\": \"status\", \"equals\": \"Succeeded\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-role-assignment-extra-filter",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-role-assignment-extra-filter-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-role-assignment-extra-filter-alert",
+            "CA10Z1__actionGroup__c": "delete-role-assignment-extra-filter-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-role-assignment-extra-filter-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-role-assignment-extra-filter/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-role-assignment-extra-filter-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-role-assignment-extra-filter/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-role-assignment-extra-filter-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "delete-role-assignment-no-group",
+    "CA10__subscriptionId__c": "delete-role-assignment-no-group",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-role-assignment-no-group-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-role-assignment-no-group",
+        "CA10__subscription__r": {
+          "Id": "delete-role-assignment-no-group",
+          "CA10__subscriptionId__c": "delete-role-assignment-no-group"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/roleAssignments/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-role-assignment-no-group",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": []
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "delete-role-assignment-broken-group",
+    "CA10__subscriptionId__c": "delete-role-assignment-broken-group",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-role-assignment-broken-group-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-role-assignment-broken-group",
+        "CA10__subscription__r": {
+          "Id": "delete-role-assignment-broken-group",
+          "CA10__subscriptionId__c": "delete-role-assignment-broken-group"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/roleAssignments/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-role-assignment-broken-group",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-role-assignment-broken-group-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-role-assignment-broken-group-alert",
+            "CA10Z1__actionGroup__c": null,
+            "CA10Z1__actionGroup__r": {
+              "Id": null,
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-role-assignment-broken-group/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-role-assignment-broken-group-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "delete-role-assignment-unknown-state",
+    "CA10__subscriptionId__c": "delete-role-assignment-unknown-state",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-role-assignment-unknown-state-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-role-assignment-unknown-state",
+        "CA10__subscription__r": {
+          "Id": "delete-role-assignment-unknown-state",
+          "CA10__subscriptionId__c": "delete-role-assignment-unknown-state"
+        },
+        "CA10__enabledStatus__c": "Future",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/roleAssignments/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-role-assignment-unknown-state",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-role-assignment-unknown-state-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-role-assignment-unknown-state-alert",
+            "CA10Z1__actionGroup__c": "delete-role-assignment-unknown-state-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-role-assignment-unknown-state-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-role-assignment-unknown-state/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-role-assignment-unknown-state-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-role-assignment-unknown-state/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-role-assignment-unknown-state-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "delete-role-assignment-none",
+    "CA10__subscriptionId__c": "delete-role-assignment-none",
+    "CA10__Azure_Activity_Log_Alerts__r": [],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "delete-role-assignment-mixed-good-unknown",
+    "CA10__subscriptionId__c": "delete-role-assignment-mixed-good-unknown",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-role-assignment-mixed-good-unknown-good-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-role-assignment-mixed-good-unknown",
+        "CA10__subscription__r": {
+          "Id": "delete-role-assignment-mixed-good-unknown",
+          "CA10__subscriptionId__c": "delete-role-assignment-mixed-good-unknown"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/roleAssignments/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-role-assignment-mixed-good-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-role-assignment-mixed-good-unknown-good-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-role-assignment-mixed-good-unknown-good-alert",
+            "CA10Z1__actionGroup__c": "delete-role-assignment-mixed-good-unknown-good-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-role-assignment-mixed-good-unknown-good-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-role-assignment-mixed-good-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-role-assignment-mixed-good-unknown-good-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-role-assignment-mixed-good-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-role-assignment-mixed-good-unknown-good-link"
+          }
+        ]
+      },
+      {
+        "Id": "delete-role-assignment-mixed-good-unknown-broken-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-role-assignment-mixed-good-unknown",
+        "CA10__subscription__r": {
+          "Id": "delete-role-assignment-mixed-good-unknown",
+          "CA10__subscriptionId__c": "delete-role-assignment-mixed-good-unknown"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/roleAssignments/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-role-assignment-mixed-good-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-role-assignment-mixed-good-unknown-broken-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-role-assignment-mixed-good-unknown-broken-alert",
+            "CA10Z1__actionGroup__c": null,
+            "CA10Z1__actionGroup__r": {
+              "Id": null,
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-role-assignment-mixed-good-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-role-assignment-mixed-good-unknown-broken-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "COMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 199,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(COMPLIANT)"
+    }
+  },
+  {
+    "Id": "delete-role-assignment-mixed-bad-unknown",
+    "CA10__subscriptionId__c": "delete-role-assignment-mixed-bad-unknown",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-role-assignment-mixed-bad-unknown-disabled-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-role-assignment-mixed-bad-unknown",
+        "CA10__subscription__r": {
+          "Id": "delete-role-assignment-mixed-bad-unknown",
+          "CA10__subscriptionId__c": "delete-role-assignment-mixed-bad-unknown"
+        },
+        "CA10__enabledStatus__c": "Disabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/roleAssignments/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-role-assignment-mixed-bad-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-role-assignment-mixed-bad-unknown-disabled-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-role-assignment-mixed-bad-unknown-disabled-alert",
+            "CA10Z1__actionGroup__c": "delete-role-assignment-mixed-bad-unknown-disabled-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-role-assignment-mixed-bad-unknown-disabled-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-role-assignment-mixed-bad-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-role-assignment-mixed-bad-unknown-disabled-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-role-assignment-mixed-bad-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-role-assignment-mixed-bad-unknown-disabled-link"
+          }
+        ]
+      },
+      {
+        "Id": "delete-role-assignment-mixed-bad-unknown-broken-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-role-assignment-mixed-bad-unknown",
+        "CA10__subscription__r": {
+          "Id": "delete-role-assignment-mixed-bad-unknown",
+          "CA10__subscriptionId__c": "delete-role-assignment-mixed-bad-unknown"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/roleAssignments/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-role-assignment-mixed-bad-unknown",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-role-assignment-mixed-bad-unknown-broken-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-role-assignment-mixed-bad-unknown-broken-alert",
+            "CA10Z1__actionGroup__c": null,
+            "CA10Z1__actionGroup__r": {
+              "Id": null,
+              "CA10Z1__disappearanceTime__c": null
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-role-assignment-mixed-bad-unknown/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-role-assignment-mixed-bad-unknown-broken-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  },
+  {
+    "Id": "delete-role-assignment-deleted-alert",
+    "CA10__subscriptionId__c": "delete-role-assignment-deleted-alert",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-role-assignment-deleted-alert-deleted-alert",
+        "CA10__disappearanceTime__c": "2026-01-01T00:00:00Z",
+        "CA10__subscription__c": "delete-role-assignment-deleted-alert",
+        "CA10__subscription__r": {
+          "Id": "delete-role-assignment-deleted-alert",
+          "CA10__subscriptionId__c": "delete-role-assignment-deleted-alert"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/roleAssignments/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-role-assignment-deleted-alert",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-role-assignment-deleted-alert-deleted-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-role-assignment-deleted-alert-deleted-alert",
+            "CA10Z1__actionGroup__c": "delete-role-assignment-deleted-alert-deleted-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-role-assignment-deleted-alert-deleted-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-role-assignment-deleted-alert/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-role-assignment-deleted-alert-deleted-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-role-assignment-deleted-alert/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-role-assignment-deleted-alert-deleted-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "INCOMPLIANT",
+      "runtimeError": null,
+      "conditionIndex": 300,
+      "conditionText": "otherwise"
+    }
+  },
+  {
+    "Id": "delete-role-assignment-narrow",
+    "CA10__subscriptionId__c": "delete-role-assignment-narrow",
+    "CA10__Azure_Activity_Log_Alerts__r": [
+      {
+        "Id": "delete-role-assignment-narrow-alert",
+        "CA10__disappearanceTime__c": null,
+        "CA10__subscription__c": "delete-role-assignment-narrow",
+        "CA10__subscription__r": {
+          "Id": "delete-role-assignment-narrow",
+          "CA10__subscriptionId__c": "delete-role-assignment-narrow"
+        },
+        "CA10__enabledStatus__c": "Enabled",
+        "CA10__conditionJson__c": "{\"allOf\": [{\"field\": \"category\", \"equals\": \"Administrative\"}, {\"field\": \"operationName\", \"equals\": \"Microsoft.Authorization/roleAssignments/delete\"}]}",
+        "CA10__scopes__c": "/subscriptions/delete-role-assignment-narrow/resourceGroups/limited",
+        "CA10Z1__Azure_Activity_Log_Alert_Action_Gr_Links__r": [
+          {
+            "Id": "delete-role-assignment-narrow-link",
+            "CA10Z1__disappearanceTime__c": null,
+            "CA10Z1__activityLogAlert__c": "delete-role-assignment-narrow-alert",
+            "CA10Z1__actionGroup__c": "delete-role-assignment-narrow-group",
+            "CA10Z1__actionGroup__r": {
+              "Id": "delete-role-assignment-narrow-group",
+              "CA10Z1__disappearanceTime__c": null,
+              "CA10Z1__resourceId__c": "/subscriptions/delete-role-assignment-narrow/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-role-assignment-narrow-link"
+            },
+            "CA10Z1__actionGroupId__c": "/subscriptions/delete-role-assignment-narrow/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/delete-role-assignment-narrow-link"
+          }
+        ]
+      }
+    ],
+    "expectedResult": {
+      "status": "UNDETERMINED",
+      "runtimeError": null,
+      "conditionIndex": 299,
+      "conditionText": "CA10__Azure_Activity_Log_Alerts__r.has(UNDETERMINED)"
+    }
+  }
+]

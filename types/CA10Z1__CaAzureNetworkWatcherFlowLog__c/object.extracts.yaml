@@ -2,24 +2,21 @@
 extracts:
 # Nullable. Text field.
   - name: "CA10Z1__logStatus__c"
-    value: 
+    value:
       FIELD:
         path: "CA10Z1__logStatus__c"
 # Nullable. Text field.
   - name: "CA10Z1__retentionPolicyStatus__c"
-    value: 
+    value:
       FIELD:
         path: "CA10Z1__retentionPolicyStatus__c"
 # Nullable. Number field.
   - name: "CA10Z1__retentionPolicyDays__c"
-    value: 
+    value:
       FIELD:
-        path: "CA10Z1__retentionPolicyDays__c"        
-
-
-
-
-
-        
-
-        
+        path: "CA10Z1__retentionPolicyDays__c"
+# Native resource ID identifies the flow-log target type.
+  - name: CA10Z1__targetResourceId__c
+    value:
+      FIELD:
+        path: CA10Z1__targetResourceId__c
